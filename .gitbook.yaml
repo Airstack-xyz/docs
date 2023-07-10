@@ -1,3 +1,7 @@
 root: ./
+​structure:
+  readme: README.md
+  summary: SUMMARY.md​
 redirects:
   airstack-docs-and-faqs/ai-assistant: get-started/airstack-ai.md
+  ai-assistant: get-started/airstack-ai.md
