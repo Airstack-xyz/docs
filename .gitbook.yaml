@@ -23,8 +23,8 @@ redirects:
   reference/api-reference/domains-api/domains-api-examples: api-references/api-reference/domains-api/domains-api-examples.md
   reference/api-reference/tokentransfers-api: api-references/api-reference/tokentransfers-api/README.md
   reference/api-reference/tokentransfers-api/tokentransfers-api-examples: api-references/api-reference/tokentransfers-api/tokentransfers-api-examples.md
-  reference/api-reference/wallet-api: api-references/api-reference/wallet-api/README.md
-  reference/api-reference/wallet-api/wallet-api-examples: api-references/api-reference/wallet-api/wallet-api-examples.md
+  reference/api-reference/wallet-apis: api-references/api-reference/wallet-api/README.md
+  reference/api-reference/wallet-apis/wallet-api-examples: api-references/api-reference/wallet-api/wallet-api-examples.md
   reference/api-reference/poapevents-api: api-references/api-reference/poapevents-api/README.md
   reference/api-reference/poapevents-api/poapevent-api-examples: api-references/api-reference/poapevents-api/poapevents-api-examples.md
   reference/api-reference/marketplacestats-api: api-references/api-reference/marketplacestats-api.md
