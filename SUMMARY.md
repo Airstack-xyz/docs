@@ -37,4 +37,5 @@
   * [MarketplaceStats API](api-references/api-reference/marketplacestats-api.md)
   * [NFTStats API](api-references/api-reference/nftstats-api.md)
   * [Airstack Identity API](api-references/api-reference/airstack-identity-api.md)
+  * [Cross-chain Queries](api-references/api-reference/cross-chain-queries.md)
 * [Working with GraphQL](api-references/working-with-graphql.md)
