@@ -35,4 +35,6 @@
   * [NFTSaleTransactions API](api-references/api-reference/nftsaletransactions-api.md)
   * [CollectionStats API](api-references/api-reference/collectionstats-api.md)
   * [MarketplaceStats API](api-references/api-reference/marketplacestats-api.md)
+  * [NFTStats API](api-references/api-reference/nftstats-api.md)
+  * [Airstack Identity API](api-references/api-reference/airstack-identity-api.md)
 * [Working with GraphQL](api-references/working-with-graphql.md)
