@@ -3,7 +3,7 @@
 ## Get Started
 
 * [😇 Welcome!](README.md)
-* [ℹ Overview](get-started/README.md)
+* [ℹ Overview](<README (1).md>)
 * [🗝 Get API Key](get-started/get-api-key.md)
 * [🤖 Airstack AI](get-started/airstack-ai.md)
 * [🚀 Quick Start & SDKs](get-started/quick-start-and-sdks.md)
@@ -11,5 +11,6 @@
 
 ## Guides
 
-* [🆔 Resolve Identities](guides/resolve-identities.md)
+* [🆔 Resolve Identities](guides/resolve-identities/README.md)
+  * [🔷 ENS](guides/resolve-identities/ens.md)
 * [📞 Contact Recommendation](guides/contact-recommendation.md)
