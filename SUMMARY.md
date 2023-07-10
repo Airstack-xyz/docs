@@ -13,4 +13,6 @@
 
 * [🆔 Resolve Identities](guides/resolve-identities/README.md)
   * [🔷 ENS](guides/resolve-identities/ens.md)
+  * [🌿 Lens](guides/resolve-identities/lens.md)
+  * [🟪 Farcaster](guides/resolve-identities/farcaster.md)
 * [📞 Contact Recommendation](guides/contact-recommendation.md)
