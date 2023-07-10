@@ -35,4 +35,4 @@ redirects:
   reference/api-reference/nftstats-api: api-references/api-reference/nftstats-api.md
   reference/api-reference/nftsaletransactions-api: api-references/api-reference/nftsaletransactions-api/README.md
   reference/api-reference/nftsaletransactions-api/nftsaletransactions-api-examples: api-references/api-reference/nftsaletransactions-api/nftsaletransactions-api-examples.md
-  reference/api-reference/working-with-graphql: api-references/api-reference/working-with-graphql.md
+  reference/working-with-graphql: api-references/working-with-graphql.md
