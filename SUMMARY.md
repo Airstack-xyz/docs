@@ -32,4 +32,7 @@
   * [Poaps API](api-references/api-reference/poaps-api.md)
   * [PoapEvents API](api-references/api-reference/poapevents-api.md)
   * [TokenTransfers API](api-references/api-reference/tokentransfers-api.md)
+  * [NFTSaleTransactions API](api-references/api-reference/nftsaletransactions-api.md)
+  * [CollectionStats API](api-references/api-reference/collectionstats-api.md)
+  * [MarketplaceStats API](api-references/api-reference/marketplacestats-api.md)
 * [Working with GraphQL](api-references/working-with-graphql.md)
