@@ -1,0 +1,3 @@
+root: ./
+redirects:
+  airstack-docs-and-faqs/ai-assistant: get-started/airstack-ai.md
