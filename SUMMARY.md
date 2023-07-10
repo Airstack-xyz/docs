@@ -29,9 +29,10 @@
 ## API References
 
 * [📖 API Reference](api-references/api-reference/README.md)
-  * [Tokens API](api-references/api-reference/tokens-api/README.md)
+  * [Tokens API](api-references/api-reference/tokens-api.md)
     * [Tokens API Examples](api-references/api-reference/tokens-api/tokens-api-examples.md)
-  * [TokenNFTs API](api-references/api-reference/tokennfts-api.md)
+  * [TokenNFTs API](api-references/api-reference/tokennfts-api/README.md)
+    * [Token NFTs Examples](api-references/api-reference/tokennfts-api/token-nfts-examples.md)
   * [TokenBalances API](api-references/api-reference/tokenbalances-api.md)
   * [Domains API](api-references/api-reference/domains-api.md)
   * [Wallets API](api-references/api-reference/wallets-api.md)
