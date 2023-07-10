@@ -10,14 +10,14 @@
 
 ## Want to jump right in?
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="get-started/quick-start-and-sdks.md" %}
+[quick-start-and-sdks.md](get-started/quick-start-and-sdks.md)
 {% endcontent-ref %}
 
 ## Want to deep dive?
 
 Dive deeper and start exploring our API reference to get an idea of everything that's possible with Airstack APIs:
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="api-references/api-reference/" %}
+[api-reference](api-references/api-reference/)
 {% endcontent-ref %}
