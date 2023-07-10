@@ -44,7 +44,7 @@
   * [Poaps API](api-references/api-reference/poaps-api/README.md)
     * [POAPs API Examples](api-references/api-reference/poaps-api/poaps-api-examples.md)
   * [PoapEvents API](api-references/api-reference/poapevents-api/README.md)
-    * [PoapEvent API](api-references/api-reference/poapevents-api/poapevent-api.md)
+    * [PoapEvent API Examples](api-references/api-reference/poapevents-api/poapevent-api-examples.md)
   * [TokenTransfers API](api-references/api-reference/tokentransfers-api/README.md)
     * [TokenTransfers Examples](api-references/api-reference/tokentransfers-api/tokentransfers-examples.md)
   * [NFTSaleTransactions API](api-references/api-reference/nftsaletransactions-api/README.md)
