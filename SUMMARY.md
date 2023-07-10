@@ -17,3 +17,5 @@
   * [🟪 Farcaster](guides/resolve-identities/farcaster.md)
 * [📞 Contact Recommendation](guides/contact-recommendation/README.md)
   * [💸 Token Transfers](guides/contact-recommendation/token-transfers.md)
+  * [🎫 POAPs](guides/contact-recommendation/poaps.md)
+  * [♦ NFTs](guides/contact-recommendation/nfts.md)
