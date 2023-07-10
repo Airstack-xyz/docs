@@ -1,4 +1,4 @@
 # Table of contents
 
 * [😇 Welcome!](README.md)
-* [docs](<README (1).md>)
+* [ℹ Overview](<README (1).md>)
