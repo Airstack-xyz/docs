@@ -19,3 +19,8 @@
   * [💸 Token Transfers](guides/contact-recommendation/token-transfers.md)
   * [🎫 POAPs](guides/contact-recommendation/poaps.md)
   * [♦ NFTs](guides/contact-recommendation/nfts.md)
+
+## API References
+
+* [📖 API Reference](api-references/api-reference.md)
+* [Working with GraphQL](api-references/working-with-graphql.md)
