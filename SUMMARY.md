@@ -24,4 +24,5 @@
 
 * [📖 API Reference](api-references/api-reference/README.md)
   * [Tokens API](api-references/api-reference/tokens-api.md)
+  * [TokenNFTs API](api-references/api-reference/tokennfts-api.md)
 * [Working with GraphQL](api-references/working-with-graphql.md)
