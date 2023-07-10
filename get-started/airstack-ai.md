@@ -17,7 +17,7 @@ And I can retrieve resized NFT images in 4 different sizes.&#x20;
 
 Here’s a tip. If you type “@“ in the entry box you can choose from over 5000 tokens, NFT collections and POAPs by name. If you don’t find the one you are looking for you can always enter a contract address.
 
-<figure><img src=".gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption></figcaption></figure>
 
 If you are looking for a project that is not yet in our auto-complete @mention list, please [let us know](https://t.me/+uW6ypo49TcZmMGEx) in the developer Telegram group. In meantime you can always enter a contract address.
 
