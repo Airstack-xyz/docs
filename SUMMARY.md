@@ -22,5 +22,6 @@
 
 ## API References
 
-* [📖 API Reference](api-references/api-reference.md)
+* [📖 API Reference](api-references/api-reference/README.md)
+  * [Tokens API](api-references/api-reference/tokens-api.md)
 * [Working with GraphQL](api-references/working-with-graphql.md)
