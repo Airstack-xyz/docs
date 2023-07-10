@@ -1,4 +1,4 @@
-# Wallets API
+# Wallet API
 
 {% hint style="info" %}
 The Wallet APIs deliver comprehensive data about a specific wallet address, including the tokens they currently possess, the domain names they own, their token transfer and sale history, and their on-chain social profiles (like ENS, Farcaster).

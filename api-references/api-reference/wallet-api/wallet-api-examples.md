@@ -1,4 +1,4 @@
-# Wallets API Examples
+# Wallet API Examples
 
 <details>
 
