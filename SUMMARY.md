@@ -20,6 +20,12 @@
   * [🎫 POAPs](guides/contact-recommendation/poaps.md)
   * [♦ NFTs](guides/contact-recommendation/nfts.md)
 
+## Use Cases
+
+* [📩 XMTP](use-cases/xmtp/README.md)
+  * [🔄 Universal Resolver](use-cases/xmtp/universal-resolver.md)
+  * [🤝 Recommendation Engine](use-cases/xmtp/recommendation-engine.md)
+
 ## API References
 
 * [📖 API Reference](api-references/api-reference/README.md)
