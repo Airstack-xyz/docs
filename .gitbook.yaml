@@ -12,5 +12,12 @@ redirects:
   reference/api-reference/tokens-api/tokens-api-examples: api-references/api-reference/tokens-api/tokens-api-examples.md
   reference/api-reference/tokens-api: api-references/api-reference/tokens-api.md
   reference/api-reference/tokennfts-api: api-references/api-reference/tokennfts-api/README.md
-  reference/api-reference/tokennfts-api-examples: api-references/api-reference/tokennfts-api/tokennfts-api-examples.md
+  reference/api-reference/tokennfts-api/tokennfts-api-examples: api-references/api-reference/tokennfts-api/tokennfts-api-examples.md
   reference/api-reference/tokenbalances-api: api-references/api-reference/tokenbalances-api/README.md
+  reference/api-reference/tokenbalances-api/tokenbalances-api-examples: api-references/api-reference/tokenbalances-api/token-balances-examples.md
+  reference/api-reference/socials-api: api-references/api-reference/socials-api/README.md
+  reference/api-reference/socials-api/socials-api-examples: api-references/api-reference/socials-api/socials-api-examples.md
+  reference/api-reference/poaps-api: api-references/api-reference/poaps-api/README.md
+  reference/api-reference/poaps-api/poaps-api-examples: api-references/api-reference/poaps-api/poaps-api-examples.md
+  reference/api-reference/domains-api: api-references/api-reference/domains-api/README.md
+  reference/api-reference/domains-api/domains-api-examples: api-references/api-reference/domains-api/domains-api-examples.md
