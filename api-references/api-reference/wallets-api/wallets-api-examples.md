@@ -1,2 +1,0 @@
-# Wallets API Examples
-

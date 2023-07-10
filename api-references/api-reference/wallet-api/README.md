@@ -1,4 +1,4 @@
-# Wallet API
+# Wallets API
 
 {% hint style="info" %}
 The Wallet APIs deliver comprehensive data about a specific wallet address, including the tokens they currently possess, the domain names they own, their token transfer and sale history, and their on-chain social profiles (like ENS, Farcaster).
@@ -19,7 +19,7 @@ Outputs
 
 ```graphql
 type Wallet {
-  addresses: Addresses! # returns addresses associated with the identity input
+  addresses: Addresses! # return addresses associated with the identity input
   domains: # Nested query - allows querying domains owned by the address
   identity: # return identity passed from the input
   nftSaleTransactions: # Nested query - allows querying NFT Sales by the address
