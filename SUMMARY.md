@@ -29,4 +29,7 @@
   * [Domains API](api-references/api-reference/domains-api.md)
   * [Wallets API](api-references/api-reference/wallets-api.md)
   * [Socials API](api-references/api-reference/socials-api.md)
+  * [Poaps API](api-references/api-reference/poaps-api.md)
+  * [PoapEvents API](api-references/api-reference/poapevents-api.md)
+  * [TokenTransfers API](api-references/api-reference/tokentransfers-api.md)
 * [Working with GraphQL](api-references/working-with-graphql.md)
