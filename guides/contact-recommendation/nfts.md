@@ -176,3 +176,46 @@ query GetNFTHoldersAndImages($address: [Address!]) {
 ```
 {% endtab %}
 {% endtabs %}
+
+<details>
+
+<summary>Example #1: Get All @Nouns Holders ENS and Images</summary>
+
+```graphql
+query GetNFTHoldersAndImages {
+  TokenNfts(input: {filter: {address: {_eq: "0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03"}}, blockchain: ethereum}) {
+    TokenNft {
+      address
+      tokenId
+      contentValue {
+        image {
+          extraSmall
+          small
+          medium
+          large
+          original
+        }
+      }
+      tokenBalances {
+        owner {
+          domains {
+            name
+            isPrimary
+          }
+          identity
+          socials {
+            profileName
+            dappName
+          }
+        }
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+
+</details>

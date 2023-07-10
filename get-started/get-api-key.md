@@ -1,3 +1,7 @@
+---
+description: Learn how to get your Airstack API key.
+---
+
 # 🗝 Get API Key
 
 ## Step 1: Login to Airstack
@@ -7,6 +11,8 @@ Go to [Airstack Dashboard](https://app.airstack.xyz) and click `Sign In` on the 
 A login popup will appear for you:
 
 You have several options to login:
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Login Popup</p></figcaption></figure>
 
 * **Email & Social**
   * Email (passwordless)
@@ -21,7 +27,11 @@ You have several options to login:
 
 Once logged in, go to the settings page by hovering your mouse to the **Profile icon** on the top right and click [**Profile settings**](https://app.airstack.xyz/profile-settings/profile).
 
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Profile Icon &#x26; Menu</p></figcaption></figure>
+
 You'll be redirected to the following page:
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Profile Settings Page</p></figcaption></figure>
 
 Then, simply click the 3rd entry on the sidebar, [**View API Keys**](https://app.airstack.xyz/profile-settings/api-keys), to find your API key.
 
