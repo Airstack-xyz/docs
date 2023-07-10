@@ -26,4 +26,7 @@
   * [Tokens API](api-references/api-reference/tokens-api.md)
   * [TokenNFTs API](api-references/api-reference/tokennfts-api.md)
   * [TokenBalances API](api-references/api-reference/tokenbalances-api.md)
+  * [Domains API](api-references/api-reference/domains-api.md)
+  * [Wallets API](api-references/api-reference/wallets-api.md)
+  * [Socials API](api-references/api-reference/socials-api.md)
 * [Working with GraphQL](api-references/working-with-graphql.md)
