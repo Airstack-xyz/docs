@@ -9,3 +9,8 @@ redirects:
   use-cases/recommendation-engine/recommendations-by-poaps: guides/contact-recommendation/poaps.md
   use-cases/recommendation-engine/recommendations-by-token-transfers: guides/contact-recommendation/token-transfers.md
   use-cases/recommendation-engine/recommendations-by-nfts: guides/contact-recommendation/nfts.md
+  reference/api-reference/tokens-api/tokens-api-examples: api-references/api-reference/tokens-api/tokens-api-examples.md
+  reference/api-reference/tokens-api: api-references/api-reference/tokens-api.md
+  reference/api-reference/tokennfts-api: api-references/api-reference/tokennfts-api/README.md
+  reference/api-reference/tokennfts-api-examples: api-references/api-reference/tokennfts-api/tokennfts-api-examples.md
+  reference/api-reference/tokenbalances-api: api-references/api-reference/tokenbalances-api/README.md
