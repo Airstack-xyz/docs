@@ -1,4 +1,4 @@
-# PoapEvent API
+# PoapEvent API Examples
 
 <details>
 
