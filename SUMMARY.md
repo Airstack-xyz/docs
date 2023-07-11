@@ -8,6 +8,7 @@
 * [🤖 Airstack AI](get-started/airstack-ai.md)
 * [🚀 Quick Start & SDKs](get-started/quick-start-and-sdks.md)
 * [🚦 API Status & Roadmap](get-started/api-status-and-roadmap.md)
+* [🔋 Pricing](get-started/pricing.md)
 
 ## Guides
 
