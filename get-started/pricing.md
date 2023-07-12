@@ -10,7 +10,7 @@ description: Learn how Airstack pricing will be implemented by September 1, 2023
 
 Our focus right now is to help developers achieve their desired use cases while we learn together and rapidly enhance the [Airstack](https://airstack.xyz) features.
 
-If you need a rate limit increase, you can request one on your Dashboard's [Manage Billing](https://app.airstack.xyz/profile-settings/manage-plans) page.
+If you need a rate limit increase, you can request one on your Dashboard's [Manage Billing](https://app.airstack.xyz/profile-settings/manage-plans) page.&#x20;
 
 <figure><img src="../.gitbook/assets/Screenshot 2023-07-12 at 05.31.18.png" alt=""><figcaption><p>Manage Billings Page</p></figcaption></figure>
 
@@ -22,7 +22,7 @@ There are no additional charges at this time.
 
 ## On & After September 1, 2023
 
-[Airstack](https://airstack.xyz) API will be charged accordingly to the following guidelines:
+Airstack API will be charged accordingly to the following guidelines:
 
 ### Free to Start
 
