@@ -36,9 +36,11 @@ All API features should be available to you, regardless of your pricing tiers.
 
 Startups should pay very little. Enterprises should pay more. You will pay according to the value received, as measured in **API calls/responses**. After the initial free tier:
 
-| Tiers                     | Price Range/Month (USD) |
-| ------------------------- | ----------------------- |
-| Startups                  | 99                      |
-| Small Business            | 100 - 1,000             |
-| Medium-sized Business     | 1,000 - 4,999           |
-| Large/Enterprise Business | 1,000 - 25,000          |
+| Tiers                     | Price Range/Month (USD)\* |
+| ------------------------- | ------------------------- |
+| Startups                  | 99                        |
+| Small Business            | 100 - 1,000               |
+| Medium-sized Business     | 1,000 - 4,999             |
+| Large/Enterprise Business | 1,000 - 25,000            |
+
+\*The prices currently are only approximate values.
