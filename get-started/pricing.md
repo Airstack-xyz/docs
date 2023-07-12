@@ -17,7 +17,7 @@ If you need a rate limit increase, you can request one on your Dashboard's [Mana
 There are no additional charges at this time.
 
 {% hint style="info" %}
-**An exception to enterprise** users, defined as having >10,000,000 API calls per month, who are subject to immediate custom pricing.
+**An exception to Enterprise** usage, currently defined as having >10,000,000 API calls per month, who are subject to immediate custom pricing.
 {% endhint %}
 
 ## On & After September 1, 2023
