@@ -1,5 +1,5 @@
 ---
-description: Learn how Airstack pricing will be implemented by September 1, 2023.
+description: Learn how Airstack pricing will be implemented from September 1, 2023.
 ---
 
 # 🔋 Pricing
