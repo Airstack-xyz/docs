@@ -43,6 +43,6 @@ After the initial free tier the pricing will be roughly as follows, based on usa
 | Startups                  | 99-250                    |
 | Small Business            | 250 - 1,000               |
 | Medium-sized Business     | 1,000 - 4,999             |
-| Large/Enterprise Business | 1,000 - 25,000            |
+| Large/Enterprise Business | 1,000 - 25,000/custom     |
 
 \*The prices currently are only approximate values.
