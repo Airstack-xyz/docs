@@ -17,7 +17,7 @@ If you need a rate limit increase, you can request one on your Dashboard's [Mana
 There are no additional charges at this time.
 
 {% hint style="info" %}
-**An exception to enterprise** users, defined as having >1,000,000 API calls per month, who are subject to immediate custom pricing.
+**An exception to enterprise** users, defined as having >10,000,000 API calls per month, who are subject to immediate custom pricing.
 {% endhint %}
 
 ## On & After September 1, 2023
@@ -28,18 +28,20 @@ There are no additional charges at this time.
 
 It will cost you $0 to experiment, plan, and explore the Airstack APIs in totality.
 
-### No Paid Features
+### No Pay-Walled Features
 
-All API features should be available to you, regardless of your pricing tiers.
+All API features should be available to you, regardless of your pricing tier.
 
-### Pay By API Calls
+### Pay Only For What You Use
 
-Startups should pay very little. Enterprises should pay more. You will pay according to the value received, as measured in **API calls/responses**. After the initial free tier:
+You will pay according to the value received, as measured in **API calls/responses**.&#x20;
+
+After the initial free tier the pricing will be roughly as follows, based on usage:
 
 | Tiers                     | Price Range/Month (USD)\* |
 | ------------------------- | ------------------------- |
-| Startups                  | 99                        |
-| Small Business            | 100 - 1,000               |
+| Startups                  | 99-250                    |
+| Small Business            | 250 - 1,000               |
 | Medium-sized Business     | 1,000 - 4,999             |
 | Large/Enterprise Business | 1,000 - 25,000            |
 
