@@ -12,7 +12,7 @@
 
 ## Guides
 
-* [🪆 Token Bound Accounts](guides/token-bound-accounts/README.md)
+* [🪆 Tokenbound ERC6551](guides/token-bound-accounts/README.md)
   * [♦ NFTs](guides/token-bound-accounts/nfts.md)
   * [📭 NFT Owners](guides/token-bound-accounts/nft-owners.md)
   * [⏫ Sort Results](guides/token-bound-accounts/sort-results.md)

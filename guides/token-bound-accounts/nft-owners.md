@@ -116,7 +116,7 @@ query MyQuery($owner: [Identity!]) {
 {% endtab %}
 {% endtabs %}
 
-## Get NFT Owner Address By Token Bound Accounts Address
+## Get The Owner Of NFT That Owns A Given Token Bound Accounts Address
 
 {% tabs %}
 {% tab title="Query" %}

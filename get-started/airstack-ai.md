@@ -23,8 +23,17 @@ If you are looking for a project that is not yet in our auto-complete @mention l
 
 ### Here are some example questions you can ask me:
 
-Note: Make sure to type "@" manually to generate the chooser. Do not just copy/paste.\
+{% hint style="info" %}
+Make sure to type `@` manually to generate the chooser. Do not just copy/paste.
+{% endhint %}
 
+#### **ERC6551 Token Bound Accounts**
+
+* Show the most recent 10 6551 accounts on ethereum and polygon
+* Show me all @Sapienz ERC6551 accounts and their balances
+* Show all ERC65111 accounts owned by @BoredApeYachtClub and the token balances
+* Show sapienz\_0.lens ERC6551 accounts
+* Show me 6551 accounts created on July 12, 2023 on Ethereum
 
 **Token Balances, Identities, Transactions**
 
@@ -32,8 +41,6 @@ Note: Make sure to type "@" manually to generate the chooser. Do not just copy/p
 * Show all NFTs owned by stani.lens
 * Show all transactions by balajis.eth within last 30 days
 * Show me all NFTs held by vitalik.eth on Polygon and the images of those NFTs
-
-
 
 **Web3 Socials**
 
@@ -43,7 +50,6 @@ Note: Make sure to type "@" manually to generate the chooser. Do not just copy/p
 * Get the Ethereum connected address for Farcaster user betashop, along with the profile creation date and recovery address
 * Get all of the ENS Domains owned by vitalik.eth
 
-\
 **Token Holders + Identities**
 
 * Show all @orangeDAO holders and their ENS and web3 socials
@@ -52,16 +58,12 @@ Note: Make sure to type "@" manually to generate the chooser. Do not just copy/p
 * Get the holders of @y00ts and their ENS names and Lens if they have one
 * Get the token holders of @purpleDAO and the Farcaster profile name of each holder, their Farcaster registration date, FID number, their connected address, and all NFTs they own
 
-
-
 **POAPs**
 
 * Get all attendees of @devcon2 and their web3 socials and ENS
 * For Farcaster user worthalter - show all their POAPs and web3 socials and ENS
 * Get all events attended by Patricio.eth
 * Show all holders of @orangeDAO and their POAPs
-
-
 
 **Token & Contract Data**
 

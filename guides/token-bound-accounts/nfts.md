@@ -6,7 +6,7 @@ description: >-
 
 # ♦ NFTs
 
-## Get Token Bound Accounts (ERC6551) By NFT address(es)
+## Get Token Bound Accounts (ERC6551) By NFT Collection Address(es)
 
 {% tabs %}
 {% tab title="Query" %}
