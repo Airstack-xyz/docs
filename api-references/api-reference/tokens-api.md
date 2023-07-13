@@ -4,7 +4,7 @@
 The Tokens API retrieves high-level information on ERC20 tokens, ERC721 tokens (also known as NFT contracts, "Collections," or "NFT Collections," containing multiple tokens), and ERC1155 tokens (also called NFT contracts, "Collections," or "NFT Collections," containing several tokens).
 {% endhint %}
 
-Inputs & Filters
+### Inputs & Filters
 
 ```graphql
 input TokenFilter {
@@ -20,7 +20,7 @@ input TokenFilter {
 Querying by name or symbol returns all contracts with matching data. These fields are not unique.
 {% endhint %}
 
-Outputs
+### Outputs
 
 ```graphql
 type Token {

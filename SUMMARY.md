@@ -12,6 +12,10 @@
 
 ## Guides
 
+* [🪆 Token Bound Accounts](guides/token-bound-accounts/README.md)
+  * [♦ NFTs](guides/token-bound-accounts/nfts.md)
+  * [📭 NFT Owners](guides/token-bound-accounts/nft-owners.md)
+  * [⏫ Sort Results](guides/token-bound-accounts/sort-results.md)
 * [🆔 Resolve Identities](guides/resolve-identities/README.md)
   * [🔷 ENS](guides/resolve-identities/ens.md)
   * [🌿 Lens](guides/resolve-identities/lens.md)
@@ -30,6 +34,8 @@
 ## API References
 
 * [📖 API Reference](api-references/api-reference/README.md)
+  * [Accounts API](api-references/api-reference/accounts-api/README.md)
+    * [Accounts API Examples](api-references/api-reference/accounts-api/accounts-api-examples.md)
   * [Tokens API](api-references/api-reference/tokens-api.md)
     * [Tokens API Examples](api-references/api-reference/tokens-api/tokens-api-examples.md)
   * [TokenNFTs API](api-references/api-reference/tokennfts-api/README.md)

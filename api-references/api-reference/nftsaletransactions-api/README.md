@@ -4,7 +4,7 @@
 The NFTSaleTransactions API retrieves ERC721 and ERC1155 token sale transactions that have occurred on NFT marketplaces.
 {% endhint %}
 
-Inputs & Filters
+### Inputs & Filters
 
 ```graphql
 input NFTSaleTransactionFilter {
@@ -18,7 +18,7 @@ transactionHash: # Allows filtering to a specific transaction
 }
 ```
 
-Outputs
+### Outputs
 
 ```graphql
 type NFTSaleTransaction {

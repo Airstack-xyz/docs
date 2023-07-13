@@ -4,7 +4,7 @@
 The Socials APIs deliver on-chain and off-chain user-level data pertaining to users of web3 social protocols such as Farcaster, and Lens.
 {% endhint %}
 
-Inputs & Filters
+### Inputs & Filters
 
 ```graphql
 input SocialFilter {
@@ -18,7 +18,7 @@ input SocialFilter {
 }
 ```
 
-Outputs
+### Outputs
 
 ```graphql
 type Social {

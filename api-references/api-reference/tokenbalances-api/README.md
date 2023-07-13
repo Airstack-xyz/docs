@@ -4,7 +4,7 @@
 The TokenBalances API covers the owners and balances of ERC20, ERC721, and ERC1155 tokens.
 {% endhint %}
 
-Inputs & Filters
+### Inputs & Filters
 
 ```graphql
 input TokenBalanceFilter {
@@ -16,7 +16,7 @@ tokenType: # ERC20, ERC721, ERC1155
 }
 ```
 
-Outputs
+### Outputs
 
 ```graphql
 type TokenBalance {

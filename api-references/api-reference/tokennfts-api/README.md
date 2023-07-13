@@ -4,7 +4,7 @@
 The TokenNFTs API provides detailed data about a specific NFT token within an NFT Collection, either an ERC721 or ERC1155 contract. You can use this API to return token-specific metadata, including traits, and <mark style="background-color:green;">**resized images**</mark>.
 {% endhint %}
 
-Inputs & Filters
+### Inputs & Filters
 
 ```graphql
 input TokenNftFilter {
@@ -14,7 +14,7 @@ input TokenNftFilter {
 }
 ```
 
-Outputs
+### Outputs
 
 <pre class="language-graphql"><code class="lang-graphql">type TokenNft {
 address: Address! # NFT contract address on the blockchain

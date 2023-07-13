@@ -18,7 +18,7 @@ Yearly - 00:00 am on the first day of the year to 11:59 pm on the last day of th
 Lifetime - from the first recorded sale of the NFT to the most recent daily aggregation.&#x20;
 {% endhint %}
 
-Inputs & Filters
+### Inputs & Filters
 
 ```graphql
 input NFTStatFilter {
@@ -37,7 +37,7 @@ timeframe: DAILY / WEEKLY / MONTHLY / YEARLY / LIFETIME
 }
 ```
 
-Outputs
+### Outputs
 
 ```graphql
 type CollectionStat {

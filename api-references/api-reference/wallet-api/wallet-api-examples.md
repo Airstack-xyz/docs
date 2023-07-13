@@ -2,6 +2,33 @@
 
 <details>
 
+<summary>Show all balances of vitalik.eth including 6551s</summary>
+
+```graphql
+query MyQuery {
+  Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
+    tokenBalances {
+      amount
+      blockchain
+      formattedAmount
+      tokenAddress
+      tokenId
+      tokenNfts {
+        erc6551Accounts {
+          address {
+            addresses
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+
 <summary>For ENS dwr.eth, get Farcaster name, Farcaster account details, connected address, and all token balances and images</summary>
 
 ```graphql
