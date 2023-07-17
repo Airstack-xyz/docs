@@ -4,8 +4,9 @@
 
 * **Ethereum:** Fully sync'd from genesis block to latest transaction.&#x20;
 * **Polygon:** Fully sync'd from genesis block to latest transaction.&#x20;
+* Gnosis. POAPs only, fully sync'd from genesis block to latest transaction.&#x20;
 
-<figure><img src="../.gitbook/assets/Xnip2023-06-22_06-44-03.jpg" alt=""><figcaption><p>Hihg-level API status</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screen Shot 2023-07-17 at 7.52.30 AM.png" alt=""><figcaption><p>Hihg-level API status</p></figcaption></figure>
 
 ### Availability & Near Term Roadmap of Identity Resolver Functionality\*\*
 
