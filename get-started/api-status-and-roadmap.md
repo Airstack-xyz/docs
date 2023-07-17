@@ -1,77 +1,17 @@
+---
+description: Learn all the current features available on Airstack and its future roadmap.
+---
+
 # 🚦 API Status & Roadmap
 
-**Blockchains**
+## Current Features
 
-* **Ethereum:** Fully sync'd from genesis block to latest transaction.&#x20;
-* **Polygon:** Fully sync'd from genesis block to latest transaction.&#x20;
-* Gnosis. POAPs only, fully sync'd from genesis block to latest transaction.&#x20;
+<table data-full-width="true"><thead><tr><th width="214">API</th><th width="105">Ethereum</th><th width="101">Polygon</th><th width="87">Gnosis</th><th>Details</th></tr></thead><tbody><tr><td>Tokens</td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td></td><td>ERC20, ERC721, ERC1155, ERC6551</td></tr><tr><td>TokenNFTs</td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td></td><td>ERC721, ERC1155, ERC6551, Metadata, Resized Images</td></tr><tr><td>TokenBalances</td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td></td><td>Token Holders of ERC20, ERC721, ERC1155, ERC6551</td></tr><tr><td>Domains</td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td>In Progress</td><td></td><td>ENS</td></tr><tr><td>Wallet</td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td></td><td>ERC20, ERC721, ERC1155, ERC6551, Socials, POAPs</td></tr><tr><td>Socials</td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td></td><td>Profile Resolver: Farcaster, Lens</td></tr><tr><td>TokenTransfers</td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td></td><td>ERC20, ERC721, ERC1155, ERC6551</td></tr><tr><td>POAP</td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td>N/A</td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td>All POAP event holders, all POAPs held by wallet, images</td></tr><tr><td>NFTSaleTransactions</td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td></td><td>Opensea, Blur Rarible</td></tr><tr><td>CollectionStats</td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td></td><td>Opensea, Blur Rarible</td></tr><tr><td>MarketplaceStats</td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td></td><td>Opensea, Blur Rarible</td></tr><tr><td>NFTStats</td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td><a href="https://emojipedia.org/check-mark-button/">✅</a></td><td></td><td>Opensea, Blur Rarible – Marketplace stats, Collection stats, NFT stats by day, week, month, year, lifetime</td></tr></tbody></table>
 
-<figure><img src="../.gitbook/assets/Screen Shot 2023-07-17 at 7.52.30 AM.png" alt=""><figcaption><p>Hihg-level API status</p></figcaption></figure>
+## Future Roadmap\*
 
-### Availability & Near Term Roadmap of Identity Resolver Functionality\*\*
+<table><thead><tr><th>Features</th><th data-type="select">Category</th><th>Description</th><th>Availability</th></tr></thead><tbody><tr><td>ENS Off-chain Resolver</td><td></td><td>e.g. <a href="http://cb.id">cb.id</a></td><td>Jul 2023</td></tr><tr><td>Unstoppable Domains</td><td></td><td></td><td>Aug 2023</td></tr><tr><td>Farcaster Profile Resolver from Hubs</td><td></td><td>Farcaster profiles, addresses, connected addresses, registration details</td><td>Jul 2023</td></tr><tr><td>Farcaster Follows</td><td></td><td></td><td>Jul 2023</td></tr><tr><td>Farcaster Posts</td><td></td><td></td><td>TBD</td></tr><tr><td>Lens Follows</td><td></td><td></td><td>Jul 2023</td></tr><tr><td>Lens Collects</td><td></td><td></td><td>Jul 2023</td></tr><tr><td>Lens Posts</td><td></td><td></td><td>Aug 2023</td></tr><tr><td>XMTP</td><td></td><td>Lookup whether user(s) has XMTP messaging</td><td>Jul 19, 2023</td></tr><tr><td>Snapshots</td><td></td><td><p>Holders/holding as of certain date or date range</p><p></p><p>Length of holding tokens/NFTs</p></td><td><strong>Polygon</strong>: Jul 23, 2023<br><strong>Ethereum</strong>: Jul 2023</td></tr><tr><td>Aggregations (V1)</td><td></td><td>Show me who holds X and Y (e.g. Devcon POAP and BAYC, or all Farcaster users who have Farcon and Purple, or all Lens users who attended ETH Lisbon)</td><td><strong>Polygon</strong>: Jul 23, 2023<br><strong>Ethereum</strong>: Jul 2023</td></tr><tr><td>Webhooks</td><td></td><td></td><td>Jul 2023</td></tr></tbody></table>
 
-| Functionality                        | Description                                                               | Availability                     |
-| ------------------------------------ | ------------------------------------------------------------------------- | -------------------------------- |
-| **TOKENS**                           |                                                                           |                                  |
-| ERC-20                               |                                                                           | ✅                                |
-| ERC-721                              |                                                                           | ✅                                |
-| ERC-1155                             |                                                                           | ✅                                |
-| ERC-6551                             |                                                                           | ✅                                |
-|                                      |                                                                           |                                  |
-| **DOMAINS**                          |                                                                           |                                  |
-| ENS Resolver                         | Resolve ENS addresses to ENS Names                                        | ✅                                |
-| Primary ENS Resolver                 | Resolve Primary ENS                                                       | ✅                                |
-| ENS Off-chain Resolver               | e.g. [cb.id](http://cb.id)                                                | July 2023                        |
-| Unstoppable Domains                  |                                                                           | Aug 2023                         |
-|                                      |                                                                           |                                  |
-| **FARCASTER**                        |                                                                           |                                  |
-| Farcaster Profile Resolver           | Farcaster profiles, addresses, connected addresses, registration details  | ✅                                |
-| Farcaster Profile Resolver from Hubs | Farcaster profiles, addresses, connected addresses, registration details  | July 2023                        |
-| Farcaster Follows                    |                                                                           | July 2023                        |
-| Farcaster Posts                      |                                                                           | tbd 2023                         |
-|                                      |                                                                           |                                  |
-| **LENS**                             |                                                                           |                                  |
-| Lens Profile Resolver                | Lens username, registration date, connected addresses, etc.               | ✅                                |
-| Lens Follows                         |                                                                           | July 2023                        |
-| Lens Collects                        |                                                                           | July 2023                        |
-| Lens Posts                           |                                                                           | August 2023                      |
-|                                      |                                                                           |                                  |
-| **TOKENS & NFTS**                    |                                                                           |                                  |
-| NFT Balances                         | User’s NFTS, resized images and metadata, sales history, transfer history | <p>Ethereum:✅<br>Polygon: ✅</p>  |
-| Token Balances                       | User’s tokens and metadata, sales and transfer history                    | <p>Ethereum: ✅<br>Polygon: ✅</p> |
-| Token Holders                        | Holders of a token contract: ERC-20, ERC-1155, ERC-721                    | <p>Ethereum: ✅<br>Polygon: ✅</p> |
-|                                      |                                                                           |                                  |
-
-| **POAPS**       |                                                                                                                                                     |                                                        |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| POAPS           | <p>Holders of POAPS </p><p>POAPS held by users</p>                                                                                                  | ✅                                                      |
-|                 |                                                                                                                                                     |                                                        |
-| **XMTP**        |                                                                                                                                                     |                                                        |
-| XMTP            | Lookup whether user(s) has XMTP messaging                                                                                                           | July  19, 2023                                         |
-|                 |                                                                                                                                                     |                                                        |
-| **ADVANCED**    |                                                                                                                                                     |                                                        |
-| Snapshots       | <p>Holders/holding as of certain date or date range</p><p></p><p>Length of holding tokens/NFTs</p>                                                  | <p>Polygon July 23, 2023<br><br>Ethereum July 2023</p> |
-| Aggregations    | Show me who holds X and Y (e.g. Devcon POAP and BAYC, or all Farcaster users who have Farcon and Purple, or all Lens users who attended ETH Lisbon) | v1 30 June, 2023                                       |
-|                 |                                                                                                                                                     |                                                        |
-| **DEV TOOLING** |                                                                                                                                                     |                                                        |
-| Webhooks        |                                                                                                                                                     | July 2023                                              |
-
-\*\* all future dates are subject to change based on team's best analysis of customer priorities
-
-###
-
-### Near-Term Release Plan\*\*
-
-#### **Upcoming Releases — Q2 2023**
-
-* **Snapshots** — e.g. get all tokens held in a date range or length of time -- June
-* **Aggregations** e.g. get all addresses that have X and Y -- June/July
-* **Price Oracles** - July
-* **XMTP** -- July
-* **Socials Follows on Lens and Farcaster** -- July
-* **Webhooks -** July
-* **Ethereum & Polygon base token balances** - August
-
-
-
-\*\* all future dates are subject to change
+{% hint style="info" %}
+\* All future dates are subject to change
+{% endhint %}
