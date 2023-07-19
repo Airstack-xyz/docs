@@ -22,7 +22,7 @@ Universal Resolver Demo
 
 ## Step 1: Clone Starter Code
 
-To clone the starter code, simply copy the following code to your preferred directory:
+To clone the starter code, simply copy the following code to clone in your preferred directory:
 
 ```sh
 mkdir universal-resolver-starter
