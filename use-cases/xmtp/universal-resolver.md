@@ -337,6 +337,7 @@ Adding the additional field, the last query with the changes highlighted will be
   Wallet(
     input: {identity: "vitalik.lens", blockchain: ethereum}
   ) {
+    addresses
     socials {
       dappName
       profileName
@@ -357,6 +358,9 @@ Adding the additional field, the last query with the changes highlighted will be
 {
   "data": {
     "Wallet": {
+      "addresses": [
+        "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+      ],
       "socials": [
         {
           "dappName": "farcaster",
@@ -419,11 +423,12 @@ Simply replace the input with variables, represented by `$` followed by the vari
 {% tab title="Query" %}
 ```graphql
 query MyQuery($address: Identity!) {
-    Wallet(input: {identity: $address, blockchain: ethereum}) {
-      socials {
-        dappName
-        profileName
-      }
+  Wallet(input: {identity: $address, blockchain: ethereum}) {
+    addresses
+    socials {
+      dappName
+      profileName
+    }
     domains {
       name
     }
@@ -448,6 +453,9 @@ query MyQuery($address: Identity!) {
 {
   "data": {
     "Wallet": {
+      "addresses": [
+        "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+      ],
       "socials": [
         {
           "dappName": "farcaster",
@@ -506,25 +514,29 @@ Now that you have the query constructed, all you need is just paste it directly 
 
 Simply go to `src/graphql/resolve.js` again and paste the query to `UNIVERSAL_RESOLVER` variable:
 
-<pre class="language-jsx" data-overflow="wrap"><code class="lang-jsx">const UNIVERSAL_RESOLVER = `
-<strong>query MyQuery($address: Identity!) {
-</strong><strong>    Wallet(input: {identity: $address, blockchain: ethereum}) {
-</strong><strong>      socials {
-</strong><strong>        dappName
-</strong><strong>        profileName
-</strong><strong>      }
-</strong><strong>    domains {
-</strong><strong>      name
-</strong><strong>    }
-</strong><strong>    primaryDomain {
-</strong><strong>      name
-</strong><strong>    }	
-</strong><strong>  }
-</strong><strong>} 
-</strong>`;
+{% code overflow="wrap" %}
+```jsx
+const UNIVERSAL_RESOLVER = `
+query MyQuery($address: Identity!) {
+  Wallet(input: {identity: $address, blockchain: ethereum}) {
+    addresses
+    socials {
+      dappName
+      profileName
+    }
+    domains {
+      name
+    }
+    primaryDomain {
+      name
+    }	
+  }
+}
+`;
 
 export default UNIVERSAL_RESOLVER;
-</code></pre>
+```
+{% endcode %}
 
 To call this query, use the `useQuery` hook from the Airstack React SDK to `src/App.jsx`:
 
