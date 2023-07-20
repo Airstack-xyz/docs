@@ -4,9 +4,13 @@ description: >-
   your React application.
 ---
 
-# 🔄 Lens Resolver
+# 🍃 Lens Resolver
 
-{% embed url="https://www.youtube.com/watch?v=SvkGTU18MLI" %}
+{% hint style="info" %}
+This demo is a variation of [Universal Resolver](../xmtp/universal-resolver.md) that only accepts Lens profiles as input.
+
+If you are looking to resolve other identities than Lens, check out[ Universal Resolver ](../xmtp/universal-resolver.md)demo.
+{% endhint %}
 
 ## Try Demo
 

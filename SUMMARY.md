@@ -35,7 +35,7 @@
   * [🔄 Universal Resolver](use-cases/xmtp/universal-resolver.md)
   * [🤝 Recommendation Engine](use-cases/xmtp/recommendation-engine.md)
 * [🌿 Lens](use-cases/lens/README.md)
-  * [🔄 Lens Resolver](use-cases/lens/universal-resolver.md)
+  * [🍃 Lens Resolver](use-cases/lens/universal-resolver.md)
 * [💜 Farcaster](use-cases/farcaster.md)
 * [🔥 ERC6551](use-cases/erc6551.md)
 * [⚡ POAPs](use-cases/poaps.md)
