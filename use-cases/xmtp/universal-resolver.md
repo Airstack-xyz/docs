@@ -139,7 +139,7 @@ In order to fill in this, the next steps will be dedicated to constructing your 
 Use [Airstack AI's Best Practices](https://docs.airstack.xyz/airstack-docs-and-faqs/\~/changes/RCZ9VCCIc7gOrsTvT2BI/ai-assistant#best-practices) to get the best and most accurate result for your query.
 {% endhint %}
 
-[Airstack](https://airstack.xyz) provides an AI solution for you to build a GraphQL query efficiently. You can access [Airstack AI](../../get-started/airstack-ai.md) on the [Explorer page](https://app.airstack.xyz/explorer).
+[Airstack](https://airstack.xyz) provides an AI solution for you to build a GraphQL query efficiently. You can access [Airstack AI](../../get-started/airstack-ai.md) on the [API Studio](https://app.airstack.xyz/api-studio).
 
 <figure><img src="https://lh5.googleusercontent.com/Hi5cokKJ_oVqjA_QLnjJYma64gSPVHaaiHaF6WmLMBOxbZsQunlSixQ7MH_yfrXfw6H9HPfzZ7z_-wMcLcICmsLQn92gkmTP-aKJl1fRpZ_3XN2zwVPuAJqiw2k7R6oByzouPU4AoxJr3YMFHESMB6A" alt=""><figcaption><p>Airstack AI</p></figcaption></figure>
 
@@ -226,7 +226,7 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-You can go to the [Airstack Explorer](https://app.airstack.xyz/explorer) to test out the query yourself:
+You can go to the [API Studio](https://app.airstack.xyz/api-studio) to test out the query yourself:
 
 {% embed url="https://app.airstack.xyz/DTyOZg/Kcz253OnEV" %}
 Resolve vitalik.eth Query (Playground)
@@ -236,7 +236,7 @@ Resolve vitalik.eth Query (Playground)
 
 Now that you have your basic query, you can build more complex queries on top of it to resolve any web3 identities to another.
 
-For this, you can simply stay in the [Airstack Explorer ](https://app.airstack.xyz/explorer)to make the modifications.
+For this, you can simply stay in the [API Studio](https://app.airstack.xyz/api-studio)[ ](https://app.airstack.xyz/explorer)to make the modifications.
 
 To build a query that can universally resolve any web3 identities, it needs to satisfy 2 conditions:
 
