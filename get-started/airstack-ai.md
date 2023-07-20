@@ -35,6 +35,12 @@ Make sure to type `@` manually to generate the chooser. Do not just copy/paste.
 * Show sapienz\_0.lens ERC6551 accounts
 * Show me 6551 accounts created on July 12, 2023 on Ethereum
 
+**XMTP**
+
+* Check if betashop.eth has XMTP
+* Show all holders of @BoredApeYachtClub and if they have XMTP
+* Show all holders of @EthCC6 POAP and if they have XMTP
+
 **Token Balances, Identities, Transactions**
 
 * For shnoodles.eth show all ENS, NFTs and web3 socials

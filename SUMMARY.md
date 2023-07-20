@@ -16,6 +16,10 @@
   * [♦ NFTs](guides/token-bound-accounts/nfts.md)
   * [📭 NFT Owners](guides/token-bound-accounts/nft-owners.md)
   * [⏫ Sort Results](guides/token-bound-accounts/sort-results.md)
+* [📬 Has XMTP](guides/has-xmtp/README.md)
+  * [🧍 Check Single User](guides/has-xmtp/check-single-user.md)
+  * [👬 Check Multiple Users](guides/has-xmtp/check-multiple-users.md)
+  * [🗃 NFT & POAP Holders](guides/has-xmtp/nft-and-poap-holders.md)
 * [🆔 Resolve Identities](guides/resolve-identities/README.md)
   * [🔷 ENS](guides/resolve-identities/ens.md)
   * [🌿 Lens](guides/resolve-identities/lens.md)
@@ -30,6 +34,9 @@
 * [📩 XMTP](use-cases/xmtp/README.md)
   * [🔄 Universal Resolver](use-cases/xmtp/universal-resolver.md)
   * [🤝 Recommendation Engine](use-cases/xmtp/recommendation-engine.md)
+* [🌿 Lens](use-cases/lens.md)
+* [💜 Farcaster](use-cases/farcaster.md)
+* [🔥 ERC6551](use-cases/erc6551.md)
 
 ## API References
 
@@ -48,6 +55,8 @@
     * [Wallet API Examples](api-references/api-reference/wallet-api/wallet-api-examples.md)
   * [Socials API](api-references/api-reference/socials-api/README.md)
     * [Socials API Examples](api-references/api-reference/socials-api/socials-api-examples.md)
+  * [XMTPs API](api-references/api-reference/xmtps-api/README.md)
+    * [XMTPs API Examples](api-references/api-reference/xmtps-api/xmtps-api-examples.md)
   * [Poaps API](api-references/api-reference/poaps-api/README.md)
     * [POAPs API Examples](api-references/api-reference/poaps-api/poaps-api-examples.md)
   * [PoapEvents API](api-references/api-reference/poapevents-api/README.md)
