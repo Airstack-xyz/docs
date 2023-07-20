@@ -37,6 +37,7 @@
 * [🌿 Lens](use-cases/lens.md)
 * [💜 Farcaster](use-cases/farcaster.md)
 * [🔥 ERC6551](use-cases/erc6551.md)
+* [⚡ POAPs](use-cases/poaps.md)
 
 ## API References
 
