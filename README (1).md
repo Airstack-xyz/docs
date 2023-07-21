@@ -1,37 +1,64 @@
 ---
-description: Web3 data APIs for developers
+description: Airstack – Web3 Data APIs for Developers.
 ---
 
 # ℹ Overview
 
-### TL/DR
+<figure><img src=".gitbook/assets/Screenshot 2023-07-21 at 14.42.16.png" alt=""><figcaption><p>Airstack Web3 Integration</p></figcaption></figure>
 
-Instantly integrate on-chain and off-chain data into any application.
+[Airstack](https://airstack.xyz) is a web3 development platform that provides powerful GraphQL APIs for integrating on-chain and off-chain data into any application. With Airstack, you can easily connect your applications to any web3 ecosystem.
 
-Airstack is a web3 developer platform that provides powerful APIs for integrating on-chain and off-chain data into any application. With Airstack developers are able to easily connect their applications to the web3 ecosystem.
+In addition, [Airstack](https://airstack.xyz) also provides an[ AI solution](get-started/airstack-ai.md) that enables you to build queries using natural language searches – a great way to get started and learn the APIs.
 
-Airstack enables queries that combine on-chain and off-chain data from multiple sources in a single response. Our goal is to enable developers to query and integrate relevant web3 data and serve it up to users without requiring heavy infrastructure or even a back-end.
+## Use Cases
 
-Airstack Identity Resolver (AIR) APIs map addresses and transactions across various web3 identities including ENS, Farcaster, Lens, specific Dapps, and NFT Marketplaces.
+Here are several use cases that you can build using [Airstack](https://airstack.xyz):&#x20;
 
-🤖 Airstack AI enables natural languages searches -- a great way to get started and learn the APIs.
+### Identity Resolver
 
-### Key Features&#x20;
+Resolve any 0x addresses or ENS names to fetch:
 
-* **GraphQL APIs.** Get the exact data you need in easy-to-integrate formats; no back-end  required.
-* **AI.** Query with natural language. No code required to get started.&#x20;
-* **Complex made easy.** Query across multiple projects, wallets, and blockchains, and combine on-chain and off-chain data in a single response.
-* **Identity APIs.** Map addresses and transactions across various sources, including ENS, Farcaster, Lens, Dapps, and Marketplaces.
-* **Snapshots.** Query historical data, balances, and transfers, within the time range or length of holding. (launching June 2023)
-* **Collaboration built-in.** Browse, remix, or fork from a public marketplace of queries and APIs
+* [Lens](use-cases/lens/)
+* [Farcaster](guides/resolve-identities/farcaster.md)
+* [POAPs](guides/contact-recommendation/poaps.md)
+* [XMTP](guides/has-xmtp/)
 
-### More details for developers
+and vice versa. Great for any building social or any data-aware applications.&#x20;
 
-* Access every on-chain transaction since the genesis block along with dapp-specific events and NFT marketplace data
-* Simultaneously query and combine on-chain and off-chain data
-* Powerful features such as resized NFT media, date snapshots, comparators, ENS, primary ENS, Farcaster, Lens, and more
-* Leverage the power of GraphQL, more advanced than Rest APIs: Get just the data you require in single-complex-queries
-* Integrate into any web2/3 app without any additional infrastructure
-* Webhooks for streaming updates (coming soon)
-* Open source schemas and APIs for adding additional data, dapps, and protocols into Airstack
-* Get started today with Ethereum and Polygon. More blockchains coming soon
+### MarTech (Marketing Technology)
+
+Build MarTech that provides more accurate customer targeting using [Airstack](https://airstack.xyz) on-chain and off-chain data.
+
+### Groups, Footprints, and Profiles
+
+Fetch all holders of tokens (ERC20, ERC721, ERC1155) or POAPs using a single query along with their Lens, Farcaster, ENS domains, and XMTP.
+
+### Recommendation Engines
+
+Build recommendation engines based on various metrics, which include:
+
+* [Token Transfers](guides/contact-recommendation/token-transfers.md)
+* [POAPs](guides/contact-recommendation/poaps.md)
+* [NFTs](guides/contact-recommendation/nfts.md)
+
+### Token Balances and Historical Transfers
+
+Fetch any wallet's token balances on Ethereum and Polygon along with any historical token transfers.
+
+### ERC6551
+
+Currently, [Airstack](https://airstack.xyz) is the only data provider that indexes ERC6551 Token Bound accounts.
+
+To learn more, you can check out our guide on ERC6551 [here](guides/token-bound-accounts/).
+
+### Token Gating
+
+Fetch token balances of any wallet along with NFT images, metadata, and traits build your token-gating mechanism in your application.
+
+### ZK-Attestation
+
+Use [Airstack](https://airstack.xyz) as the source of truth for on-chain history, complex combos.
+
+### Visualization
+
+Using the extensive amount of data provided and aggregated on [Airstack](https://airstack.xyz), you can build innovative visualization solutions.
