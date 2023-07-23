@@ -146,7 +146,7 @@ Use [Airstack AI's Best Practices](https://docs.airstack.xyz/airstack-docs-and-f
 For example, let's try the following prompt to resolve `vitalik.eth`:
 
 ```
-For the vitalik.lens, show me the 0x address, web3 socials, and ENS domain
+For the vitalik.lens, show me the 0x address, web3 socials, ENS domain, and XMTP
 ```
 
 After clicking enter, the [Airstack AI](../../get-started/airstack-ai.md) will output a GraphQL query as follows:
@@ -163,6 +163,9 @@ query MyQuery {
     }
     domains {
       name
+    }
+    xmtp {
+      isXMTPEnabled
     }
   }
 }
@@ -259,6 +262,9 @@ query MyQuery {
     domains {
       name
     }
+    xmtp {
+      isXMTPEnabled
+    }
   }
 }
 ```
@@ -313,6 +319,11 @@ query MyQuery {
         {
           "name": "satoshinart.eth"
         }
+      ],
+      "xmtp": [
+        {
+          "isXMTPEnabled": true
+        }
       ]
     }
   }
@@ -348,7 +359,10 @@ Adding the additional field, the last query with the changes highlighted will be
 <strong>    primaryDomain {
 </strong><strong>      name
 </strong><strong>    }
-</strong>  }
+</strong><strong>    xmtp {
+</strong>      isXMTPEnabled
+    }
+  }
 }
 </code></pre>
 {% endtab %}
@@ -403,9 +417,11 @@ Adding the additional field, the last query with the changes highlighted will be
           "name": "satoshinart.eth"
         }
       ],
-      "primaryDomain": {
-        "name": "satoshinart.eth"
-      }
+      "xmtp": [
+        {
+          "isXMTPEnabled": true
+        }
+      ]
     }
   }
 }
@@ -434,6 +450,9 @@ query MyQuery($address: Identity!) {
     }
     primaryDomain {
       name
+    }
+    xmtp {
+      isXMTPEnabled
     }	
   }
 } 
@@ -500,7 +519,12 @@ query MyQuery($address: Identity!) {
       ],
       "primaryDomain": {
         "name": "satoshinart.eth"
-      }
+      },
+      "xmtp": [
+        {
+          "isXMTPEnabled": true
+        }
+      ]
     }
   }
 }
@@ -529,7 +553,10 @@ query MyQuery($address: Identity!) {
     }
     primaryDomain {
       name
-    }	
+    }
+    xmtp {
+      isXMTPEnabled
+    }
   }
 }
 `;
