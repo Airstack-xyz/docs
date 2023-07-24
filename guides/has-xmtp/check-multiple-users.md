@@ -132,7 +132,7 @@ Bulk Check Lens Profiles Have XMTP (Demo)
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
-query BulkFetchPrimaryENSandXMTP($lens: [Identity!]) {
+query BulkFetchLensProfilesHaveXMTP($lens: [Identity!]) {
   XMTPs(input: {blockchain: ALL, filter: {owner: {_in: $lens}}, limit: 100}) {
     XMTP {
       isXMTPEnabled
@@ -215,3 +215,115 @@ query BulkFetchPrimaryENSandXMTP($lens: [Identity!]) {
 {% endtab %}
 {% endtabs %}
 
+## Bulk Check Farcasters Have XMTP
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/DTyOZg/v4nVRtJsw5" %}
+Bulk Query Farcasters Have XMTP (Demo)
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query BulkFetchFarcasterHaveXMTP($farcaster: [Identity!]) {
+  XMTPs(input: {blockchain: ALL, filter: {owner: {_in: $farcaster}}, limit: 100}) {
+    XMTP {
+      isXMTPEnabled
+      owner {
+        socials {
+          dappName
+          profileName
+        }
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Variable" %}
+```json
+{
+  "farcaster": [
+    "fc_fname:vbuterin",
+    "fc_fname:v",
+    "fc_fid:602"
+  ]
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "XMTPs": {
+      "XMTP": [
+        {
+          "isXMTPEnabled": true,
+          "owner": {
+            "socials": [
+              {
+                "dappName": "farcaster",
+                "profileName": "vbuterin"
+              },
+              {
+                "dappName": "lens",
+                "profileName": "vitalik.lens"
+              }
+            ],
+            "addresses": [
+              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+            ]
+          }
+        },
+        {
+          "isXMTPEnabled": true,
+          "owner": {
+            "socials": [
+              {
+                "dappName": "farcaster",
+                "profileName": "v"
+              }
+            ],
+            "addresses": [
+              "0x182327170fc284caaa5b1bc3e3878233f529d741"
+            ]
+          }
+        },
+        {
+          "isXMTPEnabled": true,
+          "owner": {
+            "socials": [
+              {
+                "dappName": "farcaster",
+                "profileName": "betashop"
+              },
+              {
+                "dappName": "lens",
+                "profileName": "betashop9.lens"
+              }
+            ],
+            "addresses": [
+              "0xeaf55242a90bb3289db8184772b0b98562053559"
+            ]
+          }
+        }
+      ],
+      "pageInfo": {
+        "nextCursor": "",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
