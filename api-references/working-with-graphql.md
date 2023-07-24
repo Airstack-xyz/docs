@@ -18,3 +18,9 @@ In addition to the filtering conditions, Airstack GraphQL also has the following
 * <mark style="color:red;">**`_ne`**</mark>: Not Equal - Filters the data where the specified field is not equal to the provided value.
 * <mark style="color:red;">**`_in`**</mark>: In - Filters the data where the specified field's value is within the provided array of values.
 * <mark style="color:red;">**`_nin`**</mark>: Not In - Filters the data where the specified field's value is not within the provided array of values.
+
+{% hint style="info" %}
+For **`_in`** and **`_nin`** operators, they have a **maximum limit of 200 addresses** as responses are only limited to 200.\
+\
+If you want to add more than 200 to the filters, you can get the rest of the results by using the cursor pagination.
+{% endhint %}
