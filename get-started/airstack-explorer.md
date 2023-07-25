@@ -45,9 +45,5 @@ By clicking on one of the options, it will redirect you to the [API Studio](http
 
 ## Fork The Code
 
-The source code for the [Airstack Explorer](https://explorer.airstack.xyz) is open-sourced and can be accessed through GitHub:
-
-{% embed url="https://github.com/Airstack-xyz/Demo" %}
-
-&#x20;and you can simply click [here](https://github.com/Airstack-xyz/Demo/fork) to fork the code.
+The source code for the [Airstack Explorer](https://explorer.airstack.xyz) is open-sourced and can be accessed through [GitHub](https://github.com/Airstack-xyz/Demo) and you can simply click [here](https://github.com/Airstack-xyz/Demo/fork) to fork the code.
 
