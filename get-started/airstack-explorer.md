@@ -9,11 +9,23 @@ description: >-
 
 ## All Data in Single Dashboard
 
-You can fetch the token balances, socials, and ERC20 token holdings from a user.
+You can use the [Airstack Explorer](https://explorer.airstack.xyz) to fetch a wide array of data in a single dashboard:
+
+### NFTs, POAPs, Socials & ERC20 Balances&#x20;
+
+You can fetch the NFTs, POAPs, socials, and ERC20 token balances from a user.
 
 <figure><img src="../.gitbook/assets/Screen-Recording-2023-07-25-at-1 (1).gif" alt=""><figcaption></figcaption></figure>
 
+### Token & POAP Holder Analytics
 
+You can get deep insights into the holders of a specific token or POAP, including:
+
+* Total number of holders
+* Total holders that have ENS
+* Total holders that have Lens Profile
+* Total holders that have Farcaster
+* Total holders that have XMTP enabled
 
 <figure><img src="../.gitbook/assets/Screen Recording 2023-07-21 at 18.25.26.gif" alt=""><figcaption></figcaption></figure>
 
@@ -33,5 +45,9 @@ By clicking on one of the options, it will redirect you to the [API Studio](http
 
 ## Fork The Code
 
-The source code for the [Airstack Explorer](https://explorer.airstack.xyz) is open-sourced and can be accessed through [GitHub](https://github.com/Airstack-xyz/Demo) and you can simply click here to [fork](https://github.com/Airstack-xyz/Demo/fork) the code.
+The source code for the [Airstack Explorer](https://explorer.airstack.xyz) is open-sourced and can be accessed through GitHub:
+
+{% embed url="https://github.com/Airstack-xyz/Demo" %}
+
+&#x20;and you can simply click [here](https://github.com/Airstack-xyz/Demo/fork) to fork the code.
 
