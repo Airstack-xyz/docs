@@ -20,6 +20,7 @@ input PoapFilter {
 
 ```graphql
 type Poap {
+  attendee: # **Nested query** The holder/attendee of the POAP events, includes total POAPs the attendee own
   id: # Airstack unique element identifier
   chainId: # Blockchain ID 
   blockchain: # Blockchain name
@@ -28,11 +29,14 @@ type Poap {
   dappVersion: 
   eventId: #POAP Event ID
   owner: Wallet! # **Nested query** allowing to retrieve address, domain names, and social profiles of the owner
-  createdAtBlockTimestamp: 
-  createdAtBlockNumber: 
+  createdAtBlockTimestamp: # Time when POAP was created
+  createdAtBlockNumber: # Block Number when POAP was created
+  mintHash: # Transaction Hash of Mint Transaction
+  mintOrder: # The order of POAP minting
   tokenId: #POAP Token ID
   tokenAddress: #POAP contract address
   tokenUri: # POAP Token URI
+  transferCount: $
   poapEvent:# **Nested query** allowing to return all POAP event-related metadata including images.
 }
 ```
