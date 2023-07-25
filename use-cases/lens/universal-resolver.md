@@ -147,7 +147,7 @@ Use [Airstack AI's Best Practices](https://docs.airstack.xyz/airstack-docs-and-f
 
 <figure><img src="https://lh5.googleusercontent.com/Hi5cokKJ_oVqjA_QLnjJYma64gSPVHaaiHaF6WmLMBOxbZsQunlSixQ7MH_yfrXfw6H9HPfzZ7z_-wMcLcICmsLQn92gkmTP-aKJl1fRpZ_3XN2zwVPuAJqiw2k7R6oByzouPU4AoxJr3YMFHESMB6A" alt=""><figcaption><p>Airstack AI</p></figcaption></figure>
 
-For example, let's try the following prompt to resolve `vitalik.eth`:
+For example, let's try the following prompt to resolve `vitalik.lens`:
 
 ```
 For the vitalik.lens, show me the 0x address, web3 socials, and ENS domain
