@@ -1,3 +1,0 @@
-# 💜 Farcaster
-
-Coming soon.
