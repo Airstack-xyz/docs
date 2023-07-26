@@ -1,10 +1,10 @@
 ---
 description: >-
-  Learn how to fetch the list of common token holders of multiple ERC20s, NFTs,
-  and POAPs.
+  Learn how to fetch the list of common token holders across various ERC20s,
+  NFTs, and POAPs.
 ---
 
-# ERC20s, NFTs, and POAPs
+# Combinations of ERC20s, NFTs, and POAPs
 
 ## Pre-requisites
 

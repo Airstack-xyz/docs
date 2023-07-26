@@ -8,7 +8,7 @@ description: >-
 
 ## Pre-requisites
 
-* [ ] Completed [ERC20s, NFTs, and POAPs](erc20s-nfts-and-poaps.md)
+* [ ] Completed [ERC20s, NFTs, and POAPs](combinations-of-erc20s-nfts-and-poaps.md)
 
 ## XMTP
 

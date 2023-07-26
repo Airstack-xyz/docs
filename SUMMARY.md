@@ -16,7 +16,7 @@
 * [🥗 Combinations](guides/combinations/README.md)
   * [Multiple ERC20s or NFTs](guides/combinations/multiple-erc20s-or-nfts.md)
   * [Multiple POAPs](guides/combinations/multiple-poaps.md)
-  * [ERC20s, NFTs, and POAPs](guides/combinations/erc20s-nfts-and-poaps.md)
+  * [Combinations of ERC20s, NFTs, and POAPs](guides/combinations/combinations-of-erc20s-nfts-and-poaps.md)
   * [Socials Stats](guides/combinations/socials-stats.md)
 * [🪆 Tokenbound ERC6551](guides/token-bound-accounts/README.md)
   * [♦ NFTs](guides/token-bound-accounts/nfts.md)
