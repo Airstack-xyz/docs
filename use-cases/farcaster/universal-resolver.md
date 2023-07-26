@@ -519,7 +519,7 @@ This is because you only use `useQuery` which automatically calls the API for ev
 
 <pre class="language-jsx" data-overflow="wrap"><code class="lang-jsx"><strong>import { useLazyQuery } from "@airstack/airstack-react";
 </strong>import FARCASTER_RESOLVER from "./graphql/resolve";
-import FarcasterResolver from "./components/LensResolver";
+import FarcasterResolver from "./components/FarcasterResolver";
 
 function App() {
 <strong>  const [resolveIdentity, { data, loading }] = useLazyQuery(
