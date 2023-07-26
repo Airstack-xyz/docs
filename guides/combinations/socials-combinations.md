@@ -1,14 +1,14 @@
 ---
 description: >-
-  Learn how to fetch the list of common token holders that has XMTP, Lens, or
-  Farcasters.
+  Learn how to fetch the list of common token holders across ERC20, NFTs, and
+  POAPS, that also have XMTP, Lens, or Farcaster.
 ---
 
-# Socials Stats
+# Socials Combinations
 
 ## Pre-requisites
 
-* [ ] Completed [ERC20s, NFTs, and POAPs](combinations-of-erc20s-nfts-and-poaps.md)
+* [ ] Completed [ERC20s, NFTs, and POAPs](erc20s-nfts-and-poaps.md)
 
 ## XMTP
 
