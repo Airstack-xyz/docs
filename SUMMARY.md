@@ -13,6 +13,11 @@
 
 ## Guides
 
+* [🥗 Combinations](guides/combinations/README.md)
+  * [Multiple ERC20s or NFTs](guides/combinations/multiple-erc20s-or-nfts.md)
+  * [Multiple POAPs](guides/combinations/multiple-poaps.md)
+  * [ERC20s, NFTs, and POAPs](guides/combinations/erc20s-nfts-and-poaps.md)
+  * [Socials Stats](guides/combinations/socials-stats.md)
 * [🪆 Tokenbound ERC6551](guides/token-bound-accounts/README.md)
   * [♦ NFTs](guides/token-bound-accounts/nfts.md)
   * [📭 NFT Owners](guides/token-bound-accounts/nft-owners.md)
@@ -75,3 +80,4 @@
   * [Airstack Identity API](api-references/api-reference/airstack-identity-api.md)
   * [Cross-chain Queries](api-references/api-reference/cross-chain-queries.md)
 * [Working with GraphQL](api-references/working-with-graphql.md)
+* [Nested Queries](api-references/nested-queries.md)
