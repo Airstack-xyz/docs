@@ -9,7 +9,7 @@ description: >-
 {% hint style="info" %}
 This demo is a variation of [Universal Resolver](../xmtp/universal-resolver.md) that only accepts Farcaster names or IDs as input.
 
-If you are looking to resolve other identities than Lens, check out[ Universal Resolver ](../xmtp/universal-resolver.md)demo.
+If you are looking to resolve other identities than Farcaster, check out[ Universal Resolver ](../xmtp/universal-resolver.md)demo.
 {% endhint %}
 
 ## Try Demo
@@ -248,11 +248,11 @@ Resolve vitalik.eth Query (Playground)
 
 ## Step 6: Modify Your Query
 
-Now that you have your basic query, you can build more complex queries on top of it to resolve a Lens profile to any web3 identities.
+Now that you have your basic query, you can build more complex queries on top of it to resolve a Farcaster name or ID to any web3 identities.
 
 For this, you can simply stay in the [API Studio](https://app.airstack.xyz/api-studio)[ ](https://app.airstack.xyz/explorer)to make the modifications.
 
-The responses has already included everything that you need to resolve a Lens profile to any web3 identities. However, it is missing a primary ENS domain to highlight domains that is primary or not.
+The responses has already included everything that you need to resolve a Farcaster name or ID to any web3 identities. However, it is missing a primary ENS domain to highlight domains that is primary or not.
 
 To add primary ENS domain, you will need this one field:
 
