@@ -8,7 +8,9 @@ description: >-
 
 ## Topics
 
-* Common Token Holders with XMTP
+* [Common Token Holders with XMTP](socials-stats.md#xmtp)
+* [Common Token Holders with Lens](socials-stats.md#lens)
+* [Common Token Holders with Farcaster](socials-stats.md#farcaster)
 
 ## Pre-requisites
 
