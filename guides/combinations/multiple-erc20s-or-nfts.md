@@ -6,6 +6,12 @@ description: >-
 
 # Multiple ERC20s or NFTs
 
+Topics:
+
+* Common Holders of 2 ERC20 Tokens or NFTs
+* Common Holders of >2 ERC20 Tokens or NFTs
+* Common Holders of Token A and holders of >X Token B
+
 ## Common Holders of 2 ERC20 Tokens or NFTs
 
 You can fetch the common holders of two given ERC20 or NFT contract addresses:
