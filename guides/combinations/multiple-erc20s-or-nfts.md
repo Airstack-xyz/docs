@@ -6,11 +6,11 @@ description: >-
 
 # Multiple ERC20s or NFTs
 
-Topics:
+## Topics
 
-* Common Holders of 2 ERC20 Tokens or NFTs
-* Common Holders of >2 ERC20 Tokens or NFTs
-* Common Holders of Token A and holders of >X Token B
+* [Common Holders of 2 ERC20 Tokens or NFTs](multiple-erc20s-or-nfts.md#common-holders-of-2-erc20-tokens-or-nfts)
+* [Common Holders of More Than 2 ERC20 Tokens or NFTs](multiple-erc20s-or-nfts.md#common-holders-of-more-than-2-erc20-tokens)
+* [Holders of NFT A That Holds More Than X Amount Of Token B](multiple-erc20s-or-nfts.md#example-3-get-common-holders-of-moonbirds-that-has-more-than-10-usdt)
 
 ## Common Holders of 2 ERC20 Tokens or NFTs
 

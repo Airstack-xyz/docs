@@ -6,6 +6,11 @@ description: >-
 
 # Combinations of ERC20s, NFTs, and POAPs
 
+## Topics
+
+* [Common Holders of A Token (ERC20 or NFT) and A POAP](erc20s-nfts-and-poaps.md#common-holders-of-a-token-erc20-or-nft-and-a-poap)
+* [Common Holders of Any Tokens (ERC20s or NFTs) and POAPs](erc20s-nfts-and-poaps.md#common-holders-of-any-tokens-erc20s-or-nfts-and-poaps)
+
 ## Pre-requisites
 
 * [ ] Completed [Multiple ERC20s or NFTs](multiple-erc20s-or-nfts.md)

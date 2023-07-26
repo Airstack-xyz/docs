@@ -6,6 +6,11 @@ description: >-
 
 # Multiple POAPs
 
+## Topics
+
+* [Common Holders of 2 POAPs](multiple-poaps.md#common-holders-of-2-poaps)
+* [Common Holders of More Than 2 POAPs](multiple-poaps.md#common-holders-of-more-than-2-poaps)
+
 ## Common Holders of 2 POAPs
 
 You can fetch the common holders of two given POAP event IDs:

@@ -6,6 +6,10 @@ description: >-
 
 # Socials Combinations
 
+## Topics
+
+* Common Token Holders with XMTP
+
 ## Pre-requisites
 
 * [ ] Completed [ERC20s, NFTs, and POAPs](erc20s-nfts-and-poaps.md)
@@ -16,7 +20,7 @@ To check if XMTP is enabled, simply add `xmtp.isXMTPEnabled` under the `owner` f
 
 {% tabs %}
 {% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfTwoTokensOrNfts($tokenA: Address!, $tokenB: Address!, $cursor: String) {
+<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersWithXMTP($tokenA: Address!, $tokenB: Address!, $cursor: String) {
   TokenBalances(
     input: {filter: {tokenAddress: {_eq: $tokenA}}, blockchain: ethereum, limit: 200, cursor: $cursor}
   ) {
@@ -98,7 +102,7 @@ To show Lens profile in the responses, add `socials` with `lens` added to the `d
 
 {% tabs %}
 {% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfTwoTokensOrNfts($tokenA: Address!, $tokenB: Address!, $cursor: String) {
+<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersWithLens($tokenA: Address!, $tokenB: Address!, $cursor: String) {
   TokenBalances(
     input: {filter: {tokenAddress: {_eq: $tokenA}}, blockchain: ethereum, limit: 200, cursor: $cursor}
   ) {
@@ -182,7 +186,7 @@ To show Farcaster in the responses, add `socials` with `farcaster` added to the 
 
 {% tabs %}
 {% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfTwoTokensOrNfts($tokenA: Address!, $tokenB: Address!, $cursor: String) {
+<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersWithFarcaster($tokenA: Address!, $tokenB: Address!, $cursor: String) {
   TokenBalances(
     input: {filter: {tokenAddress: {_eq: $tokenA}}, blockchain: ethereum, limit: 200, cursor: $cursor}
   ) {
