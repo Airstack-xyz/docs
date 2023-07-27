@@ -41,6 +41,8 @@ The latter approach will be more efficient and easier for further formatting.
 
 ## Common Holders of 2 ERC20 Tokens
 
+### Fetching
+
 You can fetch the common holders of two given ERC20, e.g. [USDT](https://explorer.airstack.xyz/token-holders?address=0xdac17f958d2ee523a2206206994597c13d831ec7\&blockchain=ethereum\&rawInput=%23%E2%8E%B1Tether+USD%E2%8E%B1%280xdac17f958d2ee523a2206206994597c13d831ec7+TOKEN+ethereum+null%29+\&inputType=ADDRESS) and [USDC](https://explorer.airstack.xyz/token-holders?address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&blockchain=ethereum\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29+\&inputType=ADDRESS):
 
 {% tabs %}
@@ -95,7 +97,56 @@ You can fetch the common holders of two given ERC20, e.g. [USDT](https://explore
 
 All the common holders' addresses will be returned inside the innermost `owner.addresses` field.
 
+### Formatting
+
+To get the list of all holders in a flat array, use the following format function:
+
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+const formatFunction = (data) =>
+  data?.TokenBalances?.TokenBalance?.map(
+    ({ owner }) => owner?.tokenBalances?.[0]?.owner?.addresses
+  )
+    .filter(Boolean)
+    .flat(1)
+    .filter((address, index, array) => array.indexOf(address) === index) ?? [];
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def format_function(data):
+    result = []
+    if data is not None and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
+        for item in data['TokenBalances']['TokenBalance']:
+            if 'owner' in item and 'tokenBalances' in item['owner'] and len(item['owner']['tokenBalances']) > 0 and 'owner' in item['owner']['tokenBalances'][0] and 'addresses' in item['owner']['tokenBalances'][0]['owner']:
+                result.append(item['owner']['tokenBalances']
+                              [0]['owner']['addresses'])
+    result = [item for sublist in result for item in sublist]
+    result = list(set(result))
+    return result
+```
+{% endtab %}
+{% endtabs %}
+
+The final result will the the list of all common holders in an array:
+
+```json
+[
+  "0xc77d249809ae5a118eef66227d1a01a3d62c82d4",
+  "0x3291e96b3bff7ed56e3ca8364273c5b4654b2b37",
+  "0xe348c7959e47646031cea7ed30266a6702d011cc",
+  // ...other token holders
+  "0xa69babef1ca67a37ffaf7a485dfff3382056e78c",
+  "0x46340b20830761efd32832a74d7169b29feb9758",
+  "0x2008b6c3d07b061a84f790c035c2f6dc11a0be70"
+]
+```
+
 ## Common Holders of 2 NFTs
+
+### Fetching
 
 You can fetch the common holders of two given NFTs, e.g. [BAYC](https://explorer.airstack.xyz/token-holders?address=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d\&rawInput=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d\&inputType=ADDRESS\&tokenType=ERC721) and [Moonbirds](https://explorer.airstack.xyz/token-holders?address=0x23581767a106ae21c074b2276D25e5C3e136a68b\&blockchain=ethereum\&rawInput=%23%E2%8E%B1Moonbirds%E2%8E%B1%280x23581767a106ae21c074b2276D25e5C3e136a68b+NFT\_COLLECTION+ethereum+null%29+\&inputType=ADDRESS):
 
@@ -153,7 +204,56 @@ You can fetch the common holders of two given NFTs, e.g. [BAYC](https://explorer
 
 All the common holders' addresses will be returned inside the innermost `owner.addresses` field and `tokenId` is optional for determining which NFT is specifically held by the user as there can be multiple NFTs held by a single user.
 
+### Formatting
+
+To get the list of all holders in a flat array, use the following format function:
+
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+const formatFunction = (data) =>
+  data?.TokenBalances?.TokenBalance?.map(
+    ({ owner }) => owner?.tokenBalances?.[0]?.owner?.addresses
+  )
+    .filter(Boolean)
+    .flat(1)
+    .filter((address, index, array) => array.indexOf(address) === index) ?? [];
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def format_function(data):
+    result = []
+    if data is not None and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
+        for item in data['TokenBalances']['TokenBalance']:
+            if 'owner' in item and 'tokenBalances' in item['owner'] and len(item['owner']['tokenBalances']) > 0 and 'owner' in item['owner']['tokenBalances'][0] and 'addresses' in item['owner']['tokenBalances'][0]['owner']:
+                result.append(item['owner']['tokenBalances']
+                              [0]['owner']['addresses'])
+    result = [item for sublist in result for item in sublist]
+    result = list(set(result))
+    return result
+```
+{% endtab %}
+{% endtabs %}
+
+The final result will the the list of all common holders in an array:
+
+```json
+[
+  "0xc77d249809ae5a118eef66227d1a01a3d62c82d4",
+  "0x3291e96b3bff7ed56e3ca8364273c5b4654b2b37",
+  "0xe348c7959e47646031cea7ed30266a6702d011cc",
+  // ...other token holders
+  "0xa69babef1ca67a37ffaf7a485dfff3382056e78c",
+  "0x46340b20830761efd32832a74d7169b29feb9758",
+  "0x2008b6c3d07b061a84f790c035c2f6dc11a0be70"
+]
+```
+
 ## Common Holders of NFT That Held A Minimum Amount of ERC20 Token
+
+### Fetching
 
 You can fetch common holders of an NFT with a specific amount held for the ERC20, e.g. [Moonbirds](https://explorer.airstack.xyz/token-holders?address=0x23581767a106ae21c074b2276D25e5C3e136a68b\&blockchain=ethereum\&rawInput=%23%E2%8E%B1Moonbirds%E2%8E%B1%280x23581767a106ae21c074b2276D25e5C3e136a68b+NFT\_COLLECTION+ethereum+null%29+\&inputType=ADDRESS) holders with more than 10 [USDT](https://explorer.airstack.xyz/token-holders?address=0xdac17f958d2ee523a2206206994597c13d831ec7\&blockchain=ethereum\&rawInput=%23%E2%8E%B1Tether+USD%E2%8E%B1%280xdac17f958d2ee523a2206206994597c13d831ec7+TOKEN+ethereum+null%29+\&inputType=ADDRESS):
 
@@ -217,7 +317,56 @@ You can fetch common holders of an NFT with a specific amount held for the ERC20
 
 All the common holders' addresses will be returned inside the innermost `owner.addresses` field.
 
+### Formatting
+
+To get the list of all holders in a flat array, use the following format function:
+
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+const formatFunction = (data) =>
+  data?.TokenBalances?.TokenBalance?.map(
+    ({ owner }) => owner?.tokenBalances?.[0]?.owner?.addresses
+  )
+    .filter(Boolean)
+    .flat(1)
+    .filter((address, index, array) => array.indexOf(address) === index) ?? [];
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def format_function(data):
+    result = []
+    if data is not None and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
+        for item in data['TokenBalances']['TokenBalance']:
+            if 'owner' in item and 'tokenBalances' in item['owner'] and len(item['owner']['tokenBalances']) > 0 and 'owner' in item['owner']['tokenBalances'][0] and 'addresses' in item['owner']['tokenBalances'][0]['owner']:
+                result.append(item['owner']['tokenBalances']
+                              [0]['owner']['addresses'])
+    result = [item for sublist in result for item in sublist]
+    result = list(set(result))
+    return result
+```
+{% endtab %}
+{% endtabs %}
+
+The final result will the the list of all common holders in an array:
+
+```json
+[
+  "0xc77d249809ae5a118eef66227d1a01a3d62c82d4",
+  "0x3291e96b3bff7ed56e3ca8364273c5b4654b2b37",
+  "0xe348c7959e47646031cea7ed30266a6702d011cc",
+  // ...other token holders
+  "0xa69babef1ca67a37ffaf7a485dfff3382056e78c",
+  "0x46340b20830761efd32832a74d7169b29feb9758",
+  "0x2008b6c3d07b061a84f790c035c2f6dc11a0be70"
+]
+```
+
 ## Common Holders of A Token on Ethereum and A Token on Polygon (Cross-Chain)
+
+### Fetching
 
 You can fetch common holders of NFT from different chains, e.g. [BAYC](https://explorer.airstack.xyz/token-holders?address=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d\&rawInput=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d\&inputType=ADDRESS\&tokenType=ERC721) on Ethereum and [Cuddleverse](https://explorer.airstack.xyz/token-holders?address=0xb59bd2c3f24afa4a3177d0e886abe072ef9c8eb0\&rawInput=0xb59bd2c3f24afa4a3177d0e886abe072ef9c8eb0\&inputType=ADDRESS\&tokenType=ERC721) on Polygon:
 
@@ -274,6 +423,53 @@ You can fetch common holders of NFT from different chains, e.g. [BAYC](https://e
 {% endtabs %}
 
 All the common holders' addresses will be returned inside the innermost `owner.addresses` field.
+
+### Formatting
+
+To get the list of all holders in a flat array, use the following format function:
+
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+const formatFunction = (data) =>
+  data?.TokenBalances?.TokenBalance?.map(
+    ({ owner }) => owner?.tokenBalances?.[0]?.owner?.addresses
+  )
+    .filter(Boolean)
+    .flat(1)
+    .filter((address, index, array) => array.indexOf(address) === index) ?? [];
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def format_function(data):
+    result = []
+    if data is not None and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
+        for item in data['TokenBalances']['TokenBalance']:
+            if 'owner' in item and 'tokenBalances' in item['owner'] and len(item['owner']['tokenBalances']) > 0 and 'owner' in item['owner']['tokenBalances'][0] and 'addresses' in item['owner']['tokenBalances'][0]['owner']:
+                result.append(item['owner']['tokenBalances']
+                              [0]['owner']['addresses'])
+    result = [item for sublist in result for item in sublist]
+    result = list(set(result))
+    return result
+```
+{% endtab %}
+{% endtabs %}
+
+The final result will the the list of all common holders in an array:
+
+```json
+[
+  "0xc77d249809ae5a118eef66227d1a01a3d62c82d4",
+  "0x3291e96b3bff7ed56e3ca8364273c5b4654b2b37",
+  "0xe348c7959e47646031cea7ed30266a6702d011cc",
+  // ...other token holders
+  "0xa69babef1ca67a37ffaf7a485dfff3382056e78c",
+  "0x46340b20830761efd32832a74d7169b29feb9758",
+  "0x2008b6c3d07b061a84f790c035c2f6dc11a0be70"
+]
+```
 
 ## Common Holders of More Than 2 ERC20 Tokens or NFTs
 
