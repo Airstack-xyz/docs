@@ -19,13 +19,19 @@ Here’s a tip. If you type “@“ in the entry box you can choose from over 50
 
 <figure><img src="../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption></figcaption></figure>
 
-If you are looking for a project that is not yet in our auto-complete @mention list, please [let us know](https://t.me/+uW6ypo49TcZmMGEx) in the developer Telegram group. In meantime you can always enter a contract address.
+If you are looking for a project that is not yet in our auto-complete @mention list, please [let us know](https://t.me/+uW6ypo49TcZmMGEx) in the developer Telegram group. In meantime, you can always enter a contract address.
 
 ### Here are some example questions you can ask me:
 
 {% hint style="info" %}
 Make sure to type `@` manually to generate the chooser. Do not just copy/paste.
 {% endhint %}
+
+#### **Combinations**
+
+* Get all attendees of @Devcon5 who also attended @EthCC\[6] - Attendee and their ENS
+* Get all holders of @moonbirds who also hold @BAYC
+* Get all holders of @nouns who also have >100 @USDC
 
 #### **ERC6551 Token Bound Accounts**
 
