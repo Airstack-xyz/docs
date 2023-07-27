@@ -8,12 +8,12 @@ description: >-
 
 ## Topics
 
-* [Common Holders of 2 ERC20 Tokens or NFTs](multiple-erc20s-or-nfts.md#common-holders-of-2-erc20-tokens-or-nfts)
-* [Common Holders of More Than 2 ERC20 Tokens or NFTs](multiple-erc20s-or-nfts.md#common-holders-of-more-than-2-erc20-tokens)
-* Examples
-  * [Get Common Holders of USDT and USDC](multiple-erc20s-or-nfts.md#example-1-get-common-holders-of-usdt-and-usdc)
-  * [Get Common Holders of BAYC & Moonbirds](multiple-erc20s-or-nfts.md#example-2-get-common-holders-of-bayc-and-moonbirds)
-  * [Get Common Holders of Moonbirds That Has More Than 10 USDT](multiple-erc20s-or-nfts.md#example-3-get-common-holders-of-moonbirds-that-has-more-than-10-usdt)
+* [Best Practices](multiple-erc20s-or-nfts.md#best-practices)
+* [Common Holders of 2 ERC20 Tokens](multiple-erc20s-or-nfts.md#common-holders-of-2-erc20-tokens)
+* [Common Holders of 2 NFTs](multiple-erc20s-or-nfts.md#common-holders-of-2-nfts)
+* [Common Holders of NFT That Held A Minimum Amount of ERC20 Token](multiple-erc20s-or-nfts.md#common-holders-of-nft-that-held-a-minimum-amount-of-erc20-token)
+* [Common Holders of A Token on Ethereum and A Token on Polygon (Cross-Chain)](multiple-erc20s-or-nfts.md#common-holders-of-a-token-on-ethereum-and-a-token-on-polygon-cross-chain)
+* [Common Holders of More Than 2 ERC20 Tokens or NFTs](multiple-erc20s-or-nfts.md#common-holders-of-more-than-2-erc20-tokens-or-nfts)
 
 ## Best Practices
 

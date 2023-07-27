@@ -8,6 +8,8 @@ description: >-
 
 ## Topics
 
+* [Pre-requisites](erc20s-nfts-and-poaps.md#pre-requisites)
+* [Best Practices](erc20s-nfts-and-poaps.md#best-practices)
 * [Common Holders of A Token (ERC20 or NFT) and A POAP](erc20s-nfts-and-poaps.md#common-holders-of-a-token-erc20-or-nft-and-a-poap)
 * [Common Holders of Any Tokens (ERC20s or NFTs) and POAPs](erc20s-nfts-and-poaps.md#common-holders-of-any-tokens-erc20s-or-nfts-and-poaps)
 

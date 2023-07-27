@@ -8,6 +8,7 @@ description: >-
 
 ## Topics
 
+* [Best Practices](multiple-poaps.md#best-practices)
 * [Common Holders of 2 POAPs](multiple-poaps.md#common-holders-of-2-poaps)
 * [Common Holders of More Than 2 POAPs](multiple-poaps.md#common-holders-of-more-than-2-poaps)
 
