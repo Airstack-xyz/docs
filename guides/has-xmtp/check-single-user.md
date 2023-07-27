@@ -48,7 +48,7 @@ Here's an example of a user that **has an XMTP**:
 {% endtab %}
 {% endtabs %}
 
-Here's an example of user the **does not have any XMTP**:
+Here's an example of a user that **does not have any XMTP**:
 
 {% tabs %}
 {% tab title="Variable" %}
