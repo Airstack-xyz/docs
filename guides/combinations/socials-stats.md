@@ -22,13 +22,13 @@ To check if XMTP is enabled, simply add `xmtp.isXMTPEnabled` under the `owner` f
 
 {% tabs %}
 {% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersWithXMTP($tokenA: Address!, $tokenB: Address!, $cursor: String) {
+<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersWithXMTP {
   TokenBalances(
-    input: {filter: {tokenAddress: {_eq: $tokenA}}, blockchain: ethereum, limit: 200, cursor: $cursor}
+    input: {filter: {tokenAddress: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}}, blockchain: ethereum, limit: 200}
   ) {
     TokenBalance {
       owner {
-        tokenBalances(input: {filter: {tokenAddress: {_eq: $tokenB}}, limit: 200}) {
+        tokenBalances(input: {filter: {tokenAddress: {_eq: "0x23581767a106ae21c074b2276D25e5C3e136a68b"}}, limit: 200}) {
           owner {
             addresses
             xmtp {
@@ -41,15 +41,6 @@ To check if XMTP is enabled, simply add `xmtp.isXMTPEnabled` under the `owner` f
   }
 }
 </code></pre>
-{% endtab %}
-
-{% tab title="Variable" %}
-```json
-{
-  "tokenA": "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
-  "tokenB": "0x23581767a106ae21c074b2276D25e5C3e136a68b"
-}
-```
 {% endtab %}
 
 {% tab title="Response" %}
@@ -104,13 +95,13 @@ To show Lens profile in the responses, add `socials` with `lens` added to the `d
 
 {% tabs %}
 {% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersWithLens($tokenA: Address!, $tokenB: Address!, $cursor: String) {
+<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersWithLens {
   TokenBalances(
-    input: {filter: {tokenAddress: {_eq: $tokenA}}, blockchain: ethereum, limit: 200, cursor: $cursor}
+    input: {filter: {tokenAddress: {_eq: "0xb93ee8cdab36199c6debf5bbec53e5908fd8e4e1"}}, blockchain: ethereum, limit: 200}
   ) {
     TokenBalance {
       owner {
-        tokenBalances(input: {filter: {tokenAddress: {_eq: $tokenB}}, limit: 200}) {
+        tokenBalances(input: {filter: {tokenAddress: {_eq: "0x0a1bbd57033f57e7b6743621b79fcb9eb2ce3676"}}, limit: 200}) {
           owner {
             addresses
 <strong>            socials(input: {filter: {dappName: {_eq: lens}}}) {
@@ -124,15 +115,6 @@ To show Lens profile in the responses, add `socials` with `lens` added to the `d
   }
 }
 </code></pre>
-{% endtab %}
-
-{% tab title="Variable" %}
-```json
-{
-  "tokenA": "0xb93ee8cdab36199c6debf5bbec53e5908fd8e4e1",
-  "tokenB": "0x0a1bbd57033f57e7b6743621b79fcb9eb2ce3676"
-}
-```
 {% endtab %}
 
 {% tab title="Response" %}
@@ -188,13 +170,13 @@ To show Farcaster in the responses, add `socials` with `farcaster` added to the 
 
 {% tabs %}
 {% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersWithFarcaster($tokenA: Address!, $tokenB: Address!, $cursor: String) {
+<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersWithFarcaster {
   TokenBalances(
-    input: {filter: {tokenAddress: {_eq: $tokenA}}, blockchain: ethereum, limit: 200, cursor: $cursor}
+    input: {filter: {tokenAddress: {_eq: "0xb93ee8cdab36199c6debf5bbec53e5908fd8e4e1"}}, blockchain: ethereum, limit: 200}
   ) {
     TokenBalance {
       owner {
-        tokenBalances(input: {filter: {tokenAddress: {_eq: $tokenB}}, limit: 200}) {
+        tokenBalances(input: {filter: {tokenAddress: {_eq: "0x0a1bbd57033f57e7b6743621b79fcb9eb2ce3676"}}, limit: 200}) {
           owner {
             addresses
 <strong>            socials(input: {filter: {dappName: {_eq: farcaster}}}) {
@@ -208,15 +190,6 @@ To show Farcaster in the responses, add `socials` with `farcaster` added to the 
   }
 }
 </code></pre>
-{% endtab %}
-
-{% tab title="Variable" %}
-```json
-{
-  "tokenA": "0xb93ee8cdab36199c6debf5bbec53e5908fd8e4e1",
-  "tokenB": "0x0a1bbd57033f57e7b6743621b79fcb9eb2ce3676"
-}
-```
 {% endtab %}
 
 {% tab title="Response" %}

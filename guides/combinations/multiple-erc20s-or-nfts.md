@@ -10,83 +10,47 @@ description: >-
 
 * [Common Holders of 2 ERC20 Tokens or NFTs](multiple-erc20s-or-nfts.md#common-holders-of-2-erc20-tokens-or-nfts)
 * [Common Holders of More Than 2 ERC20 Tokens or NFTs](multiple-erc20s-or-nfts.md#common-holders-of-more-than-2-erc20-tokens)
-* [Holders of NFT A That Holds More Than X Amount Of Token B](multiple-erc20s-or-nfts.md#example-3-get-common-holders-of-moonbirds-that-has-more-than-10-usdt)
+* Examples
+  * [Get Common Holders of USDT and USDC](multiple-erc20s-or-nfts.md#example-1-get-common-holders-of-usdt-and-usdc)
+  * [Get Common Holders of BAYC & Moonbirds](multiple-erc20s-or-nfts.md#example-2-get-common-holders-of-bayc-and-moonbirds)
+  * [Get Common Holders of Moonbirds That Has More Than 10 USDT](multiple-erc20s-or-nfts.md#example-3-get-common-holders-of-moonbirds-that-has-more-than-10-usdt)
 
-## Common Holders of 2 ERC20 Tokens or NFTs
+## Best Practices
 
-You can fetch the common holders of two given ERC20 or NFT contract addresses:
+With [nested queries](../../api-references/nested-queries.md), Airstack finds the intersection of common token holders of multiple ERC20 tokens or NFTs in the following order:
 
-<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfTwoTokensOrNfts($tokenA: Address!, $tokenB: Address!, $cursor: String) {
-  TokenBalances(input: {filter: {tokenAddress: {_eq: $tokenA}}, blockchain: ethereum, limit: 200, cursor: $cursor}) {
-    TokenBalance {
-      owner {
-        tokenBalances(input: {filter: {tokenAddress: {_eq: $tokenB}}, limit: 200}) {
-          owner {
-<strong>            addresses
-</strong>          }
-          tokenId # Only for ERC721/1155 NFTs
-        }
-      }
-    }
-    pageInfo {
-      nextCursor
-      prevCursor
-    }
-  }
-}
-</code></pre>
+1. Filtering token holders on the 1st outermost query
+2. Comparing token holders of 1st outermost query against the token holders on 2nd outermost query
+3. Comparing token holders of the 1st and 2nd outermost query against the token holders on the 3rd outermost query
+4. Comparing token holders of 1st, 2nd, ..., nth outermost query against the token holders on (n + 1)-th outermost query
 
-All the common holders' addresses will be returned inside the innermost `owner.addresses` field.
+Since the number of objects returned in the responses will be dependent on the number of token holders on the 1st outermost query, it's most efficient that you have the **token with the least amount of holders** on the 1st outermost query.
 
-## Common Holders of More Than 2 ERC20 Tokens
+{% hint style="info" %}
+Suppose there are two tokens:
 
-Fetching common holders for more than 2 ERC20 tokens works the same way as fetching only 2 ERC20 tokens with the addition of more token address parameters `$tokenC`, `$tokenD`, `$tokenE`, etc:
+* Token A: 100,000 holders
+* Token B: 1,000 holders.
 
-```graphql
-query GetCommonHoldersOfMoreThanTwoTokensOrNfts(
-  $tokenA: Address!,
-  $tokenB: Address!,
-  $tokenC: Address!,
-  # $tokenD, $tokenE, etc.
-  $cursor: String
-) {
-  TokenBalances(input: {filter: {tokenAddress: {_eq: $tokenA}}, blockchain: ethereum, limit: 200, cursor: $cursor}) {
-    TokenBalance {
-      owner {
-        tokenBalances(input: {filter: {tokenAddress: {_eq: $tokenB}}, limit: 200}) {
-          owner {
-            tokenBalances(input: {filter: {tokenAddress: {_eq: $tokenC}}, limit: 200}) {
-              owner {
-                ... # more nested tokenBalances and so on
-              }
-              tokenId # Only for ERC721/1155 NFTs
-            }
-          }
-          tokenId # Only for ERC721/1155 NFTs
-        }
-      }
-    }
-    pageInfo {
-      nextCursor
-      prevCursor
-    }
-  }
-}
-```
+If Token A is the input on the 1st outermost query, then the end result will be **100,000 objects** in the response array.
 
-## Example #1: Get Common Holders of USDT and USDC
+On the other hand, if Token B is the input on the 1st outermost query, then the end result will be instead **ONLY** 1,000 objects in the response array.
 
-### Code
+The latter approach will be more efficient and easier for further formatting.
+{% endhint %}
+
+## Common Holders of 2 ERC20 Tokens
+
+You can fetch the common holders of two given ERC20, e.g. [USDT](https://explorer.airstack.xyz/token-holders?address=0xdac17f958d2ee523a2206206994597c13d831ec7\&blockchain=ethereum\&rawInput=%23%E2%8E%B1Tether+USD%E2%8E%B1%280xdac17f958d2ee523a2206206994597c13d831ec7+TOKEN+ethereum+null%29+\&inputType=ADDRESS) and [USDC](https://explorer.airstack.xyz/token-holders?address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&blockchain=ethereum\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29+\&inputType=ADDRESS):
 
 {% tabs %}
 {% tab title="Query" %}
-```graphql
-query GetCommonHoldersOfUSDTAndUSDC($tokenA: Address!, $tokenB: Address!) {
-  TokenBalances(input: {filter: {tokenAddress: {_eq: $tokenA}}, blockchain: ethereum, limit: 200}) {
-    TokenBalance {
+<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfUSDTAndUSDC {
+<strong>  TokenBalances(input: {filter: {tokenAddress: {_eq: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}}, blockchain: ethereum, limit: 200}) {
+</strong>    TokenBalance {
       owner {
-        tokenBalances(input: {filter: {tokenAddress: {_eq: $tokenB}}, limit: 200}) {
-          owner {
+<strong>        tokenBalances(input: {filter: {tokenAddress: {_eq: "0xdAC17F958D2ee523a2206206994597C13D831ec7"}}, limit: 200}) {
+</strong>          owner {
             addresses
           }
         }
@@ -94,16 +58,7 @@ query GetCommonHoldersOfUSDTAndUSDC($tokenA: Address!, $tokenB: Address!) {
     }
   }
 }
-```
-{% endtab %}
-
-{% tab title="Variable" %}
-```json
-{
-  "tokenA": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-  "tokenB": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-}
-```
+</code></pre>
 {% endtab %}
 
 {% tab title="Response" %}
@@ -138,19 +93,20 @@ query GetCommonHoldersOfUSDTAndUSDC($tokenA: Address!, $tokenB: Address!) {
 {% endtab %}
 {% endtabs %}
 
-## Example #2: Get Common Holders of BAYC & Moonbirds
+All the common holders' addresses will be returned inside the innermost `owner.addresses` field.
 
-### Code
+## Common Holders of 2 NFTs
+
+You can fetch the common holders of two given NFTs, e.g. [BAYC](https://explorer.airstack.xyz/token-holders?address=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d\&rawInput=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d\&inputType=ADDRESS\&tokenType=ERC721) and [Moonbirds](https://explorer.airstack.xyz/token-holders?address=0x23581767a106ae21c074b2276D25e5C3e136a68b\&blockchain=ethereum\&rawInput=%23%E2%8E%B1Moonbirds%E2%8E%B1%280x23581767a106ae21c074b2276D25e5C3e136a68b+NFT\_COLLECTION+ethereum+null%29+\&inputType=ADDRESS):
 
 {% tabs %}
 {% tab title="Query" %}
-```graphql
-query GetCommonHoldersOfBAYCAndMoonBirds($tokenA: Address!, $tokenB: Address!) {
-  TokenBalances(input: {filter: {tokenAddress: {_eq: $tokenA}}, blockchain: ethereum, limit: 200}) {
-    TokenBalance {
+<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfBAYCAndMoonBirds {
+<strong>  TokenBalances(input: {filter: {tokenAddress: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}}, blockchain: ethereum, limit: 200}) {
+</strong>    TokenBalance {
       owner {
-        tokenBalances(input: {filter: {tokenAddress: {_eq: $tokenB}}, limit: 200}) {
-          owner {
+<strong>        tokenBalances(input: {filter: {tokenAddress: {_eq: "0x23581767a106ae21c074b2276D25e5C3e136a68b"}}, limit: 200}) {
+</strong>          owner {
             addresses
           }
           tokenId
@@ -159,16 +115,7 @@ query GetCommonHoldersOfBAYCAndMoonBirds($tokenA: Address!, $tokenB: Address!) {
     }
   }
 }
-```
-{% endtab %}
-
-{% tab title="Variable" %}
-```json
-{
-  "tokenA": "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
-  "tokenB": "0x23581767a106ae21c074b2276D25e5C3e136a68b"
-}
-```
+</code></pre>
 {% endtab %}
 
 {% tab title="Response" %}
@@ -204,27 +151,23 @@ query GetCommonHoldersOfBAYCAndMoonBirds($tokenA: Address!, $tokenB: Address!) {
 {% endtab %}
 {% endtabs %}
 
-## Example #3: Get Common Holders of Moonbirds That Has More Than 10 USDT
+All the common holders' addresses will be returned inside the innermost `owner.addresses` field and `tokenId` is optional for determining which NFT is specifically held by the user as there can be multiple NFTs held by a single user.
 
-### Code
+## Common Holders of NFT That Held A Minimum Amount of ERC20 Token
 
-For filtering based on ERC20 token held, add `formattedAmount` to the input as shown below:
+You can fetch common holders of an NFT with a specific amount held for the ERC20, e.g. [Moonbirds](https://explorer.airstack.xyz/token-holders?address=0x23581767a106ae21c074b2276D25e5C3e136a68b\&blockchain=ethereum\&rawInput=%23%E2%8E%B1Moonbirds%E2%8E%B1%280x23581767a106ae21c074b2276D25e5C3e136a68b+NFT\_COLLECTION+ethereum+null%29+\&inputType=ADDRESS) holders with more than 10 [USDT](https://explorer.airstack.xyz/token-holders?address=0xdac17f958d2ee523a2206206994597c13d831ec7\&blockchain=ethereum\&rawInput=%23%E2%8E%B1Tether+USD%E2%8E%B1%280xdac17f958d2ee523a2206206994597c13d831ec7+TOKEN+ethereum+null%29+\&inputType=ADDRESS):
 
 {% tabs %}
 {% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfMoonbirdsAndMoreThanTenUSDT(
-  $tokenA: Address!,
-  $tokenB: Address!,
-<strong>  $formattedAmount: Float!
-</strong>) {
-  TokenBalances(input: {filter: {tokenAddress: {_eq: $tokenA}}, blockchain: ethereum, limit: 200}) {
-    TokenBalance {
+<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfMoonbirdsAndMoreThanTenUSDT {
+<strong>  TokenBalances(input: {filter: {tokenAddress: {_eq: "0x23581767a106ae21c074b2276D25e5C3e136a68b"}}, blockchain: ethereum, limit: 200}) {
+</strong>    TokenBalance {
       owner {
         tokenBalances(
           input: {
             filter: {
-              tokenAddress: {_eq: $tokenB},
-<strong>              formattedAmount: {_gt: $formattedAmount}
+<strong>              tokenAddress: {_eq: "0xdAC17F958D2ee523a2206206994597C13D831ec7"},
+</strong><strong>              formattedAmount: {_gt: 10}
 </strong>            },
             limit: 200
           }
@@ -238,16 +181,6 @@ For filtering based on ERC20 token held, add `formattedAmount` to the input as s
   }
 }
 </code></pre>
-{% endtab %}
-
-{% tab title="Variable" %}
-```json
-{
-  "tokenA": "0x23581767a106ae21c074b2276D25e5C3e136a68b",
-  "tokenB": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-  "formattedAmount": 10
-}
-```
 {% endtab %}
 
 {% tab title="Response" %}
@@ -281,6 +214,144 @@ For filtering based on ERC20 token held, add `formattedAmount` to the input as s
 ```
 {% endtab %}
 {% endtabs %}
+
+All the common holders' addresses will be returned inside the innermost `owner.addresses` field.
+
+## Common Holders of A Token on Ethereum and A Token on Polygon (Cross-Chain)
+
+You can fetch common holders of NFT from different chains, e.g. [BAYC](https://explorer.airstack.xyz/token-holders?address=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d\&rawInput=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d\&inputType=ADDRESS\&tokenType=ERC721) on Ethereum and [Cuddleverse](https://explorer.airstack.xyz/token-holders?address=0xb59bd2c3f24afa4a3177d0e886abe072ef9c8eb0\&rawInput=0xb59bd2c3f24afa4a3177d0e886abe072ef9c8eb0\&inputType=ADDRESS\&tokenType=ERC721) on Polygon:
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfBAYCAndMoonBirds {
+<strong>  TokenBalances(input: {filter: {tokenAddress: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}}, blockchain: ethereum, limit: 200}) {
+</strong>    TokenBalance {
+      owner {
+<strong>        tokenBalances(input: {filter: {tokenAddress: {_eq: "0xb59bd2c3f24afa4a3177d0e886abe072ef9c8eb0"}}, blockchain: polygon, limit: 200}) {
+</strong>          owner {
+            addresses
+          }
+          tokenId
+        }
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenBalances": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "tokenBalances": [
+              {
+                "owner": {
+                  "addresses": [
+                    "0x020ca66c30bec2c4fe3861a94e4db4a498a35872"
+                  ]
+                },
+                "tokenId": "352"
+              }
+            ]
+          }
+        },
+        {
+          "owner": {
+            "tokenBalances": []
+          }
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+All the common holders' addresses will be returned inside the innermost `owner.addresses` field.
+
+## Common Holders of More Than 2 ERC20 Tokens or NFTs
+
+Fetching common holders for more than 2 ERC20 tokens or NFTs works the same way as fetching only 2 ERC20 tokens or NFTs with the addition of more token address parameters and nesting:
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfMoreThanTwoTokensOrNfts {
+  TokenBalances(
+<strong>    input: {filter: {tokenAddress: {_eq: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}}, blockchain: ethereum, limit: 200}
+</strong>  ) {
+    TokenBalance {
+      owner {
+        tokenBalances(
+<strong>          input: {filter: {tokenAddress: {_eq: "0xdAC17F958D2ee523a2206206994597C13D831ec7"}}, limit: 200}
+</strong>        ) {
+          owner {
+            tokenBalances(
+<strong>              input: {filter: {tokenAddress: {_eq: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174"}}, limit: 200, blockchain: polygon}
+</strong>            ) {
+              owner {
+                addresses
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenBalances": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "tokenBalances": [
+              {
+                "owner": {
+                  "tokenBalances": [
+                    {
+                      "owner": {
+                        "addresses": [
+                          "0x205e94337bc61657b4b698046c3c2c5c1d2fb8f1"
+                        ]
+                      }
+                    }
+                  ]
+                },
+              }
+            ]
+          }
+        },
+        {
+          "owner": {
+            "tokenBalances": [
+              {
+                "owner": {
+                  "tokenBalances": [] // Doesn't have all 3 tokens
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+All the common holders' addresses will be returned inside the innermost `owner.addresses` field.
 
 ## Developer Support
 
