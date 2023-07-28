@@ -44,6 +44,8 @@ The latter approach will be more efficient and easier for further formatting.
 
 ## Common Holders of A Token (ERC20 or NFT) and A POAP
 
+### Fetching
+
 You can fetch the common holder of a token and a POAP by providing the token contract address and the POAP event ID:
 
 {% tabs %}
@@ -100,7 +102,61 @@ You can fetch the common holder of a token and a POAP by providing the token con
 
 All the common holders' addresses will be returned inside the innermost `owner.addresses` field.
 
+### Formatting
+
+To get the list of all holders in a flat array, use the following format function:
+
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+const formatFunction = (data) =>
+  data?.TokenBalances?.TokenBalance?.map(({ owner }) =>
+    owner?.poaps?.map(({ owner }) => owner?.addresses)
+  )
+    .filter(Boolean)
+    .flat(2)
+    .filter((address, index, array) => array.indexOf(address) === index) ?? [];
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def format_function(data):
+    result = []
+    if data is not None and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
+        for item in data['TokenBalances']['TokenBalance']:
+            if 'owner' in item and 'poaps' in item['owner']:
+                for poap in item['owner']['poaps']:
+                    if 'owner' in poap and 'addresses' in poap['owner']:
+                        result.append(poap['owner']['addresses'])
+
+    result = [item for sublist in result for item in sublist]
+    result = [item for sublist in result for item in sublist]
+    result = list(set(result))
+
+    return result
+
+```
+{% endtab %}
+{% endtabs %}
+
+The final result will the the list of all common holders in an array:
+
+```json
+[
+  "0xc77d249809ae5a118eef66227d1a01a3d62c82d4",
+  "0x3291e96b3bff7ed56e3ca8364273c5b4654b2b37",
+  "0xe348c7959e47646031cea7ed30266a6702d011cc",
+  // ...other token holders
+  "0xa69babef1ca67a37ffaf7a485dfff3382056e78c",
+  "0x46340b20830761efd32832a74d7169b29feb9758",
+  "0x2008b6c3d07b061a84f790c035c2f6dc11a0be70"
+]
+```
+
 ## Common Holders of Any Tokens (ERC20s or NFTs) and POAPs
+
+### Fetching
 
 In order to add more tokens or POAPs, then more nested queries will be necessary.
 
@@ -221,6 +277,62 @@ or add `poaps` to add new POAP with new POAP event ID:
 {% endtabs %}
 
 All the common holders' addresses will be returned inside the innermost `owner.addresses` field.
+
+### Formatting
+
+To get the list of all holders in a flat array, use the following format function:
+
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+const formatFunction = (data) =>
+  data?.TokenBalances?.TokenBalance?.map(({ owner }) =>
+    owner?.poaps?.map(({ owner }) =>
+      owner?.tokenBalances?.map(({ owner }) => owner?.addresses)
+    )
+  )
+    .filter(Boolean)
+    .flat(3)
+    .filter((address, index, array) => array.indexOf(address) === index) ?? [];
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def format_function(data):
+    result = []
+    if data is not None and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
+        for item in data['TokenBalances']['TokenBalance']:
+            if 'owner' in item and 'poaps' in item['owner']:
+                for poap in item['owner']['poaps']:
+                    if 'owner' in poap and 'tokenBalances' in poap['owner']:
+                        for token_balance in poap['owner']['tokenBalances']:
+                            if 'owner' in token_balance and 'addresses' in token_balance['owner']:
+                                result.append(token_balance['owner']['addresses'])
+
+    result = [item for sublist in result for item in sublist]
+    result = [item for sublist in result for item in sublist]
+    result = [item for sublist in result for item in sublist]
+    result = list(set(result))
+
+    return result
+```
+{% endtab %}
+{% endtabs %}
+
+The final result will the the list of all common holders in an array:
+
+```json
+[
+  "0xc77d249809ae5a118eef66227d1a01a3d62c82d4",
+  "0x3291e96b3bff7ed56e3ca8364273c5b4654b2b37",
+  "0xe348c7959e47646031cea7ed30266a6702d011cc",
+  // ...other token holders
+  "0xa69babef1ca67a37ffaf7a485dfff3382056e78c",
+  "0x46340b20830761efd32832a74d7169b29feb9758",
+  "0x2008b6c3d07b061a84f790c035c2f6dc11a0be70"
+]
+```
 
 ## Developer Support
 
