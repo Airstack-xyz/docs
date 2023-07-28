@@ -18,6 +18,8 @@ description: >-
 
 ## XMTP
 
+### Fetching
+
 To check if XMTP is enabled, simply add `xmtp.isXMTPEnabled` under the `owner` field:
 
 {% tabs %}
@@ -89,7 +91,62 @@ To check if XMTP is enabled, simply add `xmtp.isXMTPEnabled` under the `owner` f
 {% endtab %}
 {% endtabs %}
 
+### Formatting
+
+To get the list of all holders in a flat array, use the following format function:
+
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+const formatFunction = (data) =>
+  data?.TokenBalances?.TokenBalance?.map(({ owner }) =>
+    owner?.tokenBalances?.map(({ owner }) =>
+      owner?.xmtp?.isXMTPEnabled ? owner?.addresses : null
+    )
+  )
+    .filter(Boolean)
+    .flat(2)
+    .filter((address, index, array) => array.indexOf(address) === index) ?? [];
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def format_function(data):
+    result = []
+    if data is not None and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
+        for item in data['TokenBalances']['TokenBalance']:
+            if 'owner' in item and 'tokenBalances' in item['owner']:
+                for token_balance in item['owner']['tokenBalances']:
+                    if 'owner' in token_balance and 'xmtp' in token_balance['owner'] and token_balance['owner']['xmtp'].get('isXMTPEnabled', False) and 'addresses' in token_balance['owner']:
+                        result.append(token_balance['owner']['addresses'])
+
+    result = [item for sublist in result for item in sublist]
+    result = [item for sublist in result for item in sublist]
+    result = list(set(result))
+
+    return result
+```
+{% endtab %}
+{% endtabs %}
+
+The final result will the the list of all common holders in an array:
+
+```json
+[
+  "0xc77d249809ae5a118eef66227d1a01a3d62c82d4",
+  "0x3291e96b3bff7ed56e3ca8364273c5b4654b2b37",
+  "0xe348c7959e47646031cea7ed30266a6702d011cc",
+  // ...other token holders
+  "0xa69babef1ca67a37ffaf7a485dfff3382056e78c",
+  "0x46340b20830761efd32832a74d7169b29feb9758",
+  "0x2008b6c3d07b061a84f790c035c2f6dc11a0be70"
+]
+```
+
 ## Lens
+
+### Fetching
 
 To show Lens profile in the responses, add `socials` with `lens` added to the `dappName` filter under the `owner` field:
 
@@ -164,7 +221,62 @@ To show Lens profile in the responses, add `socials` with `lens` added to the `d
 {% endtab %}
 {% endtabs %}
 
+### Formatting
+
+To get the list of all holders in a flat array, use the following format function:
+
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+const formatFunction = (data) =>
+  data?.TokenBalances?.TokenBalance?.map(({ owner }) =>
+    owner?.tokenBalances?.map(({ owner }) =>
+      owner?.socials.length > 0 ? owner?.addresses : null
+    )
+  )
+    .filter(Boolean)
+    .flat(2)
+    .filter((address, index, array) => array.indexOf(address) === index) ?? [];
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def format_function(data):
+    result = []
+    if data is not None and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
+        for item in data['TokenBalances']['TokenBalance']:
+            if 'owner' in item and 'tokenBalances' in item['owner']:
+                for token_balance in item['owner']['tokenBalances']:
+                    if 'owner' in token_balance and 'socials' in token_balance['owner'] and len(token_balance['owner']['socials']) > 0 and 'addresses' in token_balance['owner']:
+                        result.append(token_balance['owner']['addresses'])
+                        
+    result = [item for sublist in result for item in sublist]
+    result = [item for sublist in result for item in sublist]
+    result = list(set(result))
+
+    return result
+```
+{% endtab %}
+{% endtabs %}
+
+The final result will the the list of all common holders in an array:
+
+```json
+[
+  "0xc77d249809ae5a118eef66227d1a01a3d62c82d4",
+  "0x3291e96b3bff7ed56e3ca8364273c5b4654b2b37",
+  "0xe348c7959e47646031cea7ed30266a6702d011cc",
+  // ...other token holders
+  "0xa69babef1ca67a37ffaf7a485dfff3382056e78c",
+  "0x46340b20830761efd32832a74d7169b29feb9758",
+  "0x2008b6c3d07b061a84f790c035c2f6dc11a0be70"
+]
+```
+
 ## Farcaster
+
+### Fetching
 
 To show Farcaster in the responses, add `socials` with `farcaster` added to the `dappName` filter under the `owner` field:
 
@@ -238,6 +350,59 @@ To show Farcaster in the responses, add `socials` with `farcaster` added to the 
 ```
 {% endtab %}
 {% endtabs %}
+
+### Formatting
+
+To get the list of all holders in a flat array, use the following format function:
+
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+const formatFunction = (data) =>
+  data?.TokenBalances?.TokenBalance?.map(({ owner }) =>
+    owner?.tokenBalances?.map(({ owner }) =>
+      owner?.socials.length > 0 ? owner?.addresses : null
+    )
+  )
+    .filter(Boolean)
+    .flat(2)
+    .filter((address, index, array) => array.indexOf(address) === index) ?? [];
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def format_function(data):
+    result = []
+    if data is not None and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
+        for item in data['TokenBalances']['TokenBalance']:
+            if 'owner' in item and 'tokenBalances' in item['owner']:
+                for token_balance in item['owner']['tokenBalances']:
+                    if 'owner' in token_balance and 'socials' in token_balance['owner'] and len(token_balance['owner']['socials']) > 0 and 'addresses' in token_balance['owner']:
+                        result.append(token_balance['owner']['addresses'])
+                        
+    result = [item for sublist in result for item in sublist]
+    result = [item for sublist in result for item in sublist]
+    result = list(set(result))
+
+    return result
+```
+{% endtab %}
+{% endtabs %}
+
+The final result will the the list of all common holders in an array:
+
+```json
+[
+  "0xc77d249809ae5a118eef66227d1a01a3d62c82d4",
+  "0x3291e96b3bff7ed56e3ca8364273c5b4654b2b37",
+  "0xe348c7959e47646031cea7ed30266a6702d011cc",
+  // ...other token holders
+  "0xa69babef1ca67a37ffaf7a485dfff3382056e78c",
+  "0x46340b20830761efd32832a74d7169b29feb9758",
+  "0x2008b6c3d07b061a84f790c035c2f6dc11a0be70"
+]
+```
 
 ## Developer Support
 
