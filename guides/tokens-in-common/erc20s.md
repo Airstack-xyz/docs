@@ -62,7 +62,7 @@ query MyQuery {
         },
         {
           "token": {
-            "tokenBalances": []
+            "tokenBalances": [] // owned by betashop.eth, but not tokenstaker.eth
           }
         }
       ]
