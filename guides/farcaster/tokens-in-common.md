@@ -6,14 +6,20 @@ description: >-
 
 # 🤝 Tokens In Common
 
-## ERC20 Tokens In Common of Farcaster User(s)
+## Topics
+
+* [ERC20 Tokens In Common Owned By Farcaster User(s)](tokens-in-common.md#erc20-tokens-in-common-owned-by-farcaster-user-s)
+* [NFTs In Common Owned By Farcaster User(s)](tokens-in-common.md#nfts-in-common-owned-by-farcaster-user-s)
+* [POAPs Tokens In Common Owned By Farcaster User(s)](tokens-in-common.md#poaps-in-common-owned-by-farcaster-user-s)
+
+## ERC20 Tokens In Common Owned By Farcaster User(s)
 
 You can fetch common ERC20 tokens of multiple Farcaster user(s):
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/QIFCtkidcx" %}
-Show common ERC20 tokens held by users
+Show common ERC20 tokens of two Farcaster users
 {% endembed %}
 
 ### Code
@@ -77,7 +83,7 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## NFTs In Common
+## NFTs In Common Owned By Farcaster User(s)
 
 You can fetch common NFTs of multiple Farcaster user(s):
 
@@ -148,7 +154,7 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## POAPs In Common
+## POAPs In Common Owned By Farcaster User(s)
 
 You can fetch common POAPs of multiple Farcaster user(s):
 
@@ -221,7 +227,7 @@ query MyQuery {
 
 ## Developer Support
 
-If you have any questions or need help regarding fetching common ERC20 tokens, NFTs, or POAPs of multiple users, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding fetching common ERC20 tokens, NFTs, or POAPs of multiple Farcaster users, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 

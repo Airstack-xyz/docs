@@ -20,7 +20,7 @@ You can resolve an array of Farcaster user(s) to their 0x addresses:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Qig0cA3dEv" %}
+{% embed url="https://app.airstack.xyz/query/qqtJSWcZOM" %}
 Show 0x addresses of Farcaster user name dwr.eth and user id 1
 {% endembed %}
 
@@ -246,7 +246,7 @@ Show if XMTP is enabled for Farcaster user name varunsrin.eth and user id 5650
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
-query GetLensOfFarcasters {
+query GetXMTPOfFarcasters {
   XMTPs(
     input: {blockchain: ALL, filter: {owner: {_in: ["fc_fname:varunsrin.eth", "fc_fid:5650"]}}}
   ) {

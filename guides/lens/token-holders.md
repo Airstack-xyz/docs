@@ -1,32 +1,32 @@
 ---
 description: >-
-  Learn how to get all Farcaster users who own a specific token, NFT, or POAP,
-  or a min amount of that token. Get combinations of NFTs or POAPs + Farcaster,
-  e.g. Has POAP1 and POAP2 and has Farcaster
+  Learn how to get all Lens profiles who own a specific token, NFT, or POAP, or
+  a min amount of that token. Get combinations of NFTs or POAPs + Lens, e.g. Has
+  POAP1 and POAP2 and has Lens profile
 ---
 
 # 🥇 Token Holders
 
 ## Topics
 
-* [Get Holders of an ERC20 Token That Has Farcaster](token-holders.md#get-holders-of-an-erc20-token-that-has-farcaster)
-* [Get Holders of NFT That Has Farcaster](token-holders.md#get-holders-of-nft-that-has-farcaster)
-* [Get Holders of POAP That Has Farcaster](token-holders.md#get-holders-of-nft-that-has-farcaster)
+* [Get Holders of an ERC20 Token That Has Lens Profile](token-holders.md#get-holders-of-an-erc20-token-that-has-lens-profile)
+* [Get Holders of NFT That Has Lens Profile](token-holders.md#get-holders-of-nft-that-has-lens-profile)
+* [Get Holders of POAP That Has Lens Profile](token-holders.md#get-holders-of-poap-that-has-lens-profile)
 * [Get Holders That Held Specific Amount of ERC20 Token](token-holders.md#get-holders-that-held-specific-amount-of-erc20-token)
-* [Get Common Holders of 2 ERC20 Tokens That Has Farcaster](token-holders.md#get-common-holders-of-2-erc20-tokens-that-has-farcaster)
-* [Get Common Holders of Two POAPs That Has Farcaster](token-holders.md#get-common-holders-of-two-poaps-and-that-has-farcaster)
-* [Get Common Holders of A Token (ERC20 or NFT) and A POAP That Has Farcaster](token-holders.md#get-common-holders-of-two-poaps-and-that-has-farcaster)
+* [Get Common Holders of 2 ERC20 Tokens That Have Lens Profile](token-holders.md#get-common-holders-of-2-erc20-tokens-that-have-lens-profile)
+* [Get Common Holders of Two POAPs That Has Lens Profile](token-holders.md#get-common-holders-of-two-poaps-and-that-has-lens-profile)
+* [Get Common Holders of A Token (ERC20 or NFT) and A POAP That Has a Lens Profile](token-holders.md#get-common-holders-of-a-token-erc20-or-nft-and-a-poap-that-has-lens-profile)
 
-## Get Holders of an ERC20 Token That Has Farcaster
+## Get Holders of an ERC20 Token That Has Lens Profile
 
 ### Fetching
 
-You can get all holders of an ERC20 token that has Farcaster:
+You can get all holders of an ERC20 token that has a Lens Profile:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/dErT36be21" %}
-Show all token holders of USD Coin on Polygon that has Farcaster
+{% embed url="https://app.airstack.xyz/query/jwb232gKHF" %}
+Show all token holders of USD Coin on Polygon that has Lens profile
 {% endembed %}
 
 #### Code
@@ -40,7 +40,7 @@ query MyQuery {
   ) {
     TokenBalance {
       owner {
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: {filter: {dappName: {_eq: lens}}}) {
           profileName
           userId
           userAssociatedAddresses
@@ -62,11 +62,10 @@ query MyQuery {
           "owner": {
             "socials": [
               {
-                "profileName": "vbuterin",
-                "userId": "5650",
+                "profileName": "lyska.lens",
+                "userId": "0x79eb30ff39ad0d2879ee1c0358170972e808cf7a",
                 "userAssociatedAddresses": [
-                  "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
-                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                  "0x79eb30ff39ad0d2879ee1c0358170972e808cf7a"
                 ]
               }
             ]
@@ -120,27 +119,26 @@ The final result will the the list of all common holders in an array:
 ```json
 [
   {
-    "profileName": "vbuterin",
-    "userId": "5650",
+    "profileName": "lyska.lens",
+    "userId": "0x79eb30ff39ad0d2879ee1c0358170972e808cf7a",
     "userAssociatedAddresses": [
-      "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
-      "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+      "0x79eb30ff39ad0d2879ee1c0358170972e808cf7a"
     ]
   },
   // ... other token holders
 ]
 ```
 
-## Get Holders of NFT That Has Farcaster
+## Get Holders of NFT That Has Lens Profile
 
 ### Fetching
 
-You can get all holders of NFT that has Farcaster:
+You can get all holders of NFT that has Lens Profile:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Qyl0sm2u8E" %}
-Show all token holders of BoredApeYachtClub that has Farcaster
+{% embed url="https://app.airstack.xyz/query/gIOrRVPFVK" %}
+Show all token holders of StandWithCrypto that has Lens Profile
 {% endembed %}
 
 #### Code
@@ -150,12 +148,12 @@ Show all token holders of BoredApeYachtClub that has Farcaster
 ```graphql
 query MyQuery {
   TokenBalances(
-    input: {filter: {tokenAddress: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}}, blockchain: ethereum, limit: 200}
+    input: {filter: {tokenAddress: {_eq: "0x9d90669665607f08005cae4a7098143f554c59ef"}}, blockchain: ethereum, limit: 200}
   ) {
     TokenBalance {
       owner {
         socials(
-          input: {filter: {dappName: {_eq: farcaster}}}
+          input: {filter: {dappName: {_eq: lens}}}
         ) {
           profileName
           userId
@@ -178,11 +176,10 @@ query MyQuery {
           "owner": {
             "socials": [
               {
-                "profileName": "durtis",
-                "userId": "11926",
+                "profileName": "choccy.lens",
+                "userId": "0x9a41abee1477745ab8004ce129ad60f1231ef85b",
                 "userAssociatedAddresses": [
-                  "0xcb0b3404b7d5db8622511427c09a1bba450d3c0f",
-                  "0xe5ca890a0ef2f128eb3267e4711c6bf3306ec024"
+                  "0x9a41abee1477745ab8004ce129ad60f1231ef85b"
                 ]
               }
             ]
@@ -236,27 +233,26 @@ The final result will the the list of all common holders in an array:
 ```json
 [
   {
-    "profileName": "durtis",
-    "userId": "11926",
+    "profileName": "choccy.lens",
+    "userId": "0x9a41abee1477745ab8004ce129ad60f1231ef85b",
     "userAssociatedAddresses": [
-      "0xcb0b3404b7d5db8622511427c09a1bba450d3c0f",
-      "0xe5ca890a0ef2f128eb3267e4711c6bf3306ec024"
+      "0x9a41abee1477745ab8004ce129ad60f1231ef85b"
     ]
   }
   // ... other token holders
 ]
 ```
 
-## Get Holders of POAP That Has Farcaster
+## Get Holders of POAP That Has Lens Profile
 
 ### Fetching
 
-You can get all holders of POAP that has Farcaster:
+You can get all holders of POAP that has Lens Profile:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/BsPwpo9zYu" %}
-Show all POAP holders of EthCC\[6] - Attendee that has Farcaster
+{% embed url="https://app.airstack.xyz/query/6JBkrFm6Xn" %}
+Show all POAP holders of EthCC\[6] - Attendee that has Lens Profile
 {% endembed %}
 
 #### Code
@@ -268,7 +264,7 @@ query MyQuery {
   Poaps(input: {filter: {eventId: {_eq: "141910"}}, blockchain: ALL, limit: 50}) {
     Poap {
       owner {
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: {filter: {dappName: {_eq: lens}}}) {
           profileName
           userId
           userAssociatedAddresses
@@ -290,12 +286,10 @@ query MyQuery {
           "owner": {
             "socials": [
               {
-                "profileName": "megankaspar",
-                "userId": "7361",
+                "profileName": "0x131.lens",
+                "userId": "0x4455951fa43b17bd211e0e8ae64d22fb47946ade",
                 "userAssociatedAddresses": [
-                  "0xadf37a0d500c748edb1c689a1be26472e583dcb5",
-                  "0x4455951fa43b17bd211e0e8ae64d22fb47946ade",
-                  "0xfaedb341b0faced023099d7b0ccd23c2ec5ed7a5"
+                  "0x4455951fa43b17bd211e0e8ae64d22fb47946ade"
                 ]
               }
             ]
@@ -349,12 +343,10 @@ The final result will the the list of all common holders in an array:
 ```json
 [
   {
-    "profileName": "megankaspar",
-    "userId": "7361",
+    "profileName": "0x131.lens",
+    "userId": "0x4455951fa43b17bd211e0e8ae64d22fb47946ade",
     "userAssociatedAddresses": [
-      "0xadf37a0d500c748edb1c689a1be26472e583dcb5",
-      "0x4455951fa43b17bd211e0e8ae64d22fb47946ade",
-      "0xfaedb341b0faced023099d7b0ccd23c2ec5ed7a5"
+      "0x4455951fa43b17bd211e0e8ae64d22fb47946ade"
     ]
   },
   // ... other token holders
@@ -365,12 +357,12 @@ The final result will the the list of all common holders in an array:
 
 ### Fetching
 
-You can get all holders of an ERC20 token that have a minimum amount held in their balances which also have Farcaster:
+You can get all holders of an ERC20 token that have a minimum amount held in their balances which also have Lens Profile:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/c1yxMwkl5B" %}
-Show all user that has at least 10 USD Coin with their Farcaster
+{% embed url="https://app.airstack.xyz/query/xW4iILym4e" %}
+Show all user that has at least 10 USD Coin with their Lens Profile
 {% endembed %}
 
 #### Code
@@ -392,7 +384,7 @@ query MyQuery {
     TokenBalance {
       owner {
         identity
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: {filter: {dappName: {_eq: lens}}}) {
           profileName
           userId
           userAssociatedAddresses
@@ -412,15 +404,13 @@ query MyQuery {
       "TokenBalance": [
         {
           "owner": {
-            "identity": "0xfc84d2742d0f1a66d76d51a2980f48a770a9456e",
+            "identity": "0xd034fd34eaee5ec2c413c51936109e12873f4da5",
             "socials": [
               {
-                "profileName": "yusuf",
-                "userId": "1081",
+                "profileName": "monkeyflower.lens",
+                "userId": "0xd034fd34eaee5ec2c413c51936109e12873f4da5",
                 "userAssociatedAddresses": [
-                  "0x3da8748ca04694d8f889fe457db96c2e7e7f381b",
-                  "0xfc84d2742d0f1a66d76d51a2980f48a770a9456e",
-                  "0x302882ea764225633c74838d702bb591774955a3"
+                  "0xd034fd34eaee5ec2c413c51936109e12873f4da5"
                 ]
               }
             ]
@@ -474,32 +464,40 @@ The final result will the the list of all common holders in an array:
 ```json
 [
   {
-    "profileName": "durtis",
-    "userId": "11926",
+    "profileName": "monkeyflower.lens",
+    "userId": "0xd034fd34eaee5ec2c413c51936109e12873f4da5",
     "userAssociatedAddresses": [
-      "0xcb0b3404b7d5db8622511427c09a1bba450d3c0f",
-      "0xe5ca890a0ef2f128eb3267e4711c6bf3306ec024"
+      "0xd034fd34eaee5ec2c413c51936109e12873f4da5"
     ]
   }
   // ... other token holders
 ]
 ```
 
-## Get Common Holders of 2 ERC20 Tokens That Has Farcaster
+## Get Common Holders of 2 ERC20 Tokens That Have Lens Profile
 
 ### Fetching
 
-You can fetch the common holders of two given ERC20, e.g. [USDT](https://explorer.airstack.xyz/token-holders?address=0xdac17f958d2ee523a2206206994597c13d831ec7\&blockchain=ethereum\&rawInput=%23%E2%8E%B1Tether+USD%E2%8E%B1%280xdac17f958d2ee523a2206206994597c13d831ec7+TOKEN+ethereum+null%29+\&inputType=ADDRESS) and [USDC](https://explorer.airstack.xyz/token-holders?address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&blockchain=ethereum\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29+\&inputType=ADDRESS):
+You can fetch the common holders of two given ERC20, e.g. [ApeCoin](https://explorer.airstack.xyz/token-holders?address=0x4d224452801aced8b2f0aebe155379bb5d594381\&rawInput=0x4d224452801aced8b2f0aebe155379bb5d594381\&inputType=ADDRESS\&tokenType=ERC20) and [USDC](https://explorer.airstack.xyz/token-holders?address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&blockchain=ethereum\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29+\&inputType=ADDRESS):
+
+#### Try Demo
+
+{% embed url="https://app.airstack.xyz/DTyOZg/tRf4wsoyrD" %}
+Show all common holders of ApeCoin and USDC that has Lens Profile
+{% endembed %}
+
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfUSDTAndUSDC {
-<strong>  TokenBalances(input: {filter: {tokenAddress: {_eq: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}}, blockchain: ethereum, limit: 200}) {
-</strong>    TokenBalance {
+```graphql
+query GetCommonHoldersOfApeCoinAndUSDC {
+  TokenBalances(input: {filter: {tokenAddress: {_eq: "0x4d224452801aced8b2f0aebe155379bb5d594381"}}, blockchain: ethereum, limit: 200}) {
+    TokenBalance {
       owner {
-<strong>        tokenBalances(input: {filter: {tokenAddress: {_eq: "0xdAC17F958D2ee523a2206206994597C13D831ec7"}}, limit: 200}) {
-</strong>          owner {
-            socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        tokenBalances(input: {filter: {tokenAddress: {_eq: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"}}, limit: 200}) {
+          owner {
+            socials(input: {filter: {dappName: {_eq: lens}}}) {
               profileName
               userId
               userAssociatedAddresses
@@ -510,7 +508,7 @@ You can fetch the common holders of two given ERC20, e.g. [USDT](https://explore
     }
   }
 }
-</code></pre>
+```
 {% endtab %}
 
 {% tab title="Response" %}
@@ -526,11 +524,10 @@ You can fetch the common holders of two given ERC20, e.g. [USDT](https://explore
                 "owner": {
                   "socials": [
                     {
-                      "profileName": "vbuterin",
-                      "userId": "5606",
+                      "profileName": "cryptoetc.lens",
+                      "userId": "0x188c30e9a6527f5f0c3f7fe59b72ac7253c62f28",
                       "userAssociatedAddresses": [
-                        "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
-                        "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                        "0x188c30e9a6527f5f0c3f7fe59b72ac7253c62f28"
                       ]
                     }
                   ]
@@ -552,7 +549,7 @@ You can fetch the common holders of two given ERC20, e.g. [USDT](https://explore
 {% endtab %}
 {% endtabs %}
 
-All the common holders' Farcaster details will be returned inside the innermost `owner.socials` field.
+All the common holders' Lens profile details will be returned inside the innermost `owner.socials` field.
 
 ### Formatting
 
@@ -598,18 +595,17 @@ The final result will the the list of all common holders in an array:
 ```json
 [
   {
-    "profileName": "vbuterin",
-    "userId": "5606",
+    "profileName": "cryptoetc.lens",
+    "userId": "0x188c30e9a6527f5f0c3f7fe59b72ac7253c62f28",
     "userAssociatedAddresses": [
-      "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
-      "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+      "0x188c30e9a6527f5f0c3f7fe59b72ac7253c62f28"
     ]
   }
   // ... other token holders
 ]
 ```
 
-## Get Common Holders of Two POAPs and That Has Farcaster
+## Get Common Holders of Two POAPs and That Has Lens Profile
 
 ### Fetching
 
@@ -617,8 +613,8 @@ You can fetch the common holders of two given POAP event IDs, e.g. [EthGlobal Li
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/tjIzrCbvsd" %}
-Get Common Holders Of EthGlobal Lisbon and EthCC POAPs
+{% embed url="https://app.airstack.xyz/query/1bf6GUDcES" %}
+Get Common Holders Of EthGlobal Lisbon and EthCC POAPs and Their Lens Profile
 {% endembed %}
 
 #### Code
@@ -631,7 +627,7 @@ Get Common Holders Of EthGlobal Lisbon and EthCC POAPs
       owner {
 <strong>        poaps(input: {blockchain: ALL, filter: {eventId: {_eq: "141910"}}}) {
 </strong>          owner {
-            socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+            socials(input: {filter: {dappName: {_eq: lens}}}) {
               profileName
               userId
               userAssociatedAddresses
@@ -658,11 +654,10 @@ Get Common Holders Of EthGlobal Lisbon and EthCC POAPs
                 "owner": {
                   "socials": [
                     {
-                      "profileName": "vbuterin",
-                      "userId": "5606",
+                      "profileName": "schmidsi.lens",
+                      "userId": "0x546457bbddf5e09929399768ab5a9d588cb0334d",
                       "userAssociatedAddresses": [
-                        "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
-                        "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                        "0x546457bbddf5e09929399768ab5a9d588cb0334d"
                       ]
                     }
                   ]
@@ -684,9 +679,9 @@ Get Common Holders Of EthGlobal Lisbon and EthCC POAPs
 {% endtab %}
 {% endtabs %}
 
-All the common holders' Farcaster details will be returned inside the innermost `owner.socials` field.
+All the common holders' Lens profile details will be returned inside the innermost `owner.socials` field.
 
-If user has any Farcaster, then `socials` will have non-`null` value and `profileName` and `userId` will show both the Farcaster name and ID, respectively.
+If user has any Lens profile, then `socials` will have non-`null` value and `profileName` will show the Lens profile name.
 
 ### Formatting
 
@@ -733,10 +728,9 @@ The final result will the the list of all common holders in an array:
 ```json
 [
   {
-    "profileName": "schmidsi",
-    "userId": "14088",
+    "profileName": "schmidsi.lens",
+    "userId": "0x546457bbddf5e09929399768ab5a9d588cb0334d",
     "userAssociatedAddresses": [
-      "0xcc8fd0d88abf88d006fea4487e59e2b39f281095",
       "0x546457bbddf5e09929399768ab5a9d588cb0334d"
     ]
   },
@@ -744,7 +738,7 @@ The final result will the the list of all common holders in an array:
 ]
 ```
 
-## Get Common Holders of A Token (ERC20 or NFT) and A POAP That Has Farcaster
+## Get Common Holders of A Token (ERC20 or NFT) and A POAP That Has a Lens Profile
 
 ### Fetching
 
@@ -752,8 +746,8 @@ You can fetch the common holder of a token and a POAP by providing the token con
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/8xD3r6s6lU" %}
-Show common holders of Nouns NFT and EthCC POAP that also have Farcaster
+{% embed url="https://app.airstack.xyz/query/lHTqRfk5wb" %}
+Show common holders of Sound.xyz NFT and Aave Booth Permissionless POAP that also have Lens Profile
 {% endembed %}
 
 #### Code
@@ -762,13 +756,13 @@ Show common holders of Nouns NFT and EthCC POAP that also have Farcaster
 {% tab title="Query" %}
 <pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfNounsAndEthCC {
   TokenBalances(
-<strong>    input: {filter: {tokenAddress: {_eq: "0x9c8ff314c9bc7f6e59a9d9225fb22946427edc03"}}, blockchain: ethereum, limit: 200}
+<strong>    input: {filter: {tokenAddress: {_eq: "0x977e43ab3eb8c0aece1230ba187740342865ee78"}}, blockchain: ethereum, limit: 200}
 </strong>  ) {
     TokenBalance {
       owner {
-<strong>        poaps(input: {filter: {eventId: {_eq: "141910"}}}) {
+<strong>        poaps(input: {filter: {eventId: {_eq: "43882"}}}) {
 </strong>          owner {
-            socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+            socials(input: {filter: {dappName: {_eq: lens}}}) {
               profileName
               userId
               userAssociatedAddresses
@@ -795,11 +789,31 @@ Show common holders of Nouns NFT and EthCC POAP that also have Farcaster
                 "owner": {
                   "socials": [
                     {
-                      "profileName": "worthalter",
-                      "userId": "9456",
+                      "profileName": "westlakevillage.lens",
+                      "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
                       "userAssociatedAddresses": [
-                        "0xc19628f57a46389b0ac0fc113de273f91b07faca",
-                        "0xf6b6f07862a02c85628b3a9688beae07fea9c863"
+                        "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
+                      ]
+                    },
+                    {
+                      "profileName": "brad.lens",
+                      "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+                      "userAssociatedAddresses": [
+                        "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
+                      ]
+                    },
+                    {
+                      "profileName": "bradorbradley.lens",
+                      "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+                      "userAssociatedAddresses": [
+                        "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
+                      ]
+                    },
+                    {
+                      "profileName": "hanimourra.lens",
+                      "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+                      "userAssociatedAddresses": [
+                        "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
                       ]
                     }
                   ]
@@ -821,7 +835,7 @@ Show common holders of Nouns NFT and EthCC POAP that also have Farcaster
 {% endtab %}
 {% endtabs %}
 
-All the common holders' Farcaster details will be returned inside the innermost `owner.socials` field.
+All the common holders' Lens profile details will be returned inside the innermost `owner.socials` field.
 
 ### Formatting
 
@@ -866,11 +880,31 @@ The final result will the the list of all common holders in an array:
 ```json
 [
   {
-    "profileName": "worthalter",
-    "userId": "9456",
+    "profileName": "westlakevillage.lens",
+    "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
     "userAssociatedAddresses": [
-      "0xc19628f57a46389b0ac0fc113de273f91b07faca",
-      "0xf6b6f07862a02c85628b3a9688beae07fea9c863"
+      "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
+    ]
+  },
+  {
+    "profileName": "brad.lens",
+    "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+    "userAssociatedAddresses": [
+      "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
+    ]
+  },
+  {
+    "profileName": "bradorbradley.lens",
+    "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+    "userAssociatedAddresses": [
+      "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
+    ]
+  },
+  {
+    "profileName": "hanimourra.lens",
+    "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+    "userAssociatedAddresses": [
+      "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
     ]
   },
   // ...other token holders
@@ -883,7 +917,7 @@ If you have any questions or need help regarding fetching holders or attendees o
 
 ## More Resources
 
-* [Combinations](../lens/recommendation-engines.md)
+* [Combinations](recommendation-engines.md)
   * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
   * [Mutliple POAPs](../combinations/multiple-poaps.md)
   * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
