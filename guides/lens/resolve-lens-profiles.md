@@ -275,6 +275,9 @@ If you have any questions or need help regarding resolving identities for Lens p
 
 * [Resolve Identities](../resolve-identities/)
   * [Lens](../resolve-identities/lens.md)
+* [Has XMTP](../has-xmtp/)
+  * [Check Lens Profile](../has-xmtp/check-single-user.md#by-lens-profile)
+  * [Bulk Check Lens Profiles](../has-xmtp/check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
 * [Lens Resolver](../../use-cases/lens/universal-resolver.md)
 * [Socials API Reference](../../api-references/api-reference/socials-api/)
 * [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)

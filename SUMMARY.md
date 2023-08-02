@@ -33,6 +33,7 @@
 * [🌿 Lens](guides/lens/README.md)
   * [💰 Get Token Balances](guides/lens/get-token-balances.md)
   * [🆔 Resolve Lens Profiles](guides/lens/resolve-lens-profiles.md)
+  * [📬 Has XMTP](guides/lens/has-xmtp.md)
   * [🥇 Token Holders](guides/lens/token-holders.md)
   * [🪆 Tokenbound ERC6551 Accounts](guides/lens/tokenbound-erc6551-accounts.md)
   * [🚪 Token Gating](guides/lens/token-gating.md)
