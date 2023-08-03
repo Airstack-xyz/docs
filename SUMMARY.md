@@ -103,3 +103,10 @@
   * [Cross-chain Queries](api-references/api-reference/cross-chain-queries.md)
 * [Working with GraphQL](api-references/working-with-graphql.md)
 * [Nested Queries](api-references/nested-queries.md)
+
+## NodeJS SDK References
+
+* [Overview](nodejs-sdk-references/overview.md)
+* [init](nodejs-sdk-references/init.md)
+* [fetchQuery](nodejs-sdk-references/fetchquery.md)
+* [fetchQueryWithPagination](nodejs-sdk-references/fetchquerywithpagination.md)
