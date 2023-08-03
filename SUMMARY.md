@@ -104,9 +104,9 @@
 * [Working with GraphQL](api-references/working-with-graphql.md)
 * [Nested Queries](api-references/nested-queries.md)
 
-## NodeJS SDK References
+## NodeJS SDK Reference
 
-* [Overview](nodejs-sdk-references/overview.md)
-* [init](nodejs-sdk-references/init.md)
-* [fetchQuery](nodejs-sdk-references/fetchquery.md)
-* [fetchQueryWithPagination](nodejs-sdk-references/fetchquerywithpagination.md)
+* [Overview](nodejs-sdk-reference/overview.md)
+* [init](nodejs-sdk-reference/init.md)
+* [fetchQuery](nodejs-sdk-reference/fetchquery.md)
+* [fetchQueryWithPagination](nodejs-sdk-reference/fetchquerywithpagination.md)
