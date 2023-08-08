@@ -104,6 +104,31 @@
 * [Working with GraphQL](api-references/working-with-graphql.md)
 * [Nested Queries](api-references/nested-queries.md)
 
+## React SDK Reference
+
+* [ℹ Overview](react-sdk-reference/overview.md)
+* [🎰 Functions](react-sdk-reference/functions/README.md)
+  * [init](react-sdk-reference/functions/init.md)
+  * [fetchQuery](react-sdk-reference/functions/fetchquery.md)
+  * [fetchQueryWithPagination](react-sdk-reference/functions/fetchquerywithpagination.md)
+* [🪝 Hooks](react-sdk-reference/hooks/README.md)
+  * [useLazyQuery](react-sdk-reference/hooks/uselazyquery.md)
+  * [useLazyQueryWithPagination](react-sdk-reference/hooks/uselazyquerywithpagination.md)
+  * [useQuery](react-sdk-reference/hooks/usequery.md)
+  * [useQueryWithPagination](react-sdk-reference/hooks/usequerywithpagination.md)
+* [🗃 Objects](react-sdk-reference/objects/README.md)
+  * [Config](react-sdk-reference/objects/config.md)
+  * [ConfigAndCallbacks](react-sdk-reference/objects/configandcallbacks.md)
+  * [FetchQuery](react-sdk-reference/objects/fetchquery.md)
+  * [UseLazyQueryReturnType](react-sdk-reference/objects/uselazyqueryreturntype.md)
+  * [UseLazyQueryWithPaginationReturnType](react-sdk-reference/objects/uselazyquerywithpaginationreturntype.md)
+  * [UseQueryReturnType](react-sdk-reference/objects/usequeryreturntype.md)
+  * [UseQueryWithPaginationReturnType](react-sdk-reference/objects/usequerywithpaginationreturntype.md)
+  * [Variables](react-sdk-reference/objects/variables.md)
+  * [Pagination](react-sdk-reference/objects/pagination.md)
+* [🔢 Enums](react-sdk-reference/enums/README.md)
+  * [Env](react-sdk-reference/enums/env.md)
+
 ## NodeJS SDK Reference
 
 * [Overview](nodejs-sdk-reference/overview.md)
