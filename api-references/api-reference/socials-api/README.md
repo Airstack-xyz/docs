@@ -37,6 +37,7 @@ profileLastUpdatedAtBlockTimestamp: Time
 profileName: String
 profileTokenAddress: String
 profileTokenId: String
+profileTokenIdHex: String
 profileTokenUri: String
 userAddress: Address # user's primary address
 userAssociatedAddresses: # blockchain addresses associated with the social profile
