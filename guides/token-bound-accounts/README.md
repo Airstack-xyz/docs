@@ -30,3 +30,7 @@ If you are deploying ERC6551 using a custom Registry contract, please reach out 
 {% content-ref url="sort-results.md" %}
 [sort-results.md](sort-results.md)
 {% endcontent-ref %}
+
+{% content-ref url="token-gating.md" %}
+[token-gating.md](token-gating.md)
+{% endcontent-ref %}
