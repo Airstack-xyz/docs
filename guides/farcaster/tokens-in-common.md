@@ -148,7 +148,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
-<figure><img src="https://lh4.googleusercontent.com/a-lBiQ8MbApGBks7ibZTqhbDnRY2OzUaxtgHtvywW2-gJZ1Nbl12SfKr-jsvdQ8-9YVp8T0PSpdHRQTE-3vwJguLPzXNaLp5n03jq2xqkG7IabLgdFU9o-8oFHEIehM05eGRLptMj2XjfvwXJrCCj_Y" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
 ## ERC20 Tokens In Common Owned By Farcaster User(s)
 

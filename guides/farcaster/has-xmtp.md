@@ -156,7 +156,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
-<figure><img src="https://lh4.googleusercontent.com/a-lBiQ8MbApGBks7ibZTqhbDnRY2OzUaxtgHtvywW2-gJZ1Nbl12SfKr-jsvdQ8-9YVp8T0PSpdHRQTE-3vwJguLPzXNaLp5n03jq2xqkG7IabLgdFU9o-8oFHEIehM05eGRLptMj2XjfvwXJrCCj_Y" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
 ## Check Farcaster Has XMTP Enabled
 
@@ -257,8 +257,8 @@ You can resolve an array of Farcaster user(s) to their 0x addresses:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/qqtJSWcZOM" %}
-Show 0x addresses of Farcaster user name dwr.eth and user id 1
+{% embed url="https://app.airstack.xyz/DTyOZg/rQQVTG8laa" %}
+Show 0x addresses of Farcaster user name dwr.eth and user ID 1
 {% endembed %}
 
 ### Code
