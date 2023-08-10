@@ -8,7 +8,7 @@ description: >-
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and integrating on-chain and off-chain data with Farcaster.
 
-In this tutorial, you will learn how to fetch Farcaster user details with various [web3 identities](#user-content-fn-1)[^1].&#x20;
+In this tutorial, you will learn how to fetch Farcaster user details with various [web3 identities](#user-content-fn-1)[^1]. User details include FID, Username(s), associated Ethereum addresses, registration date, and more.
 
 In this guide you will learn how to use Airstack to:
 
