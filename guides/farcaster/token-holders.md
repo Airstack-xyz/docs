@@ -7,7 +7,13 @@ description: >-
 
 # 🥇 Token Holders
 
-## Topics
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and for integrating onchain and offchain data with Farcaster.
+
+In this tutorial, you will learn how to fetch all Farcaster users who own a specific ERC20 token, NFT (ERC721 and ERC1155), or POAPs.
+
+In addition, you will also learn how to fetch common Farcaster users that hold two different assets at the same time, e.g. Farcaster users that hold both [EthLisbon](https://explorer.airstack.xyz/token-holders?address=76949\&blockchain=gnosis\&rawInput=%23%E2%8E%B1ETHLisbon+2022%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+76949%29\&inputType=POAP) and [EthCC\[6\]](https://explorer.airstack.xyz/token-holders?address=141910\&blockchain=gnosis\&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29\&inputType=POAP) POAP.
+
+In this guide you will learn how to use Airstack to:
 
 * [Get Holders of an ERC20 Token That Has Farcaster](token-holders.md#get-holders-of-an-erc20-token-that-has-farcaster)
 * [Get Holders of NFT That Has Farcaster](token-holders.md#get-holders-of-nft-that-has-farcaster)
@@ -16,6 +22,140 @@ description: >-
 * [Get Common Holders of 2 ERC20 Tokens That Has Farcaster](token-holders.md#get-common-holders-of-2-erc20-tokens-that-has-farcaster)
 * [Get Common Holders of Two POAPs That Has Farcaster](token-holders.md#get-common-holders-of-two-poaps-and-that-has-farcaster)
 * [Get Common Holders of A Token (ERC20 or NFT) and A POAP That Has Farcaster](token-holders.md#get-common-holders-of-two-poaps-and-that-has-farcaster)
+
+## Pre-requisites
+
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+
+## Get Started
+
+#### JavaScript/TypeScript/Python
+
+If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
+
+{% tabs %}
+{% tab title="npm" %}
+#### React
+
+```sh
+npm install @airstack/airstack-react
+```
+
+#### Node
+
+```sh
+npm install @airstack/node
+```
+{% endtab %}
+
+{% tab title="yarn" %}
+#### React
+
+```sh
+yarn add @airstack/airstack-react
+```
+
+#### Node
+
+```sh
+yarn add @airstack/node
+```
+{% endtab %}
+
+{% tab title="pnpm" %}
+#### React
+
+```sh
+pnpm install @airstack/airstack-react
+```
+
+#### Node
+
+```sh
+pnpm install @airstack/node
+```
+{% endtab %}
+
+{% tab title="pip" %}
+```sh
+pip install airstack asyncio
+```
+{% endtab %}
+{% endtabs %}
+
+Then, add the following snippets to your code:
+
+{% tabs %}
+{% tab title="React" %}
+```jsx
+import { init, useQuery } from "@airstack/airstack-react";
+
+init("YOUR_AIRSTACK_API_KEY");
+
+const query = "YOUR_QUERY"; // Replace with GraphQL Query
+
+const Component = () => {
+  const { data, loading, error } = useQuery(query);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+
+  // Render your component using the data returned by the query
+};
+```
+{% endtab %}
+
+{% tab title="Node" %}
+```javascript
+import { init, fetchQuery } from "@airstack/airstack-react";
+
+init("YOUR_AIRSTACK_API_KEY");
+
+const query = "YOUR_QUERY"; // Replace with GraphQL Query
+
+const { data, error } = fetchQuery(query);
+
+console.log("data:", data);
+console.log("error:", error);
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import asyncio
+from airstack.execute_query import AirstackClient
+
+api_client = AirstackClient(api_key="YOUR_AIRSTACK_API_KEY")
+
+query = "YOUR_QUERY" # Replace with GraphQL Query
+
+async def main():
+    execute_query_client = api_client.create_execute_query_object(
+        query=query)
+
+    query_response = await execute_query_client.execute_query()
+    print(query_response.data)
+
+asyncio.run(main())
+```
+{% endtab %}
+{% endtabs %}
+
+#### Other Programming Languages
+
+To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your JSON endpoint.
+
+## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+
+[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
+
+<figure><img src="https://lh4.googleusercontent.com/a-lBiQ8MbApGBks7ibZTqhbDnRY2OzUaxtgHtvywW2-gJZ1Nbl12SfKr-jsvdQ8-9YVp8T0PSpdHRQTE-3vwJguLPzXNaLp5n03jq2xqkG7IabLgdFU9o-8oFHEIehM05eGRLptMj2XjfvwXJrCCj_Y" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
 ## Get Holders of an ERC20 Token That Has Farcaster
 

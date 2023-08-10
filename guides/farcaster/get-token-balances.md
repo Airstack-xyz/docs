@@ -1,16 +1,154 @@
 ---
 description: >-
-  Learn how to get ERC20, 721, 1155, and POAPs Of Farcaster User(s), including
+  Learn how to get ERC20, 721, 1155, and POAPs of Farcaster User(s), including
   images and metadata, on Ethereum, Polygon, and Gnosis (POAPs).
 ---
 
 # 💰 Get Token Balances
 
-## Topics
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and for integrating onchain and offchain data with Farcaster.
+
+In this tutorial, you will learn how to fetch Farcaster user(s) asset holdings which comprise ERC20s, ERC721s, ERC115s, and POAPs on Ethereum, Polygon, and Gnosis.
+
+In this guide you will learn how to use Airstack to:
 
 * [Get All ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-all-erc20s-owned-by-farcaster-user-s)
 * [Get All NFTs Owned By Farcaster user(s)](get-token-balances.md#get-all-nfts-owned-by-farcaster-user-s)
 * [Get All POAPs Owned By Farcaster user(s)](get-token-balances.md#get-all-poaps-owned-by-farcaster-user-s)
+
+## Pre-requisites
+
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+
+## Get Started
+
+#### JavaScript/TypeScript/Python
+
+If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
+
+{% tabs %}
+{% tab title="npm" %}
+#### React
+
+```sh
+npm install @airstack/airstack-react
+```
+
+#### Node
+
+```sh
+npm install @airstack/node
+```
+{% endtab %}
+
+{% tab title="yarn" %}
+#### React
+
+```sh
+yarn add @airstack/airstack-react
+```
+
+#### Node
+
+```sh
+yarn add @airstack/node
+```
+{% endtab %}
+
+{% tab title="pnpm" %}
+#### React
+
+```sh
+pnpm install @airstack/airstack-react
+```
+
+#### Node
+
+```sh
+pnpm install @airstack/node
+```
+{% endtab %}
+
+{% tab title="pip" %}
+```sh
+pip install airstack asyncio
+```
+{% endtab %}
+{% endtabs %}
+
+Then, add the following snippets to your code:
+
+{% tabs %}
+{% tab title="React" %}
+```jsx
+import { init, useQuery } from "@airstack/airstack-react";
+
+init("YOUR_AIRSTACK_API_KEY");
+
+const query = "YOUR_QUERY"; // Replace with GraphQL Query
+
+const Component = () => {
+  const { data, loading, error } = useQuery(query);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+
+  // Render your component using the data returned by the query
+};
+```
+{% endtab %}
+
+{% tab title="Node" %}
+```javascript
+import { init, fetchQuery } from "@airstack/airstack-react";
+
+init("YOUR_AIRSTACK_API_KEY");
+
+const query = "YOUR_QUERY"; // Replace with GraphQL Query
+
+const { data, error } = fetchQuery(query);
+
+console.log("data:", data);
+console.log("error:", error);
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import asyncio
+from airstack.execute_query import AirstackClient
+
+api_client = AirstackClient(api_key="YOUR_AIRSTACK_API_KEY")
+
+query = "YOUR_QUERY" # Replace with GraphQL Query
+
+async def main():
+    execute_query_client = api_client.create_execute_query_object(
+        query=query)
+
+    query_response = await execute_query_client.execute_query()
+    print(query_response.data)
+
+asyncio.run(main())
+```
+{% endtab %}
+{% endtabs %}
+
+#### Other Programming Languages
+
+To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your JSON endpoint.
+
+## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+
+[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
+
+<figure><img src="https://lh4.googleusercontent.com/a-lBiQ8MbApGBks7ibZTqhbDnRY2OzUaxtgHtvywW2-gJZ1Nbl12SfKr-jsvdQ8-9YVp8T0PSpdHRQTE-3vwJguLPzXNaLp5n03jq2xqkG7IabLgdFU9o-8oFHEIehM05eGRLptMj2XjfvwXJrCCj_Y" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
 ## Get All ERC20s Owned By Farcaster user(s)
 
@@ -429,3 +567,4 @@ If you have any questions or need help regarding fetching token balances of Farc
 ## More Resources
 
 * [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api/)

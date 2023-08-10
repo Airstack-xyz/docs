@@ -1,10 +1,10 @@
 ---
-description: Learn how Airstack pricing will be implemented from September 1, 2023.
+description: Learn how Airstack pricing will be implemented from September 18, 2023.
 ---
 
 # 🔋 Pricing
 
-## Before September 1, 2023
+## Before September 18, 2023
 
 [Airstack](https://airstack.xyz) is currently available **free of charge** for hackers, professionals, startups, and for all normal business use cases until August 31, 2023.
 
@@ -17,16 +17,17 @@ If you need a rate limit increase, you can request one on your Dashboard's [Mana
 There are no additional charges at this time.
 
 {% hint style="info" %}
-**An exception to Enterprise** usage, currently defined as having >10,000,000 API calls per month, who are subject to immediate custom pricing.
+**An exception to Enterprise** usage, currently defined as having >50,000,000 API calls per month, who are subject to immediate custom pricing.
 {% endhint %}
 
-## On & After September 1, 2023
+## After September 18, 2023
 
 Airstack API will be charged accordingly to the following guidelines:
 
 ### Free to Start
 
-It will cost you $0 to experiment, plan, and explore the Airstack APIs in totality.
+It will cost you $0 to experiment, plan, and explore the Airstack APIs in totality. \
+A very generous free tier ($500 worth of free usage) will be provided to all developers.
 
 ### No Pay-Walled Features
 
@@ -40,7 +41,7 @@ After the initial free tier the pricing will be roughly as follows, based on usa
 
 | Usage Tiers               | Price Range/Month (USD)\* |
 | ------------------------- | ------------------------- |
-| Startups                  | 99-250                    |
+| Startups                  | 10-250                    |
 | Small Business            | 250 - 1,000               |
 | Medium                    | 1,000 - 4,999             |
 | Large/Enterprise Business | 5000 - 25,000/custom      |
