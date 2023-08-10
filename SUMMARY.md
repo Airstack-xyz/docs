@@ -43,6 +43,7 @@
 * [💜 Farcaster](guides/farcaster/README.md)
   * [💰 Get Token Balances](guides/farcaster/get-token-balances.md)
   * [🆔 Resolve Farcaster Users](guides/farcaster/resolve-farcaster-users.md)
+  * [🔎 Farcaster Users Details](guides/farcaster/farcaster-users-details.md)
   * [📬 Has XMTP](guides/farcaster/has-xmtp.md)
   * [🥇 Token Holders](guides/farcaster/token-holders.md)
   * [🪆 Tokenbound ERC6551 Accounts](guides/farcaster/tokenbound-erc6551-accounts.md)
