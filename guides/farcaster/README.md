@@ -1,7 +1,7 @@
 ---
 description: >-
   Airstack provides easy-to-use APIs for enriching Farcaster applications and
-  for integrating onchain and offchain data with Farcaster.
+  integrating on-chain and off-chain data with Farcaster.
 ---
 
 # 💜 Farcaster
