@@ -6,12 +6,150 @@ description: >-
 
 # 📞 Recommendation Engines
 
-## Topics
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
+
+In this tutorial, you will learn how to recommend followers for Lens profiles based on on-chain insights from token transfers, POAPs, NFTS, and token holder combinations.
+
+In this guide you will learn how to use Airstack to:
 
 * [Get Recommendation Follows For Lens Profile(s) Based on Token Transfers](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-token-transfers)
 * [Get Recommendation Follows For Lens Profile(s) Based on POAPs](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-poaps)
 * [Get Recommendation Follows For Lens Profile(s) Based on NFTs](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-nfts)
 * [Get Recommendation Follows For Lens Profile(s) Based on NFTs and POAPs Commonly Held](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-nfts-and-poaps-commonly-held)
+
+## Pre-requisites
+
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+
+## Get Started
+
+#### JavaScript/TypeScript/Python
+
+If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
+
+{% tabs %}
+{% tab title="npm" %}
+#### React
+
+```sh
+npm install @airstack/airstack-react
+```
+
+#### Node
+
+```sh
+npm install @airstack/node
+```
+{% endtab %}
+
+{% tab title="yarn" %}
+#### React
+
+```sh
+yarn add @airstack/airstack-react
+```
+
+#### Node
+
+```sh
+yarn add @airstack/node
+```
+{% endtab %}
+
+{% tab title="pnpm" %}
+#### React
+
+```sh
+pnpm install @airstack/airstack-react
+```
+
+#### Node
+
+```sh
+pnpm install @airstack/node
+```
+{% endtab %}
+
+{% tab title="pip" %}
+```sh
+pip install airstack asyncio
+```
+{% endtab %}
+{% endtabs %}
+
+Then, add the following snippets to your code:
+
+{% tabs %}
+{% tab title="React" %}
+```jsx
+import { init, useQuery } from "@airstack/airstack-react";
+
+init("YOUR_AIRSTACK_API_KEY");
+
+const query = "YOUR_QUERY"; // Replace with GraphQL Query
+
+const Component = () => {
+  const { data, loading, error } = useQuery(query);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+
+  // Render your component using the data returned by the query
+};
+```
+{% endtab %}
+
+{% tab title="Node" %}
+```javascript
+import { init, fetchQuery } from "@airstack/airstack-react";
+
+init("YOUR_AIRSTACK_API_KEY");
+
+const query = "YOUR_QUERY"; // Replace with GraphQL Query
+
+const { data, error } = fetchQuery(query);
+
+console.log("data:", data);
+console.log("error:", error);
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import asyncio
+from airstack.execute_query import AirstackClient
+
+api_client = AirstackClient(api_key="YOUR_AIRSTACK_API_KEY")
+
+query = "YOUR_QUERY" # Replace with GraphQL Query
+
+async def main():
+    execute_query_client = api_client.create_execute_query_object(
+        query=query)
+
+    query_response = await execute_query_client.execute_query()
+    print(query_response.data)
+
+asyncio.run(main())
+```
+{% endtab %}
+{% endtabs %}
+
+#### Other Programming Languages
+
+To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
+
+## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+
+[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
+
+<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
 ## Get Recommendation Follows For Lens Profile(s) Based on Token Transfers
 

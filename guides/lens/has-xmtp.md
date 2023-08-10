@@ -19,6 +19,8 @@ In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
 * [Check Lens Profile Has XMTP Enabled](has-xmtp.md#check-lens-profile-has-xmtp-enabled)
 * [Bulk Check Lens Profiles Have XMTP Enabled](has-xmtp.md#bulk-check-lens-profiles-have-xmtp-enabled)
+* [Get All 0x addresses of Lens profile(s)](has-xmtp.md#get-all-0x-addresses-of-lens-profile-s)
+* [Get All Lens Profiles Owned by 0x address](has-xmtp.md#get-all-lens-profiles-owned-by-0x-address)
 
 ## Pre-requisites
 
@@ -146,7 +148,7 @@ asyncio.run(main())
 
 #### Other Programming Languages
 
-To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your JSON endpoint.
+To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
 ## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
@@ -334,7 +336,7 @@ query GetAddressesOfLens {
 {% endtab %}
 {% endtabs %}
 
-## Get all Lens owned by 0x address
+## Get All Lens Profiles Owned by 0x address
 
 You can resolve any 0x address to their Farcaster accounts:
 
