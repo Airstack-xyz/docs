@@ -108,7 +108,7 @@ const Component = () => {
 
 {% tab title="Node" %}
 ```javascript
-import { init, fetchQuery } from "@airstack/airstack-react";
+import { init, fetchQuery } from "@airstack/node";
 
 init("YOUR_AIRSTACK_API_KEY");
 

@@ -113,13 +113,13 @@ const Component = () => {
 
 {% tab title="Node" %}
 ```javascript
-import { init, fetchQuery } from "@airstack/airstack-react";
+import { init, fetchQuery } from "@airstack/node";
 
 init("YOUR_AIRSTACK_API_KEY");
 
 const query = "YOUR_QUERY"; // Replace with GraphQL Query
 
-const { data, error } = fetchQuery(query);
+const { data, error } = await fetchQuery(query);
 
 console.log("data:", data);
 console.log("error:", error);
