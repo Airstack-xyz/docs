@@ -176,7 +176,7 @@ Check Farcaster has XMTP enabled (Demo)
 {% tab title="Query" %}
 ```graphql
 query MyQuery {
-  XMTPs(input: {blockchain: ALL, filter: {owner: {_eq: "fc_fname:vbuterin"}}}) {
+  XMTPs(input: {blockchain: ALL, filter: {owner: {_eq: "fc_fname:vitalik.eth"}}}) {
     XMTP {
       isXMTPEnabled
     }

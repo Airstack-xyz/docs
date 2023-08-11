@@ -700,17 +700,14 @@ def format_function(data):
     result = []
     if data is not None and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
         for item in data['TokenBalances']['TokenBalance']:
-            if 'owner' in item and 'poaps' in item['owner']:
+            if 'owner' in item and 'poaps' in item['owner'] and item['owner']['poaps'] is not None:
                 for poap in item['owner']['poaps']:
                     if 'owner' in poap and 'socials' in poap['owner']:
                         result.append(poap['owner']['socials'])
 
     result = [item for sublist in result for item in sublist]
-    result = [item for sublist in result for item in sublist]
-    result = list(set(result))
 
     return result
-
 ```
 {% endtab %}
 {% endtabs %}

@@ -7,7 +7,7 @@ description: >-
 
 # 🥇 Token Holders
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and for integrating onchain and offchain data with Farcaster.
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and integrating on-chain and off-chain data with Farcaster.
 
 In this tutorial, you will learn how to fetch all Farcaster users who own a specific ERC20 token, NFT (ERC721 and ERC1155), or POAPs.
 
@@ -245,12 +245,10 @@ def format_function(data):
     result = []
     if data and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
         for item in data['TokenBalances']['TokenBalance']:
-            if 'owner' in item and 'socials' in item['owner'] and len(item['owner']['socials']) > 0:
+            if 'owner' in item and 'socials' in item['owner'] and item['owner']['socials'] is not None:
                 result.append(item['owner']['socials'])
 
     result = [item for sublist in result for item in sublist]
-    result = [item for sublist in result for item in sublist]
-    result = list(set(result))
 
     return result
 ```
@@ -361,12 +359,10 @@ def format_function(data):
     result = []
     if data and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
         for item in data['TokenBalances']['TokenBalance']:
-            if 'owner' in item and 'socials' in item['owner'] and len(item['owner']['socials']) > 0:
+            if 'owner' in item and 'socials' in item['owner'] and item['owner']['socials'] is not None:
                 result.append(item['owner']['socials'])
 
     result = [item for sublist in result for item in sublist]
-    result = [item for sublist in result for item in sublist]
-    result = list(set(result))
 
     return result
 ```
@@ -474,12 +470,10 @@ def format_function(data):
     result = []
     if data and 'Poaps' in data and 'Poap' in data['Poaps']:
         for item in data['Poaps']['Poap']:
-            if 'owner' in item and 'socials' in item['owner'] and len(item['owner']['socials']) > 0:
+            if 'owner' in item and 'socials' in item['owner'] and item['owner']['socials'] is not None:
                 result.append(item['owner']['socials'])
 
     result = [item for sublist in result for item in sublist]
-    result = [item for sublist in result for item in sublist]
-    result = list(set(result)) 
 
     return result
 ```
@@ -599,12 +593,10 @@ def format_function(data):
     result = []
     if data and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
         for item in data['TokenBalances']['TokenBalance']:
-            if 'owner' in item and 'socials' in item['owner'] and len(item['owner']['socials']) > 0:
+            if 'owner' in item and 'socials' in item['owner'] and item['owner']['socials'] is not None:
                 result.append(item['owner']['socials'])
 
     result = [item for sublist in result for item in sublist]
-    result = [item for sublist in result for item in sublist]
-    result = list(set(result))
 
     return result
 ```
@@ -631,7 +623,15 @@ The final result will the the list of all common holders in an array:
 
 ### Fetching
 
-You can fetch the common holders of two given ERC20, e.g. [USDT](https://explorer.airstack.xyz/token-holders?address=0xdac17f958d2ee523a2206206994597c13d831ec7\&blockchain=ethereum\&rawInput=%23%E2%8E%B1Tether+USD%E2%8E%B1%280xdac17f958d2ee523a2206206994597c13d831ec7+TOKEN+ethereum+null%29+\&inputType=ADDRESS) and [USDC](https://explorer.airstack.xyz/token-holders?address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&blockchain=ethereum\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29+\&inputType=ADDRESS):
+You can fetch the common holders of two given ERC20, e.g. [USDT](https://explorer.airstack.xyz/token-holders?address=0xdac17f958d2ee523a2206206994597c13d831ec7\&blockchain=ethereum\&rawInput=%23%E2%8E%B1Tether+USD%E2%8E%B1%280xdac17f958d2ee523a2206206994597c13d831ec7+TOKEN+ethereum+null%29+\&inputType=ADDRESS) and [USDC](https://explorer.airstack.xyz/token-holders?address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&blockchain=ethereum\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29+\&inputType=ADDRESS):&#x20;
+
+#### Try Demo
+
+{% embed url="https://app.airstack.xyz/DTyOZg/f9pU5NDyEe" %}
+Get Common Holders of 2 ERC20 Tokens That Has Farcaster
+{% endembed %}
+
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
@@ -727,8 +727,6 @@ def format_function(data):
                         result.append(token_balance['owner']['socials'])
 
     result = [item for sublist in result for item in sublist]
-    result = [item for sublist in result for item in sublist]
-    result = list(set(result))
 
     return result
 ```
@@ -853,17 +851,15 @@ const formatFunction = (data) =>
 ```python
 def format_function(data):
     result = []
-    
+
     if data and 'Poaps' in data and 'Poap' in data['Poaps']:
         for poap in data['Poaps']['Poap']:
-            if 'owner' in poap and 'poaps' in poap['owner']:
+            if 'owner' in poap and 'poaps' in poap['owner'] and poap['owner']['poaps'] is not None:
                 for owner_poap in poap['owner']['poaps']:
-                    if 'owner' in owner_poap and 'socials' in owner_poap['owner'] and len(owner_poap['owner']['socials']) > 0:
+                    if 'owner' in owner_poap and 'socials' in owner_poap['owner'] and owner_poap['owner']['socials'] is not None:
                         result.append(owner_poap['owner']['socials'])
 
     result = [item for sublist in result for item in sublist]
-    result = [item for sublist in result for item in sublist]
-    result = list(set(result))
 
     return result
 ```
@@ -988,17 +984,14 @@ def format_function(data):
     result = []
     if data is not None and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
         for item in data['TokenBalances']['TokenBalance']:
-            if 'owner' in item and 'poaps' in item['owner']:
+            if 'owner' in item and 'poaps' in item['owner'] and item['owner']['poaps'] is not None:
                 for poap in item['owner']['poaps']:
-                    if 'owner' in poap and 'socials' in poap['owner']:
+                    if 'owner' in poap and 'socials' in poap['owner'] and poap['owner']['socials'] is not None:
                         result.append(poap['owner']['socials'])
 
     result = [item for sublist in result for item in sublist]
-    result = [item for sublist in result for item in sublist]
-    result = list(set(result))
 
     return result
-
 ```
 {% endtab %}
 {% endtabs %}
