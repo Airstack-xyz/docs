@@ -1,7 +1,7 @@
 ---
 description: >-
   Airstack provides easy-to-use APIs for enriching Lens applications and
-  integrating on-chain and off-chain data with Farcaster.
+  integrating on-chain and off-chain data with Lens.
 ---
 
 # 🌿 Lens
