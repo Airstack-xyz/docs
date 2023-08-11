@@ -108,8 +108,6 @@ const Component = () => {
   if (error) {
     return <p>Error: {error.message}</p>;
   }
-
-  // Render your component using the data returned by the query
 };
 ```
 {% endtab %}
