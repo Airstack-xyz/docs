@@ -87,10 +87,14 @@ import { init, useQuery } from "@airstack/airstack-react";
 
 init("YOUR_AIRSTACK_API_KEY");
 
-const query = "YOUR_QUERY"; // Replace with GraphQL Query
+const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
+  
+  if (data) {
+    return <p>Data: {JSON.stringify(data)}</p>;
+  }
 
   if (loading) {
     return <p>Loading...</p>;
@@ -111,7 +115,7 @@ import { init, fetchQuery } from "@airstack/node";
 
 init("YOUR_AIRSTACK_API_KEY");
 
-const query = "YOUR_QUERY"; // Replace with GraphQL Query
+const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const { data, error } = await fetchQuery(query);
 
@@ -127,7 +131,7 @@ from airstack.execute_query import AirstackClient
 
 api_client = AirstackClient(api_key="YOUR_AIRSTACK_API_KEY")
 
-query = "YOUR_QUERY" # Replace with GraphQL Query
+query = """YOUR_QUERY""" # Replace with GraphQL Query
 
 async def main():
     execute_query_client = api_client.create_execute_query_object(
