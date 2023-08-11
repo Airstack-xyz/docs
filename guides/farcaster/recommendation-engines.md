@@ -591,7 +591,54 @@ query GetNFTHoldersAndImages {
 
 {% tab title="Response" %}
 ```json
-// Some code
+{
+  "data": {
+    "ethereum": {
+      "TokenNft": [
+        {
+          "tokenBalances": [
+            {
+              "owner": {
+                "identity": "0x0734d56da60852a03e2aafae8a36ffd8c12b32f1",
+                "socials": [
+                  {
+                    "profileName": "0age",
+                    "userId": "4262"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "tokenBalances": [
+            {
+              "owner": {
+                "identity": "0xa6c0f7bde119930fb919ed02f8155887ecf0d756",
+                "socials": [
+                  {
+                    "profileName": "n1",
+                    "userId": "3791"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "tokenBalances": [
+            {
+              "owner": {
+                "identity": "0xb16266ba63506cb4de9b2328bada30064e196a3b",
+                "socials": null // Have no Farcaster, can be filtered out
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
 ```
 {% endtab %}
 {% endtabs %}
