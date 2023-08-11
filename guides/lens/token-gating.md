@@ -155,8 +155,8 @@ You can implement token gating by checking whether users have Lens profile:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/KoOyThItEi" %}
-Show Lens profile of bradorbradley.eth
+{% embed url="https://app.airstack.xyz/DTyOZg/TpGSzOq9tx" %}
+Show the Lens profile of bradorbradley.eth
 {% endembed %}
 
 ### Code
@@ -170,7 +170,8 @@ query GetTokenGatingLens {
   ) {
     Social {
       profileName
-      userId
+      profileTokenId
+      profileTokenIdHex
       userAssociatedAddresses
     }
   }
@@ -186,28 +187,32 @@ query GetTokenGatingLens {
       "Social": [
         {
           "profileName": "westlakevillage.lens",
-          "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+          "profileTokenId": "99755",
+          "profileTokenIdHex": "0x0185ab",
           "userAssociatedAddresses": [
             "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
           ]
         },
         {
           "profileName": "brad.lens",
-          "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+          "profileTokenId": "116598",
+          "profileTokenIdHex": "0x01c776",
           "userAssociatedAddresses": [
             "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
           ]
         },
         {
           "profileName": "bradorbradley.lens",
-          "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+          "profileTokenId": "36",
+          "profileTokenIdHex": "0x024",
           "userAssociatedAddresses": [
             "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
           ]
         },
         {
           "profileName": "hanimourra.lens",
-          "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+          "profileTokenId": "116239",
+          "profileTokenIdHex": "0x01c60f",
           "userAssociatedAddresses": [
             "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
           ]
@@ -230,8 +235,8 @@ You can implement token gating by checking whether users have both Lens profile 
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/DLaOAsiLyj" %}
-Show NFT balance of 0x8eC94086A724cbEC4D37097b8792cE99CaDCd520 on specific NFTs
+{% embed url="https://app.airstack.xyz/DTyOZg/VERJn9Uhbd" %}
+Show the NFT balance of 0x8eC94086A724cbEC4D37097b8792cE99CaDCd520 on specific NFTs
 {% endembed %}
 
 ### Code
@@ -246,8 +251,10 @@ query MyQuery {
     TokenBalance {
       owner {
         socials(input: {filter: {dappName: {_eq: lens}}}) {
-          userId
           profileName
+          profileTokenId
+          profileTokenIdHex
+          userAssociatedAddresses
         }
       }
     }
@@ -266,20 +273,36 @@ query MyQuery {
           "owner": {
             "socials": [
               {
-                "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
-                "profileName": "westlakevillage.lens"
+                "profileName": "westlakevillage.lens",
+                "profileTokenId": "99755",
+                "profileTokenIdHex": "0x0185ab",
+                "userAssociatedAddresses": [
+                  "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
+                ]
               },
               {
-                "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
-                "profileName": "brad.lens"
+                "profileName": "brad.lens",
+                "profileTokenId": "116598",
+                "profileTokenIdHex": "0x01c776",
+                "userAssociatedAddresses": [
+                  "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
+                ]
               },
               {
-                "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
-                "profileName": "bradorbradley.lens"
+                "profileName": "bradorbradley.lens",
+                "profileTokenId": "36",
+                "profileTokenIdHex": "0x024",
+                "userAssociatedAddresses": [
+                  "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
+                ]
               },
               {
-                "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
-                "profileName": "hanimourra.lens"
+                "profileName": "hanimourra.lens",
+                "profileTokenId": "116239",
+                "profileTokenIdHex": "0x01c60f",
+                "userAssociatedAddresses": [
+                  "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
+                ]
               }
             ]
           }
@@ -306,7 +329,7 @@ You can implement token gating by checking whether users have both Lens profile 
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/95WPOVPJTA" %}
+{% embed url="https://app.airstack.xyz/DTyOZg/izTMNkr9m9" %}
 Show if 0x4455951fa43b17bd211e0e8ae64d22fb47946ade hold some given specific POAPs and have Lens profile
 {% endembed %}
 
@@ -323,7 +346,8 @@ query MyQuery {
       owner {
         socials(input: {filter: {dappName: {_eq: lens}}}) {
           profileName
-          userId
+          profileTokenId
+          profileTokenIdHex
           userAssociatedAddresses
         }
       }
@@ -344,7 +368,8 @@ query MyQuery {
             "socials": [
               {
                 "profileName": "0x131.lens",
-                "userId": "0x4455951fa43b17bd211e0e8ae64d22fb47946ade",
+                "profileTokenId": "73916",
+                "profileTokenIdHex": "0x0120bc",
                 "userAssociatedAddresses": [
                   "0x4455951fa43b17bd211e0e8ae64d22fb47946ade"
                 ]
