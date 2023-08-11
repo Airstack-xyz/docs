@@ -206,8 +206,8 @@ You can bulk check a list of Lens profiles have XMTP enabled or not:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/4wzNFy5ceS" %}
-Bulk Check Lens Profiles Have XMTP (Demo)
+{% embed url="https://app.airstack.xyz/DTyOZg/nNmMc2WyKr" %}
+Bulk Check If an Array of Lens Profiles Have XMTP (Demo)
 {% endembed %}
 
 ### Code
@@ -216,13 +216,15 @@ Bulk Check Lens Profiles Have XMTP (Demo)
 {% tab title="Query" %}
 ```graphql
 query BulkFetchLensProfilesHaveXMTP {
-  XMTPs(input: {blockchain: ALL, filter: {owner: {_in: ["hoobastank.lens", "22776.lens", "barisadiguzel.lens"]}}, limit: 100}) {
+  XMTPs(input: {blockchain: ALL, filter: {owner: {_in: ["hoobastank.lens", "22776.lens", "lens_id:0x0187b3"]}}, limit: 100}) {
     XMTP {
       isXMTPEnabled
       owner {
-        socials {
-          dappName
+        socials(input: { filter: { dappName: { _eq: lens }}}) {
           profileName
+          profileTokenId
+          profileTokenIdHex
+          userAssociatedAddresses
         }
       }
     }
@@ -242,8 +244,12 @@ query BulkFetchLensProfilesHaveXMTP {
           "owner": {
             "socials": [
               {
-                "dappName": "lens",
-                "profileName": "hoobastank.lens"
+                "profileName": "hoobastank.lens",
+                "profileTokenId": "77099",
+                "profileTokenIdHex": "0x012d2b",
+                "userAssociatedAddresses": [
+                  "0xf81c128e1c660d08c1f33ccd5a06d040a37245eb"
+                ]
               }
             ]
           }
@@ -253,8 +259,12 @@ query BulkFetchLensProfilesHaveXMTP {
           "owner": {
             "socials": [
               {
-                "dappName": "lens",
-                "profileName": "22776.lens"
+                "profileName": "22776.lens",
+                "profileTokenId": "38680",
+                "profileTokenIdHex": "0x09718",
+                "userAssociatedAddresses": [
+                  "0x53af8473b558dc42275abcfcaaf3ce2fcbd2c727"
+                ]
               }
             ]
           }
@@ -264,8 +274,12 @@ query BulkFetchLensProfilesHaveXMTP {
           "owner": {
             "socials": [
               {
-                "dappName": "lens",
-                "profileName": "barisadiguzel.lens"
+                "profileName": "vitalik.lens",
+                "profileTokenId": "100275",
+                "profileTokenIdHex": "0x0187b3",
+                "userAssociatedAddresses": [
+                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                ]
               }
             ]
           }
@@ -295,7 +309,7 @@ Show 0x addresses of nader.lens and Lens profile id 100275
 ```graphql
 query GetAddressesOfLens {
   Socials(
-    input: {filter: {identity: {_in: ["nader.lens", "lens_id:100275"]}, dappName: {_eq: lens}}, blockchain: ethereum}
+    input: {filter: {identity: {_in: ["nader.lens", "lens_id:0x0187b3"]}, dappName: {_eq: lens}}, blockchain: ethereum}
   ) {
     Social {
       profileName

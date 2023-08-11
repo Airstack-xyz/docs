@@ -117,11 +117,12 @@ query ID1 {
 
 You can enter Lens name directly in the `owner` or `address` field:
 
-| Sample Input                                                                       | Description                                    |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------- |
-| <mark style="color:red;">`vitalik.lens`</mark>                                     | Plain Lens profile name ending in `.lens`      |
-| <mark style="color:red;">`lens:vitalik.lens`</mark>                                | Lens profile name with optional `lens` prefix  |
-| <mark style="color:red;">`lens_id:`</mark><mark style="color:red;">`100275`</mark> | Lens profile ID with optional `lens_id` prefix |
+| Sample Input                                        | Description                                                          |
+| --------------------------------------------------- | -------------------------------------------------------------------- |
+| <mark style="color:red;">`vitalik.lens`</mark>      | Plain Lens profile name ending in `.lens`                            |
+| <mark style="color:red;">`lens:vitalik.lens`</mark> | Lens profile name with optional `lens` prefix                        |
+| <mark style="color:red;">`lens_id:100275`</mark>    | Lens profile ID in decimal format with optional `lens_id` prefix     |
+| <mark style="color:red;">`lens_id:0x0187b3`</mark>  | Lens profile ID in hexadecimal format with optional `lens_id` prefix |
 
 ### Example#1: Show me all stani.lens token transfers
 
