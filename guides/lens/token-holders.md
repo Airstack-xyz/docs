@@ -167,7 +167,7 @@ You can get all holders of an ERC20 token that has a Lens Profile:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/jwb232gKHF" %}
+{% embed url="https://app.airstack.xyz/DTyOZg/TCvVSkcnBe" %}
 Show all token holders of USD Coin on Polygon that has Lens profile
 {% endembed %}
 
@@ -184,7 +184,8 @@ query MyQuery {
       owner {
         socials(input: {filter: {dappName: {_eq: lens}}}) {
           profileName
-          userId
+          profileTokenId
+          profileTokenIdHex
           userAssociatedAddresses
         }
       }
@@ -204,10 +205,11 @@ query MyQuery {
           "owner": {
             "socials": [
               {
-                "profileName": "lyska.lens",
-                "userId": "0x79eb30ff39ad0d2879ee1c0358170972e808cf7a",
+                "profileName": "humongosaur.lens",
+                "profileTokenId": "78804",
+                "profileTokenIdHex": "0x0133d4",
                 "userAssociatedAddresses": [
-                  "0x79eb30ff39ad0d2879ee1c0358170972e808cf7a"
+                  "0x4c6e2223cea261d7ab48ff91fe1dff815df22c90"
                 ]
               }
             ]
@@ -244,12 +246,10 @@ def format_function(data):
     result = []
     if data and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
         for item in data['TokenBalances']['TokenBalance']:
-            if 'owner' in item and 'socials' in item['owner'] and len(item['owner']['socials']) > 0:
+            if 'owner' in item and 'socials' in item['owner'] and item['owner']['socials'] is not None:
                 result.append(item['owner']['socials'])
 
     result = [item for sublist in result for item in sublist]
-    result = [item for sublist in result for item in sublist]
-    result = list(set(result))
 
     return result
 ```
@@ -261,10 +261,11 @@ The final result will the the list of all common holders in an array:
 ```json
 [
   {
-    "profileName": "lyska.lens",
-    "userId": "0x79eb30ff39ad0d2879ee1c0358170972e808cf7a",
+    "profileName": "humongosaur.lens",
+    "profileTokenId": "78804",
+    "profileTokenIdHex": "0x0133d4",
     "userAssociatedAddresses": [
-      "0x79eb30ff39ad0d2879ee1c0358170972e808cf7a"
+      "0x4c6e2223cea261d7ab48ff91fe1dff815df22c90"
     ]
   },
   // ... other token holders
@@ -279,7 +280,7 @@ You can get all holders of NFT that has Lens Profile:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/gIOrRVPFVK" %}
+{% embed url="https://app.airstack.xyz/DTyOZg/VkzuP2Q6Ti" %}
 Show all token holders of StandWithCrypto that has Lens Profile
 {% endembed %}
 
@@ -298,7 +299,8 @@ query MyQuery {
           input: {filter: {dappName: {_eq: lens}}}
         ) {
           profileName
-          userId
+          profileTokenId
+          profileTokenIdHex
           userAssociatedAddresses
         }
       }
@@ -318,10 +320,11 @@ query MyQuery {
           "owner": {
             "socials": [
               {
-                "profileName": "choccy.lens",
-                "userId": "0x9a41abee1477745ab8004ce129ad60f1231ef85b",
+                "profileName": "momoon.lens",
+                "profileTokenId": "16335",
+                "profileTokenIdHex": "0x03fcf",
                 "userAssociatedAddresses": [
-                  "0x9a41abee1477745ab8004ce129ad60f1231ef85b"
+                  "0x6a48c3acbc91fb19931dfc1e4ab0753a1d17d0b5"
                 ]
               }
             ]
@@ -358,12 +361,10 @@ def format_function(data):
     result = []
     if data and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
         for item in data['TokenBalances']['TokenBalance']:
-            if 'owner' in item and 'socials' in item['owner'] and len(item['owner']['socials']) > 0:
+            if 'owner' in item and 'socials' in item['owner'] and item['owner']['socials'] is not None:
                 result.append(item['owner']['socials'])
 
     result = [item for sublist in result for item in sublist]
-    result = [item for sublist in result for item in sublist]
-    result = list(set(result))
 
     return result
 ```
@@ -375,12 +376,13 @@ The final result will the the list of all common holders in an array:
 ```json
 [
   {
-    "profileName": "choccy.lens",
-    "userId": "0x9a41abee1477745ab8004ce129ad60f1231ef85b",
+    "profileName": "momoon.lens",
+    "profileTokenId": "16335",
+    "profileTokenIdHex": "0x03fcf",
     "userAssociatedAddresses": [
-      "0x9a41abee1477745ab8004ce129ad60f1231ef85b"
+      "0x6a48c3acbc91fb19931dfc1e4ab0753a1d17d0b5"
     ]
-  }
+  },
   // ... other token holders
 ]
 ```
@@ -393,7 +395,7 @@ You can get all holders of POAP that has Lens Profile:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/6JBkrFm6Xn" %}
+{% embed url="https://app.airstack.xyz/DTyOZg/t9AH0Bek8X" %}
 Show all POAP holders of EthCC\[6] - Attendee that has Lens Profile
 {% endembed %}
 
@@ -408,7 +410,8 @@ query MyQuery {
       owner {
         socials(input: {filter: {dappName: {_eq: lens}}}) {
           profileName
-          userId
+          profileTokenId
+          profileTokenIdHex
           userAssociatedAddresses
         }
       }
@@ -429,7 +432,8 @@ query MyQuery {
             "socials": [
               {
                 "profileName": "0x131.lens",
-                "userId": "0x4455951fa43b17bd211e0e8ae64d22fb47946ade",
+                "profileTokenId": "73916",
+                "profileTokenIdHex": "0x0120bc",
                 "userAssociatedAddresses": [
                   "0x4455951fa43b17bd211e0e8ae64d22fb47946ade"
                 ]
@@ -468,12 +472,10 @@ def format_function(data):
     result = []
     if data and 'Poaps' in data and 'Poap' in data['Poaps']:
         for item in data['Poaps']['Poap']:
-            if 'owner' in item and 'socials' in item['owner'] and len(item['owner']['socials']) > 0:
+            if 'owner' in item and 'socials' in item['owner'] and item['owner']['socials'] is not None:
                 result.append(item['owner']['socials'])
 
     result = [item for sublist in result for item in sublist]
-    result = [item for sublist in result for item in sublist]
-    result = list(set(result)) 
 
     return result
 ```
@@ -486,7 +488,8 @@ The final result will the the list of all common holders in an array:
 [
   {
     "profileName": "0x131.lens",
-    "userId": "0x4455951fa43b17bd211e0e8ae64d22fb47946ade",
+    "profileTokenId": "73916",
+    "profileTokenIdHex": "0x0120bc",
     "userAssociatedAddresses": [
       "0x4455951fa43b17bd211e0e8ae64d22fb47946ade"
     ]
@@ -503,7 +506,7 @@ You can get all holders of an ERC20 token that have a minimum amount held in the
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/xW4iILym4e" %}
+{% embed url="https://app.airstack.xyz/DTyOZg/kMOWO43xft" %}
 Show all user that has at least 10 USD Coin with their Lens Profile
 {% endembed %}
 
@@ -528,7 +531,8 @@ query MyQuery {
         identity
         socials(input: {filter: {dappName: {_eq: lens}}}) {
           profileName
-          userId
+          profileTokenId
+          profileTokenIdHex
           userAssociatedAddresses
         }
       }
@@ -546,13 +550,14 @@ query MyQuery {
       "TokenBalance": [
         {
           "owner": {
-            "identity": "0xd034fd34eaee5ec2c413c51936109e12873f4da5",
+            "identity": "0x2ae074de12b20f853550a42ee1972746a6c3421e",
             "socials": [
               {
-                "profileName": "monkeyflower.lens",
-                "userId": "0xd034fd34eaee5ec2c413c51936109e12873f4da5",
+                "profileName": "okmax.lens",
+                "profileTokenId": "99154",
+                "profileTokenIdHex": "0x018352",
                 "userAssociatedAddresses": [
-                  "0xd034fd34eaee5ec2c413c51936109e12873f4da5"
+                  "0x2ae074de12b20f853550a42ee1972746a6c3421e"
                 ]
               }
             ]
@@ -589,12 +594,10 @@ def format_function(data):
     result = []
     if data and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
         for item in data['TokenBalances']['TokenBalance']:
-            if 'owner' in item and 'socials' in item['owner'] and len(item['owner']['socials']) > 0:
+            if 'owner' in item and 'socials' in item['owner'] and item['owner']['socials'] is not None:
                 result.append(item['owner']['socials'])
 
     result = [item for sublist in result for item in sublist]
-    result = [item for sublist in result for item in sublist]
-    result = list(set(result))
 
     return result
 ```
@@ -606,12 +609,13 @@ The final result will the the list of all common holders in an array:
 ```json
 [
   {
-    "profileName": "monkeyflower.lens",
-    "userId": "0xd034fd34eaee5ec2c413c51936109e12873f4da5",
+    "profileName": "okmax.lens",
+    "profileTokenId": "99154",
+    "profileTokenIdHex": "0x018352",
     "userAssociatedAddresses": [
-      "0xd034fd34eaee5ec2c413c51936109e12873f4da5"
+      "0x2ae074de12b20f853550a42ee1972746a6c3421e"
     ]
-  }
+  },
   // ... other token holders
 ]
 ```
@@ -641,7 +645,8 @@ query GetCommonHoldersOfApeCoinAndUSDC {
           owner {
             socials(input: {filter: {dappName: {_eq: lens}}}) {
               profileName
-              userId
+              profileTokenId
+              profileTokenIdHex
               userAssociatedAddresses
             }
           }
@@ -666,10 +671,11 @@ query GetCommonHoldersOfApeCoinAndUSDC {
                 "owner": {
                   "socials": [
                     {
-                      "profileName": "cryptoetc.lens",
-                      "userId": "0x188c30e9a6527f5f0c3f7fe59b72ac7253c62f28",
+                      "profileName": "0xkingelon.lens",
+                      "profileTokenId": "25190",
+                      "profileTokenIdHex": "0x06266",
                       "userAssociatedAddresses": [
-                        "0x188c30e9a6527f5f0c3f7fe59b72ac7253c62f28"
+                        "0x64835b44c5a6947037172532fd2f60f8de4f2939"
                       ]
                     }
                   ]
@@ -718,9 +724,9 @@ def format_function(data):
     result = []
     if data and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
         for item in data['TokenBalances']['TokenBalance']:
-            if 'owner' in item and 'tokenBalances' in item['owner']:
+            if 'owner' in item and 'tokenBalances' in item['owner'] and item['owner']['tokenBalances'] is not None:
                 for token_balance in item['owner']['tokenBalances']:
-                    if 'owner' in token_balance and 'socials' in token_balance['owner'] and len(token_balance['owner']['socials']) > 0:
+                    if 'owner' in token_balance and 'socials' in token_balance['owner'] and token_balance['owner']['socials'] is not None:
                         result.append(token_balance['owner']['socials'])
 
     result = [item for sublist in result for item in sublist]
@@ -737,10 +743,11 @@ The final result will the the list of all common holders in an array:
 ```json
 [
   {
-    "profileName": "cryptoetc.lens",
-    "userId": "0x188c30e9a6527f5f0c3f7fe59b72ac7253c62f28",
+    "profileName": "0xkingelon.lens",
+    "profileTokenId": "25190",
+    "profileTokenIdHex": "0x06266",
     "userAssociatedAddresses": [
-      "0x188c30e9a6527f5f0c3f7fe59b72ac7253c62f28"
+      "0x64835b44c5a6947037172532fd2f60f8de4f2939"
     ]
   }
   // ... other token holders
@@ -755,7 +762,7 @@ You can fetch the common holders of two given POAP event IDs, e.g. [EthGlobal Li
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/1bf6GUDcES" %}
+{% embed url="https://app.airstack.xyz/DTyOZg/X3y36JXQSs" %}
 Get Common Holders Of EthGlobal Lisbon and EthCC POAPs and Their Lens Profile
 {% endembed %}
 
@@ -771,7 +778,8 @@ Get Common Holders Of EthGlobal Lisbon and EthCC POAPs and Their Lens Profile
 </strong>          owner {
             socials(input: {filter: {dappName: {_eq: lens}}}) {
               profileName
-              userId
+              profileTokenId
+              profileTokenIdHex
               userAssociatedAddresses
             }
           }
@@ -797,7 +805,8 @@ Get Common Holders Of EthGlobal Lisbon and EthCC POAPs and Their Lens Profile
                   "socials": [
                     {
                       "profileName": "schmidsi.lens",
-                      "userId": "0x546457bbddf5e09929399768ab5a9d588cb0334d",
+                      "profileTokenId": "11129",
+                      "profileTokenIdHex": "0x02b79",
                       "userAssociatedAddresses": [
                         "0x546457bbddf5e09929399768ab5a9d588cb0334d"
                       ]
@@ -851,9 +860,9 @@ def format_function(data):
     
     if data and 'Poaps' in data and 'Poap' in data['Poaps']:
         for poap in data['Poaps']['Poap']:
-            if 'owner' in poap and 'poaps' in poap['owner']:
+            if 'owner' in poap and 'poaps' in poap['owner'] and poap['owner']['poaps'] is not None:
                 for owner_poap in poap['owner']['poaps']:
-                    if 'owner' in owner_poap and 'socials' in owner_poap['owner'] and len(owner_poap['owner']['socials']) > 0:
+                    if 'owner' in owner_poap and 'socials' in owner_poap['owner'] and owner_poap['owner']['socials'] is not None:
                         result.append(owner_poap['owner']['socials'])
 
     result = [item for sublist in result for item in sublist]
@@ -871,7 +880,8 @@ The final result will the the list of all common holders in an array:
 [
   {
     "profileName": "schmidsi.lens",
-    "userId": "0x546457bbddf5e09929399768ab5a9d588cb0334d",
+    "profileTokenId": "11129",
+    "profileTokenIdHex": "0x02b79",
     "userAssociatedAddresses": [
       "0x546457bbddf5e09929399768ab5a9d588cb0334d"
     ]
@@ -888,7 +898,7 @@ You can fetch the common holder of a token and a POAP by providing the token con
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/lHTqRfk5wb" %}
+{% embed url="https://app.airstack.xyz/DTyOZg/mqA1Bv9fNS" %}
 Show common holders of Sound.xyz NFT and Aave Booth Permissionless POAP that also have Lens Profile
 {% endembed %}
 
@@ -906,7 +916,8 @@ Show common holders of Sound.xyz NFT and Aave Booth Permissionless POAP that als
 </strong>          owner {
             socials(input: {filter: {dappName: {_eq: lens}}}) {
               profileName
-              userId
+              profileTokenId
+              profileTokenIdHex
               userAssociatedAddresses
             }
           }
@@ -932,28 +943,32 @@ Show common holders of Sound.xyz NFT and Aave Booth Permissionless POAP that als
                   "socials": [
                     {
                       "profileName": "westlakevillage.lens",
-                      "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+                      "profileTokenId": "99755",
+                      "profileTokenIdHex": "0x0185ab",
                       "userAssociatedAddresses": [
                         "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
                       ]
                     },
                     {
                       "profileName": "brad.lens",
-                      "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+                      "profileTokenId": "116598",
+                      "profileTokenIdHex": "0x01c776",
                       "userAssociatedAddresses": [
                         "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
                       ]
                     },
                     {
                       "profileName": "bradorbradley.lens",
-                      "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+                      "profileTokenId": "36",
+                      "profileTokenIdHex": "0x024",
                       "userAssociatedAddresses": [
                         "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
                       ]
                     },
                     {
                       "profileName": "hanimourra.lens",
-                      "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+                      "profileTokenId": "116239",
+                      "profileTokenIdHex": "0x01c60f",
                       "userAssociatedAddresses": [
                         "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
                       ]
@@ -1002,9 +1017,9 @@ def format_function(data):
     result = []
     if data is not None and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances']:
         for item in data['TokenBalances']['TokenBalance']:
-            if 'owner' in item and 'poaps' in item['owner']:
+            if 'owner' in item and 'poaps' in item['owner'] and item['owner']['poaps'] is not None:
                 for poap in item['owner']['poaps']:
-                    if 'owner' in poap and 'socials' in poap['owner']:
+                    if 'owner' in poap and 'socials' in poap['owner'] and poap['owner']['socials'] is not None:
                         result.append(poap['owner']['socials'])
 
     result = [item for sublist in result for item in sublist]
@@ -1012,7 +1027,6 @@ def format_function(data):
     result = list(set(result))
 
     return result
-
 ```
 {% endtab %}
 {% endtabs %}
@@ -1023,28 +1037,32 @@ The final result will the the list of all common holders in an array:
 [
   {
     "profileName": "westlakevillage.lens",
-    "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+    "profileTokenId": "99755",
+    "profileTokenIdHex": "0x0185ab",
     "userAssociatedAddresses": [
       "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
     ]
   },
   {
     "profileName": "brad.lens",
-    "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+    "profileTokenId": "116598",
+    "profileTokenIdHex": "0x01c776",
     "userAssociatedAddresses": [
       "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
     ]
   },
   {
     "profileName": "bradorbradley.lens",
-    "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+    "profileTokenId": "36",
+    "profileTokenIdHex": "0x024",
     "userAssociatedAddresses": [
       "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
     ]
   },
   {
     "profileName": "hanimourra.lens",
-    "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+    "profileTokenId": "116239",
+    "profileTokenIdHex": "0x01c60f",
     "userAssociatedAddresses": [
       "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
     ]
