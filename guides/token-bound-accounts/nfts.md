@@ -20,6 +20,7 @@ In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
 * An [Airstack](https://airstack.xyz/) account (free)
 * Basic knowledge of GraphQL
+* Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
 
 ## Get Started
 

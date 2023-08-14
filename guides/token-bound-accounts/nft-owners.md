@@ -6,14 +6,170 @@ description: >-
 
 # 📭 NFT Owners
 
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching ERC6551 dapps and integrating on-chain and off-chain data.
+
+In this tutorial, you will learn how to fetch token-bound (ERC6551) accounts by the [NFT owner](#user-content-fn-1)[^1] and vice versa, fetch the [NFT owner](#user-content-fn-2)[^2] of given token-bound (ERC6551) accounts
+
+In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
+
+* [Get Token Bound Accounts By NFT Owner Address](nft-owners.md#get-token-bound-accounts-by-nft-owner-address)
+* [Get The Owner Of NFT That Owns A Given Token Bound Accounts Address](nft-owners.md#get-the-owner-of-nft-that-owns-a-given-token-bound-accounts-address)
+
+## Pre-requisites
+
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+* Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
+
+## Get Started
+
+#### JavaScript/TypeScript/Python
+
+If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
+
+{% tabs %}
+{% tab title="npm" %}
+#### React
+
+```sh
+npm install @airstack/airstack-react
+```
+
+#### Node
+
+```sh
+npm install @airstack/node
+```
+{% endtab %}
+
+{% tab title="yarn" %}
+#### React
+
+```sh
+yarn add @airstack/airstack-react
+```
+
+#### Node
+
+```sh
+yarn add @airstack/node
+```
+{% endtab %}
+
+{% tab title="pnpm" %}
+#### React
+
+```sh
+pnpm install @airstack/airstack-react
+```
+
+#### Node
+
+```sh
+pnpm install @airstack/node
+```
+{% endtab %}
+
+{% tab title="pip" %}
+```sh
+pip install airstack asyncio
+```
+{% endtab %}
+{% endtabs %}
+
+Then, add the following snippets to your code:
+
+{% tabs %}
+{% tab title="React" %}
+```jsx
+import { init, useQuery } from "@airstack/airstack-react";
+
+init("YOUR_AIRSTACK_API_KEY");
+
+const query = `YOUR_QUERY`; // Replace with GraphQL Query
+
+const Component = () => {
+  const { data, loading, error } = useQuery(query);
+  
+  if (data) {
+    return <p>Data: {JSON.stringify(data)}</p>;
+  }
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+};
+```
+{% endtab %}
+
+{% tab title="Node" %}
+```javascript
+import { init, fetchQuery } from "@airstack/node";
+
+init("YOUR_AIRSTACK_API_KEY");
+
+const query = `YOUR_QUERY`; // Replace with GraphQL Query
+
+const { data, error } = await fetchQuery(query);
+
+console.log("data:", data);
+console.log("error:", error);
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import asyncio
+from airstack.execute_query import AirstackClient
+
+api_client = AirstackClient(api_key="YOUR_AIRSTACK_API_KEY")
+
+query = """YOUR_QUERY""" # Replace with GraphQL Query
+
+async def main():
+    execute_query_client = api_client.create_execute_query_object(
+        query=query)
+
+    query_response = await execute_query_client.execute_query()
+    print(query_response.data)
+
+asyncio.run(main())
+```
+{% endtab %}
+{% endtabs %}
+
+#### Other Programming Languages
+
+To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
+
+## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+
+[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
+
+<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
+
 ## Get Token Bound Accounts By NFT Owner Address
+
+You can fetch all the token bound accounts owned by a given [NFT owner](#user-content-fn-3)[^3] address `owner`:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/DTyOZg/5GhSQXiErE" %}
+Get Token Bound Accounts By NFT Owner Address (Demo)
+{% endembed %}
+
+### Code
 
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
-query MyQuery($owner: [Identity!]) {
+query MyQuery {
   TokenBalances(
-    input: {filter: {owner: {_in: $owner}}, blockchain: ethereum, limit: 200}
+    input: {filter: {owner: {_in: "0xcf94ba8779848141d685d44452c975c2ddc04945"}}, blockchain: ethereum, limit: 200}
   ) {
     TokenBalance {
       tokenNfts {
@@ -25,14 +181,6 @@ query MyQuery($owner: [Identity!]) {
       }
     }
   }
-}
-```
-{% endtab %}
-
-{% tab title="Variable" %}
-```json
-{
-  "owner": "0xcf94ba8779848141d685d44452c975c2ddc04945"
 }
 ```
 {% endtab %}
@@ -118,11 +266,19 @@ query MyQuery($owner: [Identity!]) {
 
 ## Get The Owner Of NFT That Owns A Given Token Bound Accounts Address
 
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/DTyOZg/dgS4j5UWyj" %}
+Get The Owner Of NFT That Owns A Given Token Bound Accounts Address
+{% endembed %}
+
+### Code
+
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
-query MyQuery($address: [Identity!]) {
-  Accounts(input: {filter: {address: {_in: $address}}, blockchain: ethereum}) {
+query MyQuery {
+  Accounts(input: {filter: {address: {_in: "0x9ff8faf2c61f50d24677e9cb5aaf988c91525539"}}, blockchain: ethereum}) {
     Account {
       nft {
         tokenBalances {
@@ -133,14 +289,6 @@ query MyQuery($address: [Identity!]) {
       }
     }
   }
-}
-```
-{% endtab %}
-
-{% tab title="Variable" %}
-```json
-{
-  "address": "0x9ff8faf2c61f50d24677e9cb5aaf988c91525539"
 }
 ```
 {% endtab %}
@@ -171,3 +319,9 @@ query MyQuery($address: [Identity!]) {
 ```
 {% endtab %}
 {% endtabs %}
+
+[^1]: owner of NFT that owns the ERC6551 accounts
+
+[^2]: owner of NFT that owns the ERC6551 accounts
+
+[^3]: owner of NFT that owns the ERC6551 accounts
