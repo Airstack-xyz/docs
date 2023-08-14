@@ -320,6 +320,14 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
+## Developer Support
+
+If you have any questions or need help regarding fetching ERC6551 token bound accounts data by NFT owners, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+
+## More Resources
+
+* [Accounts API Reference](../../api-references/api-reference/accounts-api/)
+
 [^1]: owner of NFT that owns the ERC6551 accounts
 
 [^2]: owner of NFT that owns the ERC6551 accounts

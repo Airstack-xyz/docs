@@ -351,7 +351,13 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
+## Developer Support
 
+If you have any questions or need help regarding fetching ERC6551 token bound accounts data by NFTs, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+
+## More Resources
+
+* [Accounts API Reference](../../api-references/api-reference/accounts-api/)
 
 [^1]: This is represented as `tokenAddress` parameter in the GraphQL query.
 
