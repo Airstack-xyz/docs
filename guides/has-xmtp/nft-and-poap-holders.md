@@ -152,31 +152,32 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## NFT Holders
 
-Get the NFT holders that have XMTP using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API and provide an NFT contract address for the `$tokenAddress` input.
+Get the NFT holders that have XMTP using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API and provide an NFT contract address for the `$tokenAddress` input:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/DTyOZg/203pV6Pyns" %}
+Get the NFT holders that have XMTP (Demo)
+{% endembed %}
+
+### Code
 
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
-query MyQuery($tokenAddress: Address!) {
+query MyQuery {
   TokenBalances(
-    input: {filter: {tokenAddress: {_eq: $tokenAddress}}, blockchain: ethereum}
+    input: {filter: {tokenAddress: {_eq: "0xc0f95066899efd7c0540b9474f81355a83e6f578"}}, blockchain: ethereum}
   ) {
     TokenBalance {
       owner {
         xmtp {
           isXMTPEnabled
         }
+        addresses
       }
     }
   }
-}
-```
-{% endtab %}
-
-{% tab title="Variable" %}
-```json
-{
-  "tokenAddress": "0xc0f95066899efd7c0540b9474f81355a83e6f578" // NFT collection address
 }
 ```
 {% endtab %}
@@ -191,14 +192,20 @@ query MyQuery($tokenAddress: Address!) {
           "owner": {
             "xmtp": [
               {
-                "isXMTPEnabled": true
+                "isXMTPEnabled": true // XMTP is enabled
               }
+            ],
+            "addresses": [
+              "0xa64af7f78de39a238ecd4fff7d6d410dbace2df0"
             ]
           }
         },
         {
           "owner": {
-            "xmtp": []
+            "xmtp": [], // XMTP is not enabled
+            "addresses": [
+              "0x7a3c17937749780432db64f6569b6671c0b45e1b"
+            ]
           }
         }
       ]
@@ -211,13 +218,21 @@ query MyQuery($tokenAddress: Address!) {
 
 ## POAP Holders
 
-Get the POAP holders that have XMTP using the [Poaps](../../api-references/api-reference/poaps-api/) API and provide an POAP event ID for the `$eventId` input.
+Get the POAP holders that have XMTP using the [Poaps](../../api-references/api-reference/poaps-api/) API and provide an POAP event ID for the `$eventId` input:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/DTyOZg/EtrCwWln2c" %}
+Get the POAP holders that have XMTP (Demo)
+{% endembed %}
+
+### Code
 
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
-query POAPEventHoldersWithXMTP($eventId: String!) {
-  Poaps(input: {filter: {eventId: {_eq: $eventId}}, blockchain: ALL}) {
+query POAPEventHoldersWithXMTP {
+  Poaps(input: {filter: {eventId: {_eq: "141910"}}, blockchain: ALL}) {
     Poap {
       owner {
         addresses
@@ -227,14 +242,6 @@ query POAPEventHoldersWithXMTP($eventId: String!) {
       }
     }
   }
-}
-```
-{% endtab %}
-
-{% tab title="Variable" %}
-```json
-{
-  "eventId": "141910" // POAP event ID
 }
 ```
 {% endtab %}
@@ -250,7 +257,7 @@ query POAPEventHoldersWithXMTP($eventId: String!) {
             "addresses": [
               "0xda85048c977134b09fc05cd3d1abd3a63e8edf4d"
             ],
-            "xmtp": []
+            "xmtp": [] // XMTP is not enabled
           }
         },
         {
@@ -260,7 +267,7 @@ query POAPEventHoldersWithXMTP($eventId: String!) {
             ],
             "xmtp": [
               {
-                "isXMTPEnabled": true
+                "isXMTPEnabled": true // XMTP is enabled
               }
             ]
           }
