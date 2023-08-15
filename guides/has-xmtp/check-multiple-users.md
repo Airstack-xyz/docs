@@ -12,7 +12,7 @@ In this guide you will learn how to use [Airstack](https://airstack.xyz) to chec
 
 * [Bulk Check Multiple Users Has XMTP](check-multiple-users.md#bulk-check-multiple-users-has-xmtp)
 * [Bulk Check Lens Profiles Have XMTP](check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
-* B[ulk Check Farcasters Have XMTP](check-multiple-users.md#bulk-check-farcasters-have-xmtp)
+* [Bulk Check Farcasters Have XMTP](check-multiple-users.md#bulk-check-farcasters-have-xmtp)
 
 ## Pre-requisites
 
