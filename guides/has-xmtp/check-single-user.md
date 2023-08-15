@@ -19,6 +19,7 @@ In this guide you will learn how to use [Airstack](https://airstack.xyz) to chec
 
 * An [Airstack](https://airstack.xyz/) account (free)
 * Basic knowledge of GraphQL
+* Basic knowledge of [XMTP](https://xmtp.org)
 
 ## Get Started
 
