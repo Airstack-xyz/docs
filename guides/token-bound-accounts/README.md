@@ -31,6 +31,10 @@ If you are deploying ERC6551 using a custom Registry contract, please reach out 
 [sort-results.md](sort-results.md)
 {% endcontent-ref %}
 
+{% content-ref url="traverse-erc6551-tree.md" %}
+[traverse-erc6551-tree.md](traverse-erc6551-tree.md)
+{% endcontent-ref %}
+
 {% content-ref url="token-gating.md" %}
 [token-gating.md](token-gating.md)
 {% endcontent-ref %}
