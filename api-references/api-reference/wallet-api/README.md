@@ -19,6 +19,7 @@ input WalletInput {
 
 ```graphql
 type Wallet {
+  accounts: # Nested query – return ERC6551 detail information on the account (if any) 
   addresses: Addresses! # return addresses associated with the identity input
   domains: # Nested query - allows querying domains owned by the address
   identity: # return identity passed from the input
