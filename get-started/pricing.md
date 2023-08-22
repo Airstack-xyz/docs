@@ -6,7 +6,7 @@ description: Learn how Airstack pricing will be implemented from September 18, 2
 
 ## Before September 18, 2023
 
-[Airstack](https://airstack.xyz) is currently available **free of charge** for hackers, professionals, startups, and for all normal business use cases until August 31, 2023.
+[Airstack](https://airstack.xyz) is currently available **free of charge** for hackers, professionals, startups, and for all normal business use cases until September 18, 2023.
 
 Our focus right now is to help developers achieve their desired use cases while we learn together and rapidly enhance the [Airstack](https://airstack.xyz) features.
 
@@ -27,7 +27,7 @@ Airstack API will be charged accordingly to the following guidelines:
 ### Free to Start
 
 It will cost you $0 to experiment, plan, and explore the Airstack APIs in totality. \
-A very generous free tier ($500 worth of free usage) will be provided to all developers.
+A very generous free tier ($300 worth of free usage) will be provided to all developers.
 
 ### No Pay-Walled Features
 
