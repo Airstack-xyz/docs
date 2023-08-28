@@ -865,6 +865,272 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
+If you want want to get Farcaster user with fid in certain range, e.g. fid 1 to 3, then you can use the fid as an array to the `userId` input to fetch the data as shown below:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/DTyOZg/pJYR1DlOeE" %}
+Show all Farcaster user with fid 1, 2, 3 profile details and registration info
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Socials(
+    input: {filter: {dappName: {_eq: farcaster}, userId: {_in: ["1", "2", "3"]}}, blockchain: ethereum}
+  ) {
+    Social {
+      id
+      chainId
+      blockchain
+      dappName
+      dappSlug
+      dappVersion
+      userId
+      userAddress
+      userCreatedAtBlockTimestamp
+      userCreatedAtBlockNumber
+      userLastUpdatedAtBlockTimestamp
+      userLastUpdatedAtBlockNumber
+      userHomeURL
+      userRecoveryAddress
+      userAssociatedAddresses
+      profileName
+      profileTokenId
+      profileTokenAddress
+      profileCreatedAtBlockTimestamp
+      profileCreatedAtBlockNumber
+      profileLastUpdatedAtBlockTimestamp
+      profileLastUpdatedAtBlockNumber
+      profileTokenUri
+      isDefault
+      identity
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "id": "2616763182d1539bc20585a137a5f0c4005fd0c2851b829e5a9a1eb7c1ed04a1",
+          "chainId": "5",
+          "blockchain": "ethereum_goerli",
+          "dappName": "farcaster",
+          "dappSlug": "farcaster_goerli",
+          "dappVersion": "goerli",
+          "userId": "1",
+          "userAddress": "0x8773442740c17c9d0f0b87022c722f9a136206ed",
+          "userCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
+          "userCreatedAtBlockNumber": 7648814,
+          "userLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
+          "userLastUpdatedAtBlockNumber": 7648814,
+          "userHomeURL": "https://www.farcaster.xyz/",
+          "userRecoveryAddress": "0x0000000000000000000000000000000000000000",
+          "userAssociatedAddresses": [
+            "0x8773442740c17c9d0f0b87022c722f9a136206ed",
+            "0x86924c37a93734e8611eb081238928a9d18a63c0"
+          ],
+          "profileName": "farcaster",
+          "profileTokenId": "46308084199157716655702464398050049919145165628022664991789129153135907962880",
+          "profileTokenAddress": "0xe3be01d99baa8db9905b33a3ca391238234b79d1",
+          "profileCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
+          "profileCreatedAtBlockNumber": 7648814,
+          "profileLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
+          "profileLastUpdatedAtBlockNumber": 7648814,
+          "profileTokenUri": "http://www.farcaster.xyz/u/farcaster.json",
+          "isDefault": false,
+          "identity": ""
+        },
+        {
+          "id": "b9b952e45ab0156b3035de25915e72cc5a1c315e21108d72c6c55151e8bccac5",
+          "chainId": "5",
+          "blockchain": "ethereum_goerli",
+          "dappName": "farcaster",
+          "dappSlug": "farcaster_goerli",
+          "dappVersion": "goerli",
+          "userId": "2",
+          "userAddress": "0x4114e33eb831858649ea3702e1c9a2db3f626446",
+          "userCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
+          "userCreatedAtBlockNumber": 7648814,
+          "userLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
+          "userLastUpdatedAtBlockNumber": 7648814,
+          "userHomeURL": "https://www.farcaster.xyz/",
+          "userRecoveryAddress": "0x0000000000000000000000000000000000000000",
+          "userAssociatedAddresses": [
+            "0x4114e33eb831858649ea3702e1c9a2db3f626446",
+            "0x182327170fc284caaa5b1bc3e3878233f529d741",
+            "0x91031dcfdea024b4d51e775486111d2b2a715871"
+          ],
+          "profileName": "varunsrin.eth",
+          "profileTokenId": "53372916132825433828052250902442082526116633556818697486937480128647458193408",
+          "profileTokenAddress": "0xe3be01d99baa8db9905b33a3ca391238234b79d1",
+          "profileCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
+          "profileCreatedAtBlockNumber": 7648814,
+          "profileLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
+          "profileLastUpdatedAtBlockNumber": 7648814,
+          "profileTokenUri": "http://www.farcaster.xyz/u/v.json",
+          "isDefault": false,
+          "identity": ""
+        },
+        {
+          "id": "c9067a911d67d849200404f1f7e1cc0b9eff4716e085d244db877dad59982b95",
+          "chainId": "5",
+          "blockchain": "ethereum_goerli",
+          "dappName": "farcaster",
+          "dappSlug": "farcaster_goerli",
+          "dappVersion": "goerli",
+          "userId": "3",
+          "userAddress": "0x74232bf61e994655592747e20bdf6fa9b9476f79",
+          "userCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
+          "userCreatedAtBlockNumber": 7648814,
+          "userLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
+          "userLastUpdatedAtBlockNumber": 7648814,
+          "userHomeURL": "https://www.farcaster.xyz/",
+          "userRecoveryAddress": "0x0000000000000000000000000000000000000000",
+          "userAssociatedAddresses": [
+            "0x74232bf61e994655592747e20bdf6fa9b9476f79",
+            "0xb877f7bb52d28f06e60f557c00a56225124b357f",
+            "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
+            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+          ],
+          "profileName": "dwr.eth",
+          "profileTokenId": "45442326458118800696824595983775420889468637770166871407996878418806401138688",
+          "profileTokenAddress": "0xe3be01d99baa8db9905b33a3ca391238234b79d1",
+          "profileCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
+          "profileCreatedAtBlockNumber": 7648814,
+          "profileLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
+          "profileLastUpdatedAtBlockNumber": 7648814,
+          "profileTokenUri": "http://www.farcaster.xyz/u/dwr.json",
+          "isDefault": false,
+          "identity": ""
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+For larger range, it is recommended that you generate the array programmatically instead of manually typing them.\
+\
+It is best practice that you keep the size of the array to a **maximum length of 200** per API call.
+{% endhint %}
+
+## Bulk Query All Farcaster Users Profile Details
+
+You can bulk query the profile details of all Farcaster users:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/DTyOZg/YY02CjXaPG" %}
+Show all farcaster users profile details and registration info
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Socials(input: {filter: {dappName: {_eq: farcaster}}, blockchain: ethereum}) {
+    Social {
+      id
+      chainId
+      blockchain
+      dappName
+      dappSlug
+      dappVersion
+      userId
+      userAddress
+      userCreatedAtBlockTimestamp
+      userCreatedAtBlockNumber
+      userLastUpdatedAtBlockTimestamp
+      userLastUpdatedAtBlockNumber
+      userHomeURL
+      userRecoveryAddress
+      userAssociatedAddresses
+      profileName
+      profileTokenId
+      profileTokenAddress
+      profileCreatedAtBlockTimestamp
+      profileCreatedAtBlockNumber
+      profileLastUpdatedAtBlockTimestamp
+      profileLastUpdatedAtBlockNumber
+      profileTokenUri
+      isDefault
+      identity
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "id": "00032cc00ddf7b9ccacb73fa6055a23024650e7ce91b9ffaa7919da577a4d2c8",
+          "chainId": "5",
+          "blockchain": "ethereum_goerli",
+          "dappName": "farcaster",
+          "dappSlug": "farcaster_goerli",
+          "dappVersion": "goerli",
+          "userId": "4226",
+          "userAddress": "0xfb0d4b9bc273a4a1c50d014815497bae44cf3402",
+          "userCreatedAtBlockTimestamp": "2022-10-25T01:37:24Z",
+          "userCreatedAtBlockNumber": 7829021,
+          "userLastUpdatedAtBlockTimestamp": "2022-10-25T01:37:24Z",
+          "userLastUpdatedAtBlockNumber": 7829021,
+          "userHomeURL": "https://www.farcaster.xyz/",
+          "userRecoveryAddress": "0x0000000000000000000000000000000000000000",
+          "userAssociatedAddresses": [
+            "0xfb0d4b9bc273a4a1c50d014815497bae44cf3402"
+          ],
+          "profileName": "ratan",
+          "profileTokenId": "51735852133051278057081227170404867683004963210937239958095082937883562082304",
+          "profileTokenAddress": "0xe3be01d99baa8db9905b33a3ca391238234b79d1",
+          "profileCreatedAtBlockTimestamp": "2022-10-25T01:37:24Z",
+          "profileCreatedAtBlockNumber": 7829021,
+          "profileLastUpdatedAtBlockTimestamp": "2022-10-25T01:37:24Z",
+          "profileLastUpdatedAtBlockNumber": 7829021,
+          "profileTokenUri": "http://www.farcaster.xyz/u/ratan.json",
+          "isDefault": false,
+          "identity": ""
+        },
+        // Other farcaster users
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Developer Support
+
+If you have any questions or need help regarding fetching Farcaster user(s) profile details, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+
+## More Resources
+
+* [Resolve Identities](../resolve-identities/)
+  * [Farcaster](../resolve-identities/farcaster.md)
+* [Farcaster Resolver](../../use-cases/farcaster/universal-resolver.md)
+* [Socials API Reference](../../api-references/api-reference/socials-api/)
+
 [^1]: 0x addresses, ENS domains, Lens, XMTP
 
 [^2]: 0x address, ENS domain, Lens profile name and ID, Farcaster name and ID&#x20;

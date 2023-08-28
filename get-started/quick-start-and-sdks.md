@@ -8,11 +8,12 @@
 * **Rate limits & API Keys**
   * Without login: 50 requests / 5 minutes
   * Rate limits with Login and Free API Key:&#x20;
-    * Create a free account at app.airstack.xyz with 50 requests/min, burst of 5/sec. You can find the key by clicking on your **profile -> View API keys**.&#x20;
+    * Create a free account at app.airstack.xyz with 50 requests/min, a burst of 5/sec. You can find the key by clicking on your **profile -> View API keys**.&#x20;
     * If you need a higher rate limit, [please fill out this form](https://o5weogb3uux.typeform.com/to/u5CNxhWc) to request an upgrade.&#x20;
     * To pass the API Key enter "authorization" in the header with the key value as follows: {"authorization":"your\_key"}
 * **Record limit** per API call: 200
-  * We support cursor based pagination to retrieve the next set of results.
+  * We support cursor-based pagination to retrieve the next set of results.
+* It is best practice that you keep the size of the array for input filters, e.g. `_in` or `_nin`, to a **maximum length of 200** per API call.
 * **Please join** [**this private Telegram group**](https://t.me/+iL8v1-mSZmZiYzRh) **for direct access to the team**
 * **Latency.** New Ethereum & Polygon transactions should be searchable on Airstack within seconds from the transaction finalization.
 * **Pricing**.&#x20;
