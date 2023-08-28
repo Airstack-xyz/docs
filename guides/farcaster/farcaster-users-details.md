@@ -19,6 +19,7 @@ In this guide you will learn how to use Airstack to:
 * [Get Farcaster Profile Details By Lens Profile Name](farcaster-users-details.md#get-farcaster-profile-details-by-lens-profile-name)
 * [Get Farcaster Profile Details By Lens Profile ID](farcaster-users-details.md#get-farcaster-profile-details-by-lens-profile-id)
 * [Bulk Query Farcaster Profile Details](farcaster-users-details.md#bulk-query-farcaster-profile-details)
+* [Bulk Query All Farcaster Users Profile Details](farcaster-users-details.md#bulk-query-all-farcaster-users-profile-details)
 
 ## Pre-requisites
 
