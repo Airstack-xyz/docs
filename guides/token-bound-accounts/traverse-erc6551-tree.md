@@ -165,7 +165,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Traverse Up ERC6551 Tree By ERC6551 Account Address
 
-Suppose that you know the ERC6551 account address `X` and would like to get the NFT that own the given ERC6551 account and the TBA that hold the mentioned NFT as shown in the chart below.
+Suppose that you know the ERC6551 account address `X` and would like to get the NFT that own the given ERC6551 account and the ERC6551 account that hold the mentioned NFT as shown in the chart below.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-08-29 at 22.59.10.png" alt=""><figcaption><p>ERC6551 Tree Example Chart</p></figcaption></figure>
 
@@ -180,7 +180,7 @@ Traverse Down ERC6551 Tree By ERC6551 Account Address (Demo)
 ### Code
 
 {% hint style="info" %}
-To query the upper-level NFTs & TBAs in the ERC6551 ownership tree, simply add more `tokenBalances` nesting inside the most nested `nft` field.
+To query the upper-level NFTs & ERC6551 accounts in the ERC6551 ownership tree, simply add more `tokenBalances` nesting inside the most nested `nft` field.
 {% endhint %}
 
 {% tabs %}
@@ -283,7 +283,7 @@ query MyQuery {
 
 ## Traverse Up ERC6551 Tree By NFT
 
-Suppose that you know the NFT `X` and would like to get the TBA that own the given NFT and the NFT that hold by the mentioned TBA, and the higher-level layer TBAs & NFTs and so on, as shown in the chart below.
+Suppose that you know the NFT `X` and would like to get the ERC6551 account that own the given NFT and the NFT that hold by the mentioned ERC6551 account, and the higher-level layer ERC6551 accounts & NFTs and so on, as shown in the chart below.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-08-29 at 23.05.06.png" alt=""><figcaption><p>ERC6551 Tree Example Chart</p></figcaption></figure>
 
@@ -298,7 +298,7 @@ Traverse Up ERC6551 Tree By NFT (Demo)
 ### Code
 
 {% hint style="info" %}
-To query the upper-level NFTs & TBAs in the ERC6551 ownership tree, simply add more `tokenBalances` nesting inside the most nested `nft` field.
+To query the upper-level NFTs & ERC6551 accounts in the ERC6551 ownership tree, simply add more `tokenBalances` nesting inside the most nested `nft` field.
 {% endhint %}
 
 {% tabs %}
@@ -404,9 +404,9 @@ query MyQuery {
 
 ## Traverse Down ERC6551 Tree By EOA Address
 
-Suppose that you know the user's EOA wallet address `X` and would like to get all the NFTs and TBAs own, either directly or indirectly, by the EOA as shown in the chart below.
+Suppose that you know the user's EOA wallet address `X` and would like to get all the NFTs and ERC6551 accounts own, either directly or indirectly, by the EOA as shown in the chart below.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-08-16 at 18.34.55.png" alt=""><figcaption><p>ERC6551 Tree Example Chart</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-08-29 at 23.09.20.png" alt=""><figcaption><p>ERC6551 Tree Example Chart</p></figcaption></figure>
 
 Then, you can use the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API to do so with the following query by providing the EOA address `X` to the `owner` filter input:
 
@@ -419,7 +419,7 @@ Traverse Down ERC6551 Tree By EOA address (Demo)
 ### Code
 
 {% hint style="info" %}
-To query the lower-level NFTs & TBAs in the ERC6551 ownership tree, simply add more `tokenBalances` nesting inside the most nested `address` field.
+To query the lower-level NFTs & ERC6551 accounts in the ERC6551 ownership tree, simply add more `tokenBalances` nesting inside the most nested `address` field.
 {% endhint %}
 
 {% tabs %}
@@ -589,7 +589,7 @@ query MyQuery {
 
 ## Traverse Down ERC6551 Tree By NFT
 
-Suppose that you know the user's EOA wallet address `X` and would like to get all the NFTs and TBAs own, either directly or indirectly, by the EOA as shown in the chart below.
+Suppose that you know the user's EOA wallet address `X` and would like to get all the NFTs and ERC6551 accounts own, either directly or indirectly, by the EOA as shown in the chart below.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-08-16 at 18.50.09.png" alt=""><figcaption><p>ERC6551 Tree Example Chart</p></figcaption></figure>
 
@@ -604,7 +604,7 @@ Traverse Down ERC6551 Tree By NFT (Demo)
 ### Code
 
 {% hint style="info" %}
-To query the lower-level NFTs & TBAs in the ERC6551 ownership, simply add more `tokenBalances` nesting inside the most nested `address` field.
+To query the lower-level NFTs & ERC6551 accounts in the ERC6551 ownership, simply add more `tokenBalances` nesting inside the most nested `address` field.
 {% endhint %}
 
 {% tabs %}
