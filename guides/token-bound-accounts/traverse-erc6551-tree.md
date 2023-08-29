@@ -591,7 +591,7 @@ query MyQuery {
 
 Suppose that you know the user's EOA wallet address `X` and would like to get all the NFTs and ERC6551 accounts own, either directly or indirectly, by the EOA as shown in the chart below.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-08-16 at 18.50.09.png" alt=""><figcaption><p>ERC6551 Tree Example Chart</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-08-29 at 23.18.14.png" alt=""><figcaption><p>ERC6551 Tree Example Chart</p></figcaption></figure>
 
 Then, you can use the [`Accounts`](../../api-references/api-reference/accounts-api/) API to do so with the following query by providing the NFT `X`'s token address and token ID to the `tokenAddress`  and `tokenId` filter input, respectively:
 
