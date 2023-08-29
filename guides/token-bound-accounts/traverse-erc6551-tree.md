@@ -167,7 +167,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 Suppose that you know the ERC6551 account address `X` and would like to get the NFT that own the given ERC6551 account and the TBA that hold the mentioned NFT as shown in the chart below.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-08-16 at 23.10.08.png" alt=""><figcaption><p>ERC6551 Tree Example Chart</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-08-29 at 22.59.10.png" alt=""><figcaption><p>ERC6551 Tree Example Chart</p></figcaption></figure>
 
 Then, you can use the `Accounts` API to do so with the following query by providing the ERC6551 account address `X` to the `address` filter input:
 
