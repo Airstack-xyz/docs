@@ -285,7 +285,7 @@ query MyQuery {
 
 Suppose that you know the NFT `X` and would like to get the TBA that own the given NFT and the NFT that hold by the mentioned TBA, and the higher-level layer TBAs & NFTs and so on, as shown in the chart below.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-08-16 at 22.43.30.png" alt=""><figcaption><p>ERC6551 Tree Example Chart</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-08-29 at 23.05.06.png" alt=""><figcaption><p>ERC6551 Tree Example Chart</p></figcaption></figure>
 
 Then, you can use the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API to do so with the following query by providing the NFT `X`'s token address and token ID to the `tokenAddress`  and `tokenId` filter input, respectively:
 
