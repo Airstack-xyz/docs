@@ -8,8 +8,8 @@ The Socials APIs deliver on-chain and off-chain user-level data pertaining to us
 
 ```graphql
 input SocialFilter {
-  dappName: # Social DApp name
-  dappSlug: # Social DApp slug (contract version)
+  dappName: # Social DApp name – lens, farcaster
+  dappSlug: # Social DApp slug (contract version) – lens_polygon, farcaster_optimism, farcaster_goerli
   identity: # Identity: blockchain address, domain name, social identity
   isDefault: # True/false if the profile is set to default on the corresponding dApp
   profileName: # Profile name on the social app (prefix not required)

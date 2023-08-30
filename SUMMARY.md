@@ -139,3 +139,8 @@
 * [init](nodejs-sdk-reference/init.md)
 * [fetchQuery](nodejs-sdk-reference/fetchquery.md)
 * [fetchQueryWithPagination](nodejs-sdk-reference/fetchquerywithpagination.md)
+
+## Miscellaneous
+
+* [🌪 API Changelog](miscellaneous/api-changelog/README.md)
+  * [Aug 30, 2023](miscellaneous/api-changelog/aug-30-2023.md)
