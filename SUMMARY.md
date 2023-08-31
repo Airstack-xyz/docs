@@ -106,6 +106,9 @@
   * [Airstack Identity API](api-references/api-reference/airstack-identity-api.md)
   * [Cross-chain Queries](api-references/api-reference/cross-chain-queries.md)
 * [Working with GraphQL](api-references/working-with-graphql.md)
+* [📍 Cursor Pagination](api-references/cursor-pagination/README.md)
+  * [Overview](api-references/cursor-pagination/overview.md)
+  * [Pagination in Airstack SDK](api-references/cursor-pagination/pagination-in-airstack-sdk.md)
 * [Nested Queries](api-references/nested-queries.md)
 
 ## React SDK Reference
