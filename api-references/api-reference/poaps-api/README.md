@@ -8,6 +8,7 @@ The Poaps API allows users to query POAPs held by a particular wallet, all POAP 
 
 ```graphql
 input PoapFilter {
+  createdAtBlockNumber: # Block Number when POAP was created
   dappName: # POAP Dapp Name
   dappSlug: # POAP Dapp Version
   eventId: #POAP Event ID
