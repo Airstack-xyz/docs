@@ -294,7 +294,7 @@ query BulkFetchLensProfilesHaveXMTP {
 
 ## Get All 0x addresses of Lens profile(s)
 
-You can resolve an array of Lens profile(s) to their 0x addresses:
+You can resolve an array of Lens profile(s) to their 0x addresses for XMTP messaging and displayed in your XMTP application:
 
 ### Try Demo
 
@@ -354,7 +354,7 @@ query GetAddressesOfLens {
 
 ## Get All Lens Profiles Owned by 0x address
 
-You can resolve any 0x address to their Farcaster accounts:
+You can resolve any 0x address to their Farcaster accounts for XMTP messaging and displayed in your XMTP application:
 
 ### Try Demo
 
@@ -413,5 +413,9 @@ If you have any questions or need help regarding checking if Lens profile(s) hav
 * [Has XMTP](../has-xmtp/)
   * [Check Lens Profile](../has-xmtp/check-single-user.md#by-lens-profile)
   * [Bulk Check Lens Profiles](../has-xmtp/check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
+* [Lens Followers](broken-reference)
+* [Lens Followings](broken-reference)
 * [Lens Resolver](../../use-cases/lens/universal-resolver.md)
 * [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
+* [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
+* [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)

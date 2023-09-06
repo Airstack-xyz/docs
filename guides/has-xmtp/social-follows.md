@@ -1,17 +1,23 @@
 ---
-description: Learn how to use Airstack to get all holders of NFT or POAP that have XMTP.
+description: >-
+  Learn how to use Airstack to get all social followers or following that have
+  XMTP enabled.
 ---
 
-# 🗃 NFT & POAP Holders
+# 🎉 Social Follows
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
 
-In this tutorial, you will learn how to check whether holders of a given NFT or POAP have XMTP enabled or not.
+In this tutorial, you will learn how to check whether an array of user followers or following have XMTP enabled or not.
+
+{% hint style="info" %}
+Currently, Airstack **ONLY** returns Farcaster follows data. Lens follows data will be coming very soon.
+{% endhint %}
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to check if holders of a given NFT or POAP have XMTP enabled:
 
-* [NFT Holders](nft-and-poap-holders.md#nft-holders)
-* [POAP Holders](nft-and-poap-holders.md#poap-holders)
+* [Get All Followers of User(s) that have XMTP Enabled](social-follows.md#get-all-followers-of-user-s-that-have-xmtp-enabled)
+* [Get All Following of User(s) that have XMTP Enabled](social-follows.md#get-all-following-of-user-s-that-have-xmtp-enabled)
 
 ## Pre-requisites
 
@@ -150,15 +156,9 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## NFT Holders
+## Get All Followers of User(s) that have XMTP Enabled
 
-Get the NFT holders that have XMTP using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API and provide an NFT contract address for the `$tokenAddress` input:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/DTyOZg/203pV6Pyns" %}
-Get the NFT holders that have XMTP (Demo)
-{% endembed %}
+You can all the followers of user(s) and see whether they have their XMTP enabled for messaging by providing [0x address](#user-content-fn-1)[^1], ENS[^2], [Lens profile](#user-content-fn-3)[^3], or Farcaster[^4]:
 
 ### Code
 
@@ -166,16 +166,47 @@ Get the NFT holders that have XMTP (Demo)
 {% tab title="Query" %}
 ```graphql
 query MyQuery {
-  TokenBalances(
-    input: {filter: {tokenAddress: {_eq: "0xc0f95066899efd7c0540b9474f81355a83e6f578"}}, blockchain: ethereum}
+  SocialFollowers(
+    input: {filter: {identity: {_in: ["vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
   ) {
-    TokenBalance {
-      owner {
+    Follower {
+      followerAddress {
+        addresses
+        domains {
+          name
+          resolvedAddress
+        }
+        socials {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+          userId
+          userAssociatedAddresses
+        }
         xmtp {
           isXMTPEnabled
         }
-        addresses
       }
+      followerProfileId
+      followerTokenId
+      followingAddress {
+        addresses
+        domains {
+          name
+          resolvedAddress
+        }
+        socials {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+          userId
+          userAssociatedAddresses
+        }
+        xmtp {
+          isXMTPEnabled
+        }
+      }
+      followingProfileId
     }
   }
 }
@@ -183,63 +214,61 @@ query MyQuery {
 {% endtab %}
 
 {% tab title="Response" %}
-```json
-{
-  "data": {
-    "TokenBalances": {
-      "TokenBalance": [
-        {
-          "owner": {
-            "xmtp": [
-              {
-                "isXMTPEnabled": true // XMTP is enabled
-              }
-            ],
-            "addresses": [
-              "0xa64af7f78de39a238ecd4fff7d6d410dbace2df0"
-            ]
-          }
-        },
-        {
-          "owner": {
-            "xmtp": [], // XMTP is not enabled
-            "addresses": [
-              "0x7a3c17937749780432db64f6569b6671c0b45e1b"
-            ]
-          }
-        }
-      ]
-    }
-  }
-}
-```
+
 {% endtab %}
 {% endtabs %}
 
-## POAP Holders
+## Get All Following of User(s) that have XMTP Enabled
 
-Get the POAP holders that have XMTP using the [Poaps](../../api-references/api-reference/poaps-api/) API and provide an POAP event ID for the `$eventId` input:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/DTyOZg/EtrCwWln2c" %}
-Get the POAP holders that have XMTP (Demo)
-{% endembed %}
+You can all the following of user(s) and see whether they have their XMTP enabled for messaging by providing [0x address](#user-content-fn-5)[^5], ENS[^6], [Lens profile](#user-content-fn-7)[^7], or Farcaster[^8]:
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
-query POAPEventHoldersWithXMTP {
-  Poaps(input: {filter: {eventId: {_eq: "141910"}}, blockchain: ALL}) {
-    Poap {
-      owner {
+query MyQuery {
+  SocialFollowings(
+    input: {filter: {identity: {_in: ["0xeaf55242a90bb3289dB8184772b0B98562053559", "vitalik.eth", "bradorbradley.lens", "fc_fname:dwr.eth"]}}, blockchain: ALL, limit: 200}
+  ) {
+    Following {
+      followerAddress {
         addresses
+        domains {
+          name
+          resolvedAddress
+        }
+        socials {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+          userId
+          userAssociatedAddresses
+        }
         xmtp {
           isXMTPEnabled
         }
       }
+      followerProfileId
+      followerTokenId
+      followingAddress {
+        addresses
+        domains {
+          name
+          resolvedAddress
+        }
+        socials {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+          userId
+          userAssociatedAddresses
+        }
+        xmtp {
+          isXMTPEnabled
+        }
+      }
+      followingProfileId
     }
   }
 }
@@ -247,36 +276,7 @@ query POAPEventHoldersWithXMTP {
 {% endtab %}
 
 {% tab title="Response" %}
-```json
-{
-  "data": {
-    "Poaps": {
-      "Poap": [
-        {
-          "owner": {
-            "addresses": [
-              "0xda85048c977134b09fc05cd3d1abd3a63e8edf4d"
-            ],
-            "xmtp": [] // XMTP is not enabled
-          }
-        },
-        {
-          "owner": {
-            "addresses": [
-              "0x546457bbddf5e09929399768ab5a9d588cb0334d"
-            ],
-            "xmtp": [
-              {
-                "isXMTPEnabled": true // XMTP is enabled
-              }
-            ]
-          }
-        }
-      ]
-    }
-  }
-}
-```
+
 {% endtab %}
 {% endtabs %}
 
@@ -286,7 +286,23 @@ If you have any questions or need help regarding checking XMTP for holders of a 
 
 ## More Resources
 
-* [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
+* [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
+* [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
 * [Has XMTP For Lens Developers](../lens/has-xmtp.md)
 * [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
-* [Universal Resolver](../../use-cases/xmtp/universal-resolver.md)
+
+[^1]: e.g. `0xeaf55242a90bb3289dB8184772b0B98562053559`
+
+[^2]: e.g. `vitalik.eth`
+
+[^3]: e.g. Lens profile name `bradorbradley.lens` or  Lens profile id, either in decimal or hex, `lens_id:0x24`
+
+[^4]: e.g. Farcaster name `fc_fname:dwr.eth` or Farcaster id `fc_fid:3`
+
+[^5]: e.g. `0xeaf55242a90bb3289dB8184772b0B98562053559`
+
+[^6]: e.g. `vitalik.eth`
+
+[^7]: e.g. Lens profile name `bradorbradley.lens` or  Lens profile id, either in decimal or hex, `lens_id:0x24`
+
+[^8]: e.g. Farcaster name `fc_fname:dwr.eth` or Farcaster id `fc_fid:3`

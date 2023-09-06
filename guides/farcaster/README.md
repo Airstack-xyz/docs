@@ -20,6 +20,14 @@ Learn how to use Airstack to:
 [farcaster-users-details.md](farcaster-users-details.md)
 {% endcontent-ref %}
 
+{% content-ref url="farcaster-followers.md" %}
+[farcaster-followers.md](farcaster-followers.md)
+{% endcontent-ref %}
+
+{% content-ref url="farcaster-following.md" %}
+[farcaster-following.md](farcaster-following.md)
+{% endcontent-ref %}
+
 {% content-ref url="has-xmtp.md" %}
 [has-xmtp.md](has-xmtp.md)
 {% endcontent-ref %}

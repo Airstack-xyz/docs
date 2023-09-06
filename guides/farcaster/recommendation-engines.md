@@ -15,6 +15,8 @@ In this guide you will learn how to use Airstack to:
 * [Get Recommendation Follows For Farcaster User(s) Based on Token Transfers](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-token-transfers)
 * [Get Recommendation Follows For Farcaster User(s) Based on POAPs](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-poaps)
 * [Get Recommendation Follows For Farcaster User(s) Based on NFTs](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts)
+* [Get Recommendation Follows For Farcaster User(s) Based on NFTs and POAPs Commonly Held](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts-and-poaps-commonly-held)
+* [Get Recommendation Follows For Farcaster User(s) Based on Farcaster Followers](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-farcaster-followers)
 
 ## Pre-requisites
 
@@ -774,6 +776,121 @@ The final result will the the list of all common holders in an array:
   // ...other token holders
 ]
 ```
+
+## Get Recommendation Follows For Farcaster User(s) Based on Farcaster Followers
+
+### Fetching
+
+You can fetch follow recommendations for Farcaster user(s) by simply showing them all the Farcaster accounts that followed the given user(s):
+
+#### Try Demo
+
+{% embed url="https://app.airstack.xyz/DTyOZg/d56c7N9Sy6" %}
+Show me all Farcaster followers of fname dwr.eth and their Farcaster account details
+{% endembed %}
+
+#### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  SocialFollowers(
+    input: {filter: {dappName: {_eq: farcaster}, identity: {_in: ["fc_fname:dwr.eth"]}}, blockchain: ALL, limit: 200}
+  ) {
+    Follower {
+      followerAddress {
+        addresses
+        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+      }
+      followingAddress {
+        addresses
+        domains {
+          name
+        }
+        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "SocialFollowers": {
+      "Follower": [
+        {
+          "followerAddress": {
+            "addresses": [
+              "0xb83d63d179838b439f3fa9f35d87f29fcec7b343",
+              "0x7bdee41767e9aac283b86dd73133dd34d735cfac"
+            ],
+            "socials": [
+              {
+<strong>                "profileName": "vipulgoyal", // One of Farcaster follower that can be recommended
+</strong>                "userId": "11282",
+                "userAssociatedAddresses": [
+                  "0xb83d63d179838b439f3fa9f35d87f29fcec7b343",
+                  "0x7bdee41767e9aac283b86dd73133dd34d735cfac"
+                ]
+              }
+            ]
+          },
+          "followingAddress": {
+            "addresses": [
+              "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
+              "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+              "0x74232bf61e994655592747e20bdf6fa9b9476f79",
+              "0xb877f7bb52d28f06e60f557c00a56225124b357f"
+            ],
+            "domains": [
+              {
+                "name": "dwr.eth"
+              },
+              {
+                "name": "noun124.eth"
+              },
+              {
+                "name": "dwr.mirror.xyz"
+              },
+              {
+                "name": "danromero.eth"
+              }
+            ],
+            "socials": [
+              {
+                "profileName": "dwr.eth",
+                "userId": "3",
+                "userAssociatedAddresses": [
+                  "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
+                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+                  "0x74232bf61e994655592747e20bdf6fa9b9476f79",
+                  "0xb877f7bb52d28f06e60f557c00a56225124b357f"
+                ]
+              }
+            ]
+          }
+        },
+        // more Farcaster followers
+      ]
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+With the response, you can get all `followerAddress.socials` and compile them into an array of Farcaster accounts that you can recommend for the given user(s) to follow.
 
 ## Developer Support
 

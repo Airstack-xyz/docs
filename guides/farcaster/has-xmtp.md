@@ -23,6 +23,8 @@ In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 * [Bulk Check Farcaster Users Have XMTP Enabled](has-xmtp.md#bulk-check-farcasters-have-xmtp-enabled)
 * [Get all 0x addresses of Farcaster user(s)](has-xmtp.md#get-all-0x-addresses-of-farcaster-user-s)
 * [Get all Farcasters owned by 0x address](has-xmtp.md#get-all-farcasters-owned-by-0x-address)
+* [Get Farcaster Followers of Farcaster User(s) that has XMTP Enabled](has-xmtp.md#get-farcaster-followers-of-farcaster-user-s-that-has-xmtp-enabled)
+* [Get Farcaster Followings of Farcaster User(s) that has XMTP Enabled](has-xmtp.md#get-farcaster-followings-of-farcaster-user-s-that-has-xmtp-enabled)
 
 ## Pre-requisites
 
@@ -364,6 +366,245 @@ query GetFarcastersOfEthereumAddress {
 {% endtab %}
 {% endtabs %}
 
+## Get Farcaster Followers of Farcaster User(s) that has XMTP Enabled
+
+You can get the list of Farcaster followers of Farcaster user(s) and check if each followers have XMTP enabled or not by inputting [0x address](#user-content-fn-1)[^1], [ENS domain](#user-content-fn-2)[^2], [Farcaster Name](#user-content-fn-3)[^3], or [Farcaster ID](#user-content-fn-4)[^4]:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/DTyOZg/pRTpTuyHa8" %}
+Show me Farcaster followers of fc\_fname:dwr.eth, fc\_fid:602, varunsrin.eth, and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 and check if XMTP is enabled
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  SocialFollowers(
+    input: {filter: {dappName: {_eq: farcaster}, identity: {_in: ["fc_fname:dwr.eth", "fc_fid:602", "varunsrin.eth", "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"]}}, blockchain: ALL, limit: 200}
+  ) {
+    Follower {
+      followerAddress {
+        addresses
+        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+        xmtp {
+          isXMTPEnabled
+        }
+      }
+      followerProfileId
+      followerTokenId
+      followingAddress {
+        addresses
+        domains {
+          name
+        }
+        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+      }
+      followingProfileId
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "SocialFollowers": {
+      "Follower": [
+        {
+          "followerAddress": {
+            "addresses": [
+              "0xd28c2e920bb2e4f159c31ac052b2ed57390996e5",
+              "0xabc4f7d130d0c6be07b7ed23a315e3f60c4d5661"
+            ],
+            "socials": [
+              {
+                "profileName": "schneller",
+                "userId": "12305",
+                "userAssociatedAddresses": [
+                  "0xd28c2e920bb2e4f159c31ac052b2ed57390996e5",
+                  "0xabc4f7d130d0c6be07b7ed23a315e3f60c4d5661"
+                ]
+              }
+            ],
+            "xmtp": [
+              {
+                "isXMTPEnabled": true
+              }
+            ]
+          },
+          "followerProfileId": "12305",
+          "followerTokenId": "",
+          "followingAddress": {
+            "addresses": [
+              "0x182327170fc284caaa5b1bc3e3878233f529d741",
+              "0x91031dcfdea024b4d51e775486111d2b2a715871",
+              "0x4114e33eb831858649ea3702e1c9a2db3f626446"
+            ],
+            "domains": [
+              {
+                "name": "varunsrin.eth"
+              }
+            ],
+            "socials": [
+              {
+                "profileName": "varunsrin.eth",
+                "userId": "2",
+                "userAssociatedAddresses": [
+                  "0x182327170fc284caaa5b1bc3e3878233f529d741",
+                  "0x91031dcfdea024b4d51e775486111d2b2a715871",
+                  "0x4114e33eb831858649ea3702e1c9a2db3f626446"
+                ]
+              }
+            ]
+          },
+          "followingProfileId": "2"
+        },
+        // more followers
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Farcaster Followings of Farcaster User(s) that has XMTP Enabled
+
+You can get the list of Farcaster following of Farcaster user(s) and check if each following have XMTP enabled or not by inputting [0x address](#user-content-fn-5)[^5], [ENS domain](#user-content-fn-6)[^6], [Farcaster Name](#user-content-fn-7)[^7], or [Farcaster ID](#user-content-fn-8)[^8]:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/DTyOZg/Gpgb0KvNyb" %}
+Show me Farcaster following of fc\_fname:dwr.eth, fc\_fid:602, varunsrin.eth, and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 and if XMTP is enabled
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  SocialFollowings(
+    input: {filter: {dappName: {_eq: farcaster}, identity: {_in: ["fc_fname:dwr.eth", "fc_fid:602", "varunsrin.eth", "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"]}}, blockchain: ALL, limit: 200}
+  ) {
+    Following {
+      followingAddress {
+        addresses
+        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+        xmtp {
+          isXMTPEnabled
+        }
+      }
+      followerProfileId
+      followerAddress {
+        addresses
+        domains {
+          name
+        }
+        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+      }
+      followerProfileId
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "SocialFollowings": {
+      "Following": [
+        {
+          "followingAddress": {
+            "addresses": [
+              "0x5beaf49e8ee203ef1023e9b1b716c07016f399a1",
+              "0x223f2db258234f7fa164a9e4c0929318feb3b550"
+            ],
+            "socials": [
+              {
+                "profileName": "vm",
+                "userId": "325",
+                "userAssociatedAddresses": [
+                  "0x5beaf49e8ee203ef1023e9b1b716c07016f399a1",
+                  "0x223f2db258234f7fa164a9e4c0929318feb3b550"
+                ]
+              }
+            ],
+            "xmtp": [
+              {
+                "isXMTPEnabled": true
+              }
+            ]
+          },
+          "followingProfileId": "325",
+          "followerAddress": {
+            "addresses": [
+              "0x74232bf61e994655592747e20bdf6fa9b9476f79",
+              "0xb877f7bb52d28f06e60f557c00a56225124b357f",
+              "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
+              "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+            ],
+            "domains": [
+              {
+                "name": "dwr.eth"
+              },
+              {
+                "name": "noun124.eth"
+              },
+              {
+                "name": "dwr.mirror.xyz"
+              },
+              {
+                "name": "danromero.eth"
+              }
+            ],
+            "socials": [
+              {
+                "profileName": "dwr.eth",
+                "userId": "3",
+                "userAssociatedAddresses": [
+                  "0x74232bf61e994655592747e20bdf6fa9b9476f79",
+                  "0xb877f7bb52d28f06e60f557c00a56225124b357f",
+                  "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
+                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+                ]
+              }
+            ]
+          },
+          "followerProfileId": "3"
+        },
+        // more following
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ## Developer Support
 
 If you have any questions or need help regarding checking if Farcaster(s) have XMTP enabled, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
@@ -378,3 +619,19 @@ If you have any questions or need help regarding checking if Farcaster(s) have X
 * [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
 * [Socials API Reference](../../api-references/api-reference/socials-api/)
 * [Domains API Reference](../../api-references/api-reference/domains-api/)
+
+[^1]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
+
+[^2]: e.g. `varunsrin.eth`
+
+[^3]: e.g. `fc_fname:dwr.eth`
+
+[^4]: e.g. `fc_fid:602`
+
+[^5]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
+
+[^6]: e.g. `varunsrin.eth`
+
+[^7]: e.g. `fc_fname:dwr.eth`
+
+[^8]: e.g. `fc_fid:602`

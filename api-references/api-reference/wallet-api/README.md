@@ -25,6 +25,8 @@ type Wallet {
   identity: # return identity passed from the input
   nftSaleTransactions: # Nested query - allows querying NFT Sales by the address
   primaryDomain: # Nested query - allows returning primary domains, if applicable
+  socialFollowers: # Nested query - return all followers of the wallet address (Lens & Farcaster)
+  socialFollowings: # Nested query - return all followings of the wallet address (Lens & Farcaster)
   socials: # returns social profile information related to the address
   tokenBalances: # Nested query - allows returning token balances
   tokenTransfers: # Nested query - allows returning token transfers and related information

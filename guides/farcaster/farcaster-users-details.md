@@ -163,7 +163,7 @@ You can get the Farcaster user profile details by their Farcaster ID:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/wJN8EPRanE" %}
+{% embed url="https://app.airstack.xyz/DTyOZg/zHwW2c2wnJ" %}
 Show all farcaster profile details and registration info for farcaster user fc\_fid:3
 {% endembed %}
 
@@ -192,6 +192,10 @@ query MyQuery {
       userHomeURL
       userRecoveryAddress
       userAssociatedAddresses
+      profileBio
+      profileDisplayName
+      profileImage
+      profileUrl
       profileName
       profileTokenId
       profileTokenAddress
@@ -215,36 +219,40 @@ query MyQuery {
     "Socials": {
       "Social": [
         {
-          "id": "c9067a911d67d849200404f1f7e1cc0b9eff4716e085d244db877dad59982b95",
-          "chainId": "5",
-          "blockchain": "ethereum_goerli",
+          "id": "c3f6ffbb20532bf50d158f4099336d50d5ba9f327159712972c94d51aa4730ee",
+          "chainId": "10",
+          "blockchain": "optimism",
           "dappName": "farcaster",
-          "dappSlug": "farcaster_goerli",
-          "dappVersion": "goerli",
+          "dappSlug": "farcaster_optimism",
+          "dappVersion": "v2",
           "userId": "3",
           "userAddress": "0x74232bf61e994655592747e20bdf6fa9b9476f79",
-          "userCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userCreatedAtBlockNumber": 7648814,
-          "userLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userLastUpdatedAtBlockNumber": 7648814,
-          "userHomeURL": "https://www.farcaster.xyz/",
-          "userRecoveryAddress": "0x0000000000000000000000000000000000000000",
+          "userCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userCreatedAtBlockNumber": 108874508,
+          "userLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userLastUpdatedAtBlockNumber": 108874508,
+          "userHomeURL": "",
+          "userRecoveryAddress": "0x00000000fcd5a8e45785c8a4b9a718c9348e4f18",
           "userAssociatedAddresses": [
-            "0x74232bf61e994655592747e20bdf6fa9b9476f79",
             "0xb877f7bb52d28f06e60f557c00a56225124b357f",
             "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
-            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+            "0x74232bf61e994655592747e20bdf6fa9b9476f79"
           ],
+          "profileBio": "Working on Farcaster and Warpcast.",
+          "profileDisplayName": "Dan Romero",
+          "profileImage": "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_png,w_256/https://lh3.googleusercontent.com/MyUBL0xHzMeBu7DXQAqv0bM9y6s4i4qjnhcXz5fxZKS3gwWgtamxxmxzCJX7m2cuYeGalyseCA2Y6OBKDMR06TWg2uwknnhdkDA1AA",
+          "profileUrl": "",
           "profileName": "dwr.eth",
-          "profileTokenId": "45442326458118800696824595983775420889468637770166871407996878418806401138688",
-          "profileTokenAddress": "0xe3be01d99baa8db9905b33a3ca391238234b79d1",
-          "profileCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileCreatedAtBlockNumber": 7648814,
-          "profileLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileLastUpdatedAtBlockNumber": 7648814,
-          "profileTokenUri": "http://www.farcaster.xyz/u/dwr.json",
+          "profileTokenId": "3",
+          "profileTokenAddress": "0x00000000fcaf86937e41ba038b4fa40baa4b780a",
+          "profileCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileCreatedAtBlockNumber": 108874508,
+          "profileLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileLastUpdatedAtBlockNumber": 108874508,
+          "profileTokenUri": "",
           "isDefault": false,
-          "identity": "fc_fname:dwr.eth"
+          "identity": "fc_fid:3"
         }
       ]
     }
@@ -260,7 +268,7 @@ You can get the Farcaster user profile details by their Farcaster Name:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/k4bu90KgzA" %}
+{% embed url="https://app.airstack.xyz/DTyOZg/KbIaoE7JjM" %}
 Show all farcaster profile details and registration info for farcaster user fc\_fname:dwr.eth
 {% endembed %}
 
@@ -289,6 +297,10 @@ query MyQuery {
       userHomeURL
       userRecoveryAddress
       userAssociatedAddresses
+      profileBio
+      profileDisplayName
+      profileImage
+      profileUrl
       profileName
       profileTokenId
       profileTokenAddress
@@ -312,34 +324,38 @@ query MyQuery {
     "Socials": {
       "Social": [
         {
-          "id": "c9067a911d67d849200404f1f7e1cc0b9eff4716e085d244db877dad59982b95",
-          "chainId": "5",
-          "blockchain": "ethereum_goerli",
+          "id": "c3f6ffbb20532bf50d158f4099336d50d5ba9f327159712972c94d51aa4730ee",
+          "chainId": "10",
+          "blockchain": "optimism",
           "dappName": "farcaster",
-          "dappSlug": "farcaster_goerli",
-          "dappVersion": "goerli",
+          "dappSlug": "farcaster_optimism",
+          "dappVersion": "v2",
           "userId": "3",
           "userAddress": "0x74232bf61e994655592747e20bdf6fa9b9476f79",
-          "userCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userCreatedAtBlockNumber": 7648814,
-          "userLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userLastUpdatedAtBlockNumber": 7648814,
-          "userHomeURL": "https://www.farcaster.xyz/",
-          "userRecoveryAddress": "0x0000000000000000000000000000000000000000",
+          "userCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userCreatedAtBlockNumber": 108874508,
+          "userLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userLastUpdatedAtBlockNumber": 108874508,
+          "userHomeURL": "",
+          "userRecoveryAddress": "0x00000000fcd5a8e45785c8a4b9a718c9348e4f18",
           "userAssociatedAddresses": [
-            "0x74232bf61e994655592747e20bdf6fa9b9476f79",
             "0xb877f7bb52d28f06e60f557c00a56225124b357f",
             "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
-            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+            "0x74232bf61e994655592747e20bdf6fa9b9476f79"
           ],
+          "profileBio": "Working on Farcaster and Warpcast.",
+          "profileDisplayName": "Dan Romero",
+          "profileImage": "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_png,w_256/https://lh3.googleusercontent.com/MyUBL0xHzMeBu7DXQAqv0bM9y6s4i4qjnhcXz5fxZKS3gwWgtamxxmxzCJX7m2cuYeGalyseCA2Y6OBKDMR06TWg2uwknnhdkDA1AA",
+          "profileUrl": "",
           "profileName": "dwr.eth",
-          "profileTokenId": "45442326458118800696824595983775420889468637770166871407996878418806401138688",
-          "profileTokenAddress": "0xe3be01d99baa8db9905b33a3ca391238234b79d1",
-          "profileCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileCreatedAtBlockNumber": 7648814,
-          "profileLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileLastUpdatedAtBlockNumber": 7648814,
-          "profileTokenUri": "http://www.farcaster.xyz/u/dwr.json",
+          "profileTokenId": "3",
+          "profileTokenAddress": "0x00000000fcaf86937e41ba038b4fa40baa4b780a",
+          "profileCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileCreatedAtBlockNumber": 108874508,
+          "profileLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileLastUpdatedAtBlockNumber": 108874508,
+          "profileTokenUri": "",
           "isDefault": false,
           "identity": "fc_fname:dwr.eth"
         }
@@ -357,7 +373,7 @@ You can get the Farcaster user profile details by their 0x address:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/sxRKmMtrFz" %}
+{% embed url="https://app.airstack.xyz/DTyOZg/7joKY6qfWy" %}
 Show all farcaster profile details and registration info for 0x74232bf61e994655592747e20bdf6fa9b9476f79
 {% endembed %}
 
@@ -386,6 +402,10 @@ query MyQuery {
       userHomeURL
       userRecoveryAddress
       userAssociatedAddresses
+      profileBio
+      profileDisplayName
+      profileImage
+      profileUrl
       profileName
       profileTokenId
       profileTokenAddress
@@ -409,36 +429,40 @@ query MyQuery {
     "Socials": {
       "Social": [
         {
-          "id": "c9067a911d67d849200404f1f7e1cc0b9eff4716e085d244db877dad59982b95",
-          "chainId": "5",
-          "blockchain": "ethereum_goerli",
+          "id": "c3f6ffbb20532bf50d158f4099336d50d5ba9f327159712972c94d51aa4730ee",
+          "chainId": "10",
+          "blockchain": "optimism",
           "dappName": "farcaster",
-          "dappSlug": "farcaster_goerli",
-          "dappVersion": "goerli",
+          "dappSlug": "farcaster_optimism",
+          "dappVersion": "v2",
           "userId": "3",
           "userAddress": "0x74232bf61e994655592747e20bdf6fa9b9476f79",
-          "userCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userCreatedAtBlockNumber": 7648814,
-          "userLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userLastUpdatedAtBlockNumber": 7648814,
-          "userHomeURL": "https://www.farcaster.xyz/",
-          "userRecoveryAddress": "0x0000000000000000000000000000000000000000",
+          "userCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userCreatedAtBlockNumber": 108874508,
+          "userLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userLastUpdatedAtBlockNumber": 108874508,
+          "userHomeURL": "",
+          "userRecoveryAddress": "0x00000000fcd5a8e45785c8a4b9a718c9348e4f18",
           "userAssociatedAddresses": [
-            "0x74232bf61e994655592747e20bdf6fa9b9476f79",
             "0xb877f7bb52d28f06e60f557c00a56225124b357f",
             "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
-            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+            "0x74232bf61e994655592747e20bdf6fa9b9476f79"
           ],
+          "profileBio": "Working on Farcaster and Warpcast.",
+          "profileDisplayName": "Dan Romero",
+          "profileImage": "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_png,w_256/https://lh3.googleusercontent.com/MyUBL0xHzMeBu7DXQAqv0bM9y6s4i4qjnhcXz5fxZKS3gwWgtamxxmxzCJX7m2cuYeGalyseCA2Y6OBKDMR06TWg2uwknnhdkDA1AA",
+          "profileUrl": "",
           "profileName": "dwr.eth",
-          "profileTokenId": "45442326458118800696824595983775420889468637770166871407996878418806401138688",
-          "profileTokenAddress": "0xe3be01d99baa8db9905b33a3ca391238234b79d1",
-          "profileCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileCreatedAtBlockNumber": 7648814,
-          "profileLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileLastUpdatedAtBlockNumber": 7648814,
-          "profileTokenUri": "http://www.farcaster.xyz/u/dwr.json",
+          "profileTokenId": "3",
+          "profileTokenAddress": "0x00000000fcaf86937e41ba038b4fa40baa4b780a",
+          "profileCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileCreatedAtBlockNumber": 108874508,
+          "profileLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileLastUpdatedAtBlockNumber": 108874508,
+          "profileTokenUri": "",
           "isDefault": false,
-          "identity": "fc_fname:dwr.eth"
+          "identity": "0x74232bf61e994655592747e20bdf6fa9b9476f79"
         }
       ]
     }
@@ -454,7 +478,7 @@ You can get the Farcaster user profile details by their ENS domain:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/7GfIkzc5gx" %}
+{% embed url="https://app.airstack.xyz/DTyOZg/9Q0GxX7OzC" %}
 Show all farcaster profile details and registration info for dwr.eth
 {% endembed %}
 
@@ -483,6 +507,10 @@ query MyQuery {
       userHomeURL
       userRecoveryAddress
       userAssociatedAddresses
+      profileBio
+      profileDisplayName
+      profileImage
+      profileUrl
       profileName
       profileTokenId
       profileTokenAddress
@@ -506,36 +534,40 @@ query MyQuery {
     "Socials": {
       "Social": [
         {
-          "id": "c9067a911d67d849200404f1f7e1cc0b9eff4716e085d244db877dad59982b95",
-          "chainId": "5",
-          "blockchain": "ethereum_goerli",
+          "id": "c3f6ffbb20532bf50d158f4099336d50d5ba9f327159712972c94d51aa4730ee",
+          "chainId": "10",
+          "blockchain": "optimism",
           "dappName": "farcaster",
-          "dappSlug": "farcaster_goerli",
-          "dappVersion": "goerli",
+          "dappSlug": "farcaster_optimism",
+          "dappVersion": "v2",
           "userId": "3",
           "userAddress": "0x74232bf61e994655592747e20bdf6fa9b9476f79",
-          "userCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userCreatedAtBlockNumber": 7648814,
-          "userLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userLastUpdatedAtBlockNumber": 7648814,
-          "userHomeURL": "https://www.farcaster.xyz/",
-          "userRecoveryAddress": "0x0000000000000000000000000000000000000000",
+          "userCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userCreatedAtBlockNumber": 108874508,
+          "userLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userLastUpdatedAtBlockNumber": 108874508,
+          "userHomeURL": "",
+          "userRecoveryAddress": "0x00000000fcd5a8e45785c8a4b9a718c9348e4f18",
           "userAssociatedAddresses": [
-            "0x74232bf61e994655592747e20bdf6fa9b9476f79",
             "0xb877f7bb52d28f06e60f557c00a56225124b357f",
             "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
-            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+            "0x74232bf61e994655592747e20bdf6fa9b9476f79"
           ],
+          "profileBio": "Working on Farcaster and Warpcast.",
+          "profileDisplayName": "Dan Romero",
+          "profileImage": "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_png,w_256/https://lh3.googleusercontent.com/MyUBL0xHzMeBu7DXQAqv0bM9y6s4i4qjnhcXz5fxZKS3gwWgtamxxmxzCJX7m2cuYeGalyseCA2Y6OBKDMR06TWg2uwknnhdkDA1AA",
+          "profileUrl": "",
           "profileName": "dwr.eth",
-          "profileTokenId": "45442326458118800696824595983775420889468637770166871407996878418806401138688",
-          "profileTokenAddress": "0xe3be01d99baa8db9905b33a3ca391238234b79d1",
-          "profileCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileCreatedAtBlockNumber": 7648814,
-          "profileLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileLastUpdatedAtBlockNumber": 7648814,
-          "profileTokenUri": "http://www.farcaster.xyz/u/dwr.json",
+          "profileTokenId": "3",
+          "profileTokenAddress": "0x00000000fcaf86937e41ba038b4fa40baa4b780a",
+          "profileCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileCreatedAtBlockNumber": 108874508,
+          "profileLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileLastUpdatedAtBlockNumber": 108874508,
+          "profileTokenUri": "",
           "isDefault": false,
-          "identity": "fc_fname:dwr.eth"
+          "identity": "dwr.eth"
         }
       ]
     }
@@ -551,7 +583,7 @@ You can get the Farcaster user profile details by their Lens profile name:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/KbcMBVVFsf" %}
+{% embed url="https://app.airstack.xyz/DTyOZg/qw4LjDtYDm" %}
 Show all farcaster profile details and registration info for danromero.lens
 {% endembed %}
 
@@ -580,6 +612,10 @@ query MyQuery {
       userHomeURL
       userRecoveryAddress
       userAssociatedAddresses
+      profileBio
+      profileDisplayName
+      profileImage
+      profileUrl
       profileName
       profileTokenId
       profileTokenAddress
@@ -603,36 +639,40 @@ query MyQuery {
     "Socials": {
       "Social": [
         {
-          "id": "c9067a911d67d849200404f1f7e1cc0b9eff4716e085d244db877dad59982b95",
-          "chainId": "5",
-          "blockchain": "ethereum_goerli",
+          "id": "c3f6ffbb20532bf50d158f4099336d50d5ba9f327159712972c94d51aa4730ee",
+          "chainId": "10",
+          "blockchain": "optimism",
           "dappName": "farcaster",
-          "dappSlug": "farcaster_goerli",
-          "dappVersion": "goerli",
+          "dappSlug": "farcaster_optimism",
+          "dappVersion": "v2",
           "userId": "3",
           "userAddress": "0x74232bf61e994655592747e20bdf6fa9b9476f79",
-          "userCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userCreatedAtBlockNumber": 7648814,
-          "userLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userLastUpdatedAtBlockNumber": 7648814,
-          "userHomeURL": "https://www.farcaster.xyz/",
-          "userRecoveryAddress": "0x0000000000000000000000000000000000000000",
+          "userCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userCreatedAtBlockNumber": 108874508,
+          "userLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userLastUpdatedAtBlockNumber": 108874508,
+          "userHomeURL": "",
+          "userRecoveryAddress": "0x00000000fcd5a8e45785c8a4b9a718c9348e4f18",
           "userAssociatedAddresses": [
-            "0x74232bf61e994655592747e20bdf6fa9b9476f79",
             "0xb877f7bb52d28f06e60f557c00a56225124b357f",
             "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
-            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+            "0x74232bf61e994655592747e20bdf6fa9b9476f79"
           ],
+          "profileBio": "Working on Farcaster and Warpcast.",
+          "profileDisplayName": "Dan Romero",
+          "profileImage": "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_png,w_256/https://lh3.googleusercontent.com/MyUBL0xHzMeBu7DXQAqv0bM9y6s4i4qjnhcXz5fxZKS3gwWgtamxxmxzCJX7m2cuYeGalyseCA2Y6OBKDMR06TWg2uwknnhdkDA1AA",
+          "profileUrl": "",
           "profileName": "dwr.eth",
-          "profileTokenId": "45442326458118800696824595983775420889468637770166871407996878418806401138688",
-          "profileTokenAddress": "0xe3be01d99baa8db9905b33a3ca391238234b79d1",
-          "profileCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileCreatedAtBlockNumber": 7648814,
-          "profileLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileLastUpdatedAtBlockNumber": 7648814,
-          "profileTokenUri": "http://www.farcaster.xyz/u/dwr.json",
+          "profileTokenId": "3",
+          "profileTokenAddress": "0x00000000fcaf86937e41ba038b4fa40baa4b780a",
+          "profileCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileCreatedAtBlockNumber": 108874508,
+          "profileLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileLastUpdatedAtBlockNumber": 108874508,
+          "profileTokenUri": "",
           "isDefault": false,
-          "identity": "fc_fname:dwr.eth"
+          "identity": "danromero.lens"
         }
       ]
     }
@@ -648,7 +688,7 @@ You can get the Farcaster user profile details by their Lens profile ID:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/2Lzos9c5Rr" %}
+{% embed url="https://app.airstack.xyz/DTyOZg/YxNJMrJE5R" %}
 Show all farcaster profile details and registration info for lens\_id:0x0b46d
 {% endembed %}
 
@@ -677,6 +717,10 @@ query MyQuery {
       userHomeURL
       userRecoveryAddress
       userAssociatedAddresses
+      profileBio
+      profileDisplayName
+      profileImage
+      profileUrl
       profileName
       profileTokenId
       profileTokenAddress
@@ -700,36 +744,40 @@ query MyQuery {
     "Socials": {
       "Social": [
         {
-          "id": "c9067a911d67d849200404f1f7e1cc0b9eff4716e085d244db877dad59982b95",
-          "chainId": "5",
-          "blockchain": "ethereum_goerli",
+          "id": "c3f6ffbb20532bf50d158f4099336d50d5ba9f327159712972c94d51aa4730ee",
+          "chainId": "10",
+          "blockchain": "optimism",
           "dappName": "farcaster",
-          "dappSlug": "farcaster_goerli",
-          "dappVersion": "goerli",
+          "dappSlug": "farcaster_optimism",
+          "dappVersion": "v2",
           "userId": "3",
           "userAddress": "0x74232bf61e994655592747e20bdf6fa9b9476f79",
-          "userCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userCreatedAtBlockNumber": 7648814,
-          "userLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userLastUpdatedAtBlockNumber": 7648814,
-          "userHomeURL": "https://www.farcaster.xyz/",
-          "userRecoveryAddress": "0x0000000000000000000000000000000000000000",
+          "userCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userCreatedAtBlockNumber": 108874508,
+          "userLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userLastUpdatedAtBlockNumber": 108874508,
+          "userHomeURL": "",
+          "userRecoveryAddress": "0x00000000fcd5a8e45785c8a4b9a718c9348e4f18",
           "userAssociatedAddresses": [
-            "0x74232bf61e994655592747e20bdf6fa9b9476f79",
             "0xb877f7bb52d28f06e60f557c00a56225124b357f",
             "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
-            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+            "0x74232bf61e994655592747e20bdf6fa9b9476f79"
           ],
+          "profileBio": "Working on Farcaster and Warpcast.",
+          "profileDisplayName": "Dan Romero",
+          "profileImage": "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_png,w_256/https://lh3.googleusercontent.com/MyUBL0xHzMeBu7DXQAqv0bM9y6s4i4qjnhcXz5fxZKS3gwWgtamxxmxzCJX7m2cuYeGalyseCA2Y6OBKDMR06TWg2uwknnhdkDA1AA",
+          "profileUrl": "",
           "profileName": "dwr.eth",
-          "profileTokenId": "45442326458118800696824595983775420889468637770166871407996878418806401138688",
-          "profileTokenAddress": "0xe3be01d99baa8db9905b33a3ca391238234b79d1",
-          "profileCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileCreatedAtBlockNumber": 7648814,
-          "profileLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileLastUpdatedAtBlockNumber": 7648814,
-          "profileTokenUri": "http://www.farcaster.xyz/u/dwr.json",
+          "profileTokenId": "3",
+          "profileTokenAddress": "0x00000000fcaf86937e41ba038b4fa40baa4b780a",
+          "profileCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileCreatedAtBlockNumber": 108874508,
+          "profileLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileLastUpdatedAtBlockNumber": 108874508,
+          "profileTokenUri": "",
           "isDefault": false,
-          "identity": "fc_fname:dwr.eth"
+          "identity": "lens_id:0x0b46d"
         }
       ]
     }
@@ -745,7 +793,7 @@ You can bulk query the profile details of multiple Farcaster users by their vari
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/8A9aPBliCG" %}
+{% embed url="https://app.airstack.xyz/DTyOZg/4AI9nPEwjs" %}
 Show all farcaster profile details and registration info for fc\_fname:dwr.eth and vitalik.eth
 {% endembed %}
 
@@ -774,6 +822,10 @@ query MyQuery {
       userHomeURL
       userRecoveryAddress
       userAssociatedAddresses
+      profileBio
+      profileDisplayName
+      profileImage
+      profileUrl
       profileName
       profileTokenId
       profileTokenAddress
@@ -797,64 +849,72 @@ query MyQuery {
     "Socials": {
       "Social": [
         {
-          "id": "1ee2f59c97582671b93635aebfc645d40510cbadd6339e532fcaec4295e6e037",
-          "chainId": "5",
-          "blockchain": "ethereum_goerli",
+          "id": "44ece1efa9a836358b4fbe3b4307504f001fa39b1048224c18460a9d2de76e98",
+          "chainId": "10",
+          "blockchain": "optimism",
           "dappName": "farcaster",
-          "dappSlug": "farcaster_goerli",
-          "dappVersion": "goerli",
+          "dappSlug": "farcaster_optimism",
+          "dappVersion": "v2",
           "userId": "5650",
           "userAddress": "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
-          "userCreatedAtBlockTimestamp": "2022-11-18T20:44:00Z",
-          "userCreatedAtBlockNumber": 7977439,
-          "userLastUpdatedAtBlockTimestamp": "2022-11-18T20:44:00Z",
-          "userLastUpdatedAtBlockNumber": 7977439,
-          "userHomeURL": "https://www.farcaster.xyz/",
-          "userRecoveryAddress": "0x0000000000000000000000000000000000000000",
+          "userCreatedAtBlockTimestamp": "2023-08-29T22:32:05Z",
+          "userCreatedAtBlockNumber": 108874774,
+          "userLastUpdatedAtBlockTimestamp": "2023-08-29T22:32:05Z",
+          "userLastUpdatedAtBlockNumber": 108874774,
+          "userHomeURL": "",
+          "userRecoveryAddress": "0x00000000fcd5a8e45785c8a4b9a718c9348e4f18",
           "userAssociatedAddresses": [
             "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
             "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
           ],
+          "profileBio": "hullo",
+          "profileDisplayName": "Vitalik Buterin",
+          "profileImage": "https://i.imgur.com/gF9Yaeg.jpg",
+          "profileUrl": "",
           "profileName": "vitalik.eth",
-          "profileTokenId": "53546877787533711135172528420529478392632952428887988304966222706809455509504",
-          "profileTokenAddress": "0xe3be01d99baa8db9905b33a3ca391238234b79d1",
-          "profileCreatedAtBlockTimestamp": "2022-11-18T20:44:00Z",
-          "profileCreatedAtBlockNumber": 7977439,
-          "profileLastUpdatedAtBlockTimestamp": "2022-11-18T20:44:00Z",
-          "profileLastUpdatedAtBlockNumber": 7977439,
-          "profileTokenUri": "http://www.farcaster.xyz/u/vbuterin.json",
+          "profileTokenId": "5650",
+          "profileTokenAddress": "0x00000000fcaf86937e41ba038b4fa40baa4b780a",
+          "profileCreatedAtBlockTimestamp": "2023-08-29T22:32:05Z",
+          "profileCreatedAtBlockNumber": 108874774,
+          "profileLastUpdatedAtBlockTimestamp": "2023-08-29T22:32:05Z",
+          "profileLastUpdatedAtBlockNumber": 108874774,
+          "profileTokenUri": "",
           "isDefault": false,
           "identity": ""
         },
         {
-          "id": "c9067a911d67d849200404f1f7e1cc0b9eff4716e085d244db877dad59982b95",
-          "chainId": "5",
-          "blockchain": "ethereum_goerli",
+          "id": "c3f6ffbb20532bf50d158f4099336d50d5ba9f327159712972c94d51aa4730ee",
+          "chainId": "10",
+          "blockchain": "optimism",
           "dappName": "farcaster",
-          "dappSlug": "farcaster_goerli",
-          "dappVersion": "goerli",
+          "dappSlug": "farcaster_optimism",
+          "dappVersion": "v2",
           "userId": "3",
           "userAddress": "0x74232bf61e994655592747e20bdf6fa9b9476f79",
-          "userCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userCreatedAtBlockNumber": 7648814,
-          "userLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userLastUpdatedAtBlockNumber": 7648814,
-          "userHomeURL": "https://www.farcaster.xyz/",
-          "userRecoveryAddress": "0x0000000000000000000000000000000000000000",
+          "userCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userCreatedAtBlockNumber": 108874508,
+          "userLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userLastUpdatedAtBlockNumber": 108874508,
+          "userHomeURL": "",
+          "userRecoveryAddress": "0x00000000fcd5a8e45785c8a4b9a718c9348e4f18",
           "userAssociatedAddresses": [
-            "0x74232bf61e994655592747e20bdf6fa9b9476f79",
             "0xb877f7bb52d28f06e60f557c00a56225124b357f",
             "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
-            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+            "0x74232bf61e994655592747e20bdf6fa9b9476f79"
           ],
+          "profileBio": "Working on Farcaster and Warpcast.",
+          "profileDisplayName": "Dan Romero",
+          "profileImage": "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_png,w_256/https://lh3.googleusercontent.com/MyUBL0xHzMeBu7DXQAqv0bM9y6s4i4qjnhcXz5fxZKS3gwWgtamxxmxzCJX7m2cuYeGalyseCA2Y6OBKDMR06TWg2uwknnhdkDA1AA",
+          "profileUrl": "",
           "profileName": "dwr.eth",
-          "profileTokenId": "45442326458118800696824595983775420889468637770166871407996878418806401138688",
-          "profileTokenAddress": "0xe3be01d99baa8db9905b33a3ca391238234b79d1",
-          "profileCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileCreatedAtBlockNumber": 7648814,
-          "profileLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileLastUpdatedAtBlockNumber": 7648814,
-          "profileTokenUri": "http://www.farcaster.xyz/u/dwr.json",
+          "profileTokenId": "3",
+          "profileTokenAddress": "0x00000000fcaf86937e41ba038b4fa40baa4b780a",
+          "profileCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileCreatedAtBlockNumber": 108874508,
+          "profileLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileLastUpdatedAtBlockNumber": 108874508,
+          "profileTokenUri": "",
           "isDefault": false,
           "identity": ""
         }
@@ -899,6 +959,10 @@ query MyQuery {
       userHomeURL
       userRecoveryAddress
       userAssociatedAddresses
+      profileBio
+      profileDisplayName
+      profileImage
+      profileUrl
       profileName
       profileTokenId
       profileTokenAddress
@@ -922,95 +986,107 @@ query MyQuery {
     "Socials": {
       "Social": [
         {
-          "id": "2616763182d1539bc20585a137a5f0c4005fd0c2851b829e5a9a1eb7c1ed04a1",
-          "chainId": "5",
-          "blockchain": "ethereum_goerli",
+          "id": "9732b5a6604e59aae6336e83f69ab6277c06d091c30a0aca3c98a9bdb13ab631",
+          "chainId": "10",
+          "blockchain": "optimism",
           "dappName": "farcaster",
-          "dappSlug": "farcaster_goerli",
-          "dappVersion": "goerli",
+          "dappSlug": "farcaster_optimism",
+          "dappVersion": "v2",
+          "userId": "2",
+          "userAddress": "0x4114e33eb831858649ea3702e1c9a2db3f626446",
+          "userCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userCreatedAtBlockNumber": 108874508,
+          "userLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userLastUpdatedAtBlockNumber": 108874508,
+          "userHomeURL": "",
+          "userRecoveryAddress": "0x00000000fcd5a8e45785c8a4b9a718c9348e4f18",
+          "userAssociatedAddresses": [
+            "0x182327170fc284caaa5b1bc3e3878233f529d741",
+            "0x91031dcfdea024b4d51e775486111d2b2a715871",
+            "0x4114e33eb831858649ea3702e1c9a2db3f626446"
+          ],
+          "profileBio": "Technowatermelon. Elder Millenial. Building Farcaster. \n\nnf.td/varun",
+          "profileDisplayName": "Varun Srinivasan",
+          "profileImage": "https://i.seadn.io/gae/sYAr036bd0bRpj7OX6B-F-MqLGznVkK3--DSneL_BT5GX4NZJ3Zu91PgjpD9-xuVJtHq0qirJfPZeMKrahz8Us2Tj_X8qdNPYC-imqs?w=500&auto=format",
+          "profileUrl": "",
+          "profileName": "varunsrin.eth",
+          "profileTokenId": "2",
+          "profileTokenAddress": "0x00000000fcaf86937e41ba038b4fa40baa4b780a",
+          "profileCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileCreatedAtBlockNumber": 108874508,
+          "profileLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileLastUpdatedAtBlockNumber": 108874508,
+          "profileTokenUri": "",
+          "isDefault": false,
+          "identity": ""
+        },
+        {
+          "id": "c3f6ffbb20532bf50d158f4099336d50d5ba9f327159712972c94d51aa4730ee",
+          "chainId": "10",
+          "blockchain": "optimism",
+          "dappName": "farcaster",
+          "dappSlug": "farcaster_optimism",
+          "dappVersion": "v2",
+          "userId": "3",
+          "userAddress": "0x74232bf61e994655592747e20bdf6fa9b9476f79",
+          "userCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userCreatedAtBlockNumber": 108874508,
+          "userLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userLastUpdatedAtBlockNumber": 108874508,
+          "userHomeURL": "",
+          "userRecoveryAddress": "0x00000000fcd5a8e45785c8a4b9a718c9348e4f18",
+          "userAssociatedAddresses": [
+            "0xb877f7bb52d28f06e60f557c00a56225124b357f",
+            "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
+            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+            "0x74232bf61e994655592747e20bdf6fa9b9476f79"
+          ],
+          "profileBio": "Working on Farcaster and Warpcast.",
+          "profileDisplayName": "Dan Romero",
+          "profileImage": "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_png,w_256/https://lh3.googleusercontent.com/MyUBL0xHzMeBu7DXQAqv0bM9y6s4i4qjnhcXz5fxZKS3gwWgtamxxmxzCJX7m2cuYeGalyseCA2Y6OBKDMR06TWg2uwknnhdkDA1AA",
+          "profileUrl": "",
+          "profileName": "dwr.eth",
+          "profileTokenId": "3",
+          "profileTokenAddress": "0x00000000fcaf86937e41ba038b4fa40baa4b780a",
+          "profileCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileCreatedAtBlockNumber": 108874508,
+          "profileLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileLastUpdatedAtBlockNumber": 108874508,
+          "profileTokenUri": "",
+          "isDefault": false,
+          "identity": ""
+        },
+        {
+          "id": "df59444a0a4e5799c08cdc4d52b05832757d97ee4f44b9e023807bc2255d5218",
+          "chainId": "10",
+          "blockchain": "optimism",
+          "dappName": "farcaster",
+          "dappSlug": "farcaster_optimism",
+          "dappVersion": "v2",
           "userId": "1",
           "userAddress": "0x8773442740c17c9d0f0b87022c722f9a136206ed",
-          "userCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userCreatedAtBlockNumber": 7648814,
-          "userLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userLastUpdatedAtBlockNumber": 7648814,
-          "userHomeURL": "https://www.farcaster.xyz/",
-          "userRecoveryAddress": "0x0000000000000000000000000000000000000000",
+          "userCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userCreatedAtBlockNumber": 108874508,
+          "userLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "userLastUpdatedAtBlockNumber": 108874508,
+          "userHomeURL": "",
+          "userRecoveryAddress": "0x00000000fcd5a8e45785c8a4b9a718c9348e4f18",
           "userAssociatedAddresses": [
             "0x8773442740c17c9d0f0b87022c722f9a136206ed",
             "0x86924c37a93734e8611eb081238928a9d18a63c0"
           ],
+          "profileBio": "A sufficiently decentralized social network. farcaster.xyz",
+          "profileDisplayName": "Farcaster",
+          "profileImage": "https://i.imgur.com/I2rEbPF.png",
+          "profileUrl": "",
           "profileName": "farcaster",
-          "profileTokenId": "46308084199157716655702464398050049919145165628022664991789129153135907962880",
-          "profileTokenAddress": "0xe3be01d99baa8db9905b33a3ca391238234b79d1",
-          "profileCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileCreatedAtBlockNumber": 7648814,
-          "profileLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileLastUpdatedAtBlockNumber": 7648814,
-          "profileTokenUri": "http://www.farcaster.xyz/u/farcaster.json",
-          "isDefault": false,
-          "identity": ""
-        },
-        {
-          "id": "b9b952e45ab0156b3035de25915e72cc5a1c315e21108d72c6c55151e8bccac5",
-          "chainId": "5",
-          "blockchain": "ethereum_goerli",
-          "dappName": "farcaster",
-          "dappSlug": "farcaster_goerli",
-          "dappVersion": "goerli",
-          "userId": "2",
-          "userAddress": "0x4114e33eb831858649ea3702e1c9a2db3f626446",
-          "userCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userCreatedAtBlockNumber": 7648814,
-          "userLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userLastUpdatedAtBlockNumber": 7648814,
-          "userHomeURL": "https://www.farcaster.xyz/",
-          "userRecoveryAddress": "0x0000000000000000000000000000000000000000",
-          "userAssociatedAddresses": [
-            "0x4114e33eb831858649ea3702e1c9a2db3f626446",
-            "0x182327170fc284caaa5b1bc3e3878233f529d741",
-            "0x91031dcfdea024b4d51e775486111d2b2a715871"
-          ],
-          "profileName": "varunsrin.eth",
-          "profileTokenId": "53372916132825433828052250902442082526116633556818697486937480128647458193408",
-          "profileTokenAddress": "0xe3be01d99baa8db9905b33a3ca391238234b79d1",
-          "profileCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileCreatedAtBlockNumber": 7648814,
-          "profileLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileLastUpdatedAtBlockNumber": 7648814,
-          "profileTokenUri": "http://www.farcaster.xyz/u/v.json",
-          "isDefault": false,
-          "identity": ""
-        },
-        {
-          "id": "c9067a911d67d849200404f1f7e1cc0b9eff4716e085d244db877dad59982b95",
-          "chainId": "5",
-          "blockchain": "ethereum_goerli",
-          "dappName": "farcaster",
-          "dappSlug": "farcaster_goerli",
-          "dappVersion": "goerli",
-          "userId": "3",
-          "userAddress": "0x74232bf61e994655592747e20bdf6fa9b9476f79",
-          "userCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userCreatedAtBlockNumber": 7648814,
-          "userLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "userLastUpdatedAtBlockNumber": 7648814,
-          "userHomeURL": "https://www.farcaster.xyz/",
-          "userRecoveryAddress": "0x0000000000000000000000000000000000000000",
-          "userAssociatedAddresses": [
-            "0x74232bf61e994655592747e20bdf6fa9b9476f79",
-            "0xb877f7bb52d28f06e60f557c00a56225124b357f",
-            "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
-            "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
-          ],
-          "profileName": "dwr.eth",
-          "profileTokenId": "45442326458118800696824595983775420889468637770166871407996878418806401138688",
-          "profileTokenAddress": "0xe3be01d99baa8db9905b33a3ca391238234b79d1",
-          "profileCreatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileCreatedAtBlockNumber": 7648814,
-          "profileLastUpdatedAtBlockTimestamp": "2022-09-24T03:08:48Z",
-          "profileLastUpdatedAtBlockNumber": 7648814,
-          "profileTokenUri": "http://www.farcaster.xyz/u/dwr.json",
+          "profileTokenId": "1",
+          "profileTokenAddress": "0x00000000fcaf86937e41ba038b4fa40baa4b780a",
+          "profileCreatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileCreatedAtBlockNumber": 108874508,
+          "profileLastUpdatedAtBlockTimestamp": "2023-08-29T22:23:13Z",
+          "profileLastUpdatedAtBlockNumber": 108874508,
+          "profileTokenUri": "",
           "isDefault": false,
           "identity": ""
         }
@@ -1061,6 +1137,10 @@ query MyQuery {
       userHomeURL
       userRecoveryAddress
       userAssociatedAddresses
+      profileBio
+      profileDisplayName
+      profileImage
+      profileUrl
       profileName
       profileTokenId
       profileTokenAddress
@@ -1084,31 +1164,36 @@ query MyQuery {
     "Socials": {
       "Social": [
         {
-          "id": "00032cc00ddf7b9ccacb73fa6055a23024650e7ce91b9ffaa7919da577a4d2c8",
-          "chainId": "5",
-          "blockchain": "ethereum_goerli",
+          "id": "000158147aca2d61c855b4a0199be5d84e1d7c79d5385daa1fd2a75fde79aa46",
+          "chainId": "10",
+          "blockchain": "optimism",
           "dappName": "farcaster",
-          "dappSlug": "farcaster_goerli",
-          "dappVersion": "goerli",
-          "userId": "4226",
-          "userAddress": "0xfb0d4b9bc273a4a1c50d014815497bae44cf3402",
-          "userCreatedAtBlockTimestamp": "2022-10-25T01:37:24Z",
-          "userCreatedAtBlockNumber": 7829021,
-          "userLastUpdatedAtBlockTimestamp": "2022-10-25T01:37:24Z",
-          "userLastUpdatedAtBlockNumber": 7829021,
-          "userHomeURL": "https://www.farcaster.xyz/",
-          "userRecoveryAddress": "0x0000000000000000000000000000000000000000",
+          "dappSlug": "farcaster_optimism",
+          "dappVersion": "v2",
+          "userId": "14980",
+          "userAddress": "0x0e19bbc1cf8d38a1e5dfee3b2b8029ad4ccb980e",
+          "userCreatedAtBlockTimestamp": "2023-08-29T22:47:09Z",
+          "userCreatedAtBlockNumber": 108875226,
+          "userLastUpdatedAtBlockTimestamp": "2023-08-29T22:47:09Z",
+          "userLastUpdatedAtBlockNumber": 108875226,
+          "userHomeURL": "",
+          "userRecoveryAddress": "0x00000000fcd5a8e45785c8a4b9a718c9348e4f18",
           "userAssociatedAddresses": [
-            "0xfb0d4b9bc273a4a1c50d014815497bae44cf3402"
+            "0xb64c53fe28949054dfa164fd6dc302b94f699755",
+            "0x0e19bbc1cf8d38a1e5dfee3b2b8029ad4ccb980e"
           ],
-          "profileName": "ratan",
-          "profileTokenId": "51735852133051278057081227170404867683004963210937239958095082937883562082304",
-          "profileTokenAddress": "0xe3be01d99baa8db9905b33a3ca391238234b79d1",
-          "profileCreatedAtBlockTimestamp": "2022-10-25T01:37:24Z",
-          "profileCreatedAtBlockNumber": 7829021,
-          "profileLastUpdatedAtBlockTimestamp": "2022-10-25T01:37:24Z",
-          "profileLastUpdatedAtBlockNumber": 7829021,
-          "profileTokenUri": "http://www.farcaster.xyz/u/ratan.json",
+          "profileBio": "Anti-minimalist AI-collaborative artist\n| Work exhibited in NYC, London, Liverpool, Hong Kong, Seattle, Tokyo, Toronto and Rome and collected by hundreds.",
+          "profileDisplayName": "Maneki Neko",
+          "profileImage": "https://i.seadn.io/gcs/files/6406664e1c50bb12dcf7805c99a18f8a.jpg?w=500&auto=format",
+          "profileUrl": "",
+          "profileName": "manekineko",
+          "profileTokenId": "14980",
+          "profileTokenAddress": "0x00000000fcaf86937e41ba038b4fa40baa4b780a",
+          "profileCreatedAtBlockTimestamp": "2023-08-29T22:47:09Z",
+          "profileCreatedAtBlockNumber": 108875226,
+          "profileLastUpdatedAtBlockTimestamp": "2023-08-29T22:47:09Z",
+          "profileLastUpdatedAtBlockNumber": 108875226,
+          "profileTokenUri": "",
           "isDefault": false,
           "identity": ""
         },
