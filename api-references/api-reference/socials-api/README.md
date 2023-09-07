@@ -29,6 +29,7 @@ type Social {
   dappName: # Social DApp name
   dappSlug: # Social DApp slug (contract version)
   dappVersion: String # Airstack unique dapp version number
+  fnames: # Farcaster names of a user, there could be more than one
   followerCount: # Total number of followers
   followerTokenAddresses:
   followers: # Nested query - list of all followers

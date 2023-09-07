@@ -15,3 +15,7 @@ Learn how to use Airstack to:
 {% content-ref url="following.md" %}
 [following.md](following.md)
 {% endcontent-ref %}
+
+{% content-ref url="follows-in-common.md" %}
+[follows-in-common.md](follows-in-common.md)
+{% endcontent-ref %}
