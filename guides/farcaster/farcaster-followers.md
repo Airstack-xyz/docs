@@ -1,6 +1,6 @@
 ---
 description: >-
-  Learn how to fetch Lens followers data and its various use cases and
+  Learn how to fetch Farcaster followers data and its various use cases and
   combinations.
 ---
 

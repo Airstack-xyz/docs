@@ -1,6 +1,6 @@
 ---
 description: >-
-  Learn how to fetch Lens following data and its various use cases and
+  Learn how to fetch Farcaster following data and its various use cases and
   combinations.
 ---
 
