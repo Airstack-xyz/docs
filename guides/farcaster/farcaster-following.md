@@ -15,8 +15,6 @@ In this guide you will learn how to use Airstack to:
 * [Get Farcaster Following of Farcaster User(s)](farcaster-following.md#get-farcaster-following-of-farcaster-user-s)
 * [Get Farcaster Following of Farcaster User(s) that has XMTP Enabled](farcaster-following.md#get-farcaster-following-of-farcaster-user-s-that-has-xmtp-enabled)
 * [Get Farcaster Users that have a certain amount of Following](farcaster-following.md#get-farcaster-users-that-have-a-certain-amount-of-following)
-* [Get Farcaster and Lens Following of Farcaster User(s)](farcaster-following.md#get-farcaster-and-lens-following-of-farcaster-user-s)
-* [Get Common Farcaster Following of Multiple Users](farcaster-following.md#get-common-farcaster-following-of-multiple-farcaster-users)
 * [Get Farcaster Following of Farcaster User(s) that Hold ERC20 Token(s)](farcaster-following.md#get-farcaster-following-of-farcaster-user-s-that-hold-erc20-token-s)
 * [Get Farcaster Following of Farcaster User(s) that Hold ERC721/1155 NFT(s)](farcaster-following.md#get-farcaster-following-of-farcaster-user-s-that-hold-erc721-1155-nft-s)
 * [Get Farcaster Following of Farcaster User(s) that Hold POAP(s)](farcaster-following.md#get-farcaster-following-of-farcaster-user-s-that-hold-poap-s)

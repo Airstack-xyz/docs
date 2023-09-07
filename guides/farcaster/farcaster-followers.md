@@ -15,7 +15,6 @@ In this guide you will learn how to use Airstack to:
 * [Get Farcaster Followers of Farcaster User(s)](farcaster-followers.md#get-farcaster-followers-of-farcaster-user-s)
 * [Get Farcaster Followers of Farcaster User(s) that has XMTP Enabled](farcaster-followers.md#get-farcaster-followers-of-farcaster-user-s-that-has-xmtp-enabled)
 * [Get Farcaster Users that have a certain amount of Followers](farcaster-followers.md#get-farcaster-users-that-have-a-certain-amount-of-followers)
-* [Get Farcaster and Lens Followers of Farcaster User(s)](farcaster-followers.md#get-farcaster-and-lens-followers-of-farcaster-user-s)
 * [Get Farcaster Followers of Farcaster User(s) that Hold ERC20 Token(s)](farcaster-followers.md#get-farcaster-followers-of-farcaster-user-s-that-hold-erc20-token-s)
 * [Get Farcaster Followers of Farcaster User(s) that Hold ERC721/1155 NFT(s)](farcaster-followers.md#get-farcaster-followers-of-farcaster-user-s-that-hold-erc20-token-s)
 * [Get Farcaster Followers of Farcaster User(s) that Hold POAP(s)](farcaster-followers.md#get-farcaster-followers-of-farcaster-user-s-that-hold-poap-s)
@@ -448,67 +447,9 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## Get Farcaster and Lens Followers of Farcaster User(s)
-
-You can get the list of Farcaster and Lens followers of Farcaster user(s) by inputting [0x address](#user-content-fn-9)[^9], [ENS domain](#user-content-fn-10)[^10], [Farcaster Name](#user-content-fn-11)[^11], or [Farcaster ID](#user-content-fn-12)[^12]:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/DTyOZg/HND6Q3Kpyl" %}
-Show me Farcaster and Lens followers of fc\_fname:dwr.eth, fc\_fid:602, varunsrin.eth, and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  SocialFollowers(
-    input: {filter: {identity: {_in: ["fc_fname:dwr.eth", "fc_fid:602", "varunsrin.eth", "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"]}}, blockchain: ALL, limit: 200}
-  ) {
-    Follower {
-      followerAddress {
-        addresses
-        socials {
-          dappName
-          profileName
-          profileTokenId
-          profileTokenIdHex
-          userId
-          userAssociatedAddresses
-        }
-      }
-      followerProfileId
-      followerTokenId
-      followingAddress {
-        addresses
-        domains {
-          name
-        }
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
-          profileName
-          userId
-          userAssociatedAddresses
-        }
-      }
-      followingProfileId
-    }
-  }
-}
-```
-{% endtab %}
-
-{% tab title="Response" %}
-```
-// Some code
-```
-{% endtab %}
-{% endtabs %}
-
 ## Get Farcaster Followers of Farcaster User(s) that Hold ERC20 Token(s)
 
-You can get the list of Farcaster followers of Farcaster user(s) that also hold ERC20 token(s), e.g. [USDC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&tokenType=\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29\&inputType=TOKEN\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting [0x address](#user-content-fn-13)[^13], [ENS domain](#user-content-fn-14)[^14], [Farcaster Name](#user-content-fn-15)[^15], or [Farcaster ID](#user-content-fn-16)[^16]:
+You can get the list of Farcaster followers of Farcaster user(s) that also hold ERC20 token(s), e.g. [USDC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&tokenType=\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29\&inputType=TOKEN\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting [0x address](#user-content-fn-9)[^9], [ENS domain](#user-content-fn-10)[^10], [Farcaster Name](#user-content-fn-11)[^11], or [Farcaster ID](#user-content-fn-12)[^12]:
 
 ### Try Demo
 
@@ -623,7 +564,7 @@ query MyQuery {
 
 ## Get Farcaster Followers of Farcaster User(s) that Hold ERC721/1155 NFT(s)
 
-You can get the list of Farcaster followers of Farcaster user(s) that also hold ERC721/1155 NFT(s), e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D\&tokenType=\&rawInput=%23%E2%8E%B1BoredApeYachtClub%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+NFT\_COLLECTION+ethereum+null%29\&inputType=NFT\_COLLECTION\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting [0x address](#user-content-fn-17)[^17], [ENS domain](#user-content-fn-18)[^18], [Farcaster Name](#user-content-fn-19)[^19], or [Farcaster ID](#user-content-fn-20)[^20]:
+You can get the list of Farcaster followers of Farcaster user(s) that also hold ERC721/1155 NFT(s), e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D\&tokenType=\&rawInput=%23%E2%8E%B1BoredApeYachtClub%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+NFT\_COLLECTION+ethereum+null%29\&inputType=NFT\_COLLECTION\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting [0x address](#user-content-fn-13)[^13], [ENS domain](#user-content-fn-14)[^14], [Farcaster Name](#user-content-fn-15)[^15], or [Farcaster ID](#user-content-fn-16)[^16]:
 
 ### Try Demo
 
@@ -729,7 +670,7 @@ Show me Farcaster followers of fc\_fname:dwr.eth, fc\_fid:602, varunsrin.eth, an
 
 ## Get Farcaster Followers of Farcaster User(s) that Hold POAP(s)
 
-You can get the list of Farcaster followers of Farcaster user(s) that also hold POAP(s), e.g. [EthCC\[6\] – Attendee POAP](https://explorer.airstack.xyz/token-holders?activeView=\&address=141910\&tokenType=\&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29\&inputType=POAP\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=gnosis), by inputting [0x address](#user-content-fn-21)[^21], [ENS domain](#user-content-fn-22)[^22], [Farcaster Name](#user-content-fn-23)[^23], or [Farcaster ID](#user-content-fn-24)[^24]:
+You can get the list of Farcaster followers of Farcaster user(s) that also hold POAP(s), e.g. [EthCC\[6\] – Attendee POAP](https://explorer.airstack.xyz/token-holders?activeView=\&address=141910\&tokenType=\&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29\&inputType=POAP\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=gnosis), by inputting [0x address](#user-content-fn-17)[^17], [ENS domain](#user-content-fn-18)[^18], [Farcaster Name](#user-content-fn-19)[^19], or [Farcaster ID](#user-content-fn-20)[^20]:
 
 ### Try Demo
 
@@ -857,7 +798,7 @@ query MyQuery {
 
 ## Get Farcaster Followers of Farcaster User(s) that Hold Certain Amount of ERC20 Token(s)
 
-You can get the list of Farcaster followers of Farcaster user(s) that also hold a certain amount of ERC20 token(s), e.g. at least 1000 [USDC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&tokenType=\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29\&inputType=TOKEN\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting [0x address](#user-content-fn-25)[^25], [ENS domain](#user-content-fn-26)[^26], [Farcaster Name](#user-content-fn-27)[^27], or [Farcaster ID](#user-content-fn-28)[^28]:
+You can get the list of Farcaster followers of Farcaster user(s) that also hold a certain amount of ERC20 token(s), e.g. at least 1000 [USDC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&tokenType=\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29\&inputType=TOKEN\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting [0x address](#user-content-fn-21)[^21], [ENS domain](#user-content-fn-22)[^22], [Farcaster Name](#user-content-fn-23)[^23], or [Farcaster ID](#user-content-fn-24)[^24]:
 
 ### Try Demo
 
@@ -1021,11 +962,3 @@ If you have any questions or need help regarding fetching Farcaster Followers da
 [^23]: e.g. `fc_fname:dwr.eth`
 
 [^24]: e.g. `fc_fid:602`
-
-[^25]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
-
-[^26]: e.g. `varunsrin.eth`
-
-[^27]: e.g. `fc_fname:dwr.eth`
-
-[^28]: e.g. `fc_fid:602`
