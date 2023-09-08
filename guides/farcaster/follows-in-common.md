@@ -16,6 +16,7 @@ In this guide you will learn how to use Airstack to:
 * [Common Farcaster Following of Multiple Farcaster Users](follows-in-common.md#common-farcaster-following-of-multiple-farcaster-users)
 * [Farcaster Followers of Farcaster User X That Is Also Farcaster Following of Farcaster User Y](follows-in-common.md#farcaster-followers-of-farcaster-user-x-that-is-also-farcaster-following-of-farcaster-user-y)
 * [Farcaster Following of Farcaster User X That Is Also Farcaster Followers of Farcaster User Y](follows-in-common.md#farcaster-following-of-farcaster-user-x-that-is-also-farcaster-follower-of-farcaster-user-y)
+* [Mutual Follows of A Farcaster User](follows-in-common.md#mutual-farcaster-follows-of-a-farcaster-user)
 
 ## Pre-requisites
 
@@ -505,6 +506,96 @@ query MyQuery {
   }
 }
 ```
+{% endtab %}
+{% endtabs %}
+
+## Mutual Farcaster Follows of A Farcaster User
+
+You can get the mutual Farcaster follows of a Farcaster user using the same query as Farcaster Followers of Farcaster User X That Is Also Farcaster Following of Farcaster User Y, where in this case X is equals to Y, e.g. `fc_fname:betashop.eth`:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/DTyOZg/j8dMg9XSnv" %}
+Show me mutual Farcaster follows of fc\_fname betashop.eth
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  SocialFollowers(
+    input: {filter: {identity: {_eq: "fc_fname:betashop.eth"}, dappName: {_eq: farcaster}}, blockchain: ALL, limit: 200}
+  ) {
+    Follower {
+      followerAddress {
+        socialFollowings(
+          input: {filter: {identity: {_eq: "fc_fname:betashop.eth"}, dappName: {_eq: farcaster}}, limit: 200}
+        ) {
+          Following {
+            followingAddress {
+              socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+                fnames
+                profileName
+                userId
+                userAssociatedAddresses
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "SocialFollowers": {
+      "Follower": [
+        {
+          "followerAddress": {
+            "socialFollowings": {
+              "Following": [
+                {
+                  "followingAddress": {
+                    "socials": [
+                      {
+                        "fnames": [
+                          "asiablockchain.eth",
+                          "hosein778"
+                        ],
+<strong>                        "profileName": "asiablockchain.eth", // mutually follows betashop.eth
+</strong>                        "profileTokenId": "13752",
+                        "profileTokenIdHex": "0x035b8",
+                        "userId": "13752",
+                        "userAssociatedAddresses": [
+                          "0x5732411028f058a1c43e20c8e22a7a8cffbc04df",
+                          "0xd78485a59e9763869bf1ec62c4520695bc826edc"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "followerAddress": {
+            "socialFollowings": {
+<strong>              "Following": [] // follow betashop.eth, but is not followed back by betashop.eth
+</strong>            }
+          }
+        }
+      ]
+    }
+  }
+}
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
