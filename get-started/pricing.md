@@ -30,6 +30,7 @@ Airstack API use will be charged accordingly to the following guidelines:
 
 * All API features will be available to all developers at all times
 * Unlimited use of Airstack AI for all users
+* All devs will get a high rate limit: 3000 requests per minute, bursts of 300 per second
 
 ### 3. Pay Only For What You Use
 
