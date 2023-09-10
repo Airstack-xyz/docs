@@ -68,6 +68,7 @@
   * [💸 Token Transfers](guides/contact-recommendation/token-transfers.md)
   * [🎫 POAPs](guides/contact-recommendation/poaps.md)
   * [♦ NFTs](guides/contact-recommendation/nfts.md)
+  * [🎉 Social Follows](guides/contact-recommendation/social-follows.md)
 
 ## Use Cases
 
