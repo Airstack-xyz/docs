@@ -6,7 +6,7 @@ description: Learn how Airstack pricing will be implemented from October 2023.
 
 ## Before October 2023
 
-[Airstack](https://airstack.xyz) is available **free of charge** until October, 2023. (exact launch date tbd).
+[Airstack](https://airstack.xyz) is available **free of charge** until early October 2023. (exact launch date tbd).
 
 Our focus right now is to help developers achieve their desired use cases while we learn together and rapidly enhance the [Airstack](https://airstack.xyz) features.
 
