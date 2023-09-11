@@ -206,6 +206,7 @@ query MyQuery {
       profileTokenUri
       isDefault
       identity
+      fnames
     }
   }
 }
@@ -252,7 +253,12 @@ query MyQuery {
           "profileLastUpdatedAtBlockNumber": 108874508,
           "profileTokenUri": "",
           "isDefault": false,
-          "identity": "fc_fid:3"
+          "identity": "fc_fid:3",
+          "fnames": [
+            "dwr.eth",
+            "danromero.eth",
+            "dwr"
+          ]
         }
       ]
     }
@@ -311,6 +317,7 @@ query MyQuery {
       profileTokenUri
       isDefault
       identity
+      fnames
     }
   }
 }
@@ -357,7 +364,12 @@ query MyQuery {
           "profileLastUpdatedAtBlockNumber": 108874508,
           "profileTokenUri": "",
           "isDefault": false,
-          "identity": "fc_fname:dwr.eth"
+          "identity": "fc_fname:dwr.eth",
+          "fnames": [
+            "dwr.eth",
+            "danromero.eth",
+            "dwr"
+          ]
         }
       ]
     }
@@ -416,6 +428,7 @@ query MyQuery {
       profileTokenUri
       isDefault
       identity
+      fnames
     }
   }
 }
@@ -462,7 +475,12 @@ query MyQuery {
           "profileLastUpdatedAtBlockNumber": 108874508,
           "profileTokenUri": "",
           "isDefault": false,
-          "identity": "0x74232bf61e994655592747e20bdf6fa9b9476f79"
+          "identity": "0x74232bf61e994655592747e20bdf6fa9b9476f79",
+          "fnames": [
+            "dwr.eth",
+            "danromero.eth",
+            "dwr"
+          ]
         }
       ]
     }
@@ -521,6 +539,7 @@ query MyQuery {
       profileTokenUri
       isDefault
       identity
+      fnames
     }
   }
 }
@@ -567,7 +586,12 @@ query MyQuery {
           "profileLastUpdatedAtBlockNumber": 108874508,
           "profileTokenUri": "",
           "isDefault": false,
-          "identity": "dwr.eth"
+          "identity": "dwr.eth",
+          "fnames": [
+            "dwr.eth",
+            "danromero.eth",
+            "dwr"
+          ]
         }
       ]
     }
@@ -626,6 +650,7 @@ query MyQuery {
       profileTokenUri
       isDefault
       identity
+      fnames
     }
   }
 }
@@ -672,7 +697,12 @@ query MyQuery {
           "profileLastUpdatedAtBlockNumber": 108874508,
           "profileTokenUri": "",
           "isDefault": false,
-          "identity": "danromero.lens"
+          "identity": "danromero.lens",
+          "fnames": [
+            "dwr.eth",
+            "danromero.eth",
+            "dwr"
+          ]
         }
       ]
     }
@@ -731,6 +761,7 @@ query MyQuery {
       profileTokenUri
       isDefault
       identity
+      fnames
     }
   }
 }
@@ -777,7 +808,12 @@ query MyQuery {
           "profileLastUpdatedAtBlockNumber": 108874508,
           "profileTokenUri": "",
           "isDefault": false,
-          "identity": "lens_id:0x0b46d"
+          "identity": "lens_id:0x0b46d",
+          "fnames": [
+            "dwr.eth",
+            "danromero.eth",
+            "dwr"
+          ]
         }
       ]
     }
@@ -836,6 +872,7 @@ query MyQuery {
       profileTokenUri
       isDefault
       identity
+      fnames
     }
   }
 }
@@ -880,7 +917,11 @@ query MyQuery {
           "profileLastUpdatedAtBlockNumber": 108874774,
           "profileTokenUri": "",
           "isDefault": false,
-          "identity": ""
+          "identity": "",
+          "fnames": [
+            "vitalik.eth",
+            "vbuterin"
+          ]
         },
         {
           "id": "c3f6ffbb20532bf50d158f4099336d50d5ba9f327159712972c94d51aa4730ee",
@@ -916,7 +957,12 @@ query MyQuery {
           "profileLastUpdatedAtBlockNumber": 108874508,
           "profileTokenUri": "",
           "isDefault": false,
-          "identity": ""
+          "identity": "",
+          "fnames": [
+            "dwr.eth",
+            "danromero.eth",
+            "dwr"
+          ]
         }
       ]
     }
@@ -973,6 +1019,7 @@ query MyQuery {
       profileTokenUri
       isDefault
       identity
+      fnames
     }
   }
 }
@@ -1018,7 +1065,11 @@ query MyQuery {
           "profileLastUpdatedAtBlockNumber": 108874508,
           "profileTokenUri": "",
           "isDefault": false,
-          "identity": ""
+          "identity": "",
+          "fnames": [
+            "varunsrin.eth",
+            "v"
+          ]
         },
         {
           "id": "c3f6ffbb20532bf50d158f4099336d50d5ba9f327159712972c94d51aa4730ee",
@@ -1054,7 +1105,12 @@ query MyQuery {
           "profileLastUpdatedAtBlockNumber": 108874508,
           "profileTokenUri": "",
           "isDefault": false,
-          "identity": ""
+          "identity": "",
+          "fnames": [
+            "dwr.eth",
+            "danromero.eth",
+            "dwr"
+          ]
         },
         {
           "id": "df59444a0a4e5799c08cdc4d52b05832757d97ee4f44b9e023807bc2255d5218",
@@ -1088,7 +1144,12 @@ query MyQuery {
           "profileLastUpdatedAtBlockNumber": 108874508,
           "profileTokenUri": "",
           "isDefault": false,
-          "identity": ""
+          "identity": "",
+          "fnames": [
+            "warpcast.eth",
+            "farcaster.eth",
+            "farcaster"
+          ]
         }
       ]
     }
@@ -1151,6 +1212,7 @@ query MyQuery {
       profileTokenUri
       isDefault
       identity
+      fnames
     }
   }
 }
@@ -1195,7 +1257,10 @@ query MyQuery {
           "profileLastUpdatedAtBlockNumber": 108875226,
           "profileTokenUri": "",
           "isDefault": false,
-          "identity": ""
+          "identity": "",
+          "fnames": [
+            "manekineko"
+          ]
         },
         // Other farcaster users
       ]

@@ -25,6 +25,12 @@ You can enter Farcaster ID or name directly in the `owner` or `address` field:
 
 Alternatively, you can enter the Farcaster profile name directly in the Socials `profileName` field.
 
+{% hint style="info" %}
+You can enter all fnames that Farcaster user has, including the one that is not actively used as a profile name.\
+\
+For example, a Farcaster user have multiple fnames: `fc_fname:varunsrin.eth` and `fc_fname:v`, then you should be able to use both as an input of any identity field.
+{% endhint %}
+
 ### Example #1: Show me all NFTs and their images currently being held by Farcaster user name dwr.eth
 
 #### Try Demo
