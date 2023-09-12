@@ -12,6 +12,7 @@ You can enter the ENS domains directly in the `owner` or `address` field:
 | ------------------------------------------------- | -------------------------------------- |
 | <mark style="color:red;">`vitalik.eth`</mark>     | Plain ENS domain ending in `.eth`      |
 | <mark style="color:red;">`ens:vitalik.eth`</mark> | ENS domain with optional `ens:` prefix |
+| <mark style="color:red;">`yosephks.cb.id`</mark>  | Coinbase ID that is resolved off-chain |
 
 ## **Farcaster** ID and Name
 
