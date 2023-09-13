@@ -6,12 +6,13 @@ description: Learn how to use Airstack to check if a single user has XMTP or not
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
 
-In this tutorial, you will learn how to check whether a given user has XMTP enabled or not using various web3 identities, such as 0x address, ENS, Lens, and Farcaster.
+In this tutorial, you will learn how to check whether a given user has XMTP enabled or not using various web3 identities, such as 0x address, ENS, cb.id, Lens, and Farcaster.
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to check if a single user has XMTP enabled:
 
 * [By 0x address](check-single-user.md#by-0x-address)
 * [By ENS](check-single-user.md#by-ens)
+* [By cb.id](check-single-user.md#by-cb.id)
 * [By Lens profile name or ID](check-single-user.md#by-lens-profile-name-or-id)
 * [By Farcaster name or ID](check-single-user.md#by-farcaster-name-or-id)
 
@@ -232,7 +233,7 @@ query MyQuery {
 
 ## By ENS
 
-With [Airstack Identity API](../../api-references/api-reference/airstack-identity-api.md), you can simply swap the address input to any ENS names:
+With [Airstack Identity API](../../api-references/api-reference/airstack-identity-api.md), you can simply swap the address input to any ENS names, either on-chain or off-chain (e.g. Namestone[^1]):
 
 ### Try Demo
 
@@ -272,9 +273,51 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
+## By cb.id
+
+With [Airstack Identity API](../../api-references/api-reference/airstack-identity-api.md), you can simply swap the address input to any cb.id:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/DTyOZg/jr6QAbmRGb" %}
+Show me if yosephks.cb.id has XMTP enabled or not
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  XMTPs(input: {blockchain: ALL, filter: {owner: {_eq: "yosephks.cb.id"}}}) {
+    XMTP {
+      isXMTPEnabled
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "XMTPs": {
+      "XMTP": [
+        {
+          "isXMTPEnabled": true
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ## By Lens Profile Name or ID
 
-With [Airstack Identity API](../../api-references/api-reference/airstack-identity-api.md), you can simply swap the address input `owner` to any [Lens profile name](#user-content-fn-1)[^1]:
+With [Airstack Identity API](../../api-references/api-reference/airstack-identity-api.md), you can simply swap the address input `owner` to any [Lens profile name](#user-content-fn-2)[^2]:
 
 ### Try Demo
 
@@ -314,7 +357,7 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-Alternatively, you can also swap the address input `owner` to any Lens profile ID, either in decimal[^2] or hex[^3] form:
+Alternatively, you can also swap the address input `owner` to any Lens profile ID, either in decimal[^3] or hex[^4] form:
 
 ### Try Demo
 
@@ -356,7 +399,7 @@ query MyQuery {
 
 ## By Farcaster Name or ID
 
-With [Airstack Identity API](../../api-references/api-reference/airstack-identity-api.md), you can simply swap the address input `owner` to any [Farcaster Name](#user-content-fn-4)[^4]:
+With [Airstack Identity API](../../api-references/api-reference/airstack-identity-api.md), you can simply swap the address input `owner` to any [Farcaster Name](#user-content-fn-5)[^5]:
 
 ### Try Demo
 
@@ -396,7 +439,7 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-Alternatively, you can also swap the address input `owner` to any [Farcaster ID](#user-content-fn-5)[^5]:
+Alternatively, you can also swap the address input `owner` to any [Farcaster ID](#user-content-fn-6)[^6]:
 
 ### Try Demo
 
@@ -438,7 +481,7 @@ query MyQuery {
 
 ## Developer Support
 
-If you have any questions or need help regarding checking XMTP for a single user with various [web3 identities](#user-content-fn-6)[^6], please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding checking XMTP for a single user with various [web3 identities](#user-content-fn-7)[^7], please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
@@ -447,14 +490,16 @@ If you have any questions or need help regarding checking XMTP for a single user
 * [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
 * [Universal Resolver](../../use-cases/xmtp/universal-resolver.md)
 
-[^1]: e.g. vitalik.lens
+[^1]: ENS that is resolved off-chain, e.g. <mark style="color:red;">`leighton.pooltogether.eth`</mark>             &#x20;
 
-[^2]: e.g. `lens_id:100275`
+[^2]: e.g. vitalik.lens
 
-[^3]: e.g. `lens_id:0x19af`
+[^3]: e.g. `lens_id:100275`
 
-[^4]: e.g. `fc_fname:vitalik.eth`
+[^4]: e.g. `lens_id:0x19af`
 
-[^5]: e.g. `fc_fid:5650`
+[^5]: e.g. `fc_fname:vitalik.eth`
 
-[^6]: 0x address, ENS, Lens, Farcaster
+[^6]: e.g. `fc_fid:5650`
+
+[^7]: 0x address, ENS, Lens, Farcaster

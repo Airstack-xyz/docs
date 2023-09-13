@@ -218,7 +218,7 @@ query MyQuery {
 
 ## POAP Holders
 
-Get the POAP holders that have XMTP using the [Poaps](../../api-references/api-reference/poaps-api/) API and provide an POAP event ID for the `$eventId` input:
+Get the POAP holders that have XMTP using the [Poaps](../../api-references/api-reference/poaps-api/) API and provide an POAP event ID for the <mark style="color:red;">`$eventId`</mark> input:
 
 ### Try Demo
 

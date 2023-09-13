@@ -6,13 +6,14 @@ You can filter your queries using the identity inputs by passing the following v
 
 ## **ENS** Domains
 
-You can enter the ENS domains directly in the `owner` or `address` field:
+You can enter the [ENS domains](https://ens.domains), both on-chain or off-chain (e.g. [cb.id](https://cb.id) or [Namestone](https://namestone.xyz)), directly in the `owner` or `address` field:
 
-| Sample Input                                      | Description                            |
-| ------------------------------------------------- | -------------------------------------- |
-| <mark style="color:red;">`vitalik.eth`</mark>     | Plain ENS domain ending in `.eth`      |
-| <mark style="color:red;">`ens:vitalik.eth`</mark> | ENS domain with optional `ens:` prefix |
-| <mark style="color:red;">`yosephks.cb.id`</mark>  | Coinbase ID that is resolved off-chain |
+| Sample Input                                                | Description                            |
+| ----------------------------------------------------------- | -------------------------------------- |
+| <mark style="color:red;">`vitalik.eth`</mark>               | Plain ENS domain ending in `.eth`      |
+| <mark style="color:red;">`ens:vitalik.eth`</mark>           | ENS domain with optional `ens:` prefix |
+| <mark style="color:red;">`leighton.pooltogether.eth`</mark> | Off-chain ENS domain from Namestone    |
+| <mark style="color:red;">`yosephks.cb.id`</mark>            | Coinbase ID that is resolved off-chain |
 
 ## **Farcaster** ID and Name
 

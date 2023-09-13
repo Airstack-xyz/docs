@@ -6,7 +6,7 @@ description: Learn how to use Airstack to check if multiple users have XMTP or n
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
 
-In this tutorial, you will learn how to check whether multiple users have XMTP enabled or not using various web3 identities, such as 0x address, ENS, Lens, and Farcaster.
+In this tutorial, you will learn how to check whether multiple users have XMTP enabled or not using various web3 identities, such as 0x address, ENS, cb.id, Lens, and Farcaster.
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to check if multiple users have XMTP enabled:
 
