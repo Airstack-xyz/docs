@@ -4,9 +4,9 @@ description: Learn how Airstack pricing will be implemented from October 2023.
 
 # 🔋 Pricing
 
-## Before October 2023
+## Before Mid-October 2023
 
-[Airstack](https://airstack.xyz) is available **free of charge** until early October 2023. (exact launch date tbd).
+[Airstack](https://airstack.xyz) is available **free of charge** until mid-October 2023. (exact launch date tbd).
 
 Our focus right now is to help developers achieve their desired use cases while we learn together and rapidly enhance the [Airstack](https://airstack.xyz) features.
 
@@ -16,7 +16,7 @@ If you need a rate limit increase, you can request one on your Dashboard's [Mana
 **The only exception prior to October is Enterprise** usage, currently defined as having >50,000,000 API calls per month, who are subject to immediate custom pricing.
 {% endhint %}
 
-## After October 2023
+## After Mid-October 2023
 
 Airstack API use will be charged accordingly to the following guidelines:
 
