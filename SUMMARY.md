@@ -60,6 +60,10 @@
   * [🫂 Followers](guides/social-follows/followers.md)
   * [💐 Following](guides/social-follows/following.md)
   * [👭 Follows In Common](guides/social-follows/follows-in-common.md)
+* [⚡ POAP](guides/poap/README.md)
+  * [⚖ POAP Balances](guides/poap/poap-balances.md)
+  * [🗝 POAP Holders](guides/poap/poap-holders.md)
+  * [🥳 POAP Events](guides/poap/poap-events.md)
 * [🆔 Resolve Identities](guides/resolve-identities/README.md)
   * [🔷 ENS](guides/resolve-identities/ens.md)
   * [🌿 Lens](guides/resolve-identities/lens.md)
@@ -116,11 +120,11 @@
   * [NFTStats API](api-references/api-reference/nftstats-api.md)
   * [Airstack Identity API](api-references/api-reference/airstack-identity-api.md)
   * [Cross-chain Queries](api-references/api-reference/cross-chain-queries.md)
-* [📠 Working with GraphQL](api-references/working-with-graphql.md)
+* [Working with GraphQL](api-references/working-with-graphql.md)
 * [📍 Cursor Pagination](api-references/cursor-pagination/README.md)
   * [Overview](api-references/cursor-pagination/overview.md)
   * [Pagination in Airstack SDK](api-references/cursor-pagination/pagination-in-airstack-sdk.md)
-* [🥅 Nested Queries](api-references/nested-queries.md)
+* [Nested Queries](api-references/nested-queries.md)
 
 ## React SDK Reference
 
