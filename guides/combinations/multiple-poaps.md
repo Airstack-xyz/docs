@@ -2,6 +2,17 @@
 description: >-
   Learn how to fetch the list of common POAP holders or event attendees of
   multiple POAPs.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # Multiple POAPs

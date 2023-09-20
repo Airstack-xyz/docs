@@ -3,6 +3,17 @@ description: >-
   Try Airstack Explorer to check out the full capabilities of Airstack APIs. The
   Explorer also provides you with no-code solution to get started with Airstack
   in no time.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # ⛰ Airstack Explorer

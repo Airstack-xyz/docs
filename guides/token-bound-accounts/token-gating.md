@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack to build token gating with ERC6551 token-bound
   accounts.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🚪 Token Gating

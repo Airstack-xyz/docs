@@ -1,5 +1,16 @@
 ---
 description: Learn all the current features available on Airstack and its future roadmap.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🚦 API Status & Roadmap

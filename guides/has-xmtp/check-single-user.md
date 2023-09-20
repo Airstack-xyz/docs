@@ -1,5 +1,16 @@
 ---
 description: Learn how to use Airstack to check if a single user has XMTP or not.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🧍 Check Single User

@@ -1,5 +1,16 @@
 ---
 description: Learn how to fetch ERC20 tokens in common from multiple users.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # ERC20s

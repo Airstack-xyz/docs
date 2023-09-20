@@ -3,6 +3,17 @@ description: >-
   Learn how to use Airstack to fetch Token Bound Accounts (ERC6551) by different
   parameters such as NFTs and NFT owners, and sort the results in either
   ascending or descending order.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🪆 Tokenbound ERC6551

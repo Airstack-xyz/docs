@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack to traverse the ERC6551 tree, either upwards or
   downwards.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🌲 Traverse ERC6551 Tree

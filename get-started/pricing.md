@@ -1,5 +1,16 @@
 ---
 description: Learn how Airstack pricing will be implemented from October 2023.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🔋 Pricing

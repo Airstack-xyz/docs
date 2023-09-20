@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack to get token-bound account results sorted in
   ascending or descending order by the creation block timestamp.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # ⏫ Sort Results

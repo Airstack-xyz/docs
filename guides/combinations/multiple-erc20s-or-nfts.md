@@ -2,6 +2,17 @@
 description: >-
   Learn how to fetch the list of common token holders of multiple ERC20 tokens
   or NFTs (ERC721s & ERC1155s).
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # Multiple ERC20s or NFTs

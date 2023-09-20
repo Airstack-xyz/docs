@@ -1,5 +1,16 @@
 ---
 description: Learn how to use Airstack to get all holders of NFT or POAP that have XMTP.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🗃 NFT & POAP Holders

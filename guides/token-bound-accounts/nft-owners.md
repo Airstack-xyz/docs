@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack to get token-bound (ERC6551) accounts by the owner
   of NFT that owns the accounts and vice versa.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 📭 NFT Owners

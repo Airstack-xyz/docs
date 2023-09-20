@@ -1,5 +1,16 @@
 ---
 description: Learn how to fetch POAPs in common from multiple users.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # POAPs
