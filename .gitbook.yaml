@@ -6,6 +6,7 @@ redirects:
   ai-assistant: get-started/airstack-ai.md
   use-cases/recommendation-engine: use-cases/xmtp/recommendation-engine.md
   use-cases/universal-resolver: use-cases/xmtp/universal-resolver.md
+  use-cases/universal-resolver/lens: use-cases/lens/universal-resolver.md
   use-cases/recommendation-engine/recommendations-by-poaps: guides/contact-recommendation/poaps.md
   use-cases/recommendation-engine/recommendations-by-token-transfers: guides/contact-recommendation/token-transfers.md
   use-cases/recommendation-engine/recommendations-by-nfts: guides/contact-recommendation/nfts.md
