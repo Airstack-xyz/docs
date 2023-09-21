@@ -6,7 +6,7 @@ The Socials APIs deliver on-chain and off-chain user-level data pertaining to us
 
 ### Inputs & Filters
 
-```graphql
+```html
 input SocialFilter {
   dappName: # Social DApp name – lens, farcaster
   dappSlug: # Social DApp slug (contract version) – lens_polygon, farcaster_optimism, farcaster_goerli
@@ -51,6 +51,9 @@ type Social {
   profileTokenId: String
   profileTokenIdHex: String
   profileTokenUri: String
+  tokenNft: TokenNft # Nested Query: Profile NFT details, this is particularly for Lens Profile NFT, Farcaster will return `null`
+  userAddressDetails: Wallet # Nested Query: Details of the user's primary address – domains, socials, XMTP, token balances
+  userAssociatedAddressDetails: [Wallet] # Nested Query: Details of the user's associated addresses to the social profile – domains, socials, XMTP, token balances
   userAddress: Address # user's primary address
   userAssociatedAddresses: # blockchain addresses associated with the social profile
   userCreatedAtBlockNumber: Int
