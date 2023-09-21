@@ -2,6 +2,17 @@
 description: >-
   Initialize the Airstack NodeJS SDK with Airstack API key. This is required to
   call the Airstack API.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # init

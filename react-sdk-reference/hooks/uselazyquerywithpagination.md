@@ -3,6 +3,17 @@ description: >-
   Manually trigger data fetching from Airstack by calling queries to the
   Airstack API with pagination included. If you don't need pagination, use
   useLazyQuery instead.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # useLazyQueryWithPagination

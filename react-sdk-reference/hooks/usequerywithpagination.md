@@ -2,6 +2,17 @@
 description: >-
   Fetch data from Airstack by calling queries to the Airstack API with
   pagination included. If you don't need pagination, use useQuery instead.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # useQueryWithPagination

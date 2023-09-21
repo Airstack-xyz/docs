@@ -2,6 +2,17 @@
 description: >-
   Pagination object that provides indication if there is any previous or next
   page and functions to get to the previous or the next page.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # Pagination

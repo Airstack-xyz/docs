@@ -2,6 +2,17 @@
 description: >-
   Learn how to build a Farcaster resolver with Airstack APIs and integrate it
   into your React application.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🟪 Farcaster Resolver

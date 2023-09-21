@@ -2,6 +2,17 @@
 description: >-
   The return type of the useQuery hook comprises the data, error logs, and
   loading indicators.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # UseQueryReturnType

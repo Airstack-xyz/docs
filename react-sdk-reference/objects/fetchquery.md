@@ -2,6 +2,17 @@
 description: >-
   The return type of the fetchQuery function comprises of the data, error logs,
   loading indicator, and pagination object.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # FetchQuery
