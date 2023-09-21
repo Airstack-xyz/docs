@@ -6,7 +6,7 @@ The Socials APIs deliver on-chain and off-chain user-level data pertaining to us
 
 ### Inputs & Filters
 
-```html
+```graphql
 input SocialFilter {
   dappName: # Social DApp name – lens, farcaster
   dappSlug: # Social DApp slug (contract version) – lens_polygon, farcaster_optimism, farcaster_goerli
