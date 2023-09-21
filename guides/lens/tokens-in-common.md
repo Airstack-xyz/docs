@@ -2,6 +2,17 @@
 description: >-
   Learn how to fetch ERC20, NFTs, or POAPs in common from multiple Lens
   profiles.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🤝 Tokens In Common

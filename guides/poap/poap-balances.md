@@ -3,6 +3,17 @@ description: >-
   Learn how to fetch POAPs held by various web3 identities, such as 0x
   addresses, ENS domains, Lens profiles, and Farcasters. You will also learn how
   to fetch commonly held POAPs between multiple users.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # ⚖ POAP Balances

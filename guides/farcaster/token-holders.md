@@ -3,6 +3,17 @@ description: >-
   Learn how to get all Farcaster users who own a specific token, NFT, or POAP,
   or a min amount of that token. Get combinations of NFTs or POAPs + Farcaster,
   e.g. Has POAP1 and POAP2 and has Farcaster
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🥇 Token Holders

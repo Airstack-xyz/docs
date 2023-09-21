@@ -2,6 +2,17 @@
 description: >-
   Learn how to get recommended followers for Farcaster users based on on-chain
   insights from token transfers, POAPs, NFTS, and token holder combinations.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 📞 Recommendation Engines

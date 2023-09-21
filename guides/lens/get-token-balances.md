@@ -2,6 +2,17 @@
 description: >-
   Learn how to get ERC20, 721, 1155, and POAPs Of Lens Profile(s), including
   images and metadata, on Ethereum, Polygon, and Gnosis (POAPs).
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 💰 Get Token Balances

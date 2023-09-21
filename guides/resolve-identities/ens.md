@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack to universally resolve and reverse resolve ENS to
   other web3 identities (Farcaster, Lens, 0x address).
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🔷 ENS

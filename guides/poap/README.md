@@ -2,6 +2,17 @@
 description: >-
   Airstack provides easy-to-use APIs for enriching POAP applications and
   integrating POAP on-chain data indexed directly from both Gnosis and Ethereum.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # ⚡ POAP

@@ -2,6 +2,17 @@
 description: >-
   Learn how to get ERC6551 Accounts owned By Farcaster user(s). Get Farcaster
   users who own NFTs owned by ERC6551 accounts.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🪆 Tokenbound ERC6551 Accounts

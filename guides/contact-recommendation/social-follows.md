@@ -2,6 +2,17 @@
 description: >-
   Learn how to construct queries to build a recommendation engine based on the
   social follows of the user(s).
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🎉 Social Follows

@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack to universally resolve and reverse resolve Farcaster
   name or ID to other web3 identities (Lens, ENS, Ethereum address).
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🟪 Farcaster

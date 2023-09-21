@@ -2,6 +2,17 @@
 description: >-
   Learn how to fetch holders of a given POAP(s) and how to fetch common holders
   of multiple given POAP(s) in a single API call using the Airstack API.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🗝 POAP Holders

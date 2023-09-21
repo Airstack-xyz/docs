@@ -2,6 +2,17 @@
 description: >-
   Learn how to check if Farcaster name or ID has enabled XMTP and resolve
   Farcaster name or ID for XMTP messaging.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 📬 Has XMTP

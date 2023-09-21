@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack to fetch POAP events and its details by a specified
   time period or city where it takes place.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🥳 POAP Events

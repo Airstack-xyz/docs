@@ -3,6 +3,17 @@ description: >-
   Learn how to enable users to access certain features only if they have a Lens
   profile or a combination of Lens + other criteria such as a specific POAP or
   NFT.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🚪 Token Gating

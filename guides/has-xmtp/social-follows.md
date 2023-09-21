@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack to get all social followers or following that have
   XMTP enabled.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🎉 Social Follows

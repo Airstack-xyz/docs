@@ -2,6 +2,17 @@
 description: >-
   Learn how to fetch Farcaster followers and followings in common between
   multiple Farcaster users.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 👭 Follows In Common

@@ -2,6 +2,17 @@
 description: >-
   Learn how to fetch Farcaster following data and its various use cases and
   combinations.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 💐 Farcaster Following

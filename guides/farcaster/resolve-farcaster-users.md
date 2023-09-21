@@ -2,6 +2,17 @@
 description: >-
   Learn how to resolve Farcaster(s) fname/username/FID to 0x address, ENS, Lens,
   and XMTP and Reverse Resolution.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🆔 Resolve Farcaster Users

@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack to universally resolve and reverse resolve Lens
   Profiles to other web3 identities (Farcaster, ENS, Ethereum address).
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🌿 Lens

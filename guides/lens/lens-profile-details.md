@@ -2,6 +2,17 @@
 description: >-
   Learn how to fetch Lens profile details with 0x address, ENS domain, Lens
   profile name and ID, and Farcaster name and ID.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🔎 Lens Profile Details

@@ -2,6 +2,17 @@
 description: >-
   Learn how to resolve Lens profiles to 0x address, ENS, Farcaster, and XMTP and
   Reverse Resolution.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🆔 Resolve Lens Profiles

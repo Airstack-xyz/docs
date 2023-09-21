@@ -2,6 +2,17 @@
 description: >-
   Learn how to fetch Farcaster user details with 0x address, ENS domain,
   Farcaster name and ID, and Lens profile name and ID
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🔎 Farcaster Users Details

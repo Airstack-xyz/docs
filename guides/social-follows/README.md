@@ -2,6 +2,17 @@
 description: >-
   Airstack provides easy-to-use APIs for enriching any Web3 social applications
   that build on top of Lens or Farcaster in integrating social follows data.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🎉 Social Follows

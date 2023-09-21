@@ -1,5 +1,16 @@
 ---
 description: Learn how to check if Lens profiles have XMTP enabled on their account or not.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 📬 Has XMTP
