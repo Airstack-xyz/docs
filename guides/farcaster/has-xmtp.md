@@ -179,7 +179,7 @@ You can check if a Farcaster has XMTP enabled or not by providing either the Far
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/tHpIYqruY8" %}
+{% embed url="https://app.airstack.xyz/query/tHpIYqruY8" %}
 Check Farcaster has XMTP enabled (Demo)
 {% endembed %}
 
@@ -221,7 +221,7 @@ You can bulk check a list of Farcasters have XMTP enabled or not:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/uf0qK2hOaJ" %}
+{% embed url="https://app.airstack.xyz/query/uf0qK2hOaJ" %}
 Check Farcaster Name and ID have XMTP enabled (Demo)
 {% endembed %}
 
@@ -272,7 +272,7 @@ You can resolve an array of Farcaster user(s) to their 0x addresses:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/rQQVTG8laa" %}
+{% embed url="https://app.airstack.xyz/query/rQQVTG8laa" %}
 Show 0x addresses of Farcaster user name dwr.eth and user ID 1
 {% endembed %}
 
@@ -332,7 +332,7 @@ You can resolve any 0x address to their Farcaster accounts:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/LZDbcSC7LK" %}
+{% embed url="https://app.airstack.xyz/query/LZDbcSC7LK" %}
 Show Farcasters owned by Ethereum address 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 {% endembed %}
 
@@ -383,7 +383,7 @@ You can get the list of Farcaster followers of Farcaster user(s) and check if ea
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/pRTpTuyHa8" %}
+{% embed url="https://app.airstack.xyz/query/pRTpTuyHa8" %}
 Show me Farcaster followers of fc\_fname:dwr.eth, fc\_fid:602, varunsrin.eth, and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 and check if XMTP is enabled
 {% endembed %}
 
@@ -498,7 +498,7 @@ You can get the list of Farcaster following of Farcaster user(s) and check if ea
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Gpgb0KvNyb" %}
+{% embed url="https://app.airstack.xyz/query/Gpgb0KvNyb" %}
 Show me Farcaster following of fc\_fname:dwr.eth, fc\_fid:602, varunsrin.eth, and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 and if XMTP is enabled
 {% endembed %}
 

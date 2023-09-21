@@ -195,7 +195,7 @@ You can fetch the common holder of a token and a POAP by providing the token con
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/xzsDL1RHeL" %}
+{% embed url="https://app.airstack.xyz/query/xzsDL1RHeL" %}
 Show common holders of Nouns NFT and EthCC\[6] POAPs
 {% endembed %}
 
@@ -317,7 +317,7 @@ Within the nested queries, you can either add `tokenBalances` with a new token c
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Hf5PZ5kd3i" %}
+{% embed url="https://app.airstack.xyz/query/Hf5PZ5kd3i" %}
 Show common holders of any tokens (ERC20s or NFTs) and POAPs
 {% endembed %}
 

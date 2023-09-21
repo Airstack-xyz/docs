@@ -173,7 +173,7 @@ You can get the list of Farcaster followers of Farcaster user(s) by inputting [0
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/NwB5fVxenM" %}
+{% embed url="https://app.airstack.xyz/query/NwB5fVxenM" %}
 Show me Farcaster followers of fc\_fname:dwr.eth, fc\_fid:602, varunsrin.eth, and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 {% endembed %}
 
@@ -278,7 +278,7 @@ You can get the list of Farcaster followers of Farcaster user(s) and check if ea
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/pRTpTuyHa8" %}
+{% embed url="https://app.airstack.xyz/query/pRTpTuyHa8" %}
 Show me Farcaster followers of fc\_fname:dwr.eth, fc\_fid:602, varunsrin.eth, and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 and check if XMTP is enabled
 {% endembed %}
 
@@ -392,7 +392,7 @@ You can get the list of all Farcaster users that have a certain amount of follow
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/BK9pLZ9OgA" %}
+{% embed url="https://app.airstack.xyz/query/BK9pLZ9OgA" %}
 Show me all Farcaster users that have at least 1000 followers
 {% endembed %}
 
@@ -464,7 +464,7 @@ You can get the list of Farcaster followers of Farcaster user(s) that also hold 
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/XgT9Kp1oMO" %}
+{% embed url="https://app.airstack.xyz/query/XgT9Kp1oMO" %}
 Show me Farcaster followers of fc\_fname:dwr.eth, fc\_fid:602, varunsrin.eth, and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 that also holds USDC
 {% endembed %}
 
@@ -579,7 +579,7 @@ You can get the list of Farcaster followers of Farcaster user(s) that also hold 
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/MbCjfpghtO" %}
+{% embed url="https://app.airstack.xyz/query/MbCjfpghtO" %}
 Show me Farcaster followers of fc\_fname:dwr.eth, fc\_fid:602, varunsrin.eth, and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 that also holds BAYC
 {% endembed %}
 
@@ -685,7 +685,7 @@ You can get the list of Farcaster followers of Farcaster user(s) that also hold 
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/UJstxtiyUe" %}
+{% embed url="https://app.airstack.xyz/query/UJstxtiyUe" %}
 Show me Farcaster followers of fc\_fname:dwr.eth, fc\_fid:602, varunsrin.eth, and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 that holds EthCC\[6] POAP
 {% endembed %}
 
@@ -813,7 +813,7 @@ You can get the list of Farcaster followers of Farcaster user(s) that also hold 
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/F14x5wQet9" %}
+{% embed url="https://app.airstack.xyz/query/F14x5wQet9" %}
 Show me Farcaster followers of fc\_fname:dwr.eth, fc\_fid:602, varunsrin.eth, and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 that also holds at least 1000 USDC
 {% endembed %}
 

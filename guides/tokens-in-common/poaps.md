@@ -161,7 +161,7 @@ You can fetch common POAPs of multiple user(s) provided the user's 0x address, E
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/0U2I2pZzcp" %}
+{% embed url="https://app.airstack.xyz/query/0U2I2pZzcp" %}
 Show common POAPs of two users
 {% endembed %}
 

@@ -165,7 +165,7 @@ You can fetch common ERC20 tokens of multiple Lens profiles:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/gHp07gzekM" %}
+{% embed url="https://app.airstack.xyz/query/gHp07gzekM" %}
 Show common ERC20 tokens held by Lens profiles
 {% endembed %}
 

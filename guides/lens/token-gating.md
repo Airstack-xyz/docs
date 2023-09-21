@@ -166,7 +166,7 @@ You can implement token gating by checking whether users have Lens profile:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/TpGSzOq9tx" %}
+{% embed url="https://app.airstack.xyz/query/TpGSzOq9tx" %}
 Show the Lens profile of bradorbradley.eth
 {% endembed %}
 
@@ -246,7 +246,7 @@ You can implement token gating by checking whether users have both Lens profile 
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/VERJn9Uhbd" %}
+{% embed url="https://app.airstack.xyz/query/VERJn9Uhbd" %}
 Show the NFT balance of 0x8eC94086A724cbEC4D37097b8792cE99CaDCd520 on specific NFTs
 {% endembed %}
 
@@ -340,7 +340,7 @@ You can implement token gating by checking whether users have both Lens profile 
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/izTMNkr9m9" %}
+{% embed url="https://app.airstack.xyz/query/izTMNkr9m9" %}
 Show if 0x4455951fa43b17bd211e0e8ae64d22fb47946ade hold some given specific POAPs and have Lens profile
 {% endembed %}
 

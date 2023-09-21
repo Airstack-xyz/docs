@@ -292,7 +292,7 @@ To get recommendations by POAPs, first fetch all POAPs that is owned by the Lens
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/WndOFRhLKU" %}
+{% embed url="https://app.airstack.xyz/query/WndOFRhLKU" %}
 Show POAPs owned by bradorbradley.lens
 {% endembed %}
 

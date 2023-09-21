@@ -168,7 +168,7 @@ You can fetch all POAP holders of a given POAP(s) by specifying the `eventId` of
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/00c05PCjs5" %}
+{% embed url="https://app.airstack.xyz/query/00c05PCjs5" %}
 show me all holders of EthCC\[6] - Attendee POAP
 {% endembed %}
 
@@ -285,7 +285,7 @@ The more POAPs you would like to use as an input, the more `Poaps.owner` nesting
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/nF1cGPr8uJ" %}
+{% embed url="https://app.airstack.xyz/query/nF1cGPr8uJ" %}
 show me common holders of EthCC\[6] - Attendee and ETHDenver 2023 POAP
 {% endembed %}
 

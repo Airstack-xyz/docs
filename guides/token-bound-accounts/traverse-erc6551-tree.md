@@ -302,7 +302,7 @@ Then, you can use the [`TokenBalances`](../../api-references/api-reference/token
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/p5BSiPbwGb" %}
+{% embed url="https://app.airstack.xyz/query/p5BSiPbwGb" %}
 Traverse Up ERC6551 Tree By NFT (Demo)
 {% endembed %}
 
@@ -608,7 +608,7 @@ Then, you can use the [`Accounts`](../../api-references/api-reference/accounts-a
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/bCkovDe5fb" %}
+{% embed url="https://app.airstack.xyz/query/bCkovDe5fb" %}
 Traverse Down ERC6551 Tree By NFT (Demo)
 {% endembed %}
 

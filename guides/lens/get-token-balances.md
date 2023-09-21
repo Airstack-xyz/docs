@@ -169,7 +169,7 @@ You can fetch all ERC20 tokens on Ethereum and Polygon owned by any Lens Profile
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/z5mwViK3bq" %}
+{% embed url="https://app.airstack.xyz/query/z5mwViK3bq" %}
 Show ERC20 tokens on Ethereum and Polygon owned by bradorbradley.lens and Lens profile id 100275
 {% endembed %}
 
@@ -295,7 +295,7 @@ You can fetch all NFTs on Ethereum and Polygon owned by any Lens Profile(s):
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/skXQHLkXin" %}
+{% embed url="https://app.airstack.xyz/query/skXQHLkXin" %}
 Show NFT on Ethereum and Polygon owned by bradorbradley.lens and Lens profile id 100275
 {% endembed %}
 
@@ -454,7 +454,7 @@ You can fetch all POAPs tokens owned by any Lens Profile(s):
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/T4g7vpBWkX" %}
+{% embed url="https://app.airstack.xyz/query/T4g7vpBWkX" %}
 Show POAPs owned by bradorbradley.lens and Lens profile id 100275
 {% endembed %}
 

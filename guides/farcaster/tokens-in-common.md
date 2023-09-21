@@ -240,7 +240,7 @@ You can fetch common NFTs of multiple Farcaster user(s):
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/chCICTPZo6" %}
+{% embed url="https://app.airstack.xyz/query/chCICTPZo6" %}
 Show common NFTs of two Farcaster users
 {% endembed %}
 
@@ -311,7 +311,7 @@ You can fetch common POAPs of multiple Farcaster user(s):
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/7RtCNBtLUA" %}
+{% embed url="https://app.airstack.xyz/query/7RtCNBtLUA" %}
 Show common POAPs of two Farcaster users
 {% endembed %}
 

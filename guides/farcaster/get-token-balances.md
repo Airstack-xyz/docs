@@ -169,7 +169,7 @@ You can fetch all ERC20 tokens on Ethereum and Polygon owned by any Farcaster us
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/FxdfrqG3WS" %}
+{% embed url="https://app.airstack.xyz/query/FxdfrqG3WS" %}
 Show ERC20 tokens on Ethereum and Polygon owned by Farcaster user name dwr.eth and user id 1
 {% endembed %}
 
@@ -297,7 +297,7 @@ You can fetch all NFTs on Ethereum and Polygon owned by any Farcaster user(s) us
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/eEsGE50Xin" %}
+{% embed url="https://app.airstack.xyz/query/eEsGE50Xin" %}
 Show NFT on Ethereum and Polygon owned by farcaster user name dwr.eth and user id 1
 {% endembed %}
 
@@ -457,7 +457,7 @@ You can fetch all POAPs tokens owned by any Farcaster user(s) using either their
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/9gNjxdNWsP" %}
+{% embed url="https://app.airstack.xyz/query/9gNjxdNWsP" %}
 Show POAPs owned by Farcaster user name dwr.eth and user id 1
 {% endembed %}
 

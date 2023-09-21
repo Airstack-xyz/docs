@@ -171,7 +171,7 @@ To get recommendations by token transfers, simply fetch all token transfer that 
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/CJuhCzxDH0" %}
+{% embed url="https://app.airstack.xyz/query/CJuhCzxDH0" %}
 Show recommendations by token transfers for Farcaster user name varunsrin.eth and id 5650
 {% endembed %}
 
@@ -302,7 +302,7 @@ To get recommendations by POAPs, first fetch all POAPs that is owned by the Farc
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/9gNjxdNWsP" %}
+{% embed url="https://app.airstack.xyz/query/9gNjxdNWsP" %}
 Show POAPs owned by Farcaster user name dwr.eth and user id 1
 {% endembed %}
 
@@ -424,7 +424,7 @@ The next query for recommending follows based on POAPs will be fetching all the 
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/LTs9rbCXWJ" %}
+{% embed url="https://app.airstack.xyz/query/LTs9rbCXWJ" %}
 Show follow recommendations based on POAP event IDs 6584, 14498, and 6481
 {% endembed %}
 
@@ -488,7 +488,7 @@ To get recommendations by NFTs, first fetch all NFTs that is owned by the Farcas
 
 ### Try Code
 
-{% embed url="https://app.airstack.xyz/DTyOZg/FZcNb4cU1W" %}
+{% embed url="https://app.airstack.xyz/query/FZcNb4cU1W" %}
 Show NFTs on Ethereum and Polygon owned by Farcaster user name varunsrin.eth and id 5650
 {% endembed %}
 
@@ -558,7 +558,7 @@ The next query for recommending follows based on NFTs will be fetching all the h
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/j1IKcsBzht" %}
+{% embed url="https://app.airstack.xyz/query/j1IKcsBzht" %}
 Show follow recommendations based on NFTs
 {% endembed %}
 
@@ -666,7 +666,7 @@ You can fetch follow recommendations based on the common holder of a specific NF
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/8xD3r6s6lU" %}
+{% embed url="https://app.airstack.xyz/query/8xD3r6s6lU" %}
 Show common holders of Nouns NFT and EthCC POAP that also have Farcaster
 {% endembed %}
 
@@ -796,7 +796,7 @@ You can fetch follow recommendations for Farcaster user(s) by simply showing the
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/d56c7N9Sy6" %}
+{% embed url="https://app.airstack.xyz/query/d56c7N9Sy6" %}
 Show me all Farcaster followers of fname dwr.eth and their Farcaster account details
 {% endembed %}
 

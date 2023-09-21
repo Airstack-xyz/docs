@@ -173,7 +173,7 @@ Given a 0x address, Lens profile, Farcaster, or ENS, simply check if the owner h
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/06EErmlEIE" %}
+{% embed url="https://app.airstack.xyz/query/06EErmlEIE" %}
 Verify Ownership of Token(s) or NFT(s) on an EOA
 {% endembed %}
 
@@ -221,7 +221,7 @@ Given a 0x address, Lens profile, Farcaster, or ENS, you can fetch all the [1st-
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/YjTI8VMvY8" %}
+{% embed url="https://app.airstack.xyz/query/YjTI8VMvY8" %}
 Show all ERC6551 accounts owned by the NFTs owned by 0x6da658f5840fecc688a4bd007ef6b314d9138135
 {% endembed %}
 

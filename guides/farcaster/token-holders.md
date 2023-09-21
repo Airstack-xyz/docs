@@ -178,7 +178,7 @@ You can get all holders of an ERC20 token that has Farcaster:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/dErT36be21" %}
+{% embed url="https://app.airstack.xyz/query/dErT36be21" %}
 Show all token holders of USD Coin on Polygon that has Farcaster
 {% endembed %}
 
@@ -290,7 +290,7 @@ You can get all holders of NFT that has Farcaster:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Qyl0sm2u8E" %}
+{% embed url="https://app.airstack.xyz/query/Qyl0sm2u8E" %}
 Show all token holders of BoredApeYachtClub that has Farcaster
 {% endembed %}
 
@@ -404,7 +404,7 @@ You can get all holders of POAP that has Farcaster:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/BsPwpo9zYu" %}
+{% embed url="https://app.airstack.xyz/query/BsPwpo9zYu" %}
 Show all POAP holders of EthCC\[6] - Attendee that has Farcaster
 {% endembed %}
 
@@ -516,7 +516,7 @@ You can get all holders of an ERC20 token that have a minimum amount held in the
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/c1yxMwkl5B" %}
+{% embed url="https://app.airstack.xyz/query/c1yxMwkl5B" %}
 Show all user that has at least 10 USD Coin with their Farcaster
 {% endembed %}
 
@@ -638,7 +638,7 @@ You can fetch the common holders of two given ERC20, e.g. [USDT](https://explore
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/f9pU5NDyEe" %}
+{% embed url="https://app.airstack.xyz/query/f9pU5NDyEe" %}
 Get Common Holders of 2 ERC20 Tokens That Has Farcaster
 {% endembed %}
 
@@ -768,7 +768,7 @@ You can fetch the common holders of two given POAP event IDs, e.g. [EthGlobal Li
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/tjIzrCbvsd" %}
+{% embed url="https://app.airstack.xyz/query/tjIzrCbvsd" %}
 Get Common Holders Of EthGlobal Lisbon and EthCC POAPs
 {% endembed %}
 
@@ -901,7 +901,7 @@ You can fetch the common holder of a token and a POAP by providing the token con
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/8xD3r6s6lU" %}
+{% embed url="https://app.airstack.xyz/query/8xD3r6s6lU" %}
 Show common holders of Nouns NFT and EthCC POAP that also have Farcaster
 {% endembed %}
 

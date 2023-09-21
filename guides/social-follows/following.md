@@ -183,7 +183,7 @@ You can get the list of following data of user(s) by inputting an array of 0x ad
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/2E5hM0rXyC" %}
+{% embed url="https://app.airstack.xyz/query/2E5hM0rXyC" %}
 Show me all following of 0xeaf55242a90bb3289dB8184772b0B98562053559
 {% endembed %}
 
@@ -709,7 +709,7 @@ You can get the list of most recent following of user(s):
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/wA67oO3Vdn" %}
+{% embed url="https://app.airstack.xyz/query/wA67oO3Vdn" %}
 Show me the most recent following of an array of users
 {% endembed %}
 
@@ -1003,7 +1003,7 @@ You can get the list of all following of user(s) and check if they have any ENS 
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/m1EwXDeSZs" %}
+{% embed url="https://app.airstack.xyz/query/m1EwXDeSZs" %}
 Show me followings of an array of users that also have ENS domain
 {% endembed %}
 
@@ -1165,7 +1165,7 @@ You can get the list of all following of user(s) and check if they have XMTP ena
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/N88QWMqU0u" %}
+{% embed url="https://app.airstack.xyz/query/N88QWMqU0u" %}
 Show me the following of an array of users that have XMTP enabled
 {% endembed %}
 
@@ -1329,7 +1329,7 @@ You can get the list of all users that have certain amount of following, e.g. at
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/H7jmYgfbAi" %}
+{% embed url="https://app.airstack.xyz/query/H7jmYgfbAi" %}
 Show me all users that have at least 1000 following
 {% endembed %}
 
@@ -1412,7 +1412,7 @@ You can get the list of all following of user(s) and check if they hold ERC20 to
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Z1A7j8h0bo" %}
+{% embed url="https://app.airstack.xyz/query/Z1A7j8h0bo" %}
 Show me all following of an array of users that also hold USDC
 {% endembed %}
 
@@ -1579,7 +1579,7 @@ You can get the list of all following of user(s) and check if they hold ERC721/1
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/BqhVdXgOCl" %}
+{% embed url="https://app.airstack.xyz/query/BqhVdXgOCl" %}
 Show me all following of an array of users that also hold BAYC
 {% endembed %}
 
@@ -1730,7 +1730,7 @@ You can get the list of all following of user(s) and check if they hold POAP(s),
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/P2957loGZT" %}
+{% embed url="https://app.airstack.xyz/query/P2957loGZT" %}
 Show me all following of an array of users that also hold EthCC\[6] – Attendee POAP
 {% endembed %}
 
@@ -1894,7 +1894,7 @@ You can get the list of all following of user(s) and check if they hold a certai
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/VVldQMEa74" %}
+{% embed url="https://app.airstack.xyz/query/VVldQMEa74" %}
 Show me all following of an array of users that also hold at least 1000 USDC
 {% endembed %}
 

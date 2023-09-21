@@ -178,7 +178,7 @@ You can get all holders of an ERC20 token that has a Lens Profile:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/TCvVSkcnBe" %}
+{% embed url="https://app.airstack.xyz/query/TCvVSkcnBe" %}
 Show all token holders of USD Coin on Polygon that has Lens profile
 {% endembed %}
 
@@ -291,7 +291,7 @@ You can get all holders of NFT that has Lens Profile:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/VkzuP2Q6Ti" %}
+{% embed url="https://app.airstack.xyz/query/VkzuP2Q6Ti" %}
 Show all token holders of StandWithCrypto that has Lens Profile
 {% endembed %}
 
@@ -406,7 +406,7 @@ You can get all holders of POAP that has Lens Profile:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/t9AH0Bek8X" %}
+{% embed url="https://app.airstack.xyz/query/t9AH0Bek8X" %}
 Show all POAP holders of EthCC\[6] - Attendee that has Lens Profile
 {% endembed %}
 
@@ -517,7 +517,7 @@ You can get all holders of an ERC20 token that have a minimum amount held in the
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/kMOWO43xft" %}
+{% embed url="https://app.airstack.xyz/query/kMOWO43xft" %}
 Show all user that has at least 10 USD Coin with their Lens Profile
 {% endembed %}
 
@@ -639,7 +639,7 @@ You can fetch the common holders of two given ERC20, e.g. [ApeCoin](https://expl
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/tRf4wsoyrD" %}
+{% embed url="https://app.airstack.xyz/query/tRf4wsoyrD" %}
 Show all common holders of ApeCoin and USDC that has Lens Profile
 {% endembed %}
 
@@ -773,7 +773,7 @@ You can fetch the common holders of two given POAP event IDs, e.g. [EthGlobal Li
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/X3y36JXQSs" %}
+{% embed url="https://app.airstack.xyz/query/X3y36JXQSs" %}
 Get Common Holders Of EthGlobal Lisbon and EthCC POAPs and Their Lens Profile
 {% endembed %}
 
@@ -909,7 +909,7 @@ You can fetch the common holder of a token and a POAP by providing the token con
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/mqA1Bv9fNS" %}
+{% embed url="https://app.airstack.xyz/query/mqA1Bv9fNS" %}
 Show common holders of Sound.xyz NFT and Aave Booth Permissionless POAP that also have Lens Profile
 {% endembed %}
 

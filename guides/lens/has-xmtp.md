@@ -175,7 +175,7 @@ You can check if a Lens profile has XMTP enabled or not:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/38TR2Gxuqf" %}
+{% embed url="https://app.airstack.xyz/query/38TR2Gxuqf" %}
 Check Lens Profile has XMTP enabled (Demo)
 {% endembed %}
 
@@ -217,7 +217,7 @@ You can bulk check a list of Lens profiles have XMTP enabled or not:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/nNmMc2WyKr" %}
+{% embed url="https://app.airstack.xyz/query/nNmMc2WyKr" %}
 Bulk Check If an Array of Lens Profiles Have XMTP (Demo)
 {% endembed %}
 
@@ -309,7 +309,7 @@ You can resolve an array of Lens profile(s) to their 0x addresses for XMTP messa
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Qig0cA3dEv" %}
+{% embed url="https://app.airstack.xyz/query/Qig0cA3dEv" %}
 Show 0x addresses of nader.lens and Lens profile id 100275
 {% endembed %}
 

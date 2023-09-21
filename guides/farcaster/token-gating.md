@@ -170,7 +170,7 @@ You can implement token gating by checking whether users have Farcaster:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/ZNKiLFepdu" %}
+{% embed url="https://app.airstack.xyz/query/ZNKiLFepdu" %}
 Show Farcaster name and ID of dwr.eth, 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045, and jayden.lens
 {% endembed %}
 
@@ -227,7 +227,7 @@ You can implement token gating by checking whether users have both Farcaster and
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/EBQKpjUswY" %}
+{% embed url="https://app.airstack.xyz/query/EBQKpjUswY" %}
 Show NFT balance of 0xfaba1e9ed7f667e8c7a851c9ed15aed99aa80289 on specific NFTs
 {% endembed %}
 
@@ -296,7 +296,7 @@ You can implement token gating by checking whether users have both Farcaster and
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/b7b76BDnX6" %}
+{% embed url="https://app.airstack.xyz/query/b7b76BDnX6" %}
 Show if 0x4455951fa43b17bd211e0e8ae64d22fb47946ade hold some given specific POAPs
 {% endembed %}
 

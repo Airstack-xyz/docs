@@ -169,7 +169,7 @@ You can get the all the latest token-bound accounts created in descending order 
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/TvC0S5uOBi" %}
+{% embed url="https://app.airstack.xyz/query/TvC0S5uOBi" %}
 Get The Latest Token Bound Accounts Created (Demo)
 {% endembed %}
 
@@ -247,7 +247,7 @@ You can get the all the earliest token-bound accounts created in descending orde
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/eb5iRohtrn" %}
+{% embed url="https://app.airstack.xyz/query/eb5iRohtrn" %}
 Get The Earliest Token Bound Accounts Created (Demo)
 {% endembed %}
 

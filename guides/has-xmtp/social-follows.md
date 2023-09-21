@@ -173,7 +173,7 @@ You can all the followers of user(s) and see whether they have their XMTP enable
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/RRiQCiLfbC" %}
+{% embed url="https://app.airstack.xyz/query/RRiQCiLfbC" %}
 Show all followers of vitalik.eth and 0xeaf55242a90bb3289dB8184772b0B98562053559 if they have XMTP enabled
 {% endembed %}
 

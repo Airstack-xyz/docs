@@ -168,7 +168,7 @@ You can fetch all the POAP events started in a specific period of time, e.g. the
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/r8Jj0MQAoI" %}
+{% embed url="https://app.airstack.xyz/query/r8Jj0MQAoI" %}
 Show me all POAP events in the last 30 days
 {% endembed %}
 
@@ -283,7 +283,7 @@ You can fetch all the POAP events in a given city, e.g. Dubai:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/quBsRP74S2" %}
+{% embed url="https://app.airstack.xyz/query/quBsRP74S2" %}
 Show me all POAPs that happened in Dubai
 {% endembed %}
 

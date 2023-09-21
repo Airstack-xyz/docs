@@ -183,7 +183,7 @@ You can get the list of followers data of user(s) by inputting an array of [0x a
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/TT504ypwC4" %}
+{% embed url="https://app.airstack.xyz/query/TT504ypwC4" %}
 Show me all followers of 0xeaf55242a90bb3289dB8184772b0B98562053559
 {% endembed %}
 
@@ -273,7 +273,7 @@ You can get the list of all follower of ENS domains(s) by providing [ENS domain 
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/61Rka41Q8E" %}
+{% embed url="https://app.airstack.xyz/query/61Rka41Q8E" %}
 Show me all followers of vitalik.eth
 {% endembed %}
 
@@ -419,7 +419,7 @@ You can get the list of all followers of Lens profile(s) by providing either [Le
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/oNxDOdWv15" %}
+{% embed url="https://app.airstack.xyz/query/oNxDOdWv15" %}
 Show me all followers of vitalik.lens
 {% endembed %}
 
@@ -522,7 +522,7 @@ You can get the list of followers of Farcaster user(s) by either providing eithe
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/gU6seFnay6" %}
+{% embed url="https://app.airstack.xyz/query/gU6seFnay6" %}
 Show me all followers of Farcaster user vitalik.eth
 {% endembed %}
 
@@ -626,7 +626,7 @@ You can get the list of most recent followers of users(s) by providing either 0x
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/pTiFfL5oq3" %}
+{% embed url="https://app.airstack.xyz/query/pTiFfL5oq3" %}
 Show me the most recent followers of an array of users
 {% endembed %}
 
@@ -768,7 +768,7 @@ You can get the list of the earliest followers of user(s) by providing either 0x
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/eSaapEosfa" %}
+{% embed url="https://app.airstack.xyz/query/eSaapEosfa" %}
 Show me the earliest followers of an array of users
 {% endembed %}
 
@@ -922,7 +922,7 @@ You can get the list of all followers of user(s) and check if they have any ENS 
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/tqP6R0fzfr" %}
+{% embed url="https://app.airstack.xyz/query/tqP6R0fzfr" %}
 Show me all followers of users that have ENS domain
 {% endembed %}
 
@@ -1075,7 +1075,7 @@ You can get the list of all followers of user(s) and check if they have XMTP ena
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Ox331qPvan" %}
+{% embed url="https://app.airstack.xyz/query/Ox331qPvan" %}
 Show me all followers of users that have XMTP enabled
 {% endembed %}
 
@@ -1264,7 +1264,7 @@ You can get the list of all users of that have a certain amount of followers, e.
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/tZyC2q2Be6" %}
+{% embed url="https://app.airstack.xyz/query/tZyC2q2Be6" %}
 Show me all users that have at least 1000 followers
 {% endembed %}
 
@@ -1348,7 +1348,7 @@ You can get the list of all followers of user(s) and check if they hold any ERC2
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/ush0CL4E2Q" %}
+{% embed url="https://app.airstack.xyz/query/ush0CL4E2Q" %}
 Show me followers of an array of users that also holds USDC
 {% endembed %}
 
@@ -1505,7 +1505,7 @@ You can get the list of all followers of user(s) and check if they hold any ERC7
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/JtSsArSFHp" %}
+{% embed url="https://app.airstack.xyz/query/JtSsArSFHp" %}
 Show me followers of an array of users that also holds BAYC
 {% endembed %}
 
@@ -1700,7 +1700,7 @@ You can get the list of all followers of user(s) and check if they hold any POAP
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/LW5jwZ9i1J" %}
+{% embed url="https://app.airstack.xyz/query/LW5jwZ9i1J" %}
 Show me all followers of an array of users that also holds EthCC\[6] – Attendee POAP
 {% endembed %}
 
@@ -1870,7 +1870,7 @@ You can get the list of all followers of user(s) and check if they hold a certai
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/mLvlNkNT8K" %}
+{% embed url="https://app.airstack.xyz/query/mLvlNkNT8K" %}
 Show me all followers of an array of users that also holds at least 1000 USDC
 {% endembed %}
 

@@ -174,7 +174,7 @@ You can get the Farcaster user profile details by their Farcaster ID:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/zHwW2c2wnJ" %}
+{% embed url="https://app.airstack.xyz/query/zHwW2c2wnJ" %}
 Show all farcaster profile details and registration info for farcaster user fc\_fid:3
 {% endembed %}
 
@@ -285,7 +285,7 @@ You can get the Farcaster user profile details by their Farcaster Name:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/KbIaoE7JjM" %}
+{% embed url="https://app.airstack.xyz/query/KbIaoE7JjM" %}
 Show all farcaster profile details and registration info for farcaster user fc\_fname:dwr.eth
 {% endembed %}
 
@@ -396,7 +396,7 @@ You can get the Farcaster user profile details by their 0x address:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/7joKY6qfWy" %}
+{% embed url="https://app.airstack.xyz/query/7joKY6qfWy" %}
 Show all farcaster profile details and registration info for 0x74232bf61e994655592747e20bdf6fa9b9476f79
 {% endembed %}
 
@@ -507,7 +507,7 @@ You can get the Farcaster user profile details by their ENS domain:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/9Q0GxX7OzC" %}
+{% embed url="https://app.airstack.xyz/query/9Q0GxX7OzC" %}
 Show all farcaster profile details and registration info for dwr.eth
 {% endembed %}
 
@@ -618,7 +618,7 @@ You can get the Farcaster user profile details by their Lens profile name:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/qw4LjDtYDm" %}
+{% embed url="https://app.airstack.xyz/query/qw4LjDtYDm" %}
 Show all farcaster profile details and registration info for danromero.lens
 {% endembed %}
 
@@ -729,7 +729,7 @@ You can get the Farcaster user profile details by their Lens profile ID:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/YxNJMrJE5R" %}
+{% embed url="https://app.airstack.xyz/query/YxNJMrJE5R" %}
 Show all farcaster profile details and registration info for lens\_id:0x0b46d
 {% endembed %}
 
@@ -840,7 +840,7 @@ You can bulk query the profile details of multiple Farcaster users by their vari
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/4AI9nPEwjs" %}
+{% embed url="https://app.airstack.xyz/query/4AI9nPEwjs" %}
 Show all farcaster profile details and registration info for fc\_fname:dwr.eth and vitalik.eth
 {% endembed %}
 
@@ -987,7 +987,7 @@ If you want want to get Farcaster user with fid in certain range, e.g. fid 1 to 
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/pJYR1DlOeE" %}
+{% embed url="https://app.airstack.xyz/query/pJYR1DlOeE" %}
 Show all Farcaster user with fid 1, 2, 3 profile details and registration info
 {% endembed %}
 
@@ -1182,7 +1182,7 @@ You can bulk query the profile details of all Farcaster users:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/YY02CjXaPG" %}
+{% embed url="https://app.airstack.xyz/query/YY02CjXaPG" %}
 Show all farcaster users profile details and registration info
 {% endembed %}
 

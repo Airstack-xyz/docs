@@ -170,7 +170,7 @@ Simply use the following query to check if a user has XMTP or not with this exam
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/ZT1QLdVkIx" %}
+{% embed url="https://app.airstack.xyz/query/ZT1QLdVkIx" %}
 Check Single User Has XMTP With 0x Address (Demo)
 {% endembed %}
 
@@ -210,7 +210,7 @@ Here's an example of user the **does not have any XMTP**:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/6oVZYGDzXG" %}
+{% embed url="https://app.airstack.xyz/query/6oVZYGDzXG" %}
 Check Single User Does Not Have XMTP With 0x Address (Demo)
 {% endembed %}
 
@@ -248,7 +248,7 @@ With [Airstack Identity API](../../api-references/api-reference/airstack-identit
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/1n0kL621qf" %}
+{% embed url="https://app.airstack.xyz/query/1n0kL621qf" %}
 Check Single User Has XMTP With ENS (Demo)
 {% endembed %}
 
@@ -290,7 +290,7 @@ With [Airstack Identity API](../../api-references/api-reference/airstack-identit
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/jr6QAbmRGb" %}
+{% embed url="https://app.airstack.xyz/query/jr6QAbmRGb" %}
 Show me if yosephks.cb.id has XMTP enabled or not
 {% endembed %}
 
@@ -332,7 +332,7 @@ With [Airstack Identity API](../../api-references/api-reference/airstack-identit
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/ngQHil80AU" %}
+{% embed url="https://app.airstack.xyz/query/ngQHil80AU" %}
 Check Single User Has XMTP With Lens Profile Name (Demo)
 {% endembed %}
 
@@ -372,7 +372,7 @@ Alternatively, you can also swap the address input `owner` to any Lens profile I
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/QO9CcBlwQY" %}
+{% embed url="https://app.airstack.xyz/query/QO9CcBlwQY" %}
 Check Single User Has XMTP With Lens Profile ID (Demo)
 {% endembed %}
 
@@ -414,7 +414,7 @@ With [Airstack Identity API](../../api-references/api-reference/airstack-identit
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/ju22glZstP" %}
+{% embed url="https://app.airstack.xyz/query/ju22glZstP" %}
 Check Single User Has XMTP With Farcaster Name (Demo)
 {% endembed %}
 
@@ -454,7 +454,7 @@ Alternatively, you can also swap the address input `owner` to any [Farcaster ID]
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/g2m7nSXVBQ" %}
+{% embed url="https://app.airstack.xyz/query/g2m7nSXVBQ" %}
 Check Single User Has XMTP With Farcaster ID (Demo)
 {% endembed %}
 

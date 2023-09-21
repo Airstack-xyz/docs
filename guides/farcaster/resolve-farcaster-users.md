@@ -171,7 +171,7 @@ You can resolve an array of Farcaster user(s) to their 0x addresses:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/rQQVTG8laa" %}
+{% embed url="https://app.airstack.xyz/query/rQQVTG8laa" %}
 Show 0x addresses of Farcaster user name dwr.eth and user ID 1
 {% endembed %}
 
@@ -282,7 +282,7 @@ You can resolve any 0x address or ENS to their web3 socials, which comprise of F
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/FHYr4PHYwu" %}
+{% embed url="https://app.airstack.xyz/query/FHYr4PHYwu" %}
 Show web3 social accounts (Farcaster, Lens) owned by dwr.eth and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 {% endembed %}
 
@@ -338,7 +338,7 @@ You can resolve an array of Farcaster user(s) to their Lens profile, if any:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/7IYVTJBsZi" %}
+{% embed url="https://app.airstack.xyz/query/7IYVTJBsZi" %}
 Show Lens profiles owned by Farcaster user name dwr.eth and user id 5650
 {% endembed %}
 
@@ -388,7 +388,7 @@ You can check if an array of Farcaster user(s) have their XMTP enabled or not:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/KHPF47JvdY" %}
+{% embed url="https://app.airstack.xyz/query/KHPF47JvdY" %}
 Show if XMTP is enabled for Farcaster user name varunsrin.eth and user id 5650
 {% endembed %}
 

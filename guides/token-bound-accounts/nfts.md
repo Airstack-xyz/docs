@@ -170,7 +170,7 @@ You can get all the ERC6551 accounts owned by a given [NFT collection address(es
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Rezf4zOTBz" %}
+{% embed url="https://app.airstack.xyz/query/Rezf4zOTBz" %}
 Get Token Bound Accounts (ERC6551) By NFT Collection Address(es)
 {% endembed %}
 
@@ -240,7 +240,7 @@ You can get all the token bound accounts given by a specific NFT with contract a
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/j4yjmfO6wq" %}
+{% embed url="https://app.airstack.xyz/query/j4yjmfO6wq" %}
 Get Token Bound Accounts By Specific NFT (Demo)
 {% endembed %}
 
@@ -310,7 +310,7 @@ You can get the [owner NFT](#user-content-fn-2)[^2] of a specific token bound ac
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/5EE9p28NXP" %}
+{% embed url="https://app.airstack.xyz/query/5EE9p28NXP" %}
 Get Owner NFT of a Token Bound Account (Demo)
 {% endembed %}
 

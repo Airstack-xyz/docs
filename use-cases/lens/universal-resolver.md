@@ -243,7 +243,7 @@ query MyQuery {
 
 You can go to the [API Studio](https://app.airstack.xyz/api-studio) to test out the query yourself:
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Kcz253OnEV" %}
+{% embed url="https://app.airstack.xyz/query/Kcz253OnEV" %}
 Resolve vitalik.eth Query (Playground)
 {% endembed %}
 

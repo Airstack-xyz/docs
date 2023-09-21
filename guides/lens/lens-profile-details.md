@@ -173,7 +173,7 @@ You can get the Lens profile details by their Farcaster ID:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/PXvk55hBBU" %}
+{% embed url="https://app.airstack.xyz/query/PXvk55hBBU" %}
 Show all lens profile details and registration info for farcaster user fc\_fid:5650
 {% endembed %}
 
@@ -267,7 +267,7 @@ You can get the Lens profile details by their Farcaster Name:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/wJvbCHRULZ" %}
+{% embed url="https://app.airstack.xyz/query/wJvbCHRULZ" %}
 Show all lens profile details and registration info for farcaster user fc\_fname:vitalik.eth
 {% endembed %}
 
@@ -361,7 +361,7 @@ You can get the Lens profile details by their 0x address:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/LfkdEgsNU3" %}
+{% embed url="https://app.airstack.xyz/query/LfkdEgsNU3" %}
 Show all lens profile details and registration info for 0xd8da6bf26964af9d7eed9e03e53415d37aa96045
 {% endembed %}
 
@@ -455,7 +455,7 @@ You can get the Farcaster user profile details by their ENS domain:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/v4NtCmLXSB" %}
+{% embed url="https://app.airstack.xyz/query/v4NtCmLXSB" %}
 Show all lens profile details and registration info for vitalik.eth
 {% endembed %}
 
@@ -549,7 +549,7 @@ You can get the Lens profile details by their Lens profile name:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/JjYZwRJ2Sg" %}
+{% embed url="https://app.airstack.xyz/query/JjYZwRJ2Sg" %}
 Show all lens profile details and registration info for vitalik.lens
 {% endembed %}
 
@@ -643,7 +643,7 @@ You can get the Lens profile details by their Lens profile ID:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/OAWbkc4BG7" %}
+{% embed url="https://app.airstack.xyz/query/OAWbkc4BG7" %}
 Show all lens profile details and registration info for lens\_id:0x0187b3
 {% endembed %}
 

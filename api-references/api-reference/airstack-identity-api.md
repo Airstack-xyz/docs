@@ -51,7 +51,7 @@ For example, a Farcaster user have multiple fnames: `fc_fname:varunsrin.eth` and
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/a36uY0h17f" %}
+{% embed url="https://app.airstack.xyz/query/a36uY0h17f" %}
 Show me all NFTs and their images currently being held by Farcaster user name dwr.eth
 {% endembed %}
 
@@ -150,7 +150,7 @@ You can enter Lens name directly in the `owner` or `address` field:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/a76kjK1seY" %}
+{% embed url="https://app.airstack.xyz/query/a76kjK1seY" %}
 Show me all stani.lens token transfers
 {% endembed %}
 

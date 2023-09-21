@@ -167,7 +167,7 @@ Get the NFT holders that have XMTP using the [`TokenBalances`](../../api-referen
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/203pV6Pyns" %}
+{% embed url="https://app.airstack.xyz/query/203pV6Pyns" %}
 Get the NFT holders that have XMTP (Demo)
 {% endembed %}
 
@@ -233,7 +233,7 @@ Get the POAP holders that have XMTP using the [Poaps](../../api-references/api-r
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/EtrCwWln2c" %}
+{% embed url="https://app.airstack.xyz/query/EtrCwWln2c" %}
 Get the POAP holders that have XMTP (Demo)
 {% endembed %}
 

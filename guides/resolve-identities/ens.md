@@ -168,7 +168,7 @@ You can get all the ENS names of a given user, both primary and non-primary name
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/SkTlH3Lh3I" %}
+{% embed url="https://app.airstack.xyz/query/SkTlH3Lh3I" %}
 Show me the ENS of 0x4b70d04124c2996de29e0caa050a49822faec6cc, stani.lens, fc\_fname:vbuterin
 {% endembed %}
 
@@ -250,7 +250,7 @@ You can get all the 0x address, Lens, and Farcaster of ENS names:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/dHXYUnz0Uo" %}
+{% embed url="https://app.airstack.xyz/query/dHXYUnz0Uo" %}
 Show me the 0x address, Lens, Farcaster of vitalik.eth
 {% endembed %}
 

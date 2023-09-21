@@ -25,7 +25,7 @@ Thus, in order to go to the next (or previous) page, you will need to get the `c
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/gyvtfKZmiI" %}
+{% embed url="https://app.airstack.xyz/query/gyvtfKZmiI" %}
 Show me all holders of @BoredApeYachtClub (Demo)
 {% endembed %}
 
@@ -94,7 +94,7 @@ Once you have the cursor for the next page, you can use the cursor value to retr
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/ypsxxeH9TC" %}
+{% embed url="https://app.airstack.xyz/query/ypsxxeH9TC" %}
 Show me all holders of @BoredApeYachtClub on the 2nd page (Demo)
 {% endembed %}
 

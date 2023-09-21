@@ -161,7 +161,7 @@ You can fetch common ERC20 tokens of multiple user(s) provided the user's 0x add
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/q4TkJCjV5f" %}
+{% embed url="https://app.airstack.xyz/query/q4TkJCjV5f" %}
 Show common ERC20 tokens held by users
 {% endembed %}
 

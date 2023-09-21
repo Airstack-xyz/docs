@@ -240,7 +240,7 @@ You can fetch all the POAPs held by [ENS Domain(s)](#user-content-fn-2)[^2] by p
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/zJGqXpGgC8" %}
+{% embed url="https://app.airstack.xyz/query/zJGqXpGgC8" %}
 Show me all POAPs hold by vitalik.eth
 {% endembed %}
 
@@ -308,7 +308,7 @@ You can fetch all the POAPs held by Lens profile(s) by providing either the Lens
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/p6X3LrqngO" %}
+{% embed url="https://app.airstack.xyz/query/p6X3LrqngO" %}
 Show me all POAPs hold by vitalik.lens
 {% endembed %}
 
@@ -376,7 +376,7 @@ You can fetch all the POAPs held by Farcaster(s) by providing the fname[^3] of f
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/gsL8hEScZN" %}
+{% embed url="https://app.airstack.xyz/query/gsL8hEScZN" %}
 Show me all poaps hold by Farcaster user fname vitalik.eth and fid 602
 {% endembed %}
 
@@ -444,7 +444,7 @@ You can fetch all the POAPs commonly held by multiple users, in the following ex
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Yg6z4Mb6Q8" %}
+{% embed url="https://app.airstack.xyz/query/Yg6z4Mb6Q8" %}
 Show me common POAPs hold by both betashop.eth and ipeciura.eth
 {% endembed %}
 

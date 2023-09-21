@@ -171,7 +171,7 @@ You can resolve an array of Lens profile(s) to their 0x addresses:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Qig0cA3dEv" %}
+{% embed url="https://app.airstack.xyz/query/Qig0cA3dEv" %}
 Show 0x addresses of nader.lens and Lens profile id 0x0187b3
 {% endembed %}
 
@@ -231,7 +231,7 @@ You can resolve an array of Lens profile(s) to their ENS domains:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/UEnpGZrGhp" %}
+{% embed url="https://app.airstack.xyz/query/UEnpGZrGhp" %}
 Show all ENS domains owned by bradorbradley.lens and lens profile id 0x0187b3
 {% endembed %}
 
@@ -276,7 +276,7 @@ You can resolve any 0x address or ENS to their web3 socials, which comprise of L
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/IWRDgNkqlQ" %}
+{% embed url="https://app.airstack.xyz/query/IWRDgNkqlQ" %}
 Show web3 socials (Lens, Farcaster) owned by bradorbradley.eth and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 {% endembed %}
 
@@ -381,7 +381,7 @@ You can resolve an array of Lens profile(s) to their Farcaster name and ID, if a
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Z1f9IjxWEg" %}
+{% embed url="https://app.airstack.xyz/query/Z1f9IjxWEg" %}
 Show Farcasters owned by betashop9.lens and lens profile id 0x0187b3
 {% endembed %}
 
@@ -440,7 +440,7 @@ You can check if an array of Lens profile(s) have their XMTP enabled or not:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Jj3kxBbxP3" %}
+{% embed url="https://app.airstack.xyz/query/Jj3kxBbxP3" %}
 Show if XMTP is enabled for stani.lens and Lens profile id 0x0187b3
 {% endembed %}
 

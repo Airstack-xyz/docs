@@ -168,7 +168,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/QW7bsKk9tX" %}
+{% embed url="https://app.airstack.xyz/query/QW7bsKk9tX" %}
 Show all ERC6551 accounts owned by Farcaster user name jayden
 {% endembed %}
 
@@ -231,7 +231,7 @@ query MyQuery {
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Sn45RpQ4Mh" %}
+{% embed url="https://app.airstack.xyz/query/Sn45RpQ4Mh" %}
 Show all assets owned by ERC6551 accounts owned by Farcaster user name jayden
 {% endembed %}
 
@@ -340,7 +340,7 @@ You can know whether an NFT is owned by an ERC6551 accounts and the NFT that own
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Kx7NGiw3i8" %}
+{% embed url="https://app.airstack.xyz/query/Kx7NGiw3i8" %}
 Show owner of NFT that owns ERC6551 account with address 0x5416e5dc14caa0950b2a24ede1eb0e97c360bcf5
 {% endembed %}
 

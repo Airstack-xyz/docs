@@ -169,7 +169,7 @@ You can fetch all the token bound accounts owned by a given [NFT owner](#user-co
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/5GhSQXiErE" %}
+{% embed url="https://app.airstack.xyz/query/5GhSQXiErE" %}
 Get Token Bound Accounts By NFT Owner Address (Demo)
 {% endembed %}
 
@@ -279,7 +279,7 @@ query MyQuery {
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/dgS4j5UWyj" %}
+{% embed url="https://app.airstack.xyz/query/dgS4j5UWyj" %}
 Get The Owner Of NFT That Owns A Given Token Bound Accounts Address
 {% endembed %}
 

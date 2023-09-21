@@ -161,7 +161,7 @@ You can fetch common NFTs of multiple user(s) provided the user's 0x address, EN
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/yKjShYXlAV" %}
+{% embed url="https://app.airstack.xyz/query/yKjShYXlAV" %}
 Show common NFTs of two users
 {% endembed %}
 

@@ -193,7 +193,7 @@ You can fetch the common holders of two given ERC20, e.g. [USDT](https://explore
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/oQ9QlZmTCm" %}
+{% embed url="https://app.airstack.xyz/query/oQ9QlZmTCm" %}
 Show the common holders of both USDT and USDC
 {% endembed %}
 
@@ -306,7 +306,7 @@ You can fetch the common holders of two given NFTs, e.g. [BAYC](https://explorer
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/VxXVkCBwDY" %}
+{% embed url="https://app.airstack.xyz/query/VxXVkCBwDY" %}
 Show common holders of both BAYC and Moonbirds
 {% endembed %}
 
@@ -421,7 +421,7 @@ You can fetch common holders of an NFT with a specific amount held for the ERC20
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/PB2Q1GsUjT" %}
+{% embed url="https://app.airstack.xyz/query/PB2Q1GsUjT" %}
 Show holders of Moonbirds NFT that also hold more than 10 USDT
 {% endembed %}
 
@@ -542,7 +542,7 @@ You can fetch common holders of NFT from different chains, e.g. [BAYC](https://e
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/RrmS3nK5y8" %}
+{% embed url="https://app.airstack.xyz/query/RrmS3nK5y8" %}
 Show holders of BAYC on Ethereum that also holds CuddleVerse NFT on Polygon
 {% endembed %}
 
@@ -657,7 +657,7 @@ Fetching common holders for more than 2 ERC20 tokens or NFTs works the same way 
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/YZ9LJDDCvQ" %}
+{% embed url="https://app.airstack.xyz/query/YZ9LJDDCvQ" %}
 Show common holders of more than 2 ERC20 tokens or NFTs
 {% endembed %}
 

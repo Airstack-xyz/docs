@@ -190,7 +190,7 @@ You can fetch the common holders of two given POAP event IDs, e.g. [EthGlobal Li
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Y9uolm8enf" %}
+{% embed url="https://app.airstack.xyz/query/Y9uolm8enf" %}
 Show common holders of EthGlobal Lisbon and EthCC \[6] POAPs
 {% endembed %}
 
@@ -307,7 +307,7 @@ Fetching common holders for more than 2 POAPs works the same way as fetching onl
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/3GljLg0bdY" %}
+{% embed url="https://app.airstack.xyz/query/3GljLg0bdY" %}
 Show common holders of more than 2 POAPs
 {% endembed %}
 

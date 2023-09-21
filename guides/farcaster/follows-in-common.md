@@ -263,7 +263,7 @@ You can get the list of common Farcaster following of multiple Farcaster user by
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/suXp8pV9TR" %}
+{% embed url="https://app.airstack.xyz/query/suXp8pV9TR" %}
 Show me common following of both fc\_fname betashop.eth and fc\_fname ipeciura
 {% endembed %}
 
@@ -350,7 +350,7 @@ You can get the list of Farcaster followers of Farcaster user X, e.g. `fc_fname:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/ktFRZuXzFm" %}
+{% embed url="https://app.airstack.xyz/query/ktFRZuXzFm" %}
 Show me followers of fc\_fname betashop.eth that is also followed by fc\_fname ipeciura
 {% endembed %}
 
@@ -438,7 +438,7 @@ You can get the list of Farcaster following of Farcaster user X, e.g. `fc_fname:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/2O8pYeWLBt" %}
+{% embed url="https://app.airstack.xyz/query/2O8pYeWLBt" %}
 Show me following of fc\_fname betashop.eth that is also followers of fc\_fname ipeciura
 {% endembed %}
 
@@ -526,7 +526,7 @@ You can get the mutual Farcaster follows of a Farcaster user using the same quer
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/j8dMg9XSnv" %}
+{% embed url="https://app.airstack.xyz/query/j8dMg9XSnv" %}
 Show me mutual Farcaster follows of fc\_fname betashop.eth
 {% endembed %}
 

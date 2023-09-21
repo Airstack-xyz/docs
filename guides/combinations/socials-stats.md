@@ -171,7 +171,7 @@ To check if XMTP is enabled, simply add `xmtp.isXMTPEnabled` under the `owner` f
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/Vm9z1aQjll" %}
+{% embed url="https://app.airstack.xyz/query/Vm9z1aQjll" %}
 Show common holders of 2 tokens have XMTP enabled
 {% endembed %}
 
@@ -307,7 +307,7 @@ To show Lens profile in the responses, add `socials` with `lens` added to the `d
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/wGMBcUwkS3" %}
+{% embed url="https://app.airstack.xyz/query/wGMBcUwkS3" %}
 Show common holders of 2 tokens if they have any Lens profile
 {% endembed %}
 
@@ -445,7 +445,7 @@ To show Farcaster in the responses, add `socials` with `farcaster` added to the 
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/aTQEJTTxIr" %}
+{% embed url="https://app.airstack.xyz/query/aTQEJTTxIr" %}
 Show common holders of 2 tokens if they have any Farcaster
 {% endembed %}
 

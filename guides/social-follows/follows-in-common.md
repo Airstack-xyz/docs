@@ -176,7 +176,7 @@ You can get the list of common followers of multiple users by providing either 0
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/hZX7uivC4S" %}
+{% embed url="https://app.airstack.xyz/query/hZX7uivC4S" %}
 Show me common followers of both betashop.eth and ipeciura.eth
 {% endembed %}
 
@@ -282,7 +282,7 @@ You can get the list of common following of multiple users by providing either 0
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/I3UsTeLj1O" %}
+{% embed url="https://app.airstack.xyz/query/I3UsTeLj1O" %}
 Show me common following of both betashop.eth and ipeciura.eth
 {% endembed %}
 
@@ -371,7 +371,7 @@ You can get the list of followers of user X, e.g. `betashop.eth`, that also is f
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/0cSVfWNW5u" %}
+{% embed url="https://app.airstack.xyz/query/0cSVfWNW5u" %}
 Show me followers of betashop.eth that is also followed by ipeciura.eth
 {% endembed %}
 
@@ -586,7 +586,7 @@ You can get the mutual follows of a user using the same query as Followers of Us
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/VQ7gmx56H4" %}
+{% embed url="https://app.airstack.xyz/query/VQ7gmx56H4" %}
 Show me mutual follows of betashop.eth
 {% endembed %}
 

@@ -170,7 +170,7 @@ Swap `_eq` comparator with `_in` to allow array inputs:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/wXLtoDe4F8" %}
+{% embed url="https://app.airstack.xyz/query/wXLtoDe4F8" %}
 Bulk Check Multiple Users Have XMTP (Demo)
 {% endembed %}
 
@@ -283,7 +283,7 @@ You can bulk check Lens profiles have XMTP by providing either Lens profile name
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/0QqNIEIXLH" %}
+{% embed url="https://app.airstack.xyz/query/0QqNIEIXLH" %}
 Bulk Check Lens Profiles Have XMTP (Demo)
 {% endembed %}
 
@@ -377,7 +377,7 @@ You can bulk check Farcasters have XMTP by providing either Farcaster name[^3] o
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/v4nVRtJsw5" %}
+{% embed url="https://app.airstack.xyz/query/v4nVRtJsw5" %}
 Bulk Query Farcasters Have XMTP (Demo)
 {% endembed %}
 
