@@ -1,3 +1,16 @@
+---
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
+---
 # Accounts API
 
 The Accounts API fetches the list of all [ERC6551s](https://eips.ethereum.org/EIPS/eip-6551) or TBAs (token-bound accounts) created on-chain.

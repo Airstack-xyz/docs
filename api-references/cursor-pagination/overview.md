@@ -2,6 +2,17 @@
 description: >-
   Learn how does cursor pagination works in Airstack API to paginate through all
   the data returned.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # Overview

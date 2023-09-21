@@ -1,5 +1,16 @@
 ---
 description: Learn fields that have nested queries implemented within the Airstack API.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # Nested Queries

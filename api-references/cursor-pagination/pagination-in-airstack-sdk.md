@@ -3,6 +3,17 @@ description: >-
   Learn how to use cursor pagination in the Airstack SDK using special and
   powerful pagination functions and variables offered by the Airstack SDK out of
   the box.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # Pagination in Airstack SDK

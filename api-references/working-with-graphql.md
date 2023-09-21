@@ -1,3 +1,16 @@
+---
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
+---
 # Working with GraphQL
 
 In GraphQL, logical comparators like \_and , \_nor, and \_or are used to combine multiple filtering conditions, allowing you to create more complex queries. These logical comparators can only be used between unique filter inputs only. In order to add comparators to one specific filter check the information below. Here's a brief explanation of each:

@@ -1,3 +1,17 @@
+---
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
+---
+
 # Cross-chain Queries
 
 If you would like to run a query which fetches information from multiple blockchains, you can simply pass multiple inputs inside a single query:
