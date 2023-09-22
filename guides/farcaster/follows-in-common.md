@@ -43,13 +43,13 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
@@ -57,13 +57,13 @@ npm install @airstack/node
 {% endtab %}
 
 {% tab title="yarn" %}
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
@@ -71,13 +71,13 @@ yarn add @airstack/node
 {% endtab %}
 
 {% tab title="pnpm" %}
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
@@ -168,7 +168,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Common Farcaster Followers of Multiple Farcaster Users
 
-You can get the list of common Farcaster followers of multiple Farcaster user by inputting [0x address](#user-content-fn-1)[^1], [ENS domain](#user-content-fn-2)[^2], [Farcaster Name](#user-content-fn-3)[^3], or [Farcaster ID](#user-content-fn-4)[^4]:
+You can get the list of common Farcaster followers of multiple Farcaster user by inputting [0x address](#user-content-fn-1)[^1], ENS domain, [Farcaster Name](#user-content-fn-2)[^2], or Farcaster ID:
 
 ### Try Demo
 
@@ -259,7 +259,7 @@ query MyQuery {
 
 ## Common Farcaster Following of Multiple Farcaster Users
 
-You can get the list of common Farcaster following of multiple Farcaster user by inputting [0x address](#user-content-fn-5)[^5], [ENS domain](#user-content-fn-6)[^6], [Farcaster Name](#user-content-fn-7)[^7], or [Farcaster ID](#user-content-fn-8)[^8]:
+You can get the list of common Farcaster following of multiple Farcaster user by inputting [0x address](#user-content-fn-3)[^3], ENS domain, [Farcaster Name](#user-content-fn-4)[^4], or Farcaster ID:
 
 ### Try Demo
 
@@ -346,7 +346,7 @@ query MyQuery {
 
 ## Farcaster Followers of Farcaster User X That Is Also Farcaster Following of Farcaster User Y
 
-You can get the list of Farcaster followers of Farcaster user X, e.g. `fc_fname:betashop.eth`, that also is followed by another Farcaster user Y, e.g. `fc_fname:ipeciura`, by inputting [0x address](#user-content-fn-9)[^9], [ENS domain](#user-content-fn-10)[^10], [Farcaster Name](#user-content-fn-11)[^11], or [Farcaster ID](#user-content-fn-12)[^12]:
+You can get the list of Farcaster followers of Farcaster user X, e.g. `fc_fname:betashop.eth`, that also is followed by another Farcaster user Y, e.g. `fc_fname:ipeciura`, by inputting [0x address](#user-content-fn-5)[^5], ENS domain, [Farcaster Name](#user-content-fn-6)[^6], or Farcaster ID:
 
 ### Try Demo
 
@@ -434,7 +434,7 @@ query MyQuery {
 
 ## Farcaster Following of Farcaster User X That Is Also Farcaster Follower of Farcaster User Y
 
-You can get the list of Farcaster following of Farcaster user X, e.g. `fc_fname:betashop.eth`, that also follows another Farcaster user Y, e.g. `fc_fname:ipeciura`, by inputting [0x address](#user-content-fn-13)[^13], [ENS domain](#user-content-fn-14)[^14], [Farcaster Name](#user-content-fn-15)[^15], or [Farcaster ID](#user-content-fn-16)[^16]:
+You can get the list of Farcaster following of Farcaster user X, e.g. `fc_fname:betashop.eth`, that also follows another Farcaster user Y, e.g. `fc_fname:ipeciura`, by inputting [0x address](#user-content-fn-7)[^7], ENS domain, [Farcaster Name](#user-content-fn-8)[^8], or Farcaster ID:
 
 ### Try Demo
 
@@ -619,34 +619,21 @@ If you have any questions or need help regarding fetching Farcaster followers an
 * [SocialFollowers API](../../api-references/api-reference/socialfollowers-api.md)
 * [SocialFollowings API](../../api-references/api-reference/socialfollowings-api.md)
 
+1. e.g. `varunsrin.eth`
+2. e.g. `fc_fid:602`
+
 [^1]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 
-[^2]: e.g. `varunsrin.eth`
+[^2]: e.g. `fc_fname:dwr.eth`
 
-[^3]: e.g. `fc_fname:dwr.eth`
+[^3]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 
-[^4]: e.g. `fc_fid:602`
+[^4]: e.g. `fc_fname:dwr.eth`
 
 [^5]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 
-[^6]: e.g. `varunsrin.eth`
+[^6]: e.g. `fc_fname:dwr.eth`
 
-[^7]: e.g. `fc_fname:dwr.eth`
+[^7]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 
-[^8]: e.g. `fc_fid:602`
-
-[^9]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
-
-[^10]: e.g. `varunsrin.eth`
-
-[^11]: e.g. `fc_fname:dwr.eth`
-
-[^12]: e.g. `fc_fid:602`
-
-[^13]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
-
-[^14]: e.g. `varunsrin.eth`
-
-[^15]: e.g. `fc_fname:dwr.eth`
-
-[^16]: e.g. `fc_fid:602`
+[^8]: e.g. `fc_fname:dwr.eth`

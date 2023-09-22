@@ -19,7 +19,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-In this tutorial, you will learn how to resolve a Lens profile name or ID to other [web3 identities](#user-content-fn-1)[^1] and vice versa.&#x20;
+In this tutorial, you will learn how to resolve a Lens profile name or ID to other [web3 identities](#user-content-fn-1)[^1] and vice versa.
 
 In this guide you will learn how to use Airstack to:
 
@@ -42,13 +42,13 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
@@ -56,13 +56,13 @@ npm install @airstack/node
 {% endtab %}
 
 {% tab title="yarn" %}
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
@@ -70,13 +70,13 @@ yarn add @airstack/node
 {% endtab %}
 
 {% tab title="pnpm" %}
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
@@ -375,7 +375,7 @@ query GetWeb3SocialsOfLens {
 {% endtab %}
 {% endtabs %}
 
-## Get Farcaster of Lens profile(s)&#x20;
+## Get Farcaster of Lens profile(s)
 
 You can resolve an array of Lens profile(s) to their Farcaster name and ID, if any:
 
@@ -537,9 +537,9 @@ If you have any questions or need help regarding resolving identities for Lens p
 
 * [Resolve Identities](../resolve-identities/)
   * [Lens](../resolve-identities/lens.md)
-* [Has XMTP](../has-xmtp/)
-  * [Check Lens Profile](../has-xmtp/check-single-user.md#by-lens-profile)
-  * [Bulk Check Lens Profiles](../has-xmtp/check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
+* [Has XMTP](../xmtp/)
+  * [Check Lens Profile](../xmtp/check-single-user.md#by-lens-profile)
+  * [Bulk Check Lens Profiles](../xmtp/check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
 * [Lens Resolver](../../use-cases/lens/universal-resolver.md)
 * [Socials API Reference](../../api-references/api-reference/socials-api/)
 * [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)

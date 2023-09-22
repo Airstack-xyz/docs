@@ -54,13 +54,13 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
@@ -68,13 +68,13 @@ npm install @airstack/node
 {% endtab %}
 
 {% tab title="yarn" %}
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
@@ -82,13 +82,13 @@ yarn add @airstack/node
 {% endtab %}
 
 {% tab title="pnpm" %}
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
@@ -444,7 +444,7 @@ query MyQuery {
 
 ## Get All Following of Lens Profile(s)
 
-You can get the list of following data of user(s) by inputting an array of either [Lens profile name](#user-content-fn-1)[^1] or Lens profile ID (decimal[^2] or hex[^3]):
+You can get the list of following data of user(s) by inputting an array of either [Lens profile name](#user-content-fn-1)[^1] or Lens profile ID (decimal or hex[^2]):
 
 ### Try Demo
 
@@ -572,7 +572,7 @@ query MyQuery {
 
 ## Get All Following of Farcaster User(s)
 
-You can get the list of following data of user(s) by inputting an array of either [Farcaster name](#user-content-fn-4)[^4] or [Farcaster ID](#user-content-fn-5)[^5]:
+You can get the list of following data of user(s) by inputting an array of either Farcaster name or [Farcaster ID](#user-content-fn-3)[^3]:
 
 ### Try Demo
 
@@ -2070,12 +2070,11 @@ If you have any questions or need help regarding fetching Lens Followings data, 
 
 * [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
 
+1. `profileTokenId`
+2. e.g. `fc_fname:vitalik.eth`
+
 [^1]: `profileName`
 
-[^2]: `profileTokenId`
+[^2]: `profileTokenIdHex`
 
-[^3]: `profileTokenIdHex`
-
-[^4]: e.g. `fc_fname:vitalik.eth`
-
-[^5]: e.g. `fc_fid:5650`
+[^3]: e.g. `fc_fid:5650`

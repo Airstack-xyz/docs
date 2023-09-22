@@ -528,9 +528,9 @@ If you have any questions or need help regarding checking if Lens profile(s) hav
 
 ## More Resources
 
-* [Has XMTP](../has-xmtp/)
-  * [Check Lens Profile](../has-xmtp/check-single-user.md#by-lens-profile)
-  * [Bulk Check Lens Profiles](../has-xmtp/check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
+* [Has XMTP](../xmtp/)
+  * [Check Lens Profile](../xmtp/check-single-user.md#by-lens-profile)
+  * [Bulk Check Lens Profiles](../xmtp/check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
 * [Lens Followers](broken-reference/)
 * [Lens Followings](broken-reference/)
 * [Lens Resolver](../../use-cases/lens/universal-resolver.md)

@@ -54,13 +54,13 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
@@ -68,13 +68,13 @@ npm install @airstack/node
 {% endtab %}
 
 {% tab title="yarn" %}
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
@@ -82,13 +82,13 @@ yarn add @airstack/node
 {% endtab %}
 
 {% tab title="pnpm" %}
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
@@ -269,7 +269,7 @@ query MyQuery {
 
 ## Get All Followers of ENS Domain(s)
 
-You can get the list of all follower of ENS domains(s) by providing [ENS domain name](#user-content-fn-2)[^2]:
+You can get the list of all follower of ENS domains(s) by providing ENS domain name:
 
 ### Try Demo
 
@@ -415,7 +415,7 @@ query MyQuery {
 
 ## Get All Followers of Lens Profile(s)
 
-You can get the list of all followers of Lens profile(s) by providing either [Lens profile name](#user-content-fn-3)[^3] or [Lens profile ID](#user-content-fn-4)[^4]:
+You can get the list of all followers of Lens profile(s) by providing either [Lens profile name](#user-content-fn-2)[^2] or Lens profile ID:
 
 ### Try Demo
 
@@ -518,7 +518,7 @@ query MyQuery {
 
 ## Get All Followers of Farcaster User(s)
 
-You can get the list of followers of Farcaster user(s) by either providing either [Farcaster name](#user-content-fn-5)[^5] or [Farcaster ID](#user-content-fn-6)[^6]:
+You can get the list of followers of Farcaster user(s) by either providing either [Farcaster name](#user-content-fn-3)[^3] or Farcaster ID:
 
 ### Try Demo
 
@@ -2080,14 +2080,11 @@ If you have any questions or need help regarding fetching followers data, please
 
 * [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
 
+1. e.g. `vitalik.eth`
+2. e.g. `lens_id:0x24`
+
 [^1]: e.g. `0xeaf55242a90bb3289dB8184772b0B98562053559`
 
-[^2]: e.g. `vitalik.eth`
+[^2]: e.g. `vitalik.lens`
 
-[^3]: e.g. `vitalik.lens`
-
-[^4]: e.g. `lens_id:0x24`
-
-[^5]: e.g. `fc_fname:vitalik.eth`
-
-[^6]: e.g. `fc_fid:5650`
+[^3]: e.g. `fc_fname:vitalik.eth`
