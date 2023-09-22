@@ -4,7 +4,7 @@
 
 In this tutorial, you will learn how to create a proof of personhood mechanism through on-chain and off-chain data to determine if a user is a spammer or not.
 
-In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
+In this guide, you will learn how to use [Airstack](https://airstack.xyz) to create proof of personhood mechanism by:
 
 * [Token Transfers](proof-of-personhood.md#token-transfers)
 * [Token Balances](proof-of-personhood.md#token-balances)
