@@ -167,7 +167,7 @@ Show me if betashop.eth is following ipeciura.eth
 ### Code
 
 {% hint style="info" %}
-If you need to check multiple users A simultanously, then simply provide more identities into the `identity` input in the [`socialFollowings`](../../../api-references/api-reference/socialfollowings-api.md) nested API.
+If you need to check multiple users A simultaneously, then simply provide more identities into the `identity` input in the [`socialFollowings`](../../../api-references/api-reference/socialfollowings-api.md) nested API.
 {% endhint %}
 
 {% tabs %}
@@ -244,9 +244,9 @@ If you need to check multiple users A simultanously, then simply provide more id
 {% endtab %}
 {% endtabs %}
 
-If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&tokenType=\&activeView=\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=)  on either Lens or Farcaster, then it will appear as a response in the `Follower` array as shown in the [sample response](known-senders.md#response-1) and thus should be classified as a **known sender**.
+If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&tokenType=\&activeView=\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=)  on either Lens or Farcaster, then it will appear as a response in the `Following` array as shown in the [sample response](known-senders.md#response-1) and thus should be classified as a **known sender**.
 
-Otherwise, `betashop.eth` will be considered an **unknown sender** and should be classified as one in the UI.
+Otherwise, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) will be considered an **unknown sender** and should be classified as one in the UI.
 
 ## Check If User A Have Any Token Transfers History With User B
 
@@ -263,7 +263,7 @@ Show token transfers history from betashop.eth to ipeciura.eth
 ### Code
 
 {% hint style="info" %}
-If you need to check multiple users A simultanously, then simply provide more identities into the `from` input in the both the `ethereum` and `polygon` query.
+If you need to check multiple users A simultaneously, then simply provide more identities into the `from` input in the both the `ethereum` and `polygon` query.
 {% endhint %}
 
 {% tabs %}

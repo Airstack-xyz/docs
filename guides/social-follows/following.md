@@ -31,6 +31,7 @@ In this guide you will learn how to use Airstack to:
 * [Get All Following of ENS Domain(s)](following.md#get-all-following-of-ens-domain-s)
 * [Get All Following of Lens Profile(s)](following.md#get-all-following-of-lens-profile-s)
 * [Get All Following of Farcaster User(s)](following.md#get-all-following-of-farcaster-user-s)
+* [Check If User A Is Following User B](following.md#check-if-user-a-is-following-user-b)
 * [Get The Most Recent Following of User(s)](following.md#get-the-most-recent-following-of-user-s)
 * [Get The Earliest Following of User(s)](following.md#get-the-earliest-following-of-user-s)
 * [Get Following of User(s) that has ENS Domain](following.md#get-following-of-user-s-that-has-ens-domain)
@@ -702,6 +703,102 @@ query MyQuery {
 ```
 {% endtab %}
 {% endtabs %}
+
+## Check If User A Is Following User B
+
+This can be done by providing the user B's identiy either a 0x address, ENS, cb.id, Lens, or Farcaster on the `Wallet` top-level query's `identity` input and the user A's identities in the [`socialFollowings`](../../api-references/api-reference/socialfollowings-api.md).
+
+For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) (user A) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS) (user B):
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/gxn0jQ0ADA" %}
+Show me if betashop.eth is following ipeciura.eth
+{% endembed %}
+
+### Code
+
+{% hint style="info" %}
+If you need to check multiple users A simultaneously, then simply provide more identities into the `identity` input in the [`socialFollowings`](../../api-references/api-reference/socialfollowings-api.md) nested API.
+{% endhint %}
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query isFollowing { # Top-level is User B's Identity (ipeciura.eth)
+<strong>  Wallet(input: {identity: "ipeciura.eth", blockchain: ethereum}) {
+</strong>    socialFollowings( # Here is User A's Identity (betashop.eth)
+<strong>      input: {filter: {identity: {_in: ["betashop.eth"]}}}
+</strong>    ) {
+      Following {
+        dappName
+        dappSlug
+        followingProfileId
+        followerProfileId
+        followerAddress {
+          addresses
+          socials {
+            dappName
+            profileName
+          }
+          domains {
+            name
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Wallet": {
+      "socialFollowings": {
+        "Following": [
+          {
+<strong>            "dappName": "farcaster", // following on Farcaster
+</strong>            "dappSlug": "farcaster_optimism",
+            "followingProfileId": "2602",
+            "followerProfileId": "602",
+            "followerAddress": {
+              "addresses": [
+                "0x66bd69c7064d35d146ca78e6b186e57679fba249",
+                "0xeaf55242a90bb3289db8184772b0b98562053559"
+              ],
+              "socials": [
+                {
+                  "dappName": "farcaster",
+<strong>                  "profileName": "betashop.eth" // betashop.eth is following ipeciura.eth
+</strong>                },
+                {
+                  "dappName": "lens",
+                  "profileName": "betashop9.lens"
+                }
+              ],
+              "domains": [
+                {
+                  "name": "jasongoldberg.eth"
+                },
+                {
+                  "name": "betashop.eth"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&tokenType=\&activeView=\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=)  on either Lens or Farcaster, then it will appear as a response in the `Following` array as shown in the [sample response](following.md#response-1) and thus should be classified as a **known sender**.
+
+Otherwise, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) will be considered an **unknown sender** and should be classified as one in the UI.
 
 ## Get The Most Recent Following of User(s)
 
