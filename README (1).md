@@ -15,7 +15,7 @@ layout:
 
 # ℹ Overview
 
-<figure><img src=".gitbook/assets/Screenshot 2023-07-21 at 14.42.16.png" alt=""><figcaption><p>Airstack Web3 Integration</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption><p>Airstack Web3 Integration</p></figcaption></figure>
 
 [Airstack](https://airstack.xyz) is a web3 development platform that provides powerful GraphQL APIs for integrating on-chain and off-chain data into any application. With Airstack, you can easily connect your applications to any web3 ecosystem.
 
