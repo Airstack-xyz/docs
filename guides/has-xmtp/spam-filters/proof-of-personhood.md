@@ -1,3 +1,10 @@
+---
+description: >-
+  Learn how you can build a proof of personhood mechanism through on-chain and
+  off-chain data indexed by Airstack to determine if a user can be considered a
+  spammer in your XMTP messaging app.
+---
+
 # 🎭 Proof of Personhood
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
@@ -152,6 +159,8 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Token Transfers
 
+You can build proof of personhood by checking if there are any token transfers history from the given user:
+
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/dvRSbWiNKG" %}
@@ -247,12 +256,11 @@ query GetTokenTransfers {
 {% endtab %}
 
 {% tab title="Response" %}
-```json
-{
+<pre class="language-json"><code class="lang-json">{
   "data": {
     "ethereum": {
-      "TokenTransfer": [
-        {
+<strong>      "TokenTransfer": [ // If TokenTransfer array is not empty, then there are token transfers 
+</strong>        {
           "from": {
             "addresses": [
               "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
@@ -334,11 +342,17 @@ query GetTokenTransfers {
     }
   }
 }
-```
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
+If the `ethereum.TokenTransfer` or the `polygon.TokenTransfer` array has non-zero length, then the user have a history of transferring token to other users and thus can be **considered non-spammer**.
+
+Otherwise, the user should be **considered a potential spammer**.
+
 ## Token Balances
+
+You can build proof of personhood by checking if there are any ERC20/721/1155 tokens  hold by the given user:
 
 ### Try Demo
 
@@ -393,12 +407,11 @@ query MyQuery {
 {% endtab %}
 
 {% tab title="Response" %}
-```json
-{
+<pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
-      "TokenBalance": [
-        {
+<strong>      "TokenBalance": [ // Shows that hold some tokens in Ethereum
+</strong>        {
           "tokenAddress": "0x75c97384ca209f915381755c582ec0e2ce88c1ba",
           "tokenId": "",
           "amount": "47077057573",
@@ -433,11 +446,17 @@ query MyQuery {
     }
   }
 }
-```
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
+If the `Ethereum.TokenBalance` or the `Polygon.TokenBalance` array has non-zero length, then the user have some ERC20/721/1155 tokens hold in either Ethereum or Polygon and thus can be **considered non-spammer**.
+
+Otherwise, the user should be **considered a potential spammer**.
+
 ## Has Primary ENS
+
+You can build proof of personhood by checking if the given user hold any primary ENS:
 
 ### Try Demo
 
@@ -463,25 +482,30 @@ query MyQuery {
 {% endtab %}
 
 {% tab title="Response" %}
-```json
-{
+<pre class="language-json"><code class="lang-json">{
   "data": {
     "Domains": {
       "Domain": [
         {
-          "name": "vitalik.eth",
-          "owner": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+<strong>          "name": "vitalik.eth", // This is the primary ENS
+</strong>          "owner": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
           "isPrimary": true
         }
       ]
     }
   }
 }
-```
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
+If the `Domain` array has non-zero length, then the user has primary ENS domain for their account, in the example it is `vitalik.eth`, and thus can be **considered non-spammer**.
+
+Otherwise, the user should be **considered a potential spammer**.
+
 ## Has Lens Profile
+
+You can build proof of personhood by checking if the given user hold any Lens profile:
 
 ### Try Demo
 
@@ -509,25 +533,30 @@ query MyQuery {
 {% endtab %}
 
 {% tab title="Response" %}
-```json
-{
+<pre class="language-json"><code class="lang-json">{
   "data": {
     "Socials": {
       "Social": [
         {
-          "profileName": "vitalik.lens",
-          "profileTokenId": "100275",
+<strong>          "profileName": "vitalik.lens", // This is the Lens profile
+</strong>          "profileTokenId": "100275",
           "profileTokenIdHex": "0x0187b3"
         }
       ]
     }
   }
 }
-```
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
+If the `Social` array has non-zero length, then the user has Lens profile(s) for their account, in the example it is `vitalik.lens`, and thus can be **considered non-spammer**.
+
+Otherwise, the user should be **considered a potential spammer**.
+
 ## Has Farcaster Account
+
+You can build proof of personhood by checking if the given user hold any Farcaster account:
 
 ### Try Demo
 
@@ -555,14 +584,13 @@ query MyQuery {
 {% endtab %}
 
 {% tab title="Response" %}
-```json
-{
+<pre class="language-json"><code class="lang-json">{
   "data": {
     "Socials": {
       "Social": [
         {
-          "profileName": "vitalik.eth",
-          "userId": "5650",
+<strong>          "profileName": "vitalik.eth", // This is the Farcaster account
+</strong>          "userId": "5650",
           "userAssociatedAddresses": [
             "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
             "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
@@ -572,11 +600,17 @@ query MyQuery {
     }
   }
 }
-```
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
+If the `Social` array has non-zero length, then the user has Farcaster account(s) for their account, in the example it is `vitalik.eth`, and thus can be **considered non-spammer**.
+
+Otherwise, the user should be **considered a potential spammer**.
+
 ## Has Non-Virtual POAPs
+
+You can build proof of personhood by checking if the given user ever attended and obtained any non-virtual POAPs:
 
 ### Try Demo
 
@@ -618,8 +652,8 @@ query POAPsOwnedByVitalik {
           "mintOrder": 5,
           "mintHash": "0x4974ddc3ada2100b8e4cb2e17fb993324f71e0676cdd33dfff107899fca16e90",
           "poapEvent": {
-            "isVirtualEvent": false // This is not virtual event
-          }
+<strong>            "isVirtualEvent": false // This is not virtual event
+</strong>          }
         },
         {
           "mintOrder": 12,
@@ -637,12 +671,19 @@ query POAPsOwnedByVitalik {
 {% endtab %}
 {% endtabs %}
 
+All you need to check is whether there is at least 1 POAP with the `isVirtualEvent` field shown as `false`. If yes, then the given user have ever attended a non-virtual POAP event and thus can be **considered a non-spammer**.
+
+Otherwise, the user should be **considered a potential spammer**.
+
 ## Developer Support
 
 If you have any questions or need help regarding creating a proof of persoonhood to classify spammers on your XMTP messaging app, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
-* [SocialFollowers API Reference](../../../api-references/api-reference/socialfollowers-api.md)
-* [Wallet API Reference](../../../api-references/api-reference/wallet-api/)
-* [Proof of Personhood](proof-of-personhood.md)
+* [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api/)
+* [TokenBalances API Reference](../../../api-references/api-reference/tokenbalances-api/)
+* [Poaps API Reference](../../../api-references/api-reference/poaps-api/)
+* [Domains API Reference](../../../api-references/api-reference/domains-api/)
+* [Socials API Reference](../../../api-references/api-reference/socials-api/)
+* [Known Senders](known-senders.md)

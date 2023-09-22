@@ -1,3 +1,9 @@
+---
+description: >-
+  Learn how you can categorize a message sender as a known or unknown one to
+  avoid unknown and unwanted senders spamming your user's XMTP inbox.
+---
+
 # 📔 Known Senders
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
@@ -160,6 +166,10 @@ Show me if betashop.eth is following ipeciura.eth
 
 ### Code
 
+{% hint style="info" %}
+If you need to check multiple users A simultanously, then simply provide more identities into the `identity` input in the [`socialFollowings`](../../../api-references/api-reference/socialfollowings-api.md) nested API.
+{% endhint %}
+
 {% tabs %}
 {% tab title="Query" %}
 <pre class="language-graphql"><code class="lang-graphql">query isFollowing { # Top-level is User B's Identity (ipeciura.eth)
@@ -251,6 +261,10 @@ Show token transfers history from betashop.eth to ipeciura.eth
 {% endembed %}
 
 ### Code
+
+{% hint style="info" %}
+If you need to check multiple users A simultanously, then simply provide more identities into the `from` input in the both the `ethereum` and `polygon` query.
+{% endhint %}
 
 {% tabs %}
 {% tab title="Query" %}
@@ -454,6 +468,6 @@ If you have any questions or need help regarding creating a known sender inbox f
 
 ## More Resources
 
-* [SocialFollowers API Reference](../../../api-references/api-reference/socialfollowers-api.md)
 * [Wallet API Reference](../../../api-references/api-reference/wallet-api/)
+* [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api/)
 * [Proof of Personhood](proof-of-personhood.md)
