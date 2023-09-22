@@ -21,10 +21,6 @@ layout:
 
 In this tutorial, you will learn how to fetch followers and following in common data and its variations.
 
-{% hint style="info" %}
-Currently, Airstack **ONLY** returns Farcaster following data. Lens following data will be coming very soon.
-{% endhint %}
-
 In this guide you will learn how to use Airstack to:
 
 * [Common Followers of Multiple User(s)](follows-in-common.md#common-followers-of-multiple-user-s)
@@ -47,13 +43,13 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
@@ -61,13 +57,13 @@ npm install @airstack/node
 {% endtab %}
 
 {% tab title="yarn" %}
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
@@ -75,13 +71,13 @@ yarn add @airstack/node
 {% endtab %}
 
 {% tab title="pnpm" %}
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node

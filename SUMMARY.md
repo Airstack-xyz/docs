@@ -36,6 +36,7 @@
   * [🧹 Spam Filters](guides/xmtp/spam-filters/README.md)
     * [📔 Known Senders](guides/xmtp/spam-filters/known-senders.md)
     * [🎭 Proof of Personhood](guides/xmtp/spam-filters/proof-of-personhood.md)
+    * [🕸 High Probability of Connection](guides/xmtp/spam-filters/high-probability-of-connection.md)
 * [🌿 Lens](guides/lens/README.md)
   * [💰 Get Token Balances](guides/lens/get-token-balances.md)
   * [🆔 Resolve Lens Profiles](guides/lens/resolve-lens-profiles.md)

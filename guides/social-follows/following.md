@@ -21,10 +21,6 @@ layout:
 
 In this tutorial, you will learn how to fetch various use cases of utilizing the following data.
 
-{% hint style="info" %}
-Currently, Airstack **ONLY** returns Farcaster following data. Lens following data will be coming very soon.
-{% endhint %}
-
 In this guide you will learn how to use Airstack to:
 
 * [Get All Following of 0x Address(es)](following.md#get-all-following-of-0x-address-es)

@@ -6,3 +6,16 @@ description: >-
 
 # 🧹 Spam Filters
 
+There are various ways for you to build spam filters based on on-chain and off-chain data indexed by [Airstack](https://airstack.xyz):
+
+{% content-ref url="known-senders.md" %}
+[known-senders.md](known-senders.md)
+{% endcontent-ref %}
+
+{% content-ref url="proof-of-personhood.md" %}
+[proof-of-personhood.md](proof-of-personhood.md)
+{% endcontent-ref %}
+
+{% content-ref url="high-probability-of-connection.md" %}
+[high-probability-of-connection.md](high-probability-of-connection.md)
+{% endcontent-ref %}

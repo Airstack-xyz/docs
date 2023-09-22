@@ -21,10 +21,6 @@ layout:
 
 In this tutorial, you will learn how to fetch various use cases of utilizing the followers data.
 
-{% hint style="info" %}
-Currently, Airstack **ONLY** returns Farcaster followers data. Lens followers data will be coming very soon.
-{% endhint %}
-
 In this guide you will learn how to use Airstack to:
 
 * [Get All Followers of 0x Address(es)](followers.md#get-all-followers-of-0x-address-es)

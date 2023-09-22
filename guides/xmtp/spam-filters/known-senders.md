@@ -471,3 +471,4 @@ If you have any questions or need help regarding creating a known sender inbox f
 * [Wallet API Reference](../../../api-references/api-reference/wallet-api/)
 * [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api/)
 * [Proof of Personhood](proof-of-personhood.md)
+* [High Probability of Connection](high-probability-of-connection.md)

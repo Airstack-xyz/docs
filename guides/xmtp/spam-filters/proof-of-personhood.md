@@ -677,7 +677,7 @@ Otherwise, the user should be **considered a potential spammer**.
 
 ## Developer Support
 
-If you have any questions or need help regarding creating a proof of persoonhood to classify spammers on your XMTP messaging app, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding creating a proof of personhood to classify spammers on your XMTP messaging app, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
@@ -687,3 +687,4 @@ If you have any questions or need help regarding creating a proof of persoonhood
 * [Domains API Reference](../../../api-references/api-reference/domains-api/)
 * [Socials API Reference](../../../api-references/api-reference/socials-api/)
 * [Known Senders](known-senders.md)
+* [High Probability of Connection](high-probability-of-connection.md)
