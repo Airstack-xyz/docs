@@ -15,9 +15,7 @@ layout:
 # SocialFollowings API
 
 {% hint style="info" %}
-The SocialFollowings APIs deliver on-chain and off-chain user-level data pertaining to users of web3 social protocols, such as Farcaster and Lens.\
-\
-Currently, Airstack **ONLY** returns Farcaster following data. Lens following data will be coming very soon.
+The SocialFollowings APIs deliver on-chain and off-chain user-level data pertaining to users of web3 social protocols, such as Farcaster and Lens.
 {% endhint %}
 
 ### Inputs & Filters

@@ -24,8 +24,10 @@ In this tutorial, you will learn how to fetch various use cases of Farcaster fol
 In this guide you will learn how to use Airstack to:
 
 * [Get Farcaster Followers of Farcaster User(s)](farcaster-followers.md#get-farcaster-followers-of-farcaster-user-s)
+* [Check A Given Farcaster User is A Follower of User(s) on Farcaster](farcaster-followers.md#check-a-given-farcaster-user-is-a-follower-of-user-s-on-farcaster)
 * [Get Farcaster Followers of Farcaster User(s) that has XMTP Enabled](farcaster-followers.md#get-farcaster-followers-of-farcaster-user-s-that-has-xmtp-enabled)
 * [Get Farcaster Users that have a certain amount of Followers](farcaster-followers.md#get-farcaster-users-that-have-a-certain-amount-of-followers)
+* [Get Farcaster and Lens Followers of Lens Profile(s)](farcaster-followers.md#get-farcaster-and-lens-followers-of-lens-profile-s)
 * [Get Farcaster Followers of Farcaster User(s) that Hold ERC20 Token(s)](farcaster-followers.md#get-farcaster-followers-of-farcaster-user-s-that-hold-erc20-token-s)
 * [Get Farcaster Followers of Farcaster User(s) that Hold ERC721/1155 NFT(s)](farcaster-followers.md#get-farcaster-followers-of-farcaster-user-s-that-hold-erc20-token-s)
 * [Get Farcaster Followers of Farcaster User(s) that Hold POAP(s)](farcaster-followers.md#get-farcaster-followers-of-farcaster-user-s-that-hold-poap-s)
@@ -44,13 +46,13 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
@@ -58,13 +60,13 @@ npm install @airstack/node
 {% endtab %}
 
 {% tab title="yarn" %}
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
@@ -72,13 +74,13 @@ yarn add @airstack/node
 {% endtab %}
 
 {% tab title="pnpm" %}
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
@@ -169,7 +171,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get Farcaster Followers of Farcaster User(s)
 
-You can get the list of Farcaster followers of Farcaster user(s) by inputting [0x address](#user-content-fn-1)[^1], [ENS domain](#user-content-fn-2)[^2], [Farcaster Name](#user-content-fn-3)[^3], or [Farcaster ID](#user-content-fn-4)[^4]:
+You can get the list of Farcaster followers of Farcaster user(s) by inputting [0x address](#user-content-fn-1)[^1], ENS domain, [Farcaster Name](#user-content-fn-2)[^2], or Farcaster ID:
 
 ### Try Demo
 
@@ -272,9 +274,160 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
+## Check A Given Farcaster User is A Follower of User(s) on Farcaster
+
+You can use Airstack to check if user(s) is following a given Farcaster user on Farcaster.
+
+This can be done by providing the given [Farcaster name](#user-content-fn-3)[^3] or ID on the `Wallet` top-level query's `identity` input and the user(s) in the [`socialFollowers`](../../api-references/api-reference/socialfollowers-api.md):
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/wBxhAKzKPR" %}
+Show me if fc\_fname:ipeciura.eth is a follower of a group of users on Farcaster
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query isFollowing {
+  Wallet(input: {identity: "fc_fname:ipeciura.eth", blockchain: ethereum}) {
+    socialFollowers( # Check if fc_fname:ipeciura.eth is a follower of these user identities on Lens
+<strong>      input: {filter: {identity: {_in: ["0xeaf55242a90bb3289dB8184772b0B98562053559", "betashop.eth", "yosephks.cb.id", "deepesh.lens", "lens_id:100275", "fc_fname:dawufi", "fc_fid:602"]}, dappName: {_eq: farcaster}}}
+</strong>    ) {
+      Follower {
+        dappName
+        dappSlug
+        followingProfileId
+        followerProfileId
+        followingAddress {
+          addresses
+          socials {
+            dappName
+            profileName
+          }
+          domains {
+            name
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Wallet": {
+      "socialFollowers": {
+        "Follower": [
+          {
+<strong>            "dappName": "farcaster", // follows on Farcaster
+</strong>            "dappSlug": "farcaster_optimism",
+            "followingProfileId": "602",
+            "followerProfileId": "2602",
+            "followingAddress": {
+              "addresses": [
+                "0x66bd69c7064d35d146ca78e6b186e57679fba249",
+                "0xeaf55242a90bb3289db8184772b0b98562053559"
+              ],
+              "socials": [
+                {
+                  "dappName": "farcaster",
+<strong>                  "profileName": "betashop.eth" // ipeciura.eth is follower of betashop.eth
+</strong>                },
+                {
+                  "dappName": "lens",
+                  "profileName": "betashop9.lens"
+                }
+              ],
+              "domains": [
+                {
+                  "name": "jasongoldberg.eth"
+                },
+                {
+                  "name": "betashop.eth"
+                }
+              ]
+            }
+          },
+          {
+<strong>            "dappName": "farcaster", // follows on Farcaster
+</strong>            "dappSlug": "farcaster_optimism",
+            "followingProfileId": "15971",
+            "followerProfileId": "2602",
+            "followingAddress": {
+              "addresses": [
+                "0xc6582cd12debdc9cbe4d972615589aba586550e7",
+                "0xc7486219881c780b676499868716b27095317416"
+              ],
+              "socials": [
+                {
+                  "dappName": "farcaster",
+<strong>                  "profileName": "yosephks.eth" // ipeciura.eth is follower of yosephks.eth
+</strong>                },
+                {
+                  "dappName": "lens",
+                  "profileName": "yosephks.lens"
+                }
+              ],
+              "domains": [
+                {
+                  "name": "yosephks.eth" 
+                },
+                {
+                  "name": "yosephks.cb.id"
+                }
+              ]
+            }
+          },
+          {
+<strong>            "dappName": "farcaster", // follows on Farcaster
+</strong>            "dappSlug": "farcaster_optimism",
+            "followingProfileId": "6806",
+            "followerProfileId": "2602",
+            "followingAddress": {
+              "addresses": [
+                "0xe1b1e3bbf4f29bd7253d6fc1e2ddc9cacb0a546a",
+                "0x0964256674e42d61f0ff84097e28f65311786ccb"
+              ],
+              "socials": [
+                {
+                  "dappName": "lens",
+                  "profileName": "dawufi.lens"
+                },
+                {
+                  "dappName": "farcaster",
+<strong>                  "profileName": "dawufi" // ipeciura.eth is follower of dawufi.eth
+</strong>                }
+              ],
+              "domains": [
+                {
+                  "name": "cantos.testbrand.eth"
+                },
+                {
+                  "name": "dawufi.eth" 
+                }
+              ]
+            }
+          },
+          // other followers
+        ]
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+If [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=fc\_fname%3Aipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1fc\_fname%3Aipeciura.eth%E2%8E%B1%28fc\_fname%3Aipeciura.eth++ethereum+null%29\&inputType=ADDRESS) is a follower of any of the users on Lens, then it will appear as a response in the `Follower` array as shown in the [sample response](farcaster-followers.md#response-1).
+
 ## Get Farcaster Followers of Farcaster User(s) that has XMTP Enabled
 
-You can get the list of Farcaster followers of Farcaster user(s) and check if each followers have XMTP enabled or not by inputting [0x address](#user-content-fn-5)[^5], [ENS domain](#user-content-fn-6)[^6], [Farcaster Name](#user-content-fn-7)[^7], or [Farcaster ID](#user-content-fn-8)[^8]:
+You can get the list of Farcaster followers of Farcaster user(s) and check if each followers have XMTP enabled or not by inputting [0x address](#user-content-fn-4)[^4], ENS domain, [Farcaster Name](#user-content-fn-5)[^5], or [Farcaster ID](#user-content-fn-6)[^6]:
 
 ### Try Demo
 
@@ -458,9 +611,108 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
+## Get Farcaster and Lens Followers of Lens Profile(s)
+
+You can get the list of Farcaster and Lens followers of Farcaster user(s) by inputting [0x address](#user-content-fn-7)[^7], ENS domain, [Farcaster Name](#user-content-fn-8)[^8], or [Farcaster ID](#user-content-fn-9)[^9]:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/1KykZstQCP" %}
+Show me the Farcaster and Lens followers of fc\_fname:dwr.eth, fc\_fid:602, varunsrin.eth, and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  SocialFollowers(
+    input: {filter: {identity: {_in: ["fc_fname:dwr.eth", "fc_fid:602", "varunsrin.eth", "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"]}}, blockchain: ALL, limit: 200}
+  ) {
+    Follower {
+      followerAddress {
+        addresses
+        socials {
+          dappName
+          profileName
+          profileTokenId
+          profileTokenIdHex
+          userId
+          userAssociatedAddresses
+        }
+      }
+      followerProfileId
+      followingAddress {
+        addresses
+        domains {
+          name
+        }
+        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+      }
+      followingProfileId
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "SocialFollowers": {
+      "Follower": [
+        {
+          "followerAddress": {
+            "addresses": [
+              "0x08f2ca269fc4ca7ec4f86c434dc13d120a116271"
+            ],
+            "socials": [
+              {
+                "dappName": "farcaster",
+                "profileName": "dian",
+                "profileTokenId": "9739",
+                "profileTokenIdHex": "",
+                "userId": "9739",
+                "userAssociatedAddresses": [
+                  "0x08f2ca269fc4ca7ec4f86c434dc13d120a116271"
+                ]
+              }
+            ]
+          },
+          "followerProfileId": "9739",
+          "followingAddress": {
+            "addresses": [
+              "0x4114e33eb831858649ea3702e1c9a2db3f626446",
+              "0x182327170fc284caaa5b1bc3e3878233f529d741",
+              "0x91031dcfdea024b4d51e775486111d2b2a715871"
+            ],
+            "domains": [
+              {
+                "name": "varunsrin.eth"
+              }
+            ],
+            "socials": null
+          },
+          "followingProfileId": "2"
+        },
+        // more followers
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ## Get Farcaster Followers of Farcaster User(s) that Hold ERC20 Token(s)
 
-You can get the list of Farcaster followers of Farcaster user(s) that also hold ERC20 token(s), e.g. [USDC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&tokenType=\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29\&inputType=TOKEN\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting [0x address](#user-content-fn-9)[^9], [ENS domain](#user-content-fn-10)[^10], [Farcaster Name](#user-content-fn-11)[^11], or [Farcaster ID](#user-content-fn-12)[^12]:
+You can get the list of Farcaster followers of Farcaster user(s) that also hold ERC20 token(s), e.g. [USDC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&tokenType=\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29\&inputType=TOKEN\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting [0x address](#user-content-fn-10)[^10], ENS domain, [Farcaster Name](#user-content-fn-11)[^11], or Farcaster ID:
 
 ### Try Demo
 
@@ -575,7 +827,7 @@ query MyQuery {
 
 ## Get Farcaster Followers of Farcaster User(s) that Hold ERC721/1155 NFT(s)
 
-You can get the list of Farcaster followers of Farcaster user(s) that also hold ERC721/1155 NFT(s), e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D\&tokenType=\&rawInput=%23%E2%8E%B1BoredApeYachtClub%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+NFT\_COLLECTION+ethereum+null%29\&inputType=NFT\_COLLECTION\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting [0x address](#user-content-fn-13)[^13], [ENS domain](#user-content-fn-14)[^14], [Farcaster Name](#user-content-fn-15)[^15], or [Farcaster ID](#user-content-fn-16)[^16]:
+You can get the list of Farcaster followers of Farcaster user(s) that also hold ERC721/1155 NFT(s), e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D\&tokenType=\&rawInput=%23%E2%8E%B1BoredApeYachtClub%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+NFT\_COLLECTION+ethereum+null%29\&inputType=NFT\_COLLECTION\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting [0x address](#user-content-fn-12)[^12], ENS domain, [Farcaster Name](#user-content-fn-13)[^13], or Farcaster ID:
 
 ### Try Demo
 
@@ -681,7 +933,7 @@ Show me Farcaster followers of fc\_fname:dwr.eth, fc\_fid:602, varunsrin.eth, an
 
 ## Get Farcaster Followers of Farcaster User(s) that Hold POAP(s)
 
-You can get the list of Farcaster followers of Farcaster user(s) that also hold POAP(s), e.g. [EthCC\[6\] – Attendee POAP](https://explorer.airstack.xyz/token-holders?activeView=\&address=141910\&tokenType=\&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29\&inputType=POAP\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=gnosis), by inputting [0x address](#user-content-fn-17)[^17], [ENS domain](#user-content-fn-18)[^18], [Farcaster Name](#user-content-fn-19)[^19], or [Farcaster ID](#user-content-fn-20)[^20]:
+You can get the list of Farcaster followers of Farcaster user(s) that also hold POAP(s), e.g. [EthCC\[6\] – Attendee POAP](https://explorer.airstack.xyz/token-holders?activeView=\&address=141910\&tokenType=\&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29\&inputType=POAP\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=gnosis), by inputting [0x address](#user-content-fn-14)[^14], ENS domain, [Farcaster Name](#user-content-fn-15)[^15], or Farcaster ID:
 
 ### Try Demo
 
@@ -809,7 +1061,7 @@ query MyQuery {
 
 ## Get Farcaster Followers of Farcaster User(s) that Hold Certain Amount of ERC20 Token(s)
 
-You can get the list of Farcaster followers of Farcaster user(s) that also hold a certain amount of ERC20 token(s), e.g. at least 1000 [USDC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&tokenType=\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29\&inputType=TOKEN\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting [0x address](#user-content-fn-21)[^21], [ENS domain](#user-content-fn-22)[^22], [Farcaster Name](#user-content-fn-23)[^23], or [Farcaster ID](#user-content-fn-24)[^24]:
+You can get the list of Farcaster followers of Farcaster user(s) that also hold a certain amount of ERC20 token(s), e.g. at least 1000 [USDC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&tokenType=\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29\&inputType=TOKEN\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting [0x address](#user-content-fn-16)[^16], ENS domain, [Farcaster Name](#user-content-fn-17)[^17], or Farcaster ID:
 
 ### Try Demo
 
@@ -926,50 +1178,39 @@ If you have any questions or need help regarding fetching Farcaster Followers da
 
 * [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
 
+1. e.g. `varunsrin.eth`
+2. e.g. `fc_fid:602`
+
 [^1]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 
-[^2]: e.g. `varunsrin.eth`
+[^2]: e.g. `fc_fname:dwr.eth`
 
-[^3]: e.g. `fc_fname:dwr.eth`
+[^3]: e.g. `fc_fname:ipeciura.eth`&#x20;
 
-[^4]: e.g. `fc_fid:602`
+[^4]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 
-[^5]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
+[^5]: e.g. `fc_fname:dwr.eth`
 
-[^6]: e.g. `varunsrin.eth`
+[^6]: e.g. `fc_fid:602`&#x20;
 
-[^7]: e.g. `fc_fname:dwr.eth`
+[^7]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 
-[^8]: e.g. `fc_fid:602`
+[^8]: e.g. `fc_fname:dwr.eth`
 
-[^9]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
+[^9]: e.g. `fc_fid:602`&#x20;
 
-[^10]: e.g. `varunsrin.eth`
+[^10]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 
 [^11]: e.g. `fc_fname:dwr.eth`
 
-[^12]: e.g. `fc_fid:602`
+[^12]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 
-[^13]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
+[^13]: e.g. `fc_fname:dwr.eth`
 
-[^14]: e.g. `varunsrin.eth`
+[^14]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 
 [^15]: e.g. `fc_fname:dwr.eth`
 
-[^16]: e.g. `fc_fid:602`
+[^16]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 
-[^17]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
-
-[^18]: e.g. `varunsrin.eth`
-
-[^19]: e.g. `fc_fname:dwr.eth`
-
-[^20]: e.g. `fc_fid:602`
-
-[^21]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
-
-[^22]: e.g. `varunsrin.eth`
-
-[^23]: e.g. `fc_fname:dwr.eth`
-
-[^24]: e.g. `fc_fid:602`
+[^17]: e.g. `fc_fname:dwr.eth`

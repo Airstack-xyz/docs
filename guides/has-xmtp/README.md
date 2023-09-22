@@ -28,3 +28,7 @@ Learn how to use [Airstack](https://airstack.xyz) to use the [`XMTPs`](../../api
 {% content-ref url="nft-and-poap-holders.md" %}
 [nft-and-poap-holders.md](nft-and-poap-holders.md)
 {% endcontent-ref %}
+
+{% content-ref url="social-follows.md" %}
+[social-follows.md](social-follows.md)
+{% endcontent-ref %}

@@ -21,10 +21,6 @@ layout:
 
 In this tutorial, you will learn how to check whether an array of user followers or following have XMTP enabled or not.
 
-{% hint style="info" %}
-Currently, Airstack **ONLY** returns Farcaster follows data. Lens follows data will be coming very soon.
-{% endhint %}
-
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to check if holders of a given NFT or POAP have XMTP enabled:
 
 * [Get All Followers of User(s) that have XMTP Enabled](social-follows.md#get-all-followers-of-user-s-that-have-xmtp-enabled)
@@ -44,13 +40,13 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
@@ -58,13 +54,13 @@ npm install @airstack/node
 {% endtab %}
 
 {% tab title="yarn" %}
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
@@ -72,13 +68,13 @@ yarn add @airstack/node
 {% endtab %}
 
 {% tab title="pnpm" %}
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
@@ -169,7 +165,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get All Followers of User(s) that have XMTP Enabled
 
-You can all the followers of user(s) and see whether they have their XMTP enabled for messaging by providing [0x address](#user-content-fn-1)[^1], ENS[^2], [Lens profile](#user-content-fn-3)[^3], or Farcaster[^4]:&#x20;
+You can all the followers of user(s) and see whether they have their XMTP enabled for messaging by providing [0x address](#user-content-fn-1)[^1], ENS, [Lens profile](#user-content-fn-2)[^2], or Farcaster:
 
 ### Try Demo
 
@@ -323,7 +319,7 @@ query MyQuery {
 
 ## Get All Following of User(s) that have XMTP Enabled
 
-You can all the following of user(s) and see whether they have their XMTP enabled for messaging by providing [0x address](#user-content-fn-5)[^5], ENS[^6], [Lens profile](#user-content-fn-7)[^7], or Farcaster[^8]:
+You can all the following of user(s) and see whether they have their XMTP enabled for messaging by providing [0x address](#user-content-fn-3)[^3], ENS, [Lens profile](#user-content-fn-4)[^4], or Farcaster:
 
 ### Try Demo
 
@@ -522,16 +518,8 @@ If you have any questions or need help regarding checking XMTP for holders of a 
 
 [^1]: e.g. `0xeaf55242a90bb3289dB8184772b0B98562053559`
 
-[^2]: e.g. `vitalik.eth`
+[^2]: e.g. Lens profile name `bradorbradley.lens` or Lens profile id, either in decimal or hex, `lens_id:0x24`
 
-[^3]: e.g. Lens profile name `bradorbradley.lens` or  Lens profile id, either in decimal or hex, `lens_id:0x24`
+[^3]: e.g. `0xeaf55242a90bb3289dB8184772b0B98562053559`
 
-[^4]: e.g. Farcaster name `fc_fname:dwr.eth` or Farcaster id `fc_fid:3`
-
-[^5]: e.g. `0xeaf55242a90bb3289dB8184772b0B98562053559`
-
-[^6]: e.g. `vitalik.eth`
-
-[^7]: e.g. Lens profile name `bradorbradley.lens` or  Lens profile id, either in decimal or hex, `lens_id:0x24`
-
-[^8]: e.g. Farcaster name `fc_fname:dwr.eth` or Farcaster id `fc_fid:3`
+[^4]: e.g. Lens profile name `bradorbradley.lens` or Lens profile id, either in decimal or hex, `lens_id:0x24`

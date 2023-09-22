@@ -1,7 +1,8 @@
 ---
 description: >-
   Learn how to get recommended followers for Lens profiles based on on-chain
-  insights from token transfers, POAPs, NFTS, and token holder combinations.
+  insights from token transfers, POAPs, NFTS, token holder combinations, and
+  Lens & Farcaster social followers/following.
 layout:
   title:
     visible: true
@@ -19,7 +20,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-In this tutorial, you will learn how to recommend followers for Lens profiles based on on-chain insights from token transfers, POAPs, NFTS, and token holder combinations.
+In this tutorial, you will learn how to recommend followers for Lens profiles based on on-chain insights from token transfers, POAPs, NFTS, token holder combinations, and Lens & Farcaster social followers/following.
 
 In this guide you will learn how to use Airstack to:
 
@@ -27,6 +28,9 @@ In this guide you will learn how to use Airstack to:
 * [Get Recommendation Follows For Lens Profile(s) Based on POAPs](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-poaps)
 * [Get Recommendation Follows For Lens Profile(s) Based on NFTs](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-nfts)
 * [Get Recommendation Follows For Lens Profile(s) Based on NFTs and POAPs Commonly Held](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-nfts-and-poaps-commonly-held)
+* [Get Recommendation Follows For Lens Profile(s) Based on Lens Followers](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-lens-followers)
+* [Get Recommendation Follows For Lens Profile(s) Based on Farcaster Followers](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-farcaster-followers)
+* [Get Recommendation Follows For Lens Profile(s) Based on Farcaster Following](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-farcaster-following)
 
 ## Pre-requisites
 
@@ -41,13 +45,13 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
@@ -55,13 +59,13 @@ npm install @airstack/node
 {% endtab %}
 
 {% tab title="yarn" %}
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
@@ -69,13 +73,13 @@ yarn add @airstack/node
 {% endtab %}
 
 {% tab title="pnpm" %}
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
@@ -812,6 +816,289 @@ The final result will the the list of all common holders in an array:
   // ...other token holders
 ]
 ```
+
+## Get Recommendation Follows For Lens Profile(s) Based on Lens Followers
+
+### Fetching
+
+You can fetch follow recommendations based on the Lens followers of Lens profile(s) by fetching the list of Lens followers of the given Lens profile(s):
+
+#### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/djxR2UrtIB" %}
+Show me all Lens followers of stani.lens, lens\_id:0x24, betashop.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
+{% endembed %}
+
+#### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  SocialFollowers(
+    input: {filter: {dappName: {_eq: lens}, identity: {_in: ["stani.lens", "lens_id:0x24", "betashop.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
+  ) {
+    Follower {
+      followerAddress {
+        addresses
+        socials(input: {filter: {dappName: {_eq: lens}}}) {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+        }
+      }
+      followingAddress {
+        addresses
+        domains {
+          name
+        }
+        socials(input: {filter: {dappName: {_eq: lens}}}) {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "SocialFollowers": {
+      "Follower": [
+        {
+          "followerAddress": {
+            "addresses": [
+              "0xcde3725b25d6d9bc78cf0941cc15fd9710c764b9"
+            ],
+            "socials": [
+              {
+                "profileName": "nicolo.lens",
+                "profileTokenId": "9",
+                "profileTokenIdHex": "0x09"
+              }
+            ]
+          },
+          "followingAddress": {
+            "addresses": [
+              "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
+            ],
+            "socials": [
+              {
+                "profileName": "westlakevillage.lens",
+                "profileTokenId": "99755",
+                "profileTokenIdHex": "0x0185ab"
+              },
+              {
+                "profileName": "brad.lens",
+                "profileTokenId": "116598",
+                "profileTokenIdHex": "0x01c776"
+              },
+              {
+                "profileName": "bradorbradley.lens",
+                "profileTokenId": "36",
+                "profileTokenIdHex": "0x024"
+              },
+              {
+                "profileName": "hanimourra.lens",
+                "profileTokenId": "116239",
+                "profileTokenIdHex": "0x01c60f"
+              }
+            ]
+          }
+        },
+        // more recommendation from Lens followers
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Recommendation Follows For Lens Profile(s) Based on Farcaster Followers
+
+### Fetching
+
+You can fetch follow recommendations based on the Farcaster followers of Lens profile(s) by fetching the list of Farcaster followers of the given Lens profile(s):
+
+{% hint style="info" %}
+If the address that owns the given Lens profile NFT does not own any Farcaster account, then no Farcaster followers will exist and API response will be `null`.
+{% endhint %}
+
+#### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/8Dff1C8SHM" %}
+Show me all Farcaster followers of stani.lens, lens\_id:0x24, betashop.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 and their Lens profiles
+{% endembed %}
+
+#### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  SocialFollowers(
+    input: {filter: {dappName: {_eq: farcaster}, identity: {_in: ["vitalik.lens"]}}, blockchain: ALL, limit: 200}
+  ) {
+    Follower {
+      followerAddress {
+        addresses
+        socials(input: {filter: {dappName: {_eq: lens}}}) {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+        }
+      }
+      followingAddress {
+        addresses
+        domains {
+          name
+        }
+        socials(input: {filter: {dappName: {_eq: lens}}}) {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre><code>{
+  "data": {
+    "SocialFollowers": {
+      "Follower": [
+        {
+          "followerAddress": {
+            "addresses": [
+              "0x33aa7c91c9afe6215ece55d520791e32f2c420e9",
+              "0x18d997237770f3f4b1f722eba605e938dc28ab67",
+              "0xa905af4f03337551bf8e5de2e008249958c78e9b"
+            ],
+            "socials": [
+              {
+<strong>                "profileName": "kamilmouthon.lens", // the follower's Lens profile name
+</strong>                "profileTokenId": "57006",
+                "profileTokenIdHex": ""
+              }
+            ]
+          },
+          "followingAddress": {
+            "addresses": [
+              "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
+              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+            ],
+            "domains": [
+              {
+                "name": "quantumexchange.eth"
+              },
+              {
+                "name": "7860000.eth"
+              },
+              {
+                "name": "offchainexample.eth"
+              },
+              {
+                "name": "brianshaw.eth"
+              },
+              {
+                "name": "vbuterin.stateofus.eth"
+              },
+              {
+                "name": "quantumsmartcontracts.eth"
+              },
+              {
+                "name": "Vitalik.eth"
+              },
+              {
+                "name": "openegp.eth"
+              },
+              {
+                "name": "vitalik.cannafam.eth"
+              },
+              {
+                "name": "VITALIK.eth"
+              }
+            ],
+            "socials": [
+              {
+                "profileName": "vitalik.lens",
+                "profileTokenId": "100275",
+                "profileTokenIdHex": ""
+              }
+            ]
+          }
+        },
+        // more Farcaster followers
+      ]
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Get Recommendation Follows For Lens Profile(s) Based on Farcaster Following
+
+### Fetching
+
+You can fetch
+
+{% hint style="info" %}
+If the address that owns the given Lens profile NFT does not own any Farcaster account, then no Farcaster following will exist and API response will be `null`.
+{% endhint %}
+
+#### Try Demo
+
+
+
+#### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  SocialFollowings(
+    input: {filter: {dappName: {_eq: farcaster}, identity: {_in: ["vitalik.lens"]}}, blockchain: ALL, limit: 200}
+  ) {
+    Following {
+      followerAddress {
+        addresses
+        domains {
+          name
+        }
+        socials(input: {filter: {dappName: {_eq: lens}}}) {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+        }
+      }
+      followingAddress {
+        addresses
+        socials(input: {filter: {dappName: {_eq: lens}}}) {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+
+{% endtab %}
+{% endtabs %}
 
 ## Developer Support
 

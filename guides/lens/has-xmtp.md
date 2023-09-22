@@ -19,12 +19,12 @@ layout:
 
 [XMTP](https://xmtp.org) is an Ethereum-based messaging protocol.
 
-Developers building with [XMTP](https://xmtp.org) can use [Airstack](https://airstack.xyz) to enable [Lens](https://lens.xyz) users to seamlessly message Ethereum, ENS, Lens, and Farcaster users with XMTP-enabled addresses.&#x20;
+Developers building with [XMTP](https://xmtp.org) can use [Airstack](https://airstack.xyz) to enable [Lens](https://lens.xyz) users to seamlessly message Ethereum, ENS, Lens, and Farcaster users with XMTP-enabled addresses.
 
-[Airstack](https://airstack.xyz) is utilized to:&#x20;
+[Airstack](https://airstack.xyz) is utilized to:
 
 1. check if users have [XMTP](https://xmtp.org) enabled (required in order to receive [XMTP](https://xmtp.org) messages)
-2. resolve [Lens](https://lens.xyz) profile names or IDs to 0x Ethereum addresses and vice versa.&#x20;
+2. resolve [Lens](https://lens.xyz) profile names or IDs to 0x Ethereum addresses and vice versa.
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
@@ -32,6 +32,8 @@ In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 * [Bulk Check Lens Profiles Have XMTP Enabled](has-xmtp.md#bulk-check-lens-profiles-have-xmtp-enabled)
 * [Get All 0x addresses of Lens profile(s)](has-xmtp.md#get-all-0x-addresses-of-lens-profile-s)
 * [Get All Lens Profiles Owned by 0x address](has-xmtp.md#get-all-lens-profiles-owned-by-0x-address)
+* [Get Lens Followers of Lens Profile(s) that has XMTP Enabled](has-xmtp.md#get-lens-followers-of-lens-profile-s-that-has-xmtp-enabled)
+* [Get Lens Following of Lens Profile(s) that has XMTP Enabled](has-xmtp.md#get-lens-following-of-lens-profile-s-that-has-xmtp-enabled)
 
 ## Pre-requisites
 
@@ -46,13 +48,13 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
@@ -60,13 +62,13 @@ npm install @airstack/node
 {% endtab %}
 
 {% tab title="yarn" %}
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
@@ -74,13 +76,13 @@ yarn add @airstack/node
 {% endtab %}
 
 {% tab title="pnpm" %}
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
@@ -415,6 +417,111 @@ query GetLensOfEthereumAddress {
 {% endtab %}
 {% endtabs %}
 
+## Get Lens Followers of Lens Profile(s) that has XMTP Enabled
+
+You can all the Lens followers of Lens profile(s) and see whether they have their XMTP enabled for messaging:
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  SocialFollowers(
+    input: {filter: {dappName: {_eq: lens}, identity: {_in: ["stani.lens", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
+  ) {
+    Follower {
+      followerAddress {
+        addresses
+        socials {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+        }
+        xmtp {
+<strong>          isXMTPEnabled # Indicate if followers have XMTP enabled
+</strong>        }
+      }
+      followerProfileId
+      followerTokenId
+      followingAddress {
+        addresses
+        domains {
+          name
+        }
+        socials {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+        }
+      }
+      followingProfileId
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+// Some code
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Lens Following of Lens Profile(s) that has XMTP Enabled
+
+You can all the Lens following of Lens profile(s) and see whether they have their XMTP enabled for messaging:
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  SocialFollowings(
+    input: {filter: {dappName: {_eq: lens}, identity: {_in: ["stani.lens", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
+  ) {
+    Following {
+      followingAddress {
+        addresses
+        socials {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+        }
+        xmtp {
+          isXMTPEnabled # Indicate if following have XMTP enabled
+        }
+      }
+      followingProfileId
+      followerAddress {
+        addresses
+        domains {
+          name
+        }
+        socials {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+        }
+      }
+      followerProfileId
+      followerTokenId
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+// Some code
+```
+{% endtab %}
+{% endtabs %}
+
+## Developer Support
+
 ## Developer Support
 
 If you have any questions or need help regarding checking if Lens profile(s) have XMTP enabled, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
@@ -424,8 +531,8 @@ If you have any questions or need help regarding checking if Lens profile(s) hav
 * [Has XMTP](../has-xmtp/)
   * [Check Lens Profile](../has-xmtp/check-single-user.md#by-lens-profile)
   * [Bulk Check Lens Profiles](../has-xmtp/check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
-* [Lens Followers](broken-reference)
-* [Lens Followings](broken-reference)
+* [Lens Followers](broken-reference/)
+* [Lens Followings](broken-reference/)
 * [Lens Resolver](../../use-cases/lens/universal-resolver.md)
 * [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
 * [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
