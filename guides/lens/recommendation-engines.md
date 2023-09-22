@@ -972,7 +972,7 @@ query MyQuery {
 {% endtab %}
 
 {% tab title="Response" %}
-<pre><code>{
+<pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
       "Follower": [
@@ -1050,7 +1050,7 @@ query MyQuery {
 
 ### Fetching
 
-You can fetch
+You can fetch follow recommendations based on the Farcaster following of Lens profile(s) by fetching the list of Farcaster followers of the given Lens profile(s):
 
 {% hint style="info" %}
 If the address that owns the given Lens profile NFT does not own any Farcaster account, then no Farcaster following will exist and API response will be `null`.
@@ -1058,7 +1058,9 @@ If the address that owns the given Lens profile NFT does not own any Farcaster a
 
 #### Try Demo
 
-
+{% embed url="https://app.airstack.xyz/query/ASCSVYV3SO" %}
+Show all Farcaster following by vitalik.lens and show their Lens profiles
+{% endembed %}
 
 #### Code
 
@@ -1070,6 +1072,15 @@ query MyQuery {
     input: {filter: {dappName: {_eq: farcaster}, identity: {_in: ["vitalik.lens"]}}, blockchain: ALL, limit: 200}
   ) {
     Following {
+      followingAddress {
+        addresses
+        socials(input: {filter: {dappName: {_eq: lens}}}) {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+        }
+      }
+      followerProfileId
       followerAddress {
         addresses
         domains {
@@ -1081,14 +1092,7 @@ query MyQuery {
           profileTokenIdHex
         }
       }
-      followingAddress {
-        addresses
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
-          profileName
-          profileTokenId
-          profileTokenIdHex
-        }
-      }
+      followingProfileId
     }
   }
 }
@@ -1096,7 +1100,81 @@ query MyQuery {
 {% endtab %}
 
 {% tab title="Response" %}
-
+```json
+{
+  "data": {
+    "SocialFollowings": {
+      "Following": [
+        {
+          "followingAddress": {
+            "addresses": [
+              "0x4ce34af3378a00c640125e4dbf4c9e64dff4c93b",
+              "0x849151d7d0bf1f34b70d5cad5149d28cc2308bf1",
+              "0x6e0d9c6dd8a08509bb625caa35dc61a991406f62",
+              "0xe73f9c181b571cac2bf3173634d04a9921b7ffcf"
+            ],
+            "socials": [
+              {
+                "profileName": "jessepollak.lens",
+                "profileTokenId": "110917",
+                "profileTokenIdHex": "0x01b145"
+              }
+            ]
+          },
+          "followerProfileId": "5650",
+          "followerAddress": {
+            "addresses": [
+              "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
+              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+            ],
+            "domains": [
+              {
+                "name": "quantumexchange.eth"
+              },
+              {
+                "name": "7860000.eth"
+              },
+              {
+                "name": "offchainexample.eth"
+              },
+              {
+                "name": "brianshaw.eth"
+              },
+              {
+                "name": "vbuterin.stateofus.eth"
+              },
+              {
+                "name": "quantumsmartcontracts.eth"
+              },
+              {
+                "name": "Vitalik.eth"
+              },
+              {
+                "name": "openegp.eth"
+              },
+              {
+                "name": "vitalik.cannafam.eth"
+              },
+              {
+                "name": "VITALIK.eth"
+              }
+            ],
+            "socials": [
+              {
+                "profileName": "vitalik.lens",
+                "profileTokenId": "100275",
+                "profileTokenIdHex": "0x0187b3"
+              }
+            ]
+          },
+          "followingProfileId": "99"
+        },
+        // more following
+      ]
+    }
+  }
+}
+```
 {% endtab %}
 {% endtabs %}
 
