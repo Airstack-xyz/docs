@@ -28,7 +28,7 @@
   * [⏫ Sort Results](guides/token-bound-accounts/sort-results.md)
   * [🌲 Traverse ERC6551 Tree](guides/token-bound-accounts/traverse-erc6551-tree.md)
   * [🚪 Token Gating](guides/token-bound-accounts/token-gating.md)
-* [📬 Has XMTP](guides/has-xmtp/README.md)
+* [📬 XMTP](guides/has-xmtp/README.md)
   * [🧍 Check Single User](guides/has-xmtp/check-single-user.md)
   * [👬 Check Multiple Users](guides/has-xmtp/check-multiple-users.md)
   * [🗃 NFT & POAP Holders](guides/has-xmtp/nft-and-poap-holders.md)

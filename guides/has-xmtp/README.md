@@ -13,7 +13,7 @@ layout:
     visible: true
 ---
 
-# 📬 Has XMTP
+# 📬 XMTP
 
 Learn how to use [Airstack](https://airstack.xyz) to use the [`XMTPs`](../../api-references/api-reference/xmtps-api/) API to:
 
@@ -31,4 +31,8 @@ Learn how to use [Airstack](https://airstack.xyz) to use the [`XMTPs`](../../api
 
 {% content-ref url="social-follows.md" %}
 [social-follows.md](social-follows.md)
+{% endcontent-ref %}
+
+{% content-ref url="spam-filters/" %}
+[spam-filters](spam-filters/)
 {% endcontent-ref %}
