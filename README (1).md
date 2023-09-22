@@ -32,7 +32,7 @@ Resolve any 0x addresses or ENS names to fetch:
 * [Lens](use-cases/lens/)
 * [Farcaster](guides/resolve-identities/farcaster.md)
 * [POAPs](guides/contact-recommendation/poaps.md)
-* [XMTP](guides/has-xmtp/)
+* [XMTP](guides/xmtp/)
 
 and vice versa. Great for any building social or any data-aware applications.&#x20;
 

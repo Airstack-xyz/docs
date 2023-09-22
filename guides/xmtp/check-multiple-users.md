@@ -39,13 +39,13 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
@@ -53,13 +53,13 @@ npm install @airstack/node
 {% endtab %}
 
 {% tab title="yarn" %}
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
@@ -67,13 +67,13 @@ yarn add @airstack/node
 {% endtab %}
 
 {% tab title="pnpm" %}
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
@@ -272,14 +272,14 @@ query MyQuery {
 {% endtabs %}
 
 {% hint style="info" %}
-The response will return fewer amount of element in the `XMTP` array if some of the `owner` input has no XMTP.&#x20;
+The response will return fewer amount of element in the `XMTP` array if some of the `owner` input has no XMTP.
 
 Therefore, you can use `owner` field response to double check if in more details if a specific user has XMTP or not.
 {% endhint %}
 
 ## Bulk Check Lens Profiles Have XMTP
 
-You can bulk check Lens profiles have XMTP by providing either Lens profile name[^1] or ID[^2] into the `owner` input array:
+You can bulk check Lens profiles have XMTP by providing either Lens profile name[^1] or ID into the `owner` input array:
 
 ### Try Demo
 
@@ -373,7 +373,7 @@ query BulkFetchLensandXMTP {
 
 ## Bulk Check Farcasters Have XMTP
 
-You can bulk check Farcasters have XMTP by providing either Farcaster name[^3] or ID[^4] into the `owner` input array:
+You can bulk check Farcasters have XMTP by providing either Farcaster name[^2] or ID into the `owner` input array:
 
 ### Try Demo
 
@@ -477,7 +477,7 @@ query BulkFetchFarcasterHaveXMTP {
 
 ## Developer Support
 
-If you have any questions or need help regarding checking XMTP for multiple users with various [web3 identities](#user-content-fn-5)[^5], please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding checking XMTP for multiple users with various [web3 identities](#user-content-fn-3)[^3], please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
@@ -486,12 +486,11 @@ If you have any questions or need help regarding checking XMTP for multiple user
 * [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
 * [Universal Resolver](../../use-cases/xmtp/universal-resolver.md)
 
+1. e.g. `lens_id:0x09718`
+2. e.g. `fc_fid:5650`
+
 [^1]: e.g. vitalik.lens
 
-[^2]: e.g. `lens_id:0x09718`
+[^2]: e.g. `fc_fname:vitalik.eth`
 
-[^3]: e.g. `fc_fname:vitalik.eth`
-
-[^4]: e.g. `fc_fid:5650`
-
-[^5]: 0x address, ENS, Lens, Farcaster
+[^3]: 0x address, ENS, Lens, Farcaster

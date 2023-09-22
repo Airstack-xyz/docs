@@ -43,13 +43,13 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
@@ -57,13 +57,13 @@ npm install @airstack/node
 {% endtab %}
 
 {% tab title="yarn" %}
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
@@ -71,13 +71,13 @@ yarn add @airstack/node
 {% endtab %}
 
 {% tab title="pnpm" %}
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
@@ -236,7 +236,7 @@ query MyQuery {
 
 ## Get POAPs Held By ENS Domain(s)
 
-You can fetch all the POAPs held by [ENS Domain(s)](#user-content-fn-2)[^2] by providing it as an input to the `owner` filter input:
+You can fetch all the POAPs held by ENS Domain(s) by providing it as an input to the `owner` filter input:
 
 ### Try Demo
 
@@ -372,7 +372,7 @@ query MyQuery {
 
 ## Get POAPs Held By Farcaster User(s)
 
-You can fetch all the POAPs held by Farcaster(s) by providing the fname[^3] of fid[^4] as an input to the `owner` filter input:
+You can fetch all the POAPs held by Farcaster(s) by providing the fname[^2] of fid as an input to the `owner` filter input:
 
 ### Try Demo
 
@@ -526,10 +526,9 @@ If you have any questions or need help regarding fetching POAP balances, please 
 * [Tokens In Common](../tokens-in-common/)
   * [POAPs](../tokens-in-common/poaps.md)
 
-[^1]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045` &#x20;
+1. e.g. `vitalik.eth`
+2. e.g. `fc_fid:602`
 
-[^2]: e.g. `vitalik.eth`  &#x20;
+[^1]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 
-[^3]: e.g. `fc_fname:vitalik.eth`&#x20;
-
-[^4]: e.g. `fc_fid:602` &#x20;
+[^2]: e.g. `fc_fname:vitalik.eth`

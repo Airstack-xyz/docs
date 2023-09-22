@@ -21,12 +21,12 @@ layout:
 
 [XMTP](https://xmtp.org) is an Ethereum-based messaging protocol.
 
-Developers building with [XMTP](https://xmtp.org) can use [Airstack](https://airstack.xyz) to enable [Farcaster](https://farcaster.xyz) users to seamlessly message Ethereum, ENS, Lens, and Farcaster users with XMTP-enabled addresses.&#x20;
+Developers building with [XMTP](https://xmtp.org) can use [Airstack](https://airstack.xyz) to enable [Farcaster](https://farcaster.xyz) users to seamlessly message Ethereum, ENS, Lens, and Farcaster users with XMTP-enabled addresses.
 
-[Airstack](https://airstack.xyz) is utilized to:&#x20;
+[Airstack](https://airstack.xyz) is utilized to:
 
 1. check if users have [XMTP](https://xmtp.org) enabled (required in order to receive [XMTP](https://xmtp.org) messages)
-2. resolve [Farcaster](https://farcaster.xyz) usernames to 0x Ethereum addresses and vice versa.&#x20;
+2. resolve [Farcaster](https://farcaster.xyz) usernames to 0x Ethereum addresses and vice versa.
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
@@ -50,13 +50,13 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
@@ -64,13 +64,13 @@ npm install @airstack/node
 {% endtab %}
 
 {% tab title="yarn" %}
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
@@ -78,13 +78,13 @@ yarn add @airstack/node
 {% endtab %}
 
 {% tab title="pnpm" %}
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
@@ -379,7 +379,7 @@ query GetFarcastersOfEthereumAddress {
 
 ## Get Farcaster Followers of Farcaster User(s) that has XMTP Enabled
 
-You can get the list of Farcaster followers of Farcaster user(s) and check if each followers have XMTP enabled or not by inputting [0x address](#user-content-fn-1)[^1], [ENS domain](#user-content-fn-2)[^2], [Farcaster Name](#user-content-fn-3)[^3], or [Farcaster ID](#user-content-fn-4)[^4]:
+You can get the list of Farcaster followers of Farcaster user(s) and check if each followers have XMTP enabled or not by inputting [0x address](#user-content-fn-1)[^1], ENS domain, [Farcaster Name](#user-content-fn-2)[^2], or Farcaster ID:
 
 ### Try Demo
 
@@ -494,7 +494,7 @@ query MyQuery {
 
 ## Get Farcaster Followings of Farcaster User(s) that has XMTP Enabled
 
-You can get the list of Farcaster following of Farcaster user(s) and check if each following have XMTP enabled or not by inputting [0x address](#user-content-fn-5)[^5], [ENS domain](#user-content-fn-6)[^6], [Farcaster Name](#user-content-fn-7)[^7], or [Farcaster ID](#user-content-fn-8)[^8]:
+You can get the list of Farcaster following of Farcaster user(s) and check if each following have XMTP enabled or not by inputting [0x address](#user-content-fn-3)[^3], ENS domain, [Farcaster Name](#user-content-fn-4)[^4], or Farcaster ID:
 
 ### Try Demo
 
@@ -622,8 +622,8 @@ If you have any questions or need help regarding checking if Farcaster(s) have X
 
 ## More Resources
 
-* [Has XMTP](../has-xmtp/)
-  * [Check Farcaster](../has-xmtp/check-single-user.md#by-farcaster-name-or-id)
+* [Has XMTP](../xmtp/)
+  * [Check Farcaster](../xmtp/check-single-user.md#by-farcaster-name-or-id)
   * [Bulk Check Farcasters](has-xmtp.md#bulk-check-farcasters-have-xmtp-enabled)
 * [Resolve Farcaster Users](resolve-farcaster-users.md)
 * [Farcaster Resolver Demo](../../use-cases/farcaster/universal-resolver.md)
@@ -631,18 +631,13 @@ If you have any questions or need help regarding checking if Farcaster(s) have X
 * [Socials API Reference](../../api-references/api-reference/socials-api/)
 * [Domains API Reference](../../api-references/api-reference/domains-api/)
 
+1. e.g. `varunsrin.eth`
+2. e.g. `fc_fid:602`
+
 [^1]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 
-[^2]: e.g. `varunsrin.eth`
+[^2]: e.g. `fc_fname:dwr.eth`
 
-[^3]: e.g. `fc_fname:dwr.eth`
+[^3]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 
-[^4]: e.g. `fc_fid:602`
-
-[^5]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
-
-[^6]: e.g. `varunsrin.eth`
-
-[^7]: e.g. `fc_fname:dwr.eth`
-
-[^8]: e.g. `fc_fid:602`
+[^4]: e.g. `fc_fname:dwr.eth`

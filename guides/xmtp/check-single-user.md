@@ -41,13 +41,13 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
@@ -55,13 +55,13 @@ npm install @airstack/node
 {% endtab %}
 
 {% tab title="yarn" %}
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
@@ -69,13 +69,13 @@ yarn add @airstack/node
 {% endtab %}
 
 {% tab title="pnpm" %}
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
@@ -328,7 +328,7 @@ query MyQuery {
 
 ## By Lens Profile Name or ID
 
-With [Airstack Identity API](../../api-references/api-reference/airstack-identity-api.md), you can simply swap the address input `owner` to any [Lens profile name](#user-content-fn-2)[^2]:
+With [Airstack Identity API](../../api-references/api-reference/airstack-identity-api.md), you can simply swap the address input `owner` to any Lens profile name:
 
 ### Try Demo
 
@@ -368,7 +368,7 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-Alternatively, you can also swap the address input `owner` to any Lens profile ID, either in decimal[^3] or hex[^4] form:
+Alternatively, you can also swap the address input `owner` to any Lens profile ID, either in decimal[^2] or hex form:
 
 ### Try Demo
 
@@ -410,7 +410,7 @@ query MyQuery {
 
 ## By Farcaster Name or ID
 
-With [Airstack Identity API](../../api-references/api-reference/airstack-identity-api.md), you can simply swap the address input `owner` to any [Farcaster Name](#user-content-fn-5)[^5]:
+With [Airstack Identity API](../../api-references/api-reference/airstack-identity-api.md), you can simply swap the address input `owner` to any [Farcaster Name](#user-content-fn-3)[^3]:
 
 ### Try Demo
 
@@ -450,7 +450,7 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-Alternatively, you can also swap the address input `owner` to any [Farcaster ID](#user-content-fn-6)[^6]:
+Alternatively, you can also swap the address input `owner` to any Farcaster ID:
 
 ### Try Demo
 
@@ -492,7 +492,7 @@ query MyQuery {
 
 ## Developer Support
 
-If you have any questions or need help regarding checking XMTP for a single user with various [web3 identities](#user-content-fn-7)[^7], please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding checking XMTP for a single user with various [web3 identities](#user-content-fn-4)[^4], please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
@@ -501,16 +501,13 @@ If you have any questions or need help regarding checking XMTP for a single user
 * [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
 * [Universal Resolver](../../use-cases/xmtp/universal-resolver.md)
 
-[^1]: ENS that is resolved off-chain, e.g. <mark style="color:red;">`leighton.pooltogether.eth`</mark>             &#x20;
+1. e.g. vitalik.lens
+2. e.g. `lens_id:0x19af`
 
-[^2]: e.g. vitalik.lens
+[^1]: ENS that is resolved off-chain, e.g. <mark style="color:red;">`leighton.pooltogether.eth`</mark>
 
-[^3]: e.g. `lens_id:100275`
+[^2]: e.g. `lens_id:100275`
 
-[^4]: e.g. `lens_id:0x19af`
+[^3]: e.g. `fc_fname:vitalik.eth`
 
-[^5]: e.g. `fc_fname:vitalik.eth`
-
-[^6]: e.g. `fc_fid:5650`
-
-[^7]: 0x address, ENS, Lens, Farcaster
+[^4]: 0x address, ENS, Lens, Farcaster

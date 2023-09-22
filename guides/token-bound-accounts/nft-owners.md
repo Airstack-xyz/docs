@@ -19,7 +19,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching ERC6551 dapps and integrating on-chain and off-chain data.
 
-In this tutorial, you will learn how to fetch token-bound (ERC6551) accounts by the [NFT owner](#user-content-fn-1)[^1] and vice versa, fetch the [NFT owner](#user-content-fn-2)[^2] of given token-bound (ERC6551) accounts
+In this tutorial, you will learn how to fetch token-bound (ERC6551) accounts by the [NFT owner](#user-content-fn-1)[^1] and vice versa, fetch the NFT owner of given token-bound (ERC6551) accounts
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
@@ -40,13 +40,13 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
@@ -54,13 +54,13 @@ npm install @airstack/node
 {% endtab %}
 
 {% tab title="yarn" %}
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
@@ -68,13 +68,13 @@ yarn add @airstack/node
 {% endtab %}
 
 {% tab title="pnpm" %}
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
@@ -165,7 +165,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get Token Bound Accounts By NFT Owner Address
 
-You can fetch all the token bound accounts owned by a given [NFT owner](#user-content-fn-3)[^3] address `owner`:
+You can fetch all the token bound accounts owned by a given [NFT owner](#user-content-fn-2)[^2] address `owner`:
 
 ### Try Demo
 
@@ -339,8 +339,8 @@ If you have any questions or need help regarding fetching ERC6551 token bound ac
 
 * [Accounts API Reference](../../api-references/api-reference/accounts-api/)
 
+1. owner of NFT that owns the ERC6551 accounts
+
 [^1]: owner of NFT that owns the ERC6551 accounts
 
 [^2]: owner of NFT that owns the ERC6551 accounts
-
-[^3]: owner of NFT that owns the ERC6551 accounts
