@@ -2,6 +2,17 @@
 description: >-
   Learn how to enable users to access certain features only if they hold certain
   POAP(s) or have common POAPs with a given user.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🚪 Token Gating
