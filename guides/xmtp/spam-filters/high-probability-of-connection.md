@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack to determine a user's high probability connection
   with another user to classify spammers on your XMTP messaging app.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🕸 High Probability of Connection

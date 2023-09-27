@@ -2,6 +2,17 @@
 description: >-
   Learn how you can categorize a message sender as a known or unknown one to
   avoid unknown and unwanted senders spamming your user's XMTP inbox.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 📔 Known Senders

@@ -2,6 +2,17 @@
 description: >-
   Learn how you can build spam filters for your XMTP-powered messaging
   applications.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🧹 Spam Filters

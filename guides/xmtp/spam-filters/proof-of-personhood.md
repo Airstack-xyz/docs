@@ -3,6 +3,17 @@ description: >-
   Learn how you can build a proof of personhood mechanism through on-chain and
   off-chain data indexed by Airstack to determine if a user can be considered a
   spammer in your XMTP messaging app.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🎭 Proof of Personhood
