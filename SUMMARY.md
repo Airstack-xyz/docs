@@ -70,6 +70,7 @@
   * [⚖ POAP Balances](guides/poap/poap-balances.md)
   * [🗝 POAP Holders](guides/poap/poap-holders.md)
   * [🥳 POAP Events](guides/poap/poap-events.md)
+  * [🚪 Token Gating](guides/poap/token-gating.md)
 * [🆔 Resolve Identities](guides/resolve-identities/README.md)
   * [🔷 ENS](guides/resolve-identities/ens.md)
   * [🌿 Lens](guides/resolve-identities/lens.md)
