@@ -670,7 +670,7 @@ query MyQuery {
 
 ## Developer Support
 
-If you have any questions or need help regarding fetching Lens Followings data, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding fetching follows in common data, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
