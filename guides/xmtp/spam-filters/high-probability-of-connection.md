@@ -163,9 +163,23 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
+## Best Practice
+
+While choosing a specific criteria will significantly decrease the number of spam appearing on your user's XMTP inbox, It is best practice that you **combine** the multiple criterion given here to build your **spam filter**.
+
+This is done to provide **multiple layers of filtration** that will make it nearly impossible for spammers to have their messages slide into your users' XMTP inbox.
+
 ## Common POAP Events Attended
 
 You can establish a high probability of connection if both users have attended the same POAP event(s) previously:
+
+{% hint style="success" %}
+:first\_place: **BEST PRACTICES**
+
+It is important to note that **ONLY** checking if a user A attended the same PAOP events as user B is **NOT** a foolproof method to remove spammers from your user's inbox.
+
+Thus, be sure to combine multiple criterion to provide multiple layer of filtration to prove if that the user is has a genuinely high probability of connection.
+{% endhint %}
 
 ### Try Demo
 
@@ -259,6 +273,14 @@ query CommonPoaps {
 ## Common Followers on Lens or Farcaster
 
 You can establish a high probability of connection if both users have common followers on either Lens or Farcaster:
+
+{% hint style="success" %}
+:first\_place: **BEST PRACTICES**
+
+It is important to note that **ONLY** checking if a user A has any common followers with user B is **NOT** a foolproof method to remove spammers from your user's inbox.
+
+Thus, be sure to combine multiple criterion to provide multiple layer of filtration to prove if that the user is has a genuinely high probability of connection.
+{% endhint %}
 
 ### Try Demo
 

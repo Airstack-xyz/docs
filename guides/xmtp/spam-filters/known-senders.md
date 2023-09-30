@@ -163,11 +163,25 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
+## Best Practice
+
+While choosing a specific criteria will significantly decrease the number of spam appearing on your user's XMTP inbox, It is best practice that you **combine** the multiple criterion given here to build your **known sender** inbox.
+
+This is done to provide **multiple layers of filtration** that will make it nearly impossible for spammers to have their messages slide into your users' XMTP inbox.
+
 ## Check If User A Is Following User B
 
 This can be done by providing the user B's identiy either a 0x address, ENS, cb.id, Lens, or Farcaster on the `Wallet` top-level query's `identity` input and the user A's identities in the [`socialFollowings`](../../../api-references/api-reference/socialfollowings-api.md).
 
 For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) (user A) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS) (user B):
+
+{% hint style="success" %}
+:first\_place: **BEST PRACTICES**
+
+It is important to note that **ONLY** checking if a user A is following user B is **NOT** a foolproof method to remove spammers from your user's inbox.
+
+Thus, be sure to combine multiple criterion to provide multiple layer of filtration to prove if that the user is a known sender.
+{% endhint %}
 
 ### Try Demo
 
@@ -264,6 +278,14 @@ Otherwise, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address
 This can be done by providing the user A's identity either a 0x address, ENS, cb.id, Lens, or Farcaster on the `from` input and the user B's on the `to` input.
 
 For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) (user A) have transfered any tokens [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS) (user B):
+
+{% hint style="success" %}
+:first\_place: **BEST PRACTICES**
+
+It is important to note that **ONLY** checking if a user A has any token transfers history with user B is **NOT** a foolproof method to remove spammers from your user's inbox.
+
+Thus, be sure to combine multiple criterion to provide multiple layer of filtration to prove if that the user is a known sender.
+{% endhint %}
 
 ### Try Demo
 

@@ -168,9 +168,23 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
+## Best Practice
+
+While choosing a specific criteria will significantly decrease the number of spam appearing on your user's XMTP inbox, It is best practice that you **combine** the multiple criterion given here to build your **spam filter**.
+
+This is done to provide **multiple layers of filtration** that will make it nearly impossible for spammers to have their messages slide into your users' XMTP inbox.
+
 ## Token Transfers
 
 You can build proof of personhood by checking if there are any token transfers history from the given user:
+
+{% hint style="success" %}
+:first\_place: **BEST PRACTICES**
+
+It is important to note that **ONLY** checking if a user has any token transfers is **NOT** a foolproof method to remove spammers from your user's inbox.
+
+Thus, be sure to combine multiple criterion to provide multiple layer of filtration to prove if a user is a real person.
+{% endhint %}
 
 ### Try Demo
 
@@ -365,6 +379,14 @@ Otherwise, the user should be **considered a potential spammer**.
 
 You can build proof of personhood by checking if there are any ERC20/721/1155 tokens  hold by the given user:
 
+{% hint style="success" %}
+:first\_place: **BEST PRACTICES**
+
+It is important to note that **ONLY** checking if a user has any token balances is **NOT** a foolproof method to remove spammers from your user's inbox.
+
+Thus, be sure to combine multiple criterion to provide multiple layer of filtration to prove if a user is a real person.
+{% endhint %}
+
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/5teoS4ZS1X" %}
@@ -469,6 +491,14 @@ Otherwise, the user should be **considered a potential spammer**.
 
 You can build proof of personhood by checking if the given user hold any primary ENS:
 
+{% hint style="success" %}
+:first\_place: **BEST PRACTICES**
+
+It is important to note that **ONLY** checking if a user has primary ENS is **NOT** a foolproof method to remove spammers from your user's inbox.
+
+Thus, be sure to combine multiple criterion to provide multiple layer of filtration to prove if a user is a real person.
+{% endhint %}
+
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/6re2GWPzw5" %}
@@ -517,6 +547,14 @@ Otherwise, the user should be **considered a potential spammer**.
 ## Has Lens Profile
 
 You can build proof of personhood by checking if the given user hold any Lens profile:
+
+{% hint style="success" %}
+:first\_place: **BEST PRACTICES**
+
+It is important to note that **ONLY** checking if a user has Lens profile is **NOT** a foolproof method to remove spammers from your user's inbox.
+
+Thus, be sure to combine multiple criterion to provide multiple layer of filtration to prove if a user is a real person.
+{% endhint %}
 
 ### Try Demo
 
@@ -568,6 +606,14 @@ Otherwise, the user should be **considered a potential spammer**.
 ## Has Farcaster Account
 
 You can build proof of personhood by checking if the given user hold any Farcaster account:
+
+{% hint style="success" %}
+:first\_place: **BEST PRACTICES**
+
+It is important to note that **ONLY** checking if a user has Farcaster account is **NOT** a foolproof method to remove spammers from your user's inbox.
+
+Thus, be sure to combine multiple criterion to provide multiple layer of filtration to prove if a user is a real person.
+{% endhint %}
 
 ### Try Demo
 
@@ -622,6 +668,14 @@ Otherwise, the user should be **considered a potential spammer**.
 ## Has Non-Virtual POAPs
 
 You can build proof of personhood by checking if the given user ever attended and obtained any non-virtual POAPs:
+
+{% hint style="success" %}
+:first\_place: **BEST PRACTICES**
+
+It is important to note that **ONLY** checking if a user has non-virtual POAPs is **NOT** a foolproof method to remove spammers from your user's inbox.
+
+While attending non-virtual POAPs provide a strong indication that a user is a real person, it is still best practice to combine multiple criterion to provide multiple layer of filtration to avoid any unwanted spamming.
+{% endhint %}
 
 ### Try Demo
 
