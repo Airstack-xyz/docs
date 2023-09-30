@@ -181,9 +181,7 @@ You can build proof of personhood by checking if there are any token transfers h
 {% hint style="success" %}
 :first\_place: **BEST PRACTICES**
 
-It is important to note that **ONLY** checking if a user has any token transfers is **NOT** a foolproof method to remove spammers from your user's inbox.
-
-Thus, be sure to combine multiple criterion to provide multiple layer of filtration to prove if a user is a real person.
+We recommend combining multiple criterion to determine if a user is likely to be a real person.
 {% endhint %}
 
 ### Try Demo
@@ -382,9 +380,7 @@ You can build proof of personhood by checking if there are any ERC20/721/1155 to
 {% hint style="success" %}
 :first\_place: **BEST PRACTICES**
 
-It is important to note that **ONLY** checking if a user has any token balances is **NOT** a foolproof method to remove spammers from your user's inbox.
-
-Thus, be sure to combine multiple criterion to provide multiple layer of filtration to prove if a user is a real person.
+We recommend combining multiple criterion to determine if a user is likely to be a real person.
 {% endhint %}
 
 ### Try Demo
@@ -494,9 +490,7 @@ You can build proof of personhood by checking if the given user hold any primary
 {% hint style="success" %}
 :first\_place: **BEST PRACTICES**
 
-It is important to note that **ONLY** checking if a user has primary ENS is **NOT** a foolproof method to remove spammers from your user's inbox.
-
-Thus, be sure to combine multiple criterion to provide multiple layer of filtration to prove if a user is a real person.
+We recommend combining multiple criterion to determine if a user is likely to be a real person.
 {% endhint %}
 
 ### Try Demo
@@ -551,9 +545,7 @@ You can build proof of personhood by checking if the given user hold any Lens pr
 {% hint style="success" %}
 :first\_place: **BEST PRACTICES**
 
-It is important to note that **ONLY** checking if a user has Lens profile is **NOT** a foolproof method to remove spammers from your user's inbox.
-
-Thus, be sure to combine multiple criterion to provide multiple layer of filtration to prove if a user is a real person.
+We recommend combining multiple criterion to determine if a user is likely to be a real person.
 {% endhint %}
 
 ### Try Demo
@@ -610,9 +602,7 @@ You can build proof of personhood by checking if the given user hold any Farcast
 {% hint style="success" %}
 :first\_place: **BEST PRACTICES**
 
-It is important to note that **ONLY** checking if a user has Farcaster account is **NOT** a foolproof method to remove spammers from your user's inbox.
-
-Thus, be sure to combine multiple criterion to provide multiple layer of filtration to prove if a user is a real person.
+We recommend combining multiple criterion to determine if a user is likely to be a real person.
 {% endhint %}
 
 ### Try Demo
@@ -672,9 +662,7 @@ You can build proof of personhood by checking if the given user ever attended an
 {% hint style="success" %}
 :first\_place: **BEST PRACTICES**
 
-It is important to note that **ONLY** checking if a user has non-virtual POAPs is **NOT** a foolproof method to remove spammers from your user's inbox.
-
-While attending non-virtual POAPs provide a strong indication that a user is a real person, it is still best practice to combine multiple criterion to provide multiple layer of filtration to avoid any unwanted spamming.
+We recommend combining multiple criterion to determine if a user is likely to be a real person.
 {% endhint %}
 
 ### Try Demo
