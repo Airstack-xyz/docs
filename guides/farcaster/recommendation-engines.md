@@ -28,6 +28,7 @@ In this guide you will learn how to use Airstack to:
 * [Get Recommendation Follows For Farcaster User(s) Based on NFTs](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts)
 * [Get Recommendation Follows For Farcaster User(s) Based on NFTs and POAPs Commonly Held](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts-and-poaps-commonly-held)
 * [Get Recommendation Follows For Farcaster User(s) Based on Farcaster Followers](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-farcaster-followers)
+* Get Recommendation Follows For Farcaster User(s) Based on Lens Following
 
 ## Pre-requisites
 
@@ -42,13 +43,13 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
@@ -56,13 +57,13 @@ npm install @airstack/node
 {% endtab %}
 
 {% tab title="yarn" %}
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
@@ -70,13 +71,13 @@ yarn add @airstack/node
 {% endtab %}
 
 {% tab title="pnpm" %}
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
@@ -902,6 +903,230 @@ query MyQuery {
 {% endtabs %}
 
 With the response, you can get all `followerAddress.socials` and compile them into an array of Farcaster accounts that you can recommend for the given user(s) to follow.
+
+## Get Recommendation Follows For Farcaster User(s) Based on Lens Following
+
+### Fetching
+
+You can fetch follow recommendations for Farcaster user(s) by simply showing them all their Lens following and show their corresponding Farcaster accounts, if any:
+
+#### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/mjaRr2aBoY" %}
+Show me all Lens following of fc\_fname:dwr.eth and their Farcaster account details
+{% endembed %}
+
+#### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  SocialFollowings(
+    input: {filter: {identity: {_in: ["fc_fname:dwr.eth"]}, dappName: {_eq: lens}}, blockchain: ALL, limit: 200}
+  ) {
+    Following {
+      followingAddress {
+        addresses
+        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+      }
+      followerAddress {
+        addresses
+        domains {
+          name
+        }
+        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "SocialFollowings": {
+      "Following": [
+        {
+          "followingAddress": {
+            "addresses": [
+              "0x66da63b03feca7dd44a5bb023bb3645d3252fa32"
+            ],
+            "socials": [
+              {
+<strong>                "profileName": "keeks", // One of Lens following that can be recommended
+</strong>                "userId": "3283",
+                "userAssociatedAddresses": [
+                  "0xadc0b2321bb9779bf2a565c51456fa300517bed5",
+                  "0x66da63b03feca7dd44a5bb023bb3645d3252fa32"
+                ]
+              }
+            ]
+          },
+          "followerAddress": {
+            "addresses": [
+              "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+            ],
+            "domains": [
+              {
+                "name": "dwr.eth"
+              },
+              {
+                "name": "dwr.mirror.xyz"
+              },
+              {
+                "name": "danromero.eth"
+              }
+            ],
+            "socials": [
+              {
+                "profileName": "dwr.eth",
+                "userId": "3",
+                "userAssociatedAddresses": [
+                  "0xff3174d9f52f8c24f9c884600ac80c2b2dda4556",
+                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+                  "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
+                  "0xb877f7bb52d28f06e60f557c00a56225124b357f",
+                  "0x74232bf61e994655592747e20bdf6fa9b9476f79",
+                  "0x8fc5d6afe572fefc4ec153587b63ce543f6fa2ea"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "followingAddress": {
+            "addresses": [
+              "0xcd3b95032441457aa6382fd1312753353368be41"
+            ],
+<strong>            "socials": null // This Lens following have no Farcaster, should be filtered out
+</strong>          },
+          "followerAddress": {
+            "addresses": [
+              "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+            ],
+            "domains": [
+              {
+                "name": "dwr.eth"
+              },
+              {
+                "name": "dwr.mirror.xyz"
+              },
+              {
+                "name": "danromero.eth"
+              }
+            ],
+            "socials": [
+              {
+                "profileName": "dwr.eth",
+                "userId": "3",
+                "userAssociatedAddresses": [
+                  "0xff3174d9f52f8c24f9c884600ac80c2b2dda4556",
+                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+                  "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
+                  "0xb877f7bb52d28f06e60f557c00a56225124b357f",
+                  "0x74232bf61e994655592747e20bdf6fa9b9476f79",
+                  "0x8fc5d6afe572fefc4ec153587b63ce543f6fa2ea"
+                ]
+              }
+            ]
+          }
+        },
+        // more Lens following
+      ]
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+All the Farcaster accounts that can be used for recommendation will be returned in `followingAddress.socials`.
+
+### Formatting
+
+To get the list of all following in a flat array and filter out all those that don't have any Farcaster account, use the following format function:
+
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+/**
+ * @description Formats the given data.
+ * @example
+ * // For React
+ * const { data } = useQuery(query);
+ * formatFunction(data);
+ * 
+ * // For Node
+ * const { data } = await fetchQuery(query);
+ * formatFunction(data);
+ *
+ * @param {Object} data – data result from the Airstack API call
+ * @returns – an array of Farcaster and their user details for recommendataion
+ */
+const formatFunction = (data) =>
+  data?.SocialFollowings?.Following?.map(({ followingAddress }) =>
+    followingAddress?.xmtp?.length ? followingAddress?.socials : null
+  )
+    .filter(Boolean)
+    .flat(1)
+    .filter((address, index, array) => array.indexOf(address) === index) ?? [];
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+"""
+Formats the given data.
+
+Examples:
+  query_response = await execute_query_client.execute_query()
+  formatted_data = format_function(query_response.data)
+
+Args:
+  data (dict): Data result from the Airstack API call.
+
+Returns:
+  list: An array of Farcaster and their user details for recommendation.
+"""
+def format_function(data):
+    result = []
+
+    if data and 'SocialFollowings' in data and 'Following' in data['SocialFollowings']:
+        for following in data['SocialFollowings']['Following']:
+            if 'followingAddress' in following and following['followingAddress']['xmtp'] is not None and len(following['followingAddress']['xmtp']) > 0 and following['followingAddress']['socials'] is not None:
+                result.extend(following['followingAddress']['socials'])
+
+    return result
+```
+{% endtab %}
+{% endtabs %}
+
+The formatted data will have data structure that look as follows:
+
+```json
+[
+  {
+    "profileName": "keeks",
+    "userId": "3283",
+    "userAssociatedAddresses": [
+      "0xadc0b2321bb9779bf2a565c51456fa300517bed5",
+      "0x66da63b03feca7dd44a5bb023bb3645d3252fa32"
+    ]
+  },
+  // more recommended users
+]
+
+```
 
 ## Developer Support
 
