@@ -28,7 +28,7 @@ In this guide you will learn how to use Airstack to:
 * [Get Recommendation Follows For Farcaster User(s) Based on NFTs](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts)
 * [Get Recommendation Follows For Farcaster User(s) Based on NFTs and POAPs Commonly Held](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts-and-poaps-commonly-held)
 * [Get Recommendation Follows For Farcaster User(s) Based on Farcaster Followers](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-farcaster-followers)
-* Get Recommendation Follows For Farcaster User(s) Based on Lens Following
+* [Get Recommendation Follows For Farcaster User(s) Based on Lens Following](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-lens-following)
 
 ## Pre-requisites
 
