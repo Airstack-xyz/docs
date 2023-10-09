@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to fetch Farcaster followers and followings in common between
-  multiple Farcaster users.
+  Learn how to fetch Farcaster users who are following or being followed by two
+  Farcaster users.
 layout:
   title:
     visible: true
@@ -19,14 +19,14 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and integrating on-chain and off-chain data with Farcaster.
 
-In this tutorial, you will learn how to fetch Farcaster followers and following in common and its variation.
+In this tutorial, you will learn how to fetch Farcaster users who are following or being followed by two Farcaster users and their variations.
 
 In this guide you will learn how to use Airstack to:
 
-* [Common Farcaster Followers of Multiple Farcaster Users](follows-in-common.md#common-farcaster-followers-of-multiple-farcaster-users)
-* [Common Farcaster Following of Multiple Farcaster Users](follows-in-common.md#common-farcaster-following-of-multiple-farcaster-users)
-* [Farcaster Followers of Farcaster User X That Is Also Farcaster Following of Farcaster User Y](follows-in-common.md#farcaster-followers-of-farcaster-user-x-that-is-also-farcaster-following-of-farcaster-user-y)
-* [Farcaster Following of Farcaster User X That Is Also Farcaster Followers of Farcaster User Y](follows-in-common.md#farcaster-following-of-farcaster-user-x-that-is-also-farcaster-follower-of-farcaster-user-y)
+* [Farcaster Users Who Are Following Two Given Farcaster Users](follows-in-common.md#farcaster-users-who-are-following-two-given-farcaster-users)
+* [Farcaster Users Who Are Being Followed By Two Given Farcaster Users](follows-in-common.md#farcaster-users-who-are-being-followed-by-two-given-farcaster-users)
+* [Farcaster Users Who Are Following User X That Are Also Being Followed By User Y](follows-in-common.md#farcaster-users-who-are-following-user-x-that-are-also-being-followed-by-user-y)
+* [Farcaster Users Who Are Being Followed By User X That Are Also Following By User Y](follows-in-common.md#farcaster-users-who-are-being-followed-by-user-x-that-are-also-following-by-user-y)
 * [Mutual Follows of A Farcaster User](follows-in-common.md#mutual-farcaster-follows-of-a-farcaster-user)
 
 ## Pre-requisites
@@ -166,9 +166,11 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Common Farcaster Followers of Multiple Farcaster Users
+## Farcaster Users Who Are Following Two Given Farcaster Users
 
-You can get the list of common Farcaster followers of multiple Farcaster user by inputting [0x address](#user-content-fn-1)[^1], ENS domain, [Farcaster Name](#user-content-fn-2)[^2], or Farcaster ID:
+You can get the list of Farcaster users which are following two given Farcaster users by inputting [0x address](#user-content-fn-1)[^1], ENS domain, [Farcaster Name](#user-content-fn-2)[^2], or Farcaster ID.
+
+For example, get all Farcaster users which are following both Farcaster users `fc_fname:betashop.eth` and `fc_fname:ipeciura`:
 
 ### Try Demo
 
@@ -257,9 +259,11 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## Common Farcaster Following of Multiple Farcaster Users
+## Farcaster Users Who Are Being Followed By Two Given Farcaster Users
 
-You can get the list of common Farcaster following of multiple Farcaster user by inputting [0x address](#user-content-fn-3)[^3], ENS domain, [Farcaster Name](#user-content-fn-4)[^4], or Farcaster ID:
+You can get the list of all Farcaster users being followed by two given Farcaster users by inputting [0x address](#user-content-fn-3)[^3], ENS domain, [Farcaster Name](#user-content-fn-4)[^4], or [Farcaster ID](#user-content-fn-5)[^5].
+
+For example, get all Farcaster users which are being followed by both Farcaster users `fc_fname:betashop.eth` and `fc_fname:ipeciura`:
 
 ### Try Demo
 
@@ -344,9 +348,11 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## Farcaster Followers of Farcaster User X That Is Also Farcaster Following of Farcaster User Y
+## Farcaster Users Who Are Following User X That Are Also Being Followed By User Y
 
-You can get the list of Farcaster followers of Farcaster user X, e.g. `fc_fname:betashop.eth`, that also is followed by another Farcaster user Y, e.g. `fc_fname:ipeciura`, by inputting [0x address](#user-content-fn-5)[^5], ENS domain, [Farcaster Name](#user-content-fn-6)[^6], or Farcaster ID:
+You can get the list of Farcaster users that is following Farcaster user X who are also being followed by another Farcaster user Y by inputting [0x address](#user-content-fn-6)[^6], ENS domain, [Farcaster Name](#user-content-fn-7)[^7], or [Farcaster ID](#user-content-fn-8)[^8].
+
+For example, get all Farcaster users that is following Farcaster user `fc_fname:betashop.eth` who are also being followed by `fc_fname:ipeciura`:
 
 ### Try Demo
 
@@ -432,9 +438,11 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## Farcaster Following of Farcaster User X That Is Also Farcaster Follower of Farcaster User Y
+## Farcaster Users Who Are Being Followed By User X That Are Also Following By User Y
 
-You can get the list of Farcaster following of Farcaster user X, e.g. `fc_fname:betashop.eth`, that also follows another Farcaster user Y, e.g. `fc_fname:ipeciura`, by inputting [0x address](#user-content-fn-7)[^7], ENS domain, [Farcaster Name](#user-content-fn-8)[^8], or Farcaster ID:
+You can get a list of Farcaster users who are being followed by Farcaster user X and also are following another Farcaster user Y by inputting [0x address](#user-content-fn-9)[^9], ENS domain, [Farcaster Name](#user-content-fn-10)[^10], or [Farcaster ID](#user-content-fn-11)[^11].
+
+For example, get all Farcaster users who are being followed by `fc_fname:betashop.eth` and also are following `fc_fname:ipeciura`:&#x20;
 
 ### Try Demo
 
@@ -522,7 +530,9 @@ query MyQuery {
 
 ## Mutual Farcaster Follows of A Farcaster User
 
-You can get the mutual Farcaster follows of a Farcaster user using the same query as Farcaster Followers of Farcaster User X That Is Also Farcaster Following of Farcaster User Y, where in this case X is equals to Y, e.g. `fc_fname:betashop.eth`:
+You can fetch all Farcaster users that are following a given Farcaster user X and check if Farcaster user X is mutually following back.
+
+For example, get all Farcaster users that are following `fc_fname:betashop.eth` and check if `fc_fname:betashop.eth` is mutually following back:
 
 ### Try Demo
 
@@ -619,9 +629,6 @@ If you have any questions or need help regarding fetching Farcaster followers an
 * [SocialFollowers API](../../api-references/api-reference/socialfollowers-api.md)
 * [SocialFollowings API](../../api-references/api-reference/socialfollowings-api.md)
 
-1. e.g. `varunsrin.eth`
-2. e.g. `fc_fid:602`
-
 [^1]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 
 [^2]: e.g. `fc_fname:dwr.eth`
@@ -630,10 +637,16 @@ If you have any questions or need help regarding fetching Farcaster followers an
 
 [^4]: e.g. `fc_fname:dwr.eth`
 
-[^5]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
+[^5]: e.g. `fc_fid:5650` &#x20;
 
-[^6]: e.g. `fc_fname:dwr.eth`
+[^6]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 
-[^7]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
+[^7]: e.g. `fc_fname:dwr.eth`
 
-[^8]: e.g. `fc_fname:dwr.eth`
+[^8]: e.g. `fc_fid:5650` &#x20;
+
+[^9]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
+
+[^10]: e.g. `fc_fname:dwr.eth`
+
+[^11]: e.g. `fc_fid:5650` &#x20;

@@ -39,6 +39,10 @@ Learn how to use Airstack to:
 [farcaster-following.md](farcaster-following.md)
 {% endcontent-ref %}
 
+{% content-ref url="follows-in-common.md" %}
+[follows-in-common.md](follows-in-common.md)
+{% endcontent-ref %}
+
 {% content-ref url="has-xmtp.md" %}
 [has-xmtp.md](has-xmtp.md)
 {% endcontent-ref %}
