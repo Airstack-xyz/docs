@@ -31,12 +31,12 @@ layout:
 * Regex in string fields
 * Image dimension and aspect ratio in response
 * Video URL in image field
+* Lens V2
 
 ### Q4 2023
 
 * Base
 * Webhooks
-* Lens V2
 * Lens Collects
 * Zora
 
