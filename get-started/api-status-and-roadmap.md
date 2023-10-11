@@ -21,8 +21,23 @@ layout:
 
 ## Future Roadmap\*
 
-<table><thead><tr><th>Features</th><th data-type="select">Category</th><th>Description</th><th align="center">Availability</th></tr></thead><tbody><tr><td>Farcaster Profile Resolver from Hubs</td><td></td><td>Farcaster profiles, addresses, connected addresses, registration details</td><td align="center">Live ✅</td></tr><tr><td>Farcaster Follows</td><td></td><td></td><td align="center">Live ✅</td></tr><tr><td>ENS Off-chain Resolvers</td><td></td><td>e.g. cb.id</td><td align="center">In Progress</td></tr><tr><td>Lens Follows</td><td></td><td></td><td align="center">In Progress</td></tr><tr><td>Lens Collects</td><td></td><td></td><td align="center">Sept 2023</td></tr><tr><td>Snapshots</td><td></td><td><p>Holders/holding as of certain date or date range</p><p></p><p>Length of holding tokens/NFTs</p></td><td align="center">Sept 2023</td></tr><tr><td>Base Chain</td><td></td><td></td><td align="center">Sept 2023</td></tr><tr><td>Webhooks</td><td></td><td></td><td align="center">Oct 2023</td></tr><tr><td>Unstoppable Domains</td><td></td><td></td><td align="center">Q4 2023</td></tr><tr><td>Farcaster Posts</td><td></td><td></td><td align="center">TBD</td></tr><tr><td>Lens Posts</td><td></td><td></td><td align="center">TBD</td></tr></tbody></table>
-
 {% hint style="info" %}
 \* All future dates are subject to change
 {% endhint %}
+
+### October 2023
+
+* Snapshots (point in time holders/holdings)
+* Regex in string fields
+* Image dimension and aspect ratio in response
+* Video URL in image field
+
+### Q4 2023
+
+* Base
+* Webhooks
+* Lens V2
+* Lens Collects
+* Zora
+
+Please contact us to let us know your needs.
