@@ -1,5 +1,5 @@
 ---
-description: Learn how Airstack pricing will be implemented from October 2023.
+description: Learn how Airstack pricing will be implemented from November 2023.
 layout:
   title:
     visible: true
@@ -19,36 +19,47 @@ layout:
 
 [Airstack](https://airstack.xyz) is available **free of charge** until November 2023. (exact launch date tbd).
 
-Our focus right now is to help developers achieve their desired use cases while we learn together and rapidly enhance the [Airstack](https://airstack.xyz) features.
-
 If you need a rate limit increase, you can request one on your Dashboard's [Manage Billing](https://app.airstack.xyz/profile-settings/manage-plans) page.&#x20;
 
-{% hint style="info" %}
-**The only exception prior to October is Enterprise** usage, currently defined as having >50,000,000 API calls per month, who are subject to immediate custom pricing.
-{% endhint %}
+##
 
-## After November 2023
+## November 2023
 
 Airstack API use will be charged accordingly to the following guidelines:
 
 ### 1. Free to Start
 
-* It will cost users $0 to experiment, plan, and explore the Airstack APIs in totality.&#x20;
 * A very generous free bundle of credits (X millions) will be provided to all users&#x20;
 * Many users will be able to make use of the free credits for many months before encountering any charges. The intent is to only charge for scaling production apps.&#x20;
 
-### 2. No Pay-Walled Features
+### 2. Free to learn and test, always
+
+* All Clients will get 2 API keys:
+  * Test key: low rate limit, no credits charged for usage
+  * Production key: 3000 requests per minute, bursts of 300 per second, credits charged for usage
+
+### 3. No Pay-Walled Features
 
 * All API features will be available to all developers at all times
 * Unlimited use of Airstack AI for all users
-* All devs will get a high rate limit: 3000 requests per minute, bursts of 300 per second
+* All devs will get a high rate limit:&#x20;
 
-### 3. Pay Only For What You Use
+### 4. Pay Only For What You Use
 
-* After you've exhausted your free credits, you will pay for to the value you are receiving, as measured in **API calls/responses**.&#x20;
-* Each API request will cost a # of **credits** depending on the number of nested API calls/variables in the query.&#x20;
+* After you've exhausted your free credits, you will pay for to the value you are receiving, as measured in **API queries**.&#x20;
+* Each API query will cost a # of **credits** depending on the number of nested API calls/variables in the query.&#x20;
   * A simple query with 1 input and 1 response variable = 1 credit. So, you would have to run that query millions of times to exhaust your free credits.&#x20;
-  * We'll provide a series of examples, simple calculators and in-app reports -- so you can build with confidence at all times
+  * The formula for calculating credits is as follows:
+    * The # of inputs (e.g. wallet addresses/Identities, or contracts)
+    * (multiplied by) the Top Level Query and number of Nested Queries within the query
+      * This is constructed such that we are agnostic as to whether you query it as one big nested query or as individual queries.
+      * It would still add up to the same amount of credits consumed.
 * After the initial free credits, each additional credit will cost $0.00002, billed weekly based on your actual usage.&#x20;
-* There are no flat or minimum monthly flat fees. You only pay for what you use.&#x20;
+* There are no flat or minimum monthly flat fees. You only pay for what you use. \
 
+
+### 5. You're in full control
+
+* Clients will have full visibility in their Airstack dashboard as to how many credits each query consumes and Airstack team will work with Clients to forecast and optimize their billing.
+  * We want you to value what you pay for and make sure you are in full control; no surprises
+* Let us know if you would like a report already on your credit utilization per query.
