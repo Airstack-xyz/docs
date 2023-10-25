@@ -43,7 +43,9 @@ Show me all holders of @BoredApeYachtClub (Demo)
       }
     }
     pageInfo {
-<strong>      nextCursor # cursor to next page (2nd page)
+<strong>      hasNextPage # Booelan indicating if the next page of data exist
+</strong><strong>      hasPrevPage # Booelan indicating if the previous page of data exist
+</strong><strong>      nextCursor # cursor to next page (2nd page)
 </strong><strong>      prevCursor # cursor to prev page
 </strong>    }
   }
@@ -74,6 +76,10 @@ Show me all holders of @BoredApeYachtClub (Demo)
         }
       ],
       "pageInfo": {
+        // `hasNextPage`: indicate there exist the next page (2nd page)
+        "hasNextPage": true,
+        // `hasPrevPage`: indicate there is no previous next page
+        "hasPrevPage": false,
         // `nextCursor`: Cursor for the next page (2nd page)
 <strong>        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweGJjNGNhMGVkYTc2NDdhOGFiN2MyMDYxYzJlMTE4YTE4YTkzNmYxM2QweDMzYzFmZWZmYmY3MjE3ZDdiMjI0NGRjOTA1MWYwNGM0OTdhMDRhMDI1Nzc4IiwiRGF0YVR5cGUiOiJzdHJpbmcifSwibGFzdFVwZGF0ZWRUaW1lc3RhbXAiOnsiVmFsdWUiOiIxNjkyOTE4MTc5IiwiRGF0YVR5cGUiOiJEYXRlVGltZSJ9fSwiUGFnaW5hdGlvbkRpcmVjdGlvbiI6Ik5FWFQifQ==",
 </strong>        // `prevCursor`: Cursor for the prev page (empty for 1st page)
@@ -122,6 +128,8 @@ Show me all holders of @BoredApeYachtClub on the 2nd page (Demo)
       }
     }
     pageInfo {
+      hasNextPage
+      hasPrevPage
       nextCursor
       prevCursor
     }
@@ -154,6 +162,10 @@ Show me all holders of @BoredApeYachtClub on the 2nd page (Demo)
         }
       ],
       "pageInfo": {
+        // `hasNextPage`: indicate there exist the next page (3rd page)
+        "hasNextPage": true,
+        // `hasPrevPage`: indicate there exist the previous page (1st page)
+        "hasPrevPage": true,
         // `nextCursor`: cursor to the next page (3rd page)
         "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweGJjNGNhMGVkYTc2NDdhOGFiN2MyMDYxYzJlMTE4YTE4YTkzNmYxM2QweGIwZmZjNzhjODMyZDJjZjdmY2M2M2Y3OTIzOGZkZDcyMGI1Y2VlMzUxMDY0IiwiRGF0YVR5cGUiOiJzdHJpbmcifSwibGFzdFVwZGF0ZWRUaW1lc3RhbXAiOnsiVmFsdWUiOiIxNjkyNjM2MDIzIiwiRGF0YVR5cGUiOiJEYXRlVGltZSJ9fSwiUGFnaW5hdGlvbkRpcmVjdGlvbiI6Ik5FWFQifQ==",
         // `prevCursor`: cursor to the prev page (1st page)
