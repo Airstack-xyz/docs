@@ -2,6 +2,17 @@
 description: >-
   Learn how to fetch profile images of various web3 domains and socials, such as
   ENS and Farcaster.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🖼 Profile Image
