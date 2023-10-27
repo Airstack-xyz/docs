@@ -67,6 +67,7 @@
   * [💐 Following](guides/social-follows/following.md)
   * [👭 Follows In Common](guides/social-follows/follows-in-common.md)
   * [🚪 Token Gating](guides/social-follows/token-gating.md)
+* [🖼 Profile Image](guides/profile-image.md)
 * [⚡ POAP](guides/poap/README.md)
   * [⚖ POAP Balances](guides/poap/poap-balances.md)
   * [🗝 POAP Holders](guides/poap/poap-holders.md)

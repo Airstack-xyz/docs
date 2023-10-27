@@ -66,6 +66,7 @@ type Domain {
   subDomainCount: Int # Count of subdomains linked to the domain
   subDomains: [Domain] # Nested query - all subdomain-related data
   tokenId: String # Domain Token ID associated with the domain, if applicable
+  tokenNft: [TokenNft] # Nested query - NFT details of the ENS domain NFT 
   ttl: String # Time-to-live value for the domain
 }
 ```

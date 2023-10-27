@@ -2173,9 +2173,6 @@ If you have any questions or need help regarding fetching followers data, please
 
 * [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
 
-1. e.g. `vitalik.eth`
-2. e.g. `lens_id:0x24`
-
 [^1]: e.g. `0xeaf55242a90bb3289dB8184772b0B98562053559`
 
 [^2]: e.g. `vitalik.lens`
