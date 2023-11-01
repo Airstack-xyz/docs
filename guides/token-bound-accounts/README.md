@@ -19,33 +19,16 @@ layout:
 # 🪆 Tokenbound ERC6551
 
 {% hint style="info" %}
-It is important to note that [Airstack](https://airstack.xyz) indexes the current official Registry contract [`0x02101dfB77FDE026414827Fdc604ddAF224F0921`](https://etherscan.io/address/0x02101dfB77FDE026414827Fdc604ddAF224F0921).
-
-
+[Airstack](https://airstack.xyz) indexes all the official registry contracts (for more details, check [here](../../api-references/api-reference/accounts-api/#supported-erc6551-registries)).
 
 If you are deploying ERC6551 using a custom Registry contract, please reach out to us to add it to the [Airstack](https://airstack.xyz) API by joining our [Telegram](https://t.me/+1k3c2FR7z51mNDRh).
 {% endhint %}
 
 ## Basics
 
-{% content-ref url="nfts.md" %}
-[nfts.md](nfts.md)
-{% endcontent-ref %}
-
-{% content-ref url="nft-owners.md" %}
-[nft-owners.md](nft-owners.md)
-{% endcontent-ref %}
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="2666">♦</span> <strong>NFTs</strong></td><td>Learn how to use Airstack to get token-bound (ERC6551) accounts by NFTs that own the accounts and vice versa</td><td><a href="nfts.md">nfts.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f4ed">📭</span> <strong>NFT Owners</strong></td><td>Learn how to use Airstack to get token-bound (ERC6551) accounts by the owner of NFT that owns the accounts and vice versa.</td><td><a href="nft-owners.md">nft-owners.md</a></td></tr></tbody></table>
 
 ## Advanced
 
-{% content-ref url="sort-results.md" %}
-[sort-results.md](sort-results.md)
-{% endcontent-ref %}
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="23eb">⏫</span> <strong>Sort Results</strong></td><td>Learn how to use Airstack to get token-bound account results sorted in ascending or descending order by the creation block timestamp.</td><td><a href="sort-results.md">sort-results.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f332">🌲</span><strong>Traverse ERC6551 Tree</strong></td><td>Learn how to use Airstack to traverse the ERC6551 tree, either upwards or downwards.</td><td><a href="traverse-erc6551-tree.md">traverse-erc6551-tree.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f6aa">🚪</span><strong>Token Gating</strong></td><td>Learn how to use Airstack to build token gating with ERC6551 token-bound accounts.</td><td></td></tr></tbody></table>
 
-{% content-ref url="traverse-erc6551-tree.md" %}
-[traverse-erc6551-tree.md](traverse-erc6551-tree.md)
-{% endcontent-ref %}
-
-{% content-ref url="token-gating.md" %}
-[token-gating.md](token-gating.md)
-{% endcontent-ref %}

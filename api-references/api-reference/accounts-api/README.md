@@ -11,9 +11,20 @@ layout:
   pagination:
     visible: true
 ---
+
 # Accounts API
 
-The Accounts API fetches the list of all [ERC6551s](https://eips.ethereum.org/EIPS/eip-6551) or TBAs (token-bound accounts) created on-chain.
+The Accounts API fetches the list of all [ERC6551s](https://eips.ethereum.org/EIPS/eip-6551) or TBAs (token-bound accounts) deployed on-chain.
+
+[Optimistic indexing](#user-content-fn-1)[^1] will soon be supported as well.
+
+### Supported ERC6551 Registries
+
+Currently, [Airstack](https://airstack.xyz) indexes all the official ERC6551 registry contract on both Ethereum and Polygon:
+
+<table><thead><tr><th width="210">Version</th><th>Registry Address</th></tr></thead><tbody><tr><td>0.2.0</td><td><a href="https://etherscan.io/address/0x02101dfB77FDE026414827Fdc604ddAF224F0921"><code>0x02101dfB77FDE026414827Fdc604ddAF224F0921</code></a></td></tr><tr><td>0.3.0</td><td><a href="https://etherscan.io/address/0x284be69BaC8C983a749956D7320729EB24bc75f9"><code>0x284be69BaC8C983a749956D7320729EB24bc75f9</code></a></td></tr><tr><td>0.3.1</td><td><a href="https://etherscan.io/address/0x000000006551c19487814612e58fe06813775758"><code>0x000000006551c19487814612e58FE06813775758</code></a></td></tr></tbody></table>
+
+If you are deploying ERC6551 using a custom registry contract, please reach out to us to add it to the [Airstack](https://airstack.xyz) API by joining our [Telegram](https://t.me/+1k3c2FR7z51mNDRh).
 
 ### Inputs & Filters
 
@@ -49,3 +60,5 @@ type Account {
   updatedAtBlockTimestamp: Time # The block timestamp of the latest update on the ERC6551.
 }
 ```
+
+[^1]: indexingnon-deployed [ERC6551s](https://eips.ethereum.org/EIPS/eip-6551) or TBAs (token-bound accounts)
