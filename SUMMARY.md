@@ -170,5 +170,6 @@
 ## Miscellaneous
 
 * [🌪 API Changelog](miscellaneous/api-changelog/README.md)
+  * [Oct 31, 2023](miscellaneous/api-changelog/oct-31-2023.md)
   * [Oct 27, 2023](miscellaneous/api-changelog/oct-27-2023.md)
   * [Aug 30, 2023](miscellaneous/api-changelog/aug-30-2023.md)
