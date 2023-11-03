@@ -24,14 +24,14 @@ In this tutorial, you will learn how to build token gating systems in your dapp 
 
 In this guide you will learn how to use Airstack to:
 
-* [Gating only user(s) that have Farcaster](token-gating.md#gating-only-user-s-that-have-farcaster)
-* [Gating only user(s) that have Farcaster and NFT](token-gating.md#gating-only-user-s-that-have-farcaster-and-nft)
-* [Gating only user(s) that have Farcaster and POAP](token-gating.md#gating-only-user-s-that-have-farcaster-and-poap)
+- [Gating only user(s) that have Farcaster](token-gating.md#gating-only-user-s-that-have-farcaster)
+- [Gating only user(s) that have Farcaster and NFT](token-gating.md#gating-only-user-s-that-have-farcaster-and-nft)
+- [Gating only user(s) that have Farcaster and POAP](token-gating.md#gating-only-user-s-that-have-farcaster-and-poap)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -41,6 +41,7 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
+
 #### React
 
 ```sh
@@ -52,9 +53,11 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 #### React
 
 ```sh
@@ -66,9 +69,11 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 #### React
 
 ```sh
@@ -80,12 +85,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -93,6 +101,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -102,7 +111,7 @@ const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
-  
+
   if (data) {
     return <p>Data: {JSON.stringify(data)}</p>;
   }
@@ -116,9 +125,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -131,9 +142,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -151,6 +164,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -178,10 +192,23 @@ Show Farcaster name and ID of dwr.eth, 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA9604
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetTokenGatingFarcasters {
   Socials(
-    input: {filter: {identity: {_in: ["dwr.eth", "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "jayden.lens"]}, dappName: {_eq: farcaster}}, blockchain: ethereum}
+    input: {
+      filter: {
+        identity: {
+          _in: [
+            "dwr.eth"
+            "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+            "jayden.lens"
+          ]
+        }
+        dappName: { _eq: farcaster }
+      }
+      blockchain: ethereum
+    }
   ) {
     Social {
       profileName
@@ -191,9 +218,11 @@ query GetTokenGatingFarcasters {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -214,6 +243,7 @@ query GetTokenGatingFarcasters {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -235,14 +265,26 @@ Show NFT balance of 0xfaba1e9ed7f667e8c7a851c9ed15aed99aa80289 on specific NFTs
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
-    input: {filter: {tokenAddress: {_in: ["0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D", "0x23581767a106ae21c074b2276D25e5C3e136a68b"]}}, blockchain: ethereum, limit: 200}
+    input: {
+      filter: {
+        tokenAddress: {
+          _in: [
+            "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"
+            "0x23581767a106ae21c074b2276D25e5C3e136a68b"
+          ]
+        }
+      }
+      blockchain: ethereum
+      limit: 200
+    }
   ) {
     TokenBalance {
       owner {
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
           userId
           profileName
         }
@@ -251,9 +293,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -279,6 +323,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -304,14 +349,21 @@ Show if 0x4455951fa43b17bd211e0e8ae64d22fb47946ade hold some given specific POAP
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Poaps(
-    input: {filter: {eventId: {_in: ["127462", "141910"]}, owner: {_eq: "0x4455951fa43b17bd211e0e8ae64d22fb47946ade"}}, blockchain: ALL}
+    input: {
+      filter: {
+        eventId: { _in: ["127462", "141910"] }
+        owner: { _eq: "0x4455951fa43b17bd211e0e8ae64d22fb47946ade" }
+      }
+      blockchain: ALL
+    }
   ) {
     Poap {
       owner {
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
           profileName
           userId
           userAssociatedAddresses
@@ -321,9 +373,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -348,8 +402,8 @@ query MyQuery {
     }
   }
 }
-
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -367,6 +421,6 @@ If you have any questions or need help regarding token gating, please join our A
 
 ## More Resources
 
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-* [Socials API Reference](../../api-references/api-reference/socials-api/)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+- [Socials API Reference](../../api-references/api-reference/socials-api/)
+- [POAPs API Reference](../../api-references/api-reference/poaps-api/)

@@ -22,22 +22,22 @@ layout:
 
 In this tutorial, you will learn how to fetch all Farcaster users who own a specific ERC20 token, NFT (ERC721 and ERC1155), or POAPs.
 
-In addition, you will also learn how to fetch common Farcaster users that hold two different assets at the same time, e.g. Farcaster users that hold both [EthLisbon](https://explorer.airstack.xyz/token-holders?address=76949\&blockchain=gnosis\&rawInput=%23%E2%8E%B1ETHLisbon+2022%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+76949%29\&inputType=POAP) and [EthCC\[6\]](https://explorer.airstack.xyz/token-holders?address=141910\&blockchain=gnosis\&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29\&inputType=POAP) POAP.
+In addition, you will also learn how to fetch common Farcaster users that hold two different assets at the same time, e.g. Farcaster users that hold both [EthLisbon](https://explorer.airstack.xyz/token-holders?address=76949&blockchain=gnosis&rawInput=%23%E2%8E%B1ETHLisbon+2022%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+76949%29&inputType=POAP) and [EthCC\[6\]](https://explorer.airstack.xyz/token-holders?address=141910&blockchain=gnosis&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29&inputType=POAP) POAP.
 
 In this guide you will learn how to use Airstack to:
 
-* [Get Holders of an ERC20 Token That Has Farcaster](token-holders.md#get-holders-of-an-erc20-token-that-has-farcaster)
-* [Get Holders of NFT That Has Farcaster](token-holders.md#get-holders-of-nft-that-has-farcaster)
-* [Get Holders of POAP That Has Farcaster](token-holders.md#get-holders-of-nft-that-has-farcaster)
-* [Get Holders That Held Specific Amount of ERC20 Token](token-holders.md#get-holders-that-held-specific-amount-of-erc20-token)
-* [Get Common Holders of 2 ERC20 Tokens That Has Farcaster](token-holders.md#get-common-holders-of-2-erc20-tokens-that-has-farcaster)
-* [Get Common Holders of Two POAPs That Has Farcaster](token-holders.md#get-common-holders-of-two-poaps-and-that-has-farcaster)
-* [Get Common Holders of A Token (ERC20 or NFT) and A POAP That Has Farcaster](token-holders.md#get-common-holders-of-two-poaps-and-that-has-farcaster)
+- [Get Holders of an ERC20 Token That Has Farcaster](token-holders.md#get-holders-of-an-erc20-token-that-has-farcaster)
+- [Get Holders of NFT That Has Farcaster](token-holders.md#get-holders-of-nft-that-has-farcaster)
+- [Get Holders of POAP That Has Farcaster](token-holders.md#get-holders-of-nft-that-has-farcaster)
+- [Get Holders That Held Specific Amount of ERC20 Token](token-holders.md#get-holders-that-held-specific-amount-of-erc20-token)
+- [Get Common Holders of 2 ERC20 Tokens That Has Farcaster](token-holders.md#get-common-holders-of-2-erc20-tokens-that-has-farcaster)
+- [Get Common Holders of Two POAPs That Has Farcaster](token-holders.md#get-common-holders-of-two-poaps-and-that-has-farcaster)
+- [Get Common Holders of A Token (ERC20 or NFT) and A POAP That Has Farcaster](token-holders.md#get-common-holders-of-two-poaps-and-that-has-farcaster)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -47,6 +47,7 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
+
 #### React
 
 ```sh
@@ -58,9 +59,11 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 #### React
 
 ```sh
@@ -72,9 +75,11 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 #### React
 
 ```sh
@@ -86,12 +91,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -99,6 +107,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -108,7 +117,7 @@ const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
-  
+
   if (data) {
     return <p>Data: {JSON.stringify(data)}</p>;
   }
@@ -122,9 +131,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -137,9 +148,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -157,6 +170,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -186,14 +200,21 @@ Show all token holders of USD Coin on Polygon that has Farcaster
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
-    input: {filter: {tokenAddress: {_eq: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174"}}, blockchain: polygon, limit: 200}
+    input: {
+      filter: {
+        tokenAddress: { _eq: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174" }
+      }
+      blockchain: polygon
+      limit: 200
+    }
   ) {
     TokenBalance {
       owner {
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
           profileName
           userId
           userAssociatedAddresses
@@ -203,9 +224,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -230,6 +253,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -239,6 +263,7 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(({ owner }) =>
@@ -248,9 +273,11 @@ const formatFunction = (data) =>
     .flat(2)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -263,6 +290,7 @@ def format_function(data):
 
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -277,7 +305,7 @@ The final result will the the list of all common holders in an array:
       "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
       "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
     ]
-  },
+  }
   // ... other token holders
 ]
 ```
@@ -298,16 +326,21 @@ Show all token holders of BoredApeYachtClub that has Farcaster
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
-    input: {filter: {tokenAddress: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}}, blockchain: ethereum, limit: 200}
+    input: {
+      filter: {
+        tokenAddress: { _eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D" }
+      }
+      blockchain: ethereum
+      limit: 200
+    }
   ) {
     TokenBalance {
       owner {
-        socials(
-          input: {filter: {dappName: {_eq: farcaster}}}
-        ) {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
           profileName
           userId
           userAssociatedAddresses
@@ -317,9 +350,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```graphql
 {
   "data": {
@@ -344,6 +379,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -353,6 +389,7 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(({ owner }) =>
@@ -362,9 +399,11 @@ const formatFunction = (data) =>
     .flat(2)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -377,6 +416,7 @@ def format_function(data):
 
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -412,12 +452,19 @@ Show all POAP holders of EthCC\[6] - Attendee that has Farcaster
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
-  Poaps(input: {filter: {eventId: {_eq: "141910"}}, blockchain: ALL, limit: 50}) {
+  Poaps(
+    input: {
+      filter: { eventId: { _eq: "141910" } }
+      blockchain: ALL
+      limit: 50
+    }
+  ) {
     Poap {
       owner {
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
           profileName
           userId
           userAssociatedAddresses
@@ -427,9 +474,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```graphql
 {
   "data": {
@@ -455,6 +504,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -464,6 +514,7 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.Poaps?.Poap?.map(({ owner }) =>
@@ -473,9 +524,11 @@ const formatFunction = (data) =>
     .flat(2)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -488,6 +541,7 @@ def format_function(data):
 
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -503,7 +557,7 @@ The final result will the the list of all common holders in an array:
       "0x4455951fa43b17bd211e0e8ae64d22fb47946ade",
       "0xfaedb341b0faced023099d7b0ccd23c2ec5ed7a5"
     ]
-  },
+  }
   // ... other token holders
 ]
 ```
@@ -524,22 +578,23 @@ Show all user that has at least 10 USD Coin with their Farcaster
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
     input: {
       filter: {
-        tokenAddress: {_eq: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"}, 
-        formattedAmount: {_gte: 10}
-      }, 
-      blockchain: ethereum, 
+        tokenAddress: { _eq: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48" }
+        formattedAmount: { _gte: 10 }
+      }
+      blockchain: ethereum
       limit: 200
     }
   ) {
     TokenBalance {
       owner {
         identity
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
           profileName
           userId
           userAssociatedAddresses
@@ -549,9 +604,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```graphql
 {
   "data": {
@@ -578,6 +635,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -587,6 +645,7 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(({ owner }) =>
@@ -596,9 +655,11 @@ const formatFunction = (data) =>
     .flat(2)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -611,6 +672,7 @@ def format_function(data):
 
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -634,7 +696,7 @@ The final result will the the list of all common holders in an array:
 
 ### Fetching
 
-You can fetch the common holders of two given ERC20, e.g. [USDT](https://explorer.airstack.xyz/token-holders?address=0xdac17f958d2ee523a2206206994597c13d831ec7\&blockchain=ethereum\&rawInput=%23%E2%8E%B1Tether+USD%E2%8E%B1%280xdac17f958d2ee523a2206206994597c13d831ec7+TOKEN+ethereum+null%29+\&inputType=ADDRESS) and [USDC](https://explorer.airstack.xyz/token-holders?address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&blockchain=ethereum\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29+\&inputType=ADDRESS):&#x20;
+You can fetch the common holders of two given ERC20, e.g. [USDT](https://explorer.airstack.xyz/token-holders?address=0xdac17f958d2ee523a2206206994597c13d831ec7&blockchain=ethereum&rawInput=%23%E2%8E%B1Tether+USD%E2%8E%B1%280xdac17f958d2ee523a2206206994597c13d831ec7+TOKEN+ethereum+null%29+&inputType=ADDRESS) and [USDC](https://explorer.airstack.xyz/token-holders?address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48&blockchain=ethereum&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29+&inputType=ADDRESS):&#x20;
 
 #### Try Demo
 
@@ -646,6 +708,7 @@ Get Common Holders of 2 ERC20 Tokens That Has Farcaster
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfUSDTAndUSDC {
 <strong>  TokenBalances(input: {filter: {tokenAddress: {_eq: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}}, blockchain: ethereum, limit: 200}) {
 </strong>    TokenBalance {
@@ -664,9 +727,11 @@ Get Common Holders of 2 ERC20 Tokens That Has Farcaster
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -702,6 +767,7 @@ Get Common Holders of 2 ERC20 Tokens That Has Farcaster
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -713,6 +779,7 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(({ owner }) =>
@@ -724,9 +791,11 @@ const formatFunction = (data) =>
     .flat(2)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -741,6 +810,7 @@ def format_function(data):
 
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -764,7 +834,7 @@ The final result will the the list of all common holders in an array:
 
 ### Fetching
 
-You can fetch the common holders of two given POAP event IDs, e.g. [EthGlobal Lisbon 2023 Partner Attendee POAP](https://explorer.airstack.xyz/token-holders?address=127462\&blockchain=\&rawInput=%23%E2%8E%B1127462%E2%8E%B1%28127462++++ID\_POAP%29\&inputType=POAP) & [EthCC\[6\] Attendee POAP](https://explorer.airstack.xyz/token-holders?address=141910\&blockchain=gnosis\&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29+\&inputType=POAP):
+You can fetch the common holders of two given POAP event IDs, e.g. [EthGlobal Lisbon 2023 Partner Attendee POAP](https://explorer.airstack.xyz/token-holders?address=127462&blockchain=&rawInput=%23%E2%8E%B1127462%E2%8E%B1%28127462++++ID_POAP%29&inputType=POAP) & [EthCC\[6\] Attendee POAP](https://explorer.airstack.xyz/token-holders?address=141910&blockchain=gnosis&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29+&inputType=POAP):
 
 #### Try Demo
 
@@ -776,6 +846,7 @@ Get Common Holders Of EthGlobal Lisbon and EthCC POAPs
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfEthGlobalLisbonAndEthCC {
 <strong>  Poaps(input: {filter: {eventId: {_eq: "127462"}}, blockchain: ALL, limit: 200}) {
 </strong>    Poap {
@@ -794,9 +865,11 @@ Get Common Holders Of EthGlobal Lisbon and EthCC POAPs
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -832,6 +905,7 @@ Get Common Holders Of EthGlobal Lisbon and EthCC POAPs
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -845,6 +919,7 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.Poaps?.Poap?.map(({ owner }) =>
@@ -856,9 +931,11 @@ const formatFunction = (data) =>
     .flat(2)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -874,6 +951,7 @@ def format_function(data):
 
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -888,7 +966,7 @@ The final result will the the list of all common holders in an array:
       "0xcc8fd0d88abf88d006fea4487e59e2b39f281095",
       "0x546457bbddf5e09929399768ab5a9d588cb0334d"
     ]
-  },
+  }
   // ...other token holders
 ]
 ```
@@ -909,6 +987,7 @@ Show common holders of Nouns NFT and EthCC POAP that also have Farcaster
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfNounsAndEthCC {
   TokenBalances(
 <strong>    input: {filter: {tokenAddress: {_eq: "0x9c8ff314c9bc7f6e59a9d9225fb22946427edc03"}}, blockchain: ethereum, limit: 200}
@@ -929,9 +1008,11 @@ Show common holders of Nouns NFT and EthCC POAP that also have Farcaster
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -967,6 +1048,7 @@ Show common holders of Nouns NFT and EthCC POAP that also have Farcaster
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -978,6 +1060,7 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(({ owner }) =>
@@ -987,9 +1070,11 @@ const formatFunction = (data) =>
     .flat(2)
     .filter((social, index, array) => array.indexOf(social) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -1004,6 +1089,7 @@ def format_function(data):
 
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1018,7 +1104,7 @@ The final result will the the list of all common holders in an array:
       "0xc19628f57a46389b0ac0fc113de273f91b07faca",
       "0xf6b6f07862a02c85628b3a9688beae07fea9c863"
     ]
-  },
+  }
   // ...other token holders
 ]
 ```
@@ -1029,10 +1115,10 @@ If you have any questions or need help regarding fetching holders or attendees o
 
 ## More Resources
 
-* [Combinations](../lens/recommendation-engines.md)
-  * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
-  * [Mutliple POAPs](../combinations/multiple-poaps.md)
-  * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
-  * [Social Combinations](../combinations/socials-stats.md)
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+- [Combinations](../lens/recommendation-engines.md)
+  - [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
+  - [Mutliple POAPs](../combinations/multiple-poaps.md)
+  - [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
+  - [Social Combinations](../combinations/socials-stats.md)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+- [POAPs API Reference](../../api-references/api-reference/poaps-api/)

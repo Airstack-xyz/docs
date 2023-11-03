@@ -23,17 +23,17 @@ In this tutorial, you will learn how to fetch Farcaster users who are following 
 
 In this guide you will learn how to use Airstack to:
 
-* [Farcaster Users Who Are Following Two Given Farcaster Users](follows-in-common.md#farcaster-users-who-are-following-two-given-farcaster-users)
-* [Farcaster Users Who Are Being Followed By Two Given Farcaster Users](follows-in-common.md#farcaster-users-who-are-being-followed-by-two-given-farcaster-users)
-* [Farcaster Users Who Are Following User X That Are Also Being Followed By User Y](follows-in-common.md#farcaster-users-who-are-following-user-x-that-are-also-being-followed-by-user-y)
-* [Farcaster Users Who Are Being Followed By User X That Are Also Following By User Y](follows-in-common.md#farcaster-users-who-are-being-followed-by-user-x-that-are-also-following-by-user-y)
-* [Mutual Follows of A Farcaster User](follows-in-common.md#mutual-farcaster-follows-of-a-farcaster-user)
+- [Farcaster Users Who Are Following Two Given Farcaster Users](follows-in-common.md#farcaster-users-who-are-following-two-given-farcaster-users)
+- [Farcaster Users Who Are Being Followed By Two Given Farcaster Users](follows-in-common.md#farcaster-users-who-are-being-followed-by-two-given-farcaster-users)
+- [Farcaster Users Who Are Following User X That Are Also Being Followed By User Y](follows-in-common.md#farcaster-users-who-are-following-user-x-that-are-also-being-followed-by-user-y)
+- [Farcaster Users Who Are Being Followed By User X That Are Also Following By User Y](follows-in-common.md#farcaster-users-who-are-being-followed-by-user-x-that-are-also-following-by-user-y)
+- [Mutual Follows of A Farcaster User](follows-in-common.md#mutual-farcaster-follows-of-a-farcaster-user)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Finished [Farcaster Followers](farcaster-followers.md) and [Farcaster Following](farcaster-following.md)
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
+- Finished [Farcaster Followers](farcaster-followers.md) and [Farcaster Following](farcaster-following.md)
 
 ## Get Started
 
@@ -54,6 +54,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -68,6 +69,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -82,12 +84,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -95,6 +100,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -104,7 +110,7 @@ const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
-  
+
   if (data) {
     return <p>Data: {JSON.stringify(data)}</p>;
   }
@@ -118,9 +124,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -133,9 +141,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -153,6 +163,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -175,26 +186,40 @@ For example, get all Farcaster users which are following both Farcaster users `f
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/LggnwkvJ3K" %}
-Show me common followers of both fc\_fname betashop.eth and fc\_fname ipeciura
+Show me common followers of both fc_fname betashop.eth and fc_fname ipeciura
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowers(
-    input: {filter: {identity: {_eq: "fc_fname:betashop.eth"}, dappName: {_eq: farcaster}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: {
+        identity: { _eq: "fc_fname:betashop.eth" }
+        dappName: { _eq: farcaster }
+      }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Follower {
       followerAddress {
         socialFollowers(
-          input: {filter: {identity: {_eq: "fc_fname:ipeciura"}, dappName: {_eq: farcaster}}, limit: 200}
+          input: {
+            filter: {
+              identity: { _eq: "fc_fname:ipeciura" }
+              dappName: { _eq: farcaster }
+            }
+            limit: 200
+          }
         ) {
           Follower {
             followerAddress {
-              socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+              socials(input: { filter: { dappName: { _eq: farcaster } } }) {
                 fnames
                 profileName
                 userId
@@ -208,9 +233,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -256,6 +283,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -268,26 +296,40 @@ For example, get all Farcaster users which are being followed by both Farcaster 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/suXp8pV9TR" %}
-Show me common following of both fc\_fname betashop.eth and fc\_fname ipeciura
+Show me common following of both fc_fname betashop.eth and fc_fname ipeciura
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {identity: {_eq: "fc_fname:betashop.eth"}, dappName: {_eq: farcaster}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: {
+        identity: { _eq: "fc_fname:betashop.eth" }
+        dappName: { _eq: farcaster }
+      }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Following {
       followingAddress {
         socialFollowings(
-          input: {filter: {identity: {_eq: "fc_fname:ipeciura"}, dappName: {_eq: farcaster}}, limit: 200}
+          input: {
+            filter: {
+              identity: { _eq: "fc_fname:ipeciura" }
+              dappName: { _eq: farcaster }
+            }
+            limit: 200
+          }
         ) {
           Following {
             followingAddress {
-              socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+              socials(input: { filter: { dappName: { _eq: farcaster } } }) {
                 fnames
                 profileName
                 userId
@@ -301,9 +343,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowings": {
@@ -345,6 +389,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -357,26 +402,40 @@ For example, get all Farcaster users that is following Farcaster user `fc_fname:
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/ktFRZuXzFm" %}
-Show me followers of fc\_fname betashop.eth that is also followed by fc\_fname ipeciura
+Show me followers of fc_fname betashop.eth that is also followed by fc_fname ipeciura
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowers(
-    input: {filter: {identity: {_eq: "fc_fname:betashop.eth"}, dappName: {_eq: farcaster}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: {
+        identity: { _eq: "fc_fname:betashop.eth" }
+        dappName: { _eq: farcaster }
+      }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Follower {
       followerAddress {
         socialFollowings(
-          input: {filter: {identity: {_eq: "fc_fname:ipeciura"}, dappName: {_eq: farcaster}}, limit: 200}
+          input: {
+            filter: {
+              identity: { _eq: "fc_fname:ipeciura" }
+              dappName: { _eq: farcaster }
+            }
+            limit: 200
+          }
         ) {
           Following {
             followingAddress {
-              socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+              socials(input: { filter: { dappName: { _eq: farcaster } } }) {
                 fnames
                 profileName
                 userId
@@ -390,9 +449,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -435,6 +496,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -447,26 +509,40 @@ For example, get all Farcaster users who are being followed by `fc_fname:betasho
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/2O8pYeWLBt" %}
-Show me following of fc\_fname betashop.eth that is also followers of fc\_fname ipeciura
+Show me following of fc_fname betashop.eth that is also followers of fc_fname ipeciura
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {identity: {_eq: "fc_fname:betashop.eth"}, dappName: {_eq: farcaster}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: {
+        identity: { _eq: "fc_fname:betashop.eth" }
+        dappName: { _eq: farcaster }
+      }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Following {
       followingAddress {
         socialFollowers(
-          input: {filter: {identity: {_eq: "fc_fname:ipeciura"}, dappName: {_eq: farcaster}}, limit: 200}
+          input: {
+            filter: {
+              identity: { _eq: "fc_fname:ipeciura" }
+              dappName: { _eq: farcaster }
+            }
+            limit: 200
+          }
         ) {
           Follower {
             followerAddress {
-              socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+              socials(input: { filter: { dappName: { _eq: farcaster } } }) {
                 fnames
                 profileName
                 userId
@@ -480,9 +556,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -496,9 +574,7 @@ query MyQuery {
                   "followerAddress": {
                     "socials": [
                       {
-                        "fnames": [
-                          "vishwa"
-                        ],
+                        "fnames": ["vishwa"],
                         "profileName": "vishwa", // is followed by betashop.eth and follows by ipeciura
                         "userId": "7701",
                         "userAssociatedAddresses": [
@@ -525,6 +601,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -537,26 +614,40 @@ For example, get all Farcaster users that are following `fc_fname:betashop.eth` 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/j8dMg9XSnv" %}
-Show me mutual Farcaster follows of fc\_fname betashop.eth
+Show me mutual Farcaster follows of fc_fname betashop.eth
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowers(
-    input: {filter: {identity: {_eq: "fc_fname:betashop.eth"}, dappName: {_eq: farcaster}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: {
+        identity: { _eq: "fc_fname:betashop.eth" }
+        dappName: { _eq: farcaster }
+      }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Follower {
       followerAddress {
         socialFollowings(
-          input: {filter: {identity: {_eq: "fc_fname:betashop.eth"}, dappName: {_eq: farcaster}}, limit: 200}
+          input: {
+            filter: {
+              identity: { _eq: "fc_fname:betashop.eth" }
+              dappName: { _eq: farcaster }
+            }
+            limit: 200
+          }
         ) {
           Following {
             followingAddress {
-              socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+              socials(input: { filter: { dappName: { _eq: farcaster } } }) {
                 fnames
                 profileName
                 userId
@@ -570,9 +661,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -617,6 +710,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -626,27 +720,17 @@ If you have any questions or need help regarding fetching Farcaster followers an
 
 ## More Resources
 
-* [SocialFollowers API](../../api-references/api-reference/socialfollowers-api.md)
-* [SocialFollowings API](../../api-references/api-reference/socialfollowings-api.md)
+- [SocialFollowers API](../../api-references/api-reference/socialfollowers-api.md)
+- [SocialFollowings API](../../api-references/api-reference/socialfollowings-api.md)
 
 [^1]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
-
 [^2]: e.g. `fc_fname:dwr.eth`
-
 [^3]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
-
 [^4]: e.g. `fc_fname:dwr.eth`
-
 [^5]: e.g. `fc_fid:5650` &#x20;
-
 [^6]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
-
 [^7]: e.g. `fc_fname:dwr.eth`
-
 [^8]: e.g. `fc_fid:5650` &#x20;
-
 [^9]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
-
 [^10]: e.g. `fc_fname:dwr.eth`
-
 [^11]: e.g. `fc_fid:5650` &#x20;

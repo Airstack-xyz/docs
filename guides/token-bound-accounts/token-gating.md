@@ -32,9 +32,9 @@ Thus, the algorithm for ERC6551 token-gating will be as follows:
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
+- Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
 
 ## Get Started
 
@@ -44,6 +44,7 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
+
 #### React
 
 ```sh
@@ -55,9 +56,11 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 #### React
 
 ```sh
@@ -69,9 +72,11 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 #### React
 
 ```sh
@@ -83,12 +88,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -96,6 +104,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -105,7 +114,7 @@ const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
-  
+
   if (data) {
     return <p>Data: {JSON.stringify(data)}</p>;
   }
@@ -119,9 +128,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -134,9 +145,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -154,6 +167,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -181,10 +195,18 @@ Verify Ownership of Token(s) or NFT(s) on an EOA
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
-    input: {blockchain: polygon, filter: {tokenAddress: {_eq: "0x99d3fd2f1cF2E99C43F95083B98033d191F4eAbb"}, tokenId: {_eq: "10"}, owner: {_in: "0x6da658f5840fecc688a4bd007ef6b314d9138135"}}}
+    input: {
+      blockchain: polygon
+      filter: {
+        tokenAddress: { _eq: "0x99d3fd2f1cF2E99C43F95083B98033d191F4eAbb" }
+        tokenId: { _eq: "10" }
+        owner: { _in: "0x6da658f5840fecc688a4bd007ef6b314d9138135" }
+      }
+    }
   ) {
     TokenBalance {
       amount
@@ -192,9 +214,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -208,6 +232,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -229,10 +254,15 @@ Show all ERC6551 accounts owned by the NFTs owned by 0x6da658f5840fecc688a4bd007
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
-    input: {filter: {owner: {_in: ["0x6da658f5840fecc688a4bd007ef6b314d9138135"]}}, blockchain: polygon, limit: 200}
+    input: {
+      filter: { owner: { _in: ["0x6da658f5840fecc688a4bd007ef6b314d9138135"] } }
+      blockchain: polygon
+      limit: 200
+    }
   ) {
     TokenBalance {
       tokenNfts {
@@ -246,9 +276,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -259,9 +291,7 @@ query MyQuery {
             "erc6551Accounts": [
               {
                 "address": {
-                  "addresses": [
-                    "0x9b220ed6f11f0223d1e01140fbb0e1b22c713a1a"
-                  ]
+                  "addresses": ["0x9b220ed6f11f0223d1e01140fbb0e1b22c713a1a"]
                 }
               }
             ]
@@ -277,9 +307,7 @@ query MyQuery {
             "erc6551Accounts": [
               {
                 "address": {
-                  "addresses": [
-                    "0x9aacd59af1615b44cf066a9245caea7bdd44c98b"
-                  ]
+                  "addresses": ["0x9aacd59af1615b44cf066a9245caea7bdd44c98b"]
                 }
               }
             ]
@@ -290,9 +318,7 @@ query MyQuery {
             "erc6551Accounts": [
               {
                 "address": {
-                  "addresses": [
-                    "0x06265b9caeae3fe4c6b557daaff80a20546d16cf"
-                  ]
+                  "addresses": ["0x06265b9caeae3fe4c6b557daaff80a20546d16cf"]
                 }
               }
             ]
@@ -303,6 +329,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -312,6 +339,7 @@ By formatting the the output with the following format function:
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(({ tokenNfts }) =>
@@ -323,9 +351,11 @@ const formatFunction = (data) =>
     .flat(2)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -342,6 +372,7 @@ def format_function(data):
 
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -369,10 +400,25 @@ Verify ownership of NFT on ERC6551 Accounts
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
-    input: {blockchain: polygon, filter: {tokenAddress: {_eq: "0x99d3fd2f1cF2E99C43F95083B98033d191F4eAbb"}, tokenId: {_eq: "14"}, owner: {_in: ["0xd8dc5794dd43aa9d7495f05bf110614ed32e950f", "0x333d0ddaf1ecf507f54641055f732914c7f00f18", "0x8bce0326262c140f82b754ee15dbd7b0a52654a6", "0x97bd7bb13368348f10c872b5cc7d06e6993aa6eb"]}}}
+    input: {
+      blockchain: polygon
+      filter: {
+        tokenAddress: { _eq: "0x99d3fd2f1cF2E99C43F95083B98033d191F4eAbb" }
+        tokenId: { _eq: "14" }
+        owner: {
+          _in: [
+            "0xd8dc5794dd43aa9d7495f05bf110614ed32e950f"
+            "0x333d0ddaf1ecf507f54641055f732914c7f00f18"
+            "0x8bce0326262c140f82b754ee15dbd7b0a52654a6"
+            "0x97bd7bb13368348f10c872b5cc7d06e6993aa6eb"
+          ]
+        }
+      }
+    }
   ) {
     TokenBalance {
       amount
@@ -380,9 +426,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -396,6 +444,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -409,6 +458,7 @@ The complete code will look like as follows:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { useState, useEffect } from "react";
 import { init, useLazyQuery } from "@airstack/airstack-react";
@@ -469,7 +519,7 @@ const formatFunction = (data) =>
     .filter(Boolean)
     .flat(2)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
-    
+
 const Component = () => {
   const [owner, setOwner] = useState(["0x6da658f5840fecc688a4bd007ef6b314d9138135"]);
   const [tokenAddress] = useState("0x99d3fd2f1cF2E99C43F95083B98033d191F4eAbb");
@@ -515,15 +565,17 @@ const Component = () => {
       tokenId,
     });
   }, []);
-  
+
   return (
-    // 
+    //
   )
 }
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -619,9 +671,11 @@ isAccessGrantedERC6551(
   "14"
 );
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -719,6 +773,7 @@ asyncio.run(
     )
 )
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -728,11 +783,11 @@ If you have any questions or need help regarding building token gating for ERC65
 
 ## More Resources
 
-* [TokenBalances API](../../api-references/api-reference/tokenbalances-api/)
-* [Accounts API](../../api-references/api-reference/accounts-api/)
-* [Other Tokenbound ERC6551 Tutorials](./)
-  * [NFTs](nfts.md)
-  * [NFT Owners](nft-owners.md)
-  * [Sort Results](sort-results.md)
+- [TokenBalances API](../../api-references/api-reference/tokenbalances-api/)
+- [Accounts API](../../api-references/api-reference/accounts-api/)
+- [Other Tokenbound ERC6551 Tutorials](./)
+  - [NFTs](nfts.md)
+  - [NFT Owners](nft-owners.md)
+  - [Sort Results](sort-results.md)
 
 [^1]: Token bound accounts that is owned directly by the NFT that is owned directly by the given 0x address, Lens profile, Farcaster, or ENS.

@@ -32,16 +32,16 @@ There are various use cases for traversing the ERC6551 ownership tree, which inc
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Traverse Up ERC6551 Tree By ERC6551 Account Address](traverse-erc6551-tree.md#traverse-up-erc6551-tree-by-erc6551-account-address)
-* [Traverse Up ERC6551 Tree By NFT](traverse-erc6551-tree.md#traverse-up-erc6551-tree-by-nft)
-* [Traverse Down ERC6551 Tree By EOA Address](traverse-erc6551-tree.md#traverse-down-erc6551-tree-by-eoa-address)
-* [Traverse Down ERC6551 Tree By NFT](traverse-erc6551-tree.md#traverse-down-erc6551-tree-by-nft)
+- [Traverse Up ERC6551 Tree By ERC6551 Account Address](traverse-erc6551-tree.md#traverse-up-erc6551-tree-by-erc6551-account-address)
+- [Traverse Up ERC6551 Tree By NFT](traverse-erc6551-tree.md#traverse-up-erc6551-tree-by-nft)
+- [Traverse Down ERC6551 Tree By EOA Address](traverse-erc6551-tree.md#traverse-down-erc6551-tree-by-eoa-address)
+- [Traverse Down ERC6551 Tree By NFT](traverse-erc6551-tree.md#traverse-down-erc6551-tree-by-nft)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
+- Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
 
 ## Get Started
 
@@ -51,6 +51,7 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
+
 #### React
 
 ```sh
@@ -62,9 +63,11 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 #### React
 
 ```sh
@@ -76,9 +79,11 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 #### React
 
 ```sh
@@ -90,12 +95,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -103,6 +111,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -112,7 +121,7 @@ const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
-  
+
   if (data) {
     return <p>Data: {JSON.stringify(data)}</p>;
   }
@@ -126,9 +135,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -141,9 +152,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -161,6 +174,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -196,10 +210,14 @@ To query the upper-level NFTs & ERC6551 accounts in the ERC6551 ownership tree, 
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Accounts(
-    input: {filter: {address: {_eq: "0xd8dc5794dd43aa9d7495f05bf110614ed32e950f"}}, blockchain: polygon}
+    input: {
+      filter: { address: { _eq: "0xd8dc5794dd43aa9d7495f05bf110614ed32e950f" } }
+      blockchain: polygon
+    }
   ) {
     Account {
       nft {
@@ -243,9 +261,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -258,9 +278,7 @@ query MyQuery {
             "tokenBalances": [
               {
                 "owner": {
-                  "addresses": [
-                    "0x9b220ed6f11f0223d1e01140fbb0e1b22c713a1a"
-                  ],
+                  "addresses": ["0x9b220ed6f11f0223d1e01140fbb0e1b22c713a1a"],
                   "accounts": [
                     {
                       "nft": {
@@ -289,6 +307,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -298,7 +317,7 @@ Suppose that you know the NFT `X` and would like to get the ERC6551 account that
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-08-29 at 23.05.06.png" alt=""><figcaption><p>ERC6551 Tree Example Chart</p></figcaption></figure>
 
-Then, you can use the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API to do so with the following query by providing the NFT `X`'s token address and token ID to the `tokenAddress`  and `tokenId` filter input, respectively:
+Then, you can use the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API to do so with the following query by providing the NFT `X`'s token address and token ID to the `tokenAddress` and `tokenId` filter input, respectively:
 
 ### Try Demo
 
@@ -314,10 +333,17 @@ To query the upper-level NFTs & ERC6551 accounts in the ERC6551 ownership tree, 
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
-    input: {filter: {tokenAddress: {_eq: "0x99d3fd2f1cf2e99c43f95083b98033d191f4eabb"}, tokenId: {_eq: "14"}}, blockchain: polygon}
+    input: {
+      filter: {
+        tokenAddress: { _eq: "0x99d3fd2f1cf2e99c43f95083b98033d191f4eabb" }
+        tokenId: { _eq: "14" }
+      }
+      blockchain: polygon
+    }
   ) {
     TokenBalance {
       owner {
@@ -355,9 +381,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -365,9 +393,7 @@ query MyQuery {
       "TokenBalance": [
         {
           "owner": {
-            "addresses": [
-              "0xd8dc5794dd43aa9d7495f05bf110614ed32e950f"
-            ],
+            "addresses": ["0xd8dc5794dd43aa9d7495f05bf110614ed32e950f"],
             "accounts": [
               {
                 "nft": {
@@ -410,6 +436,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -435,10 +462,14 @@ To query the lower-level NFTs & ERC6551 accounts in the ERC6551 ownership tree, 
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
-    input: {blockchain: polygon, filter: {owner: {_eq: "0x6da658f5840fecc688a4bd007ef6b314d9138135"}}}
+    input: {
+      blockchain: polygon
+      filter: { owner: { _eq: "0x6da658f5840fecc688a4bd007ef6b314d9138135" } }
+    }
   ) {
     TokenBalance {
       tokenAddress
@@ -479,11 +510,13 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
- {
+{
   "data": {
     "TokenBalances": {
       "TokenBalance": [
@@ -491,9 +524,7 @@ query MyQuery {
           "tokenAddress": "0x3b8ac663c56267f697239f087d4c8207dca7d14c",
           "tokenId": "0",
           "owner": {
-            "addresses": [
-              "0x6da658f5840fecc688a4bd007ef6b314d9138135"
-            ]
+            "addresses": ["0x6da658f5840fecc688a4bd007ef6b314d9138135"]
           },
           "tokenNfts": {
             "erc6551Accounts": []
@@ -503,17 +534,13 @@ query MyQuery {
           "tokenAddress": "0x99d3fd2f1cf2e99c43f95083b98033d191f4eabb",
           "tokenId": "10",
           "owner": {
-            "addresses": [
-              "0x6da658f5840fecc688a4bd007ef6b314d9138135"
-            ]
+            "addresses": ["0x6da658f5840fecc688a4bd007ef6b314d9138135"]
           },
           "tokenNfts": {
             "erc6551Accounts": [
               {
                 "address": {
-                  "addresses": [
-                    "0x9b220ed6f11f0223d1e01140fbb0e1b22c713a1a"
-                  ],
+                  "addresses": ["0x9b220ed6f11f0223d1e01140fbb0e1b22c713a1a"],
                   "tokenBalances": [
                     {
                       "tokenAddress": "0x99d3fd2f1cf2e99c43f95083b98033d191f4eabb",
@@ -595,6 +622,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -604,7 +632,7 @@ Suppose that you know the user's EOA wallet address `X` and would like to get al
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-08-29 at 23.18.14.png" alt=""><figcaption><p>ERC6551 Tree Example Chart</p></figcaption></figure>
 
-Then, you can use the [`Accounts`](../../api-references/api-reference/accounts-api/) API to do so with the following query by providing the NFT `X`'s token address and token ID to the `tokenAddress`  and `tokenId` filter input, respectively:
+Then, you can use the [`Accounts`](../../api-references/api-reference/accounts-api/) API to do so with the following query by providing the NFT `X`'s token address and token ID to the `tokenAddress` and `tokenId` filter input, respectively:
 
 ### Try Demo
 
@@ -620,10 +648,17 @@ To query the lower-level NFTs & ERC6551 accounts in the ERC6551 ownership, simpl
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Accounts(
-    input: {blockchain: polygon, filter: {tokenAddress: {_eq: "0x99d3fd2f1cf2e99c43f95083b98033d191f4eabb"}, tokenId: {_eq: "10"}}}
+    input: {
+      blockchain: polygon
+      filter: {
+        tokenAddress: { _eq: "0x99d3fd2f1cf2e99c43f95083b98033d191f4eabb" }
+        tokenId: { _eq: "10" }
+      }
+    }
   ) {
     Account {
       address {
@@ -655,9 +690,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -665,9 +702,7 @@ query MyQuery {
       "Account": [
         {
           "address": {
-            "addresses": [
-              "0x9b220ed6f11f0223d1e01140fbb0e1b22c713a1a"
-            ],
+            "addresses": ["0x9b220ed6f11f0223d1e01140fbb0e1b22c713a1a"],
             "tokenBalances": [
               {
                 "tokenAddress": "0x99d3fd2f1cf2e99c43f95083b98033d191f4eabb",
@@ -746,6 +781,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -755,5 +791,5 @@ If you have any questions or need help regarding traversing the ERC6551 tree, pl
 
 ## More Resources
 
-* [Accounts API Reference](../../api-references/api-reference/accounts-api/)
-* [ERC6551 Token Gating](token-gating.md)
+- [Accounts API Reference](../../api-references/api-reference/accounts-api/)
+- [ERC6551 Token Gating](token-gating.md)

@@ -23,25 +23,25 @@ In this tutorial, you will learn how to fetch various use cases of utilizing the
 
 In this guide you will learn how to use Airstack to:
 
-* [Get All Following of 0x Address(es)](following.md#get-all-following-of-0x-address-es)
-* [Get All Following of ENS Domain(s)](following.md#get-all-following-of-ens-domain-s)
-* [Get All Following of Lens Profile(s)](following.md#get-all-following-of-lens-profile-s)
-* [Get All Following of Farcaster User(s)](following.md#get-all-following-of-farcaster-user-s)
-* [Check If User A Is Following User B](following.md#check-if-user-a-is-following-user-b)
-* [Get The Most Recent Following of User(s)](following.md#get-the-most-recent-following-of-user-s)
-* [Get The Earliest Following of User(s)](following.md#get-the-earliest-following-of-user-s)
-* [Get Following of User(s) that has ENS Domain](following.md#get-following-of-user-s-that-has-ens-domain)
-* [Get Following of User(s) that has XMTP Enabled](following.md#get-following-of-user-s-that-has-xmtp-enabled)
-* [Get Users that have a certain amount of Following](following.md#get-users-that-have-a-certain-amount-of-following)
-* [Get All Following of User(s) that Hold ERC20 Token(s)](following.md#get-all-following-of-user-s-that-hold-erc20-token-s)
-* [Get All Following of User(s) that Hold ERC721/1155 NFT(s)](following.md#get-all-following-of-user-s-that-hold-erc721-1155-nft-s)
-* [Get All Following of User(s) that Hold POAP(s)](following.md#get-all-following-of-user-s-that-hold-poap-s)
-* [Get All Following of User(s) that Hold Certain Amount of ERC20 Token(s)](following.md#get-all-following-of-user-s-that-hold-certain-amount-of-erc20-token-s)
+- [Get All Following of 0x Address(es)](following.md#get-all-following-of-0x-address-es)
+- [Get All Following of ENS Domain(s)](following.md#get-all-following-of-ens-domain-s)
+- [Get All Following of Lens Profile(s)](following.md#get-all-following-of-lens-profile-s)
+- [Get All Following of Farcaster User(s)](following.md#get-all-following-of-farcaster-user-s)
+- [Check If User A Is Following User B](following.md#check-if-user-a-is-following-user-b)
+- [Get The Most Recent Following of User(s)](following.md#get-the-most-recent-following-of-user-s)
+- [Get The Earliest Following of User(s)](following.md#get-the-earliest-following-of-user-s)
+- [Get Following of User(s) that has ENS Domain](following.md#get-following-of-user-s-that-has-ens-domain)
+- [Get Following of User(s) that has XMTP Enabled](following.md#get-following-of-user-s-that-has-xmtp-enabled)
+- [Get Users that have a certain amount of Following](following.md#get-users-that-have-a-certain-amount-of-following)
+- [Get All Following of User(s) that Hold ERC20 Token(s)](following.md#get-all-following-of-user-s-that-hold-erc20-token-s)
+- [Get All Following of User(s) that Hold ERC721/1155 NFT(s)](following.md#get-all-following-of-user-s-that-hold-erc721-1155-nft-s)
+- [Get All Following of User(s) that Hold POAP(s)](following.md#get-all-following-of-user-s-that-hold-poap-s)
+- [Get All Following of User(s) that Hold Certain Amount of ERC20 Token(s)](following.md#get-all-following-of-user-s-that-hold-certain-amount-of-erc20-token-s)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -62,6 +62,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -76,6 +77,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -90,12 +92,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -103,6 +108,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -112,7 +118,7 @@ const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
-  
+
   if (data) {
     return <p>Data: {JSON.stringify(data)}</p>;
   }
@@ -126,9 +132,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -141,9 +149,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -161,6 +171,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -188,10 +199,17 @@ Show me all following of 0xeaf55242a90bb3289dB8184772b0B98562053559
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {identity: {_in: ["0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: {
+        identity: { _in: ["0xeaf55242a90bb3289dB8184772b0B98562053559"] }
+      }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Following {
       followingAddress {
@@ -218,9 +236,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -228,9 +248,7 @@ query MyQuery {
       "Following": [
         {
           "followingAddress": {
-            "addresses": [
-              "0xce8e9f29525e566db4d98fb22e156607b9b8109a"
-            ],
+            "addresses": ["0xce8e9f29525e566db4d98fb22e156607b9b8109a"],
             "domains": [],
             "socials": [
               {
@@ -254,13 +272,14 @@ query MyQuery {
           },
           "followerProfileId": "602",
           "followerTokenId": ""
-        },
+        }
         // more following of 0xeaf55242a90bb3289dB8184772b0B98562053559
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -278,10 +297,15 @@ Show me all following of vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {identity: {_in: ["vitalik.eth"]}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: { identity: { _in: ["vitalik.eth"] } }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Following {
       followingAddress {
@@ -310,9 +334,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -429,13 +455,14 @@ query MyQuery {
           },
           "followerProfileId": "5650",
           "followerTokenId": ""
-        },
+        }
         // more followers of vitalik.eth
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -453,10 +480,15 @@ Show me all following of vitalik.lens
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {identity: {_in: ["vitalik.lens"]}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: { identity: { _in: ["vitalik.lens"] } }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Following {
       followingAddress {
@@ -475,7 +507,7 @@ query MyQuery {
       }
       followingProfileId
       followerAddress {
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -487,9 +519,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -557,13 +591,14 @@ query MyQuery {
           },
           "followerProfileId": "5650",
           "followerTokenId": ""
-        },
+        }
         // more followers of vitalik.lens
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -581,10 +616,15 @@ Show me all following of Farcaster user vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {identity: {_in: ["fc_fname:vitalik.eth"]}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: { identity: { _in: ["fc_fname:vitalik.eth"] } }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Following {
       followingAddress {
@@ -604,7 +644,7 @@ query MyQuery {
       followingProfileId
       followerAddress {
         addresses
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -616,9 +656,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -690,13 +732,14 @@ query MyQuery {
           },
           "followerProfileId": "5650",
           "followerTokenId": ""
-        },
+        }
         // more followers of Farcaster user vitalik.eth
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -704,7 +747,7 @@ query MyQuery {
 
 This can be done by providing the user B's identiy either a 0x address, ENS, cb.id, Lens, or Farcaster on the `Wallet` top-level query's `identity` input and the user A's identities in the [`socialFollowings`](../../api-references/api-reference/socialfollowings-api.md).
 
-For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) (user A) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS) (user B):
+For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) (user A) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS) (user B):
 
 ### Try Demo
 
@@ -720,6 +763,7 @@ If you need to check multiple users A simultaneously, then simply provide more i
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query isFollowing { # Top-level is User B's Identity (ipeciura.eth)
 <strong>  Wallet(input: {identity: "ipeciura.eth", blockchain: ethereum}) {
 </strong>    socialFollowings( # Here is User A's Identity (betashop.eth)
@@ -745,9 +789,11 @@ If you need to check multiple users A simultaneously, then simply provide more i
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Wallet": {
@@ -789,12 +835,13 @@ If you need to check multiple users A simultaneously, then simply provide more i
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
-If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&tokenType=\&activeView=\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=)  on either Lens or Farcaster, then it will appear as a response in the `Following` array as shown in the [sample response](following.md#response-1) and thus should be classified as a **known sender**.
+If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29&inputType=ADDRESS&tokenType=&activeView=&activeTokenInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=) on either Lens or Farcaster, then it will appear as a response in the `Following` array as shown in the [sample response](following.md#response-1) and thus should be classified as a **known sender**.
 
-Otherwise, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) will be considered an **unknown sender** and should be classified as one in the UI.
+Otherwise, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) will be considered an **unknown sender** and should be classified as one in the UI.
 
 ## Get The Most Recent Following of User(s)
 
@@ -810,10 +857,27 @@ Show me the most recent following of an array of users
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {identity: {_in: ["stani.lens", "lens_id:0x024", "fc_fname:dwr.eth", "fc_fid:3", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200, order: {followingSince: DESC}}
+    input: {
+      filter: {
+        identity: {
+          _in: [
+            "stani.lens"
+            "lens_id:0x024"
+            "fc_fname:dwr.eth"
+            "fc_fid:3"
+            "vitalik.eth"
+            "0xeaf55242a90bb3289dB8184772b0B98562053559"
+          ]
+        }
+      }
+      blockchain: ALL
+      limit: 200
+      order: { followingSince: DESC }
+    }
   ) {
     Following {
       followingAddress {
@@ -851,9 +915,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -934,13 +1000,14 @@ query MyQuery {
           },
           "followerProfileId": "602",
           "followerTokenId": ""
-        },
+        }
         // more following
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -958,10 +1025,27 @@ Show me the earliest following of an array of users
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {identity: {_in: ["stani.lens", "lens_id:0x024", "fc_fname:dwr.eth", "fc_fid:3", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200, order: {followingSince: ASC}}
+    input: {
+      filter: {
+        identity: {
+          _in: [
+            "stani.lens"
+            "lens_id:0x024"
+            "fc_fname:dwr.eth"
+            "fc_fid:3"
+            "vitalik.eth"
+            "0xeaf55242a90bb3289dB8184772b0B98562053559"
+          ]
+        }
+      }
+      blockchain: ALL
+      limit: 200
+      order: { followingSince: ASC }
+    }
   ) {
     Following {
       followingAddress {
@@ -999,9 +1083,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1080,13 +1166,14 @@ query MyQuery {
           },
           "followerProfileId": "602",
           "followerTokenId": ""
-        },
+        }
         // more following
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1104,6 +1191,7 @@ Show me followings of an array of users that also have ENS domain
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   SocialFollowings(
     input: {filter: {identity: {_in: ["stani.lens", "lens_id:0x024", "fc_fname:dwr.eth", "fc_fid:3", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
@@ -1145,9 +1233,11 @@ Show me followings of an array of users that also have ENS domain
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowings": {
@@ -1245,6 +1335,7 @@ Show me followings of an array of users that also have ENS domain
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -1266,6 +1357,7 @@ Show me the following of an array of users that have XMTP enabled
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   SocialFollowings(
     input: {filter: {identity: {_in: ["stani.lens", "lens_id:0x024", "fc_fname:dwr.eth", "fc_fid:3", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
@@ -1309,9 +1401,11 @@ Show me the following of an array of users that have XMTP enabled
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowings": {
@@ -1413,6 +1507,7 @@ Show me the following of an array of users that have XMTP enabled
   }
 }JSON
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -1430,10 +1525,15 @@ Show me all users that have at least 1000 following
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
-    input: {filter: {followingCount: {_gte: 1000}}, blockchain: ethereum, limit: 200}
+    input: {
+      filter: { followingCount: { _gte: 1000 } }
+      blockchain: ethereum
+      limit: 200
+    }
   ) {
     Social {
       dappName
@@ -1447,9 +1547,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1496,6 +1598,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1513,10 +1616,26 @@ Show me all following of an array of users that also hold USDC
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {identity: {_in: ["stani.lens", "lens_id:0x024", "fc_fname:dwr.eth", "fc_fid:3", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: {
+        identity: {
+          _in: [
+            "stani.lens"
+            "lens_id:0x024"
+            "fc_fname:dwr.eth"
+            "fc_fid:3"
+            "vitalik.eth"
+            "0xeaf55242a90bb3289dB8184772b0B98562053559"
+          ]
+        }
+      }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Following {
       followingAddress {
@@ -1533,7 +1652,14 @@ query MyQuery {
           userAssociatedAddresses
         }
         tokenBalances(
-          input: {filter: {tokenAddress: {_in: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"]}, tokenType: {_eq: ERC20}}}
+          input: {
+            filter: {
+              tokenAddress: {
+                _in: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"]
+              }
+              tokenType: { _eq: ERC20 }
+            }
+          }
         ) {
           formattedAmount
         }
@@ -1559,9 +1685,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowings": {
@@ -1663,6 +1791,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -1680,10 +1809,26 @@ Show me all following of an array of users that also hold BAYC
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
- query MyQuery {
+query MyQuery {
   SocialFollowings(
-    input: {filter: {identity: {_in: ["stani.lens", "lens_id:0x024", "fc_fname:dwr.eth", "fc_fid:3", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: {
+        identity: {
+          _in: [
+            "stani.lens"
+            "lens_id:0x024"
+            "fc_fname:dwr.eth"
+            "fc_fid:3"
+            "vitalik.eth"
+            "0xeaf55242a90bb3289dB8184772b0B98562053559"
+          ]
+        }
+      }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Following {
       followingAddress {
@@ -1700,7 +1845,14 @@ Show me all following of an array of users that also hold BAYC
           userAssociatedAddresses
         }
         tokenBalances(
-          input: {filter: {tokenAddress: {_in: ["0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"]}, tokenType: {_in: [ERC721, ERC1155]}}}
+          input: {
+            filter: {
+              tokenAddress: {
+                _in: ["0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"]
+              }
+              tokenType: { _in: [ERC721, ERC1155] }
+            }
+          }
         ) {
           formattedAmount
         }
@@ -1726,9 +1878,11 @@ Show me all following of an array of users that also hold BAYC
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1807,13 +1961,14 @@ Show me all following of an array of users that also hold BAYC
           },
           "followerProfileId": "602",
           "followerTokenId": ""
-        },
+        }
         // more following
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1831,10 +1986,26 @@ Show me all following of an array of users that also hold EthCC\[6] – Attendee
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {identity: {_in: ["stani.lens", "lens_id:0x024", "fc_fname:dwr.eth", "fc_fid:3", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: {
+        identity: {
+          _in: [
+            "stani.lens"
+            "lens_id:0x024"
+            "fc_fname:dwr.eth"
+            "fc_fid:3"
+            "vitalik.eth"
+            "0xeaf55242a90bb3289dB8184772b0B98562053559"
+          ]
+        }
+      }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Following {
       followingAddress {
@@ -1850,7 +2021,7 @@ query MyQuery {
           userId
           userAssociatedAddresses
         }
-        poaps(input: {filter: {eventId: {_eq: "141910"}}}) {
+        poaps(input: { filter: { eventId: { _eq: "141910" } } }) {
           mintHash
           mintOrder
         }
@@ -1876,9 +2047,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowings": {
@@ -1978,6 +2151,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -1995,10 +2169,26 @@ Show me all following of an array of users that also hold at least 1000 USDC
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {identity: {_in: ["stani.lens", "lens_id:0x024", "fc_fname:dwr.eth", "fc_fid:3", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: {
+        identity: {
+          _in: [
+            "stani.lens"
+            "lens_id:0x024"
+            "fc_fname:dwr.eth"
+            "fc_fid:3"
+            "vitalik.eth"
+            "0xeaf55242a90bb3289dB8184772b0B98562053559"
+          ]
+        }
+      }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Following {
       followingAddress {
@@ -2015,7 +2205,15 @@ query MyQuery {
           userAssociatedAddresses
         }
         tokenBalances(
-          input: {filter: {tokenAddress: {_in: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"]}, tokenType: {_eq: ERC20}, formattedAmount: {_gte: 1000}}}
+          input: {
+            filter: {
+              tokenAddress: {
+                _in: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"]
+              }
+              tokenType: { _eq: ERC20 }
+              formattedAmount: { _gte: 1000 }
+            }
+          }
         ) {
           formattedAmount
         }
@@ -2041,9 +2239,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -2145,13 +2345,14 @@ query MyQuery {
           },
           "followerProfileId": "3",
           "followerTokenId": ""
-        },
+        }
         // more following
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -2161,13 +2362,11 @@ If you have any questions or need help regarding fetching Lens Followings data, 
 
 ## More Resources
 
-* [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
+- [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
 
 1. `profileTokenId`
 2. e.g. `fc_fname:vitalik.eth`
 
 [^1]: `profileName`
-
 [^2]: `profileTokenIdHex`
-
 [^3]: e.g. `fc_fid:5650`

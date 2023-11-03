@@ -23,14 +23,14 @@ In this tutorial, you will learn how to check if user A has a high probability o
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to check high probability of connection by:
 
-* [Common POAP Events Attended](high-probability-of-connection.md#common-poap-events-attended)
-* [Common Followers on Lens or Farcaster](high-probability-of-connection.md#common-followers-on-lens-or-farcaster)
+- [Common POAP Events Attended](high-probability-of-connection.md#common-poap-events-attended)
+- [Common Followers on Lens or Farcaster](high-probability-of-connection.md#common-followers-on-lens-or-farcaster)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Basic knowledge of [XMTP](https://xmtp.org)
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
+- Basic knowledge of [XMTP](https://xmtp.org)
 
 ## Get Started
 
@@ -51,6 +51,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -65,6 +66,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -79,12 +81,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -92,6 +97,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -101,7 +107,7 @@ const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
-  
+
   if (data) {
     return <p>Data: {JSON.stringify(data)}</p>;
   }
@@ -115,9 +121,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -130,9 +138,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -150,6 +160,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -174,7 +185,7 @@ This is done to provide **multiple layers of filtration** that will make it near
 You can establish a high probability of connection if both users have attended the same POAP event(s) previously:
 
 {% hint style="success" %}
-:first\_place: **BEST PRACTICES**
+:first_place: **BEST PRACTICES**
 
 It is important to note that **ONLY** checking if a user A attended the same PAOP events as user B is **NOT** a foolproof method to remove spammers from your user's inbox.
 
@@ -191,14 +202,19 @@ show me all common poaps hold by both betashop.eth and ipeciura.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query CommonPoaps {
   Poaps(
-    input: {filter: {owner: {_eq: "betashop.eth"}}, blockchain: ALL, limit: 50}
+    input: {
+      filter: { owner: { _eq: "betashop.eth" } }
+      blockchain: ALL
+      limit: 50
+    }
   ) {
     Poap {
       poapEvent {
-        poaps(input: { filter: { owner: { _eq: "ipeciura.eth"}}}) {
+        poaps(input: { filter: { owner: { _eq: "ipeciura.eth" } } }) {
           eventId
           mintHash
           mintOrder
@@ -223,9 +239,11 @@ query CommonPoaps {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Poaps": {
@@ -267,6 +285,7 @@ query CommonPoaps {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -275,7 +294,7 @@ query CommonPoaps {
 You can establish a high probability of connection if both users have common followers on either Lens or Farcaster:
 
 {% hint style="success" %}
-:first\_place: **BEST PRACTICES**
+:first_place: **BEST PRACTICES**
 
 It is important to note that **ONLY** checking if a user A has any common followers with user B is **NOT** a foolproof method to remove spammers from your user's inbox.
 
@@ -292,14 +311,21 @@ show me all common followers of betashop.eth and ipeciura.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query CommonFollowers {
   SocialFollowers(
-    input: {filter: {identity: {_eq: "betashop.eth"}}, blockchain: ALL, limit: 50}
+    input: {
+      filter: { identity: { _eq: "betashop.eth" } }
+      blockchain: ALL
+      limit: 50
+    }
   ) {
     Follower {
       followerAddress {
-        socialFollowers(input: {filter: {identity: {_eq: "ipeciura.eth"}}}) {
+        socialFollowers(
+          input: { filter: { identity: { _eq: "ipeciura.eth" } } }
+        ) {
           Follower {
             followerAddress {
               addresses
@@ -321,9 +347,11 @@ query CommonFollowers {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -414,6 +442,7 @@ query CommonFollowers {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -423,7 +452,7 @@ If you have any questions or need help regarding determine a user's high probabi
 
 ## More Resources
 
-* [Poaps API Reference](../../../api-references/api-reference/poaps-api/)
-* [SocialFollowers API Reference](../../../api-references/api-reference/socialfollowers-api.md)
-* [Known Senders](known-senders.md)
-* [Proof of Personhood](proof-of-personhood.md)
+- [Poaps API Reference](../../../api-references/api-reference/poaps-api/)
+- [SocialFollowers API Reference](../../../api-references/api-reference/socialfollowers-api.md)
+- [Known Senders](known-senders.md)
+- [Proof of Personhood](proof-of-personhood.md)

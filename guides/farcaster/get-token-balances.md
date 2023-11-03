@@ -23,14 +23,14 @@ In this tutorial, you will learn how to fetch Farcaster user(s) asset holdings w
 
 In this guide you will learn how to use Airstack to:
 
-* [Get All ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-all-erc20s-owned-by-farcaster-user-s)
-* [Get All NFTs Owned By Farcaster user(s)](get-token-balances.md#get-all-nfts-owned-by-farcaster-user-s)
-* [Get All POAPs Owned By Farcaster user(s)](get-token-balances.md#get-all-poaps-owned-by-farcaster-user-s)
+- [Get All ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-all-erc20s-owned-by-farcaster-user-s)
+- [Get All NFTs Owned By Farcaster user(s)](get-token-balances.md#get-all-nfts-owned-by-farcaster-user-s)
+- [Get All POAPs Owned By Farcaster user(s)](get-token-balances.md#get-all-poaps-owned-by-farcaster-user-s)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -40,6 +40,7 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
+
 #### React
 
 ```sh
@@ -51,9 +52,11 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 #### React
 
 ```sh
@@ -65,9 +68,11 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 #### React
 
 ```sh
@@ -79,12 +84,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -92,6 +100,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -101,7 +110,7 @@ const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
-  
+
   if (data) {
     return <p>Data: {JSON.stringify(data)}</p>;
   }
@@ -115,9 +124,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -130,9 +141,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -150,6 +163,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -177,14 +191,22 @@ Show ERC20 tokens on Ethereum and Polygon owned by Farcaster user name dwr.eth a
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query ERC20sOwnedByFarcasterUser {
   Ethereum: TokenBalances(
-    input: {filter: {owner: {_in: ["fc_fname:dwr.eth", "fc_fid:1"]}, tokenType: {_eq: ERC20}}, blockchain: ethereum, limit: 50}
+    input: {
+      filter: {
+        owner: { _in: ["fc_fname:dwr.eth", "fc_fid:1"] }
+        tokenType: { _eq: ERC20 }
+      }
+      blockchain: ethereum
+      limit: 50
+    }
   ) {
     TokenBalance {
       owner {
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
           profileName
           userId
           userAssociatedAddresses
@@ -203,11 +225,18 @@ query ERC20sOwnedByFarcasterUser {
     }
   }
   Polygon: TokenBalances(
-    input: {filter: {owner: {_in: ["fc_fname:dwr.eth", "fc_fid:1"]}, tokenType: {_eq: ERC20}}, blockchain: polygon, limit: 50}
+    input: {
+      filter: {
+        owner: { _in: ["fc_fname:dwr.eth", "fc_fid:1"] }
+        tokenType: { _eq: ERC20 }
+      }
+      blockchain: polygon
+      limit: 50
+    }
   ) {
     TokenBalance {
       owner {
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
           profileName
           userId
           userAssociatedAddresses
@@ -227,9 +256,11 @@ query ERC20sOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -288,6 +319,7 @@ query ERC20sOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -305,14 +337,22 @@ Show NFT on Ethereum and Polygon owned by farcaster user name dwr.eth and user i
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query NFTsOwnedByFarcasterUser {
   Ethereum: TokenBalances(
-    input: {filter: {owner: {_in: ["fc_fname:dwr.eth", "fc_fid:1"]}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: ethereum, limit: 50}
+    input: {
+      filter: {
+        owner: { _in: ["fc_fname:dwr.eth", "fc_fid:1"] }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: ethereum
+      limit: 50
+    }
   ) {
     TokenBalance {
       owner {
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
           profileName
           userId
           userAssociatedAddresses
@@ -339,11 +379,18 @@ query NFTsOwnedByFarcasterUser {
     }
   }
   Polygon: TokenBalances(
-    input: {filter: {owner: {_in: ["fc_fname:dwr.eth", "fc_fid:1"]}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: polygon, limit: 50}
+    input: {
+      filter: {
+        owner: { _in: ["fc_fname:dwr.eth", "fc_fid:1"] }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: polygon
+      limit: 50
+    }
   ) {
     TokenBalance {
       owner {
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
           profileName
           userId
           userAssociatedAddresses
@@ -371,9 +418,11 @@ query NFTsOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -448,6 +497,7 @@ query NFTsOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -465,10 +515,14 @@ Show POAPs owned by Farcaster user name dwr.eth and user id 1
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query POAPsOwnedByFarcasterUser {
   Poaps(
-    input: {filter: {owner: {_in: ["fc_fname:dwr.eth", "fc_fid:1"]}}, blockchain: ALL}
+    input: {
+      filter: { owner: { _in: ["fc_fname:dwr.eth", "fc_fid:1"] } }
+      blockchain: ALL
+    }
   ) {
     Poap {
       eventId
@@ -497,9 +551,11 @@ query POAPsOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -570,6 +626,7 @@ query POAPsOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -579,5 +636,5 @@ If you have any questions or need help regarding fetching token balances of Farc
 
 ## More Resources
 
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+- [POAPs API Reference](../../api-references/api-reference/poaps-api/)

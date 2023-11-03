@@ -23,14 +23,14 @@ In this tutorial, you will learn how to check if a user is a known sender or not
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Check If User A Is Following User B](known-senders.md#check-if-user-a-is-following-user-b)
-* [Check If User A Have Any Token Transfers History With User B](known-senders.md#check-if-user-a-have-any-token-transfers-history-with-user-b)
+- [Check If User A Is Following User B](known-senders.md#check-if-user-a-is-following-user-b)
+- [Check If User A Have Any Token Transfers History With User B](known-senders.md#check-if-user-a-have-any-token-transfers-history-with-user-b)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Basic knowledge of [XMTP](https://xmtp.org)
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
+- Basic knowledge of [XMTP](https://xmtp.org)
 
 ## Get Started
 
@@ -51,6 +51,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -65,6 +66,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -79,12 +81,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -92,6 +97,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -101,7 +107,7 @@ const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
-  
+
   if (data) {
     return <p>Data: {JSON.stringify(data)}</p>;
   }
@@ -115,9 +121,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -130,9 +138,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -150,6 +160,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -173,7 +184,7 @@ This is done to provide **multiple layers of filtration** that will make it near
 
 This can be done by providing the user B's identiy either a 0x address, ENS, cb.id, Lens, or Farcaster on the `Wallet` top-level query's `identity` input and the user A's identities in the [`socialFollowings`](../../../api-references/api-reference/socialfollowings-api.md).
 
-For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) (user A) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS) (user B):
+For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) (user A) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS) (user B):
 
 ### Try Demo
 
@@ -189,6 +200,7 @@ If you need to check multiple users A simultaneously, then simply provide more i
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query isFollowing { # Top-level is User B's Identity (ipeciura.eth)
 <strong>  Wallet(input: {identity: "ipeciura.eth", blockchain: ethereum}) {
 </strong>    socialFollowings( # Here is User A's Identity (betashop.eth)
@@ -214,9 +226,11 @@ If you need to check multiple users A simultaneously, then simply provide more i
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Wallet": {
@@ -258,18 +272,19 @@ If you need to check multiple users A simultaneously, then simply provide more i
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
-If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&tokenType=\&activeView=\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=)  on either Lens or Farcaster, then it will appear as a response in the `Following` array as shown in the [sample response](known-senders.md#response-1) and thus should be classified as a **known sender**.
+If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29&inputType=ADDRESS&tokenType=&activeView=&activeTokenInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=) on either Lens or Farcaster, then it will appear as a response in the `Following` array as shown in the [sample response](known-senders.md#response-1) and thus should be classified as a **known sender**.
 
-Otherwise, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) will be considered an **unknown sender** and should be classified as one in the UI.
+Otherwise, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) will be considered an **unknown sender** and should be classified as one in the UI.
 
 ## Check If User A Have Any Token Transfers History With User B
 
 This can be done by providing the user A's identity either a 0x address, ENS, cb.id, Lens, or Farcaster on the `from` input and the user B's on the `to` input.
 
-For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) (user A) have transfered any tokens [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS) (user B):
+For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) (user A) have transfered any tokens [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS) (user B):
 
 Try Demo
 
@@ -285,10 +300,14 @@ If you need to check multiple users A simultaneously, then simply provide more i
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetTokenTransfers {
   ethereum: TokenTransfers(
-    input: {filter: {from: {_in: ["betashop.eth"]}, to: {_eq: "ipeciura.eth"}}, blockchain: ethereum}
+    input: {
+      filter: { from: { _in: ["betashop.eth"] }, to: { _eq: "ipeciura.eth" } }
+      blockchain: ethereum
+    }
   ) {
     TokenTransfer {
       from {
@@ -327,7 +346,10 @@ query GetTokenTransfers {
     }
   }
   polygon: TokenTransfers(
-    input: {filter: {from: {_in: ["betashop.eth"]}, to: {_eq: "ipeciura.eth"}}, blockchain: polygon}
+    input: {
+      filter: { from: { _in: ["betashop.eth"] }, to: { _eq: "ipeciura.eth" } }
+      blockchain: polygon
+    }
   ) {
     TokenTransfer {
       from {
@@ -367,9 +389,11 @@ query GetTokenTransfers {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "ethereum": {
@@ -472,10 +496,11 @@ query GetTokenTransfers {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
-If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) have transferred any tokens to [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&tokenType=\&activeView=\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=)  on either Ethereum or Polygon, then either the `ethereum.TokenTransfer` or the `polygon.TokenTransfer` array has non-zero length. Thus,  [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) should be classified as a **known sender**.
+If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) have transferred any tokens to [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29&inputType=ADDRESS&tokenType=&activeView=&activeTokenInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=) on either Ethereum or Polygon, then either the `ethereum.TokenTransfer` or the `polygon.TokenTransfer` array has non-zero length. Thus, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) should be classified as a **known sender**.
 
 Otherwise, `betashop.eth` will be considered an **unknown sender** and should be classified as one in the UI.
 
@@ -485,7 +510,7 @@ If you have any questions or need help regarding creating a known sender inbox f
 
 ## More Resources
 
-* [Wallet API Reference](../../../api-references/api-reference/wallet-api/)
-* [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api/)
-* [Proof of Personhood](proof-of-personhood.md)
-* [High Probability of Connection](high-probability-of-connection.md)
+- [Wallet API Reference](../../../api-references/api-reference/wallet-api/)
+- [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api/)
+- [Proof of Personhood](proof-of-personhood.md)
+- [High Probability of Connection](high-probability-of-connection.md)

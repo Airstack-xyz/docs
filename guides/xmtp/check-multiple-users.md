@@ -21,15 +21,15 @@ In this tutorial, you will learn how to check whether multiple users have XMTP e
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to check if multiple users have XMTP enabled:
 
-* [Bulk Check Multiple Users Has XMTP](check-multiple-users.md#bulk-check-multiple-users-has-xmtp)
-* [Bulk Check Lens Profiles Have XMTP](check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
-* [Bulk Check Farcasters Have XMTP](check-multiple-users.md#bulk-check-farcasters-have-xmtp)
+- [Bulk Check Multiple Users Has XMTP](check-multiple-users.md#bulk-check-multiple-users-has-xmtp)
+- [Bulk Check Lens Profiles Have XMTP](check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
+- [Bulk Check Farcasters Have XMTP](check-multiple-users.md#bulk-check-farcasters-have-xmtp)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Basic knowledge of [XMTP](https://xmtp.org)
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
+- Basic knowledge of [XMTP](https://xmtp.org)
 
 ## Get Started
 
@@ -50,6 +50,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -64,6 +65,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -78,12 +80,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -91,6 +96,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -100,7 +106,7 @@ const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
-  
+
   if (data) {
     return <p>Data: {JSON.stringify(data)}</p>;
   }
@@ -114,9 +120,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -129,9 +137,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -149,6 +159,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -178,10 +189,22 @@ Bulk Check Multiple Users Have XMTP (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   XMTPs(
-    input: {blockchain: ALL, filter: {owner: {_in: ["0xa91c2d10a993d14f842d23b97f2ab3fdf6b5b9aa", "shanemac.eth", "vitalik.lens"]}}}
+    input: {
+      blockchain: ALL
+      filter: {
+        owner: {
+          _in: [
+            "0xa91c2d10a993d14f842d23b97f2ab3fdf6b5b9aa"
+            "shanemac.eth"
+            "vitalik.lens"
+          ]
+        }
+      }
+    }
   ) {
     XMTP {
       isXMTPEnabled
@@ -199,9 +222,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -210,9 +235,7 @@ query MyQuery {
         {
           "isXMTPEnabled": true,
           "owner": {
-            "addresses": [
-              "0xa64af7f78de39a238ecd4fff7d6d410dbace2df0"
-            ],
+            "addresses": ["0xa64af7f78de39a238ecd4fff7d6d410dbace2df0"],
             "domains": [
               {
                 "name": "shanemac.eth"
@@ -233,9 +256,7 @@ query MyQuery {
         {
           "isXMTPEnabled": true,
           "owner": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
             "domains": [
               {
                 "name": "satoshinart.eth"
@@ -256,9 +277,7 @@ query MyQuery {
         {
           "isXMTPEnabled": true,
           "owner": {
-            "addresses": [
-              "0xa91c2d10a993d14f842d23b97f2ab3fdf6b5b9aa"
-            ],
+            "addresses": ["0xa91c2d10a993d14f842d23b97f2ab3fdf6b5b9aa"],
             "domains": [],
             "socials": null
           }
@@ -268,6 +287,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -291,15 +311,24 @@ Bulk Check Lens Profiles Have XMTP (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query BulkFetchLensandXMTP {
   XMTPs(
-    input: {blockchain: ALL, filter: {owner: {_in: ["hoobastank.lens", "lens_id:0x09718", "barisadiguzel.lens"]}}, limit: 100}
+    input: {
+      blockchain: ALL
+      filter: {
+        owner: {
+          _in: ["hoobastank.lens", "lens_id:0x09718", "barisadiguzel.lens"]
+        }
+      }
+      limit: 100
+    }
   ) {
     XMTP {
       isXMTPEnabled
       owner {
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenIdHex
           userAssociatedAddresses
@@ -309,9 +338,11 @@ query BulkFetchLensandXMTP {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -368,6 +399,7 @@ query BulkFetchLensandXMTP {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -385,15 +417,24 @@ Bulk Query Farcasters Have XMTP (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query BulkFetchFarcasterHaveXMTP {
   XMTPs(
-    input: {blockchain: ALL, filter: {owner: {_in: ["fc_fname:vitalik.eth", "fc_fname:varunsrin.eth", "fc_fid:602"]}}, limit: 100}
+    input: {
+      blockchain: ALL
+      filter: {
+        owner: {
+          _in: ["fc_fname:vitalik.eth", "fc_fname:varunsrin.eth", "fc_fid:602"]
+        }
+      }
+      limit: 100
+    }
   ) {
     XMTP {
       isXMTPEnabled
       owner {
-        socials(input: {filter: {dappName: {_in: farcaster}}}) {
+        socials(input: { filter: { dappName: { _in: farcaster } } }) {
           profileName
           userId
           userAssociatedAddresses
@@ -404,9 +445,11 @@ query BulkFetchFarcasterHaveXMTP {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -425,9 +468,7 @@ query BulkFetchFarcasterHaveXMTP {
                 ]
               }
             ],
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ]
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"]
           }
         },
         {
@@ -444,9 +485,7 @@ query BulkFetchFarcasterHaveXMTP {
                 ]
               }
             ],
-            "addresses": [
-              "0x182327170fc284caaa5b1bc3e3878233f529d741"
-            ]
+            "addresses": ["0x182327170fc284caaa5b1bc3e3878233f529d741"]
           }
         },
         {
@@ -462,9 +501,7 @@ query BulkFetchFarcasterHaveXMTP {
                 ]
               }
             ],
-            "addresses": [
-              "0xeaf55242a90bb3289db8184772b0b98562053559"
-            ]
+            "addresses": ["0xeaf55242a90bb3289db8184772b0b98562053559"]
           }
         }
       ]
@@ -472,6 +509,7 @@ query BulkFetchFarcasterHaveXMTP {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -481,16 +519,14 @@ If you have any questions or need help regarding checking XMTP for multiple user
 
 ## More Resources
 
-* [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
-* [Has XMTP For Lens Developers](../lens/has-xmtp.md)
-* [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
-* [Universal Resolver](../../use-cases/xmtp/universal-resolver.md)
+- [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
+- [Has XMTP For Lens Developers](../lens/has-xmtp.md)
+- [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
+- [Universal Resolver](../../use-cases/xmtp/universal-resolver.md)
 
 1. e.g. `lens_id:0x09718`
 2. e.g. `fc_fid:5650`
 
 [^1]: e.g. vitalik.lens
-
 [^2]: e.g. `fc_fname:vitalik.eth`
-
 [^3]: 0x address, ENS, Lens, Farcaster

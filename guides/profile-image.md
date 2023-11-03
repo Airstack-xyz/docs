@@ -23,13 +23,13 @@ In this tutorial, you will learn how to fetch profile images of various web3 dom
 
 In this guide you will learn how to use Airstack to:
 
-* [Get ENS Profile Image](profile-image.md#get-ens-profile-image)
-* [Get Farcaster Profile Image](profile-image.md#get-farcaster-profile-image)
+- [Get ENS Profile Image](profile-image.md#get-ens-profile-image)
+- [Get Farcaster Profile Image](profile-image.md#get-farcaster-profile-image)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -50,6 +50,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -64,6 +65,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -78,12 +80,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -91,6 +96,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -100,7 +106,7 @@ const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
-  
+
   if (data) {
     return <p>Data: {JSON.stringify(data)}</p>;
   }
@@ -114,9 +120,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -129,9 +137,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -149,6 +159,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -169,11 +180,11 @@ You can provide the domain name, e.g. `vitalik.eth`, into the `name` input filte
 {% hint style="info" %}
 The images returned will already be resized by Airstack and can be used directly within your application:
 
-* extra\_small: 125x125px
-* small: 250x250px
-* medium: 500x500px
-* large: 750x750px
-{% endhint %}
+- extra_small: 125x125px
+- small: 250x250px
+- medium: 500x500px
+- large: 750x750px
+  {% endhint %}
 
 ### Try Demo
 
@@ -185,9 +196,12 @@ Show me ENS profile image of vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
-  Domains(input: {filter: {name: {_eq: "vitalik.eth"}}, blockchain: ethereum}) {
+  Domains(
+    input: { filter: { name: { _eq: "vitalik.eth" } }, blockchain: ethereum }
+  ) {
     Domain {
       tokenNft {
         contentValue {
@@ -204,9 +218,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -230,6 +246,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -247,10 +264,17 @@ Show Farcaster profile image of Farcaster user vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
-    input: {filter: {profileName: {_eq: "vitalik.eth"}, dappName: {_eq: farcaster}}, blockchain: ethereum}
+    input: {
+      filter: {
+        profileName: { _eq: "vitalik.eth" }
+        dappName: { _eq: farcaster }
+      }
+      blockchain: ethereum
+    }
   ) {
     Social {
       profileImage
@@ -258,9 +282,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -274,6 +300,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -283,8 +310,8 @@ If you have any questions or need help regarding fetching profile images data, p
 
 ## More Resources
 
-* [Socials API Reference](../api-references/api-reference/socials-api/)
-* [Domains API Reference](../api-references/api-reference/domains-api/)
-* [TokenNfts API Reference](../api-references/api-reference/tokennfts-api/)
-* [Farcaster Users Details](farcaster/farcaster-users-details.md)
-* [Lens Profile Details](lens/lens-profile-details.md)
+- [Socials API Reference](../api-references/api-reference/socials-api/)
+- [Domains API Reference](../api-references/api-reference/domains-api/)
+- [TokenNfts API Reference](../api-references/api-reference/tokennfts-api/)
+- [Farcaster Users Details](farcaster/farcaster-users-details.md)
+- [Lens Profile Details](lens/lens-profile-details.md)

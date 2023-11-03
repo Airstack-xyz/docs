@@ -21,14 +21,14 @@ In this tutorial, you will learn how to check whether holders of a given NFT or 
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to check if holders of a given NFT or POAP have XMTP enabled:
 
-* [NFT Holders](nft-and-poap-holders.md#nft-holders)
-* [POAP Holders](nft-and-poap-holders.md#poap-holders)
+- [NFT Holders](nft-and-poap-holders.md#nft-holders)
+- [POAP Holders](nft-and-poap-holders.md#poap-holders)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Basic knowledge of [XMTP](https://xmtp.org)
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
+- Basic knowledge of [XMTP](https://xmtp.org)
 
 ## Get Started
 
@@ -38,6 +38,7 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
+
 #### React
 
 ```sh
@@ -49,9 +50,11 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 #### React
 
 ```sh
@@ -63,9 +66,11 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 #### React
 
 ```sh
@@ -77,12 +82,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -90,6 +98,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -99,7 +108,7 @@ const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
-  
+
   if (data) {
     return <p>Data: {JSON.stringify(data)}</p>;
   }
@@ -113,9 +122,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -128,9 +139,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -148,6 +161,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -175,10 +189,16 @@ Get the NFT holders that have XMTP (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
-    input: {filter: {tokenAddress: {_eq: "0xc0f95066899efd7c0540b9474f81355a83e6f578"}}, blockchain: ethereum}
+    input: {
+      filter: {
+        tokenAddress: { _eq: "0xc0f95066899efd7c0540b9474f81355a83e6f578" }
+      }
+      blockchain: ethereum
+    }
   ) {
     TokenBalance {
       owner {
@@ -191,9 +211,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -206,17 +228,13 @@ query MyQuery {
                 "isXMTPEnabled": true // XMTP is enabled
               }
             ],
-            "addresses": [
-              "0xa64af7f78de39a238ecd4fff7d6d410dbace2df0"
-            ]
+            "addresses": ["0xa64af7f78de39a238ecd4fff7d6d410dbace2df0"]
           }
         },
         {
           "owner": {
             "xmtp": [], // XMTP is not enabled
-            "addresses": [
-              "0x7a3c17937749780432db64f6569b6671c0b45e1b"
-            ]
+            "addresses": ["0x7a3c17937749780432db64f6569b6671c0b45e1b"]
           }
         }
       ]
@@ -224,6 +242,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -241,9 +260,10 @@ Get the POAP holders that have XMTP (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query POAPEventHoldersWithXMTP {
-  Poaps(input: {filter: {eventId: {_eq: "141910"}}, blockchain: ALL}) {
+  Poaps(input: { filter: { eventId: { _eq: "141910" } }, blockchain: ALL }) {
     Poap {
       owner {
         addresses
@@ -255,9 +275,11 @@ query POAPEventHoldersWithXMTP {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -265,17 +287,13 @@ query POAPEventHoldersWithXMTP {
       "Poap": [
         {
           "owner": {
-            "addresses": [
-              "0xda85048c977134b09fc05cd3d1abd3a63e8edf4d"
-            ],
+            "addresses": ["0xda85048c977134b09fc05cd3d1abd3a63e8edf4d"],
             "xmtp": [] // XMTP is not enabled
           }
         },
         {
           "owner": {
-            "addresses": [
-              "0x546457bbddf5e09929399768ab5a9d588cb0334d"
-            ],
+            "addresses": ["0x546457bbddf5e09929399768ab5a9d588cb0334d"],
             "xmtp": [
               {
                 "isXMTPEnabled": true // XMTP is enabled
@@ -288,6 +306,7 @@ query POAPEventHoldersWithXMTP {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -297,7 +316,7 @@ If you have any questions or need help regarding checking XMTP for holders of a 
 
 ## More Resources
 
-* [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
-* [Has XMTP For Lens Developers](../lens/has-xmtp.md)
-* [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
-* [Universal Resolver](../../use-cases/xmtp/universal-resolver.md)
+- [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
+- [Has XMTP For Lens Developers](../lens/has-xmtp.md)
+- [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
+- [Universal Resolver](../../use-cases/xmtp/universal-resolver.md)

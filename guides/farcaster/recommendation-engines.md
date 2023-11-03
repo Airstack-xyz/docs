@@ -23,17 +23,17 @@ In this tutorial, you will learn how to recommend followers for Farcaster users 
 
 In this guide you will learn how to use Airstack to:
 
-* [Get Recommendation Follows For Farcaster User(s) Based on Token Transfers](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-token-transfers)
-* [Get Recommendation Follows For Farcaster User(s) Based on POAPs](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-poaps)
-* [Get Recommendation Follows For Farcaster User(s) Based on NFTs](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts)
-* [Get Recommendation Follows For Farcaster User(s) Based on NFTs and POAPs Commonly Held](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts-and-poaps-commonly-held)
-* [Get Recommendation Follows For Farcaster User(s) Based on Farcaster Followers](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-farcaster-followers)
-* [Get Recommendation Follows For Farcaster User(s) Based on Lens Following](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-lens-following)
+- [Get Recommendation Follows For Farcaster User(s) Based on Token Transfers](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-token-transfers)
+- [Get Recommendation Follows For Farcaster User(s) Based on POAPs](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-poaps)
+- [Get Recommendation Follows For Farcaster User(s) Based on NFTs](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts)
+- [Get Recommendation Follows For Farcaster User(s) Based on NFTs and POAPs Commonly Held](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts-and-poaps-commonly-held)
+- [Get Recommendation Follows For Farcaster User(s) Based on Farcaster Followers](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-farcaster-followers)
+- [Get Recommendation Follows For Farcaster User(s) Based on Lens Following](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-lens-following)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -54,6 +54,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -68,6 +69,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -82,12 +84,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -95,6 +100,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -104,7 +110,7 @@ const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
-  
+
   if (data) {
     return <p>Data: {JSON.stringify(data)}</p>;
   }
@@ -118,9 +124,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -133,9 +141,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -153,6 +163,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -180,23 +191,33 @@ Show recommendations by token transfers for Farcaster user name varunsrin.eth an
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetRecommendationsByTokenTransfers {
   # first query on Ethereum
   ethereum: TokenTransfers(
-    input: {filter: {_or: {from: {_in: ["fc_fname:dwr", "fc_fid:5650"]}, to: {_in: ["fc_fname:dwr", "fc_fid:5650"]}}}, blockchain: ethereum, limit: 50}
+    input: {
+      filter: {
+        _or: {
+          from: { _in: ["fc_fname:dwr", "fc_fid:5650"] }
+          to: { _in: ["fc_fname:dwr", "fc_fid:5650"] }
+        }
+      }
+      blockchain: ethereum
+      limit: 50
+    }
   ) {
     TokenTransfer {
       from {
         addresses
-        socials(input: { filter: { dappName: {_in: farcaster}}}) {
+        socials(input: { filter: { dappName: { _in: farcaster } } }) {
           userId
           profileName
         }
       }
       to {
         addresses
-        socials(input: { filter: { dappName: {_in: farcaster}}}) {
+        socials(input: { filter: { dappName: { _in: farcaster } } }) {
           userId
           profileName
         }
@@ -205,12 +226,21 @@ query GetRecommendationsByTokenTransfers {
   }
   # second query on Polygon
   polygon: TokenTransfers(
-    input: {filter: {_or: {from: {_in: ["fc_fname:dwr", "fc_fid:5650"]}, to: {_in: ["fc_fname:dwr", "fc_fid:5650"]}}}, blockchain: polygon, limit: 50}
+    input: {
+      filter: {
+        _or: {
+          from: { _in: ["fc_fname:dwr", "fc_fid:5650"] }
+          to: { _in: ["fc_fname:dwr", "fc_fid:5650"] }
+        }
+      }
+      blockchain: polygon
+      limit: 50
+    }
   ) {
     TokenTransfer {
       from {
         addresses
-        socials(input: { filter: { dappName: {_in: farcaster}}}) {
+        socials(input: { filter: { dappName: { _in: farcaster } } }) {
           userId
           profileName
         }
@@ -220,7 +250,7 @@ query GetRecommendationsByTokenTransfers {
       }
       to {
         addresses
-        socials(input: { filter: { dappName: {_in: farcaster}}}) {
+        socials(input: { filter: { dappName: { _in: farcaster } } }) {
           userId
           profileName
         }
@@ -229,9 +259,11 @@ query GetRecommendationsByTokenTransfers {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -239,9 +271,7 @@ query GetRecommendationsByTokenTransfers {
       "TokenTransfer": [
         {
           "from": {
-            "addresses": [
-              "0xf8e8f48d0e72e41a21acc8897d4012126d04de78"
-            ],
+            "addresses": ["0xf8e8f48d0e72e41a21acc8897d4012126d04de78"],
             "socials": [
               {
                 "userId": "9837",
@@ -250,9 +280,7 @@ query GetRecommendationsByTokenTransfers {
             ]
           },
           "to": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
             "socials": [
               {
                 "userId": "5650",
@@ -267,9 +295,7 @@ query GetRecommendationsByTokenTransfers {
       "TokenTransfer": [
         {
           "from": {
-            "addresses": [
-              "0xf8e8f48d0e72e41a21acc8897d4012126d04de78"
-            ],
+            "addresses": ["0xf8e8f48d0e72e41a21acc8897d4012126d04de78"],
             "socials": [
               {
                 "userId": "3811",
@@ -278,9 +304,7 @@ query GetRecommendationsByTokenTransfers {
             ]
           },
           "to": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
             "socials": [
               {
                 "userId": "10",
@@ -294,6 +318,7 @@ query GetRecommendationsByTokenTransfers {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -311,10 +336,14 @@ Show POAPs owned by Farcaster user name dwr.eth and user id 1
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query POAPsOwnedByFarcasterUser {
   Poaps(
-    input: {filter: {owner: {_in: ["fc_fname:dwr.eth", "fc_fid:1"]}}, blockchain: ALL}
+    input: {
+      filter: { owner: { _in: ["fc_fname:dwr.eth", "fc_fid:1"] } }
+      blockchain: ALL
+    }
   ) {
     Poap {
       eventId
@@ -343,9 +372,11 @@ query POAPsOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -416,6 +447,7 @@ query POAPsOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -433,13 +465,20 @@ Show follow recommendations based on POAP event IDs 6584, 14498, and 6481
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetAllAddressesSocialsAndENSOfPOAP {
-  Poaps(input: {filter: {eventId: {_in: ["6584", "14498", "6481"]}}, blockchain: ALL, limit: 10}) {
+  Poaps(
+    input: {
+      filter: { eventId: { _in: ["6584", "14498", "6481"] } }
+      blockchain: ALL
+      limit: 10
+    }
+  ) {
     Poap {
       owner {
         identity
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
           profileName
           userId
         }
@@ -448,9 +487,11 @@ query GetAllAddressesSocialsAndENSOfPOAP {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -478,6 +519,7 @@ query GetAllAddressesSocialsAndENSOfPOAP {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -497,17 +539,32 @@ Show NFTs on Ethereum and Polygon owned by Farcaster user name varunsrin.eth and
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetNFTs {
   ethereum: TokenBalances(
-    input: {filter: {owner: {_in: ["fc_fname:varunsrin.eth", "fc_fid:5650"]}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: ethereum, limit: 200}
+    input: {
+      filter: {
+        owner: { _in: ["fc_fname:varunsrin.eth", "fc_fid:5650"] }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: ethereum
+      limit: 200
+    }
   ) {
     TokenBalance {
       tokenAddress
     }
   }
   polygon: TokenBalances(
-    input: {filter: {owner: {_in: ["fc_fname:varunsrin.eth", "fc_fid:5650"]}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: polygon, limit: 200}
+    input: {
+      filter: {
+        owner: { _in: ["fc_fname:varunsrin.eth", "fc_fid:5650"] }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: polygon
+      limit: 200
+    }
   ) {
     TokenBalance {
       tokenAddress
@@ -515,9 +572,11 @@ query GetNFTs {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -550,6 +609,7 @@ query GetNFTs {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -567,16 +627,28 @@ Show follow recommendations based on NFTs
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetNFTHoldersAndImages {
   ethereum: TokenNfts(
-    input: {filter: {address: {_in: ["0x00000000000061ad8ee190710508a818ae5325c3", "0x37fb80ef28008704288087831464058a4a3940ae", "0x5a3c077906abf9a46a9de87bb3c6d075a8a67851"]}}, blockchain: ethereum}
+    input: {
+      filter: {
+        address: {
+          _in: [
+            "0x00000000000061ad8ee190710508a818ae5325c3"
+            "0x37fb80ef28008704288087831464058a4a3940ae"
+            "0x5a3c077906abf9a46a9de87bb3c6d075a8a67851"
+          ]
+        }
+      }
+      blockchain: ethereum
+    }
   ) {
     TokenNft {
       tokenBalances {
         owner {
           identity
-          socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+          socials(input: { filter: { dappName: { _eq: farcaster } } }) {
             profileName
             userId
           }
@@ -585,13 +657,24 @@ query GetNFTHoldersAndImages {
     }
   }
   polygon: TokenNfts(
-    input: {filter: {address: {_in: ["0xd18359edd97ff13609c1978452b05b43213222d7", "0x27562885f784616be44a0dc801ff18ed4551ba3d", "0x579720c63ed37fd4bd60a44fc27a25d6f169e95e"]}}, blockchain: polygon}
+    input: {
+      filter: {
+        address: {
+          _in: [
+            "0xd18359edd97ff13609c1978452b05b43213222d7"
+            "0x27562885f784616be44a0dc801ff18ed4551ba3d"
+            "0x579720c63ed37fd4bd60a44fc27a25d6f169e95e"
+          ]
+        }
+      }
+      blockchain: polygon
+    }
   ) {
     TokenNft {
       tokenBalances {
         owner {
           identity
-          socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+          socials(input: { filter: { dappName: { _eq: farcaster } } }) {
             profileName
             userId
           }
@@ -601,9 +684,11 @@ query GetNFTHoldersAndImages {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -654,6 +739,7 @@ query GetNFTHoldersAndImages {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -675,6 +761,7 @@ Show common holders of Nouns NFT and EthCC POAP that also have Farcaster
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfNounsAndEthCC {
   TokenBalances(
 <strong>    input: {filter: {tokenAddress: {_eq: "0x9c8ff314c9bc7f6e59a9d9225fb22946427edc03"}}, blockchain: ethereum, limit: 200}
@@ -695,9 +782,11 @@ Show common holders of Nouns NFT and EthCC POAP that also have Farcaster
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -733,6 +822,7 @@ Show common holders of Nouns NFT and EthCC POAP that also have Farcaster
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -744,6 +834,7 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(({ owner }) =>
@@ -753,9 +844,11 @@ const formatFunction = (data) =>
     .flat(2)
     .filter((social, index, array) => array.indexOf(social) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -770,6 +863,7 @@ def format_function(data):
 
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -784,7 +878,7 @@ The final result will the the list of all common holders in an array:
       "0xc19628f57a46389b0ac0fc113de273f91b07faca",
       "0xf6b6f07862a02c85628b3a9688beae07fea9c863"
     ]
-  },
+  }
   // ...other token holders
 ]
 ```
@@ -805,15 +899,23 @@ Show me all Farcaster followers of fname dwr.eth and their Farcaster account det
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowers(
-    input: {filter: {dappName: {_eq: farcaster}, identity: {_in: ["fc_fname:dwr.eth"]}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: {
+        dappName: { _eq: farcaster }
+        identity: { _in: ["fc_fname:dwr.eth"] }
+      }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Follower {
       followerAddress {
         addresses
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
           profileName
           userId
           userAssociatedAddresses
@@ -824,7 +926,7 @@ query MyQuery {
         domains {
           name
         }
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
           profileName
           userId
           userAssociatedAddresses
@@ -834,9 +936,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -899,6 +1003,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -913,22 +1018,30 @@ You can fetch follow recommendations for Farcaster user(s) by simply showing the
 #### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/mjaRr2aBoY" %}
-Show me all Lens following of fc\_fname:dwr.eth and their Farcaster account details
+Show me all Lens following of fc_fname:dwr.eth and their Farcaster account details
 {% endembed %}
 
 #### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {identity: {_in: ["fc_fname:dwr.eth"]}, dappName: {_eq: lens}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: {
+        identity: { _in: ["fc_fname:dwr.eth"] }
+        dappName: { _eq: lens }
+      }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Following {
       followingAddress {
         addresses
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
           profileName
           userId
           userAssociatedAddresses
@@ -939,7 +1052,7 @@ query MyQuery {
         domains {
           name
         }
-        socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
           profileName
           userId
           userAssociatedAddresses
@@ -949,9 +1062,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowings": {
@@ -1047,6 +1162,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -1058,6 +1174,7 @@ To get the list of all following in a flat array and filter out all those that d
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 /**
  * @description Formats the given data.
@@ -1065,7 +1182,7 @@ To get the list of all following in a flat array and filter out all those that d
  * // For React
  * const { data } = useQuery(query);
  * formatFunction(data);
- * 
+ *
  * // For Node
  * const { data } = await fetchQuery(query);
  * formatFunction(data);
@@ -1081,9 +1198,11 @@ const formatFunction = (data) =>
     .flat(1)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 """
 Formats the given data.
@@ -1108,6 +1227,7 @@ def format_function(data):
 
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1122,10 +1242,9 @@ The formatted data will have data structure that look as follows:
       "0xadc0b2321bb9779bf2a565c51456fa300517bed5",
       "0x66da63b03feca7dd44a5bb023bb3645d3252fa32"
     ]
-  },
+  }
   // more recommended users
 ]
-
 ```
 
 ## Developer Support
@@ -1134,10 +1253,10 @@ If you have any questions or need help regarding building a recommendation engin
 
 ## More Resources
 
-* [Contact Recommendation](../recommendation-engine/)
-  * [Token Transfers](../recommendation-engine/token-transfers.md)
-  * [POAPs](../recommendation-engine/poaps.md)
-  * [NFTs](../recommendation-engine/nfts.md)
-* [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api/)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
-* [TokenNft API Reference](../../api-references/api-reference/tokennfts-api/)
+- [Contact Recommendation](../recommendation-engine/)
+  - [Token Transfers](../recommendation-engine/token-transfers.md)
+  - [POAPs](../recommendation-engine/poaps.md)
+  - [NFTs](../recommendation-engine/nfts.md)
+- [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api/)
+- [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+- [TokenNft API Reference](../../api-references/api-reference/tokennfts-api/)

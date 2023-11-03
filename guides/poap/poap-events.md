@@ -23,13 +23,13 @@ In this tutorial, you will learn how to fetch [POAP](https://poap.xyz/) events a
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get POAP Events In A Specific Period Of Time](poap-events.md#get-poap-events-in-a-given-city)
-* [Get POAP Events In A Given City](poap-events.md#get-poap-events-in-a-specific-period-of-time)
+- [Get POAP Events In A Specific Period Of Time](poap-events.md#get-poap-events-in-a-given-city)
+- [Get POAP Events In A Given City](poap-events.md#get-poap-events-in-a-specific-period-of-time)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -39,6 +39,7 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
+
 #### React
 
 ```sh
@@ -50,9 +51,11 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 #### React
 
 ```sh
@@ -64,9 +67,11 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 #### React
 
 ```sh
@@ -78,12 +83,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -91,6 +99,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -100,7 +109,7 @@ const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
-  
+
   if (data) {
     return <p>Data: {JSON.stringify(data)}</p>;
   }
@@ -114,9 +123,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -129,9 +140,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -149,6 +162,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -176,10 +190,15 @@ Show me all POAP events in the last 30 days
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   PoapEvents(
-    input: {filter: {startDate: {_gte: "2023-08-20", _lt: "2023-09-19"}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: { startDate: { _gte: "2023-08-20", _lt: "2023-09-19" } }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     PoapEvent {
       eventName
@@ -206,9 +225,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -267,13 +288,14 @@ query MyQuery {
               "small": "https://assets.airstack.xyz/image/poap/Iz3VhkqwAP4ArQtAb02Dug==/small.png"
             }
           }
-        },
+        }
         // Other POAP events started in the last 30 days
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -291,9 +313,12 @@ Show me all POAPs that happened in Dubai
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
-  PoapEvents(input: {filter: {city: {_eq: "Dubai"}}, blockchain: ALL, limit: 200}) {
+  PoapEvents(
+    input: { filter: { city: { _eq: "Dubai" } }, blockchain: ALL, limit: 200 }
+  ) {
     PoapEvent {
       eventName
       eventId
@@ -319,9 +344,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -381,12 +408,13 @@ query MyQuery {
             }
           }
         }
-      ],
+      ]
       // Other POAP events happening in Dubai
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -396,10 +424,10 @@ If you have any questions or need help regarding fetching POAP balances, please 
 
 ## More Resources
 
-* [Poaps API Reference](../../api-references/api-reference/poaps-api/)
-* [Poaps API Examples](../../api-references/api-reference/poaps-api/poaps-api-examples.md)
-* [Combinations](../combinations/)
-  * [Multiple POAPs](../combinations/multiple-poaps.md)
-  * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
-* [Tokens In Common](../tokens-in-common/)
-  * [POAPs](../tokens-in-common/poaps.md)
+- [Poaps API Reference](../../api-references/api-reference/poaps-api/)
+- [Poaps API Examples](../../api-references/api-reference/poaps-api/poaps-api-examples.md)
+- [Combinations](../combinations/)
+  - [Multiple POAPs](../combinations/multiple-poaps.md)
+  - [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
+- [Tokens In Common](../tokens-in-common/)
+  - [POAPs](../tokens-in-common/poaps.md)

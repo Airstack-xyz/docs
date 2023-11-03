@@ -23,14 +23,14 @@ In this tutorial, you will learn how to fetch token-bound (ERC6551) accounts by 
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get Token Bound Accounts By NFT Owner Address](nft-owners.md#get-token-bound-accounts-by-nft-owner-address)
-* [Get The Owner Of NFT That Owns A Given Token Bound Accounts Address](nft-owners.md#get-the-owner-of-nft-that-owns-a-given-token-bound-accounts-address)
+- [Get Token Bound Accounts By NFT Owner Address](nft-owners.md#get-token-bound-accounts-by-nft-owner-address)
+- [Get The Owner Of NFT That Owns A Given Token Bound Accounts Address](nft-owners.md#get-the-owner-of-nft-that-owns-a-given-token-bound-accounts-address)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
+- Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
 
 ## Get Started
 
@@ -51,6 +51,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -65,6 +66,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -79,12 +81,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -92,6 +97,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -101,7 +107,7 @@ const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
-  
+
   if (data) {
     return <p>Data: {JSON.stringify(data)}</p>;
   }
@@ -115,9 +121,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -130,9 +138,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -150,6 +160,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -177,10 +188,15 @@ Get Token Bound Accounts By NFT Owner Address (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
-    input: {filter: {owner: {_in: "0xcf94ba8779848141d685d44452c975c2ddc04945"}}, blockchain: ethereum, limit: 200}
+    input: {
+      filter: { owner: { _in: "0xcf94ba8779848141d685d44452c975c2ddc04945" } }
+      blockchain: ethereum
+      limit: 200
+    }
   ) {
     TokenBalance {
       tokenNfts {
@@ -194,9 +210,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -207,9 +225,7 @@ query MyQuery {
             "erc6551Accounts": [
               {
                 "address": {
-                  "addresses": [
-                    "0x9ff8faf2c61f50d24677e9cb5aaf988c91525539"
-                  ]
+                  "addresses": ["0x9ff8faf2c61f50d24677e9cb5aaf988c91525539"]
                 }
               }
             ]
@@ -220,9 +236,7 @@ query MyQuery {
             "erc6551Accounts": [
               {
                 "address": {
-                  "addresses": [
-                    "0x5f27c4c4f66fbb9d1bddbcef60ada4731757b128"
-                  ]
+                  "addresses": ["0x5f27c4c4f66fbb9d1bddbcef60ada4731757b128"]
                 }
               }
             ]
@@ -233,9 +247,7 @@ query MyQuery {
             "erc6551Accounts": [
               {
                 "address": {
-                  "addresses": [
-                    "0x5661094b8b369aff4075a9a75a1bcc51cdb5901e"
-                  ]
+                  "addresses": ["0x5661094b8b369aff4075a9a75a1bcc51cdb5901e"]
                 }
               }
             ]
@@ -246,9 +258,7 @@ query MyQuery {
             "erc6551Accounts": [
               {
                 "address": {
-                  "addresses": [
-                    "0x28d3fb76ad7e1076735a2bac3cac260c6349f45b"
-                  ]
+                  "addresses": ["0x28d3fb76ad7e1076735a2bac3cac260c6349f45b"]
                 }
               }
             ]
@@ -259,9 +269,7 @@ query MyQuery {
             "erc6551Accounts": [
               {
                 "address": {
-                  "addresses": [
-                    "0x7bc2cb8d74c2238a126fd495c7ce079ae36e6396"
-                  ]
+                  "addresses": ["0x7bc2cb8d74c2238a126fd495c7ce079ae36e6396"]
                 }
               }
             ]
@@ -272,6 +280,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -287,9 +296,15 @@ Get The Owner Of NFT That Owns A Given Token Bound Accounts Address
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
-  Accounts(input: {filter: {address: {_in: "0x9ff8faf2c61f50d24677e9cb5aaf988c91525539"}}, blockchain: ethereum}) {
+  Accounts(
+    input: {
+      filter: { address: { _in: "0x9ff8faf2c61f50d24677e9cb5aaf988c91525539" } }
+      blockchain: ethereum
+    }
+  ) {
     Account {
       nft {
         tokenBalances {
@@ -302,9 +317,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -315,9 +332,7 @@ query MyQuery {
             "tokenBalances": [
               {
                 "owner": {
-                  "addresses": [
-                    "0xcf94ba8779848141d685d44452c975c2ddc04945"
-                  ]
+                  "addresses": ["0xcf94ba8779848141d685d44452c975c2ddc04945"]
                 }
               }
             ]
@@ -328,6 +343,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -337,10 +353,9 @@ If you have any questions or need help regarding fetching ERC6551 token bound ac
 
 ## More Resources
 
-* [Accounts API Reference](../../api-references/api-reference/accounts-api/)
+- [Accounts API Reference](../../api-references/api-reference/accounts-api/)
 
 1. owner of NFT that owns the ERC6551 accounts
 
 [^1]: owner of NFT that owns the ERC6551 accounts
-
 [^2]: owner of NFT that owns the ERC6551 accounts

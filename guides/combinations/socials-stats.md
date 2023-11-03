@@ -23,14 +23,14 @@ In this tutorial, you will learn how to fetch the common holders of multiple ERC
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Common Token Holders with XMTP](socials-stats.md#xmtp)
-* [Common Token Holders with Lens](socials-stats.md#lens)
-* [Common Token Holders with Farcaster](socials-stats.md#farcaster)
+- [Common Token Holders with XMTP](socials-stats.md#xmtp)
+- [Common Token Holders with Lens](socials-stats.md#lens)
+- [Common Token Holders with Farcaster](socials-stats.md#farcaster)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -40,6 +40,7 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
+
 #### React
 
 ```sh
@@ -51,9 +52,11 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 #### React
 
 ```sh
@@ -65,9 +68,11 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 #### React
 
 ```sh
@@ -79,12 +84,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -92,6 +100,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -111,9 +120,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/airstack-react";
 
@@ -126,9 +137,11 @@ const { data, error } = fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -146,6 +159,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -161,7 +175,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Pre-requisites
 
-* [ ] Completed [ERC20s, NFTs, and POAPs](erc20s-nfts-and-poaps.md)
+- [ ] Completed [ERC20s, NFTs, and POAPs](erc20s-nfts-and-poaps.md)
 
 ## XMTP
 
@@ -179,6 +193,7 @@ Show common holders of 2 tokens have XMTP enabled
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersWithXMTP {
   TokenBalances(
     input: {filter: {tokenAddress: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}}, blockchain: ethereum, limit: 200}
@@ -198,9 +213,11 @@ Show common holders of 2 tokens have XMTP enabled
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -211,9 +228,7 @@ Show common holders of 2 tokens have XMTP enabled
             "tokenBalances": [
               {
                 "owner": {
-                  "addresses": [
-                    "0x9680f3957510cf85751a096c2194520c36a4a003"
-                  ],
+                  "addresses": ["0x9680f3957510cf85751a096c2194520c36a4a003"],
                   "xmtp": [
                     {
                       "isXMTPEnabled": true // XMTP enabled
@@ -229,9 +244,7 @@ Show common holders of 2 tokens have XMTP enabled
             "tokenBalances": [
               {
                 "owner": {
-                  "addresses": [
-                    "0x28c6c06298d514db089934071355e5743bf21d60"
-                  ],
+                  "addresses": ["0x28c6c06298d514db089934071355e5743bf21d60"],
                   "xmtp": [] // XMTP not enabled yet
                 }
               }
@@ -243,6 +256,7 @@ Show common holders of 2 tokens have XMTP enabled
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -252,6 +266,7 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(({ owner }) =>
@@ -263,9 +278,11 @@ const formatFunction = (data) =>
     .flat(2)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -282,6 +299,7 @@ def format_function(data):
 
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -315,6 +333,7 @@ Show common holders of 2 tokens if they have any Lens profile
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersWithLens {
   TokenBalances(
     input: {filter: {tokenAddress: {_eq: "0xb93ee8cdab36199c6debf5bbec53e5908fd8e4e1"}}, blockchain: ethereum, limit: 200}
@@ -335,9 +354,11 @@ Show common holders of 2 tokens if they have any Lens profile
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -348,9 +369,7 @@ Show common holders of 2 tokens if they have any Lens profile
             "tokenBalances": [
               {
                 "owner": {
-                  "addresses": [
-                    "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-                  ],
+                  "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
                   "socials": [
                     {
                       "profileName": "vitalik.lens",
@@ -367,9 +386,7 @@ Show common holders of 2 tokens if they have any Lens profile
             "tokenBalances": [
               {
                 "owner": {
-                  "addresses": [
-                    "0xeaf55242a90bb3289dB8184772b0B98562053559"
-                  ],
+                  "addresses": ["0xeaf55242a90bb3289dB8184772b0B98562053559"],
                   "socials": null // no Lens profile
                 }
               }
@@ -381,6 +398,7 @@ Show common holders of 2 tokens if they have any Lens profile
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -390,6 +408,7 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(({ owner }) =>
@@ -401,9 +420,11 @@ const formatFunction = (data) =>
     .flat(2)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -413,13 +434,14 @@ def format_function(data):
                 for token_balance in item['owner']['tokenBalances']:
                     if 'owner' in token_balance and 'socials' in token_balance['owner'] and len(token_balance['owner']['socials']) > 0 and 'addresses' in token_balance['owner']:
                         result.append(token_balance['owner']['addresses'])
-                        
+
     result = [item for sublist in result for item in sublist]
     result = [item for sublist in result for item in sublist]
     result = list(set(result))
 
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -453,6 +475,7 @@ Show common holders of 2 tokens if they have any Farcaster
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersWithFarcaster {
   TokenBalances(
     input: {filter: {tokenAddress: {_eq: "0xb93ee8cdab36199c6debf5bbec53e5908fd8e4e1"}}, blockchain: ethereum, limit: 200}
@@ -473,9 +496,11 @@ Show common holders of 2 tokens if they have any Farcaster
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -486,9 +511,7 @@ Show common holders of 2 tokens if they have any Farcaster
             "tokenBalances": [
               {
                 "owner": {
-                  "addresses": [
-                    "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-                  ],
+                  "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
                   "socials": [
                     {
                       "profileName": "vbuterin",
@@ -505,9 +528,7 @@ Show common holders of 2 tokens if they have any Farcaster
             "tokenBalances": [
               {
                 "owner": {
-                  "addresses": [
-                    "0xeaf55242a90bb3289dB8184772b0B98562053559"
-                  ],
+                  "addresses": ["0xeaf55242a90bb3289dB8184772b0B98562053559"],
                   "socials": null // no Farcaster
                 }
               }
@@ -519,6 +540,7 @@ Show common holders of 2 tokens if they have any Farcaster
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -528,6 +550,7 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(({ owner }) =>
@@ -539,9 +562,11 @@ const formatFunction = (data) =>
     .flat(2)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -551,13 +576,14 @@ def format_function(data):
                 for token_balance in item['owner']['tokenBalances']:
                     if 'owner' in token_balance and 'socials' in token_balance['owner'] and len(token_balance['owner']['socials']) > 0 and 'addresses' in token_balance['owner']:
                         result.append(token_balance['owner']['addresses'])
-                        
+
     result = [item for sublist in result for item in sublist]
     result = [item for sublist in result for item in sublist]
     result = list(set(result))
 
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -581,12 +607,12 @@ If you have any questions or need help regarding fetching holders or attendees o
 
 ## More Resources
 
-* [Nested Queries](../../api-references/nested-queries.md)
-* [Resolve Identities](../resolve-identities/)
-  * [ENS](../resolve-identities/ens.md)
-  * [Lens](../resolve-identities/lens.md)
-  * [Farcaster](../resolve-identities/farcaster.md)
-* [Use Cases](broken-reference)
-  * [Universal Resolver](../../use-cases/xmtp/universal-resolver.md)
-  * [Lens Resolver](../../use-cases/lens/universal-resolver.md)
-  * [Farcaster Resolver](../../use-cases/farcaster/universal-resolver.md)
+- [Nested Queries](../../api-references/nested-queries.md)
+- [Resolve Identities](../resolve-identities/)
+  - [ENS](../resolve-identities/ens.md)
+  - [Lens](../resolve-identities/lens.md)
+  - [Farcaster](../resolve-identities/farcaster.md)
+- [Use Cases](broken-reference)
+  - [Universal Resolver](../../use-cases/xmtp/universal-resolver.md)
+  - [Lens Resolver](../../use-cases/lens/universal-resolver.md)
+  - [Farcaster Resolver](../../use-cases/farcaster/universal-resolver.md)

@@ -23,14 +23,14 @@ In this tutorial, you will learn how to fetch ERC20, NFTs, or POAPs in common fr
 
 In this guide you will learn how to use Airstack to:
 
-* [ERC20 Tokens In Common Owned By Farcaster User(s)](tokens-in-common.md#erc20-tokens-in-common-owned-by-farcaster-user-s)
-* [NFTs In Common Owned By Farcaster User(s)](tokens-in-common.md#nfts-in-common-owned-by-farcaster-user-s)
-* [POAPs Tokens In Common Owned By Farcaster User(s)](tokens-in-common.md#poaps-in-common-owned-by-farcaster-user-s)
+- [ERC20 Tokens In Common Owned By Farcaster User(s)](tokens-in-common.md#erc20-tokens-in-common-owned-by-farcaster-user-s)
+- [NFTs In Common Owned By Farcaster User(s)](tokens-in-common.md#nfts-in-common-owned-by-farcaster-user-s)
+- [POAPs Tokens In Common Owned By Farcaster User(s)](tokens-in-common.md#poaps-in-common-owned-by-farcaster-user-s)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -40,6 +40,7 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
+
 #### React
 
 ```sh
@@ -51,9 +52,11 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 #### React
 
 ```sh
@@ -65,9 +68,11 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 #### React
 
 ```sh
@@ -79,12 +84,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
-pip install airstack asyncio
+pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -92,6 +100,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -101,7 +110,7 @@ const query = `YOUR_QUERY`; // Replace with GraphQL Query
 
 const Component = () => {
   const { data, loading, error } = useQuery(query);
-  
+
   if (data) {
     return <p>Data: {JSON.stringify(data)}</p>;
   }
@@ -115,9 +124,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -130,9 +141,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -150,6 +163,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -177,15 +191,27 @@ Show common ERC20 tokens of two Farcaster users
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
-    input: {filter: {owner: {_eq: "fc_fname:betashop.eth"}, tokenType: {_eq: ERC20}}, blockchain: polygon}
+    input: {
+      filter: {
+        owner: { _eq: "fc_fname:betashop.eth" }
+        tokenType: { _eq: ERC20 }
+      }
+      blockchain: polygon
+    }
   ) {
     TokenBalance {
       token {
         tokenBalances(
-          input: {filter: {owner: {_eq: "fc_fname:sarvesh"}, tokenType: {_eq: ERC20}}}
+          input: {
+            filter: {
+              owner: { _eq: "fc_fname:sarvesh" }
+              tokenType: { _eq: ERC20 }
+            }
+          }
         ) {
           id
           token {
@@ -199,9 +225,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -231,6 +259,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -248,15 +277,27 @@ Show common NFTs of two Farcaster users
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
-    input: {filter: {owner: {_eq: "fc_fname:betashop.eth"}, tokenType: {_in: [ERC721, ERC1155]}}, blockchain: polygon}
+    input: {
+      filter: {
+        owner: { _eq: "fc_fname:betashop.eth" }
+        tokenType: { _in: [ERC721, ERC1155] }
+      }
+      blockchain: polygon
+    }
   ) {
     TokenBalance {
       token {
         tokenBalances(
-          input: {filter: {owner: {_eq: "fc_fname:sarvesh"}, tokenType: {_in: [ERC721, ERC1155]}}}
+          input: {
+            filter: {
+              owner: { _eq: "fc_fname:sarvesh" }
+              tokenType: { _in: [ERC721, ERC1155] }
+            }
+          }
         ) {
           id
           token {
@@ -270,9 +311,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -302,6 +345,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -319,14 +363,19 @@ Show common POAPs of two Farcaster users
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Poaps(
-    input: {filter: {owner: {_eq: "fc_fname:betashop.eth"}}, blockchain: ALL, order: {createdAtBlockNumber: DESC}}
+    input: {
+      filter: { owner: { _eq: "fc_fname:betashop.eth" } }
+      blockchain: ALL
+      order: { createdAtBlockNumber: DESC }
+    }
   ) {
     Poap {
       poapEvent {
-        poaps(input: {filter: {owner: {_eq: "fc_fname:ipeciura"}}}) {
+        poaps(input: { filter: { owner: { _eq: "fc_fname:ipeciura" } } }) {
           poapEvent {
             eventName
             eventId
@@ -340,9 +389,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -373,6 +424,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -382,7 +434,7 @@ If you have any questions or need help regarding fetching common ERC20 tokens, N
 
 ## More Resources
 
-* [Tokens In Common Guides](../tokens-in-common/)
-* [Nested Queries](../../api-references/nested-queries.md)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+- [Tokens In Common Guides](../tokens-in-common/)
+- [Nested Queries](../../api-references/nested-queries.md)
+- [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
