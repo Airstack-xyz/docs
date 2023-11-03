@@ -82,6 +82,7 @@
   * [🎫 POAPs](guides/contact-recommendation/poaps.md)
   * [♦ NFTs](guides/contact-recommendation/nfts.md)
   * [🎉 Social Follows](guides/contact-recommendation/social-follows.md)
+  * [🕸 On-Chain Graph](guides/contact-recommendation/on-chain-graph.md)
 
 ## Use Cases
 
