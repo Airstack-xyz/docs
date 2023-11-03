@@ -1134,10 +1134,10 @@ If you have any questions or need help regarding building a recommendation engin
 
 ## More Resources
 
-* [Contact Recommendation](../contact-recommendation/)
-  * [Token Transfers](../contact-recommendation/token-transfers.md)
-  * [POAPs](../contact-recommendation/poaps.md)
-  * [NFTs](../contact-recommendation/nfts.md)
+* [Contact Recommendation](../recommendation-engine/)
+  * [Token Transfers](../recommendation-engine/token-transfers.md)
+  * [POAPs](../recommendation-engine/poaps.md)
+  * [NFTs](../recommendation-engine/nfts.md)
 * [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api/)
 * [POAPs API Reference](../../api-references/api-reference/poaps-api/)
 * [TokenNft API Reference](../../api-references/api-reference/tokennfts-api/)

@@ -31,7 +31,7 @@ Resolve any 0x addresses or ENS names to fetch:
 
 * [Lens](use-cases/lens/)
 * [Farcaster](guides/resolve-identities/farcaster.md)
-* [POAPs](guides/contact-recommendation/poaps.md)
+* [POAPs](guides/recommendation-engine/poaps.md)
 * [XMTP](guides/xmtp/)
 
 and vice versa. Great for any building social or any data-aware applications.&#x20;
@@ -48,9 +48,9 @@ Fetch all holders of tokens (ERC20, ERC721, ERC1155) or POAPs using a single que
 
 Build recommendation engines based on various metrics, which include:
 
-* [Token Transfers](guides/contact-recommendation/token-transfers.md)
-* [POAPs](guides/contact-recommendation/poaps.md)
-* [NFTs](guides/contact-recommendation/nfts.md)
+* [Token Transfers](guides/recommendation-engine/token-transfers.md)
+* [POAPs](guides/recommendation-engine/poaps.md)
+* [NFTs](guides/recommendation-engine/nfts.md)
 
 ### Token Balances and Historical Transfers
 

@@ -77,12 +77,12 @@
   * [🔷 ENS](guides/resolve-identities/ens.md)
   * [🌿 Lens](guides/resolve-identities/lens.md)
   * [🟪 Farcaster](guides/resolve-identities/farcaster.md)
-* [📞 Contact Recommendation](guides/contact-recommendation/README.md)
-  * [💸 Token Transfers](guides/contact-recommendation/token-transfers.md)
-  * [🎫 POAPs](guides/contact-recommendation/poaps.md)
-  * [♦ NFTs](guides/contact-recommendation/nfts.md)
-  * [🎉 Social Follows](guides/contact-recommendation/social-follows.md)
-  * [🕸 On-Chain Graph](guides/contact-recommendation/on-chain-graph.md)
+* [🕸 On-Chain Graph](guides/on-chain-graph.md)
+* [📞 Recommendation Engine](guides/recommendation-engine/README.md)
+  * [💸 Token Transfers](guides/recommendation-engine/token-transfers.md)
+  * [🎫 POAPs](guides/recommendation-engine/poaps.md)
+  * [♦ NFTs](guides/recommendation-engine/nfts.md)
+  * [🎉 Social Follows](guides/recommendation-engine/social-follows.md)
 
 ## Use Cases
 

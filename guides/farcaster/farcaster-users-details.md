@@ -45,13 +45,13 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
@@ -59,13 +59,13 @@ npm install @airstack/node
 {% endtab %}
 
 {% tab title="yarn" %}
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
@@ -73,13 +73,13 @@ yarn add @airstack/node
 {% endtab %}
 
 {% tab title="pnpm" %}
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
@@ -836,7 +836,7 @@ query MyQuery {
 
 ## Bulk Query Farcaster Profile Details
 
-You can bulk query the profile details of multiple Farcaster users by their various [web3 identities](#user-content-fn-2)[^2]:
+You can bulk query the profile details of multiple Farcaster users by their various web3 identities:
 
 ### Try Demo
 
@@ -1293,6 +1293,6 @@ If you have any questions or need help regarding fetching Farcaster user(s) prof
 * [Farcaster Resolver](../../use-cases/farcaster/universal-resolver.md)
 * [Socials API Reference](../../api-references/api-reference/socials-api/)
 
-[^1]: 0x addresses, ENS domains, Lens, XMTP
+1. 0x address, ENS domain, Lens profile name and ID, Farcaster name and ID
 
-[^2]: 0x address, ENS domain, Lens profile name and ID, Farcaster name and ID&#x20;
+[^1]: 0x addresses, ENS domains, Lens, XMTP
