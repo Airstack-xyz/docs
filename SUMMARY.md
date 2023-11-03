@@ -77,7 +77,7 @@
   * [🔷 ENS](guides/resolve-identities/ens.md)
   * [🌿 Lens](guides/resolve-identities/lens.md)
   * [🟪 Farcaster](guides/resolve-identities/farcaster.md)
-* [🕸 On-Chain Graph](guides/on-chain-graph.md)
+* [🕸 Onchain Graph](guides/onchain-graph.md)
 * [📞 Recommendation Engine](guides/recommendation-engine/README.md)
   * [💸 Token Transfers](guides/recommendation-engine/token-transfers.md)
   * [🎫 POAPs](guides/recommendation-engine/poaps.md)

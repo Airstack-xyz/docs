@@ -203,4 +203,4 @@ If you have any questions or need help regarding building a recommendation engin
   * [POAPs](poaps.md)
   * [NFTs](nfts.md)
 * [SocialFollowers API](../../api-references/api-reference/socialfollowers-api.md)
-* [On-Chain Graph](../on-chain-graph.md)
+* [On-Chain Graph](../onchain-graph.md)

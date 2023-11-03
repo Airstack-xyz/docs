@@ -238,4 +238,4 @@ If you have any questions or need help regarding integrating or building recomme
 ## More Resources
 
 * [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-* [On-Chain Graph](../on-chain-graph.md)
+* [On-Chain Graph](../onchain-graph.md)

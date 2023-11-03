@@ -226,4 +226,4 @@ If you have any questions or need help regarding integrating or building recomme
 ## More Resources
 
 * [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api/)
-* [On-Chain Graph](../on-chain-graph.md)
+* [On-Chain Graph](../onchain-graph.md)

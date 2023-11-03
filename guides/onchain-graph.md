@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to use Airstack to build on-chain graph of a user using POAP
-  holders, NFT holders, token transfers, and Lens and Farcaster follows data.
+  Learn how to use Airstack to build onchain graph of a user using POAP holders,
+  NFT holders, token transfers, and Lens and Farcaster follows data.
 layout:
   title:
     visible: true
@@ -15,27 +15,27 @@ layout:
     visible: true
 ---
 
-# 🕸 On-Chain Graph
+# 🕸 Onchain Graph
 
-On-chain graph is a **web3 address book** that compiles a list of relevant users that have commonalities with a given user from various on-chain or off-chain data sources, such as POAPs, NFTs, historical token transfers, and Lens and Farcaster follows data.
+Onchain graph is a **web3 address book** that compiles a list of relevant users that have commonalities with a given user from various onchain or off-chain data sources, such as POAPs, NFTs, historical token transfers, and Lens and Farcaster follows data.
 
-On-chain graph is especially most useful for providing users insights on who are the people within their networks and show their relevancies to their on-chain identities.
+Onchain graph is especially most useful for providing users insights on who are the people within their networks and show their relevancies to their onchain identities.
 
 ## Live Demo
 
-We have integrated on-chain graph into the [Airstack Explorer ](https://explorer.airstack.xyz)as you can see below:
+We have integrated onchain graph into the [Airstack Explorer ](https://explorer.airstack.xyz)as you can see below:
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>On-Chain Graph integration on Airstack Explorer</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>Onchain Graph integration on Airstack Explorer</p></figcaption></figure>
 
 To try it out yourself, click here:
 
 {% embed url="https://explorer.airstack.xyz/onchain-graph?identity=betashop.eth" %}
-betashop.eth's on-chain graph
+betashop.eth's onchain graph
 {% endembed %}
 
 ## Use Cases
 
-The use cases of on-chain graph within various web3 social apps are endless, such as:
+The use cases of onchain graph within various web3 social apps are endless, such as:
 
 * XMTP Contact Recommendation
 * Lens or Farcaster Follow Recommendation
@@ -43,30 +43,30 @@ The use cases of on-chain graph within various web3 social apps are endless, suc
 
 ## Table Of Contents
 
-In this tutorial, you'll learn how to build an on-chain graph for your web3 social application using either JavaScript or Python.
+In this tutorial, you'll learn how to build an onchain graph for your web3 social application using either JavaScript or Python.
 
 {% hint style="info" %}
 For JavaScript code samples, they are usable for both frontend and backend (Node.js). Some minor adjustments might be needed, depending on the framework being used.
 
 In addition, the JavaScript code samples should also be **compatible to TypeScript** with the addition of types into the variables.
 
-If you need help to incorporate on-chain graph to your specific Airstack, please leave a message in our [Telegram group](https://t.me/+1k3c2FR7z51mNDRh) and we'll be happy to assist. :pray:
+If you need help to incorporate onchain graph to your specific Airstack, please leave a message in our [Telegram group](https://t.me/+1k3c2FR7z51mNDRh) and we'll be happy to assist. :pray:
 {% endhint %}
 
 The algorithm for building on-chain graph will be as follows:
 
-1. [Fetch All On-Chain Graph Data](on-chain-graph.md#step-1-fetch-all-on-chain-graph-data)
-   * [Fetch Common POAP Holders Data](on-chain-graph.md#step-1.1-fetch-common-poap-holders-data)
-   * [Fetch Farcaster Followings Data](on-chain-graph.md#step-1.2-fetch-farcaster-followings-data)
-   * [Fetch Lens Followings Data](on-chain-graph.md#step-1.3-fetch-lens-followings-data)
-   * [Fetch Farcaster Followers Data](on-chain-graph.md#step-1.4-fetch-farcaster-followers-data)
-   * [Fetch Lens Followers Data](on-chain-graph.md#step-1.5-fetch-lens-followers-data)
-   * [Fetch Token Transfers Sent Data](on-chain-graph.md#step-1.7-fetch-token-transfers-received-data)
-   * [Fetch Token Transfers Received Data](on-chain-graph.md#step-1.7-fetch-token-transfers-received-data)
-   * [Fetch Common Ethereum Token Holders Data](on-chain-graph.md#step-1.8-fetch-common-ethereum-nft-holders-data)
-   * [Fetch Common Polygon Token Holders Data](on-chain-graph.md#step-1.9-fetch-common-polygon-nft-holders-data)
-2. [Aggregate All Data By User Identities](on-chain-graph.md#step-2-aggregate-all-data-by-user-identities)
-3. [Scoring & Sorting](on-chain-graph.md#step-3-scoring-and-sorting)
+1. [Fetch All On-Chain Graph Data](onchain-graph.md#step-1-fetch-all-on-chain-graph-data)
+   * [Fetch Common POAP Holders Data](onchain-graph.md#step-1.1-fetch-common-poap-holders-data)
+   * [Fetch Farcaster Followings Data](onchain-graph.md#step-1.2-fetch-farcaster-followings-data)
+   * [Fetch Lens Followings Data](onchain-graph.md#step-1.3-fetch-lens-followings-data)
+   * [Fetch Farcaster Followers Data](onchain-graph.md#step-1.4-fetch-farcaster-followers-data)
+   * [Fetch Lens Followers Data](onchain-graph.md#step-1.5-fetch-lens-followers-data)
+   * [Fetch Token Transfers Sent Data](onchain-graph.md#step-1.7-fetch-token-transfers-received-data)
+   * [Fetch Token Transfers Received Data](onchain-graph.md#step-1.7-fetch-token-transfers-received-data)
+   * [Fetch Common Ethereum Token Holders Data](onchain-graph.md#step-1.8-fetch-common-ethereum-nft-holders-data)
+   * [Fetch Common Polygon Token Holders Data](onchain-graph.md#step-1.9-fetch-common-polygon-nft-holders-data)
+2. [Aggregate All Data By User Identities](onchain-graph.md#step-2-aggregate-all-data-by-user-identities)
+3. [Scoring & Sorting](onchain-graph.md#step-3-scoring-and-sorting)
 
 ## Pre-requisites
 
@@ -142,8 +142,8 @@ In this step, you'll learn to fetch all the data that you need to build the on-c
 
 In order to fetch the common POAP holders that hold the POAPs attended by a given user, it will require 2 steps:
 
-1. [Fetch all non-virtual POAPs' event IDs owned by a user](on-chain-graph.md#fetch-all-non-virtual-poaps-event-ids-owned-by-a-user)
-2. [Fetch all POAP holders of an array of POAP event IDs](on-chain-graph.md#fetch-all-poap-holders-of-an-array-of-poap-event-ids)
+1. [Fetch all non-virtual POAPs' event IDs owned by a user](onchain-graph.md#fetch-all-non-virtual-poaps-event-ids-owned-by-a-user)
+2. [Fetch all POAP holders of an array of POAP event IDs](onchain-graph.md#fetch-all-poap-holders-of-an-array-of-poap-event-ids)
 
 #### Fetch all non-virtual POAPs' event IDs owned by a user
 
@@ -3150,8 +3150,8 @@ async def fetch_token_received(address, existing_users=[]):
 
 In order to fetch the common Ethereum holders that hold the Ethereum NFTs hold by a given user, it will require 2 steps:
 
-1. [Fetch all Ethereum NFTs owned by a user](on-chain-graph.md#fetch-all-ethereum-nfts-owned-by-a-user)
-2. [Fetch all Ethereum NFT owners](on-chain-graph.md#fetch-all-ethereum-nft-owners)
+1. [Fetch all Ethereum NFTs owned by a user](onchain-graph.md#fetch-all-ethereum-nfts-owned-by-a-user)
+2. [Fetch all Ethereum NFT owners](onchain-graph.md#fetch-all-ethereum-nft-owners)
 
 #### Fetch all Ethereum NFTs owned by a user
 
@@ -4432,7 +4432,7 @@ async def fetch_polygon_nft(address, existing_users=[]):
 
 In the previous step, you have successfully create multiple functions to fetch a user's on-chain and off-chain data, from POAPs to Lens and Farcasters followers.
 
-In this step, you'll use the data from [Step 1](on-chain-graph.md#step-1-fetch-all-on-chain-graph-data) to aggregate all the data fetched and compile it into the given user's **on-chain graph**.
+In this step, you'll use the data from [Step 1](onchain-graph.md#step-1-fetch-all-on-chain-graph-data) to aggregate all the data fetched and compile it into the given user's **on-chain graph**.
 
 Utilizing the data fetching functions that we have defined, we can easily import them into a single file and do an iterative call on every function step-by-step as shown below:
 
