@@ -43,3 +43,4 @@ redirects:
   guides/contact-recommendation/token-transfers: guides/contact-recommendation/token-transfers.md
   guides/contact-recommendation/nfts: guides/contact-recommendation/nfts.md
   guides/contact-recommendation/social-follows: guides/contact-recommendation/social-follows.md
+  guides/contact-recommendation/on-chain-graph: guides/on-chain-graph.md
