@@ -1,6 +1,6 @@
 ---
 description: >-
-  Learn how to use Airstack to build onchain graph of a user using POAP holders,
+  Learn how to use Airstack to build the Onchain Graph of users -- using POAPs,
   NFT holders, token transfers, and Lens and Farcaster follows data.
 layout:
   title:
@@ -17,13 +17,13 @@ layout:
 
 # 🕸 Onchain Graph
 
-Onchain graph is a **web3 address book** that compiles a list of relevant users that have commonalities with a given user from various onchain or off-chain data sources, such as POAPs, NFTs, historical token transfers, and Lens and Farcaster follows data.
+The Onchain Graph is the **web3 address book.** It analyzes all of a user/wallet's onchain interactions and recommends contacts based on their strengh of relationship.
 
-Onchain graph is especially most useful for providing users insights on who are the people within their networks and show their relevancies to their onchain identities.
+Developers are utilizing Onchain Graph for recommendation engines, address books, spam filters, product enhancements, and more.
 
 ## Live Demo
 
-We have integrated onchain graph into the [Airstack Explorer ](https://explorer.airstack.xyz)as you can see below:
+We have integrated onchain graph into the [Airstack Explorer ](https://explorer.airstack.xyz)as you can see below. In Airstack Explorer you can enter any 0x address, Lens, Farcaster, or ENS and get the user's onchain graph.
 
 <figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>Onchain Graph integration on Airstack Explorer</p></figcaption></figure>
 
@@ -32,14 +32,6 @@ To try it out yourself, click here:
 {% embed url="https://explorer.airstack.xyz/onchain-graph?identity=betashop.eth" %}
 betashop.eth's onchain graph
 {% endembed %}
-
-## Use Cases
-
-The use cases of onchain graph within various web3 social apps are endless, such as:
-
-* XMTP Contact Recommendation
-* Lens or Farcaster Follow Recommendation
-* etc.
 
 ## Table Of Contents
 
@@ -50,13 +42,13 @@ Currently, Airstack Explorer's onchain graph implementation has no backend and h
 
 For **backend integrations**, it is best practice that you take the following approach for the best user experience:&#x20;
 
-1. fetch the your users' onchain graph data periodically (e.g. once a day) as a cronjob
+1. fetch your users' onchain graph data periodically (e.g. once a day) as a cronjob
 2. store your user's onchain graph data into your preferred database&#x20;
 3. Fetched the data from your frontend and cache it
 
-With this approach, your user shall receive their onchain graph data almost instantaneously instead of calling the API on-demand could take minutes.
+With this approach, your user shall receive their onchain graph data almost instantaneously instead of calling the API on-demand which could take minutes.
 
-In the future, we shall provide webhooks and a dedicated recommendation API for an even lighter-weight integrations.
+In the future, we shall provide webhooks and a dedicated Onchain Graph API for lighter-weight integrations.
 {% endhint %}
 
 The algorithm for building onchain graph will be as follows:
