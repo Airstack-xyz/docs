@@ -46,16 +46,22 @@ The use cases of onchain graph within various web3 social apps are endless, such
 In this tutorial, you'll learn how to build an onchain graph for your web3 social application using either JavaScript or Python.
 
 {% hint style="info" %}
-For JavaScript code samples, they are usable for both frontend and backend (Node.js). Some minor adjustments might be needed, depending on the framework being used.
+Currently, Airstack Explorer's onchain graph implementation has no backend and hence it takes time to scan and fetch all the data.
 
-In addition, the JavaScript code samples should also be **compatible to TypeScript** with the addition of types into the variables.
+For **backend integrations**, it is best practice that you take the following approach for the best user experience:&#x20;
 
-If you need help to incorporate onchain graph to your specific Airstack, please leave a message in our [Telegram group](https://t.me/+1k3c2FR7z51mNDRh) and we'll be happy to assist. :pray:
+1. fetch the your users' onchain graph data periodically (e.g. once a day) as a cronjob
+2. store your user's onchain graph data into your preferred database&#x20;
+3. Fetched the data from your frontend and cache it
+
+With this approach, your user shall receive their onchain graph data almost instantaneously instead of calling the API on-demand could take minutes.
+
+In the future, we shall provide webhooks and a dedicated recommendation API for an even lighter-weight integrations.
 {% endhint %}
 
-The algorithm for building on-chain graph will be as follows:
+The algorithm for building onchain graph will be as follows:
 
-1. [Fetch All On-Chain Graph Data](onchain-graph.md#step-1-fetch-all-on-chain-graph-data)
+1. [Fetch All Onchain Graph Data](onchain-graph.md#step-1-fetch-all-onchain-graph-data)
    * [Fetch Common POAP Holders Data](onchain-graph.md#step-1.1-fetch-common-poap-holders-data)
    * [Fetch Farcaster Followings Data](onchain-graph.md#step-1.2-fetch-farcaster-followings-data)
    * [Fetch Lens Followings Data](onchain-graph.md#step-1.3-fetch-lens-followings-data)
@@ -127,16 +133,16 @@ pip install airstack
 {% endtab %}
 {% endtabs %}
 
-## Step 1: Fetch All On-Chain Graph Data
+## Step 1: Fetch All Onchain Graph Data
 
-In order to build a comprehensive on-chain graph of a user, it'll require various kinds of data to analyze. Those data comprises of:
+In order to build a comprehensive onchain graph of a user, it'll require various kinds of data to analyze. Those data comprises of:
 
 * **common POAP holders** that are also attended by the user
 * Lens and Farcaster **social followers and following** of the given user
 * Token transfers **senders and receivers**
 * **common Ethereum and Polygon NFT holders** that are also held by the user
 
-In this step, you'll learn to fetch all the data that you need to build the on-chain graph of a user.
+In this step, you'll learn to fetch all the data that you need to build the onchain graph of a user.
 
 ### Step 1.1: Fetch Common POAP Holders Data
 
@@ -519,7 +525,7 @@ The formatted result will have a format as follows:
       }
     ]
   },
-  // other on-chain graph users
+  // other onchain graph users
 ]
 </code></pre>
 
@@ -966,7 +972,7 @@ The formatted result will have a format as follows:
     // show vitalik.eth following this user on Faracster and being followed back
 <strong>    "follows": { "followingOnFarcaster": true, "followedOnFarcaster": true }
 </strong>  },
-  // other on-chain graph users
+  // other onchain graph users
 ]
 </code></pre>
 
@@ -1723,7 +1729,7 @@ The formatted result will have a format as follows:
     // show vitalik.eth being followed by this user, but not following back on Farcaster
 <strong>    "follows": { "followingOnFarcaster": false, "followedOnFarcaster": true }
 </strong>  },
-  // other on-chain graph users
+  // other onchain graph users
 ]
 </code></pre>
 
@@ -2076,7 +2082,7 @@ The formatted result will have a format as follows:
     // show vitalik.eth followed by this user on Lens, but not following back
 <strong>    "follows": { "followingOnLens": false, "followedOnLens": true }
 </strong>  },
-  // more on-chain graph users
+  // more onchain graph users
 ]
 </code></pre>
 
@@ -2942,7 +2948,7 @@ The formatted result will have a format as follows:
     // show that vitalik.eth received token transfers sent by this user
 <strong>    "tokenTransfers": { "received": true }
 </strong>  },
-  // other on-chain graph users
+  // other onchain graph users
 ]
 </code></pre>
 
@@ -3565,7 +3571,7 @@ The formatted result will have a format as follows:
       // other NFTs
     ]
   },
-  // other on-chain graph users
+  // other onchain graph users
 ]
 </code></pre>
 
@@ -4176,7 +4182,7 @@ The formatted result will have a format as follows:
       }
     ]
   },
-  // other on-chain graph users
+  // other onchain graph users
 ]
 </code></pre>
 
@@ -4430,9 +4436,9 @@ async def fetch_polygon_nft(address, existing_users=[]):
 
 ## Step 2: Aggregate All Data By User Identities
 
-In the previous step, you have successfully create multiple functions to fetch a user's on-chain and off-chain data, from POAPs to Lens and Farcasters followers.
+In the previous step, you have successfully create multiple functions to fetch a user's onchain and off-chain data, from POAPs to Lens and Farcasters followers.
 
-In this step, you'll use the data from [Step 1](onchain-graph.md#step-1-fetch-all-on-chain-graph-data) to aggregate all the data fetched and compile it into the given user's **on-chain graph**.
+In this step, you'll use the data from [Step 1](onchain-graph.md#step-1-fetch-all-on-chain-graph-data) to aggregate all the data fetched and compile it into the given user's **onchain graph**.
 
 Utilizing the data fetching functions that we have defined, we can easily import them into a single file and do an iterative call on every function step-by-step as shown below:
 
@@ -4512,17 +4518,17 @@ if __name__ == "__main__":
 {% endtab %}
 {% endtabs %}
 
-Through the for loops, the `recommendedUsers`(JavaScript) and `recommended_users`(Python) variable will be storing on-chain graph users and have their data updated whenever new data is fetched.
+Through the for loops, the `recommendedUsers`(JavaScript) and `recommended_users`(Python) variable will be storing onchain graph users and have their data updated whenever new data is fetched.
 
 ## Step 3: Scoring & Sorting
 
-Now that you have all the data aggregated, you might notice that some of those users from the on-chain graph might have higher relevancies to the given user, such as having more POAPs in common than the given user.
+Now that you have all the data aggregated, you might notice that some of those users from the onchain graph might have higher relevancies to the given user, such as having more POAPs in common than the given user.
 
 Thus, for a better user experience, it will make more sense to score individual user profiles and with the scoring system established, sort them in descending order (from the highest score/most relevant to the lowest score/least relevant).
 
 ### Scoring
 
-In this tutorial, let's establish a scoring function that will calculate the total score of individual users on the on-chain graph as follows:
+In this tutorial, let's establish a scoring function that will calculate the total score of individual users on the onchain graph as follows:
 
 $$score(x) =  \sum (points * weight)$$
 
@@ -4785,7 +4791,7 @@ and the modified JSON will have a new `_score` field as follows:
         "eventId": "7426"
       }
     ],
-<strong>    "_score": 7 // on-chain graph score of the user `taoliu.eth`
+<strong>    "_score": 7 // onchain graph score of the user `taoliu.eth`
 </strong>  },
   {
     "addresses": ["0x263af7a0ba6f8432e7861b9d92a44639c768d17f"],
@@ -4799,7 +4805,7 @@ and the modified JSON will have a new `_score` field as follows:
         "eventId": "92705"
       }
     ],
-<strong>    "_score": 7 // on-chain graph score of the user `0x263af7a0ba6f8432e7861b9d92a44639c768d17f`
+<strong>    "_score": 7 // onchain graph score of the user `0x263af7a0ba6f8432e7861b9d92a44639c768d17f`
 </strong>  },
   {
     "addresses": ["0xd5aec8ceb2a5dee7914d1c5d07db7e3391253f31"],
@@ -4813,14 +4819,14 @@ and the modified JSON will have a new `_score` field as follows:
         "eventId": "7426"
       }
     ],
-<strong>    "_score": 7 // on-chain graph score of the user `0xd5aec8ceb2a5dee7914d1c5d07db7e3391253f31`
+<strong>    "_score": 7 // onchain graph score of the user `0xd5aec8ceb2a5dee7914d1c5d07db7e3391253f31`
 </strong>  }
 ]
 </code></pre>
 
 ### Sorting&#x20;
 
-Lastly, once you have all the recommended users' score calculated, you can use the following sorting function that will return the sorted result of the on-chain graph:
+Lastly, once you have all the recommended users' score calculated, you can use the following sorting function that will return the sorted result of the onchain graph:
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -4855,6 +4861,7 @@ Import it to the index file as follows:
 
 const onChainGraphUsers = await fetchOnChainGraphData("vitalik.eth");
 const onChainGraphUsersWithScore = recommendUsers.map(user => calculatingScore(user));
+// finalOnChainGraphUsers can be stored in database
 <strong>const finalOnChainGraphUsers = sortByScore(onChainGraphUsersWithScore);
 </strong>console.log(finalOnChainGraphUsers);
 </code></pre>
@@ -4866,13 +4873,18 @@ const onChainGraphUsersWithScore = recommendUsers.map(user => calculatingScore(u
 if __name__ == "__main__":
     onchain_graph_results = asyncio.run(fetch_on_chain_graph_data("vitalik.eth"))
     on_chain_graph_users_with_score = [calculating_score(user) for user in on_chain_graph_users]
+    # final_on_chain_graph_users can be stored on database
 <strong>    final_on_chain_graph_users = sort_by_score(on_chain_graph_users_with_score)
 </strong>    print(final_on_chain_graph_users)
 </code></pre>
 {% endtab %}
 {% endtabs %}
 
-The sorted result will look as shown below:
+{% hint style="info" %}
+If you are doing **backend integration**, you can store the `finalOnChainGraphUsers`(JavaScript) or `final_on_chain_graph_users`(Python) that contains the fully-processed onchain graph data into your database.
+{% endhint %}
+
+The sorted final result will look as shown below:
 
 <pre class="language-json"><code class="lang-json">[
   {
@@ -4961,15 +4973,15 @@ The sorted result will look as shown below:
     ],
 <strong>    "_score": 49 // lowers score comes after
 </strong>  },
-  // more on-chain graph recommended users
+  // more onchain graph recommended users
 ]
 </code></pre>
 
-And done! 🎉 :partying\_face: Congratulations you've just built an on-chain graph!
+And done! 🎉 :partying\_face: Congratulations you've just built an onchain graph!
 
 ## Developer Support
 
-If you have any questions or need help regarding integrating or building on-chain graph into your application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding integrating or building onchain graph into your application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
