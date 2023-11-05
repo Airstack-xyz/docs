@@ -1,7 +1,5 @@
 ---
-description: >-
-  Learn how to use Airstack to build the Onchain Graph of users -- using POAPs,
-  NFT holders, token transfers, and Lens and Farcaster follows data.
+description: Learn how to use Airstack to display the Onchain Graph of users.
 layout:
   title:
     visible: true
@@ -17,7 +15,7 @@ layout:
 
 # 🕸 Onchain Graph
 
-The Onchain Graph is the **web3 address book.** It analyzes all of a user/wallet's onchain interactions and recommends contacts based on their strengh of relationship.
+The Onchain Graph is the **web3 address book.** It analyzes all of a user/wallet's onchain interactions and recommends contacts based on their strengh of relationship. It currently brings together all of the user's onchain interactions & tokens in common across POAPs, NFTs, token transfers, and Lens and Farcaster.
 
 Developers are utilizing Onchain Graph for recommendation engines, address books, spam filters, product enhancements, and more.
 
