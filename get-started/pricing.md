@@ -1,5 +1,5 @@
 ---
-description: Learn how Airstack pricing will be implemented from November 2023.
+description: Learn how Airstack pricing will be implemented from November 22, 2023.
 layout:
   title:
     visible: true
@@ -17,13 +17,13 @@ layout:
 
 ## Before November 2023
 
-[Airstack](https://airstack.xyz) is available **free of charge** until November 2023. (exact launch date tbd).
+[Airstack](https://airstack.xyz) is available **free of charge** until November 22, 2023.&#x20;
 
 If you need a rate limit increase, you can request one on your Dashboard's [Manage Billing](https://app.airstack.xyz/profile-settings/manage-plans) page.&#x20;
 
 ##
 
-## November 2023
+## From November 22, 2023
 
 Airstack API use will be charged accordingly to the following guidelines:
 
