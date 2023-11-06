@@ -19,6 +19,10 @@ layout:
 
 [Airstack](https://airstack.xyz) is available **free of charge** until November 22, 2023.&#x20;
 
+\
+The exception is Enterprise use cases, defined as utilizing more than 10M API credits per month. If you are falling into this bucket, we'll contact you. \
+
+
 If you need a rate limit increase, you can request one on your Dashboard's [Manage Billing](https://app.airstack.xyz/profile-settings/manage-plans) page.&#x20;
 
 ##
