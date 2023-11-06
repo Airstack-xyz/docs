@@ -1622,7 +1622,7 @@ function formatFarcasterFollowersData(followers, existingUser = []) {
         )
     );
 
-    const following = Boolean(follower?.mutualFollower?.Following?.length);
+    const following = Boolean(follower?.mutualFollowing?.Following?.length);
 
     if (existingUserIndex !== -1) {
       const follows = recommendedUsers?.[existingUserIndex]?.follows ?? {};
