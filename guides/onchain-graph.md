@@ -4622,18 +4622,7 @@ const calculatingScore = (user, scoreMap = defaultScoreMap) => {
       scoreMap.commonEthNfts * ethNftCount +
       scoreMap.commonPolygonNfts * polygonNftCount;
   }
-  let uniquePoaps = [];
   if (user.poaps) {
-    const existingPoaps = {};
-    uniquePoaps = user.poaps.filter((poaps) => {
-      if (poaps?.eventId && existingPoaps[poaps?.eventId]) {
-        return false;
-      }
-      if (poaps?.eventId) {
-        existingPoaps[poaps?.eventId] = true;
-      }
-      return true;
-    });
     score += scoreMap.commonPoaps * user.poaps.length;
   }
 
@@ -4723,9 +4712,8 @@ def calculating_score(user, score_map=None):
     score += (score_map['commonEthNfts'] * eth_nft_count) + \
         (score_map['commonPolygonNfts'] * polygon_nft_count)
 
-    unique_poaps = {poap.get('eventId') for poap in user.get(
-        'poaps', []) if poap.get('eventId')}
-    score += score_map['commonPoaps'] * len(unique_poaps)
+    poaps = user.get('poaps', [])
+    score += score_map['commonPoaps'] * len(poaps)
 
     user['_score'] = score
     return user
