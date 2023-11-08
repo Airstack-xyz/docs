@@ -19,20 +19,20 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and for integrating onchain and offchain data with Farcaster.
 
-In this tutorial, you will learn how to resolve a Farcaster user name or ID to other [web3 identities](#user-content-fn-1)[^1] and vice versa.&#x20;
+In this tutorial, you will learn how to resolve a Farcaster user name or ID to other [web3 identities](#user-content-fn-1)[^1] and vice versa.
 
 In this guide you will learn how to use Airstack to:
 
-- [Get All 0x addresses of Farcaster user(s)](resolve-farcaster-users.md#get-all-0x-addresses-of-farcaster-user-s)
-- [Get all ENS domains owned by Farcaster user(s)](resolve-farcaster-users.md#get-all-ens-domains-owned-by-farcaster-user-s)
-- [Get All Web3 Social Accounts (Farcaster, Lens) owned by 0x address or ENS](resolve-farcaster-users.md#get-all-web3-social-accounts-farcaster-lens-owned-by-0x-address-or-ens)
-- [Get Lens Profile of Farcaster user(s)](resolve-farcaster-users.md#get-lens-profile-of-farcaster-user-s)
-- [Check If XMTP is Enabled for Farcaster user(s)](resolve-farcaster-users.md#check-if-xmtp-is-enabled-for-farcaster-user-s)
+* [Get All 0x addresses of Farcaster user(s)](resolve-farcaster-users.md#get-all-0x-addresses-of-farcaster-user-s)
+* [Get all ENS domains owned by Farcaster user(s)](resolve-farcaster-users.md#get-all-ens-domains-owned-by-farcaster-user-s)
+* [Get All Web3 Social Accounts (Farcaster, Lens) owned by 0x address or ENS](resolve-farcaster-users.md#get-all-web3-social-accounts-farcaster-lens-owned-by-0x-address-or-ens)
+* [Get Lens Profile of Farcaster user(s)](resolve-farcaster-users.md#get-lens-profile-of-farcaster-user-s)
+* [Check If XMTP is Enabled for Farcaster user(s)](resolve-farcaster-users.md#check-if-xmtp-is-enabled-for-farcaster-user-s)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -42,59 +42,51 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -102,7 +94,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -126,11 +117,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -143,11 +132,9 @@ const { data, error } = fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -165,7 +152,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -193,7 +179,6 @@ Show 0x addresses of Farcaster user name dwr.eth and user ID 1
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetAddressesOfFarcasters {
   Socials(
@@ -208,11 +193,9 @@ query GetAddressesOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -242,7 +225,6 @@ query GetAddressesOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -260,7 +242,6 @@ Show all ENS domains owned by Farcaster user name dwr.eth and user id 1
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetENSOfFarcasters {
   Domains(
@@ -275,11 +256,9 @@ query GetENSOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -302,7 +281,6 @@ query GetENSOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -320,19 +298,9 @@ Show web3 social accounts (Farcaster, Lens) owned by dwr.eth and 0xd8dA6BF26964a
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetWeb3SocialsOfFarcasters {
-  Socials(
-    input: {
-      filter: {
-        identity: {
-          _in: ["dwr.eth", "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"]
-        }
-      }
-      blockchain: ethereum
-    }
-  ) {
+  Socials(input: {filter: {identity: {_in: ["dwr.eth", "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"]}}, blockchain: ethereum}) {
     Social {
       dappName
       profileName
@@ -340,11 +308,9 @@ query GetWeb3SocialsOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -356,11 +322,11 @@ query GetWeb3SocialsOfFarcasters {
         },
         {
           "dappName": "lens",
-          "profileName": "vitalik.lens"
+          "profileName": "lens/@vitalik"
         },
         {
           "dappName": "lens",
-          "profileName": "danromero.lens"
+          "profileName": "lens/@danromero"
         },
         {
           "dappName": "farcaster",
@@ -371,7 +337,6 @@ query GetWeb3SocialsOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -389,17 +354,10 @@ Show Lens profiles owned by Farcaster user name dwr.eth and user id 5650
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetLensOfFarcasters {
   Socials(
-    input: {
-      filter: {
-        identity: { _in: ["fc_fname:dwr.eth", "fc_fid:5650"] }
-        dappName: { _eq: lens }
-      }
-      blockchain: ethereum
-    }
+    input: {filter: {identity: {_in: ["fc_fname:dwr.eth", "fc_fid:5650"]}, dappName: {_eq: lens}}, blockchain: ethereum}
   ) {
     Social {
       dappName
@@ -408,11 +366,9 @@ query GetLensOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -420,18 +376,17 @@ query GetLensOfFarcasters {
       "Social": [
         {
           "dappName": "lens",
-          "profileName": "vitalik.lens"
+          "profileName": "lens/@vitalik"
         },
         {
           "dappName": "lens",
-          "profileName": "danromero.lens"
+          "profileName": "lens/@danromero"
         }
       ]
     }
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -449,7 +404,6 @@ Show if XMTP is enabled for Farcaster user name varunsrin.eth and user id 5650
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetXMTPOfFarcasters {
   XMTPs(
@@ -469,11 +423,9 @@ query GetXMTPOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -504,7 +456,6 @@ query GetXMTPOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -514,10 +465,10 @@ If you have any questions or need help regarding resolving identities for Farcas
 
 ## More Resources
 
-- [Resolve Identities](../resolve-identities/)
-  - [Farcaster](../resolve-identities/farcaster.md)
-- [Farcaster Resolver](../../use-cases/farcaster/universal-resolver.md)
-- [Socials API Reference](../../api-references/api-reference/socials-api/)
-- [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
+* [Resolve Identities](../resolve-identities/)
+  * [Farcaster](../resolve-identities/farcaster.md)
+* [Farcaster Resolver](../../use-cases/farcaster/universal-resolver.md)
+* [Socials API Reference](../../api-references/api-reference/socials-api/)
+* [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
 
 [^1]: 0x addresses, ENS domains, Lens, XMTP

@@ -23,7 +23,7 @@ The Socials APIs deliver on-chain and off-chain user-level data pertaining to us
 ```graphql
 input SocialFilter {
   dappName: # Social DApp name – lens, farcaster
-  dappSlug: # Social DApp slug (contract version) – lens_polygon, farcaster_optimism, farcaster_goerli
+  dappSlug: # Social DApp slug (contract version) – lens_polygon, lens_v2_polygon, farcaster_optimism, farcaster_goerli
   followerCount: # Total number of followers
   followingCount: # Total number of followings
   identity: # Identity: blockchain address, domain name, social identity
@@ -77,5 +77,17 @@ type Social {
   userLastUpdatedAtBlockNumber: Int
   userLastUpdatedAtBlockTimestamp: Time
   userRecoveryAddress: Address
+  handleTokenAddress: Address
+  handleTokenId: String
+  metadataURI: String
+  profileMetadata: Map
+  coverImageURI: String
+  twitterUserName: String
+  website: String
+  location: String
+  profileImageContentValue: Media
+  coverImageContentValue: Media
+  profileHandle: String
+  profileHandleNft: TokenNft
 }
 ```

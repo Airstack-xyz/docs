@@ -141,10 +141,11 @@ You can enter Lens name directly in the `owner` or `address` field:
 
 | Sample Input                                        | Description                                                          |
 | --------------------------------------------------- | -------------------------------------------------------------------- |
-| <mark style="color:red;">`vitalik.lens`</mark>      | Plain Lens profile name ending in `.lens`                            |
-| <mark style="color:red;">`lens:vitalik.lens`</mark> | Lens profile name with optional `lens` prefix                        |
+| <mark style="color:red;">`lens/@vitalik`</mark>     | V2 Lens handle with namespace `lens` and handle name `vitalik`       |
 | <mark style="color:red;">`lens_id:100275`</mark>    | Lens profile ID in decimal format with optional `lens_id` prefix     |
 | <mark style="color:red;">`lens_id:0x0187b3`</mark>  | Lens profile ID in hexadecimal format with optional `lens_id` prefix |
+| <mark style="color:red;">`vitalik.lens`</mark>      | V1 Lens profile name ending in `.lens`                               |
+| <mark style="color:red;">`lens:vitalik.lens`</mark> | V1 Lens profile name with optional `lens` prefix                     |
 
 ### Example#1: Show me all stani.lens token transfers
 
@@ -164,8 +165,8 @@ query tokenTransfers {
     input: {
       filter: {
         _or: [
-          { from: { _eq: "stani.lens" } },
-          { to: { _eq: "stani.lens" } }
+          { from: { _eq: "lens/@stani" } },
+          { to: { _eq: "lens/@stani" } }
         ]
       },
       blockchain: ethereum

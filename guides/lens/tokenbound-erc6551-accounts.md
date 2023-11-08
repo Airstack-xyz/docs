@@ -23,15 +23,15 @@ In this tutorial, you will learn how to fetch ERC6551 accounts and all assets he
 
 In this guide you will learn how to use Airstack to:
 
-- [Get ERC6551 Account Addresses of Lens profile(s)](tokenbound-erc6551-accounts.md#get-erc6551-account-addresses-of-lens-profile-s)
-- [Get Assets Owned by ERC6551 Accounts of Lens profile(s)](tokenbound-erc6551-accounts.md#get-assets-owned-by-erc6551-accounts-of-lens-profile-s)
-- [Get Lens profile of Owner that Owns NFT that Owns ERC6551 Accounts](tokenbound-erc6551-accounts.md#get-lens-profile-of-owner-that-owns-nft-that-owns-erc6551-accounts)
+* [Get ERC6551 Account Addresses of Lens profile(s)](tokenbound-erc6551-accounts.md#get-erc6551-account-addresses-of-lens-profile-s)
+* [Get Assets Owned by ERC6551 Accounts of Lens profile(s)](tokenbound-erc6551-accounts.md#get-assets-owned-by-erc6551-accounts-of-lens-profile-s)
+* [Get Lens profile of Owner that Owns NFT that Owns ERC6551 Accounts](tokenbound-erc6551-accounts.md#get-lens-profile-of-owner-that-owns-nft-that-owns-erc6551-accounts)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
-- Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+* Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
 
 ## Get Started
 
@@ -41,59 +41,51 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -101,7 +93,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -125,11 +116,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -142,11 +131,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -164,7 +151,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -183,22 +169,17 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/RN1geS8sSR" %}
-Show all ERC6551 accounts owned by jayden.lens
+Show all ERC6551 accounts owned by lens/@jayden
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
-    input: {
-      filter: { owner: { _in: ["jayden.lens"] } }
-      blockchain: ethereum
-      limit: 200
-    }
+    input: {filter: {owner: {_in: ["lens/@jayden"]}}, blockchain: ethereum, limit: 200}
   ) {
     TokenBalance {
       tokenNfts {
@@ -212,11 +193,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -227,7 +206,9 @@ query MyQuery {
             "erc6551Accounts": [
               {
                 "address": {
-                  "addresses": ["0x5416e5dc14caa0950b2a24ede1eb0e97c360bcf5"]
+                  "addresses": [
+                    "0x5416e5dc14caa0950b2a24ede1eb0e97c360bcf5"
+                  ]
                 }
               }
             ]
@@ -243,7 +224,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -252,22 +232,17 @@ query MyQuery {
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/J14TVepK23" %}
-Show all assets owned by ERC6551 accounts owned by jayden.lens
+Show all assets owned by ERC6551 accounts owned by lens/@jayden
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
-    input: {
-      filter: { owner: { _in: ["jayden.lens"] } }
-      blockchain: ethereum
-      limit: 200
-    }
+    input: {filter: {owner: {_in: ["lens/@jayden"]}}, blockchain: ethereum, limit: 200}
   ) {
     TokenBalance {
       tokenNfts {
@@ -301,11 +276,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -316,7 +289,9 @@ query MyQuery {
             "erc6551Accounts": [
               {
                 "address": {
-                  "addresses": ["0x5416e5dc14caa0950b2a24ede1eb0e97c360bcf5"],
+                  "addresses": [
+                    "0x5416e5dc14caa0950b2a24ede1eb0e97c360bcf5"
+                  ],
                   "tokenBalances": [
                     {
                       "tokenAddress": "0x8ee9a60cb5c0e7db414031856cb9e0f1f05988d1",
@@ -356,7 +331,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -374,21 +348,17 @@ Show owner of NFT that owns ERC6551 account with address 0x5416e5dc14caa0950b2a2
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Accounts(
-    input: {
-      filter: { address: { _in: "0x5416e5dc14caa0950b2a24ede1eb0e97c360bcf5" } }
-      blockchain: ethereum
-    }
+    input: {filter: {address: {_in: "0x5416e5dc14caa0950b2a24ede1eb0e97c360bcf5"}}, blockchain: ethereum}
   ) {
     Account {
       nft {
         tokenBalances {
           owner {
             addresses
-            socials(input: { filter: { dappName: { _eq: lens } } }) {
+            socials(input: {filter: {dappName: {_eq: lens}}}) {
               profileName
               userId
             }
@@ -399,11 +369,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -414,10 +382,12 @@ query MyQuery {
             "tokenBalances": [
               {
                 "owner": {
-                  "addresses": ["0xa75b7833c78eba62f1c5389f811ef3a7364d44de"],
+                  "addresses": [
+                    "0xa75b7833c78eba62f1c5389f811ef3a7364d44de"
+                  ],
                   "socials": [
                     {
-                      "profileName": "jayden.lens",
+                      "profileName": "lens/@jayden",
                       "userId": "0xa75b7833c78eba62f1c5389f811ef3a7364d44de"
                     }
                   ]
@@ -431,7 +401,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -441,6 +410,6 @@ If you have any questions or need help regarding fetching token bound ERC6551 ac
 
 ## More Resources
 
-- [Tokenbound ERC6551 Guides](../token-bound-accounts/)
-- [Accounts API References](../../api-references/api-reference/accounts-api/)
-- [TokenBalances API References](../../api-references/api-reference/tokenbalances-api/)
+* [Tokenbound ERC6551 Guides](../token-bound-accounts/)
+* [Accounts API References](../../api-references/api-reference/accounts-api/)
+* [TokenBalances API References](../../api-references/api-reference/tokenbalances-api/)

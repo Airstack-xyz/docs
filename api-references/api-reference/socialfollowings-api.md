@@ -23,7 +23,7 @@ The SocialFollowings APIs deliver on-chain and off-chain user-level data pertain
 ```graphql
 input SocialFollowingFilter {
   dappName: # Social DApp name – lens, farcaster
-  dappSlug: # Social DApp slug (contract version) – lens_polygon, farcaster_optimism, farcaster_goerli
+  dappSlug: # Social DApp slug (contract version) – lens_polygon, lens_v2_polygon, farcaster_optimism, farcaster_goerli
   identity: # Identity: blockchain address, domain name, social identity
 }
 ```

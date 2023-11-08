@@ -23,14 +23,14 @@ In this tutorial, you will learn how to fetch Lens user(s) asset holdings which 
 
 In this guide you will learn how to use Airstack to:
 
-- [Get All ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-all-erc20s-owned-by-lens-profile-s)
-- [Get All NFTs Owned By Lens Profile(s)](get-token-balances.md#get-all-nfts-owned-by-lens-profile-s)
-- [Get All POAPs Owned By Lens Profile(s)](get-token-balances.md#get-all-poaps-owned-by-lens-profile-s)
+* [Get All ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-all-erc20s-owned-by-lens-profile-s)
+* [Get All NFTs Owned By Lens Profile(s)](get-token-balances.md#get-all-nfts-owned-by-lens-profile-s)
+* [Get All POAPs Owned By Lens Profile(s)](get-token-balances.md#get-all-poaps-owned-by-lens-profile-s)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -40,59 +40,51 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -100,7 +92,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -124,11 +115,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -141,11 +130,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -163,7 +150,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -184,29 +170,21 @@ You can fetch all ERC20 tokens on Ethereum and Polygon owned by any Lens Profile
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/z5mwViK3bq" %}
-Show ERC20 tokens on Ethereum and Polygon owned by bradorbradley.lens and Lens profile id 100275
+Show ERC20 tokens on Ethereum and Polygon owned by lens/@bradorbradley and Lens profile id 100275
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query ERC20OwnedByLensProfiles {
   Ethereum: TokenBalances(
-    input: {
-      filter: {
-        owner: { _in: ["bradorbradley.lens", "lens_id:100275"] }
-        tokenType: { _eq: ERC20 }
-      }
-      blockchain: ethereum
-      limit: 50
-    }
+    input: {filter: {owner: {_in: ["lens/@bradorbradley", "lens_id:100275"]}, tokenType: {_eq: ERC20}}, blockchain: ethereum, limit: 50}
   ) {
     TokenBalance {
       owner {
-        socials(input: { filter: { dappName: { _eq: lens } } }) {
+        socials(input: {filter: {dappName: {_eq: lens}}}) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -226,18 +204,11 @@ query ERC20OwnedByLensProfiles {
     }
   }
   Polygon: TokenBalances(
-    input: {
-      filter: {
-        owner: { _in: ["bradorbradley.lens", "lens_id:100275"] }
-        tokenType: { _eq: ERC20 }
-      }
-      blockchain: polygon
-      limit: 50
-    }
+    input: {filter: {owner: {_in: ["bradorbradley.lens", "lens_id:100275"]}, tokenType: {_eq: ERC20}}, blockchain: polygon, limit: 50}
   ) {
     TokenBalance {
       owner {
-        socials(input: { filter: { dappName: { _eq: lens } } }) {
+        socials(input: {filter: {dappName: {_eq: lens}}}) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -258,11 +229,9 @@ query ERC20OwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -317,7 +286,6 @@ query ERC20OwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -328,29 +296,21 @@ You can fetch all NFTs on Ethereum and Polygon owned by any Lens Profile(s):
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/skXQHLkXin" %}
-Show NFT on Ethereum and Polygon owned by bradorbradley.lens and Lens profile id 100275
+Show NFT on Ethereum and Polygon owned by lens/@bradorbradley and Lens profile id 100275
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query NFTsOwnedByLensProfiles {
   Ethereum: TokenBalances(
-    input: {
-      filter: {
-        owner: { _in: ["bradorbradley.lens", "lens_id:100275"] }
-        tokenType: { _in: [ERC1155, ERC721] }
-      }
-      blockchain: ethereum
-      limit: 50
-    }
+    input: {filter: {owner: {_in: ["lens/@bradorbradley", "lens_id:100275"]}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: ethereum, limit: 50}
   ) {
     TokenBalance {
       owner {
-        socials(input: { filter: { dappName: { _eq: lens } } }) {
+        socials(input: {filter: {dappName: {_eq: lens}}}) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -378,18 +338,11 @@ query NFTsOwnedByLensProfiles {
     }
   }
   Polygon: TokenBalances(
-    input: {
-      filter: {
-        owner: { _in: ["bradorbradley.lens", "lens_id:100275"] }
-        tokenType: { _in: [ERC1155, ERC721] }
-      }
-      blockchain: polygon
-      limit: 50
-    }
+    input: {filter: {owner: {_in: ["lens/@bradorbradley", "lens_id:100275"]}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: polygon, limit: 50}
   ) {
     TokenBalance {
       owner {
-        socials(input: { filter: { dappName: { _eq: lens } } }) {
+        socials(input: {filter: {dappName: {_eq: lens}}}) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -418,11 +371,9 @@ query NFTsOwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -494,7 +445,6 @@ query NFTsOwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -505,26 +455,22 @@ You can fetch all POAPs tokens owned by any Lens Profile(s):
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/T4g7vpBWkX" %}
-Show POAPs owned by bradorbradley.lens and Lens profile id 100275
+Show POAPs owned by lens/@bradorbradley and Lens profile id 100275
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query POAPsOwnedByLensProfiles {
   Poaps(
-    input: {
-      filter: { owner: { _in: ["bradorbradley.lens", "lens_id:100275"] } }
-      blockchain: ALL
-    }
+    input: {filter: {owner: {_in: ["lens/@bradorbradley", "lens_id:100275"]}}, blockchain: ALL}
   ) {
     Poap {
       eventId
       owner {
-        socials(input: { filter: { dappName: { _eq: lens } } }) {
+        socials(input: { filter: { dappName: {_eq: lens}}}) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -552,11 +498,9 @@ query POAPsOwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -631,7 +575,6 @@ query POAPsOwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -641,5 +584,5 @@ If you have any questions or need help regarding fetching token balances of Lens
 
 ## More Resources
 
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-- [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
