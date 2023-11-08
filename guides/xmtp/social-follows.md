@@ -23,14 +23,14 @@ In this tutorial, you will learn how to check whether an array of user followers
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to check if holders of a given NFT or POAP have XMTP enabled:
 
-- [Get All Followers of User(s) that have XMTP Enabled](social-follows.md#get-all-followers-of-user-s-that-have-xmtp-enabled)
-- [Get All Following of User(s) that have XMTP Enabled](social-follows.md#get-all-following-of-user-s-that-have-xmtp-enabled)
+* [Get All Followers of User(s) that have XMTP Enabled](social-follows.md#get-all-followers-of-user-s-that-have-xmtp-enabled)
+* [Get All Following of User(s) that have XMTP Enabled](social-follows.md#get-all-following-of-user-s-that-have-xmtp-enabled)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
-- Basic knowledge of [XMTP](https://xmtp.org)
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+* Basic knowledge of [XMTP](https://xmtp.org)
 
 ## Get Started
 
@@ -51,7 +51,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -66,7 +65,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -81,15 +79,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -97,7 +92,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -121,11 +115,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -138,11 +130,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -160,7 +150,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -188,7 +177,6 @@ Show all followers of vitalik.eth and 0xeaf55242a90bb3289dB8184772b0B98562053559
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -241,11 +229,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -336,7 +322,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -354,7 +339,6 @@ Show all following of vitalik.eth and 0xeaf55242a90bb3289dB8184772b0B98562053559
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowings(
@@ -364,7 +348,7 @@ query MyQuery {
           _in: [
             "0xeaf55242a90bb3289dB8184772b0B98562053559"
             "vitalik.eth"
-            "bradorbradley.lens"
+            "lens/@bradorbradley"
             "fc_fname:dwr.eth"
           ]
         }
@@ -412,11 +396,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -458,7 +440,7 @@ query MyQuery {
             ],
             "socials": [
               {
-                "profileName": "onetown.lens",
+                "profileName": "lens/@onetown",
                 "profileTokenId": "107023",
                 "profileTokenIdHex": "0x01a20f",
                 "userId": "0xed03d7c78f164b66233853a07ee80b7911f7ea2e",
@@ -479,7 +461,7 @@ query MyQuery {
                 ]
               },
               {
-                "profileName": "lludo.lens",
+                "profileName": "lens/@lludo",
                 "profileTokenId": "106216",
                 "profileTokenIdHex": "0x019ee8",
                 "userId": "0x471e9b5f89f827045e6d9ec2083a310c27459157",
@@ -522,7 +504,7 @@ query MyQuery {
                 ]
               },
               {
-                "profileName": "betashop9.lens",
+                "profileName": "lens/@betashop9",
                 "profileTokenId": "94472",
                 "profileTokenIdHex": "0x017108",
                 "userId": "0xeaf55242a90bb3289db8184772b0b98562053559",
@@ -541,7 +523,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -551,12 +532,15 @@ If you have any questions or need help regarding checking XMTP for holders of a 
 
 ## More Resources
 
-- [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
-- [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
-- [Has XMTP For Lens Developers](../lens/has-xmtp.md)
-- [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
+* [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
+* [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
+* [Has XMTP For Lens Developers](../lens/has-xmtp.md)
+* [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
 
 [^1]: e.g. `0xeaf55242a90bb3289dB8184772b0B98562053559`
+
 [^2]: e.g. Lens profile name `bradorbradley.lens` or Lens profile id, either in decimal or hex, `lens_id:0x24`
+
 [^3]: e.g. `0xeaf55242a90bb3289dB8184772b0B98562053559`
+
 [^4]: e.g. Lens profile name `bradorbradley.lens` or Lens profile id, either in decimal or hex, `lens_id:0x24`

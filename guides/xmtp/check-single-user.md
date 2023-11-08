@@ -21,17 +21,17 @@ In this tutorial, you will learn how to check whether a given user has XMTP enab
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to check if a single user has XMTP enabled:
 
-- [By 0x address](check-single-user.md#by-0x-address)
-- [By ENS](check-single-user.md#by-ens)
-- [By cb.id](check-single-user.md#by-cb.id)
-- [By Lens profile name or ID](check-single-user.md#by-lens-profile-name-or-id)
-- [By Farcaster name or ID](check-single-user.md#by-farcaster-name-or-id)
+* [By 0x address](check-single-user.md#by-0x-address)
+* [By ENS](check-single-user.md#by-ens)
+* [By cb.id](check-single-user.md#by-cb.id)
+* [By Lens profile name or ID](check-single-user.md#by-lens-profile-name-or-id)
+* [By Farcaster name or ID](check-single-user.md#by-farcaster-name-or-id)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
-- Basic knowledge of [XMTP](https://xmtp.org)
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+* Basic knowledge of [XMTP](https://xmtp.org)
 
 ## Get Started
 
@@ -52,7 +52,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -67,7 +66,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -82,15 +80,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -98,7 +93,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -122,11 +116,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -139,11 +131,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -161,7 +151,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -189,7 +178,6 @@ Check Single User Has XMTP With 0x Address (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
@@ -204,11 +192,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -222,7 +208,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -238,7 +223,6 @@ Check Single User Does Not Have XMTP With 0x Address (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
@@ -253,11 +237,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -267,7 +249,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -285,7 +266,6 @@ Check Single User Has XMTP With ENS (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(input: { blockchain: ALL, filter: { owner: { _eq: "vitalik.eth" } } }) {
@@ -295,11 +275,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -313,7 +291,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -331,7 +308,6 @@ Show me if yosephks.cb.id has XMTP enabled or not
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
@@ -343,11 +319,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -361,7 +335,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -379,11 +352,10 @@ Check Single User Has XMTP With Lens Profile Name (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
-    input: { blockchain: ALL, filter: { owner: { _eq: "vitalik.lens" } } }
+    input: { blockchain: ALL, filter: { owner: { _eq: "lens/@vitalik" } } }
   ) {
     XMTP {
       isXMTPEnabled
@@ -391,11 +363,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -409,7 +379,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -425,7 +394,6 @@ Check Single User Has XMTP With Lens Profile ID (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
@@ -437,11 +405,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -455,7 +421,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -473,7 +438,6 @@ Check Single User Has XMTP With Farcaster Name (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
@@ -488,11 +452,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -506,7 +468,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -522,7 +483,6 @@ Check Single User Has XMTP With Farcaster ID (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(input: { blockchain: ALL, filter: { owner: { _eq: "fc_fid:5650" } } }) {
@@ -532,11 +492,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -550,7 +508,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -560,15 +517,18 @@ If you have any questions or need help regarding checking XMTP for a single user
 
 ## More Resources
 
-- [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
-- [Has XMTP For Lens Developers](../lens/has-xmtp.md)
-- [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
-- [Universal Resolver](../../use-cases/xmtp/universal-resolver.md)
+* [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
+* [Has XMTP For Lens Developers](../lens/has-xmtp.md)
+* [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
+* [Universal Resolver](../../use-cases/xmtp/universal-resolver.md)
 
 1. e.g. vitalik.lens
 2. e.g. `lens_id:0x19af`
 
 [^1]: ENS that is resolved off-chain, e.g. <mark style="color:red;">`leighton.pooltogether.eth`</mark>
+
 [^2]: e.g. `lens_id:100275`
+
 [^3]: e.g. `fc_fname:vitalik.eth`
+
 [^4]: 0x address, ENS, Lens, Farcaster
