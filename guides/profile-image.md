@@ -23,13 +23,14 @@ In this tutorial, you will learn how to fetch profile images of various web3 dom
 
 In this guide you will learn how to use Airstack to:
 
-- [Get ENS Profile Image](profile-image.md#get-ens-profile-image)
-- [Get Farcaster Profile Image](profile-image.md#get-farcaster-profile-image)
+* [Get ENS Profile Image](profile-image.md#get-ens-profile-image)
+* [Get Lens Profile Image](profile-image.md#get-lens-profile-image)
+* [Get Farcaster Profile Image](profile-image.md#get-farcaster-profile-image)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -50,7 +51,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -65,7 +65,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -80,15 +79,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -96,7 +92,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -120,11 +115,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -137,11 +130,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -159,7 +150,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -180,11 +170,11 @@ You can provide the domain name, e.g. `vitalik.eth`, into the `name` input filte
 {% hint style="info" %}
 The images returned will already be resized by Airstack and can be used directly within your application:
 
-- extra_small: 125x125px
-- small: 250x250px
-- medium: 500x500px
-- large: 750x750px
-  {% endhint %}
+* extra\_small: 125x125px
+* small: 250x250px
+* medium: 500x500px
+* large: 750x750px
+{% endhint %}
 
 ### Try Demo
 
@@ -196,7 +186,6 @@ Show me ENS profile image of vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Domains(
@@ -218,11 +207,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -246,7 +233,77 @@ query MyQuery {
   }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
+## Get Lens Profile Image
+
+You can provide the Lens handle, e.g. [`lens/@vitalik`](https://explorer.airstack.xyz/token-balances?address=lens%2F%40vitalik\&blockchain=ethereum\&rawInput=%23%E2%8E%B1lens%2F%40vitalik%E2%8E%B1%28lens%2F%40vitalik++ethereum+null%29\&inputType=ADDRESS), into the `profileName` input filter and fetch the Lens profile image from the response with the `profileImage` giving the original profile image and `profileImageContentValue` providing the resized versions:
+
+{% hint style="info" %}
+The images returned will already be resized by Airstack and can be used directly within your application:
+
+* extra\_small: 125x125px
+* small: 250x250px
+* medium: 500x500px
+* large: 750x750px
+{% endhint %}
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/FBm7aw5m16" %}
+Show me Lens profile image of lens/@vitalik
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Socials(
+    input: {filter: {profileName: {_eq: "lens/@vitalik"}, dappName: {_eq: lens}}, blockchain: ethereum}
+  ) {
+    Social {
+      profileImage
+      profileImageContentValue {
+        image {
+          extraSmall
+          large
+          medium
+          original
+          small
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "profileImage": "ipfs://QmQP1DyNH8upeBxKJYtfCDdUj3mRcZep8zhJTLe3ePXB7M",
+          "profileImageContentValue": {
+            "image": {
+              "extraSmall": "https://assets.airstack.xyz/image/social/WA1TRm9gbDHIiCUF6iXICUfjUq/5gWZ5lBaDpcgYv0Y=/extra_small.jpg",
+              "large": "https://assets.airstack.xyz/image/social/WA1TRm9gbDHIiCUF6iXICUfjUq/5gWZ5lBaDpcgYv0Y=/large.jpg",
+              "medium": "https://assets.airstack.xyz/image/social/WA1TRm9gbDHIiCUF6iXICUfjUq/5gWZ5lBaDpcgYv0Y=/medium.jpg",
+              "original": "https://assets.airstack.xyz/image/social/WA1TRm9gbDHIiCUF6iXICUfjUq/5gWZ5lBaDpcgYv0Y=/original_image.jpg",
+              "small": "https://assets.airstack.xyz/image/social/WA1TRm9gbDHIiCUF6iXICUfjUq/5gWZ5lBaDpcgYv0Y=/small.jpg"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
 {% endtab %}
 {% endtabs %}
 
@@ -264,7 +321,6 @@ Show Farcaster profile image of Farcaster user vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -282,11 +338,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -300,7 +354,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -310,8 +363,8 @@ If you have any questions or need help regarding fetching profile images data, p
 
 ## More Resources
 
-- [Socials API Reference](../api-references/api-reference/socials-api/)
-- [Domains API Reference](../api-references/api-reference/domains-api/)
-- [TokenNfts API Reference](../api-references/api-reference/tokennfts-api/)
-- [Farcaster Users Details](farcaster/farcaster-users-details.md)
-- [Lens Profile Details](lens/lens-profile-details.md)
+* [Socials API Reference](../api-references/api-reference/socials-api/)
+* [Domains API Reference](../api-references/api-reference/domains-api/)
+* [TokenNfts API Reference](../api-references/api-reference/tokennfts-api/)
+* [Farcaster Users Details](farcaster/farcaster-users-details.md)
+* [Lens Profile Details](lens/lens-profile-details.md)
