@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to fetch profile images of various web3 domains and socials, such as
-  ENS, Farcaster, and Lens.
+  ENS and Farcaster.
 layout:
   title:
     visible: true

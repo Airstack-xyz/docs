@@ -373,7 +373,7 @@ query MyQuery($eventIds: [String!]) {
                 {
                   "dappName": "lens",
                   "blockchain": "polygon",
-                  "profileName": "egeagus.lens",
+                  "profileName": "lens/@egeagus",
                   "profileImage": "",
                   "profileTokenId": "66698",
                   "profileTokenAddress": "0xdb46d1dc155634fbc732f92e853b10b288ad5a1d"
@@ -500,7 +500,7 @@ The formatted result will have a format as follows:
       {
         "dappName": "lens",
         "blockchain": "polygon",
-        "profileName": "colinlt.lens",
+        "profileName": "lens/@colinlt",
         "profileImage": "",
         "profileTokenId": "33481",
         "profileTokenAddress": "0xdb46d1dc155634fbc732f92e853b10b288ad5a1d"
@@ -1205,8 +1205,95 @@ query MyQuery($user: Identity!) {
 {% endtab %}
 
 {% tab title="Response" %}
-```
-// Some code
+```json
+{
+  "data": {
+    "SocialFollowings": {
+      "Following": [
+        {
+          "followingAddress": {
+            "addresses": [
+              "0x648aa14e4424e0825a5ce739c8c68610e143fb79"
+            ],
+            "domains": [
+              {
+                "name": "sassal.isstackingsats.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "[2b95ffa321895f770d6cf4f5a0a28b503775a5791b879f7fd7dc8be4d2119539].ethmojis.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "thedailygwei.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "[77a1a3bec9ef5f3ae2bb016067fb690ea5db004f01c5628c015b15c0c2954b1c].ethmojis.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "[799a91224d75d9f60ff17c9704dff211ac00d58d9c0f929f9bd0c972dc1d9e1b].ethmojis.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "sassal.eth",
+                "isPrimary": true
+              },
+              {
+                "name": "[61a23a96d60aa46f53bd6ea7db88aa1ccca962bf18d4f3fbeef46aa611783032].ethmojis.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "thedailygwei.mirror.xyz",
+                "isPrimary": false
+              },
+              {
+                "name": "sassal.ismoney.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "sassal.defi⚡.eth",
+                "isPrimary": false
+              }
+            ],
+            "socials": [
+              {
+                "dappName": "lens",
+                "blockchain": "polygon",
+                "profileName": "lens/@sassal",
+                "profileImage": "https://ipfs.infura.io/ipfs/QmbDWyw6b1YfpTkPhWySzfr7zrdwT1TNTA8Hbk1S9JoRrp",
+                "profileTokenId": "13464",
+                "profileTokenAddress": "0xdb46d1dc155634fbc732f92e853b10b288ad5a1d"
+              },
+              {
+                "dappName": "farcaster",
+                "blockchain": "optimism",
+                "profileName": "",
+                "profileImage": "",
+                "profileTokenId": "21566",
+                "profileTokenAddress": "0x00000000fc6c5f01fc30151999387bb99a9f489b"
+              },
+              {
+                "dappName": "farcaster",
+                "blockchain": "optimism",
+                "profileName": "sassal.eth",
+                "profileImage": "https://i.imgur.com/J81m7He.jpg",
+                "profileTokenId": "4036",
+                "profileTokenAddress": "0x00000000fc6c5f01fc30151999387bb99a9f489b"
+              }
+            ],
+            "xmtp": null,
+            "mutualFollower": {
+              "Follower": null
+            }
+          }
+        },
+        // more Lens following data
+      ]
+    }
+  }
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -1343,7 +1430,7 @@ The formatted result will have a format as follows:
       {
         "dappName": "lens",
         "blockchain": "polygon",
-        "profileName": "sassal.lens",
+        "profileName": "lens/@sassal",
         "profileImage": "",
         "profileTokenId": "13464",
         "profileTokenAddress": "0xdb46d1dc155634fbc732f92e853b10b288ad5a1d"
@@ -1369,7 +1456,7 @@ The formatted result will have a format as follows:
 
 With the queries for fetching all the users being followed on Lens of a given user established, it will be essential to fetch all the data using paginations.
 
-In order to paginate through all the data, you can utilize `fetchQueryWithPagination` and `execute_paginated_query` from the JavaScript (React & Node) and Python SDKs, respectively. The full code implementation for this will be as follows:
+In order to paginate through all the data, you can utilize [`fetchQueryWithPagination`](../nodejs-sdk-reference/fetchquery.md) and `execute_paginated_query` from the JavaScript (React & Node) and Python SDKs, respectively. The full code implementation for this will be as follows:
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -1600,7 +1687,51 @@ query MyQuery($user: Identity!) {
 
 {% tab title="Response" %}
 ```json
-// Some code
+{
+  "data": {
+    "SocialFollowers": {
+      "Follower": [
+        {
+          "followerAddress": {
+            "addresses": [
+              "0xa298b2a89621f9a43b75efae8c7411deeeedea59",
+              "0x02d64289bbe12d96e53957fe33a9b1373aa0da40"
+            ],
+            "domains": [
+              {
+                "name": "gaoa.eth",
+                "isPrimary": true
+              },
+              {
+                "name": "accordplace.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "knowledgeworker.eth",
+                "isPrimary": false
+              }
+            ],
+            "socials": [
+              {
+                "dappName": "farcaster",
+                "blockchain": "optimism",
+                "profileName": "gaoa.eth",
+                "profileImage": "https://i.imgur.com/KRZPQnq.png",
+                "profileTokenId": "9582",
+                "profileTokenAddress": "0x00000000fc6c5f01fc30151999387bb99a9f489b"
+              }
+            ],
+            "xmtp": null,
+            "mutualFollowing": {
+              "Following": null
+            }
+          }
+        },
+        // more Farcaster followers
+      ]
+    }
+  }
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -1727,7 +1858,7 @@ The formatted result will have a format as follows:
 
 With the queries for fetching all the users following on Farcaster of a given user established, it will be essential to fetch all the data using paginations.
 
-In order to paginate through all the data, you can utilize `fetchQueryWithPagination` and `execute_paginated_query` from the JavaScript (React & Node) and Python SDKs, respectively. The full code implementation for this will be as follows:
+In order to paginate through all the data, you can utilize [`fetchQueryWithPagination`](../nodejs-sdk-reference/fetchquerywithpagination.md) and `execute_paginated_query` from the JavaScript (React & Node) and Python SDKs, respectively. The full code implementation for this will be as follows:
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -2061,7 +2192,7 @@ The formatted result will have a format as follows:
       {
         "dappName": "lens",
         "blockchain": "polygon",
-        "profileName": "huxley_warner.lens",
+        "profileName": "lens/@huxley_warner",
         "profileImage": "",
         "profileTokenId": "8818",
         "profileTokenAddress": "0xdb46d1dc155634fbc732f92e853b10b288ad5a1d"
@@ -2080,7 +2211,7 @@ The formatted result will have a format as follows:
 
 With the queries for fetching all the users following on Lens of a given user established, it will be essential to fetch all the data using paginations.
 
-In order to paginate through all the data, you can utilize `fetchQueryWithPagination` and `execute_paginated_query` from the JavaScript (React & Node) and Python SDKs, respectively. The full code implementation for this will be as follows:
+In order to paginate through all the data, you can utilize [`fetchQueryWithPagination`](../nodejs-sdk-reference/fetchquerywithpagination.md) and `execute_paginated_query` from the JavaScript (React & Node) and Python SDKs, respectively. The full code implementation for this will be as follows:
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -2928,7 +3059,7 @@ The formatted result will have a format as follows:
       {
         "dappName": "lens",
         "blockchain": "polygon",
-        "profileName": "vitalik.lens",
+        "profileName": "lens/@vitalik",
         "profileImage": "",
         "profileTokenId": "100275",
         "profileTokenAddress": "0xdb46d1dc155634fbc732f92e853b10b288ad5a1d"
@@ -3569,7 +3700,7 @@ The formatted result will have a format as follows:
 
 With the queries for fetching all the common Ethereum NFT holders that holds the same Ethereum NFTs as the given user established, it will be essential to fetch all the data using paginations.
 
-In order to paginate through all the data, you can utilize `fetchQueryWithPagination` and `execute_paginated_query` from the JavaScript (React & Node) and Python SDKs, respectively. The full code implementation for this will be as follows:
+In order to paginate through all the data, you can utilize [`fetchQueryWithPagination`](../nodejs-sdk-reference/fetchquerywithpagination.md) and `execute_paginated_query` from the JavaScript (React & Node) and Python SDKs, respectively. The full code implementation for this will be as follows:
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -4151,7 +4282,7 @@ The formatted result will have a format as follows:
       {
         "dappName": "lens",
         "blockchain": "polygon",
-        "profileName": "alebaffa.lens",
+        "profileName": "lens/@alebaffa",
         "profileImage": "",
         "profileTokenId": "81453",
         "profileTokenAddress": "0xdb46d1dc155634fbc732f92e853b10b288ad5a1d"
@@ -4755,7 +4886,7 @@ and the modified JSON will have a new `_score` field as follows:
       {
         "dappName": "lens",
         "blockchain": "polygon",
-        "profileName": "colinlt.lens",
+        "profileName": "lens/@colinlt",
         "profileImage": "",
         "profileTokenId": "33481",
         "profileTokenAddress": "0xdb46d1dc155634fbc732f92e853b10b288ad5a1d"
@@ -4924,7 +5055,7 @@ The sorted final result will look as shown below:
       {
         "dappName": "lens",
         "blockchain": "polygon",
-        "profileName": "lucemans.lens",
+        "profileName": "lens/@lucemans",
         "profileImage": "",
         "profileTokenId": "12083",
         "profileTokenAddress": "0xdb46d1dc155634fbc732f92e853b10b288ad5a1d"

@@ -1,4 +1,7 @@
 ---
+description: >-
+  Learn how to fetch Lens following data and its various use cases and
+  combinations.
 layout:
   title:
     visible: true

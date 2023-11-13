@@ -23,13 +23,13 @@ In this tutorial, you will learn how to resolve ENS names from a give user and v
 
 In this guide you will learn how to use Airstack to:
 
-- [Get ENS from a given user(s)](ens.md#get-ens-from-a-given-user-s)
-- [Get the 0x address, Lens, and Farcaster from a given ENS name(s)](ens.md#get-the-0x-address-lens-and-farcaster-from-a-given-ens-name-s)
+* [Get ENS from a given user(s)](ens.md#get-ens-from-a-given-user-s)
+* [Get the 0x address, Lens, and Farcaster from a given ENS name(s)](ens.md#get-the-0x-address-lens-and-farcaster-from-a-given-ens-name-s)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -39,59 +39,51 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -99,7 +91,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -123,11 +114,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -140,11 +129,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -162,7 +149,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -183,14 +169,13 @@ You can get all the ENS names of a given user, both primary and non-primary name
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/SkTlH3Lh3I" %}
-Show me the ENS of 0x4b70d04124c2996de29e0caa050a49822faec6cc, stani.lens, fc_fname:vbuterin
+Show me the ENS of 0x4b70d04124c2996de29e0caa050a49822faec6cc, lens/@stani, fc\_fname:vbuterin
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetENS {
   Domains(
@@ -199,7 +184,7 @@ query GetENS {
         owner: {
           _in: [
             "0x4b70d04124c2996de29e0caa050a49822faec6cc"
-            "stani.lens"
+            "lens/@stani"
             "fc_fname:vbuterin"
           ]
         }
@@ -214,11 +199,9 @@ query GetENS {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -269,7 +252,6 @@ query GetENS {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -287,7 +269,6 @@ Show me the 0x address, Lens, Farcaster of vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetUserDetailsFromENS {
   Socials(
@@ -304,11 +285,9 @@ query GetUserDetailsFromENS {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -322,14 +301,13 @@ query GetUserDetailsFromENS {
         {
           "userAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
           "dappName": "lens",
-          "profileName": "vitalik.lens"
+          "profileName": "lens/@vitalik"
         }
       ]
     }
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -339,5 +317,5 @@ If you have any questions or need help regarding resolving ENS name(s), please j
 
 ## More Resources
 
-- [Domains API Reference](../../api-references/api-reference/domains-api/)
-- [Socials API Reference](../../api-references/api-reference/socials-api/)
+* [Domains API Reference](../../api-references/api-reference/domains-api/)
+* [Socials API Reference](../../api-references/api-reference/socials-api/)

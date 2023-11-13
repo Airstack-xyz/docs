@@ -17,14 +17,4 @@ layout:
 
 Learn how to use [Airstack](https://airstack.xyz) to use fetch tokens in common held by multiple users:
 
-{% content-ref url="erc20s.md" %}
-[erc20s.md](erc20s.md)
-{% endcontent-ref %}
-
-{% content-ref url="nfts.md" %}
-[nfts.md](nfts.md)
-{% endcontent-ref %}
-
-{% content-ref url="poaps.md" %}
-[poaps.md](poaps.md)
-{% endcontent-ref %}
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1fa99">🪙</span> <strong>ERC20s</strong></td><td>Learn how to fetch ERC20 tokens in common from multiple users.</td><td></td><td><a href="erc20s.md">erc20s.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="2666">♦</span> <strong>NFTs</strong></td><td>Learn how to fetch NFTs in common from multiple users.</td><td></td><td><a href="../recommendation-engine/nfts.md">nfts.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="26a1">⚡</span> <strong>POAPs</strong></td><td>Learn how to fetch POAPs in common from multiple users.</td><td></td><td><a href="../recommendation-engine/poaps.md">poaps.md</a></td></tr></tbody></table>
