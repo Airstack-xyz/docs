@@ -20,7 +20,7 @@ layout:
 
 💬 [Please join this private Telegram group](https://t.me/+iL8v1-mSZmZiYzRh) to ask questions to the team
 
-🚀 [Access the APIs](https://app.airstack.xyz)
+🚀 [Access the APIs](https://app.airstack.xyz/api-studio)
 
 ## Want to jump right in?
 
