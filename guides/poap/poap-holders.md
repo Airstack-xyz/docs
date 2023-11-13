@@ -258,7 +258,7 @@ query MyQuery {
             "socials": [
               {
                 "dappName": "lens",
-                "profileName": "delivan.lens",
+                "profileName": "lens/@delivan",
                 "profileTokenId": "121757",
                 "profileTokenIdHex": "",
                 "userAssociatedAddresses": [
@@ -373,7 +373,7 @@ show me common holders of EthCC\[6] - Attendee and ETHDenver 2023 POAP
                   "socials": [
                     {
                       "dappName": "lens",
-                      "profileName": "sponnet.lens",
+                      "profileName": "lens/@sponnet",
                       "profileTokenId": "107203",
                       "profileTokenIdHex": "",
                       "userAssociatedAddresses": [

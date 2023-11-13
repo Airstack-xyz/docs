@@ -20,7 +20,9 @@ layout:
 
 ```graphql
 query MyQuery {
-  Domains(input: {filter: {name: {_eq: "balajis.eth"}}, blockchain: ethereum}) {
+  Domains(
+    input: { filter: { name: { _eq: "balajis.eth" } }, blockchain: ethereum }
+  ) {
     Domain {
       registrationCost
       paymentTokenCostInUSDC
@@ -51,11 +53,16 @@ query MyQuery {
 
 <details>
 
-<summary>Show me all domains shnoodles.lens owns</summary>
+<summary>Show me all domains lens/@shnoodles owns</summary>
 
 ```graphql
 query domainsOwned {
-  Domains(input: {filter: {owner: {_eq: "shnoodles.lens"}}, blockchain: ethereum}) {
+  Domains(
+    input: {
+      filter: { owner: { _eq: "lens/@shnoodles" } }
+      blockchain: ethereum
+    }
+  ) {
     Domain {
       name
       blockchain

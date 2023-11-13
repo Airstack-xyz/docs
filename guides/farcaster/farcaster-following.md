@@ -335,7 +335,7 @@ query MyQuery {
         dappName: { _eq: farcaster }
         identity: {
           _in: [
-            "stani.lens"
+            "lens/@stani"
             "lens_id:0x024"
             "vitalik.eth"
             "0xeaf55242a90bb3289dB8184772b0B98562053559"
@@ -405,7 +405,7 @@ query MyQuery {
         dappName: { _eq: farcaster }
         identity: {
           _in: [
-            "stani.lens"
+            "lens/@stani"
             "lens_id:0x024"
             "vitalik.eth"
             "0xeaf55242a90bb3289dB8184772b0B98562053559"
@@ -469,7 +469,7 @@ You can get the list of Farcaster following of Farcaster user(s) and check if th
 
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   SocialFollowings(
-    input: {filter: {dappName: {_eq: farcaster}, identity: {_in: ["stani.lens", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
+    input: {filter: {dappName: {_eq: farcaster}, identity: {_in: ["lens/@stani", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
   ) {
     Following {
       followingAddress {
@@ -828,7 +828,7 @@ query MyQuery {
               },
               {
                 "dappName": "lens",
-                "profileName": "victorma.lens",
+                "profileName": "lens/@victorma",
                 "profileTokenId": "118319",
                 "profileTokenIdHex": "",
                 "userId": "0x223f2db258234f7fa164a9e4c0929318feb3b550",

@@ -21,7 +21,12 @@ layout:
 ```graphql
 query MyQuery {
   TokenTransfers(
-    input: {filter: {tokenAddress: {_eq: "0x60e4d786628fea6478f785a6d7e704777c86a7c6"}}, blockchain: ethereum}
+    input: {
+      filter: {
+        tokenAddress: { _eq: "0x60e4d786628fea6478f785a6d7e704777c86a7c6" }
+      }
+      blockchain: ethereum
+    }
   ) {
     TokenTransfer {
       amount
@@ -46,19 +51,16 @@ query MyQuery {
 
 <details>
 
-<summary>Get token transfer history of stani.lens on Polygon</summary>
+<summary>Get token transfer history of lens/@stani on Polygon</summary>
 
 ```graphql
 query GetTokenTransfersFromStaniOnPolygon {
   polygonTransfers: TokenTransfers(
     input: {
       filter: {
-        _or: [
-          {from: {_eq: "stani.lens"}},
-          {to: {_eq: "stani.lens"}}
-        ]
-      },
-      blockchain: polygon, 
+        _or: [{ from: { _eq: "lens/@stani" } }, { to: { _eq: "lens/@stani" } }]
+      }
+      blockchain: polygon
       limit: 10
     }
   ) {
@@ -80,7 +82,6 @@ query GetTokenTransfersFromStaniOnPolygon {
     }
   }
 }
-
 ```
 
 </details>

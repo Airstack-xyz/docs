@@ -648,7 +648,7 @@ You can get the Farcaster user profile details by their Lens profile name:
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/qw4LjDtYDm" %}
-Show all farcaster profile details and registration info for danromero.lens
+Show all farcaster profile details and registration info for lens/@danromero
 {% endembed %}
 
 ### Code
@@ -662,7 +662,7 @@ query MyQuery {
     input: {
       filter: {
         dappName: { _eq: farcaster }
-        identity: { _eq: "danromero.lens" }
+        identity: { _eq: "lens/@danromero" }
       }
       blockchain: ethereum
     }
@@ -746,7 +746,7 @@ query MyQuery {
           "profileLastUpdatedAtBlockNumber": 108874508,
           "profileTokenUri": "",
           "isDefault": false,
-          "identity": "danromero.lens",
+          "identity": "lens/@danromero",
           "fnames": ["dwr.eth", "danromero.eth", "dwr"]
         }
       ]

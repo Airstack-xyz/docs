@@ -20,7 +20,12 @@ layout:
 
 ```graphql
 query MyQuery {
-  Socials(input: {filter: {profileName: {_eq: "betashop"}}, blockchain: ethereum}) {
+  Socials(
+    input: {
+      filter: { profileName: { _eq: "fc_fname:betashop" } }
+      blockchain: ethereum
+    }
+  ) {
     Social {
       userAssociatedAddresses
       userCreatedAtBlockNumber
@@ -39,18 +44,25 @@ query MyQuery {
 
 ```graphql
 query MyQuery {
-Socials(
-input: {filter: {userAssociatedAddresses: {_eq: "0x74232bf61e994655592747e20bdf6fa9b9476f79"}}, blockchain: ethereum}
-) {
-Social {
-profileCreatedAtBlockNumber
-profileCreatedAtBlockTimestamp
-profileName
-profileTokenId
-profileTokenUri
-userId
-}
-}
+  Socials(
+    input: {
+      filter: {
+        userAssociatedAddresses: {
+          _eq: "0x74232bf61e994655592747e20bdf6fa9b9476f79"
+        }
+      }
+      blockchain: ethereum
+    }
+  ) {
+    Social {
+      profileCreatedAtBlockNumber
+      profileCreatedAtBlockTimestamp
+      profileName
+      profileTokenId
+      profileTokenUri
+      userId
+    }
+  }
 }
 ```
 
@@ -58,25 +70,40 @@ userId
 
 <details>
 
-<summary>For Farcaster user betashop, shnoodles.lens, vitalik.eth show their user id and registration date</summary>
+<summary>For Farcaster user betashop, lens/@shnoodles, vitalik.eth show their user id and registration date</summary>
 
 ```graphql
 query MyQuery {
-  betashop: Socials(input: {filter: {identity: {_eq: "fc_fname:betashop"}}, blockchain: ethereum}) {
+  betashop: Socials(
+    input: {
+      filter: { identity: { _eq: "fc_fname:betashop" } }
+      blockchain: ethereum
+    }
+  ) {
     Social {
       dappName
       userId
       userCreatedAtBlockTimestamp
     }
   }
-  shnoodlesLens: Socials(input: {filter: {identity: {_eq: "shnoodles.lens"}}, blockchain: ethereum}) {
+  shnoodlesLens: Socials(
+    input: {
+      filter: { identity: { _eq: "lens/@shnoodles" } }
+      blockchain: ethereum
+    }
+  ) {
     Social {
       dappName
       userId
       userCreatedAtBlockTimestamp
     }
   }
-  vitalikEth: Socials(input: {filter: {identity: {_eq: "vitalik.eth"}}, blockchain: ethereum}) {
+  vitalikEth: Socials(
+    input: {
+      filter: { identity: { _eq: "vitalik.eth" } }
+      blockchain: ethereum
+    }
+  ) {
     Social {
       dappName
       userId

@@ -335,7 +335,7 @@ You can fetch all the POAPs held by Lens profile(s) by providing either the Lens
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/p6X3LrqngO" %}
-Show me all POAPs hold by vitalik.lens
+Show me all POAPs hold by lens/@vitalik
 {% endembed %}
 
 ### Code
@@ -346,7 +346,7 @@ Show me all POAPs hold by vitalik.lens
 ```graphql
 query MyQuery {
   Poaps(
-    input: { filter: { owner: { _in: ["vitalik.lens"] } }, blockchain: ALL }
+    input: { filter: { owner: { _in: ["lens/@vitalik"] } }, blockchain: ALL }
   ) {
     Poap {
       eventId

@@ -23,14 +23,14 @@ In this tutorial, you will learn how to fetch Lens user(s) asset holdings which 
 
 In this guide you will learn how to use Airstack to:
 
-* [Get All ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-all-erc20s-owned-by-lens-profile-s)
-* [Get All NFTs Owned By Lens Profile(s)](get-token-balances.md#get-all-nfts-owned-by-lens-profile-s)
-* [Get All POAPs Owned By Lens Profile(s)](get-token-balances.md#get-all-poaps-owned-by-lens-profile-s)
+- [Get All ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-all-erc20s-owned-by-lens-profile-s)
+- [Get All NFTs Owned By Lens Profile(s)](get-token-balances.md#get-all-nfts-owned-by-lens-profile-s)
+- [Get All POAPs Owned By Lens Profile(s)](get-token-balances.md#get-all-poaps-owned-by-lens-profile-s)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -51,6 +51,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -65,6 +66,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -79,12 +81,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -92,6 +97,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -115,9 +121,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -130,9 +138,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -150,6 +160,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -177,14 +188,22 @@ Show ERC20 tokens on Ethereum and Polygon owned by lens/@bradorbradley and Lens 
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query ERC20OwnedByLensProfiles {
   Ethereum: TokenBalances(
-    input: {filter: {owner: {_in: ["lens/@bradorbradley", "lens_id:100275"]}, tokenType: {_eq: ERC20}}, blockchain: ethereum, limit: 50}
+    input: {
+      filter: {
+        owner: { _in: ["lens/@bradorbradley", "lens_id:100275"] }
+        tokenType: { _eq: ERC20 }
+      }
+      blockchain: ethereum
+      limit: 50
+    }
   ) {
     TokenBalance {
       owner {
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -204,11 +223,18 @@ query ERC20OwnedByLensProfiles {
     }
   }
   Polygon: TokenBalances(
-    input: {filter: {owner: {_in: ["bradorbradley.lens", "lens_id:100275"]}, tokenType: {_eq: ERC20}}, blockchain: polygon, limit: 50}
+    input: {
+      filter: {
+        owner: { _in: ["lens/@bradorbradley", "lens_id:100275"] }
+        tokenType: { _eq: ERC20 }
+      }
+      blockchain: polygon
+      limit: 50
+    }
   ) {
     TokenBalance {
       owner {
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -229,9 +255,11 @@ query ERC20OwnedByLensProfiles {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -241,7 +269,7 @@ query ERC20OwnedByLensProfiles {
           "owner": {
             "socials": [
               {
-                "profileName": "vitalik.lens",
+                "profileName": "lens/@vitalik",
                 "profileTokenId": "100275",
                 "profileTokenIdHex": "0x0187b3",
                 "userAssociatedAddresses": [
@@ -265,7 +293,7 @@ query ERC20OwnedByLensProfiles {
           "owner": {
             "socials": [
               {
-                "profileName": "bradorbradley.lens",
+                "profileName": "lens/@bradorbradley",
                 "profileTokenId": "36",
                 "profileTokenIdHex": "0x024",
                 "userAssociatedAddresses": [
@@ -286,6 +314,7 @@ query ERC20OwnedByLensProfiles {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -303,14 +332,22 @@ Show NFT on Ethereum and Polygon owned by lens/@bradorbradley and Lens profile i
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query NFTsOwnedByLensProfiles {
   Ethereum: TokenBalances(
-    input: {filter: {owner: {_in: ["lens/@bradorbradley", "lens_id:100275"]}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: ethereum, limit: 50}
+    input: {
+      filter: {
+        owner: { _in: ["lens/@bradorbradley", "lens_id:100275"] }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: ethereum
+      limit: 50
+    }
   ) {
     TokenBalance {
       owner {
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -338,11 +375,18 @@ query NFTsOwnedByLensProfiles {
     }
   }
   Polygon: TokenBalances(
-    input: {filter: {owner: {_in: ["lens/@bradorbradley", "lens_id:100275"]}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: polygon, limit: 50}
+    input: {
+      filter: {
+        owner: { _in: ["lens/@bradorbradley", "lens_id:100275"] }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: polygon
+      limit: 50
+    }
   ) {
     TokenBalance {
       owner {
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -371,9 +415,11 @@ query NFTsOwnedByLensProfiles {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -383,7 +429,7 @@ query NFTsOwnedByLensProfiles {
           "owner": {
             "socials": [
               {
-                "profileName": "vitalik.lens",
+                "profileName": "lens/@vitalik",
                 "profileTokenId": "100275",
                 "profileTokenIdHex": "0x0187b3",
                 "userAssociatedAddresses": [
@@ -415,7 +461,7 @@ query NFTsOwnedByLensProfiles {
           "owner": {
             "socials": [
               {
-                "profileName": "bradorbradley.lens",
+                "profileName": "lens/@bradorbradley",
                 "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
                 "profileTokenId": "36",
                 "profileTokenIdHex": "0x024",
@@ -445,6 +491,7 @@ query NFTsOwnedByLensProfiles {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -462,15 +509,19 @@ Show POAPs owned by lens/@bradorbradley and Lens profile id 100275
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query POAPsOwnedByLensProfiles {
   Poaps(
-    input: {filter: {owner: {_in: ["lens/@bradorbradley", "lens_id:100275"]}}, blockchain: ALL}
+    input: {
+      filter: { owner: { _in: ["lens/@bradorbradley", "lens_id:100275"] } }
+      blockchain: ALL
+    }
   ) {
     Poap {
       eventId
       owner {
-        socials(input: { filter: { dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -498,9 +549,11 @@ query POAPsOwnedByLensProfiles {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -511,7 +564,7 @@ query POAPsOwnedByLensProfiles {
           "owner": {
             "socials": [
               {
-                "profileName": "vitalik.lens",
+                "profileName": "lens/@vitalik",
                 "profileTokenId": "100275",
                 "profileTokenIdHex": "0x0187b3",
                 "userAssociatedAddresses": [
@@ -543,7 +596,7 @@ query POAPsOwnedByLensProfiles {
           "owner": {
             "socials": [
               {
-                "profileName": "bradorbradley.lens",
+                "profileName": "lens/@bradorbradley",
                 "profileTokenId": "36",
                 "profileTokenIdHex": "0x024",
                 "userAssociatedAddresses": [
@@ -575,6 +628,7 @@ query POAPsOwnedByLensProfiles {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -584,5 +638,5 @@ If you have any questions or need help regarding fetching token balances of Lens
 
 ## More Resources
 
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+- [POAPs API Reference](../../api-references/api-reference/poaps-api/)

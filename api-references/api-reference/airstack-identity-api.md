@@ -59,9 +59,18 @@ Show me all NFTs and their images currently being held by Farcaster user name dw
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query ID1 {
-  TokenBalances(input: {filter: {owner: {_eq: "fc_fname:dwr"}, tokenType: {_in: [ERC721, ERC1155]}}, blockchain: ethereum}) {
+  TokenBalances(
+    input: {
+      filter: {
+        owner: { _eq: "fc_fname:dwr" }
+        tokenType: { _in: [ERC721, ERC1155] }
+      }
+      blockchain: ethereum
+    }
+  ) {
     TokenBalance {
       tokenNfts {
         address
@@ -79,9 +88,11 @@ query ID1 {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -132,6 +143,7 @@ query ID1 {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -147,28 +159,26 @@ You can enter Lens name directly in the `owner` or `address` field:
 | <mark style="color:red;">`vitalik.lens`</mark>      | V1 Lens profile name ending in `.lens`                               |
 | <mark style="color:red;">`lens:vitalik.lens`</mark> | V1 Lens profile name with optional `lens` prefix                     |
 
-### Example#1: Show me all stani.lens token transfers
+### Example#1: Show me all lens/@stani token transfers
 
 #### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/a76kjK1seY" %}
-Show me all stani.lens token transfers
+Show me all lens/@stani token transfers
 {% endembed %}
 
 #### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query tokenTransfers {
   TokenTransfers(
     input: {
       filter: {
-        _or: [
-          { from: { _eq: "lens/@stani" } },
-          { to: { _eq: "lens/@stani" } }
-        ]
-      },
+        _or: [{ from: { _eq: "lens/@stani" } }, { to: { _eq: "lens/@stani" } }]
+      }
       blockchain: ethereum
     }
   ) {
@@ -181,9 +191,11 @@ query tokenTransfers {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -212,5 +224,6 @@ query tokenTransfers {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}

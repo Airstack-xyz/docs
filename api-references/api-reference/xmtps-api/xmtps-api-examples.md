@@ -20,7 +20,9 @@ layout:
 
 ```graphql
 query MyQuery {
-  XMTPs(input: {blockchain: ALL, filter: {owner: {_eq: "shanemac.eth"}}}) {
+  XMTPs(
+    input: { blockchain: ALL, filter: { owner: { _eq: "shanemac.eth" } } }
+  ) {
     XMTP {
       isXMTPEnabled
     }
@@ -32,11 +34,13 @@ query MyQuery {
 
 <details>
 
-<summary>Show me vitalik.lens xmtp and primary domain</summary>
+<summary>Show me lens/@vitalik xmtp and primary domain</summary>
 
 ```graphql
 query MyQuery {
-  XMTPs(input: {blockchain: ALL, filter: {owner: {_eq: "vitalik.lens"}}}) {
+  XMTPs(
+    input: { blockchain: ALL, filter: { owner: { _eq: "lens/@vitalik" } } }
+  ) {
     XMTP {
       isXMTPEnabled
       owner {
@@ -50,4 +54,3 @@ query MyQuery {
 ```
 
 </details>
-

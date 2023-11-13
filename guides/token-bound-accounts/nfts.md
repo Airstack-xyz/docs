@@ -245,7 +245,7 @@ query MyQuery {
             "socials": [
               {
                 "dappName": "lens",
-                "profileName": "sapienz_0.lens",
+                "profileName": "lens/@sapienz_0",
                 "profileTokenId": "117100",
                 "profileTokenIdHex": "0x01c96c",
                 "userId": "0x5416e5dc14caa0950b2a24ede1eb0e97c360bcf5",
@@ -330,7 +330,7 @@ query MyQuery {
             "socials": [
               {
                 "dappName": "lens",
-                "profileName": "cryptocitizen52.lens",
+                "profileName": "lens/@cryptocitizen52",
                 "profileTokenId": "123612",
                 "profileTokenIdHex": "0x01e2dc",
                 "userId": "0x03d73cfdcb8dc66315b8c370edd7ba71d0ee658b",
@@ -414,7 +414,7 @@ query MyQuery {
             ],
             "socials": [
               {
-                "profileName": "0xjst.lens",
+                "profileName": "lens/@0xjst",
                 "dappName": "lens"
               }
             ]
@@ -495,7 +495,7 @@ query MyQuery {
             "socials": [
               {
                 "dappName": "lens",
-                "profileName": "cryptocitizen52.lens",
+                "profileName": "lens/@cryptocitizen52",
                 "profileTokenId": "123612",
                 "profileTokenIdHex": "0x01e2dc",
                 "userId": "0x03d73cfdcb8dc66315b8c370edd7ba71d0ee658b",

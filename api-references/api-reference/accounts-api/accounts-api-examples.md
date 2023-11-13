@@ -11,6 +11,7 @@ layout:
   pagination:
     visible: true
 ---
+
 # Accounts API Examples
 
 <details>
@@ -20,7 +21,12 @@ layout:
 ```graphql
 query MyQuery {
   ethereumAccounts: Accounts(
-    input: {filter: {standard: {_eq: ERC6551}}, blockchain: ethereum, order: {createdAtBlockTimestamp: DESC}, limit: 10}
+    input: {
+      filter: { standard: { _eq: ERC6551 } }
+      blockchain: ethereum
+      order: { createdAtBlockTimestamp: DESC }
+      limit: 10
+    }
   ) {
     Account {
       id
@@ -41,7 +47,12 @@ query MyQuery {
     }
   }
   polygonAccounts: Accounts(
-    input: {filter: {standard: {_eq: ERC6551}}, blockchain: polygon, order: {createdAtBlockTimestamp: DESC}, limit: 10}
+    input: {
+      filter: { standard: { _eq: ERC6551 } }
+      blockchain: polygon
+      order: { createdAtBlockTimestamp: DESC }
+      limit: 10
+    }
   ) {
     Account {
       id
@@ -73,7 +84,14 @@ query MyQuery {
 ```graphql
 query MyQuery {
   Accounts(
-    input: {filter: {tokenAddress: {_eq: "0x26727ed4f5ba61d3772d1575bca011ae3aef5d36"}, standard: {_eq: ERC6551}}, blockchain: ethereum, limit: 50}
+    input: {
+      filter: {
+        tokenAddress: { _eq: "0x26727ed4f5ba61d3772d1575bca011ae3aef5d36" }
+        standard: { _eq: ERC6551 }
+      }
+      blockchain: ethereum
+      limit: 50
+    }
   ) {
     Account {
       address {
@@ -105,7 +123,14 @@ query MyQuery {
 ```graphql
 query MyQuery {
   Accounts(
-    input: {filter: {standard: {_eq: ERC6551}, tokenAddress: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}}, blockchain: ethereum, limit: 50}
+    input: {
+      filter: {
+        standard: { _eq: ERC6551 }
+        tokenAddress: { _eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D" }
+      }
+      blockchain: ethereum
+      limit: 50
+    }
   ) {
     Account {
       address {
@@ -131,12 +156,16 @@ query MyQuery {
 
 <details>
 
-<summary>Show sapienz_0.lens ERC6551 accounts</summary>
+<summary>Show lens/@sapienz_0 ERC6551 accounts</summary>
 
 ```graphql
 query MyQuery {
   Accounts(
-    input: {filter: {address: {_eq: "sapienz_0.lens"}}, blockchain: ethereum, limit: 50}
+    input: {
+      filter: { address: { _eq: "lens/@sapienz_0" } }
+      blockchain: ethereum
+      limit: 50
+    }
   ) {
     Account {
       address {
@@ -166,10 +195,13 @@ query MyQuery {
   Accounts(
     input: {
       filter: {
-        standard: {_eq: ERC6551},
-        createdAtBlockTimestamp: {_gte: "2023-07-12T00:00:00Z", _lt: "2023-07-13T00:00:00Z"}
-      },
-      blockchain: ethereum,
+        standard: { _eq: ERC6551 }
+        createdAtBlockTimestamp: {
+          _gte: "2023-07-12T00:00:00Z"
+          _lt: "2023-07-13T00:00:00Z"
+        }
+      }
+      blockchain: ethereum
       limit: 50
     }
   ) {

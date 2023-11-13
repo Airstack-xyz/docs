@@ -321,7 +321,7 @@ Show me if fc_fname:ipeciura.eth is a follower of a group of users on Farcaster
 <pre class="language-graphql"><code class="lang-graphql">query isFollowing {
   Wallet(input: {identity: "fc_fname:ipeciura.eth", blockchain: ethereum}) {
     socialFollowers( # Check if fc_fname:ipeciura.eth is a follower of these user identities on Lens
-<strong>      input: {filter: {identity: {_in: ["0xeaf55242a90bb3289dB8184772b0B98562053559", "betashop.eth", "yosephks.cb.id", "deepesh.lens", "lens_id:100275", "fc_fname:dawufi", "fc_fid:602"]}, dappName: {_eq: farcaster}}}
+<strong>      input: {filter: {identity: {_in: ["0xeaf55242a90bb3289dB8184772b0B98562053559", "betashop.eth", "yosephks.cb.id", "lens/@deepesh", "lens_id:100275", "fc_fname:dawufi", "fc_fid:602"]}, dappName: {_eq: farcaster}}}
 </strong>    ) {
       Follower {
         dappName
@@ -370,7 +370,7 @@ Show me if fc_fname:ipeciura.eth is a follower of a group of users on Farcaster
 </strong>                },
                 {
                   "dappName": "lens",
-                  "profileName": "betashop9.lens"
+                  "profileName": "lens/@betashop9"
                 }
               ],
               "domains": [
@@ -400,7 +400,7 @@ Show me if fc_fname:ipeciura.eth is a follower of a group of users on Farcaster
 </strong>                },
                 {
                   "dappName": "lens",
-                  "profileName": "yosephks.lens"
+                  "profileName": "lens/@yosephks"
                 }
               ],
               "domains": [
@@ -426,7 +426,7 @@ Show me if fc_fname:ipeciura.eth is a follower of a group of users on Farcaster
               "socials": [
                 {
                   "dappName": "lens",
-                  "profileName": "dawufi.lens"
+                  "profileName": "lens/@dawufi"
                 },
                 {
                   "dappName": "farcaster",

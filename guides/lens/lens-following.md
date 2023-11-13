@@ -23,23 +23,23 @@ In this tutorial, you will learn how to fetch various use cases of Lens Followin
 
 In this guide you will learn how to use Airstack to:
 
-* [Get Lens Following of Lens Profile(s)](lens-following.md#get-lens-following-of-lens-profile-s)
-* [Check If User(s) is Following A Given Lens Profile on Lens](lens-following.md#check-if-user-s-is-following-a-given-lens-profile-on-lens)
-* [Get The Most Recent Lens Following of Lens Profile(s)](lens-following.md#get-the-most-recent-lens-following-of-lens-profile-s)
-* [Get The Earliest Lens Following of Lens Profile(s)](lens-following.md#get-the-most-recent-lens-following-of-lens-profile-s)
-* [Get Lens Following of Lens Profile(s) that has ENS Domain](lens-following.md#get-lens-following-of-lens-profile-s-that-has-ens-domain)
-* [Get Lens Following of Lens Profile(s) that has XMTP Enabled](lens-following.md#get-lens-profiles-that-have-a-certain-amount-of-following)
-* [Get Lens Profiles that have a certain amount of Following](lens-following.md#get-lens-profiles-that-have-a-certain-amount-of-following)
-* [Get Lens and Farcaster Following of Lens Profile(s)](lens-following.md#get-lens-and-farcaster-following-of-lens-profile-s)
-* [Get Lens Following of Lens Profile(s) that Hold ERC20 Token(s)](lens-following.md#get-lens-following-of-lens-profile-s-that-hold-erc20-token-s)
-* [Get Lens Following of Lens Profile(s) that Hold ERC721/1155 NFT(s)](lens-following.md#get-lens-following-of-lens-profile-s-that-hold-erc721-1155-nft-s)
-* [Get Lens Following of Lens Profile(s) that Hold POAP(s)](lens-following.md#get-lens-following-of-lens-profile-s-that-hold-poap-s)
-* [Get Lens Following of Lens Profile(s) that Hold Certain Amount of ERC20 Token(s)](lens-following.md#get-lens-following-of-lens-profile-s-that-hold-certain-amount-of-erc20-token-s)
+- [Get Lens Following of Lens Profile(s)](lens-following.md#get-lens-following-of-lens-profile-s)
+- [Check If User(s) is Following A Given Lens Profile on Lens](lens-following.md#check-if-user-s-is-following-a-given-lens-profile-on-lens)
+- [Get The Most Recent Lens Following of Lens Profile(s)](lens-following.md#get-the-most-recent-lens-following-of-lens-profile-s)
+- [Get The Earliest Lens Following of Lens Profile(s)](lens-following.md#get-the-most-recent-lens-following-of-lens-profile-s)
+- [Get Lens Following of Lens Profile(s) that has ENS Domain](lens-following.md#get-lens-following-of-lens-profile-s-that-has-ens-domain)
+- [Get Lens Following of Lens Profile(s) that has XMTP Enabled](lens-following.md#get-lens-profiles-that-have-a-certain-amount-of-following)
+- [Get Lens Profiles that have a certain amount of Following](lens-following.md#get-lens-profiles-that-have-a-certain-amount-of-following)
+- [Get Lens and Farcaster Following of Lens Profile(s)](lens-following.md#get-lens-and-farcaster-following-of-lens-profile-s)
+- [Get Lens Following of Lens Profile(s) that Hold ERC20 Token(s)](lens-following.md#get-lens-following-of-lens-profile-s-that-hold-erc20-token-s)
+- [Get Lens Following of Lens Profile(s) that Hold ERC721/1155 NFT(s)](lens-following.md#get-lens-following-of-lens-profile-s-that-hold-erc721-1155-nft-s)
+- [Get Lens Following of Lens Profile(s) that Hold POAP(s)](lens-following.md#get-lens-following-of-lens-profile-s-that-hold-poap-s)
+- [Get Lens Following of Lens Profile(s) that Hold Certain Amount of ERC20 Token(s)](lens-following.md#get-lens-following-of-lens-profile-s-that-hold-certain-amount-of-erc20-token-s)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -60,6 +60,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -74,6 +75,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -88,12 +90,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -101,6 +106,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -124,9 +130,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -139,9 +147,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -159,6 +169,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -178,23 +189,38 @@ You can get the list of Lens following of Lens profile(s) by inputting either th
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/XTj0vyFSrL" %}
-Show me the Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
+{% embed url="https://app.airstack.xyz/query/XTj0vyFSrL" %}
+Show me the Lens following of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {dappName: {_eq: lens}, identity: {_in: ["lens/@stani", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: {
+        dappName: { _eq: lens }
+        identity: {
+          _in: [
+            "lens/@stani"
+            "lens_id:0x024"
+            "vitalik.eth"
+            "0xeaf55242a90bb3289dB8184772b0B98562053559"
+          ]
+        }
+      }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Following {
       followingAddress {
         addresses
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -206,7 +232,7 @@ query MyQuery {
         domains {
           name
         }
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -218,9 +244,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```
 {
   "data": {
@@ -233,12 +261,12 @@ query MyQuery {
             ],
             "socials": [
               {
-                "profileName": "yummy.lens",
+                "profileName": "lens/@yummy",
                 "profileTokenId": "47982",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "abertog.lens",
+                "profileName": "lens/@abertog",
                 "profileTokenId": "3568",
                 "profileTokenIdHex": ""
               }
@@ -268,22 +296,22 @@ query MyQuery {
             ],
             "socials": [
               {
-                "profileName": "westlakevillage.lens",
+                "profileName": "lens/@westlakevillage",
                 "profileTokenId": "99755",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "brad.lens",
+                "profileName": "lens/@brad",
                 "profileTokenId": "116598",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "bradorbradley.lens",
+                "profileName": "lens/@bradorbradley",
                 "profileTokenId": "36",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "hanimourra.lens",
+                "profileName": "lens/@hanimourra",
                 "profileTokenId": "116239",
                 "profileTokenIdHex": ""
               }
@@ -298,6 +326,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -310,16 +339,17 @@ This can be done by providing the given Lens profile on the `Wallet` top-level q
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/PycMq2SXq7" %}
-Show me if a group of users is following shnoodles.lens on Lens
+Show me if a group of users is following lens/@shnoodles on Lens
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query isFollowing {
-  Wallet(input: {identity: "shnoodles.lens", blockchain: ethereum}) {
-    socialFollowings( # Check if these user identities is following shnoodles.lens on Lens
+  Wallet(input: {identity: "lens/@shnoodles", blockchain: ethereum}) {
+    socialFollowings( # Check if these user identities is following lens/@shnoodles on Lens
 <strong>      input: {filter: {identity: {_in: ["0xeaf55242a90bb3289dB8184772b0B98562053559", "betashop.eth", "yosephks.cb.id", "lens/@deepesh", "lens_id:100275", "fc_fname:dawufi", "fc_fid:602"]}, dappName: {_eq: lens}}}
 </strong>    ) {
       Following {
@@ -341,9 +371,11 @@ Show me if a group of users is following shnoodles.lens on Lens
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Wallet": {
@@ -360,7 +392,7 @@ Show me if a group of users is following shnoodles.lens on Lens
               ],
               "socials": [
                 {
-<strong>                  "profileName": "dawufi.lens" // dawufi.lens is following ipeciura.eth's on Lens
+<strong>                  "profileName": "lens/@dawufi" // lens/@dawufi is following ipeciura.eth's on Lens
 </strong>                },
                 {
                   "profileName": "dawufi"
@@ -382,10 +414,11 @@ Show me if a group of users is following shnoodles.lens on Lens
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
-If any of the user is following [`shnoodles.lens`](https://explorer.airstack.xyz/token-balances?address=shnoodles.lens\&blockchain=ethereum\&rawInput=%23%E2%8E%B1shnoodles.lens%E2%8E%B1%28shnoodles.lens+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&tokenType=\&activeView=\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=) on Lens, then it will appear as a response in the `Following` array as shown in the [sample response](lens-following.md#response-1).
+If any of the user is following [`lens/@shnoodles`](https://explorer.airstack.xyz/token-balances?address=lens%2F%40shnoodles&blockchain=ethereum&rawInput=%23%E2%8E%B1lens%2F%40shnoodles%E2%8E%B1%28lens%2F%40shnoodles++ethereum+null%29&inputType=ADDRESS) on Lens, then it will appear as a response in the `Following` array as shown in the [sample response](lens-following.md#response-1).
 
 ## Get The Most Recent Lens Following of Lens Profile(s)
 
@@ -393,23 +426,39 @@ You can get the list of most recent Lens following of Lens profile(s) by inputti
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/bck3CGCmqN" %}
-Show me the most recent Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
+{% embed url="https://app.airstack.xyz/query/bck3CGCmqN" %}
+Show me the most recent Lens following of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {dappName: {_eq: lens}, identity: {_in: ["lens/@stani", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200, order: {followingSince: DESC}}
+    input: {
+      filter: {
+        dappName: { _eq: lens }
+        identity: {
+          _in: [
+            "lens/@stani"
+            "lens_id:0x024"
+            "vitalik.eth"
+            "0xeaf55242a90bb3289dB8184772b0B98562053559"
+          ]
+        }
+      }
+      blockchain: ALL
+      limit: 200
+      order: { followingSince: DESC }
+    }
   ) {
     Following {
       followingAddress {
         addresses
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -421,7 +470,7 @@ query MyQuery {
         domains {
           name
         }
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -433,9 +482,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -443,12 +494,10 @@ query MyQuery {
       "Following": [
         {
           "followingAddress": {
-            "addresses": [
-              "0x6db4d0682d7d7bb68bd00c774dbdd05b91925c13"
-            ],
+            "addresses": ["0x6db4d0682d7d7bb68bd00c774dbdd05b91925c13"],
             "socials": [
               {
-                "profileName": "unlonely.lens",
+                "profileName": "lens/@unlonely",
                 "profileTokenId": "120779",
                 "profileTokenIdHex": ""
               }
@@ -456,9 +505,7 @@ query MyQuery {
           },
           "followingProfileId": "120779",
           "followerAddress": {
-            "addresses": [
-              "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
-            ],
+            "addresses": ["0x8ec94086a724cbec4d37097b8792ce99cadcd520"],
             "domains": [
               {
                 "name": "tiktoktopmoments.eth"
@@ -478,22 +525,22 @@ query MyQuery {
             ],
             "socials": [
               {
-                "profileName": "westlakevillage.lens",
+                "profileName": "lens/@westlakevillage",
                 "profileTokenId": "99755",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "brad.lens",
+                "profileName": "lens/@brad",
                 "profileTokenId": "116598",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "bradorbradley.lens",
+                "profileName": "lens/@bradorbradley",
                 "profileTokenId": "36",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "hanimourra.lens",
+                "profileName": "lens/@hanimourra",
                 "profileTokenId": "116239",
                 "profileTokenIdHex": ""
               }
@@ -501,13 +548,14 @@ query MyQuery {
           },
           "followerProfileId": "36",
           "followerTokenId": "68"
-        },
+        }
         // more following
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -517,23 +565,39 @@ You can get the list of the earliest Lens following of Lens profile(s) by inputt
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/K0IH6CK0kT" %}
-Show me the earliest Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
+{% embed url="https://app.airstack.xyz/query/K0IH6CK0kT" %}
+Show me the earliest Lens following of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {dappName: {_eq: lens}, identity: {_in: ["lens/@stani", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200, order: {followingSince: ASC}}
+    input: {
+      filter: {
+        dappName: { _eq: lens }
+        identity: {
+          _in: [
+            "lens/@stani"
+            "lens_id:0x024"
+            "vitalik.eth"
+            "0xeaf55242a90bb3289dB8184772b0B98562053559"
+          ]
+        }
+      }
+      blockchain: ALL
+      limit: 200
+      order: { followingSince: ASC }
+    }
   ) {
     Following {
       followingAddress {
         addresses
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -545,7 +609,7 @@ query MyQuery {
         domains {
           name
         }
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -557,9 +621,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -567,12 +633,10 @@ query MyQuery {
       "Following": [
         {
           "followingAddress": {
-            "addresses": [
-              "0x6db4d0682d7d7bb68bd00c774dbdd05b91925c13"
-            ],
+            "addresses": ["0x6db4d0682d7d7bb68bd00c774dbdd05b91925c13"],
             "socials": [
               {
-                "profileName": "unlonely.lens",
+                "profileName": "lens/@unlonely",
                 "profileTokenId": "120779",
                 "profileTokenIdHex": ""
               }
@@ -580,9 +644,7 @@ query MyQuery {
           },
           "followingProfileId": "120779",
           "followerAddress": {
-            "addresses": [
-              "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
-            ],
+            "addresses": ["0x8ec94086a724cbec4d37097b8792ce99cadcd520"],
             "domains": [
               {
                 "name": "tiktoktopmoments.eth"
@@ -602,22 +664,22 @@ query MyQuery {
             ],
             "socials": [
               {
-                "profileName": "westlakevillage.lens",
+                "profileName": "lens/@westlakevillage",
                 "profileTokenId": "99755",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "brad.lens",
+                "profileName": "lens/@brad",
                 "profileTokenId": "116598",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "bradorbradley.lens",
+                "profileName": "lens/@bradorbradley",
                 "profileTokenId": "36",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "hanimourra.lens",
+                "profileName": "lens/@hanimourra",
                 "profileTokenId": "116239",
                 "profileTokenIdHex": ""
               }
@@ -625,13 +687,14 @@ query MyQuery {
           },
           "followerProfileId": "36",
           "followerTokenId": "68"
-        },
+        }
         // more following
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -641,14 +704,15 @@ You can get the list of Lens following of Lens profile(s) and check if they have
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/EZRlf8y3Ar" %}
-Show me all the Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 and their ENS domains
+{% embed url="https://app.airstack.xyz/query/EZRlf8y3Ar" %}
+Show me all the Lens following of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 and their ENS domains
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   SocialFollowings(
     input: {filter: {dappName: {_eq: lens}, identity: {_in: ["lens/@stani", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
@@ -684,9 +748,11 @@ Show me all the Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -694,9 +760,7 @@ Show me all the Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf
       "Following": [
         {
           "followingAddress": {
-            "addresses": [
-              "0x008b1ffe244bf31896c833bff4ad9009e7a0f4eb"
-            ],
+            "addresses": ["0x008b1ffe244bf31896c833bff4ad9009e7a0f4eb"],
             "domains": [
               {
                 "name": "abertog.eth",
@@ -709,12 +773,12 @@ Show me all the Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf
             ],
             "socials": [
               {
-                "profileName": "yummy.lens",
+                "profileName": "lens/@yummy",
                 "profileTokenId": "47982",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "abertog.lens",
+                "profileName": "lens/@abertog",
                 "profileTokenId": "3568",
                 "profileTokenIdHex": ""
               }
@@ -722,9 +786,7 @@ Show me all the Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf
           },
           "followingProfileId": "3568",
           "followerAddress": {
-            "addresses": [
-              "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
-            ],
+            "addresses": ["0x8ec94086a724cbec4d37097b8792ce99cadcd520"],
             "domains": [
               {
                 "name": "tiktoktopmoments.eth"
@@ -744,22 +806,22 @@ Show me all the Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf
             ],
             "socials": [
               {
-                "profileName": "westlakevillage.lens",
+                "profileName": "lens/@westlakevillage",
                 "profileTokenId": "99755",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "brad.lens",
+                "profileName": "lens/@brad",
                 "profileTokenId": "116598",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "bradorbradley.lens",
+                "profileName": "lens/@bradorbradley",
                 "profileTokenId": "36",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "hanimourra.lens",
+                "profileName": "lens/@hanimourra",
                 "profileTokenId": "116239",
                 "profileTokenIdHex": ""
               }
@@ -767,13 +829,14 @@ Show me all the Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf
           },
           "followerProfileId": "36",
           "followerTokenId": "245"
-        },
+        }
         // more following
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -787,14 +850,15 @@ You can get the list of Lens following of Lens profile(s) and check if they have
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/DTyOZg/pJYpYdO13X" %}
-Show me all the Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 and check if their XMTP is enabled
+{% embed url="https://app.airstack.xyz/query/pJYpYdO13X" %}
+Show me all the Lens following of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 and check if their XMTP is enabled
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   SocialFollowings(
     input: {filter: {dappName: {_eq: lens}, identity: {_in: ["lens/@stani", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
@@ -829,9 +893,11 @@ Show me all the Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowings": {
@@ -843,12 +909,12 @@ Show me all the Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf
             ],
             "socials": [
               {
-                "profileName": "yummy.lens",
+                "profileName": "lens/@yummy",
                 "profileTokenId": "47982",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "abertog.lens",
+                "profileName": "lens/@abertog",
                 "profileTokenId": "3568",
                 "profileTokenIdHex": ""
               }
@@ -883,22 +949,22 @@ Show me all the Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf
             ],
             "socials": [
               {
-                "profileName": "westlakevillage.lens",
+                "profileName": "lens/@westlakevillage",
                 "profileTokenId": "99755",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "brad.lens",
+                "profileName": "lens/@brad",
                 "profileTokenId": "116598",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "bradorbradley.lens",
+                "profileName": "lens/@bradorbradley",
                 "profileTokenId": "36",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "hanimourra.lens",
+                "profileName": "lens/@hanimourra",
                 "profileTokenId": "116239",
                 "profileTokenIdHex": ""
               }
@@ -913,6 +979,7 @@ Show me all the Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -930,6 +997,7 @@ Show me all Lens profiles that have more than or equal to 1000 following
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {filter: {followingCount: {_gte: 1000}, dappName: {_eq: lens}}, blockchain: ethereum, limit: 200}
@@ -943,28 +1011,30 @@ Show me all Lens profiles that have more than or equal to 1000 following
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
     "Socials": {
       "Social": [
         {
-          "profileName": "thedogist.lens",
+          "profileName": "lens/@thedogist",
           "profileTokenId": "45164",
           "profileTokenIdHex": "0x0b06c",
           "followingCount": 10507
         },
         {
-          "profileName": "9xkiwi.lens",
+          "profileName": "lens/@9xkiwi",
           "profileTokenId": "961",
           "profileTokenIdHex": "0x03c1",
           "followingCount": 4930
         },
         {
-          "profileName": "eth666.lens",
+          "profileName": "lens/@eth666",
           "profileTokenId": "17693",
           "profileTokenIdHex": "0x0451d",
           "followingCount": 1165
@@ -974,6 +1044,7 @@ Show me all Lens profiles that have more than or equal to 1000 following
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -984,17 +1055,31 @@ You can get the list of Lens and Farcaster following of Lens profile(s) by input
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/KxjSJmLWUQ" %}
-Show all Lens and Farcaster following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
+Show all Lens and Farcaster following of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {identity: {_in: ["lens/@stani", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: {
+        identity: {
+          _in: [
+            "lens/@stani"
+            "lens_id:0x024"
+            "vitalik.eth"
+            "0xeaf55242a90bb3289dB8184772b0B98562053559"
+          ]
+        }
+      }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Following {
       followingAddress {
@@ -1013,7 +1098,7 @@ query MyQuery {
         domains {
           name
         }
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -1025,9 +1110,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1035,20 +1122,18 @@ query MyQuery {
       "Following": [
         {
           "followingAddress": {
-            "addresses": [
-              "0x008b1ffe244bf31896c833bff4ad9009e7a0f4eb"
-            ],
+            "addresses": ["0x008b1ffe244bf31896c833bff4ad9009e7a0f4eb"],
             "socials": [
               {
                 "dappName": "lens",
-                "profileName": "yummy.lens",
+                "profileName": "lens/@yummy",
                 "profileTokenId": "47982",
                 "profileTokenIdHex": "",
                 "userId": "0x008b1ffe244bf31896c833bff4ad9009e7a0f4eb"
               },
               {
                 "dappName": "lens",
-                "profileName": "abertog.lens",
+                "profileName": "lens/@abertog",
                 "profileTokenId": "3568",
                 "profileTokenIdHex": "",
                 "userId": "0x008b1ffe244bf31896c833bff4ad9009e7a0f4eb"
@@ -1057,9 +1142,7 @@ query MyQuery {
           },
           "followingProfileId": "3568",
           "followerAddress": {
-            "addresses": [
-              "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
-            ],
+            "addresses": ["0x8ec94086a724cbec4d37097b8792ce99cadcd520"],
             "domains": [
               {
                 "name": "tiktoktopmoments.eth"
@@ -1079,22 +1162,22 @@ query MyQuery {
             ],
             "socials": [
               {
-                "profileName": "westlakevillage.lens",
+                "profileName": "lens/@westlakevillage",
                 "profileTokenId": "99755",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "brad.lens",
+                "profileName": "lens/@brad",
                 "profileTokenId": "116598",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "bradorbradley.lens",
+                "profileName": "lens/@bradorbradley",
                 "profileTokenId": "36",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "hanimourra.lens",
+                "profileName": "lens/@hanimourra",
                 "profileTokenId": "116239",
                 "profileTokenIdHex": ""
               }
@@ -1102,30 +1185,32 @@ query MyQuery {
           },
           "followerProfileId": "36",
           "followerTokenId": "245"
-        },
+        }
         // more following
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get Lens Following of Lens Profile(s) that Hold ERC20 Token(s)
 
-You can get the list of Lens following of Lens profile(s) that also hold certain ERC20 token(s), e.g. [USDC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&tokenType=\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29\&inputType=TOKEN\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting either their 0x address, [Lens profile name](#user-content-fn-19)[^19] or Lens profile ID (decimal[^20] or hex[^21]):
+You can get the list of Lens following of Lens profile(s) that also hold certain ERC20 token(s), e.g. [USDC](https://explorer.airstack.xyz/token-holders?activeView=&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48&tokenType=&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29&inputType=TOKEN&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=&blockchain=ethereum), by inputting either their 0x address, [Lens profile name](#user-content-fn-19)[^19] or Lens profile ID (decimal[^20] or hex[^21]):
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/MMp5HQgKaD" %}
-Show me Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that also holds USDC
+Show me Lens following of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that also holds USDC
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   SocialFollowings(
     input: {filter: {identity: {_in: ["lens/@stani", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}, dappName: {_eq: lens}}, blockchain: ALL, limit: 200}
@@ -1161,9 +1246,11 @@ Show me Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowings": {
@@ -1175,12 +1262,12 @@ Show me Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90
             ],
             "socials": [
               {
-                "profileName": "yummy.lens",
+                "profileName": "lens/@yummy",
                 "profileTokenId": "47982",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "abertog.lens",
+                "profileName": "lens/@abertog",
                 "profileTokenId": "3568",
                 "profileTokenIdHex": ""
               }
@@ -1214,22 +1301,22 @@ Show me Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90
             ],
             "socials": [
               {
-                "profileName": "westlakevillage.lens",
+                "profileName": "lens/@westlakevillage",
                 "profileTokenId": "99755",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "brad.lens",
+                "profileName": "lens/@brad",
                 "profileTokenId": "116598",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "bradorbradley.lens",
+                "profileName": "lens/@bradorbradley",
                 "profileTokenId": "36",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "hanimourra.lens",
+                "profileName": "lens/@hanimourra",
                 "profileTokenId": "116239",
                 "profileTokenIdHex": ""
               }
@@ -1244,23 +1331,25 @@ Show me Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
 ## Get Lens Following of Lens Profile(s) that Hold ERC721/1155 NFT(s)
 
-You can get the list of Lens following of Lens profile(s) that also hold certain ERC721 or ERC1155 NFT(s), e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D\&tokenType=\&rawInput=%23%E2%8E%B1BoredApeYachtClub%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+NFT\_COLLECTION+ethereum+null%29\&inputType=NFT\_COLLECTION\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting either their 0x address, [Lens profile name](#user-content-fn-22)[^22] or Lens profile ID (decimal[^23] or hex[^24]):
+You can get the list of Lens following of Lens profile(s) that also hold certain ERC721 or ERC1155 NFT(s), e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D&tokenType=&rawInput=%23%E2%8E%B1BoredApeYachtClub%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+NFT_COLLECTION+ethereum+null%29&inputType=NFT_COLLECTION&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=&blockchain=ethereum), by inputting either their 0x address, [Lens profile name](#user-content-fn-22)[^22] or Lens profile ID (decimal[^23] or hex[^24]):
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/fXbfAVAjOZ" %}
-Show me Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that also holds BAYC
+Show me Lens following of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that also holds BAYC
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql"> query MyQuery {
   SocialFollowings(
     input: {filter: {identity: {_in: ["lens/@stani", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}, dappName: {_eq: lens}}, blockchain: ALL}
@@ -1296,9 +1385,11 @@ Show me Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowings": {
@@ -1310,12 +1401,12 @@ Show me Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90
             ],
             "socials": [
               {
-                "profileName": "yummy.lens",
+                "profileName": "lens/@yummy",
                 "profileTokenId": "47982",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "abertog.lens",
+                "profileName": "lens/@abertog",
                 "profileTokenId": "3568",
                 "profileTokenIdHex": ""
               }
@@ -1349,22 +1440,22 @@ Show me Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90
             ],
             "socials": [
               {
-                "profileName": "westlakevillage.lens",
+                "profileName": "lens/@westlakevillage",
                 "profileTokenId": "99755",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "brad.lens",
+                "profileName": "lens/@brad",
                 "profileTokenId": "116598",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "bradorbradley.lens",
+                "profileName": "lens/@bradorbradley",
                 "profileTokenId": "36",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "hanimourra.lens",
+                "profileName": "lens/@hanimourra",
                 "profileTokenId": "116239",
                 "profileTokenIdHex": ""
               }
@@ -1379,27 +1470,43 @@ Show me Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
 ## Get Lens Following of Lens Profile(s) that Hold POAP(s)
 
-You can get the list of Lens following of Lens profile(s) that also hold certain POAP(s), e.g. [EthCC \[6\] Attendee POAP](https://explorer.airstack.xyz/token-holders?activeView=\&address=141910\&tokenType=\&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29\&inputType=POAP\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=gnosis), by inputting either their 0x address, [Lens profile name](#user-content-fn-25)[^25] or Lens profile ID (decimal[^26] or hex[^27]):
+You can get the list of Lens following of Lens profile(s) that also hold certain POAP(s), e.g. [EthCC \[6\] Attendee POAP](https://explorer.airstack.xyz/token-holders?activeView=&address=141910&tokenType=&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29&inputType=POAP&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=&blockchain=gnosis), by inputting either their 0x address, [Lens profile name](#user-content-fn-25)[^25] or Lens profile ID (decimal[^26] or hex[^27]):
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/kMJRUHXQlA" %}
-Show me Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that also holds EthCC\[6] – Attendee POAP
+Show me Lens following of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that also holds EthCC\[6] – Attendee POAP
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {identity: {_in: ["lens/@stani", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}, dappName: {_eq: lens}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: {
+        identity: {
+          _in: [
+            "lens/@stani"
+            "lens_id:0x024"
+            "vitalik.eth"
+            "0xeaf55242a90bb3289dB8184772b0B98562053559"
+          ]
+        }
+        dappName: { _eq: lens }
+      }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Following {
       followingAddress {
@@ -1409,7 +1516,7 @@ query MyQuery {
           profileTokenId
           profileTokenIdHex
         }
-        poaps(input: {filter: {eventId: {_eq: "141910"}}}) {
+        poaps(input: { filter: { eventId: { _eq: "141910" } } }) {
           mintHash
           mintOrder
         }
@@ -1419,7 +1526,7 @@ query MyQuery {
         domains {
           name
         }
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -1431,9 +1538,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowings": {
@@ -1445,12 +1554,12 @@ query MyQuery {
             ],
             "socials": [
               {
-                "profileName": "yummy.lens",
+                "profileName": "lens/@yummy",
                 "profileTokenId": "47982",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "abertog.lens",
+                "profileName": "lens/@abertog",
                 "profileTokenId": "3568",
                 "profileTokenIdHex": ""
               }
@@ -1485,22 +1594,22 @@ query MyQuery {
             ],
             "socials": [
               {
-                "profileName": "westlakevillage.lens",
+                "profileName": "lens/@westlakevillage",
                 "profileTokenId": "99755",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "brad.lens",
+                "profileName": "lens/@brad",
                 "profileTokenId": "116598",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "bradorbradley.lens",
+                "profileName": "lens/@bradorbradley",
                 "profileTokenId": "36",
                 "profileTokenIdHex": ""
               },
               {
-                "profileName": "hanimourra.lens",
+                "profileName": "lens/@hanimourra",
                 "profileTokenId": "116239",
                 "profileTokenIdHex": ""
               }
@@ -1515,27 +1624,43 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
 ## Get Lens Following of Lens Profile(s) that Hold Certain Amount of ERC20 Token(s)
 
-You can get the list of Lens following of Lens profile(s) that also hold certain amount of ERC20 token(s), e.g. more than or equal to 1000 [USDC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&tokenType=\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29\&inputType=TOKEN\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting either their 0x address, [Lens profile name](#user-content-fn-28)[^28] or Lens profile ID (decimal[^29] or hex[^30]):
+You can get the list of Lens following of Lens profile(s) that also hold certain amount of ERC20 token(s), e.g. more than or equal to 1000 [USDC](https://explorer.airstack.xyz/token-holders?activeView=&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48&tokenType=&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29&inputType=TOKEN&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=&blockchain=ethereum), by inputting either their 0x address, [Lens profile name](#user-content-fn-28)[^28] or Lens profile ID (decimal[^29] or hex[^30]):
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/5r5iFwz8n8" %}
-Show me Lens following of stani.lens, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that also holds at least 1000 USDC
+Show me Lens following of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that also holds at least 1000 USDC
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
-    input: {filter: {identity: {_in: ["lens/@stani", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}, dappName: {_eq: lens}}, blockchain: ALL, limit: 200}
+    input: {
+      filter: {
+        identity: {
+          _in: [
+            "lens/@stani"
+            "lens_id:0x024"
+            "vitalik.eth"
+            "0xeaf55242a90bb3289dB8184772b0B98562053559"
+          ]
+        }
+        dappName: { _eq: lens }
+      }
+      blockchain: ALL
+      limit: 200
+    }
   ) {
     Following {
       followingAddress {
@@ -1546,7 +1671,15 @@ query MyQuery {
           profileTokenIdHex
         }
         tokenBalances(
-          input: {filter: {tokenAddress: {_in: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"]}, tokenType: {_eq: ERC20}, formattedAmount: {_gte: 1000}}}
+          input: {
+            filter: {
+              tokenAddress: {
+                _in: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"]
+              }
+              tokenType: { _eq: ERC20 }
+              formattedAmount: { _gte: 1000 }
+            }
+          }
         ) {
           formattedAmount
         }
@@ -1556,7 +1689,7 @@ query MyQuery {
         domains {
           name
         }
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -1568,9 +1701,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1578,9 +1713,7 @@ query MyQuery {
       "Following": [
         {
           "followingAddress": {
-            "addresses": [
-              "0x6c1e581e4ea169c28b9ca03f17f7370e030548ac"
-            ],
+            "addresses": ["0x6c1e581e4ea169c28b9ca03f17f7370e030548ac"],
             "socials": [
               {
                 "profileName": "camillionaire",
@@ -1588,7 +1721,7 @@ query MyQuery {
                 "profileTokenIdHex": "0x0315d"
               },
               {
-                "profileName": "camillionaire.lens",
+                "profileName": "lens/@camillionaire",
                 "profileTokenId": "27299",
                 "profileTokenIdHex": "0x06aa3"
               }
@@ -1600,23 +1733,21 @@ query MyQuery {
             ]
           },
           "followerAddress": {
-            "addresses": [
-              "0x7241dddec3a6af367882eaf9651b87e1c7549dff"
-            ],
+            "addresses": ["0x7241dddec3a6af367882eaf9651b87e1c7549dff"],
             "domains": null,
             "socials": [
               {
-                "profileName": "stani.lens",
+                "profileName": "lens/@stani",
                 "profileTokenId": "5",
                 "profileTokenIdHex": "0x05"
               },
               {
-                "profileName": "lilgho.lens",
+                "profileName": "lens/@lilgho",
                 "profileTokenId": "110056",
                 "profileTokenIdHex": "0x01ade8"
               },
               {
-                "profileName": "lensofficial.lens",
+                "profileName": "lens/@lensofficial",
                 "profileTokenId": "47319",
                 "profileTokenIdHex": "0x0b8d7"
               }
@@ -1624,13 +1755,14 @@ query MyQuery {
           },
           "followerProfileId": "5",
           "followerTokenId": "22"
-        },
+        }
         // more following
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1640,68 +1772,39 @@ If you have any questions or need help regarding fetching Lens Following data, p
 
 ## More Resources
 
-* [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
-* [Wallet API Reference](../../api-references/api-reference/wallet-api/)
-* [Lens Followers](broken-reference/)
-* [Farcaster Followers](../farcaster/farcaster-followers.md)
-* [Farcaster Following](../farcaster/farcaster-following.md)
+- [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
+- [Wallet API Reference](../../api-references/api-reference/wallet-api/)
+- [Lens Followers](broken-reference/)
+- [Farcaster Followers](../farcaster/farcaster-followers.md)
+- [Farcaster Following](../farcaster/farcaster-following.md)
 
 [^1]: `profileName`
-
 [^2]: `profileTokenId`
-
 [^3]: `profileTokenIdHex`
-
 [^4]: `profileName`
-
 [^5]: `profileTokenId`
-
 [^6]: `profileTokenIdHex`
-
 [^7]: `profileName`
-
 [^8]: `profileTokenId`
-
 [^9]: `profileTokenIdHex`
-
 [^10]: `profileName`
-
 [^11]: `profileTokenId`
-
 [^12]: `profileTokenIdHex`
-
 [^13]: `profileName`
-
 [^14]: `profileTokenId`
-
 [^15]: `profileTokenIdHex`
-
 [^16]: `profileName`
-
 [^17]: `profileTokenId`
-
 [^18]: `profileTokenIdHex`
-
 [^19]: `profileName`
-
 [^20]: `profileTokenId`
-
 [^21]: `profileTokenIdHex`
-
 [^22]: `profileName`
-
 [^23]: `profileTokenId`
-
 [^24]: `profileTokenIdHex`
-
 [^25]: `profileName`
-
 [^26]: `profileTokenId`
-
 [^27]: `profileTokenIdHex`
-
 [^28]: `profileName`
-
 [^29]: `profileTokenId`
-
 [^30]: `profileTokenIdHex`

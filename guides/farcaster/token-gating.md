@@ -185,7 +185,7 @@ You can implement token gating by checking whether users have Farcaster:
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/ZNKiLFepdu" %}
-Show Farcaster name and ID of dwr.eth, 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045, and jayden.lens
+Show Farcaster name and ID of dwr.eth, 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045, and lens/@jayden
 {% endembed %}
 
 ### Code
@@ -202,7 +202,7 @@ query GetTokenGatingFarcasters {
           _in: [
             "dwr.eth"
             "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-            "jayden.lens"
+            "lens/@jayden"
           ]
         }
         dappName: { _eq: farcaster }
@@ -249,7 +249,7 @@ query GetTokenGatingFarcasters {
 
 If the length of the `data.Socials.Social` array is 0, then it implies that the user has no Farcaster.
 
-Otherwise, the user does and can be given access to a the desired feature.
+Otherwise, the user does and can be given access to the desired feature.
 
 ## Gating only user(s) that have Farcaster and NFT
 

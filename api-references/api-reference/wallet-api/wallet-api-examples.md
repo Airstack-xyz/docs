@@ -20,7 +20,7 @@ layout:
 
 ```graphql
 query MyQuery {
-  Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
+  Wallet(input: { identity: "vitalik.eth", blockchain: ethereum }) {
     tokenBalances {
       amount
       blockchain
@@ -47,7 +47,7 @@ query MyQuery {
 
 ```graphql
 query identity {
-  Wallet(input: {identity: "dwr.eth", blockchain: ethereum}) {
+  Wallet(input: { identity: "dwr.eth", blockchain: ethereum }) {
     socials {
       dappName
       profileName
@@ -78,11 +78,11 @@ query identity {
 
 <details>
 
-<summary>For stani.lens show all his web3 socials and NFTs on Polygon</summary>
+<summary>For lens/@stani show all his web3 socials and NFTs on Polygon</summary>
 
 ```graphql
 query staniLensSocialsAndNFTs {
-  Wallet(input: {identity: "stani.lens", blockchain: polygon}) {
+  Wallet(input: { identity: "lens/@stani", blockchain: polygon }) {
     socials {
       dappName
       profileName

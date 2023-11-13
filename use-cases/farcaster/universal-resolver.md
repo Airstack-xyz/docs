@@ -31,9 +31,9 @@ Farcaster Resolver (Demo)
 
 ## Step 0: Prerequisites
 
-* [ ] Completed [Get API Key](../../get-started/get-api-key.md)
-* [ ] Git
-* [ ] Node v.16+
+- [ ] Completed [Get API Key](../../get-started/get-api-key.md)
+- [ ] Git
+- [ ] Node v.16+
 
 ## Step 1: Clone Starter Code
 
@@ -62,21 +62,27 @@ Install the dependencies using your preferred package manager with one of the fo
 
 {% tabs %}
 {% tab title="npm" %}
+
 ```sh
 npm install
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 ```sh
 yarn
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 ```sh
 pnpm install
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -114,21 +120,27 @@ To run the app locally, simply run one of the following command:
 
 {% tabs %}
 {% tab title="npm" %}
+
 ```sh
 npm run dev
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 ```sh
 yarn dev
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 ```sh
 pnpm run dev
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -142,7 +154,7 @@ Then, you can go to [http://localhost:5173](http://localhost:5173):
 
 Here you have the UI all given to you out-of-the-box as part of the starter code.
 
-However, the resolving has not been included as no Airstack query is found in the code.  You can see in `src/graphql/resolve.js` with it's empty query:
+However, the resolving has not been included as no Airstack query is found in the code. You can see in `src/graphql/resolve.js` with it's empty query:
 
 ```jsx
 const FARCASTER_RESOLVER = ``;
@@ -155,7 +167,7 @@ In order to fill in this, the next steps will be dedicated to constructing your 
 ## Step 5: Create a Query Using AI
 
 {% hint style="info" %}
-Use [Airstack AI's Best Practices](https://docs.airstack.xyz/airstack-docs-and-faqs/\~/changes/RCZ9VCCIc7gOrsTvT2BI/ai-assistant#best-practices) to get the best and most accurate result for your query.
+Use [Airstack AI's Best Practices](https://docs.airstack.xyz/airstack-docs-and-faqs/~/changes/RCZ9VCCIc7gOrsTvT2BI/ai-assistant#best-practices) to get the best and most accurate result for your query.
 {% endhint %}
 
 [Airstack](https://airstack.xyz) provides an AI solution for you to build a GraphQL query efficiently. You can access [Airstack AI](../../get-started/airstack-ai.md) on the [API Studio](https://app.airstack.xyz/api-studio).
@@ -172,9 +184,10 @@ After clicking enter, the [Airstack AI](../../get-started/airstack-ai.md) will o
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
-  Wallet(input: {identity: "fc_fname:vbuterin", blockchain: ethereum}) {
+  Wallet(input: { identity: "fc_fname:vbuterin", blockchain: ethereum }) {
     addresses
     socials {
       dappName
@@ -189,16 +202,16 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Responses" %}
+
 ```json
 {
   "data": {
     "Wallet": {
-      "addresses": [
-        "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-      ],
+      "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
       "socials": [
         {
           "dappName": "farcaster",
@@ -206,7 +219,7 @@ query MyQuery {
         },
         {
           "dappName": "lens",
-          "profileName": "vitalik.lens"
+          "profileName": "lens/@vitalik"
         }
       ],
       "domains": [
@@ -248,6 +261,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -273,6 +287,7 @@ Adding the additional field, the last query with the changes highlighted will be
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Wallet(
     input: {identity: "fc_fname:vbuterin", blockchain: ethereum}
@@ -294,16 +309,16 @@ Adding the additional field, the last query with the changes highlighted will be
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
     "Wallet": {
-      "addresses": [
-        "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-      ],
+      "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
       "socials": [
         {
           "dappName": "farcaster",
@@ -311,7 +326,7 @@ Adding the additional field, the last query with the changes highlighted will be
         },
         {
           "dappName": "lens",
-          "profileName": "vitalik.lens"
+          "profileName": "lens/@vitalik"
         }
       ],
       "domains": [
@@ -353,6 +368,7 @@ Adding the additional field, the last query with the changes highlighted will be
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -364,9 +380,10 @@ Simply replace the input with variables, represented by `$` followed by the vari
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery($address: Identity!) {
-  Wallet(input: {identity: $address, blockchain: ethereum}) {
+  Wallet(input: { identity: $address, blockchain: ethereum }) {
     addresses
     socials {
       dappName
@@ -382,26 +399,28 @@ query MyQuery($address: Identity!) {
       isXMTPEnabled
     }
   }
-} 
+}
 ```
+
 {% endtab %}
 
 {% tab title="Variable" %}
+
 ```json
 {
-  "address": "vitalik.lens"
+  "address": "lens/@vitalik"
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
     "Wallet": {
-      "addresses": [
-        "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-      ],
+      "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
       "socials": [
         {
           "dappName": "farcaster",
@@ -409,7 +428,7 @@ query MyQuery($address: Identity!) {
         },
         {
           "dappName": "lens",
-          "profileName": "vitalik.lens"
+          "profileName": "lens/@vitalik"
         }
       ],
       "domains": [
@@ -454,6 +473,7 @@ query MyQuery($address: Identity!) {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -464,6 +484,7 @@ Now that you have the query constructed, all you need is just paste it directly 
 Simply go to `src/graphql/resolve.js` again and paste the query to `FARCASTER_RESOLVER` variable:
 
 {% code overflow="wrap" %}
+
 ```jsx
 const FARCASTER_RESOLVER = `
 query MyQuery($address: Identity!) {
@@ -488,6 +509,7 @@ query MyQuery($address: Identity!) {
 
 export default FARCASTER_RESOLVER;
 ```
+
 {% endcode %}
 
 To call this query, use the `useQuery` hook from the Airstack React SDK to `src/App.jsx`:
@@ -563,6 +585,6 @@ If you have any questions or need help regarding Farcaster resolver, please join
 
 ## More Resources
 
-* [Resolve Farcaster](../../guides/resolve-identities/farcaster.md)
-* [Wallet API Reference](../../api-references/api-reference/wallet-api/)
-* [Farcaster Resolver Final Code](https://github.com/Airstack-xyz/demos/tree/main/farcaster/farcaster-resolver-final)
+- [Resolve Farcaster](../../guides/resolve-identities/farcaster.md)
+- [Wallet API Reference](../../api-references/api-reference/wallet-api/)
+- [Farcaster Resolver Final Code](https://github.com/Airstack-xyz/demos/tree/main/farcaster/farcaster-resolver-final)
