@@ -23,25 +23,25 @@ In this tutorial, you will learn how to fetch various use cases of utilizing the
 
 In this guide you will learn how to use Airstack to:
 
-- [Get All Followers of 0x Address(es)](followers.md#get-all-followers-of-0x-address-es)
-- [Get All Followers of ENS Domain(s)](followers.md#get-all-followers-of-ens-domain-s)
-- [Get All Followers of Lens Profile(s)](followers.md#get-all-followers-of-lens-profile-s)
-- [Get All Followers of Farcaster User(s)](followers.md#get-all-followers-of-farcaster-user-s)
-- [Check If User A Is Followed By User B](followers.md#check-if-user-a-is-followed-by-user-b)
-- [Get The Most Recent Followers of User(s)](followers.md#get-the-most-recent-followers-of-user-s)
-- [Get The Earliest Followers of User(s)](followers.md#get-the-earliest-followers-of-user-s)
-- [Get All Followers of User(s) that has ENS Domain](followers.md#get-all-followers-of-user-s-that-has-ens-domain)
-- [Get All Followers of User(s) that has XMTP Enabled](followers.md#get-all-followers-of-user-s-that-has-xmtp-enabled)
-- [Get Users that have a certain amount of Followers](followers.md#get-users-that-have-a-certain-amount-of-followers)
-- [Get All Followers of User(s) that Hold ERC20 Token(s)](followers.md#get-all-followers-of-user-s-that-hold-erc20-token-s)
-- [Get All Followers of User(s) that Hold ERC721/1155 NFT(s)](followers.md#get-all-followers-of-user-s-that-hold-erc721-1155-nft-s)
-- [Get All Followers of User(s) that Hold POAP(s)](followers.md#get-all-followers-of-user-s-that-hold-poap-s)
-- [Get All Followers of User(s) that Hold Certain Amount of ERC20 Token(s)](followers.md#get-all-followers-of-user-s-that-hold-certain-amount-of-erc20-token-s)
+* [Get All Followers of 0x Address(es)](followers.md#get-all-followers-of-0x-address-es)
+* [Get All Followers of ENS Domain(s)](followers.md#get-all-followers-of-ens-domain-s)
+* [Get All Followers of Lens Profile(s)](followers.md#get-all-followers-of-lens-profile-s)
+* [Get All Followers of Farcaster User(s)](followers.md#get-all-followers-of-farcaster-user-s)
+* [Check If User A Is Followed By User B](followers.md#check-if-user-a-is-followed-by-user-b)
+* [Get The Most Recent Followers of User(s)](followers.md#get-the-most-recent-followers-of-user-s)
+* [Get The Earliest Followers of User(s)](followers.md#get-the-earliest-followers-of-user-s)
+* [Get All Followers of User(s) that has ENS Domain](followers.md#get-all-followers-of-user-s-that-has-ens-domain)
+* [Get All Followers of User(s) that has XMTP Enabled](followers.md#get-all-followers-of-user-s-that-has-xmtp-enabled)
+* [Get Users that have a certain amount of Followers](followers.md#get-users-that-have-a-certain-amount-of-followers)
+* [Get All Followers of User(s) that Hold ERC20 Token(s)](followers.md#get-all-followers-of-user-s-that-hold-erc20-token-s)
+* [Get All Followers of User(s) that Hold ERC721/1155 NFT(s)](followers.md#get-all-followers-of-user-s-that-hold-erc721-1155-nft-s)
+* [Get All Followers of User(s) that Hold POAP(s)](followers.md#get-all-followers-of-user-s-that-hold-poap-s)
+* [Get All Followers of User(s) that Hold Certain Amount of ERC20 Token(s)](followers.md#get-all-followers-of-user-s-that-hold-certain-amount-of-erc20-token-s)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -62,7 +62,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -77,7 +76,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -92,15 +90,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -108,7 +103,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -132,11 +126,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -149,11 +141,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -171,7 +161,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -199,7 +188,6 @@ Show me all followers of 0xeaf55242a90bb3289dB8184772b0B98562053559
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -236,11 +224,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -279,7 +265,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -297,7 +282,6 @@ Show me all followers of vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -334,11 +318,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -433,7 +415,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -444,19 +425,18 @@ You can get the list of all followers of Lens profile(s) by providing either [Le
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/oNxDOdWv15" %}
-Show me all followers of vitalik.lens
+Show me all followers of lens/@vitalik
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
     input: {
-      filter: { identity: { _in: ["vitalik.lens"] } }
+      filter: { identity: { _in: ["lens/@vitalik"] } }
       blockchain: ALL
       limit: 200
     }
@@ -490,11 +470,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -530,7 +508,7 @@ query MyQuery {
             ],
             "socials": [
               {
-                "profileName": "vitalik.lens",
+                "profileName": "lens/@vitalik",
                 "profileTokenId": "100275",
                 "profileTokenIdHex": "0x0187b3"
               }
@@ -544,7 +522,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -562,7 +539,6 @@ Show me all followers of Farcaster user vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -602,11 +578,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -656,7 +630,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -664,7 +637,7 @@ query MyQuery {
 
 This can be done by providing the user B's identiy either a 0x address, ENS, cb.id, Lens, or Farcaster on the `Wallet` top-level query's `identity` input and the user A's identities in the [`socialFollowers`](../../api-references/api-reference/socialfollowers-api.md).
 
-For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) (user A) is followed by [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS) (user B):
+For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) (user A) is followed by [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS) (user B):
 
 ### Try Demo
 
@@ -680,7 +653,6 @@ If you need to check multiple users A simultaneously, then simply provide more i
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query isFollowing { # Top-level is User B's Identity (ipeciura.eth)
 <strong>  Wallet(input: {identity: "ipeciura.eth", blockchain: ethereum}) {
 </strong>    socialFollowers( # Here is User A's Identity (betashop.eth)
@@ -706,11 +678,9 @@ If you need to check multiple users A simultaneously, then simply provide more i
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Wallet": {
@@ -733,7 +703,7 @@ If you need to check multiple users A simultaneously, then simply provide more i
 </strong>                },
                 {
                   "dappName": "lens",
-                  "profileName": "betashop9.lens"
+                  "profileName": "lens/@betashop9"
                 }
               ],
               "domains": [
@@ -752,13 +722,12 @@ If you need to check multiple users A simultaneously, then simply provide more i
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
-If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) is followed by [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29&inputType=ADDRESS&tokenType=&activeView=&activeTokenInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=) on either Lens or Farcaster, then it will appear as a response in the `Follower` array as shown in the [sample response](followers.md#response-4) and thus should be classified as a **known sender**.
+If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) is followed by [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&tokenType=\&activeView=\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=) on either Lens or Farcaster, then it will appear as a response in the `Follower` array as shown in the [sample response](followers.md#response-4) and thus should be classified as a **known sender**.
 
-Otherwise, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) will be considered an **unknown sender** and should be classified as one in the UI.
+Otherwise, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) will be considered an **unknown sender** and should be classified as one in the UI.
 
 ## Get The Most Recent Followers of User(s)
 
@@ -774,7 +743,6 @@ Show me the most recent followers of an array of users
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -782,7 +750,7 @@ query MyQuery {
       filter: {
         identity: {
           _in: [
-            "stani.lens"
+            "lens/@stani"
             "lens_id:0x024"
             "fc_fname:dwr.eth"
             "fc_fid:3"
@@ -832,11 +800,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -885,7 +851,7 @@ query MyQuery {
             "socials": [
               {
                 "dappName": "lens",
-                "profileName": "danromero.lens",
+                "profileName": "lens/@danromero",
                 "profileTokenId": "46189",
                 "profileTokenIdHex": "0x0b46d",
                 "userId": "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
@@ -916,7 +882,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -934,7 +899,6 @@ Show me the earliest followers of an array of users
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -942,7 +906,7 @@ query MyQuery {
       filter: {
         identity: {
           _in: [
-            "stani.lens"
+            "lens/@stani"
             "lens_id:0x024"
             "fc_fname:dwr.eth"
             "fc_fid:3"
@@ -992,11 +956,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1059,7 +1021,7 @@ query MyQuery {
             "socials": [
               {
                 "dappName": "lens",
-                "profileName": "danromero.lens",
+                "profileName": "lens/@danromero",
                 "profileTokenId": "46189",
                 "profileTokenIdHex": "0x0b46d",
                 "userId": "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
@@ -1090,7 +1052,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1108,10 +1069,9 @@ Show me all followers of users that have ENS domain
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   SocialFollowers(
-    input: {filter: {identity: {_in: ["stani.lens", "lens_id:0x024", "fc_fname:dwr.eth", "fc_fid:3", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
+    input: {filter: {identity: {_in: ["lens/@stani", "lens_id:0x024", "fc_fname:dwr.eth", "fc_fid:3", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
   ) {
     Follower {
       followerAddress {
@@ -1150,11 +1110,9 @@ Show me all followers of users that have ENS domain
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1175,7 +1133,7 @@ Show me all followers of users that have ENS domain
             "socials": [
               {
                 "dappName": "lens",
-                "profileName": "pfizergang.lens",
+                "profileName": "lens/@pfizergang",
                 "profileTokenId": "66242",
                 "profileTokenIdHex": "0x0102c2",
                 "userId": "0x3a497a2a8b35b934bf271938502ca24e444e689e",
@@ -1225,7 +1183,7 @@ Show me all followers of users that have ENS domain
               },
               {
                 "dappName": "lens",
-                "profileName": "betashop9.lens",
+                "profileName": "lens/@betashop9",
                 "profileTokenId": "94472",
                 "profileTokenIdHex": "0x017108",
                 "userId": "0xeaf55242a90bb3289db8184772b0b98562053559",
@@ -1243,7 +1201,6 @@ Show me all followers of users that have ENS domain
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1265,7 +1222,6 @@ Show me all followers of users that have XMTP enabled
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -1273,7 +1229,7 @@ query MyQuery {
       filter: {
         identity: {
           _in: [
-            "stani.lens"
+            "lens/@stani"
             "lens_id:0x024"
             "fc_fname:dwr.eth"
             "fc_fid:3"
@@ -1325,11 +1281,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -1437,7 +1391,7 @@ query MyQuery {
               },
               {
                 "dappName": "lens",
-                "profileName": "vitalik.lens",
+                "profileName": "lens/@vitalik",
                 "profileTokenId": "100275",
                 "profileTokenIdHex": "0x0187b3",
                 "userId": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
@@ -1455,7 +1409,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -1473,7 +1426,6 @@ Show me all users that have at least 1000 followers
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -1495,11 +1447,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1547,13 +1497,12 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Get All Followers of User(s) that Hold ERC20 Token(s)
 
-You can get the list of all followers of user(s) and check if they hold any ERC20 token(s), e.g. USDC:
+You can get the list of all followers of user(s) and check if they hold any ERC20 token(s), e.g. [USDC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&tokenType=\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29\&inputType=TOKEN\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&activeSocialInfo=\&blockchain=ethereum):
 
 ### Try Demo
 
@@ -1565,7 +1514,6 @@ Show me followers of an array of users that also holds USDC
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -1573,7 +1521,7 @@ query MyQuery {
       filter: {
         identity: {
           _in: [
-            "stani.lens"
+            "lens/@stani"
             "lens_id:0x024"
             "fc_fname:dwr.eth"
             "fc_fid:3"
@@ -1634,11 +1582,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -1657,7 +1603,7 @@ query MyQuery {
             "socials": [
               {
                 "dappName": "lens",
-                "profileName": "pfizergang.lens",
+                "profileName": "lens/@pfizergang",
                 "profileTokenId": "66242",
                 "profileTokenIdHex": "0x0102c2",
                 "userId": "0x3a497a2a8b35b934bf271938502ca24e444e689e",
@@ -1712,7 +1658,7 @@ query MyQuery {
               },
               {
                 "dappName": "lens",
-                "profileName": "betashop9.lens",
+                "profileName": "lens/@betashop9",
                 "profileTokenId": "94472",
                 "profileTokenIdHex": "0x017108",
                 "userId": "0xeaf55242a90bb3289db8184772b0b98562053559",
@@ -1730,13 +1676,12 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
 ## Get All Followers of User(s) that Hold ERC721/1155 NFT(s)
 
-You can get the list of all followers of user(s) and check if they hold any ERC721/1155 NFT(s), e.g. BAYC:
+You can get the list of all followers of user(s) and check if they hold any ERC721/1155 NFT(s), e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D\&tokenType=\&rawInput=%23%E2%8E%B1BoredApeYachtClub%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+NFT\_COLLECTION+ethereum+null%29\&inputType=NFT\_COLLECTION\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&activeSocialInfo=\&blockchain=ethereum):
 
 ### Try Demo
 
@@ -1748,7 +1693,6 @@ Show me followers of an array of users that also holds BAYC
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -1756,7 +1700,7 @@ query MyQuery {
       filter: {
         identity: {
           _in: [
-            "stani.lens"
+            "lens/@stani"
             "lens_id:0x024"
             "fc_fname:dwr.eth"
             "fc_fid:3"
@@ -1817,11 +1761,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -1933,7 +1875,7 @@ query MyQuery {
               },
               {
                 "dappName": "lens",
-                "profileName": "vitalik.lens",
+                "profileName": "lens/@vitalik",
                 "profileTokenId": "100275",
                 "profileTokenIdHex": "0x0187b3",
                 "userId": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
@@ -1951,13 +1893,12 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
 ## Get All Followers of User(s) that Hold POAP(s)
 
-You can get the list of all followers of user(s) and check if they hold any POAP(s), e.g. EthCC\[6] – Attendee POAP:
+You can get the list of all followers of user(s) and check if they hold any POAP(s), e.g. [EthCC\[6\] – Attendee POAP](https://explorer.airstack.xyz/token-holders?activeView=\&address=141910\&tokenType=\&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29\&inputType=POAP\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&activeSocialInfo=\&blockchain=gnosis):
 
 ### Try Demo
 
@@ -1969,7 +1910,6 @@ Show me all followers of an array of users that also holds EthCC\[6] – Attende
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -1977,7 +1917,7 @@ query MyQuery {
       filter: {
         identity: {
           _in: [
-            "stani.lens"
+            "lens/@stani"
             "lens_id:0x024"
             "fc_fname:dwr.eth"
             "fc_fid:3"
@@ -2030,11 +1970,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -2109,7 +2047,7 @@ query MyQuery {
             "socials": [
               {
                 "dappName": "lens",
-                "profileName": "danromero.lens",
+                "profileName": "lens/@danromero",
                 "profileTokenId": "46189",
                 "profileTokenIdHex": "0x0b46d",
                 "userId": "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
@@ -2140,13 +2078,12 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
 ## Get All Followers of User(s) that Hold Certain Amount of ERC20 Token(s)
 
-You can get the list of all followers of user(s) and check if they hold a certain amount of ERC20 token(s), e.g. hold at least 1000 USDC:
+You can get the list of all followers of user(s) and check if they hold a certain amount of ERC20 token(s), e.g. hold at least 1000 [USDC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&tokenType=\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29\&inputType=TOKEN\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&activeSocialInfo=\&blockchain=ethereum):
 
 ### Try Demo
 
@@ -2158,7 +2095,6 @@ Show me all followers of an array of users that also holds at least 1000 USDC
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -2166,7 +2102,7 @@ query MyQuery {
       filter: {
         identity: {
           _in: [
-            "stani.lens"
+            "lens/@stani"
             "lens_id:0x024"
             "fc_fname:dwr.eth"
             "fc_fid:3"
@@ -2228,11 +2164,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -2357,7 +2291,7 @@ query MyQuery {
               },
               {
                 "dappName": "lens",
-                "profileName": "vitalik.lens",
+                "profileName": "lens/@vitalik",
                 "profileTokenId": "100275",
                 "profileTokenIdHex": "0x0187b3",
                 "userId": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
@@ -2375,7 +2309,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -2385,8 +2318,10 @@ If you have any questions or need help regarding fetching followers data, please
 
 ## More Resources
 
-- [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
+* [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
 
 [^1]: e.g. `0xeaf55242a90bb3289dB8184772b0B98562053559`
+
 [^2]: e.g. `vitalik.lens`
+
 [^3]: e.g. `fc_fname:vitalik.eth`

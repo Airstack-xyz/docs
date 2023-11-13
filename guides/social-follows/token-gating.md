@@ -23,7 +23,7 @@ In this tutorial, you will learn how to build a token-gating system using social
 
 In this guide you will learn how to use Airstack to:
 
-* [Gating Only User(s) That Follows A Given User](token-gating.md#gating-only-user-s-that-mutually-follows-a-given-user)
+* [Gating Only User(s) That Follows A Given User](token-gating.md#gating-only-user-s-that-have-common-followers)
 * [Gating Only User(s) That Have Common Followers](token-gating.md#gating-only-user-s-that-have-common-followers)
 
 ## Pre-requisites
@@ -235,7 +235,7 @@ If you need to check multiple users A simultaneously, then simply provide more i
 </strong>                },
                 {
                   "dappName": "lens",
-                  "profileName": "betashop9.lens"
+                  "profileName": "lens/@betashop9"
                 }
               ],
               "domains": [
