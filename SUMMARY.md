@@ -3,7 +3,7 @@
 ## Get Started
 
 * [😇 Welcome!](README.md)
-* [ℹ Overview](<README (1).md>)
+* [ℹ Overview](get-started/readme-1.md)
 * [🗝 Get API Key](get-started/get-api-key.md)
 * [🤖 Airstack AI](get-started/airstack-ai.md)
 * [⛰ Airstack Explorer](get-started/airstack-explorer.md)
@@ -91,7 +91,7 @@
   * [🤝 Recommendation Engine](use-cases/xmtp/recommendation-engine.md)
 * [🌿 Lens](use-cases/lens/README.md)
   * [🍃 Lens Resolver](use-cases/lens/universal-resolver.md)
-* [💜 Farcaster](use-cases/farcaster.md)
+* [💜 Farcaster](use-cases/farcaster/README.md)
   * [🟪 Farcaster Resolver](use-cases/farcaster/universal-resolver.md)
 * [🔥 ERC6551](use-cases/erc6551.md)
 * [⚡ POAPs](use-cases/poaps.md)
@@ -101,7 +101,7 @@
 * [📖 API Reference](api-references/api-reference/README.md)
   * [Accounts API](api-references/api-reference/accounts-api/README.md)
     * [Accounts API Examples](api-references/api-reference/accounts-api/accounts-api-examples.md)
-  * [Tokens API](api-references/api-reference/tokens-api.md)
+  * [Tokens API](api-references/api-reference/tokens-api/README.md)
     * [Tokens API Examples](api-references/api-reference/tokens-api/tokens-api-examples.md)
   * [TokenNFTs API](api-references/api-reference/tokennfts-api/README.md)
     * [Token NFTs Examples](api-references/api-reference/tokennfts-api/token-nfts-examples.md)

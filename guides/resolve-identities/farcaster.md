@@ -166,6 +166,10 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ### Try Demo
 
+{% embed url="https://app.airstack.xyz/query/tZ3gMPNL7p" %}
+Show Farcaster name of prxshant.eth and lens/@vitalik
+{% endembed %}
+
 ### Code
 
 {% tabs %}
@@ -173,7 +177,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 ```graphql
 query GetFarcaster {
   Socials(
-    input: {filter: {identity: {_in: ["prxshant.eth", "lens/@vitalik"]}, dappSlug: {_eq: farcaster_goerli}}, blockchain: ethereum}
+    input: {filter: {identity: {_in: ["prxshant.eth", "lens/@vitalik"]}, dappName: {_eq: farcaster}}, blockchain: ethereum}
   ) {
     Social {
       profileName
@@ -186,7 +190,22 @@ query GetFarcaster {
 
 {% tab title="Response" %}
 ```json
-// Some code
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "profileName": "vitalik.eth",
+          "dappName": "farcaster"
+        },
+        {
+          "profileName": "prxshant.eth",
+          "dappName": "farcaster"
+        }
+      ]
+    }
+  }
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -195,12 +214,16 @@ query GetFarcaster {
 
 ### Try Demo
 
+{% embed url="https://app.airstack.xyz/query/W43n5Ow33G" %}
+Show the 0x addresses, ENS, and Lens of fc\_fname:vitalik.eth
+{% endembed %}
+
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
-query GetAddressOfFarcasters($address: [Identity!]) {
+query GetAddressOfFarcasters {
   Socials(input: {filter: {identity: {_in: $address}}, blockchain: ethereum}) {
     Social {
       userAddress
@@ -220,7 +243,41 @@ query GetAddressOfFarcasters($address: [Identity!]) {
 
 {% tab title="Response" %}
 ```json
-// Some code
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "userAddress": "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
+          "dappName": "farcaster",
+          "profileName": "vitalik.eth"
+        },
+        {
+          "userAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+          "dappName": "lens",
+          "profileName": "lens/@vitalik"
+        }
+      ]
+    },
+    "Domains": {
+      "Domain": [
+        {
+          "dappName": "ens",
+          "name": "skynft.eth"
+        },
+        {
+          "dappName": "ens",
+          "name": "quantumexchange.eth"
+        },
+        {
+          "dappName": "ens",
+          "name": "vitalik.daohall.eth"
+        },
+        // More ENS domains
+      ]
+    }
+  }
+}
 ```
 {% endtab %}
 {% endtabs %}

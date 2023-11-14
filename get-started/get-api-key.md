@@ -38,11 +38,11 @@ You have several options to login:
 
 Once logged in, go to the settings page by hovering your mouse to the **Profile icon** on the top right and click [**Profile settings**](https://app.airstack.xyz/profile-settings/profile).
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Profile Icon &#x26; Menu</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>Profile Icon &#x26; Menu</p></figcaption></figure>
 
 You'll be redirected to the following page:
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Profile Settings Page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Profile Settings Page</p></figcaption></figure>
 
 Then, simply click the 3rd entry on the sidebar, [**View API Keys**](https://app.airstack.xyz/profile-settings/api-keys), to find your API key.
 
