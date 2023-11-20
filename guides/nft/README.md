@@ -1,7 +1,5 @@
 ---
-description: >-
-  Airstack provides easy-to-use NFT APIs for enriching Web3 applications with
-  onchain and offchain NFT data from Ethereum and Polygon.
+description: Airstack provides easy-to-use NFT API.
 layout:
   title:
     visible: true
