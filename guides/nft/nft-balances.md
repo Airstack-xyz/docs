@@ -17,7 +17,7 @@ layout:
 
 # ⚖ NFT Balances
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 social applications with NFT data from Ethereum and Polygon.
+[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum and Polygon.
 
 In this tutorial, you will learn how to fetch NFT balances of user(s) and its variations.
 
