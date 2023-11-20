@@ -56,8 +56,8 @@ tokenURI: String # URI for the token NFT's resources
 {% hint style="info" %}
 Resized NFT images size guide:
 
-* extra\_small: 125x125px
-* small: 250x250px
-* medium: 500x500px
-* large: 750x750px
+* `extra_small`: 125x125px
+* `small`: 250x250px
+* `medium`: 500x500px
+* `large`: 750x750px
 {% endhint %}
