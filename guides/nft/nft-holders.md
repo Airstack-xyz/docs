@@ -439,6 +439,8 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
+If the given user hold the specified NFT collection, then `TokenBalances` will have non-null value as a response. Otherwise, the API will return null.
+
 ## Developer Support
 
 If you have any questions or need help regarding fetching NFT details data, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
