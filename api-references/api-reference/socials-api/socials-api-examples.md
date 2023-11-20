@@ -22,7 +22,7 @@ layout:
 query MyQuery {
   Socials(
     input: {
-      filter: { profileName: { _eq: "fc_fname:betashop" } }
+      filter: { identity: { _eq: "fc_fname:betashop" } }
       blockchain: ethereum
     }
   ) {
