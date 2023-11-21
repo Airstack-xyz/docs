@@ -25,6 +25,7 @@ Those contracts are the marked spam and can be filtered out. If you think that a
 
 In this guide you will learn how to use Airstack to:
 
+* [Get Non-Spam NFT Balances Of Users](spam-nft.md#get-non-spam-nft-balances-of-user-s)
 * [Check If NFT Collection(s) Are Spam Or Not](spam-nft.md#check-if-nft-collection-s-are-spam-or-not)
 * [Show All Non-Spam NFTs](spam-nft.md#show-all-non-spam-nfts)
 
@@ -163,6 +164,261 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
+
+## Get Non-Spam NFT Balances Of User(s)
+
+### Fetching
+
+First, you can fetch the NFT balances of user(s) and show each NFT whether they are a spam or not using the `token.isSpam` field from the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API.
+
+With the query below, provide an array of users' 0x address, ENS, cb.id, Lens profile, Farcaster fname/fid to `owner` input:
+
+#### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/dHDMyzx4MG" %}
+Show users' NFT balances and check if each NFT is a spam or not
+{% endembed %}
+
+#### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Ethereum: TokenBalances(
+    input: {filter: {owner: {_in: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "vitalik.eth", "lens/@vitalik", "fc_fname:vitalik.eth"]}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: ethereum}
+  ) {
+    TokenBalance {
+      tokenAddress
+      tokenId
+      tokenType
+      token {
+        isSpam
+        name
+        symbol
+      }
+    }
+  }
+  Polygon: TokenBalances(
+    input: {filter: {owner: {_in: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "vitalik.eth", "lens/@vitalik", "fc_fname:vitalik.eth"]}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: polygon}
+  ) {
+    TokenBalance {
+      tokenAddress
+      tokenId
+      tokenType
+      token {
+        isSpam
+        name
+        symbol
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Ethereum": {
+      "TokenBalance": [
+        {
+          "tokenAddress": "0x932261f9fc8da46c4a22e31b45c4de60623848bf",
+          "tokenId": "144778",
+          "tokenType": "ERC721",
+          "token": {
+<strong>            "isSpam": false, // Not a spam NFT
+</strong>            "name": "Zerion DNA 1.0",
+            "symbol": "DNA"
+          }
+        },
+        {
+          "tokenAddress": "0x38f62679130121c85f28fb0c67dad560fab5688e",
+          "tokenId": "0",
+          "tokenType": "ERC1155",
+          "token": {
+<strong>            "isSpam": true, // A spam NFT
+</strong>            "name": "$3,000 OP Reward",
+            "symbol": "$,3000 OP Reward"
+          }
+        },
+        // Other Ethereum NFTs
+      ]
+    },
+    "Polygon": {
+      "TokenBalance": [
+        {
+          "tokenAddress": "0xe7e7ead361f3aacd73a61a9bd6c10ca17f38e945",
+          "tokenId": "79233663829379634837589865448569342784712482819484549289560981379859480642508",
+          "tokenType": "ERC721",
+          "token": {
+<strong>            "isSpam": false, // Not a spam NFT
+</strong>            "name": "lens Handles",
+            "symbol": "lens"
+          }
+        },
+        {
+          "tokenAddress": "0x2f2071dfb236adfdde65dd07c78d86645b8abc97",
+          "tokenId": "0",
+          "tokenType": "ERC1155",
+          "token": {
+<strong>            "isSpam": true, // A spam NFT
+</strong>            "name": "$1,000 USDT Rewards",
+            "symbol": "Voucher"
+          }
+        },
+        // Other Polygon NFTs
+      ]
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+### Formatting
+
+Using the GraphQL response, you can filter out and aggregate the NFTs across Ethereum and Polygon by providing the response as to the `data` input of the `filterSpamNFTs` function:
+
+{% tabs %}
+{% tab title="TypeScript" %}
+```typescript
+interface NFT {
+  tokenAddress: string;
+  tokenId: string;
+  tokenType: string;
+  token: {
+    isSpam: boolean;
+    name: string;
+    symbol: string;
+  };
+}
+
+interface NFTWithBlockchain extends NFT {
+  blockchain: string;
+}
+
+interface TokenBalancesResponse {
+  Ethereum: {
+    TokenBalance?: NFT[];
+  };
+  Polygon: {
+    TokenBalance?: NFT[];
+  };
+}
+
+const filterSpamNFTs = (
+  data: TokenBalancesResponse
+): NFTWithBlockchain[] | undefined => {
+  try {
+    const { Ethereum, Polygon } = data ?? {};
+    const ethNfts =
+      Ethereum?.TokenBalance?.map((nft: NFT) =>
+        nft?.token?.isSpam
+          ? null
+          : {
+              ...nft,
+              blockchain: "ethereum",
+            }
+      ) ?? [];
+    const polygonNfts =
+      Polygon?.TokenBalance?.map((nft) =>
+        nft?.token?.isSpam
+          ? null
+          : {
+              ...nft,
+              blockchain: "polygon",
+            }
+      ) ?? [];
+    return [...ethNfts, ...polygonNfts]?.filter(Boolean) as NFTWithBlockchain[];
+  } catch (e) {
+    console.error(e);
+  }
+};
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const filterSpamNFTs = (data) => {
+  try {
+    const { Ethereum, Polygon } = data ?? {};
+    const ethNfts =
+      Ethereum?.TokenBalance?.map((nft) =>
+        nft?.token?.isSpam
+          ? null
+          : {
+              ...nft,
+              blockchain: "ethereum",
+            }
+      ) ?? [];
+    const polygonNfts =
+      Polygon?.TokenBalance?.map((nft) =>
+        nft?.token?.isSpam
+          ? null
+          : {
+              ...nft,
+              blockchain: "polygon",
+            }
+      ) ?? [];
+    return [...ethNfts, ...polygonNfts]?.filter(Boolean);
+  } catch (e) {
+    console.error(e);
+  }
+};
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+from typing import List, Dict, Any, Optional
+import traceback
+
+def filter_spam_nfts(data: Optional[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    try:
+        ethereum = data.get('Ethereum', {}) if data else {}
+        polygon = data.get('Polygon', {}) if data else {}
+
+        eth_nfts = [
+            {**nft, 'blockchain': 'ethereum'} for nft in ethereum.get('TokenBalance', [])
+            if nft and not nft.get('token', {}).get('isSpam')
+        ]
+
+        polygon_nfts = [
+            {**nft, 'blockchain': 'polygon'} for nft in polygon.get('TokenBalance', [])
+            if nft and not nft.get('token', {}).get('isSpam')
+        ]
+
+        return [nft for nft in eth_nfts + polygon_nfts if nft]
+    except Exception:
+        error = traceback.print_exc()
+        raise Exception(error)
+```
+{% endtab %}
+{% endtabs %}
+
+The formatted data will combine both Ethereum and Polygon NFTs hold by the user and filtered out all spam NFTs:
+
+```json
+[
+  {
+    "tokenAddress": "0x932261f9fc8da46c4a22e31b45c4de60623848bf",
+    "tokenId": "144778",
+    "tokenType": "ERC721",
+    "token": { "isSpam": false, "name": "Zerion DNA 1.0", "symbol": "DNA" },
+    "blockchain": "ethereum"
+  },
+  // Other Ethereum non-spam NFTs
+  {
+    "tokenAddress": "0xe7e7ead361f3aacd73a61a9bd6c10ca17f38e945",
+    "tokenId": "79233663829379634837589865448569342784712482819484549289560981379859480642508",
+    "tokenType": "ERC721",
+    "token": { "isSpam": false, "name": "lens Handles", "symbol": "lens" },
+    "blockchain": "polygon"
+  },
+  // Other Polygon non-spam NFTs
+]
+```
 
 ## Check If NFT Collection(s) Are Spam Or Not
 
