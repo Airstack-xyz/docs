@@ -171,7 +171,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 First, you can fetch the NFT balances of user(s) and show each NFT whether they are a spam or not using the `token.isSpam` field from the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API.
 
-With the query below, provide an array of users' 0x address, ENS, cb.id, Lens profile, Farcaster fname/fid to `owner` input:
+With the query below, provide an array of users' 0x addresses, ENS domains, cb.ids, Lens profiles, Farcaster fnames/fids to `owner` input:
 
 #### Try Demo
 
