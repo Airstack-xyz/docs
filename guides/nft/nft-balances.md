@@ -610,12 +610,13 @@ query MyQuery {
 
 ## Developer Support
 
-If you have any questions or need help regarding fetching NFT details data, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding fetching NFT balances data, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
 * [NFT Details](nft-details.md)
 * [NFT Holders](nft-holders.md)
+* [Spam NFT](spam-nft.md)
 * [Combinations (Common Holders)](../combinations/)
   * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
   * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)

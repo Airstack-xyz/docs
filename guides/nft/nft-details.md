@@ -996,6 +996,7 @@ If you have any questions or need help regarding fetching NFT details data, plea
 
 * [NFT Balances](nft-balances.md)
 * [NFT Holders](nft-holders.md)
+* [Spam NFT](spam-nft.md)
 * [Combinations (Common Holders)](../combinations/)
   * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
   * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)

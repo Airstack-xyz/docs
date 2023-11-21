@@ -42,6 +42,7 @@
   * [📑 NFT Details](guides/nft/nft-details.md)
   * [⚖ NFT Balances](guides/nft/nft-balances.md)
   * [🗝 NFT Holders](guides/nft/nft-holders.md)
+  * [🧹 Spam NFT](guides/nft/spam-nft.md)
 * [⚡ POAP](guides/poap/README.md)
   * [⚖ POAP Balances](guides/poap/poap-balances.md)
   * [🗝 POAP Holders](guides/poap/poap-holders.md)
