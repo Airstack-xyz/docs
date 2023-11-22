@@ -15,10 +15,12 @@ layout:
 # Poaps API
 
 {% hint style="info" %}
-The Poaps API allows users to query POAPs held by a particular wallet, all POAP tokens from a particular event, or simply fetch details about a particular POAP Token, and also return event-specific metadata, including  <mark style="background-color:green;">**resized images**</mark>.
+The Poaps API allows users to query POAPs held by a particular wallet, all POAP tokens from a particular event, or simply fetch details about a particular POAP Token, and also return event-specific metadata, including <mark style="background-color:green;">**resized images**</mark>.
 {% endhint %}
 
-### Inputs & Filters
+## Inputs
+
+### Filters
 
 ```graphql
 input PoapFilter {
@@ -31,7 +33,7 @@ input PoapFilter {
 }
 ```
 
-### Outputs
+## Outputs
 
 ```graphql
 type Poap {

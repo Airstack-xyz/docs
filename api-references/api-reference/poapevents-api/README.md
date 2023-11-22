@@ -15,11 +15,13 @@ layout:
 # PoapEvents API
 
 {% hint style="info" %}
-PoapEvents event API allows users to retrieve information about a particular POAP event, including the event token holders, metadata, and resized image. \
+PoapEvents event API allows users to retrieve information about a particular POAP event, including the event token holders, metadata, and resized image.\
 In addition, PoapEvents API allows in-depth filtering of the PAOPs based on the date the event took place or the location.
 {% endhint %}
 
-### Inputs & Filters
+## Inputs
+
+### Filters
 
 ```graphql
 input PoapEventFilter {
@@ -35,7 +37,7 @@ input PoapEventFilter {
 }
 ```
 
-### Outputs
+## Outputs
 
 ```graphql
 type PoapEvent {

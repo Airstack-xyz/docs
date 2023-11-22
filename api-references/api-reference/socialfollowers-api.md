@@ -18,7 +18,9 @@ layout:
 The SocialFollowers APIs deliver on-chain and off-chain user-level data pertaining to users of web3 social protocols, such as Farcaster and Lens.
 {% endhint %}
 
-### Inputs & Filters
+## Inputs
+
+### Filters
 
 ```graphql
 input SocialFollowerFilter {
@@ -28,7 +30,7 @@ input SocialFollowerFilter {
 }
 ```
 
-### Outputs
+## Outputs
 
 ```graphql
 type SocialFollower {

@@ -20,7 +20,9 @@ The Wallet APIs deliver comprehensive data about a specific wallet address, incl
 From the Wallet API it’s possible to create complex queries using nested queries, such as: Get the primary ENS, the Farcaster user name, the Farcaster connected Addresses, all tokens held by the wallet, all NFT Sales by the wallet, all token transfers.
 {% endhint %}
 
-### Inputs & Filters
+## Inputs
+
+### Filters
 
 ```graphql
 input WalletInput {
@@ -29,7 +31,7 @@ input WalletInput {
 }
 ```
 
-### Outputs
+## Outputs
 
 ```graphql
 type Wallet {

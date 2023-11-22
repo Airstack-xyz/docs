@@ -29,10 +29,12 @@ Monthly - 00:00 am on the first calendar day of the month to 11:59 pm on the las
 
 Yearly - 00:00 am on the first day of the year to 11:59 pm on the last day of the year. If querying the current year, the aggregation would be from the first calendar day to the most recent daily aggregation.
 
-Lifetime - from the first recorded sale to the most recent daily aggregation.&#x20;
+Lifetime - from the first recorded sale to the most recent daily aggregation.
 {% endhint %}
 
-### Inputs & Filters
+## Inputs
+
+### Filters
 
 ```graphql
 input MarketplaceStatFilter {
@@ -49,7 +51,7 @@ timeframe: DAILY / WEEKLY / MONTHLY / YEARLY / LIFETIME
 }
 ```
 
-### Outputs
+## Outputs
 
 ```graphql
 type MarketplaceStat {

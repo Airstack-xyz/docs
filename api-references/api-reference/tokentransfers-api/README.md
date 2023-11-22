@@ -18,7 +18,9 @@ layout:
 The TokenTransfers API delivers information on token transfers between wallets & contracts.
 {% endhint %}
 
-### Inputs & Filters
+## Inputs
+
+### Filters
 
 ```graphql
 input TokenTransferFilter {
@@ -33,7 +35,7 @@ transactionHash: # transaction hash
 }
 ```
 
-### Output
+## Outputs
 
 ```graphql
 type TokenTransfer {

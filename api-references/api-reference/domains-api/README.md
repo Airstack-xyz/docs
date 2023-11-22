@@ -20,7 +20,9 @@ The Domain API fetches information on blockchain domains, which are user-friendl
 This API can also resolve a domain name into a wallet/contract address.
 {% endhint %}
 
-### Inputs & Filters
+## Inputs
+
+### Filters
 
 ```graphql
 input DomainFilter {
@@ -31,7 +33,7 @@ input DomainFilter {
 }
 ```
 
-### Output
+## Output
 
 ```graphql
 type Domain {

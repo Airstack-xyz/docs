@@ -18,7 +18,9 @@ layout:
 The Socials APIs deliver on-chain and off-chain user-level data pertaining to users of web3 social protocols such as Farcaster, and Lens.
 {% endhint %}
 
-### Inputs & Filters
+## Inputs
+
+\#3 Filters
 
 ```graphql
 input SocialFilter {
@@ -31,10 +33,19 @@ input SocialFilter {
   profileName: # Profile name on the social app (prefix not required)
   userAssociatedAddresses: # Any associated Wallet address
   userId: # user ID on the social app (prefix not required)
+  profileCreatedAtBlockTimestamp: # block timestamp when Lens/Farcaster profile was created
 }
 ```
 
-### Outputs
+### Sorts
+
+| Name                             | Description                                                                                                                  |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `profileCreatedAtBlockTimestamp` | Sort by Lens/Farcaster profile creation block timestamp in ascending or descending order.                                    |
+| `followerCount`                  | Sort by the number of users following the Lens/Farcaster profile on Lens/Farcaster in ascending or descending order.         |
+| `followingCount`                 | Sort by the number of users being followed by the Lens/Farcaster profile on Lens/Farcaster in ascending or descending order. |
+
+## Outputs
 
 ```graphql
 type Social {

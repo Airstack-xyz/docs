@@ -18,7 +18,9 @@ layout:
 The TokenBalances API covers the owners and balances of ERC20, ERC721, and ERC1155 tokens.
 {% endhint %}
 
-### Inputs & Filters
+## Inputs
+
+### Filters
 
 ```graphql
 input TokenBalanceFilter {
@@ -30,7 +32,7 @@ tokenType: # ERC20, ERC721, ERC1155
 }
 ```
 
-### Outputs
+## Outputs
 
 ```graphql
 type TokenBalance {
@@ -51,5 +53,5 @@ tokenType: TokenType # ERC20, ERC721, or ERC1155
 ```
 
 {% hint style="success" %}
-See [here](broken-reference) for how to query with ENS or web3 social identities, such as Farcaster
+See [here](broken-reference/) for how to query with ENS or web3 social identities, such as Farcaster
 {% endhint %}

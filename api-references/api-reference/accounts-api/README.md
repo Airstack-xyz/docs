@@ -18,7 +18,7 @@ The Accounts API fetches the list of all [ERC6551s](https://eips.ethereum.org/EI
 
 [Optimistic indexing](#user-content-fn-1)[^1] will soon be supported as well.
 
-### Supported ERC6551 Registries
+## Supported ERC6551 Registries
 
 Currently, [Airstack](https://airstack.xyz) indexes all the official ERC6551 registry contract on both Ethereum and Polygon:
 
@@ -26,7 +26,9 @@ Currently, [Airstack](https://airstack.xyz) indexes all the official ERC6551 reg
 
 If you are deploying ERC6551 using a custom registry contract, please reach out to us to add it to the [Airstack](https://airstack.xyz) API by joining our [Telegram](https://t.me/+1k3c2FR7z51mNDRh).
 
-### Inputs & Filters
+## Inputs
+
+### Filters
 
 ```graphql
 input AccountFilter {
@@ -38,7 +40,7 @@ input AccountFilter {
 }
 ```
 
-### Outputs
+## Outputs
 
 ```graphql
 type Account {

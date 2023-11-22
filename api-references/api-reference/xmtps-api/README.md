@@ -18,7 +18,9 @@ layout:
 The XMTPs APIs indicate whether a user has XMTP.
 {% endhint %}
 
-### Inputs & Filters
+## Inputs
+
+### Filters
 
 ```graphql
 input XMTPsFilter {
@@ -26,7 +28,7 @@ input XMTPsFilter {
 }
 ```
 
-### Outputs
+## Outputs
 
 ```graphql
 type Social {
