@@ -14,19 +14,15 @@ layout:
 
 # XMTPs API
 
-{% hint style="info" %}
-The XMTPs APIs indicate whether a user has XMTP.
-{% endhint %}
+The XMTPs API indicate whether a user has XMTP.
 
 ## Inputs
 
 ### Filters
 
-```graphql
-input XMTPsFilter {
-  owner: # Identity: blockchain address, domain name, social identity
-}
-```
+| Name    | Type                      | Description                                                |
+| ------- | ------------------------- | ---------------------------------------------------------- |
+| `owner` | `Identity_Comparator_Exp` | Identity: blockchain address, domain name, social identity |
 
 ## Outputs
 

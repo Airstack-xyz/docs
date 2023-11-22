@@ -14,24 +14,21 @@ layout:
 
 # Domains API
 
-{% hint style="info" %}
 The Domain API fetches information on blockchain domains, which are user-friendly names linked to specific blockchain addresses. Example: ENS.
 
 This API can also resolve a domain name into a wallet/contract address.
-{% endhint %}
 
 ## Inputs
 
 ### Filters
 
-```graphql
-input DomainFilter {
-  isPrimary: # True/False - allows to filter out domains which are set/not set as primary
-  name: # Domain name, e.g. "vitalik.eth" or a subdomain, e.g. "illionaire.illionaire.eth"
-  owner: # Identity: blockchain address, domain name, social identity
-  resolvedAddress: # Blockchain address to which the domain resolves to
-}
-```
+| Name              | Type                      | Description                                                                      |
+| ----------------- | ------------------------- | -------------------------------------------------------------------------------- |
+| `isPrimary`       | `Boolean_Comparator_Exp`  | allows to filter out domains which are set/not set as primary                    |
+| `name`            | `String_Comparator_Exp`   | Domain name, e.g. "vitalik.eth" or a subdomain, e.g. "illionaire.illionaire.eth" |
+| `owner`           | `Identity_Comparator_Exp` | Identity: blockchain address, domain name, social identity                       |
+| `parent`          | `String_Comparator_Exp`   | Airstack unique hash to retrieve on-chain data to be used in filters             |
+| `resolvedAddress` | `Address_Comparator_Exp`  | Blockchain address to which the domain resolves to                               |
 
 ## Output
 

@@ -14,25 +14,21 @@ layout:
 
 # NFTSaleTransactions API
 
-{% hint style="info" %}
 The NFTSaleTransactions API retrieves ERC721 and ERC1155 token sale transactions that have occurred on NFT marketplaces.
-{% endhint %}
 
 ## Inputs
 
 ### Filters
 
-```graphql
-input NFTSaleTransactionFilter {
-blockTimestamp: # Allows entering blockTimestamp to filter transactions which happened in specific periods
-dappName: # Marketplace DApp name
-dappSlug: # Marketplace DApp slug (contract version)
-from: # Identity: blockchain address, domain name, social identity
-to: # Identity: blockchain address, domain name, social identity
-nfts: # ** Nested query ** input token contract address and/or NFT token ID
-transactionHash: # Allows filtering to a specific transaction
-}
-```
+| Name              | Type                                 | Description                                                                              |
+| ----------------- | ------------------------------------ | ---------------------------------------------------------------------------------------- |
+| `blockTimestamp`  | `Time_Comparator_Exp`                | Allows entering blockTimestamp to filter transactions which happened in specific periods |
+| `dappName`        | `MarketplaceDappName_Comparator_Exp` | Marketplace DApp name                                                                    |
+| `dappSlug`        | `MarketplaceDappSlug_Comparator_Exp` | Marketplace DApp slug (contract version)                                                 |
+| `from`            | `Identity_Comparator_Exp`            | Identity: blockchain address, domain name, social identity                               |
+| `to`              | `Identity_Comparator_Exp`            | Identity: blockchain address, domain name, social identity                               |
+| `nfts`            | `NftFilter`                          | \*\* Nested query \*\* input token contract address and/or NFT token ID                  |
+| `transactionHash` | `String_Comparator_Exp`              | Allows filtering to a specific transaction                                               |
 
 ## Outputs
 

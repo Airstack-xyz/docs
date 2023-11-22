@@ -14,26 +14,22 @@ layout:
 
 # TokenTransfers API
 
-{% hint style="info" %}
 The TokenTransfers API delivers information on token transfers between wallets & contracts.
-{% endhint %}
 
 ## Inputs
 
 ### Filters
 
-```graphql
-input TokenTransferFilter {
-blockTimestamp: # Allows entering blockTimestamp to filter transactions which happened in specific periods
-formattedAmount: # Allows filtering based on Balance amount in decimals, e.g. show me Balances above 200
-from: # Identity: blockchain address, domain name, social identity
-to: # Identity: blockchain address, domain name, social identity 
-tokenAddress: # Token contract address (ERC20, ERC721, ERC1155(
-tokenId: # Unique NFT token ID
-tokenType: # ERC20, ERC721, ERC1155
-transactionHash: # transaction hash
-}
-```
+| Name              | Type                       | Description                                                                              |
+| ----------------- | -------------------------- | ---------------------------------------------------------------------------------------- |
+| `blockTimestamp`  | `Time_Comparator_Exp`      | Allows entering blockTimestamp to filter transactions which happened in specific periods |
+| `formattedAmount` | `Float_Comparator_Exp`     | Allows filtering based on Balance amount in decimals, e.g. show me Balances above 200    |
+| `from`            | `Identity_Comparator_Exp`  | Identity: blockchain address, domain name, social identity                               |
+| `to`              | `Identity_Comparator_Exp`  | Identity: blockchain address, domain name, social identity                               |
+| `tokenAddress`    | `Address_Comparator_Exp`   | Token contract address (ERC20, ERC721, ERC1155)                                          |
+| `tokenId`         | `String_Comparator_Exp`    | Unique NFT token ID                                                                      |
+| `tokenType`       | `TokenType_Comparator_Exp` | ERC20, ERC721, ERC1155                                                                   |
+| `transactionHash` | `String_Comparator_Exp`    | Transaction hash of the Token Transfers                                                  |
 
 ## Outputs
 

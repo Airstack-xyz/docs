@@ -14,9 +14,7 @@ layout:
 
 # CollectionStats API
 
-{% hint style="info" %}
 The CollectionStats API offers aggregated data for NFT collections (ERC721 and ERC1155) at the collection level.
-{% endhint %}
 
 {% hint style="success" %}
 Timeframe filter details (all times are in UTC) for when the sale transactions are captured for the aggregation:
@@ -36,21 +34,19 @@ Lifetime - from the first recorded sale of the NFT inside a collection to the mo
 
 ### Filters
 
-```graphql
-input CollectionStatFilter {
-averageSalePriceInUSDC: 
-dappName: # Marketplace DApp name
-dappSlug: # Marketplace DApp slug (contract version)
-firstTransactionBlockTimestamp: 
-highestSalePriceInUSDC: 
-lastTransactionBlockTimestamp: 
-lowestSalePriceInUSDC: 
-tokenAddress: # NFT contract address on the blockchain
-totalSalesCount: 
-totalSaleVolumeInUSDC: 
-timeframe: DAILY / WEEKLY / MONTHLY / YEARLY / LIFETIME
-}
-```
+| Name                             | Type                                 | Description                                               |
+| -------------------------------- | ------------------------------------ | --------------------------------------------------------- |
+| `averageSalePriceInUSDC`         | `Float_Comparator_Exp`               | NFT collection's average sale price in terms of USDC      |
+| `dappName`                       | `MarketplaceDappName_Comparator_Exp` | Marketplace DApp name                                     |
+| `dappSlug`                       | `MarketplaceDappSlug_Comparator_Exp` | Marketplace DApp slug (contract version)                  |
+| `firstTransactionBlockTimestamp` | `Time_Comparator_Exp`                | Timestamp when NFT is first traded in Marketplace         |
+| `highestSalePriceInUSDC`         | `Float_Comparator_Exp`               | NFT collection's highest sale price in terms of USDC      |
+| `lastTransactionBlockTimestamp`  | `Time_Comparator_Exp`                | Timestamp when NFT is most recently traded in Marketplace |
+| `lowestSalePriceInUSDC`          | `Float_Comparator_Exp`               | NFT collection's lowest sale price in terms of USDC       |
+| `tokenAddress`                   | `Address_Comparator_Exp`             | NFT contract address on the blockchain                    |
+| `totalSalesCount`                | `Float_Comparator_Exp`               | NFT collection's total sale count                         |
+| `totalSaleVolumeInUSDC`          | `Float_Comparator_Exp`               | NFT collection's total sale volume in terms of USDC       |
+| `timeframe`                      | `TimeFrames!`                        | DAILY / WEEKLY / MONTHLY / YEARLY / LIFETIME              |
 
 ## Outputs
 

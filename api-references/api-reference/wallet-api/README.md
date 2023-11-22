@@ -14,22 +14,16 @@ layout:
 
 # Wallet API
 
-{% hint style="info" %}
 The Wallet APIs deliver comprehensive data about a specific wallet address, including the tokens they currently possess, the domain names they own, their token transfer and sale history, and their on-chain social profiles (like ENS, Farcaster).
 
 From the Wallet API it’s possible to create complex queries using nested queries, such as: Get the primary ENS, the Farcaster user name, the Farcaster connected Addresses, all tokens held by the wallet, all NFT Sales by the wallet, all token transfers.
-{% endhint %}
 
 ## Inputs
 
-### Filters
-
-```graphql
-input WalletInput {
-  blockchain: Blockchain # Blockchain where the token is deployed
-  identity:# Identity: blockchain address, domain name, social identity
-}
-```
+| Name         | Type               | Description                                                |
+| ------------ | ------------------ | ---------------------------------------------------------- |
+| `blockchain` | `TokenBlockchain!` | Blockchain where the token is deployed                     |
+| `identity`   | `Identity!`        | Identity: blockchain address, domain name, social identity |
 
 ## Outputs
 

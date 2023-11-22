@@ -14,24 +14,20 @@ layout:
 
 # Poaps API
 
-{% hint style="info" %}
 The Poaps API allows users to query POAPs held by a particular wallet, all POAP tokens from a particular event, or simply fetch details about a particular POAP Token, and also return event-specific metadata, including <mark style="background-color:green;">**resized images**</mark>.
-{% endhint %}
 
 ## Inputs
 
 ### Filters
 
-```graphql
-input PoapFilter {
-  createdAtBlockNumber: # Block Number when POAP was created
-  dappName: # POAP Dapp Name
-  dappSlug: # POAP Dapp Version
-  eventId: #POAP Event ID
-  owner: # Identity: blockchain address, domain name, social identity
-  tokenId: # POAP Token ID
-}
-```
+| Name                   | Type                          | Description                                                |
+| ---------------------- | ----------------------------- | ---------------------------------------------------------- |
+| `createdAtBlockNumber` | `Int_Comparator_Exp`          | Block Number when POAP was created                         |
+| `dappName`             | `PoapDappName_Comparator_Exp` | POAP Dapp Name                                             |
+| `dappSlug`             | `PoapDappSlug_Comparator_Exp` | POAP Dapp Version                                          |
+| `eventId`              | `String_Comparator_Exp`       | POAP Event ID                                              |
+| `owner`                | `Identity_Comparator_Exp`     | Identity: blockchain address, domain name, social identity |
+| `tokenId`              | `String_Comparator_Exp`       | POAP Token ID                                              |
 
 ## Outputs
 

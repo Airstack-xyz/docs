@@ -14,28 +14,24 @@ layout:
 
 # Socials API
 
-{% hint style="info" %}
 The Socials APIs deliver on-chain and off-chain user-level data pertaining to users of web3 social protocols such as Farcaster, and Lens.
-{% endhint %}
 
 ## Inputs
 
-\#3 Filters
+### Filters
 
-```graphql
-input SocialFilter {
-  dappName: # Social DApp name – lens, farcaster
-  dappSlug: # Social DApp slug (contract version) – lens_polygon, lens_v2_polygon, farcaster_optimism, farcaster_goerli
-  followerCount: # Total number of followers
-  followingCount: # Total number of followings
-  identity: # Identity: blockchain address, domain name, social identity
-  isDefault: # True/false if the profile is set to default on the corresponding dApp
-  profileName: # Profile name on the social app (prefix not required)
-  userAssociatedAddresses: # Any associated Wallet address
-  userId: # user ID on the social app (prefix not required)
-  profileCreatedAtBlockTimestamp: # block timestamp when Lens/Farcaster profile was created
-}
-```
+| Name                             | Type                            | Description                                                                                                    |
+| -------------------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `dappName`                       | `SocialDappName_Comparator_Exp` | Social DApp name – lens, farcaster                                                                             |
+| `dappSlug`                       | `SocialDappSlug_Comparator_Exp` | Social DApp slug (contract version) – lens\_polygon, lens\_v2\_polygon, farcaster\_optimism, farcaster\_goerli |
+| `followerCount`                  | `Int_Comparator_Exp`            | Total number of followers                                                                                      |
+| `followingCount`                 | `Int_Comparator_Exp`            | Total number of followings                                                                                     |
+| `identity`                       | `Identity_Comparator_Exp`       | Identity: blockchain address, domain name, social identity                                                     |
+| `isDefault`                      | `Boolean_Comparator_Exp`        | True/false if the profile is set to default on the corresponding dApp                                          |
+| `profileName`                    | `String_Comparator_Exp`         | Profile name on the social app (prefix not required)                                                           |
+| `userAssociatedAddresses`        | `Address_Comparator_Exp`        | Any associated Wallet address                                                                                  |
+| `userId`                         | `String_Comparator_Exp`         | user ID on the social app (prefix not required)                                                                |
+| `profileCreatedAtBlockTimestamp` | `Time_Comparator_Exp`           | block timestamp when Lens/Farcaster profile was created                                                        |
 
 ### Sorts
 

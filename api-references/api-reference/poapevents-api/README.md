@@ -14,28 +14,26 @@ layout:
 
 # PoapEvents API
 
-{% hint style="info" %}
-PoapEvents event API allows users to retrieve information about a particular POAP event, including the event token holders, metadata, and resized image.\
+PoapEvents event API allows users to retrieve information about a particular POAP event, including the event token holders, metadata, and resized image.
+
 In addition, PoapEvents API allows in-depth filtering of the PAOPs based on the date the event took place or the location.
-{% endhint %}
 
 ## Inputs
 
 ### Filters
 
-```graphql
-input PoapEventFilter {
-  dappName: # POAP Dapp Name
-  dappSlug: # POAP Dapp Version
-  eventId: # POAP event ID 
-  eventName:# POAP event name - exact match only
-  country: # POAP event country
-  city: # POAP event city
-  startDate: # POAP event start date YYYY-MM-DD
-  endDate: # POAP event end date YYYY-MM-DD
-  isVirtualEvent: # Boolean - yes or no
-}
-```
+| Name             | Type                          | Description                        |
+| ---------------- | ----------------------------- | ---------------------------------- |
+| `dappName`       | `PoapDappName_Comparator_Exp` | POAP Dapp Name                     |
+| `dappSlug`       | `PoapDappSlug_Comparator_Exp` | POAP Dapp Version                  |
+| `eventId`        | `String_Comparator_Exp`       | POAP event ID                      |
+| `tokenMints`     | `Int_Comparator_Exp`          | Number of POAPs minted             |
+| `eventName`      | `String_Comparator_Exp`       | POAP event name - exact match only |
+| `country`        | `String_Comparator_Exp`       | POAP event country                 |
+| `city`           | `String_Comparator_Exp`       | POAP event city                    |
+| `startDate`      | `String_Comparator_Exp`       | POAP event start date YYYY-MM-DD   |
+| `endDate`        | `String_Comparator_Exp`       | POAP event end date YYYY-MM-DD     |
+| `isVirtualEvent` | `Boolean_Comparator_Exp`      | Boolean - yes or no                |
 
 ## Outputs
 

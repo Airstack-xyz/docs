@@ -14,13 +14,20 @@ layout:
 
 # Tokens API
 
-{% hint style="info" %}
 The Tokens API retrieves high-level information on ERC20 tokens, ERC721 tokens (also known as NFT contracts, "Collections," or "NFT Collections," containing multiple tokens), and ERC1155 tokens (also called NFT contracts, "Collections," or "NFT Collections," containing several tokens).
-{% endhint %}
 
 ## Inputs
 
 ### Filters
+
+| Name      | Type                       | Description                                                                                                 |
+| --------- | -------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `address` | `Address_Comparator_Exp`   | Token contract address on the blockchain (ERC20, ERC721, ERC1155).                                          |
+| `name`    | `String_Comparator_Exp`    | Name of the contract (e.g. "Moonbirds"). Note that this will fetch all contracts with the name "Moonbirds". |
+| `owner`   | `Identity_Comparator_Exp`  | Identity: blockchain address, domain name, social identity of the owner of the contract                     |
+| `symbol`  | `String_Comparator_Exp`    | Symbol of the contract (e.g. "BAYC"). Note - it will return all contracts that have the same symbol.        |
+| `type`    | `TokenType_Comparator_Exp` | ERC20, ERC721, ERC1155                                                                                      |
+| `isSpam`  | `Boolean_Comparator_Exp`   | It will return only NFTs that are spams (true) or not spams (false).                                        |
 
 ```graphql
 input TokenFilter {
