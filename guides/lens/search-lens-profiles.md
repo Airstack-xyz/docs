@@ -1,4 +1,7 @@
 ---
+description: >-
+  Learn how to use Airstack to search for Lens profiles that fulfills the given
+  filters or sort variables the API offered.
 layout:
   title:
     visible: true
