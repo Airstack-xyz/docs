@@ -17,7 +17,7 @@ layout:
 
 # 🖼 Profile Image
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 social applications with profile images data from various protocols.
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications with profile images from various protocols.
 
 In this guide you will learn how to use Airstack to:
 
