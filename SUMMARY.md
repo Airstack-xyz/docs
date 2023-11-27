@@ -1,15 +1,14 @@
 # Table of contents
 
-## Get Started
-
-* [😇 Welcome!](README.md)
-* [ℹ Overview](get-started/readme-1.md)
-* [🗝 Get API Key](get-started/get-api-key.md)
-* [🤖 Airstack AI](get-started/airstack-ai.md)
-* [⛰ Airstack Explorer](get-started/airstack-explorer.md)
-* [🚀 Quick Start & SDKs](get-started/quick-start-and-sdks.md)
-* [🚦 API Status & Roadmap](get-started/api-status-and-roadmap.md)
-* [🔋 Pricing](get-started/pricing.md)
+* [ℹ Introduction](README.md)
+  * [🚦 API Capabilities](introduction/api-capabilities.md)
+  * [🛠 Use Cases](introduction/use-cases.md)
+* [⭐ Get Started](get-started/README.md)
+  * [🗝 Get API Key](get-started/get-api-key.md)
+  * [🤖 Airstack AI](get-started/airstack-ai.md)
+  * [🚀 Quick Start & SDKs](get-started/quick-start-and-sdks.md)
+  * [⛰ Airstack Explorer (No Code)](get-started/airstack-explorer.md)
+* [🔋 Pricing](pricing.md)
 
 ## Guides
 
@@ -129,11 +128,6 @@
     * [PoapEvent API Examples](api-references/api-reference/poapevents-api/poapevent-api-examples.md)
   * [TokenTransfers API](api-references/api-reference/tokentransfers-api/README.md)
     * [TokenTransfers Examples](api-references/api-reference/tokentransfers-api/tokentransfers-examples.md)
-  * [NFTSaleTransactions API](api-references/api-reference/nftsaletransactions-api/README.md)
-    * [NFTSaleTransactions API Examples](api-references/api-reference/nftsaletransactions-api/nftsaletransactions-api-examples.md)
-  * [CollectionStats API](api-references/api-reference/collectionstats-api.md)
-  * [MarketplaceStats API](api-references/api-reference/marketplacestats-api.md)
-  * [NFTStats API](api-references/api-reference/nftstats-api.md)
   * [Airstack Identity API](api-references/api-reference/airstack-identity-api.md)
   * [Cross-chain Queries](api-references/api-reference/cross-chain-queries.md)
 * [Working with GraphQL](api-references/working-with-graphql.md)

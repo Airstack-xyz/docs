@@ -1,4 +1,7 @@
 ---
+description: >-
+  Try Airstack API and integrate it into your dapp within minutes into your tech
+  stack.
 layout:
   title:
     visible: true

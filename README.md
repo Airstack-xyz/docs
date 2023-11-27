@@ -1,4 +1,5 @@
 ---
+description: Airstack – Web3 Data APIs for Developers.
 layout:
   title:
     visible: true
@@ -12,30 +13,26 @@ layout:
     visible: true
 ---
 
-# 😇 Welcome!
+# ℹ Introduction
 
-👋 Hi and welcome to [Airstack](https://airstack.xyz)!
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption><p>Airstack Web3 Integration</p></figcaption></figure>
 
-🏆 Your hands-on feedback is super important to us
+[Airstack](https://airstack.xyz) is a web3 development platform that provides powerful GraphQL APIs for integrating on-chain and off-chain data into any application. With Airstack, you can easily connect your applications to any web3 ecosystem.
 
-💬 [Please join this private Telegram group](https://t.me/+iL8v1-mSZmZiYzRh) to ask questions to the team
+In addition, [Airstack](https://airstack.xyz) also provides an[ AI solution](get-started/airstack-ai.md) that enables you to build queries using natural language searches – a great way to get started and learn the APIs.
 
-🚀 [Access the APIs](https://app.airstack.xyz)
+## Overview
 
-## Want to jump right in?
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f6a6">🚦</span> <strong>API Capabilities</strong></td><td>Learn all the current features available on Airstack and its future roadmap.</td><td></td><td><a href="introduction/api-capabilities.md">api-capabilities.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f6e0">🛠</span> <strong>Use Cases</strong></td><td>Learn all the use cases that you can build using Airstack API for your dapps.</td><td></td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>
 
-{% content-ref url="get-started/quick-start-and-sdks.md" %}
-[quick-start-and-sdks.md](get-started/quick-start-and-sdks.md)
-{% endcontent-ref %}
+## Get Started
 
-## Want to see Airstack in action?
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f5dd">🗝</span> <strong>Get API Key</strong></td><td>Learn how to get your Airstack API key.</td><td></td><td><a href="get-started/get-api-key.md">get-api-key.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f916">🤖</span> <strong>Airstack AI</strong></td><td>Learn how to use the Airstack AI effectively to quickly build queries for your use cases using natural languages.</td><td></td><td><a href="get-started/airstack-ai.md">airstack-ai.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f680">🚀</span> <strong>Quick Start &#x26; SDKs</strong></td><td>Try Airstack API and integrate it into your dapp within minutes into your tech stack.</td><td></td><td><a href="get-started/quick-start-and-sdks.md">quick-start-and-sdks.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="26f0">⛰</span> <strong>Airstack Explorer (No Code)</strong></td><td>Try Airstack Explorer to check out the full capabilities of Airstack APIs. The Explorer also provides you with no-code solution to get started with Airstack in no time.</td><td></td><td><a href="get-started/airstack-explorer.md">airstack-explorer.md</a></td></tr></tbody></table>
 
-{% embed url="https://explorer.airstack.xyz" %}
+## Popular Guides :fire:
 
-## Want to deep dive?
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f578">🕸</span> <strong>Onchain Graph</strong></td><td>Learn how to use Airstack to display the Onchain Graph of users.</td><td></td><td><a href="guides/onchain-graph.md">onchain-graph.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f194">🆔</span> <strong>Resolve Identities</strong></td><td>Learn how to use Airstack to resolve different web3 identities – ENS, Lens, Farcaster.</td><td></td><td><a href="guides/resolve-identities/">resolve-identities</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f957">🥗</span> <strong>Combinations</strong></td><td>Learn how to get the overlapping users of multiple ERC20s, NFTs (ERC721s &#x26; ERC1155s), and POAPs, as well as XMTP, Lens, and Farcaster.</td><td></td><td><a href="guides/combinations/">combinations</a></td></tr></tbody></table>
 
-Dive deeper and start exploring our API reference to get an idea of everything that's possible with Airstack APIs:
+## References
 
-{% content-ref url="api-references/api-reference/" %}
-[api-reference](api-references/api-reference/)
-{% endcontent-ref %}
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f4d6">📖</span> <strong>API Reference</strong></td><td>Learn the complete technical specifications for all the API available on Airstack with their filter inputs and responses.</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="269b">⚛</span> <strong>React SDK Reference</strong></td><td>Learn the complete technical specifications for functions that are available for ReactJS SDK with its parameters and responses.</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f5fc">🗼</span> <strong>Node.js SDK Reference</strong></td><td>Learn the complete technical specifications for functions that are available for NodeJS SDK with its parameters and responses.</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f40d">🐍</span> <strong>Python SDK Reference</strong></td><td>Learn the complete technical specifications for functions that are available for Python SDK with its parameters and responses.</td><td></td><td><a href="https://pypi.org/project/airstack/">https://pypi.org/project/airstack/</a></td></tr></tbody></table>

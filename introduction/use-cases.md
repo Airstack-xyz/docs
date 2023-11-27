@@ -1,27 +1,8 @@
 ---
-description: Airstack – Web3 Data APIs for Developers.
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: false
-  pagination:
-    visible: true
+description: Learn all the use cases that you can build using Airstack API for your dapps.
 ---
 
-# ℹ Overview
-
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Airstack Web3 Integration</p></figcaption></figure>
-
-[Airstack](https://airstack.xyz) is a web3 development platform that provides powerful GraphQL APIs for integrating on-chain and off-chain data into any application. With Airstack, you can easily connect your applications to any web3 ecosystem.
-
-In addition, [Airstack](https://airstack.xyz) also provides an[ AI solution](airstack-ai.md) that enables you to build queries using natural language searches – a great way to get started and learn the APIs.
-
-## Use Cases
+# 🛠 Use Cases
 
 Here are several use cases that you can build using [Airstack](https://airstack.xyz):&#x20;
 
