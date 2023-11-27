@@ -21,9 +21,9 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-* [Get ENS Profile Image](profile-image.md#get-ens-profile-image)
+* [Get ENS Profile Image](profile-image.md#get-ens-profile-image) (in various sizes)
 * [Get Lens Profile Image](profile-image.md#get-lens-profile-image)
-* [Get Farcaster Profile Image](profile-image.md#get-farcaster-profile-image)
+* [Get Farcaster Profile Image](profile-image.md#get-farcaster-profile-image) (in various sizes)
 
 ## Pre-requisites
 
