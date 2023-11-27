@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to fetch profile images of various web3 domains and socials, such as
-  ENS and Farcaster.
+  ENS, Farcaster, and Lens.
 layout:
   title:
     visible: true
@@ -18,8 +18,6 @@ layout:
 # 🖼 Profile Image
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 social applications with profile images data from various protocols.
-
-In this tutorial, you will learn how to fetch profile images of various web3 domains and socials, such as ENS and Farcaster. Lens profile image will be supported in the future.
 
 In this guide you will learn how to use Airstack to:
 
