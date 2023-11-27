@@ -45,3 +45,7 @@ redirects:
   guides/contact-recommendation/social-follows: guides/contact-recommendation/social-follows.md
   guides/contact-recommendation/on-chain-graph: guides/onchain-graph.md
   guides/on-chain-graph: guides/onchain-graph.md
+  readme: README.md
+  readme-1: README.md
+  get-started/pricing: pricing.md
+  get-started/api-status-and-roadmap: introduction/api-capabilities.md
