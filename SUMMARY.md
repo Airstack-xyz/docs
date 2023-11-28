@@ -8,6 +8,7 @@
   * [🤖 Airstack AI](get-started/airstack-ai.md)
   * [🚀 Quick Start & SDKs](get-started/quick-start-and-sdks/README.md)
     * [⚛ React](get-started/quick-start-and-sdks/react.md)
+    * [🗼 Node.js](get-started/quick-start-and-sdks/node.md)
   * [⛰ Airstack Explorer (No Code)](get-started/airstack-explorer.md)
 * [🔋 Pricing](pricing.md)
 

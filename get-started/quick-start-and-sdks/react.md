@@ -1,5 +1,16 @@
 ---
 description: Learn how to use Airstack in your React application.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # ⚛ React
@@ -24,7 +35,7 @@ This tutorial will only covering React app build with vite and create-react-app.
 
 ## Step 1: Install Airstack Web SDK
 
-Use a package manager to install the Airstack Web SDK into your React project:
+Use a package manager to install the [Airstack Web SDK ](broken-reference)into your React project:
 
 {% tabs %}
 {% tab title="npm" %}
@@ -76,10 +87,12 @@ Wrap your application or React component with `AirstackProvider` from the SDK to
 
 {% tabs %}
 {% tab title="vite (JS)" %}
+{% code title="main.jsx" %}
 ```jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { AirstackProvider } from "@airstack/airstack-react";
+import Component from "./Component";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -89,13 +102,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </React.StrictMode>
 );
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="vite (TS)" %}
+{% code title="main.tsx" %}
 ```tsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { AirstackProvider } from "@airstack/airstack-react";
+import Component from "./Component";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -105,13 +121,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </React.StrictMode>
 );
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="create-react-app (JS)" %}
+{% code title="index.jsx" %}
 ```jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { AirstackProvider } from "@airstack/airstack-react";
+import Component from "./Component";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -121,13 +140,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </React.StrictMode>
 );
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="create-react-app (TS)" %}
+{% code title="index.tsx" %}
 ```tsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { AirstackProvider } from "@airstack/airstack-react";
+import Component from "./Component";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -137,6 +159,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </React.StrictMode>
 );
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -152,6 +175,7 @@ For more query examples, check out [**Guides**](broken-reference) for various us
 
 {% tabs %}
 {% tab title="JavaScript" %}
+{% code title="Component.jsx" %}
 ```jsx
 import { useQuery } from "@airstack/airstack-react";
 
@@ -168,7 +192,7 @@ query MyQuery {
 `;
 
 const Component = () => {
-  const { data, loading, error } = useQuery(query, variables, { cache: false });
+  const { data, loading, error } = useQuery(query, {}, { cache: false });
 
   if (loading) {
     return <p>Loading...</p>;
@@ -181,11 +205,14 @@ const Component = () => {
   // Render your component using the data returned by the query
   console.log(data);
 }
+
+export default Component;
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="TypeScript" %}
-<pre class="language-tsx"><code class="lang-tsx">import { useQuery } from "@airstack/airstack-react";
+<pre class="language-tsx" data-title="Component.tsx"><code class="lang-tsx">import { useQuery } from "@airstack/airstack-react";
 
 interface QueryResponse {
   data: Data;
@@ -225,7 +252,7 @@ query MyQuery {
 `;
 
 const Component = () => {
-<strong>  const { data, loading, error } = useQuery(query, variables, { cache: false });
+<strong>  const { data, loading, error }: QueryResponse = useQuery(query, {}, { cache: false });
 </strong>
   if (loading) {
     return &#x3C;p>Loading...&#x3C;/p>;
@@ -238,6 +265,8 @@ const Component = () => {
   // Render your component using the data returned by the query
   console.log(data);
 }
+
+export default Component;
 </code></pre>
 {% endtab %}
 {% endtabs %}

@@ -20,19 +20,19 @@ layout:
 ## Installation
 
 {% tabs %}
-{% tab title="NPM" %}
+{% tab title="npm" %}
 ```sh
 npm install @airstack/node
 ```
 {% endtab %}
 
-{% tab title="Yarn" %}
+{% tab title="yarn" %}
 ```sh
 yarn add @airstack/node
 ```
 {% endtab %}
 
-{% tab title="PNPM" %}
+{% tab title="pnpm" %}
 ```sh
 pnpm install @airstack/node
 ```

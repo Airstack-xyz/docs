@@ -20,19 +20,19 @@ layout:
 ## Installation
 
 {% tabs %}
-{% tab title="NPM" %}
+{% tab title="npm" %}
 ```sh
 npm install @airstack/airstack-react
 ```
 {% endtab %}
 
-{% tab title="Yarn" %}
+{% tab title="yarn" %}
 ```sh
 yarn add @airstack/airstack-react
 ```
 {% endtab %}
 
-{% tab title="PNPM" %}
+{% tab title="pnpm" %}
 ```sh
 pnpm install @airstack/airstack-react
 ```
