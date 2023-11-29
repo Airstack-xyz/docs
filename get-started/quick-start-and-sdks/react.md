@@ -15,7 +15,7 @@ layout:
 
 # ⚛ React
 
-In this tutorial, you will learn how to start integrating Airstack API into your React application.&#x20;
+In this tutorial, you will learn how to start integrating [Airstack](https://airstack.xyz) API into your React application.&#x20;
 
 This tutorial will only covering React app build with vite and create-react-app. Integration to React metaframeworks, e.g. Next.js, will be covered in other tutorials.
 

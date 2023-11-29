@@ -279,4 +279,4 @@ Learn to build more with Airstack using our tutorials:
 * [Resolve Identities](../../guides/resolve-identities/)
 * [Combinations](../../guides/combinations/)
 * [Wallet API Reference](../../api-references/api-reference/wallet-api/)
-* [Web SDK Reference](broken-reference)
+* [Node SDK Reference](broken-reference)
