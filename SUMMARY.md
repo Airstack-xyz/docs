@@ -10,6 +10,7 @@
     * [⚛ React](get-started/quick-start-and-sdks/react.md)
     * [🗼 Node.js](get-started/quick-start-and-sdks/node.md)
     * [🐍 Python](get-started/quick-start-and-sdks/python.md)
+    * [🎯 Direct API Call](get-started/quick-start-and-sdks/direct-api-call.md)
   * [⛰ Airstack Explorer (No Code)](get-started/airstack-explorer.md)
 * [🔋 Pricing](pricing.md)
 
