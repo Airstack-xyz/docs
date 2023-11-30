@@ -3,6 +3,17 @@ description: >-
   Learn how to use Airstack by making direct API call without Airstack SDK. In
   this tutorial, you will learn how to integrate in Node.js. However, this
   should also work in any other tech stacks.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🎯 Direct API Call
