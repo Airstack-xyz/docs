@@ -46,7 +46,8 @@ query GetTokenTransfers($address: [Identity!]) {
           profileName
         }
         domains {
-          dappName
+          isPrimary
+          name
         }
       }
       to {
@@ -102,7 +103,8 @@ query GetTokenTransfers($address: [Identity!]) {
           profileName
         }
         domains {
-          dappName
+          isPrimary
+          name
         }
       }
       to {
@@ -140,7 +142,8 @@ query GetTokenTransfers($address: [Identity!]) {
           profileName
         }
         domains {
-          dappName
+          isPrimary
+          name
         }
       }
       to {
@@ -197,7 +200,8 @@ query GetTokenTransfers($address: [Identity!], $blocktimestamp: Time) {
           profileName
         }
         domains {
-          dappName
+          isPrimary
+          name
         }
       }
       to {
@@ -207,13 +211,21 @@ query GetTokenTransfers($address: [Identity!], $blocktimestamp: Time) {
           profileName
         }
         domains {
+          isPrimary
           name
-          dappName
         }
       }
       type
     }
   }
+}
+```
+{% endtab %}
+
+{% tab title="Variable" %}
+```json
+{
+  "address": ["dwr.eth", "fc_fname:vbuterin"]
 }
 ```
 {% endtab %}
