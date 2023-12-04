@@ -1,7 +1,5 @@
 ---
-description: >-
-  Learn how Airstack pricing will work starting November 29, 2023. Currently,
-  all Airstack API calls are free of charge.
+description: Learn how Airstack pricing works starting December 1, 2023.
 layout:
   title:
     visible: true
@@ -17,8 +15,6 @@ layout:
 
 # 🔋 Pricing
 
-[Airstack](https://airstack.xyz) is available **free of charge** until November 29, 2023.
-
-From November 29, 2023 **new users get 5,000,000 free credits -- worth $100** -- to start with and then continue with our simple pricing. \
+From December 1, 2023 **new eligible users get 5,000,000 free credits -- worth $100** -- to start with and then continue with our simple pricing. \
 \
 **Learn all about our pricing** [**here**](https://app.airstack.xyz/pricing)**.**&#x20;
