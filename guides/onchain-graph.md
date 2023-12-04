@@ -4604,7 +4604,7 @@ query MyQuery($user: Identity!) {
         {
           "tokenAddress": "0x344bd884b47dfc988f7e47851d576e0ac083a16f"
         },
-        // other Polygon NFTs hold by vitalik.eth
+        // other Base NFTs hold by vitalik.eth
       ]
     }
   }
@@ -5033,7 +5033,7 @@ const formatBaseNftData = async (address, existingUsers = []) => {
       while (true) {
         if (tokenAddresses.length === 0) break;
         if (!pbaseNftHoldersDataResponse) {
-          // Pagination #2: Fetch Polygon NFT Holders
+          // Pagination #2: Fetch Base NFT Holders
 <strong>          baseNftHoldersDataResponse = await fetchQueryWithPagination(
 </strong>            nftQuery,
             {
