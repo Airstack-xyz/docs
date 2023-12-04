@@ -29,20 +29,17 @@ The Tokens API retrieves high-level information on ERC20 tokens, ERC721 tokens (
 | `type`    | `TokenType_Comparator_Exp` | ERC20, ERC721, ERC1155                                                                                      |
 | `isSpam`  | `Boolean_Comparator_Exp`   | It will return only NFTs that are spams (true) or not spams (false).                                        |
 
-```graphql
-input TokenFilter {
-  address: # Token contract address on the blockchain (ERC20, ERC721, ERC1155)
-  name:  # Name of the contract (e.g. "Moonbirds"). Note that this will fetch all contracts with the name "Moonbirds"
-  owner: # # Identity: blockchain address, domain name, social identity of the owner of the contract
-  symbol: # Symbol of the contract (e.g. "BAYC"). Note - it will return all contracts that have the same symbol.
-  type: # ERC20, ERC721, ERC1155
-  isSpam: # It will return only NFTs that are spams (true) or not spams (false).
-}
-```
-
 {% hint style="warning" %}
 Querying by name or symbol returns all contracts with matching data. These fields are not unique.
 {% endhint %}
+
+### Blockchain
+
+| Enum       | Description      |
+| ---------- | ---------------- |
+| `ethereum` | Ethereum mainnet |
+| `polygon`  | Polygon mainnet  |
+| `base`     | Base mainnet     |
 
 ## Outputs
 

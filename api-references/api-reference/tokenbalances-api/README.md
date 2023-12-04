@@ -29,15 +29,13 @@ The TokenBalances API covers the owners and balances of ERC20, ERC721, and ERC11
 | `tokenId`              | `String_Comparator_Exp`    | Unique NFT token ID                                                                   |
 | `tokenType`            | `TokenType_Comparator_Exp` | ERC20, ERC721, ERC1155                                                                |
 
-```graphql
-input TokenBalanceFilter {
-formattedAmount: # Allows filtering based on Balance amount in decimals, e.g. show me Balances above 200
-owner: # Identity: blockchain address, domain name, social identity
-tokenAddress: # Token contract address on the blockchain (ERC20, ERC721, ERC1155)
-tokenId: # Unique NFT token ID
-tokenType: # ERC20, ERC721, ERC1155
-}
-```
+### Blockchain
+
+| Enum       | Description      |
+| ---------- | ---------------- |
+| `ethereum` | Ethereum mainnet |
+| `polygon`  | Polygon mainnet  |
+| `base`     | Base mainnet     |
 
 ## Outputs
 

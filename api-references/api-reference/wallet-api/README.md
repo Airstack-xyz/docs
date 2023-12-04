@@ -25,6 +25,14 @@ From the Wallet API it’s possible to create complex queries using nested queri
 | `blockchain` | `TokenBlockchain!` | Blockchain where the token is deployed                     |
 | `identity`   | `Identity!`        | Identity: blockchain address, domain name, social identity |
 
+### Blockchain
+
+| Enum       | Description      |
+| ---------- | ---------------- |
+| `ethereum` | Ethereum mainnet |
+| `polygon`  | Polygon mainnet  |
+| `base`     | Base mainnet     |
+
 ## Outputs
 
 ```graphql

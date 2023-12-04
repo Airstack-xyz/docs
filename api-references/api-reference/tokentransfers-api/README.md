@@ -31,6 +31,14 @@ The TokenTransfers API delivers information on token transfers between wallets &
 | `tokenType`       | `TokenType_Comparator_Exp` | ERC20, ERC721, ERC1155                                                                   |
 | `transactionHash` | `String_Comparator_Exp`    | Transaction hash of the Token Transfers                                                  |
 
+### Blockchain
+
+| Name       | Description      |
+| ---------- | ---------------- |
+| `ethereum` | Ethereum mainnet |
+| `polygon`  | Polygon mainnet  |
+| `base`     | Base mainnet     |
+
 ## Outputs
 
 ```graphql

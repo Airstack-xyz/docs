@@ -26,6 +26,14 @@ The TokenNFTs API provides detailed data about a specific NFT token within an NF
 | `metaData` | `NftMetadataFilter`      | allows querying by NFT Token Name, or specific trait or attribute. |
 | `tokenId`  | `String_Comparator_Exp`  | Unique NFT token ID                                                |
 
+### Blockchain
+
+| Enum       | Description      |
+| ---------- | ---------------- |
+| `ethereum` | Ethereum mainnet |
+| `polygon`  | Polygon mainnet  |
+| `base`     | Base mainnet     |
+
 ## Outputs
 
 <pre class="language-graphql"><code class="lang-graphql">type TokenNft {

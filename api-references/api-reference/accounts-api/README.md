@@ -38,6 +38,14 @@ If you are deploying ERC6551 using a custom registry contract, please reach out 
 | `address`                 | `Identity_Comparator_Exp`        | The address of an ERC6551 account.                           |
 | `createdAtBlockTimestamp` | `Time_Comparator_Exp`            | The block timestamp of the ERC6551 creation transaction.     |
 
+### Blockchain
+
+| Enum       | Description      |
+| ---------- | ---------------- |
+| `ethereum` | Ethereum mainnet |
+| `polygon`  | Polygon mainnet  |
+| `base`     | Base mainnet     |
+
 ## Outputs
 
 ```graphql

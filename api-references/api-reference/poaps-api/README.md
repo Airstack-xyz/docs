@@ -20,14 +20,26 @@ The Poaps API allows users to query POAPs held by a particular wallet, all POAP 
 
 ### Filters
 
-| Name                   | Type                          | Description                                                |
-| ---------------------- | ----------------------------- | ---------------------------------------------------------- |
-| `createdAtBlockNumber` | `Int_Comparator_Exp`          | Block Number when POAP was created                         |
-| `dappName`             | `PoapDappName_Comparator_Exp` | POAP Dapp Name                                             |
-| `dappSlug`             | `PoapDappSlug_Comparator_Exp` | POAP Dapp Version                                          |
-| `eventId`              | `String_Comparator_Exp`       | POAP Event ID                                              |
-| `owner`                | `Identity_Comparator_Exp`     | Identity: blockchain address, domain name, social identity |
-| `tokenId`              | `String_Comparator_Exp`       | POAP Token ID                                              |
+| Name                   | Type                          | Description                                                                                                       |
+| ---------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `createdAtBlockNumber` | `Int_Comparator_Exp`          | Block Number when POAP was created                                                                                |
+| `dappName`             | `PoapDappName_Comparator_Exp` | <p>POAP Dapp Name:<br>- <code>poap_mainnet</code>: Ethereum POAPs<br>- <code>poap_gnosis</code>: Gnosis POAPs</p> |
+| `dappSlug`             | `PoapDappSlug_Comparator_Exp` | POAP Dapp Version                                                                                                 |
+| `eventId`              | `String_Comparator_Exp`       | POAP Event ID                                                                                                     |
+| `owner`                | `Identity_Comparator_Exp`     | Identity: blockchain address, domain name, social identity                                                        |
+| `tokenId`              | `String_Comparator_Exp`       | POAP Token ID                                                                                                     |
+
+### Blockchain
+
+{% hint style="info" %}
+For **PoapEvents** API, it will return POAPs data from both Ethereum and Gnosis mainnet.
+
+You just need to specify the input to `ALL` for the query to work.
+{% endhint %}
+
+| Enum  | Description                                                                                                              |
+| ----- | ------------------------------------------------------------------------------------------------------------------------ |
+| `ALL` | Both Ethereum & Gnosis Mainnet. To fetch POAPs data from individual chains, check [`dappName`](./#filters) filter input. |
 
 ## Outputs
 

@@ -22,18 +22,30 @@ In addition, PoapEvents API allows in-depth filtering of the PAOPs based on the 
 
 ### Filters
 
-| Name             | Type                          | Description                        |
-| ---------------- | ----------------------------- | ---------------------------------- |
-| `dappName`       | `PoapDappName_Comparator_Exp` | POAP Dapp Name                     |
-| `dappSlug`       | `PoapDappSlug_Comparator_Exp` | POAP Dapp Version                  |
-| `eventId`        | `String_Comparator_Exp`       | POAP event ID                      |
-| `tokenMints`     | `Int_Comparator_Exp`          | Number of POAPs minted             |
-| `eventName`      | `String_Comparator_Exp`       | POAP event name - exact match only |
-| `country`        | `String_Comparator_Exp`       | POAP event country                 |
-| `city`           | `String_Comparator_Exp`       | POAP event city                    |
-| `startDate`      | `String_Comparator_Exp`       | POAP event start date YYYY-MM-DD   |
-| `endDate`        | `String_Comparator_Exp`       | POAP event end date YYYY-MM-DD     |
-| `isVirtualEvent` | `Boolean_Comparator_Exp`      | Boolean - yes or no                |
+| Name             | Type                          | Description                                                                                                       |
+| ---------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `dappName`       | `PoapDappName_Comparator_Exp` | <p>POAP Dapp Name:<br>- <code>poap_mainnet</code>: Ethereum POAPs<br>- <code>poap_gnosis</code>: Gnosis POAPs</p> |
+| `dappSlug`       | `PoapDappSlug_Comparator_Exp` | POAP Dapp Version                                                                                                 |
+| `eventId`        | `String_Comparator_Exp`       | POAP event ID                                                                                                     |
+| `tokenMints`     | `Int_Comparator_Exp`          | Number of POAPs minted                                                                                            |
+| `eventName`      | `String_Comparator_Exp`       | POAP event name - exact match only                                                                                |
+| `country`        | `String_Comparator_Exp`       | POAP event country                                                                                                |
+| `city`           | `String_Comparator_Exp`       | POAP event city                                                                                                   |
+| `startDate`      | `String_Comparator_Exp`       | POAP event start date YYYY-MM-DD                                                                                  |
+| `endDate`        | `String_Comparator_Exp`       | POAP event end date YYYY-MM-DD                                                                                    |
+| `isVirtualEvent` | `Boolean_Comparator_Exp`      | Boolean - yes or no                                                                                               |
+
+### Blockchain
+
+{% hint style="info" %}
+For **PoapEvents** API, it will return POAPs data from both Ethereum and Gnosis mainnet.
+
+You just need to specify the input to `ALL` for the query to work.
+{% endhint %}
+
+| Enum  | Description                                                                                                              |
+| ----- | ------------------------------------------------------------------------------------------------------------------------ |
+| `ALL` | Both Ethereum & Gnosis Mainnet. To fetch POAPs data from individual chains, check [`dappName`](./#filters) filter input. |
 
 ## Outputs
 

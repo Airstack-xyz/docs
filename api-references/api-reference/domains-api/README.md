@@ -30,6 +30,16 @@ This API can also resolve a domain name into a wallet/contract address.
 | `parent`          | `String_Comparator_Exp`   | Airstack unique hash to retrieve on-chain data to be used in filters             |
 | `resolvedAddress` | `Address_Comparator_Exp`  | Blockchain address to which the domain resolves to                               |
 
+### Blockchain
+
+{% hint style="info" %}
+For **Domains** API, the `blockchain` input will fetch all ENS either onchain (Ethereum) or offchain (Namestone & cb.id).
+{% endhint %}
+
+| Enum       | Description      |
+| ---------- | ---------------- |
+| `ethereum` | Ethereum mainnet |
+
 ## Output
 
 ```graphql

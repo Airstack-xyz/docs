@@ -24,6 +24,20 @@ The XMTPs API indicate whether a user has XMTP.
 | ------- | ------------------------- | ---------------------------------------------------------- |
 | `owner` | `Identity_Comparator_Exp` | Identity: blockchain address, domain name, social identity |
 
+### Blockchain
+
+{% hint style="info" %}
+For **XMTPs** API, it will return XMTP data from offchain (XMTP network) sources.
+
+You just need to specify the input to `ALL` for the query to work.
+{% endhint %}
+
+| Enum  | Description |
+| ----- | ----------- |
+| `ALL` | -           |
+
+### Sorts
+
 ## Outputs
 
 ```graphql
