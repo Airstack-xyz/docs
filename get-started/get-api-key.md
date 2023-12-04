@@ -27,7 +27,7 @@ Otherwise, it will login to your existing Airstack account.
 
 A login popup will appear for you:
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Login Popup</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2023-12-04 at 13.52.36 (2).png" alt=""><figcaption><p>Login Popup</p></figcaption></figure>
 
 You have several options to login:
 
