@@ -34,22 +34,24 @@ Currently, Airstack AI is only available in Airstack API studio. In the future, 
 
 To get the best out of the feature, here are some best practices to follow:
 
-\##
+### Tip #1: Be Specific And Clear On Inputs
 
 Start with the input and make it clear what's the input. For example:
 
-* For Farcaster user dwr, show their web3 socials and NFTs
-* For vitalik.eth, show their POAPs
+* For Farcaster user [dwr](https://explorer.airstack.xyz/token-balances?address=fc\_fname%3Adwr\&blockchain=ethereum\&rawInput=%23%E2%8E%B1fc\_fname%3Adwr%E2%8E%B1%28fc\_fname%3Adwr++ethereum+null%29\&inputType=ADDRESS), show their web3 socials and NFTs
+* For [vitalik.eth](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), show their POAPs
 
 ### Tip #2: Use Airstack Token Selector
 
-Use @ to choose from a list of 10,000 popular Tokens, NFTs, and POAP events
+Use `@` to choose from a list of 10,000 popular Tokens, NFTs, and POAP events
 
 <figure><img src="https://lh4.googleusercontent.com/a-lBiQ8MbApGBks7ibZTqhbDnRY2OzUaxtgHtvywW2-gJZ1Nbl12SfKr-jsvdQ8-9YVp8T0PSpdHRQTE-3vwJguLPzXNaLp5n03jq2xqkG7IabLgdFU9o-8oFHEIehM05eGRLptMj2XjfvwXJrCCj_Y" alt=""><figcaption></figcaption></figure>
 
 If you are looking for a project that is not yet in our auto-complete @mention list, please [let us know](https://t.me/+uW6ypo49TcZmMGEx) in the developer Telegram group. In meantime, you can always enter a contract address.
 
-3. Use _/help_ to get an intro and learn more about the [Airstack](https://www.airstack.xyz/)
+### Tip #3: Use _/help_
+
+Use _/help_ to get an intro and learn more about the [Airstack](https://www.airstack.xyz/) API and what data is available for you.
 
 ## Try Examples
 
