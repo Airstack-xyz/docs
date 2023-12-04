@@ -49,3 +49,19 @@ Then, simply click the 3rd entry on the sidebar, [**View API Keys**](https://app
 ## Step 3: Copy the API Key
 
 Go to the `Default Key` box and click on the copy icon to copy the API key.
+
+## Developer Support
+
+If you have any questions or need help regarding getting your Airstack API key, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+
+## More Resources
+
+Learn to build more with Airstack using our tutorials:
+
+* [Airstack AI](airstack-ai.md)
+* [Quickstart](quickstart/)
+  * [React](quickstart/react.md)
+  * [Node.js](quickstart/node.md)
+  * [Python](quickstart/python.md)
+  * [Direct API Call](quickstart/direct-api-call.md)
+* [Airstack Explorer (No Code)](airstack-explorer.md)
