@@ -18,6 +18,7 @@ layout:
 # 🚀 Quickstart
 
 {% hint style="info" %}
+* **API Endpoint:** [https://api.airstack.xyz/graphql](https://api.airstack.xyz/graphql)
 * **Record limit** per API call: 200
   * We support cursor-based pagination to retrieve the next set of results.
 * It is best practice that you keep the size of the array for input filters, e.g. `_in` or `_nin`, to a **maximum length of 200** per API call.
