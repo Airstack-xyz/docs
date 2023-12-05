@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to fetch ERC721 and ERC1155 NFT balances of user(s) on Ethereum and
-  Polygon with their variations.
+  Learn how to fetch ERC721 and ERC1155 NFT balances of user(s) on Ethereum,
+  Polygon, and Base with their variations.
 layout:
   title:
     visible: true
@@ -17,7 +17,7 @@ layout:
 
 # ⚖ NFT Balances
 
-[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum and Polygon.
+[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Polygon, and Base.
 
 In this tutorial, you will learn how to fetch NFT balances of user(s) and its variations.
 
@@ -166,11 +166,11 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get NFT Balances of User(s)
 
-You can use [Airstack](https://airstack.xyz) to fetch NFT balance of user(s) across both Ethereum and Polygon by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API and providing an array of users' 0x address, ENS domain, cb.id, Lens profile, or Farcaster fname/fid to `owner` input:
+You can use [Airstack](https://airstack.xyz) to fetch NFT balance of user(s) across both Ethereum, Polygon, and Base by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API and providing an array of users' 0x address, ENS domain, cb.id, Lens profile, or Farcaster fname/fid to `owner` input:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/pitfnUU1D0" %}
+{% embed url="https://app.airstack.xyz/query/mIoE6fBEIo" %}
 Show me the NFT balances of users
 {% endembed %}
 
@@ -210,6 +210,34 @@ query MyQuery {
   }
   Polygon: TokenBalances(
     input: {filter: {owner: {_in: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "vitalik.eth", "lens/@vitalik", "fc_fname:vitalik"]}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: polygon, limit: 50}
+  ) {
+    TokenBalance {
+      owner {
+        identity
+      }
+      amount
+      tokenAddress
+      tokenId
+      tokenType
+      tokenNfts {
+        contentValue {
+          image {
+            extraSmall
+            small
+            medium
+            large
+            original
+          }
+        }
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+  Base: TokenBalances(
+    input: {filter: {owner: {_in: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "vitalik.eth", "lens/@vitalik", "fc_fname:vitalik"]}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: base, limit: 50}
   ) {
     TokenBalance {
       owner {
@@ -296,6 +324,35 @@ query MyQuery {
           }
         },
         // Other Polygon NFTs held by vitalik
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImMzMjllODM2ZWE0MzU2ZGViZWU1ZDc3MTg5MjlhNWRiYWJkZjhjNGEwYjJmMDY2M2Y1NmQxOTU2YzlkNzViNWYiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTg5ODA2MjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    },
+    "Base": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "identity": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+          },
+          "amount": "1",
+          "tokenAddress": "0xab54b8bd1118d535beecf43bf9c7d163879cf967",
+          "tokenId": "2",
+          "tokenType": "ERC1155",
+          "tokenNfts": {
+            "contentValue": {
+              "image": {
+                "extraSmall": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/extra_small.jpg",
+                "small": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/small.jpg",
+                "medium": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/medium.jpg",
+                "large": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/large.jpg",
+                "original": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/original_image.jpg"
+              }
+            }
+          }
+        },
+        // Other Base NFTs held by vitalik
       ],
       "pageInfo": {
         "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImMzMjllODM2ZWE0MzU2ZGViZWU1ZDc3MTg5MjlhNWRiYWJkZjhjNGEwYjJmMDY2M2Y1NmQxOTU2YzlkNzViNWYiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTg5ODA2MjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
@@ -405,7 +462,7 @@ For the inputs, specify `tokenType` to `ERC721` and provide an array of users' 0
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/LGve4i2lZt" %}
+{% embed url="https://app.airstack.xyz/query/saSFcX2XS5" %}
 Show me only the ERC721 NFT balances of users
 {% endembed %}
 
@@ -445,6 +502,34 @@ query MyQuery {
   }
   Polygon: TokenBalances(
     input: {filter: {owner: {_in: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "vitalik.eth", "lens/@vitalik", "fc_fname:vitalik"]}, tokenType: {_in: [ERC721]}}, blockchain: polygon, limit: 50}
+  ) {
+    TokenBalance {
+      owner {
+        identity
+      }
+      amount
+      tokenAddress
+      tokenId
+      tokenType
+      tokenNfts {
+        contentValue {
+          image {
+            extraSmall
+            small
+            medium
+            large
+            original
+          }
+        }
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+  Base: TokenBalances(
+    input: {filter: {owner: {_in: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "vitalik.eth", "lens/@vitalik", "fc_fname:vitalik"]}, tokenType: {_in: [ERC721]}}, blockchain: base, limit: 50}
   ) {
     TokenBalance {
       owner {
@@ -531,6 +616,35 @@ query MyQuery {
           }
         },
         // Other ERC721 Polygon NFTs held by vitalik
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImMzMjllODM2ZWE0MzU2ZGViZWU1ZDc3MTg5MjlhNWRiYWJkZjhjNGEwYjJmMDY2M2Y1NmQxOTU2YzlkNzViNWYiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTg5ODA2MjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    },
+    "Base": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "identity": "0xe3a2a53e6bc71bc5ec34313b5aa783f4733bc419"
+          },
+          "amount": "1",
+          "tokenAddress": "0xf1788f434658347095a8e1a5db4414134d364d36",
+          "tokenId": "5283",
+          "tokenType": "ERC721",
+          "tokenNfts": {
+            "contentValue": {
+              "image": {
+                "extraSmall": "https://assets.airstack.xyz/image/nft/8453/xeoepiJcK8a1aBbWMmG+g74XtIBrNqUqeB5RG51gQ1NIPUKy620oiRH9F+8JAUf5GgQ6A+cwcAaWsaRU6nXfcA==/extra_small.mp4",
+                "small": "https://assets.airstack.xyz/image/nft/8453/xeoepiJcK8a1aBbWMmG+g74XtIBrNqUqeB5RG51gQ1NIPUKy620oiRH9F+8JAUf5GgQ6A+cwcAaWsaRU6nXfcA==/small.mp4",
+                "medium": "https://assets.airstack.xyz/image/nft/8453/xeoepiJcK8a1aBbWMmG+g74XtIBrNqUqeB5RG51gQ1NIPUKy620oiRH9F+8JAUf5GgQ6A+cwcAaWsaRU6nXfcA==/medium.mp4",
+                "large": "https://assets.airstack.xyz/image/nft/8453/xeoepiJcK8a1aBbWMmG+g74XtIBrNqUqeB5RG51gQ1NIPUKy620oiRH9F+8JAUf5GgQ6A+cwcAaWsaRU6nXfcA==/large.mp4",
+                "original": "https://assets.airstack.xyz/image/nft/8453/xeoepiJcK8a1aBbWMmG+g74XtIBrNqUqeB5RG51gQ1NIPUKy620oiRH9F+8JAUf5GgQ6A+cwcAaWsaRU6nXfcA==/original_image.mp4"
+              }
+            }
+          }
+        },
+        // Other ERC721 Base NFTs held by vitalik
       ],
       "pageInfo": {
         "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImMzMjllODM2ZWE0MzU2ZGViZWU1ZDc3MTg5MjlhNWRiYWJkZjhjNGEwYjJmMDY2M2Y1NmQxOTU2YzlkNzViNWYiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTg5ODA2MjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",

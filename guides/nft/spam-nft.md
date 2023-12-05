@@ -17,7 +17,7 @@ layout:
 
 # 🧹 Spam NFT
 
-[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum and Polygon.
+[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Polygon, and base.
 
 When indexing any new token, Airstack takes into consideration contract deployer address history, and other factors to determine if the token might be spam.
 
@@ -175,7 +175,7 @@ With the query below, provide an array of users' 0x addresses, ENS domains, cb.i
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/dHDMyzx4MG" %}
+{% embed url="https://app.airstack.xyz/query/94LNTTi7Rp" %}
 Show users' NFT balances and check if each NFT is a spam or not
 {% endembed %}
 
@@ -201,6 +201,20 @@ query MyQuery {
   }
   Polygon: TokenBalances(
     input: {filter: {owner: {_in: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "vitalik.eth", "lens/@vitalik", "fc_fname:vitalik.eth"]}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: polygon}
+  ) {
+    TokenBalance {
+      tokenAddress
+      tokenId
+      tokenType
+      token {
+        isSpam
+        name
+        symbol
+      }
+    }
+  }
+  Base: TokenBalances(
+    input: {filter: {owner: {_in: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "vitalik.eth", "lens/@vitalik", "fc_fname:vitalik.eth"]}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: base}
   ) {
     TokenBalance {
       tokenAddress
@@ -269,6 +283,21 @@ query MyQuery {
         },
         // Other Polygon NFTs
       ]
+    },
+    "Base": {
+      "TokenBalance": [
+        {
+          "tokenAddress": "0x7f9f222d2c492bf3c876ecb03a148884b90020f8",
+          "tokenId": "748",
+          "tokenType": "ERC721",
+          "token": {
+            "isSpam": false,
+            "name": "I Called Congress - FIT21",
+            "symbol": "SWCFIT21"
+          }
+        },
+      ],
+      // Other Base NFTs
     }
   }
 }
@@ -295,7 +324,7 @@ interface NFT {
 }
 
 interface NFTWithBlockchain extends NFT {
-  blockchain: string;
+  blockchain: "ethereum" | "polygon" | "base";
 }
 
 interface TokenBalancesResponse {
@@ -303,6 +332,9 @@ interface TokenBalancesResponse {
     TokenBalance?: NFT[];
   };
   Polygon: {
+    TokenBalance?: NFT[];
+  };
+  Base: {
     TokenBalance?: NFT[];
   };
 }
@@ -322,7 +354,7 @@ const filterSpamNFTs = (
             }
       ) ?? [];
     const polygonNfts =
-      Polygon?.TokenBalance?.map((nft) =>
+      Polygon?.TokenBalance?.map((nft: NFT) =>
         nft?.token?.isSpam
           ? null
           : {
@@ -330,7 +362,16 @@ const filterSpamNFTs = (
               blockchain: "polygon",
             }
       ) ?? [];
-    return [...ethNfts, ...polygonNfts]?.filter(Boolean) as NFTWithBlockchain[];
+    const baseNfts =
+      Base?.TokenBalance?.map((nft: NFT) =>
+        nft?.token?.isSpam
+          ? null
+          : {
+              ...nft,
+              blockchain: "base",
+            }
+      ) ?? [];
+    return [...ethNfts, ...polygonNfts, ...baseNfts]?.filter(Boolean) as NFTWithBlockchain[];
   } catch (e) {
     console.error(e);
   }
@@ -361,7 +402,16 @@ const filterSpamNFTs = (data) => {
               blockchain: "polygon",
             }
       ) ?? [];
-    return [...ethNfts, ...polygonNfts]?.filter(Boolean);
+    const baseNfts =
+      Base?.TokenBalance?.map((nft) =>
+        base?.token?.isSpam
+          ? null
+          : {
+              ...nft,
+              blockchain: "base",
+            }
+      ) ?? [];
+    return [...ethNfts, ...polygonNfts, ...baseNfts]?.filter(Boolean);
   } catch (e) {
     console.error(e);
   }
@@ -388,8 +438,13 @@ def filter_spam_nfts(data: Optional[Dict[str, Any]]) -> List[Dict[str, Any]]:
             {**nft, 'blockchain': 'polygon'} for nft in polygon.get('TokenBalance', [])
             if nft and not nft.get('token', {}).get('isSpam')
         ]
+        
+        base_nfts = [
+            {**nft, 'blockchain': 'base'} for nft in polygon.get('TokenBalance', [])
+            if nft and not nft.get('token', {}).get('isSpam')
+        ]
 
-        return [nft for nft in eth_nfts + polygon_nfts if nft]
+        return [nft for nft in eth_nfts + polygon_nfts + base_nfts if nft]
     except Exception:
         error = traceback.print_exc()
         raise Exception(error)
@@ -397,7 +452,7 @@ def filter_spam_nfts(data: Optional[Dict[str, Any]]) -> List[Dict[str, Any]]:
 {% endtab %}
 {% endtabs %}
 
-The formatted data will combine both Ethereum and Polygon NFTs hold by the user and filtered out all spam NFTs:
+The formatted data will combine both Ethereum, Polygon, and Base NFTs hold by the user and filtered out all spam NFTs:
 
 ```json
 [
@@ -417,6 +472,14 @@ The formatted data will combine both Ethereum and Polygon NFTs hold by the user 
     "blockchain": "polygon"
   },
   // Other Polygon non-spam NFTs
+  {
+    "tokenAddress": "0x7f9f222d2c492bf3c876ecb03a148884b90020f8",
+    "tokenId": "748",
+    "tokenType": "ERC721",
+    "token": { "isSpam": false, "name": "I Called Congress - FIT21", "symbol": "SWCFIT21" },
+    "blockchain": "base"
+  },
+  // Other Base non-spam NFTs
 ]
 ```
 
