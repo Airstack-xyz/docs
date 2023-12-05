@@ -17,30 +17,32 @@ layout:
 
 # 💰 Get Token Balances
 
+## 💰 Get Token Balances
+
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-# Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-- [Get Ethereum ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-ethereum-erc20s-owned-by-lens-profile-s)
-- [Get Polygon ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-polygon-erc20s-owned-by-lens-profile-s)
-- [Get Base ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-base-erc20s-owned-by-lens-profile-s)
-- [Get All ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-all-erc20s-owned-by-lens-profile-s)
-- [Get Ethereum NFTs Owned By Lens Profile(s)](get-token-balances.md#get-ethereum-nfts-owned-by-lens-profile-s)
-- [Get Polygon NFTs Owned By Lens Profile(s)](get-token-balances.md#get-polygon-nfts-owned-by-lens-profile-s)
-- [Get Base NFTs Owned By Lens Profile(s)](get-token-balances.md#get-base-nfts-owned-by-lens-profile-s)
-- [Get All NFTs Owned By Lens Profile(s)](get-token-balances.md#get-all-nfts-owned-by-lens-profile-s)
-- [Get All POAPs Owned By Lens Profile(s)](get-token-balances.md#get-all-poaps-owned-by-lens-profile-s)
+* [Get Ethereum ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-ethereum-erc20s-owned-by-lens-profile-s)
+* [Get Polygon ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-polygon-erc20s-owned-by-lens-profile-s)
+* [Get Base ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-base-erc20s-owned-by-lens-profile-s)
+* [Get All ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-all-erc20s-owned-by-lens-profile-s)
+* [Get Ethereum NFTs Owned By Lens Profile(s)](get-token-balances.md#get-ethereum-nfts-owned-by-lens-profile-s)
+* [Get Polygon NFTs Owned By Lens Profile(s)](get-token-balances.md#get-polygon-nfts-owned-by-lens-profile-s)
+* [Get Base NFTs Owned By Lens Profile(s)](get-token-balances.md#get-base-nfts-owned-by-lens-profile-s)
+* [Get All NFTs Owned By Lens Profile(s)](get-token-balances.md#get-all-nfts-owned-by-lens-profile-s)
+* [Get All POAPs Owned By Lens Profile(s)](get-token-balances.md#get-all-poaps-owned-by-lens-profile-s)
 
-## Pre-requisites
+### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
-## Get Started
+### Get Started
 
-#### JavaScript/TypeScript/Python
+**JavaScript/TypeScript/Python**
 
 If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
@@ -57,7 +59,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -72,7 +73,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -87,15 +87,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -103,7 +100,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -127,11 +123,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -144,11 +138,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -166,35 +158,33 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
-#### Other Programming Languages
+**Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Get Ethereum ERC20s Owned By Lens Profile(s)
+### Get Ethereum ERC20s Owned By Lens Profile(s)
 
 You can fetch all ERC20 tokens on Ethereum owned by any Lens Profile(s):
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/iHvIqJvOZh" %}
 Show ERC20 tokens on Ethereum owned by lens/@bradorbradley and Lens profile id 100275
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -230,11 +220,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -270,25 +258,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Polygon ERC20s Owned By Lens Profile(s)
+### Get Polygon ERC20s Owned By Lens Profile(s)
 
 You can fetch all ERC20 tokens on Polygon owned by any Lens Profile(s):
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/C8M7BrhcDK" %}
 Show ERC20 tokens on Polygon owned by lens/@bradorbradley and Lens profile id 100275
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -324,11 +310,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -364,25 +348,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Base ERC20s Owned By Lens Profile(s)
+### Get Base ERC20s Owned By Lens Profile(s)
 
 You can fetch all ERC20 tokens on Base owned by any Lens Profile(s):
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/oU8wM39MWT" %}
 Show ERC20 tokens on Base owned by lens/@bradorbradley and Lens profile id 100275
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -418,11 +400,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -458,25 +438,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get All ERC20s Owned By Lens Profile(s)
+### Get All ERC20s Owned By Lens Profile(s)
 
 You can fetch all ERC20 tokens on Ethereum, Polygon, and Base owned by any Lens Profile(s):
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/aXsVio5nvm" %}
 Show ERC20 tokens on Ethereum, Polygon, and Base owned by lens/@bradorbradley and Lens profile id 100275
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query ERC20OwnedByLensProfiles {
   Ethereum: TokenBalances(
@@ -574,11 +552,9 @@ query ERC20OwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -672,25 +648,23 @@ query ERC20OwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Ethereum NFTs Owned By Lens Profile(s)
+### Get Ethereum NFTs Owned By Lens Profile(s)
 
 You can fetch all NFTs on Ethereum owned by any Lens Profile(s):
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/xoAjUpSHcs" %}
 Show NFT on Ethereum owned by lens/@bradorbradley and Lens profile id 100275
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -734,11 +708,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -782,25 +754,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Polygon NFTs Owned By Lens Profile(s)
+### Get Polygon NFTs Owned By Lens Profile(s)
 
 You can fetch all NFTs on Polygon owned by any Lens Profile(s):
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/xSHo2KgP33" %}
 Show NFT on Polygon owned by lens/@bradorbradley and Lens profile id 100275
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -844,11 +814,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -893,25 +861,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Base NFTs Owned By Lens Profile(s)
+### Get Base NFTs Owned By Lens Profile(s)
 
 You can fetch all NFTs on Base owned by any Lens Profile(s):
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/kfGo5b21OJ" %}
 Show NFT on Base owned by lens/@bradorbradley and Lens profile id 100275
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -955,11 +921,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1003,25 +967,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get All NFTs Owned By Lens Profile(s)
+### Get All NFTs Owned By Lens Profile(s)
 
 You can fetch all NFTs on Ethereum, Polygon, and Base owned by any Lens Profile(s):
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/xoAjUpSHcs" %}
 Show NFT on Ethereum and Polygon owned by lens/@bradorbradley and Lens profile id 100275
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query NFTsOwnedByLensProfiles {
   Ethereum: TokenBalances(
@@ -1143,11 +1105,9 @@ query NFTsOwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1266,25 +1226,23 @@ query NFTsOwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get All POAPs Owned By Lens Profile(s)
+### Get All POAPs Owned By Lens Profile(s)
 
 You can fetch all POAPs tokens owned by any Lens Profile(s):
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/T4g7vpBWkX" %}
 Show POAPs owned by lens/@bradorbradley and Lens profile id 100275
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query POAPsOwnedByLensProfiles {
   Poaps(
@@ -1324,11 +1282,9 @@ query POAPsOwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1403,15 +1359,14 @@ query POAPsOwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Developer Support
+### Developer Support
 
 If you have any questions or need help regarding fetching token balances of Lens profile(s), please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-## More Resources
+### More Resources
 
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-- [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api/)

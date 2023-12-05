@@ -18,24 +18,26 @@ layout:
 
 # 🚪 Token Gating
 
+## 🚪 Token Gating
+
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-# Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Gating only user(s) that have Lens Profile](token-gating.md#gating-only-user-s-that-have-lens-profile)
-- [Gating only user(s) that have Lens Profile and NFT](token-gating.md#gating-only-user-s-that-have-lens-profile-and-nft)
-- [Gating only user(s) that have Lens Profile and POAP](token-gating.md#gating-only-user-s-that-have-lens-profile-and-poap)
+* [Gating only user(s) that have Lens Profile](token-gating.md#gating-only-user-s-that-have-lens-profile)
+* [Gating only user(s) that have Lens Profile and NFT](token-gating.md#gating-only-user-s-that-have-lens-profile-and-nft)
+* [Gating only user(s) that have Lens Profile and POAP](token-gating.md#gating-only-user-s-that-have-lens-profile-and-poap)
 
-## Pre-requisites
+### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
-## Get Started
+### Get Started
 
-#### JavaScript/TypeScript/Python
+**JavaScript/TypeScript/Python**
 
 If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
@@ -52,7 +54,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -67,7 +68,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -82,15 +82,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -98,7 +95,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -118,11 +114,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/airstack-react";
 
@@ -135,11 +129,9 @@ const { data, error } = fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -157,35 +149,33 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
-#### Other Programming Languages
+**Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Gating only user(s) that have Lens Profile
+### Gating only user(s) that have Lens Profile
 
 You can implement token gating by checking whether users have Lens profile:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/TpGSzOq9tx" %}
 Show the Lens profile of bradorbradley.eth
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetTokenGatingLens {
   Socials(
@@ -206,11 +196,9 @@ query GetTokenGatingLens {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -253,7 +241,6 @@ query GetTokenGatingLens {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -261,21 +248,20 @@ If the length of the `data.Socials.Social` array is 0, then it implies that the 
 
 Otherwise, the user does and can be given access to a the desired feature.
 
-## Gating only user(s) that have Lens Profile and NFT
+### Gating only user(s) that have Lens Profile and NFT
 
 You can implement token gating by checking whether users have both Lens profile and the given NFT:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/VERJn9Uhbd" %}
 Show the NFT balance of 0x8eC94086A724cbEC4D37097b8792cE99CaDCd520 on specific NFTs
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -306,11 +292,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -359,7 +343,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -371,21 +354,20 @@ If `owner.socials` has length 0, then similarly the user has no Lens profile.
 
 Otherwise, the user has Lens profile and can be given access to a the desired feature.
 
-## Gating only user(s) that have Lens Profile and POAP
+### Gating only user(s) that have Lens Profile and POAP
 
 You can implement token gating by checking whether users have both Lens profile and the given POAP:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/izTMNkr9m9" %}
 Show if 0x4455951fa43b17bd211e0e8ae64d22fb47946ade hold some given specific POAPs and have Lens profile
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Poaps(
@@ -410,11 +392,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -439,7 +419,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -451,12 +430,12 @@ If `owner.socials` has length 0, then similarly the user has no Lens profile.
 
 Otherwise, the user has that Lens profile and can be given access to a the desired feature.
 
-## Developer Support
+### Developer Support
 
 If you have any questions or need help regarding token gating, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-## More Resources
+### More Resources
 
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-- [Socials API Reference](../../api-references/api-reference/socials-api/)
-- [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+* [Socials API Reference](../../api-references/api-reference/socials-api/)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api/)

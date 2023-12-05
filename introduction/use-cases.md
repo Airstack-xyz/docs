@@ -10,7 +10,7 @@ Here are several use cases that you can build using [Airstack](https://airstack.
 
 Resolve any 0x addresses or ENS names to fetch:
 
-* [Lens](../use-cases/lens/)
+* [Lens](broken-reference)
 * [Farcaster](../guides/resolve-identities/farcaster.md)
 * [POAPs](../guides/recommendation-engine/poaps.md)
 * [XMTP](../guides/xmtp/)

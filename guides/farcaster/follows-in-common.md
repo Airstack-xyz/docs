@@ -17,27 +17,29 @@ layout:
 
 # 👭 Follows In Common
 
+## 👭 Follows In Common
+
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and integrating on-chain and off-chain data with Farcaster.
 
-# Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-- [Farcaster Users Who Are Following Two Given Farcaster Users](follows-in-common.md#farcaster-users-who-are-following-two-given-farcaster-users)
-- [Farcaster Users Who Are Being Followed By Two Given Farcaster Users](follows-in-common.md#farcaster-users-who-are-being-followed-by-two-given-farcaster-users)
-- [Farcaster Users Who Are Following User X That Are Also Being Followed By User Y](follows-in-common.md#farcaster-users-who-are-following-user-x-that-are-also-being-followed-by-user-y)
-- [Farcaster Users Who Are Being Followed By User X That Are Also Following By User Y](follows-in-common.md#farcaster-users-who-are-being-followed-by-user-x-that-are-also-following-by-user-y)
-- [Mutual Follows of A Farcaster User](follows-in-common.md#mutual-farcaster-follows-of-a-farcaster-user)
+* [Farcaster Users Who Are Following Two Given Farcaster Users](follows-in-common.md#farcaster-users-who-are-following-two-given-farcaster-users)
+* [Farcaster Users Who Are Being Followed By Two Given Farcaster Users](follows-in-common.md#farcaster-users-who-are-being-followed-by-two-given-farcaster-users)
+* [Farcaster Users Who Are Following User X That Are Also Being Followed By User Y](follows-in-common.md#farcaster-users-who-are-following-user-x-that-are-also-being-followed-by-user-y)
+* [Farcaster Users Who Are Being Followed By User X That Are Also Following By User Y](follows-in-common.md#farcaster-users-who-are-being-followed-by-user-x-that-are-also-following-by-user-y)
+* [Mutual Follows of A Farcaster User](follows-in-common.md#mutual-farcaster-follows-of-a-farcaster-user)
 
-## Pre-requisites
+### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
-- Finished [Farcaster Followers](farcaster-followers.md) and [Farcaster Following](farcaster-following.md)
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+* Finished [Farcaster Followers](farcaster-followers.md) and [Farcaster Following](farcaster-following.md)
 
-## Get Started
+### Get Started
 
-#### JavaScript/TypeScript/Python
+**JavaScript/TypeScript/Python**
 
 If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
@@ -54,7 +56,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -69,7 +70,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -84,15 +84,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -100,7 +97,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -124,11 +120,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -141,11 +135,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -163,37 +155,35 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
-#### Other Programming Languages
+**Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Farcaster Users Who Are Following Two Given Farcaster Users
+### Farcaster Users Who Are Following Two Given Farcaster Users
 
 You can get the list of Farcaster users which are following two given Farcaster users by inputting [0x address](#user-content-fn-1)[^1], ENS domain, [Farcaster Name](#user-content-fn-2)[^2], or Farcaster ID.
 
 For example, get all Farcaster users which are following both Farcaster users `fc_fname:betashop.eth` and `fc_fname:ipeciura`:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/LggnwkvJ3K" %}
-Show me common followers of both fc_fname betashop.eth and fc_fname ipeciura
+Show me common followers of both fc\_fname betashop.eth and fc\_fname ipeciura
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -233,11 +223,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -283,27 +271,25 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
-## Farcaster Users Who Are Being Followed By Two Given Farcaster Users
+### Farcaster Users Who Are Being Followed By Two Given Farcaster Users
 
 You can get the list of all Farcaster users being followed by two given Farcaster users by inputting [0x address](#user-content-fn-3)[^3], ENS domain, [Farcaster Name](#user-content-fn-4)[^4], or [Farcaster ID](#user-content-fn-5)[^5].
 
 For example, get all Farcaster users which are being followed by both Farcaster users `fc_fname:betashop.eth` and `fc_fname:ipeciura`:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/suXp8pV9TR" %}
-Show me common following of both fc_fname betashop.eth and fc_fname ipeciura
+Show me common following of both fc\_fname betashop.eth and fc\_fname ipeciura
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowings(
@@ -343,11 +329,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowings": {
@@ -389,27 +373,25 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
-## Farcaster Users Who Are Following User X That Are Also Being Followed By User Y
+### Farcaster Users Who Are Following User X That Are Also Being Followed By User Y
 
 You can get the list of Farcaster users that is following Farcaster user X who are also being followed by another Farcaster user Y by inputting [0x address](#user-content-fn-6)[^6], ENS domain, [Farcaster Name](#user-content-fn-7)[^7], or [Farcaster ID](#user-content-fn-8)[^8].
 
 For example, get all Farcaster users that is following Farcaster user `fc_fname:betashop.eth` who are also being followed by `fc_fname:ipeciura`:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/ktFRZuXzFm" %}
-Show me followers of fc_fname betashop.eth that is also followed by fc_fname ipeciura
+Show me followers of fc\_fname betashop.eth that is also followed by fc\_fname ipeciura
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -449,11 +431,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -496,27 +476,25 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
-## Farcaster Users Who Are Being Followed By User X That Are Also Following By User Y
+### Farcaster Users Who Are Being Followed By User X That Are Also Following By User Y
 
 You can get a list of Farcaster users who are being followed by Farcaster user X and also are following another Farcaster user Y by inputting [0x address](#user-content-fn-9)[^9], ENS domain, [Farcaster Name](#user-content-fn-10)[^10], or [Farcaster ID](#user-content-fn-11)[^11].
 
 For example, get all Farcaster users who are being followed by `fc_fname:betashop.eth` and also are following `fc_fname:ipeciura`:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/2O8pYeWLBt" %}
-Show me following of fc_fname betashop.eth that is also followers of fc_fname ipeciura
+Show me following of fc\_fname betashop.eth that is also followers of fc\_fname ipeciura
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowings(
@@ -556,11 +534,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -601,27 +577,25 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Mutual Farcaster Follows of A Farcaster User
+### Mutual Farcaster Follows of A Farcaster User
 
 You can fetch all Farcaster users that are following a given Farcaster user X and check if Farcaster user X is mutually following back.
 
 For example, get all Farcaster users that are following `fc_fname:betashop.eth` and check if `fc_fname:betashop.eth` is mutually following back:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/j8dMg9XSnv" %}
-Show me mutual Farcaster follows of fc_fname betashop.eth
+Show me mutual Farcaster follows of fc\_fname betashop.eth
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -661,11 +635,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -710,27 +682,36 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
-## Developer Support
+### Developer Support
 
 If you have any questions or need help regarding fetching Farcaster followers and followings in common, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-## More Resources
+### More Resources
 
-- [SocialFollowers API](../../api-references/api-reference/socialfollowers-api.md)
-- [SocialFollowings API](../../api-references/api-reference/socialfollowings-api.md)
+* [SocialFollowers API](../../api-references/api-reference/socialfollowers-api.md)
+* [SocialFollowings API](../../api-references/api-reference/socialfollowings-api.md)
 
 [^1]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
+
 [^2]: e.g. `fc_fname:dwr.eth`
+
 [^3]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
+
 [^4]: e.g. `fc_fname:dwr.eth`
+
 [^5]: e.g. `fc_fid:5650`
+
 [^6]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
+
 [^7]: e.g. `fc_fname:dwr.eth`
+
 [^8]: e.g. `fc_fid:5650`
+
 [^9]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
+
 [^10]: e.g. `fc_fname:dwr.eth`
+
 [^11]: e.g. `fc_fid:5650`

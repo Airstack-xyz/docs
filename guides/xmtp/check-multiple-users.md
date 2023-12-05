@@ -15,25 +15,27 @@ layout:
 
 # 👬 Check Multiple Users
 
+## 👬 Check Multiple Users
+
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
 
-# Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to check if multiple users have XMTP enabled:
 
-- [Bulk Check Multiple Users Has XMTP](check-multiple-users.md#bulk-check-multiple-users-have-xmtp)
-- [Bulk Check Lens Profiles Have XMTP](check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
-- [Bulk Check Farcasters Have XMTP](check-multiple-users.md#bulk-check-farcasters-have-xmtp)
+* [Bulk Check Multiple Users Has XMTP](check-multiple-users.md#bulk-check-multiple-users-have-xmtp)
+* [Bulk Check Lens Profiles Have XMTP](check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
+* [Bulk Check Farcasters Have XMTP](check-multiple-users.md#bulk-check-farcasters-have-xmtp)
 
-## Pre-requisites
+### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
-- Basic knowledge of [XMTP](https://xmtp.org)
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+* Basic knowledge of [XMTP](https://xmtp.org)
 
-## Get Started
+### Get Started
 
-#### JavaScript/TypeScript/Python
+**JavaScript/TypeScript/Python**
 
 If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
@@ -50,7 +52,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -65,7 +66,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -80,15 +80,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -96,7 +93,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -120,11 +116,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -137,11 +131,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -159,37 +151,35 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
-#### Other Programming Languages
+**Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Bulk Check Multiple Users Have XMTP
+### Bulk Check Multiple Users Have XMTP
 
 To check multiple users if they have XMTP is similar to checking for single users.
 
 Swap `_eq` comparator with `_in` to allow array inputs:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/wXLtoDe4F8" %}
 Bulk Check Multiple Users Have XMTP (Demo)
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
@@ -222,11 +212,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -287,7 +275,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -297,21 +284,20 @@ The response will return fewer amount of element in the `XMTP` array if some of 
 Therefore, you can use `owner` field response to double check if in more details if a specific user has XMTP or not.
 {% endhint %}
 
-## Bulk Check Lens Profiles Have XMTP
+### Bulk Check Lens Profiles Have XMTP
 
 You can bulk check Lens profiles have XMTP by providing either Lens profile name[^1] or ID into the `owner` input array:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/0QqNIEIXLH" %}
 Bulk Check Lens Profiles Have XMTP (Demo)
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query BulkFetchLensandXMTP {
   XMTPs(
@@ -338,11 +324,9 @@ query BulkFetchLensandXMTP {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -399,25 +383,23 @@ query BulkFetchLensandXMTP {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Bulk Check Farcasters Have XMTP
+### Bulk Check Farcasters Have XMTP
 
 You can bulk check Farcasters have XMTP by providing either Farcaster name[^2] or ID into the `owner` input array:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/v4nVRtJsw5" %}
 Bulk Query Farcasters Have XMTP (Demo)
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query BulkFetchFarcasterHaveXMTP {
   XMTPs(
@@ -445,11 +427,9 @@ query BulkFetchFarcasterHaveXMTP {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -509,24 +489,25 @@ query BulkFetchFarcasterHaveXMTP {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Developer Support
+### Developer Support
 
 If you have any questions or need help regarding checking XMTP for multiple users with various [web3 identities](#user-content-fn-3)[^3], please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-## More Resources
+### More Resources
 
-- [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
-- [Has XMTP For Lens Developers](../lens/has-xmtp.md)
-- [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
-- [Universal Resolver](../../use-cases/xmtp/universal-resolver.md)
+* [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
+* [Has XMTP For Lens Developers](../lens/has-xmtp.md)
+* [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
+* [Universal Resolver](broken-reference)
 
 1. e.g. `lens_id:0x09718`
 2. e.g. `fc_fid:5650`
 
 [^1]: e.g. lens/@vitalik
+
 [^2]: e.g. `fc_fname:vitalik.eth`
+
 [^3]: 0x address, ENS, Lens, Farcaster

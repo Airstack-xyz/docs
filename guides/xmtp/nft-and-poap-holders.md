@@ -15,24 +15,26 @@ layout:
 
 # 🗃 NFT & POAP Holders
 
+## 🗃 NFT & POAP Holders
+
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
 
-# Table Of Contents
+## Table Of Contents
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to check if holders of a given NFT or POAP have XMTP enabled:
 
-- [NFT Holders](nft-and-poap-holders.md#nft-holders)
-- [POAP Holders](nft-and-poap-holders.md#poap-holders)
+* [NFT Holders](nft-and-poap-holders.md#nft-holders)
+* [POAP Holders](nft-and-poap-holders.md#poap-holders)
 
-## Pre-requisites
+### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
-- Basic knowledge of [XMTP](https://xmtp.org)
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+* Basic knowledge of [XMTP](https://xmtp.org)
 
-## Get Started
+### Get Started
 
-#### JavaScript/TypeScript/Python
+**JavaScript/TypeScript/Python**
 
 If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
@@ -49,7 +51,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -64,7 +65,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -79,15 +79,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -95,7 +92,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -119,11 +115,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -136,11 +130,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -158,35 +150,33 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
-#### Other Programming Languages
+**Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## NFT Holders
+### NFT Holders
 
 Get the NFT holders that have XMTP using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API and provide an NFT contract address for the `$tokenAddress` input:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/203pV6Pyns" %}
 Get the NFT holders that have XMTP (Demo)
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -208,11 +198,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -239,25 +227,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## POAP Holders
+### POAP Holders
 
 Get the POAP holders that have XMTP using the [Poaps](../../api-references/api-reference/poaps-api/) API and provide an POAP event ID for the <mark style="color:red;">`$eventId`</mark> input:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/EtrCwWln2c" %}
 Get the POAP holders that have XMTP (Demo)
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query POAPEventHoldersWithXMTP {
   Poaps(input: { filter: { eventId: { _eq: "141910" } }, blockchain: ALL }) {
@@ -272,11 +258,9 @@ query POAPEventHoldersWithXMTP {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -303,17 +287,16 @@ query POAPEventHoldersWithXMTP {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Developer Support
+### Developer Support
 
 If you have any questions or need help regarding checking XMTP for holders of a given NFT or POAP, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-## More Resources
+### More Resources
 
-- [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
-- [Has XMTP For Lens Developers](../lens/has-xmtp.md)
-- [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
-- [Universal Resolver](../../use-cases/xmtp/universal-resolver.md)
+* [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
+* [Has XMTP For Lens Developers](../lens/has-xmtp.md)
+* [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
+* [Universal Resolver](broken-reference)

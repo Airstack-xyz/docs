@@ -15,23 +15,25 @@ layout:
 
 # 🐍 Python
 
+## 🐍 Python
+
 In this tutorial, you will learn how to start integrating [Airstack](https://airstack.xyz) API into your Python application.
 
-# Table Of Contents
+## Table Of Contents
 
-- [Step 0: Pre-requisites](python.md#step-0-pre-requisites)
-- [Step 1: Install Airstack Python SDK](python.md#step-1-install-airstack-python-sdk)
-- [Step 2: Set Environment Variable](python.md#step-2-set-environment-variable)
-- [Step 3: Initialize SDK](python.md#step-3-initialize-sdk)
-- [Step 4: Call Your Query](python.md#step-4-call-your-query)
+* [Step 0: Pre-requisites](python.md#step-0-pre-requisites)
+* [Step 1: Install Airstack Python SDK](python.md#step-1-install-airstack-python-sdk)
+* [Step 2: Set Environment Variable](python.md#step-2-set-environment-variable)
+* [Step 3: Initialize SDK](python.md#step-3-initialize-sdk)
+* [Step 4: Call Your Query](python.md#step-4-call-your-query)
 
-## Step 0: Pre-requisites
+### Step 0: Pre-requisites
 
-- Completed [Get API Key](../get-api-key.md)
-- Git
-- Node v.16+
+* Completed [Get API Key](../get-api-key.md)
+* Git
+* Node v.16+
 
-## Step 1: Install Airstack Python SDK
+### Step 1: Install Airstack Python SDK
 
 Use a package manager to install the [Airstack Python SDK](https://pypi.org/project/airstack/) into your Python project:
 
@@ -39,7 +41,7 @@ Use a package manager to install the [Airstack Python SDK](https://pypi.org/proj
 pip install airstack
 ```
 
-## Step 2: Set Environment Variable
+### Step 2: Set Environment Variable
 
 Create a new `.env` file:
 
@@ -62,21 +64,18 @@ pip install python-dotenv
 and import it into your Python project to inject the environment variables:
 
 {% code title="index.py" %}
-
 ```python
 from dotenv import load_dotenv
 
 load_dotenv()
 ```
-
 {% endcode %}
 
-## Step 3: Create API Client
+### Step 3: Create API Client
 
-Wrap your application or React component with `AirstackClient` from the SDK to initialize it with the [Airstack API key](../get-api-key.md):&#x20;
+Wrap your application or React component with `AirstackClient` from the SDK to initialize it with the [Airstack API key](../get-api-key.md):
 
 {% code title="index.py" %}
-
 ```python
 import os
 from airstack.execute_query import AirstackClient
@@ -87,21 +86,19 @@ if api_key is None:
 
 api_client = AirstackClient(api_key=api_key)
 ```
-
 {% endcode %}
 
-## Step 4: Call Your Query
+### Step 4: Call Your Query
 
-Once you have initialized the SDK, you can use the [`execute_query`](https://github.com/Airstack-xyz/airstack-python-sdk#execute_query) to call the Airstack API.&#x20;
+Once you have initialized the SDK, you can use the [`execute_query`](https://github.com/Airstack-xyz/airstack-python-sdk#execute\_query) to call the Airstack API.
 
-Below you have been provided with Airstack query to fetch the 0x address, Lens, and Farcaster owned by [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS):
+Below you have been provided with Airstack query to fetch the 0x address, Lens, and Farcaster owned by [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS):
 
 {% hint style="info" %}
-For more query examples, check out [**Guides**](broken-reference) for various use cases you can build with Airstack.
+For more query examples, check out [**Guides**](broken-reference/) for various use cases you can build with Airstack.
 {% endhint %}
 
 {% code title="index.py" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -138,7 +135,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endcode %}
 
 The `data` variable will return and logged into your browser's console as follows:
@@ -163,16 +159,16 @@ The `data` variable will return and logged into your browser's console as follow
 }
 ```
 
-## Developer Support
+### Developer Support
 
 If you have any questions or need help regarding integrating [Airstack](https://airstack.xyz) into your Python application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-## More Resources
+### More Resources
 
 Learn to build more with Airstack using our tutorials:
 
-- [Onchain Graph](../../guides/onchain-graph.md)
-- [Resolve Identities](../../guides/resolve-identities/)
-- [Combinations](../../guides/combinations/)
-- [Wallet API Reference](../../api-references/api-reference/wallet-api/)
-- [Python SDK Reference](https://pypi.org/project/airstack/)
+* [Onchain Graph](../../guides/onchain-graph.md)
+* [Resolve Identities](../../guides/resolve-identities/)
+* [Combinations](../../guides/combinations/)
+* [Wallet API Reference](../../api-references/api-reference/wallet-api/)
+* [Python SDK Reference](https://pypi.org/project/airstack/)

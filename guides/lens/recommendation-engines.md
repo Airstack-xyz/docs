@@ -18,28 +18,30 @@ layout:
 
 # 📞 Recommendation Engines
 
+## 📞 Recommendation Engines
+
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-# Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-- [Get Recommendation Follows For Lens Profile(s) Based on Token Transfers](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-token-transfers)
-- [Get Recommendation Follows For Lens Profile(s) Based on POAPs](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-poaps)
-- [Get Recommendation Follows For Lens Profile(s) Based on NFTs](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-nfts)
-- [Get Recommendation Follows For Lens Profile(s) Based on NFTs and POAPs Commonly Held](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-nfts-and-poaps-commonly-held)
-- [Get Recommendation Follows For Lens Profile(s) Based on Lens Followers](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-lens-followers)
-- [Get Recommendation Follows For Lens Profile(s) Based on Farcaster Followers](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-farcaster-followers)
-- [Get Recommendation Follows For Lens Profile(s) Based on Farcaster Following](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-farcaster-following)
+* [Get Recommendation Follows For Lens Profile(s) Based on Token Transfers](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-token-transfers)
+* [Get Recommendation Follows For Lens Profile(s) Based on POAPs](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-poaps)
+* [Get Recommendation Follows For Lens Profile(s) Based on NFTs](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-nfts)
+* [Get Recommendation Follows For Lens Profile(s) Based on NFTs and POAPs Commonly Held](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-nfts-and-poaps-commonly-held)
+* [Get Recommendation Follows For Lens Profile(s) Based on Lens Followers](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-lens-followers)
+* [Get Recommendation Follows For Lens Profile(s) Based on Farcaster Followers](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-farcaster-followers)
+* [Get Recommendation Follows For Lens Profile(s) Based on Farcaster Following](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-farcaster-following)
 
-## Pre-requisites
+### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
-## Get Started
+### Get Started
 
-#### JavaScript/TypeScript/Python
+**JavaScript/TypeScript/Python**
 
 If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
@@ -56,7 +58,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -71,7 +72,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -86,15 +86,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -102,7 +99,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -122,11 +118,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/airstack-react";
 
@@ -139,11 +133,9 @@ const { data, error } = fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -161,35 +153,33 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
-#### Other Programming Languages
+**Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Get Recommendation Follows For Lens Profile(s) Based on Token Transfers
+### Get Recommendation Follows For Lens Profile(s) Based on Token Transfers
 
 To get recommendations by token transfers, simply fetch all token transfer that is received and sent from the Lens profile(s):
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/NUbezIUVe9" %}
 Show recommendations by token transfers for lens/@bradorbradley
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetRecommendationsByTokenTransfers {
   ethereum: TokenTransfers(
@@ -252,11 +242,9 @@ query GetRecommendationsByTokenTransfers {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -311,25 +299,23 @@ query GetRecommendationsByTokenTransfers {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Recommendation Follows For Lens Profile(s) Based on POAPs
+### Get Recommendation Follows For Lens Profile(s) Based on POAPs
 
 To get recommendations by POAPs, first fetch all POAPs that is owned by the Lens profile(s):
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/WndOFRhLKU" %}
 Show POAPs owned by lens/@bradorbradley
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query POAPsOwnedByLensProfiles {
   Poaps(
@@ -365,11 +351,9 @@ query POAPsOwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -440,7 +424,6 @@ query POAPsOwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -448,17 +431,16 @@ With the response, you can compile the `eventId`s as an array that can be forwar
 
 The next query for recommending follows based on POAPs will be fetching all the holders of the POAP with the `eventId`s in the array:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/y1vbz7WOI3" %}
 Show follow recommendations based on POAP event IDs 47553, 80122, and 37964
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetAllAddressesSocialsAndENSOfPOAP {
   Poaps(
@@ -480,11 +462,9 @@ query GetAllAddressesSocialsAndENSOfPOAP {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -512,27 +492,25 @@ query GetAllAddressesSocialsAndENSOfPOAP {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 The follow recommendation will provide a list of Lens profiles with the Lens profile name from the `profileName` field.
 
-## Get Recommendation Follows For Lens Profile(s) Based on NFTs
+### Get Recommendation Follows For Lens Profile(s) Based on NFTs
 
 To get recommendations by NFTs, first fetch all NFTs that is owned by the Lens profile(s) on both Ethereum and Polygon:
 
-### Try Code
+#### Try Code
 
 {% embed url="https://app.airstack.xyz/query/ik0ptBHZU3" %}
 Show NFTs on Ethereum and Polygon owned by lens/@bradorbradley
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetNFTs {
   ethereum: TokenBalances(
@@ -565,11 +543,9 @@ query GetNFTs {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -602,7 +578,6 @@ query GetNFTs {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -610,17 +585,16 @@ With the response, you can compile the many `tokenAddress` as an array that can 
 
 The next query for recommending follows based on NFTs will be fetching all the holders of the NFT with the `eventId`s in the array:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/JIrNUBryfO" %}
 Show follow recommendations based on NFTs for lens/@bradorbradley
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetNFTHoldersAndImages {
   ethereum: TokenNfts(
@@ -677,11 +651,9 @@ query GetNFTHoldersAndImages {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -722,29 +694,27 @@ query GetNFTHoldersAndImages {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 The follow recommendation will provide a list of Lens profiles name from the `profileName` field.
 
-## Get Recommendation Follows For Lens Profile(s) Based on NFTs and POAPs Commonly Held
+### Get Recommendation Follows For Lens Profile(s) Based on NFTs and POAPs Commonly Held
 
-### Fetching
+#### Fetching
 
 You can fetch follow recommendations based on the common holder of a specific NFT and a specific POAP by providing the token contract address and the POAP event ID:
 
-#### Try Demo
+**Try Demo**
 
 {% embed url="https://app.airstack.xyz/query/lHTqRfk5wb" %}
 Show common holders of Sound.xyz NFT and Aave Booth Permissionless POAP that also have Lens Profile
 {% endembed %}
 
-#### Code
+**Code**
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfNounsAndEthCC {
   TokenBalances(
 <strong>    input: {filter: {tokenAddress: {_eq: "0x977e43ab3eb8c0aece1230ba187740342865ee78"}}, blockchain: ethereum, limit: 200}
@@ -765,11 +735,9 @@ Show common holders of Sound.xyz NFT and Aave Booth Permissionless POAP that als
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -825,19 +793,17 @@ Show common holders of Sound.xyz NFT and Aave Booth Permissionless POAP that als
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 All the common holders' Lens profile details will be returned inside the innermost `owner.socials` field.
 
-### Formatting
+#### Formatting
 
 To get the list of all holders in a flat array, use the following format function:
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(({ owner }) =>
@@ -847,11 +813,9 @@ const formatFunction = (data) =>
     .flat(2)
     .filter((social, index, array) => array.indexOf(social) === index) ?? [];
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 def format_function(data):
     result = []
@@ -869,7 +833,6 @@ def format_function(data):
     return result
 
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -901,23 +864,22 @@ The final result will the the list of all common holders in an array:
 ]
 ```
 
-## Get Recommendation Follows For Lens Profile(s) Based on Lens Followers
+### Get Recommendation Follows For Lens Profile(s) Based on Lens Followers
 
-### Fetching
+#### Fetching
 
 You can fetch follow recommendations based on the Lens followers of Lens profile(s) by fetching the list of Lens followers of the given Lens profile(s):
 
-#### Try Demo
+**Try Demo**
 
 {% embed url="https://app.airstack.xyz/query/djxR2UrtIB" %}
-Show me all Lens followers of lens/@stani, lens_id:0x24, betashop.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
+Show me all Lens followers of lens/@stani, lens\_id:0x24, betashop.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
 {% endembed %}
 
-#### Code
+**Code**
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -961,11 +923,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1014,13 +974,12 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Recommendation Follows For Lens Profile(s) Based on Farcaster Followers
+### Get Recommendation Follows For Lens Profile(s) Based on Farcaster Followers
 
-### Fetching
+#### Fetching
 
 You can fetch follow recommendations based on the Farcaster followers of Lens profile(s) by fetching the list of Farcaster followers of the given Lens profile(s):
 
@@ -1028,17 +987,16 @@ You can fetch follow recommendations based on the Farcaster followers of Lens pr
 If the address that owns the given Lens profile NFT does not own any Farcaster account, then no Farcaster followers will exist and API response will be `null`.
 {% endhint %}
 
-#### Try Demo
+**Try Demo**
 
 {% embed url="https://app.airstack.xyz/query/8Dff1C8SHM" %}
-Show me all Farcaster followers of lens/@stani, lens_id:0x24, betashop.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 and their Lens profiles
+Show me all Farcaster followers of lens/@stani, lens\_id:0x24, betashop.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 and their Lens profiles
 {% endembed %}
 
-#### Code
+**Code**
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -1075,11 +1033,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -1151,13 +1107,12 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
-## Get Recommendation Follows For Lens Profile(s) Based on Farcaster Following
+### Get Recommendation Follows For Lens Profile(s) Based on Farcaster Following
 
-### Fetching
+#### Fetching
 
 You can fetch follow recommendations based on the Farcaster following of Lens profile(s) by fetching the list of Farcaster followers of the given Lens profile(s):
 
@@ -1165,17 +1120,16 @@ You can fetch follow recommendations based on the Farcaster following of Lens pr
 If the address that owns the given Lens profile NFT does not own any Farcaster account, then no Farcaster following will exist and API response will be `null`.
 {% endhint %}
 
-#### Try Demo
+**Try Demo**
 
 {% embed url="https://app.airstack.xyz/query/ASCSVYV3SO" %}
 Show all Farcaster following by lens/@vitalik and show their Lens profiles
 {% endembed %}
 
-#### Code
+**Code**
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowings(
@@ -1214,11 +1168,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1294,20 +1246,19 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Developer Support
+### Developer Support
 
 If you have any questions or need help regarding building a recommendation engine, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-## More Resources
+### More Resources
 
-- [Contact Recommendation](../recommendation-engine/)
-  - [Token Transfers](../recommendation-engine/token-transfers.md)
-  - [POAPs](../recommendation-engine/poaps.md)
-  - [NFTs](../recommendation-engine/nfts.md)
-- [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api/)
-- [POAPs API Reference](../../api-references/api-reference/poaps-api/)
-- [TokenNft API Reference](../../api-references/api-reference/tokennfts-api/)
+* [Contact Recommendation](../recommendation-engine/)
+  * [Token Transfers](../recommendation-engine/token-transfers.md)
+  * [POAPs](../recommendation-engine/poaps.md)
+  * [NFTs](../recommendation-engine/nfts.md)
+* [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api/)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+* [TokenNft API Reference](../../api-references/api-reference/tokennfts-api/)

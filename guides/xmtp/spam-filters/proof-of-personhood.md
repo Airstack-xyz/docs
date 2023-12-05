@@ -18,28 +18,30 @@ layout:
 
 # 🎭 Proof of Personhood
 
+## 🎭 Proof of Personhood
+
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
 
-# Table Of Contents
+## Table Of Contents
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to create proof of personhood mechanism by:
 
-- [Token Transfers](proof-of-personhood.md#token-transfers)
-- [Token Balances](proof-of-personhood.md#token-balances)
-- [Has Primary ENS](proof-of-personhood.md#has-primary-ens)
-- [Has Lens Profile](proof-of-personhood.md#has-lens-profile)
-- [Has Farcaster Account](proof-of-personhood.md#has-farcaster-account)
-- [Has Non-Virtual POAPs](proof-of-personhood.md#has-non-virtual-poaps)
+* [Token Transfers](proof-of-personhood.md#token-transfers)
+* [Token Balances](proof-of-personhood.md#token-balances)
+* [Has Primary ENS](proof-of-personhood.md#has-primary-ens)
+* [Has Lens Profile](proof-of-personhood.md#has-lens-profile)
+* [Has Farcaster Account](proof-of-personhood.md#has-farcaster-account)
+* [Has Non-Virtual POAPs](proof-of-personhood.md#has-non-virtual-poaps)
 
-## Pre-requisites
+### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
-- Basic knowledge of [XMTP](https://xmtp.org)
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+* Basic knowledge of [XMTP](https://xmtp.org)
 
-## Get Started
+### Get Started
 
-#### JavaScript/TypeScript/Python
+**JavaScript/TypeScript/Python**
 
 If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
@@ -56,7 +58,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -71,7 +72,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -86,15 +86,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -102,7 +99,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -126,11 +122,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -143,11 +137,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -165,47 +157,45 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
-#### Other Programming Languages
+**Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Best Practice
+### Best Practice
 
 While choosing a specific criteria will significantly decrease the number of spam appearing on your user's XMTP inbox, It is best practice that you **combine** the multiple criterion given here to build your **spam filter**.
 
 This is done to provide **multiple layers of filtration** that will make it nearly impossible for spammers to have their messages slide into your users' XMTP inbox.
 
-## Token Transfers
+### Token Transfers
 
 You can build proof of personhood by checking if there are any token transfers history from the given user:
 
 {% hint style="success" %}
-:first_place: **BEST PRACTICES**
+:first\_place: **BEST PRACTICES**
 
 We recommend combining multiple criteria to determine if a user is likely to be a real person.
 {% endhint %}
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/dvRSbWiNKG" %}
 Show me token transfers by vitalik.eth
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetTokenTransfers {
   ethereum: TokenTransfers(
@@ -288,11 +278,9 @@ query GetTokenTransfers {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "ethereum": {
@@ -380,7 +368,6 @@ query GetTokenTransfers {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -388,27 +375,26 @@ If the `ethereum.TokenTransfer` or the `polygon.TokenTransfer` array has non-zer
 
 Otherwise, the user should be **considered a potential spammer**.
 
-## Token Balances
+### Token Balances
 
 You can build proof of personhood by checking if there are any ERC20/721/1155 tokens hold by the given user:
 
 {% hint style="success" %}
-:first_place: **BEST PRACTICES**
+:first\_place: **BEST PRACTICES**
 
 We recommend combining multiple criterion to determine if a user is likely to be a real person.
 {% endhint %}
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/5teoS4ZS1X" %}
 show me vitalik.eth token balances on Ethereum and Polygon
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Ethereum: TokenBalances(
@@ -457,11 +443,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
@@ -502,7 +486,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -510,27 +493,26 @@ If the `Ethereum.TokenBalance` or the `Polygon.TokenBalance` array has non-zero 
 
 Otherwise, the user should be **considered a potential spammer**.
 
-## Has Primary ENS
+### Has Primary ENS
 
 You can build proof of personhood by checking if the given user hold any primary ENS:
 
 {% hint style="success" %}
-:first_place: **BEST PRACTICES**
+:first\_place: **BEST PRACTICES**
 
 We recommend combining multiple criterion to determine if a user is likely to be a real person.
 {% endhint %}
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/6re2GWPzw5" %}
 show me if 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 has any primary ENS
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Domains(
@@ -550,11 +532,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Domains": {
@@ -569,7 +549,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -577,27 +556,26 @@ If the `Domain` array has non-zero length, then the user has primary ENS domain 
 
 Otherwise, the user should be **considered a potential spammer**.
 
-## Has Lens Profile
+### Has Lens Profile
 
 You can build proof of personhood by checking if the given user hold any Lens profile:
 
 {% hint style="success" %}
-:first_place: **BEST PRACTICES**
+:first\_place: **BEST PRACTICES**
 
 We recommend combining multiple criterion to determine if a user is likely to be a real person.
 {% endhint %}
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/aoZPofhxXD" %}
 show me if 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 has any Lens profile
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -617,11 +595,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Socials": {
@@ -636,35 +612,33 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
-If the `Social` array has non-zero length, then the user has Lens profile(s) for their account, in the example it is [`lens/@vitalik`](https://explorer.airstack.xyz/token-balances?address=lens%2F%40vitalik&blockchain=ethereum&rawInput=%23%E2%8E%B1lens%2F%40vitalik%E2%8E%B1%28lens%2F%40vitalik++ethereum+null%29&inputType=ADDRESS), and thus can be **considered non-spammer**.
+If the `Social` array has non-zero length, then the user has Lens profile(s) for their account, in the example it is [`lens/@vitalik`](https://explorer.airstack.xyz/token-balances?address=lens%2F%40vitalik\&blockchain=ethereum\&rawInput=%23%E2%8E%B1lens%2F%40vitalik%E2%8E%B1%28lens%2F%40vitalik++ethereum+null%29\&inputType=ADDRESS), and thus can be **considered non-spammer**.
 
 Otherwise, the user should be **considered a potential spammer**.
 
-## Has Farcaster Account
+### Has Farcaster Account
 
 You can build proof of personhood by checking if the given user hold any Farcaster account:
 
 {% hint style="success" %}
-:first_place: **BEST PRACTICES**
+:first\_place: **BEST PRACTICES**
 
 We recommend combining multiple criterion to determine if a user is likely to be a real person.
 {% endhint %}
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/4GPOVP5rUE" %}
 show me if 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 has any Farcaster profile
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -684,11 +658,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Socials": {
@@ -706,7 +678,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -714,27 +685,26 @@ If the `Social` array has non-zero length, then the user has Farcaster account(s
 
 Otherwise, the user should be **considered a potential spammer**.
 
-## Has Non-Virtual POAPs
+### Has Non-Virtual POAPs
 
 You can build proof of personhood by checking if the given user ever attended and obtained any non-virtual POAPs:
 
 {% hint style="success" %}
-:first_place: **BEST PRACTICES**
+:first\_place: **BEST PRACTICES**
 
 We recommend combining multiple criterion to determine if a user is likely to be a real person.
 {% endhint %}
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/EjEAFk2Xv7" %}
 show me all POAPs owned by vitalik.eth and see if they are virtual or not
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query POAPsOwnedByVitalik {
   Poaps(
@@ -758,11 +728,9 @@ query POAPsOwnedByVitalik {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Poaps": {
@@ -787,7 +755,6 @@ query POAPsOwnedByVitalik {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -795,16 +762,16 @@ All you need to check is whether there is at least 1 POAP with the `isVirtualEve
 
 Otherwise, the user should be **considered a potential spammer**.
 
-## Developer Support
+### Developer Support
 
 If you have any questions or need help regarding creating a proof of personhood to classify spammers on your XMTP messaging app, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-## More Resources
+### More Resources
 
-- [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api/)
-- [TokenBalances API Reference](../../../api-references/api-reference/tokenbalances-api/)
-- [Poaps API Reference](../../../api-references/api-reference/poaps-api/)
-- [Domains API Reference](../../../api-references/api-reference/domains-api/)
-- [Socials API Reference](../../../api-references/api-reference/socials-api/)
-- [Known Senders](known-senders.md)
-- [High Probability of Connection](high-probability-of-connection.md)
+* [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api/)
+* [TokenBalances API Reference](../../../api-references/api-reference/tokenbalances-api/)
+* [Poaps API Reference](../../../api-references/api-reference/poaps-api/)
+* [Domains API Reference](../../../api-references/api-reference/domains-api/)
+* [Socials API Reference](../../../api-references/api-reference/socials-api/)
+* [Known Senders](known-senders.md)
+* [High Probability of Connection](high-probability-of-connection.md)

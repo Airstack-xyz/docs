@@ -98,18 +98,6 @@
   * [🤝 Tokens In Common](guides/farcaster/tokens-in-common.md)
   * [📞 Recommendation Engines](guides/farcaster/recommendation-engines.md)
 
-## Use Cases
-
-* [📩 XMTP](use-cases/xmtp/README.md)
-  * [🔄 Universal Resolver](use-cases/xmtp/universal-resolver.md)
-  * [🤝 Recommendation Engine](use-cases/xmtp/recommendation-engine.md)
-* [🌿 Lens](use-cases/lens/README.md)
-  * [🍃 Lens Resolver](use-cases/lens/universal-resolver.md)
-* [💜 Farcaster](use-cases/farcaster/README.md)
-  * [🟪 Farcaster Resolver](use-cases/farcaster/universal-resolver.md)
-* [🔥 ERC6551](use-cases/erc6551.md)
-* [⚡ POAPs](use-cases/poaps.md)
-
 ## API References
 
 * [📖 API Reference](api-references/api-reference/README.md)

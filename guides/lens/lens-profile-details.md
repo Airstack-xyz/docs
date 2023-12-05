@@ -17,28 +17,30 @@ layout:
 
 # ✍ Lens Profile Details
 
+## ✍ Lens Profile Details
+
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-# Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-- [Get Lens Profile Details By Farcaster ID](lens-profile-details.md#get-lens-profile-details-by-farcaster-id)
-- [Get Lens Profile Details By Farcaster Name](lens-profile-details.md#get-lens-profile-details-by-farcaster-name)
-- [Get Lens Profile Details By 0x address](lens-profile-details.md#get-lens-profile-details-by-0x-address)
-- [Get Lens Profile Details By ENS Domain](lens-profile-details.md#get-lens-profile-details-by-ens-domain)
-- [Get Lens Profile Details By Lens Profile Name](lens-profile-details.md#get-lens-profile-details-by-lens-profile-name)
-- [Get Lens Profile Details By Lens Profile ID](lens-profile-details.md#get-lens-profile-details-by-lens-profile-id)
-- [Bulk Query Lens Profile Details](lens-profile-details.md#bulk-query-lens-profile-details)
+* [Get Lens Profile Details By Farcaster ID](lens-profile-details.md#get-lens-profile-details-by-farcaster-id)
+* [Get Lens Profile Details By Farcaster Name](lens-profile-details.md#get-lens-profile-details-by-farcaster-name)
+* [Get Lens Profile Details By 0x address](lens-profile-details.md#get-lens-profile-details-by-0x-address)
+* [Get Lens Profile Details By ENS Domain](lens-profile-details.md#get-lens-profile-details-by-ens-domain)
+* [Get Lens Profile Details By Lens Profile Name](lens-profile-details.md#get-lens-profile-details-by-lens-profile-name)
+* [Get Lens Profile Details By Lens Profile ID](lens-profile-details.md#get-lens-profile-details-by-lens-profile-id)
+* [Bulk Query Lens Profile Details](lens-profile-details.md#bulk-query-lens-profile-details)
 
-## Pre-requisites
+### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
-## Get Started
+### Get Started
 
-#### JavaScript/TypeScript/Python
+**JavaScript/TypeScript/Python**
 
 If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
@@ -55,7 +57,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -70,7 +71,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -85,15 +85,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -101,7 +98,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -125,11 +121,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -142,11 +136,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -164,35 +156,33 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
-#### Other Programming Languages
+**Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Get Lens Profile Details By Farcaster ID
+### Get Lens Profile Details By Farcaster ID
 
 You can get the Lens profile details by their Farcaster ID:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/PXvk55hBBU" %}
-Show all lens profile details and registration info for farcaster user fc_fid:5650
+Show all lens profile details and registration info for farcaster user fc\_fid:5650
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -253,11 +243,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -342,25 +330,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Lens Profile Details By Farcaster Name
+### Get Lens Profile Details By Farcaster Name
 
 You can get the Lens profile details by their Farcaster Name:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/wJvbCHRULZ" %}
-Show all lens profile details and registration info for farcaster user fc_fname:vitalik.eth
+Show all lens profile details and registration info for farcaster user fc\_fname:vitalik.eth
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -424,11 +410,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -513,25 +497,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Lens Profile Details By 0x address
+### Get Lens Profile Details By 0x address
 
 You can get the Lens profile details by their 0x address:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/LfkdEgsNU3" %}
 Show all lens profile details and registration info for 0xd8da6bf26964af9d7eed9e03e53415d37aa96045
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -595,11 +577,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -684,25 +664,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Lens Profile Details By ENS Domain
+### Get Lens Profile Details By ENS Domain
 
 You can get the Farcaster user profile details by their ENS domain:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/v4NtCmLXSB" %}
 Show all lens profile details and registration info for vitalik.eth
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -763,11 +741,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -852,25 +828,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Lens Profile Details By Lens Profile Name
+### Get Lens Profile Details By Lens Profile Name
 
 You can get the Lens profile details by their Lens profile name:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/JjYZwRJ2Sg" %}
 Show all lens profile details and registration info for lens/@vitalik
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -931,11 +905,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1020,25 +992,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Lens Profile Details By Lens Profile ID
+### Get Lens Profile Details By Lens Profile ID
 
 You can get the Lens profile details by their Lens profile ID:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/OAWbkc4BG7" %}
-Show all lens profile details and registration info for lens_id:0x0187b3
+Show all lens profile details and registration info for lens\_id:0x0187b3
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -1099,11 +1069,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1188,25 +1156,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Bulk Query Lens Profile Details
+### Bulk Query Lens Profile Details
 
 You can bulk query the profile details of multiple Lens profiles by their various web3 identities:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/lmpub2yKiR" %}
 Show all lens profile details and registration info for lens/@stani and vitalik.eth
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -1270,11 +1236,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1333,17 +1297,16 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Developer Support
+### Developer Support
 
 If you have any questions or need help regarding fetching Lens profile details, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-## More Resources
+### More Resources
 
-- [Socials API Reference](../../api-references/api-reference/socials-api/)
-- [Resolve Lens Profiles](resolve-lens-profiles.md)
-- [Lens Followers](lens-followers.md)
-- [Lens Following](lens-following.md)
+* [Socials API Reference](../../api-references/api-reference/socials-api/)
+* [Resolve Lens Profiles](resolve-lens-profiles.md)
+* [Lens Followers](lens-followers.md)
+* [Lens Following](lens-following.md)

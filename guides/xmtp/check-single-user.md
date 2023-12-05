@@ -15,27 +15,29 @@ layout:
 
 # 🧍 Check Single User
 
+## 🧍 Check Single User
+
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
 
-# Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to check if a single user has XMTP enabled:
 
-- [By 0x address](check-single-user.md#by-0x-address)
-- [By ENS](check-single-user.md#by-ens)
-- [By cb.id](check-single-user.md#by-cb.id)
-- [By Lens profile name or ID](check-single-user.md#by-lens-profile-name-or-id)
-- [By Farcaster name or ID](check-single-user.md#by-farcaster-name-or-id)
+* [By 0x address](check-single-user.md#by-0x-address)
+* [By ENS](check-single-user.md#by-ens)
+* [By cb.id](check-single-user.md#by-cb.id)
+* [By Lens profile name or ID](check-single-user.md#by-lens-profile-name-or-id)
+* [By Farcaster name or ID](check-single-user.md#by-farcaster-name-or-id)
 
-## Pre-requisites
+### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
-- Basic knowledge of [XMTP](https://xmtp.org)
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+* Basic knowledge of [XMTP](https://xmtp.org)
 
-## Get Started
+### Get Started
 
-#### JavaScript/TypeScript/Python
+**JavaScript/TypeScript/Python**
 
 If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
@@ -52,7 +54,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -67,7 +68,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -82,15 +82,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -98,7 +95,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -122,11 +118,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -139,11 +133,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -161,35 +153,33 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
-#### Other Programming Languages
+**Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## By 0x Address
+### By 0x Address
 
 Simply use the following query to check if a user has XMTP or not with this example of a user that **has an XMTP**:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/ZT1QLdVkIx" %}
 Check Single User Has XMTP With 0x Address (Demo)
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
@@ -204,11 +194,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -222,23 +210,21 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 Here's an example of user the **does not have any XMTP**:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/6oVZYGDzXG" %}
 Check Single User Does Not Have XMTP With 0x Address (Demo)
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
@@ -253,11 +239,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -267,25 +251,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## By ENS
+### By ENS
 
 With [Airstack Identity API](../../api-references/api-reference/airstack-identity-api.md), you can simply swap the address input to any ENS names, either on-chain or off-chain (e.g. Namestone[^1]):
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/1n0kL621qf" %}
 Check Single User Has XMTP With ENS (Demo)
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(input: { blockchain: ALL, filter: { owner: { _eq: "vitalik.eth" } } }) {
@@ -295,11 +277,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -313,25 +293,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## By cb.id
+### By cb.id
 
 With [Airstack Identity API](../../api-references/api-reference/airstack-identity-api.md), you can simply swap the address input to any cb.id:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/jr6QAbmRGb" %}
 Show me if yosephks.cb.id has XMTP enabled or not
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
@@ -343,11 +321,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -361,25 +337,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## By Lens Profile Name or ID
+### By Lens Profile Name or ID
 
 With [Airstack Identity API](../../api-references/api-reference/airstack-identity-api.md), you can simply swap the address input `owner` to any Lens profile name:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/ngQHil80AU" %}
 Check Single User Has XMTP With Lens Profile Name (Demo)
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
@@ -391,11 +365,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -409,23 +381,21 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 Alternatively, you can also swap the address input `owner` to any Lens profile ID, either in decimal[^2] or hex form:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/QO9CcBlwQY" %}
 Check Single User Has XMTP With Lens Profile ID (Demo)
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
@@ -437,11 +407,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -455,25 +423,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## By Farcaster Name or ID
+### By Farcaster Name or ID
 
 With [Airstack Identity API](../../api-references/api-reference/airstack-identity-api.md), you can simply swap the address input `owner` to any [Farcaster Name](#user-content-fn-3)[^3]:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/ju22glZstP" %}
 Check Single User Has XMTP With Farcaster Name (Demo)
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
@@ -488,11 +454,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -506,23 +470,21 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 Alternatively, you can also swap the address input `owner` to any Farcaster ID:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/g2m7nSXVBQ" %}
 Check Single User Has XMTP With Farcaster ID (Demo)
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(input: { blockchain: ALL, filter: { owner: { _eq: "fc_fid:5650" } } }) {
@@ -532,11 +494,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -550,25 +510,27 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Developer Support
+### Developer Support
 
 If you have any questions or need help regarding checking XMTP for a single user with various [web3 identities](#user-content-fn-4)[^4], please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-## More Resources
+### More Resources
 
-- [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
-- [Has XMTP For Lens Developers](../lens/has-xmtp.md)
-- [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
-- [Universal Resolver](../../use-cases/xmtp/universal-resolver.md)
+* [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
+* [Has XMTP For Lens Developers](../lens/has-xmtp.md)
+* [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
+* [Universal Resolver](broken-reference)
 
 1. e.g. lens/@vitalik
 2. e.g. `lens_id:0x19af`
 
 [^1]: ENS that is resolved off-chain, e.g. <mark style="color:red;">`leighton.pooltogether.eth`</mark>
+
 [^2]: e.g. `lens_id:100275`
+
 [^3]: e.g. `fc_fname:vitalik.eth`
+
 [^4]: 0x address, ENS, Lens, Farcaster

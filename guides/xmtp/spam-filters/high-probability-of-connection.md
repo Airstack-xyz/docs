@@ -17,24 +17,26 @@ layout:
 
 # 🕸 High Probability of Connection
 
+## 🕸 High Probability of Connection
+
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
 
-# Table Of Contents
+## Table Of Contents
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to check high probability of connection by:
 
-- [Common POAP Events Attended](high-probability-of-connection.md#common-poap-events-attended)
-- [Common Followers on Lens or Farcaster](high-probability-of-connection.md#common-followers-on-lens-or-farcaster)
+* [Common POAP Events Attended](high-probability-of-connection.md#common-poap-events-attended)
+* [Common Followers on Lens or Farcaster](high-probability-of-connection.md#common-followers-on-lens-or-farcaster)
 
-## Pre-requisites
+### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
-- Basic knowledge of [XMTP](https://xmtp.org)
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+* Basic knowledge of [XMTP](https://xmtp.org)
 
-## Get Started
+### Get Started
 
-#### JavaScript/TypeScript/Python
+**JavaScript/TypeScript/Python**
 
 If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
@@ -51,7 +53,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -66,7 +67,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -81,15 +81,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -97,7 +94,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -121,11 +117,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -138,11 +132,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -160,49 +152,47 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
-#### Other Programming Languages
+**Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Best Practice
+### Best Practice
 
 While choosing a specific criteria will significantly decrease the number of spam appearing on your user's XMTP inbox, It is best practice that you **combine** the multiple criterion given here to build your **spam filter**.
 
 This is done to provide **multiple layers of filtration** that will make it nearly impossible for spammers to have their messages slide into your users' XMTP inbox.
 
-## Common POAP Events Attended
+### Common POAP Events Attended
 
 You can establish a high probability of connection if both users have attended the same POAP event(s) previously:
 
 {% hint style="success" %}
-:first_place: **BEST PRACTICES**
+:first\_place: **BEST PRACTICES**
 
 It is important to note that **ONLY** checking if a user A attended the same PAOP events as user B is **NOT** a foolproof method to remove spammers from your user's inbox.
 
 Thus, be sure to combine multiple criterion to provide multiple layer of filtration to prove if that the user is has a genuinely high probability of connection.
 {% endhint %}
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/GiJgN06hW9" %}
 show me all common poaps hold by both betashop.eth and ipeciura.eth
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query CommonPoaps {
   Poaps(
@@ -239,11 +229,9 @@ query CommonPoaps {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Poaps": {
@@ -285,33 +273,31 @@ query CommonPoaps {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
-## Common Followers on Lens or Farcaster
+### Common Followers on Lens or Farcaster
 
 You can establish a high probability of connection if both users have common followers on either Lens or Farcaster:
 
 {% hint style="success" %}
-:first_place: **BEST PRACTICES**
+:first\_place: **BEST PRACTICES**
 
 It is important to note that **ONLY** checking if a user A has any common followers with user B is **NOT** a foolproof method to remove spammers from your user's inbox.
 
 Thus, be sure to combine multiple criterion to provide multiple layer of filtration to prove if that the user is has a genuinely high probability of connection.
 {% endhint %}
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/Ngh4xIAcYL" %}
 show me all common followers of betashop.eth and ipeciura.eth
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query CommonFollowers {
   SocialFollowers(
@@ -347,11 +333,9 @@ query CommonFollowers {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -442,17 +426,16 @@ query CommonFollowers {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
-## Developer Support
+### Developer Support
 
 If you have any questions or need help regarding determine a user's high probability connection with another user to classify spammers on your XMTP messaging app, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-## More Resources
+### More Resources
 
-- [Poaps API Reference](../../../api-references/api-reference/poaps-api/)
-- [SocialFollowers API Reference](../../../api-references/api-reference/socialfollowers-api.md)
-- [Known Senders](known-senders.md)
-- [Proof of Personhood](proof-of-personhood.md)
+* [Poaps API Reference](../../../api-references/api-reference/poaps-api/)
+* [SocialFollowers API Reference](../../../api-references/api-reference/socialfollowers-api.md)
+* [Known Senders](known-senders.md)
+* [Proof of Personhood](proof-of-personhood.md)

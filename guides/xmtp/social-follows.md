@@ -17,24 +17,26 @@ layout:
 
 # 🎉 Social Follows
 
+## 🎉 Social Follows
+
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
 
-# Table Of Contents
+## Table Of Contents
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to check if holders of a given NFT or POAP have XMTP enabled:
 
-- [Get All Followers of User(s) that have XMTP Enabled](social-follows.md#get-all-followers-of-user-s-that-have-xmtp-enabled)
-- [Get All Following of User(s) that have XMTP Enabled](social-follows.md#get-all-following-of-user-s-that-have-xmtp-enabled)
+* [Get All Followers of User(s) that have XMTP Enabled](social-follows.md#get-all-followers-of-user-s-that-have-xmtp-enabled)
+* [Get All Following of User(s) that have XMTP Enabled](social-follows.md#get-all-following-of-user-s-that-have-xmtp-enabled)
 
-## Pre-requisites
+### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
-- Basic knowledge of [XMTP](https://xmtp.org)
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+* Basic knowledge of [XMTP](https://xmtp.org)
 
-## Get Started
+### Get Started
 
-#### JavaScript/TypeScript/Python
+**JavaScript/TypeScript/Python**
 
 If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
@@ -51,7 +53,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -66,7 +67,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -81,15 +81,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -97,7 +94,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -121,11 +117,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -138,11 +132,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -160,35 +152,33 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
-#### Other Programming Languages
+**Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Get All Followers of User(s) that have XMTP Enabled
+### Get All Followers of User(s) that have XMTP Enabled
 
 You can all the followers of user(s) and see whether they have their XMTP enabled for messaging by providing [0x address](#user-content-fn-1)[^1], ENS, [Lens profile](#user-content-fn-2)[^2], or Farcaster:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/RRiQCiLfbC" %}
 Show all followers of vitalik.eth and 0xeaf55242a90bb3289dB8184772b0B98562053559 if they have XMTP enabled
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -241,11 +231,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -336,25 +324,23 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
-## Get All Following of User(s) that have XMTP Enabled
+### Get All Following of User(s) that have XMTP Enabled
 
 You can all the following of user(s) and see whether they have their XMTP enabled for messaging by providing [0x address](#user-content-fn-3)[^3], ENS, [Lens profile](#user-content-fn-4)[^4], or Farcaster:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/AQS3vZZW9b" %}
 Show all following of vitalik.eth and 0xeaf55242a90bb3289dB8184772b0B98562053559 if they have XMTP enabled
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowings(
@@ -412,11 +398,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -541,22 +525,24 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Developer Support
+### Developer Support
 
 If you have any questions or need help regarding checking XMTP for holders of a given NFT or POAP, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-## More Resources
+### More Resources
 
-- [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
-- [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
-- [Has XMTP For Lens Developers](../lens/has-xmtp.md)
-- [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
+* [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
+* [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
+* [Has XMTP For Lens Developers](../lens/has-xmtp.md)
+* [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
 
 [^1]: e.g. `0xeaf55242a90bb3289dB8184772b0B98562053559`
+
 [^2]: e.g. Lens profile name `lens/@bradorbradley` or Lens profile id, either in decimal or hex, `lens_id:0x24`
+
 [^3]: e.g. `0xeaf55242a90bb3289dB8184772b0B98562053559`
+
 [^4]: e.g. Lens profile name `lens/@bradorbradley` or Lens profile id, either in decimal or hex, `lens_id:0x24`

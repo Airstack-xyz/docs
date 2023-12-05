@@ -17,26 +17,28 @@ layout:
 
 # 🆔 Resolve Farcaster Users
 
+## 🆔 Resolve Farcaster Users
+
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and for integrating onchain and offchain data with Farcaster.
 
-# Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-- [Get All 0x addresses of Farcaster user(s)](resolve-farcaster-users.md#get-all-0x-addresses-of-farcaster-user-s)
-- [Get all ENS domains owned by Farcaster user(s)](resolve-farcaster-users.md#get-all-ens-domains-owned-by-farcaster-user-s)
-- [Get All Web3 Social Accounts (Farcaster, Lens) owned by 0x address or ENS](resolve-farcaster-users.md#get-all-web3-social-accounts-farcaster-lens-owned-by-0x-address-or-ens)
-- [Get Lens Profile of Farcaster user(s)](resolve-farcaster-users.md#get-lens-profile-of-farcaster-user-s)
-- [Check If XMTP is Enabled for Farcaster user(s)](resolve-farcaster-users.md#check-if-xmtp-is-enabled-for-farcaster-user-s)
+* [Get All 0x addresses of Farcaster user(s)](resolve-farcaster-users.md#get-all-0x-addresses-of-farcaster-user-s)
+* [Get all ENS domains owned by Farcaster user(s)](resolve-farcaster-users.md#get-all-ens-domains-owned-by-farcaster-user-s)
+* [Get All Web3 Social Accounts (Farcaster, Lens) owned by 0x address or ENS](resolve-farcaster-users.md#get-all-web3-social-accounts-farcaster-lens-owned-by-0x-address-or-ens)
+* [Get Lens Profile of Farcaster user(s)](resolve-farcaster-users.md#get-lens-profile-of-farcaster-user-s)
+* [Check If XMTP is Enabled for Farcaster user(s)](resolve-farcaster-users.md#check-if-xmtp-is-enabled-for-farcaster-user-s)
 
-## Pre-requisites
+### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
-## Get Started
+### Get Started
 
-#### JavaScript/TypeScript/Python
+**JavaScript/TypeScript/Python**
 
 If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
@@ -53,7 +55,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -68,7 +69,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -83,15 +83,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -99,7 +96,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -123,11 +119,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -140,11 +134,9 @@ const { data, error } = fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -162,35 +154,33 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
-#### Other Programming Languages
+**Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Get All 0x addresses of Farcaster user(s)
+### Get All 0x addresses of Farcaster user(s)
 
 You can resolve an array of Farcaster user(s) to their 0x addresses:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/rQQVTG8laa" %}
 Show 0x addresses of Farcaster user name dwr.eth and user ID 1
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetAddressesOfFarcasters {
   Socials(
@@ -205,11 +195,9 @@ query GetAddressesOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -239,25 +227,23 @@ query GetAddressesOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get all ENS domains owned by Farcaster user(s)
+### Get all ENS domains owned by Farcaster user(s)
 
 You can resolve an array of Farcaster user(s) to their ENS domains:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/6TtsANTcnd" %}
 Show all ENS domains owned by Farcaster user name dwr.eth and user id 1
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetENSOfFarcasters {
   Domains(
@@ -272,11 +258,9 @@ query GetENSOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -299,25 +283,23 @@ query GetENSOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get All Web3 Social Accounts (Farcaster, Lens) owned by 0x address or ENS
+### Get All Web3 Social Accounts (Farcaster, Lens) owned by 0x address or ENS
 
 You can resolve any 0x address or ENS to their web3 socials, which comprise of Farcaster and Lens:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/FHYr4PHYwu" %}
 Show web3 social accounts (Farcaster, Lens) owned by dwr.eth and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetWeb3SocialsOfFarcasters {
   Socials(
@@ -337,11 +319,9 @@ query GetWeb3SocialsOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -368,25 +348,23 @@ query GetWeb3SocialsOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Lens Profile of Farcaster user(s)
+### Get Lens Profile of Farcaster user(s)
 
 You can resolve an array of Farcaster user(s) to their Lens profile, if any:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/7IYVTJBsZi" %}
 Show Lens profiles owned by Farcaster user name dwr.eth and user id 5650
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetLensOfFarcasters {
   Socials(
@@ -405,11 +383,9 @@ query GetLensOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -428,25 +404,23 @@ query GetLensOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Check If XMTP is Enabled for Farcaster user(s)
+### Check If XMTP is Enabled for Farcaster user(s)
 
 You can check if an array of Farcaster user(s) have their XMTP enabled or not:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/KHPF47JvdY" %}
 Show if XMTP is enabled for Farcaster user name varunsrin.eth and user id 5650
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetXMTPOfFarcasters {
   XMTPs(
@@ -466,11 +440,9 @@ query GetXMTPOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -501,18 +473,17 @@ query GetXMTPOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Developer Support
+### Developer Support
 
 If you have any questions or need help regarding resolving identities for Farcaster user(s), please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-## More Resources
+### More Resources
 
-- [Resolve Identities](../resolve-identities/)
-  - [Farcaster](../resolve-identities/farcaster.md)
-- [Farcaster Resolver](../../use-cases/farcaster/universal-resolver.md)
-- [Socials API Reference](../../api-references/api-reference/socials-api/)
-- [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
+* [Resolve Identities](../resolve-identities/)
+  * [Farcaster](../resolve-identities/farcaster.md)
+* [Farcaster Resolver](broken-reference)
+* [Socials API Reference](../../api-references/api-reference/socials-api/)
+* [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)

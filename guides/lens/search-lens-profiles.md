@@ -17,29 +17,31 @@ layout:
 
 # 🔎 Search Lens Profiles
 
+## 🔎 Search Lens Profiles
+
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-# Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-- [Get All Lens Profiles](search-lens-profiles.md#get-all-lens-profiles)
-- [Get All Lens Profiles Created In Specified Time](search-lens-profiles.md#get-all-lens-profiles-created-in-specified-time)
-- [Get The Latest Lens Profiles Created](search-lens-profiles.md#get-the-latest-lens-profiles-created)
-- [Get The Earliest Lens Profiles Created](search-lens-profiles.md#get-the-earliest-lens-profiles-created)
-- [Get The Most Followed Lens Profiles](search-lens-profiles.md#get-the-most-followed-lens-profiles)
-- [Get The Least Followed Lens Profiles](search-lens-profiles.md#get-the-least-followed-lens-profiles)
-- [Get Lens Profiles That Is Following Others The Most](search-lens-profiles.md#get-lens-profiles-that-is-following-others-the-most)
-- [Get Lens Profiles That Is Following Others The Least](search-lens-profiles.md#get-lens-profiles-that-is-following-others-the-least)
+* [Get All Lens Profiles](search-lens-profiles.md#get-all-lens-profiles)
+* [Get All Lens Profiles Created In Specified Time](search-lens-profiles.md#get-all-lens-profiles-created-in-specified-time)
+* [Get The Latest Lens Profiles Created](search-lens-profiles.md#get-the-latest-lens-profiles-created)
+* [Get The Earliest Lens Profiles Created](search-lens-profiles.md#get-the-earliest-lens-profiles-created)
+* [Get The Most Followed Lens Profiles](search-lens-profiles.md#get-the-most-followed-lens-profiles)
+* [Get The Least Followed Lens Profiles](search-lens-profiles.md#get-the-least-followed-lens-profiles)
+* [Get Lens Profiles That Is Following Others The Most](search-lens-profiles.md#get-lens-profiles-that-is-following-others-the-most)
+* [Get Lens Profiles That Is Following Others The Least](search-lens-profiles.md#get-lens-profiles-that-is-following-others-the-least)
 
-## Pre-requisites
+### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
-## Get Started
+### Get Started
 
-#### JavaScript/TypeScript/Python
+**JavaScript/TypeScript/Python**
 
 If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
@@ -56,7 +58,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -71,7 +72,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -86,15 +86,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -102,7 +99,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -126,11 +122,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -143,11 +137,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -165,35 +157,33 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
-#### Other Programming Languages
+**Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Get All Lens Profiles
+### Get All Lens Profiles
 
 You can globally fetch all Lens profiles using the [`Socials`](../../api-references/api-reference/socials-api/) API by specifying `dappName` to `lens`:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/atPGpXtsm7" %}
 Show me all Lens profiles
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -216,11 +206,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -256,25 +244,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get All Lens Profiles Created In Specified Time
+### Get All Lens Profiles Created In Specified Time
 
 You can fetch all Lens profiles that are created in a specified time using the [`Socials`](../../api-references/api-reference/socials-api/) API by specifying `dappName` to `lens` and `profileCreatedAtBlockTimestamp` to the desired block timestamp range:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/Hl3mxK7tfU" %}
 Show me all Lens profiles created between November 12 to 19, 2023 UTC
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -304,11 +290,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -347,25 +331,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get The Latest Lens Profiles Created
+### Get The Latest Lens Profiles Created
 
 You can fetch all the latest Lens profiles created using the [`Socials`](../../api-references/api-reference/socials-api/) API by specifying `dappName` to `lens` and sorting `profileCreatedAtBlockTimestamp` in descending order:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/RsnIUb5lGD" %}
 Show me all the latest Lens profiles created
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -390,11 +372,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -433,25 +413,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get The Earliest Lens Profiles Created
+### Get The Earliest Lens Profiles Created
 
 You can fetch all the latest Lens profiles created using the [`Socials`](../../api-references/api-reference/socials-api/) API by specifying `dappName` to `lens` and sorting `profileCreatedAtBlockTimestamp` in ascending order:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/fSFKyUc0Yi" %}
 Show me all the earliest Lens profiles created
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -476,11 +454,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -519,25 +495,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get The Most Followed Lens Profiles
+### Get The Most Followed Lens Profiles
 
 You can fetch all the most followed Lens profiles using the [`Socials`](../../api-references/api-reference/socials-api/) API by specifying `dappName` to `lens` and sorting `followerCount` in descending order:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/dIciLOsP1M" %}
 Show me the most followed Lens profiles
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -562,11 +536,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -605,25 +577,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get The Least Followed Lens Profiles
+### Get The Least Followed Lens Profiles
 
 You can fetch all the least followed Lens profiles using the [`Socials`](../../api-references/api-reference/socials-api/) API by specifying `dappName` to `lens` and sorting `followerCount` in ascending order:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/kQMRSpEpSf" %}
 Show me the least followed Lens profiles
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -648,11 +618,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -691,25 +659,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Lens Profiles That Is Following Others The Most
+### Get Lens Profiles That Is Following Others The Most
 
 You can fetch all Lens profiles that is following other profiles the most using the [`Socials`](../../api-references/api-reference/socials-api/) API by specifying `dappName` to `lens` and sorting `followingCount` in descending order:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/MJgKcgk9TV" %}
 Show me Lens Profiles that is following others the most
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -734,11 +700,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -777,25 +741,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Lens Profiles That Is Following Others The Least
+### Get Lens Profiles That Is Following Others The Least
 
 You can fetch all Lens profiles that is following other profiles the least using the [`Socials`](../../api-references/api-reference/socials-api/) API by specifying `dappName` to `lens` and sorting `followingCount` in ascending order:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/noeIhdBx8W" %}
 Show me Lens Profiles that is following others the least
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -820,11 +782,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -863,18 +823,17 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Developer Support
+### Developer Support
 
 If you have any questions or need help regarding searching for Lens profiles, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-## More Resources
+### More Resources
 
-- [Socials API Reference](../../api-references/api-reference/socials-api/)
-- [Resolve Lens Profiles](resolve-lens-profiles.md)
-- [Lens Profile Details](lens-profile-details.md)
-- [Lens Followers](lens-followers.md)
-- [Lens Following](lens-following.md)
+* [Socials API Reference](../../api-references/api-reference/socials-api/)
+* [Resolve Lens Profiles](resolve-lens-profiles.md)
+* [Lens Profile Details](lens-profile-details.md)
+* [Lens Followers](lens-followers.md)
+* [Lens Following](lens-following.md)

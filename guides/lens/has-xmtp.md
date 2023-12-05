@@ -15,6 +15,8 @@ layout:
 
 # 📬 Has XMTP
 
+## 📬 Has XMTP
+
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
 [XMTP](https://xmtp.org) is an Ethereum-based messaging protocol.
@@ -26,25 +28,25 @@ Developers building with [XMTP](https://xmtp.org) can use [Airstack](https://air
 1. check if users have [XMTP](https://xmtp.org) enabled (required in order to receive [XMTP](https://xmtp.org) messages)
 2. resolve [Lens](https://lens.xyz) profile names or IDs to 0x Ethereum addresses and vice versa.
 
-# Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Check Lens Profile Has XMTP Enabled](has-xmtp.md#check-lens-profile-has-xmtp-enabled)
-- [Bulk Check Lens Profiles Have XMTP Enabled](has-xmtp.md#bulk-check-lens-profiles-have-xmtp-enabled)
-- [Get All 0x addresses of Lens profile(s)](has-xmtp.md#get-all-0x-addresses-of-lens-profile-s)
-- [Get All Lens Profiles Owned by 0x address](has-xmtp.md#get-all-lens-profiles-owned-by-0x-address)
-- [Get Lens Followers of Lens Profile(s) that has XMTP Enabled](has-xmtp.md#get-lens-followers-of-lens-profile-s-that-has-xmtp-enabled)
-- [Get Lens Following of Lens Profile(s) that has XMTP Enabled](has-xmtp.md#get-lens-following-of-lens-profile-s-that-has-xmtp-enabled)
+* [Check Lens Profile Has XMTP Enabled](has-xmtp.md#check-lens-profile-has-xmtp-enabled)
+* [Bulk Check Lens Profiles Have XMTP Enabled](has-xmtp.md#bulk-check-lens-profiles-have-xmtp-enabled)
+* [Get All 0x addresses of Lens profile(s)](has-xmtp.md#get-all-0x-addresses-of-lens-profile-s)
+* [Get All Lens Profiles Owned by 0x address](has-xmtp.md#get-all-lens-profiles-owned-by-0x-address)
+* [Get Lens Followers of Lens Profile(s) that has XMTP Enabled](has-xmtp.md#get-lens-followers-of-lens-profile-s-that-has-xmtp-enabled)
+* [Get Lens Following of Lens Profile(s) that has XMTP Enabled](has-xmtp.md#get-lens-following-of-lens-profile-s-that-has-xmtp-enabled)
 
-## Pre-requisites
+### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
-## Get Started
+### Get Started
 
-#### JavaScript/TypeScript/Python
+**JavaScript/TypeScript/Python**
 
 If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
@@ -61,7 +63,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -76,7 +77,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -91,15 +91,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -107,7 +104,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -131,11 +127,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -148,11 +142,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -170,35 +162,33 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
-#### Other Programming Languages
+**Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Check Lens Profile Has XMTP Enabled
+### Check Lens Profile Has XMTP Enabled
 
 You can check if a Lens profile has XMTP enabled or not:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/38TR2Gxuqf" %}
 Check Lens Profile has XMTP enabled (Demo)
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
@@ -210,11 +200,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -228,25 +216,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Bulk Check Lens Profiles Have XMTP Enabled
+### Bulk Check Lens Profiles Have XMTP Enabled
 
 You can bulk check a list of Lens profiles have XMTP enabled or not:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/nNmMc2WyKr" %}
 Bulk Check If an Array of Lens Profiles Have XMTP (Demo)
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query BulkFetchLensProfilesHaveXMTP {
   XMTPs(
@@ -272,11 +258,9 @@ query BulkFetchLensProfilesHaveXMTP {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -332,25 +316,23 @@ query BulkFetchLensProfilesHaveXMTP {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get All 0x addresses of Lens profile(s)
+### Get All 0x addresses of Lens profile(s)
 
 You can resolve an array of Lens profile(s) to their 0x addresses for XMTP messaging and displayed in your XMTP application:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/rmLiJWfGxh" %}
 Show 0x addresses of lens/@nader and Lens profile id 100275
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetAddressesOfLens {
   Socials(
@@ -371,11 +353,9 @@ query GetAddressesOfLens {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -402,25 +382,23 @@ query GetAddressesOfLens {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get All Lens Profiles Owned by 0x address
+### Get All Lens Profiles Owned by 0x address
 
 You can resolve any 0x address to their Farcaster accounts for XMTP messaging and displayed in your XMTP application:
 
-### Try Demo
+#### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/WAIEP13Nr5" %}
 Show Lens owned by Ethereum address 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 {% endembed %}
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetLensOfEthereumAddress {
   Socials(
@@ -441,11 +419,9 @@ query GetLensOfEthereumAddress {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 
   "data": {
@@ -464,21 +440,19 @@ query GetLensOfEthereumAddress {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Lens Followers of Lens Profile(s) that has XMTP Enabled
+### Get Lens Followers of Lens Profile(s) that has XMTP Enabled
 
 You can all the Lens followers of Lens profile(s) and see whether they have their XMTP enabled for messaging:
 
-### Try Demo
+#### Try Demo
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   SocialFollowers(
     input: {filter: {dappName: {_eq: lens}, identity: {_in: ["lens/@stani", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
@@ -513,29 +487,25 @@ You can all the Lens followers of Lens profile(s) and see whether they have thei
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 // Some code
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get Lens Following of Lens Profile(s) that has XMTP Enabled
+### Get Lens Following of Lens Profile(s) that has XMTP Enabled
 
 You can all the Lens following of Lens profile(s) and see whether they have their XMTP enabled for messaging:
 
-### Try Demo
+#### Try Demo
 
-### Code
+#### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowings(
@@ -585,32 +555,29 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 // Some code
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Developer Support
+### Developer Support
 
-## Developer Support
+### Developer Support
 
 If you have any questions or need help regarding checking if Lens profile(s) have XMTP enabled, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-## More Resources
+### More Resources
 
-- [Has XMTP](../xmtp/)
-  - [Check Lens Profile](../xmtp/check-single-user.md#by-lens-profile)
-  - [Bulk Check Lens Profiles](../xmtp/check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
-- [Lens Followers](broken-reference/)
-- [Lens Followings](broken-reference/)
-- [Lens Resolver](../../use-cases/lens/universal-resolver.md)
-- [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
-- [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
-- [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
+* [Has XMTP](../xmtp/)
+  * [Check Lens Profile](../xmtp/check-single-user.md#by-lens-profile)
+  * [Bulk Check Lens Profiles](../xmtp/check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
+* [Lens Followers](broken-reference/)
+* [Lens Followings](broken-reference/)
+* [Lens Resolver](broken-reference)
+* [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
+* [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
+* [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
