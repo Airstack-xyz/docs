@@ -58,3 +58,4 @@ redirects:
   readme-1: README.md
   get-started/pricing: pricing.md
   get-started/api-status-and-roadmap: introduction/api-capabilities.md
+  readme/use-cases: guides/onchain-graph.md
