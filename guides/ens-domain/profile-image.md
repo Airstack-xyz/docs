@@ -1,29 +1,14 @@
 ---
 description: >-
-  Learn how to fetch profile images of various web3 domains and socials, such as
-  ENS, Farcaster, and Lens.
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: false
-  pagination:
-    visible: true
+  Learn how to use Airstack API to fetch ENS profile image data in various
+  sizes.
 ---
 
 # 🖼 Profile Image
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications with profile images from various protocols.
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating on-chain and off-chain data from [ENS](https://ens.domains).
 
-In this guide you will learn how to use Airstack to:
-
-* [Get ENS Profile Image](profile-image.md#get-ens-profile-image) (in various sizes)
-* [Get Lens Profile Image](profile-image.md#get-lens-profile-image)
-* [Get Farcaster Profile Image](profile-image.md#get-farcaster-profile-image) (in various sizes)
+In this guide you will learn how to use Airstack to [get ENS profile image](profile-image.md#get-ens-profile-image) in various sizes.
 
 ## Pre-requisites
 
@@ -159,7 +144,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
-<figure><img src="../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
 ## Get ENS Profile Image
 
@@ -234,135 +219,12 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## Get Lens Profile Image
-
-You can provide the Lens handle, e.g. [`lens/@vitalik`](https://explorer.airstack.xyz/token-balances?address=lens%2F%40vitalik\&blockchain=ethereum\&rawInput=%23%E2%8E%B1lens%2F%40vitalik%E2%8E%B1%28lens%2F%40vitalik++ethereum+null%29\&inputType=ADDRESS), into the `profileName` input filter and fetch the Lens profile image from the response with the `profileImage` giving the original profile image and `profileImageContentValue` providing the resized versions:
-
-{% hint style="info" %}
-The images returned will already be resized by Airstack and can be used directly within your application:
-
-* extra\_small: 125x125px
-* small: 250x250px
-* medium: 500x500px
-* large: 750x750px
-{% endhint %}
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/FBm7aw5m16" %}
-Show me Lens profile image of lens/@vitalik
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  Socials(
-    input: {filter: {profileName: {_eq: "lens/@vitalik"}, dappName: {_eq: lens}}, blockchain: ethereum}
-  ) {
-    Social {
-      profileImage
-      profileImageContentValue {
-        image {
-          extraSmall
-          large
-          medium
-          original
-          small
-        }
-      }
-    }
-  }
-}
-```
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-{
-  "data": {
-    "Socials": {
-      "Social": [
-        {
-          "profileImage": "ipfs://QmQP1DyNH8upeBxKJYtfCDdUj3mRcZep8zhJTLe3ePXB7M",
-          "profileImageContentValue": {
-            "image": {
-              "extraSmall": "https://assets.airstack.xyz/image/social/WA1TRm9gbDHIiCUF6iXICUfjUq/5gWZ5lBaDpcgYv0Y=/extra_small.jpg",
-              "large": "https://assets.airstack.xyz/image/social/WA1TRm9gbDHIiCUF6iXICUfjUq/5gWZ5lBaDpcgYv0Y=/large.jpg",
-              "medium": "https://assets.airstack.xyz/image/social/WA1TRm9gbDHIiCUF6iXICUfjUq/5gWZ5lBaDpcgYv0Y=/medium.jpg",
-              "original": "https://assets.airstack.xyz/image/social/WA1TRm9gbDHIiCUF6iXICUfjUq/5gWZ5lBaDpcgYv0Y=/original_image.jpg",
-              "small": "https://assets.airstack.xyz/image/social/WA1TRm9gbDHIiCUF6iXICUfjUq/5gWZ5lBaDpcgYv0Y=/small.jpg"
-            }
-          }
-        }
-      ]
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## Get Farcaster Profile Image
-
-You can provide the user's fname, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), into the `profileName` input filter and fetch the Farcaster profile image from the response with the `profileImage` field:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/S3zEhemN0K" %}
-Show Farcaster profile image of Farcaster user vitalik.eth
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  Socials(
-    input: {
-      filter: {
-        profileName: { _eq: "vitalik.eth" }
-        dappName: { _eq: farcaster }
-      }
-      blockchain: ethereum
-    }
-  ) {
-    Social {
-      profileImage
-    }
-  }
-}
-```
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-{
-  "data": {
-    "Socials": {
-      "Social": [
-        {
-          "profileImage": "https://i.imgur.com/gF9Yaeg.jpg"
-        }
-      ]
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
 ## Developer Support
 
-If you have any questions or need help regarding fetching profile images data, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding fetching ENS profile images data, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
-* [Socials API Reference](../api-references/api-reference/socials-api/)
-* [Domains API Reference](../api-references/api-reference/domains-api/)
-* [TokenNfts API Reference](../api-references/api-reference/tokennfts-api/)
-* [Farcaster Users Details](farcaster/farcaster-users-details.md)
-* [Lens Profile Details](lens/lens-profile-details.md)
+* [Profile Image Guides](../profile-image.md)
+* [Domains API Reference](../../api-references/api-reference/domains-api/)
+* [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api/)
