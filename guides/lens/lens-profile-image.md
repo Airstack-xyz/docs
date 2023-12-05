@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack API to fetch Lens profile image data in various
   sizes.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🖼 Lens Profile Image
