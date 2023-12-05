@@ -88,25 +88,6 @@ REACT_APP_AIRSTACK_API_KEY=YOUR_AIRSTACK_API_KEY
 Wrap your application or React component with `AirstackProvider` from the SDK to initialize it with the [Airstack API key](../get-api-key.md):
 
 {% tabs %}
-{% tab title="vite (JS)" %}
-{% code title="main.jsx" %}
-```jsx
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { AirstackProvider } from "@airstack/airstack-react";
-import Component from "./Component";
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <AirstackProvider apiKey={import.meta.env.VITE_AIRSTACK_API_KEY}>
-      <Component />
-    </AirstackProvider>
-  </React.StrictMode>
-);
-```
-{% endcode %}
-{% endtab %}
-
 {% tab title="vite (TS)" %}
 {% code title="main.tsx" %}
 ```tsx
@@ -126,9 +107,28 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 {% endcode %}
 {% endtab %}
 
-{% tab title="create-react-app (JS)" %}
-{% code title="index.jsx" %}
+{% tab title="vite (JS)" %}
+{% code title="main.jsx" %}
 ```jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { AirstackProvider } from "@airstack/airstack-react";
+import Component from "./Component";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <AirstackProvider apiKey={import.meta.env.VITE_AIRSTACK_API_KEY}>
+      <Component />
+    </AirstackProvider>
+  </React.StrictMode>
+);
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="create-react-app (TS)" %}
+{% code title="index.tsx" %}
+```tsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { AirstackProvider } from "@airstack/airstack-react";
@@ -145,9 +145,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 {% endcode %}
 {% endtab %}
 
-{% tab title="create-react-app (TS)" %}
-{% code title="index.tsx" %}
-```tsx
+{% tab title="create-react-app (JS)" %}
+{% code title="index.jsx" %}
+```jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { AirstackProvider } from "@airstack/airstack-react";
@@ -176,43 +176,6 @@ For more query examples, check out [**Guides**](broken-reference/) for various u
 {% endhint %}
 
 {% tabs %}
-{% tab title="JavaScript" %}
-{% code title="Component.jsx" %}
-```jsx
-import { useQuery } from "@airstack/airstack-react";
-
-const GET_VITALIK_LENS_FARCASTER_ENS = `
-query MyQuery {
-  Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
-    socials {
-      dappName
-      profileName
-    }
-    addresses
-  }
-}
-`;
-
-const Component = () => {
-  const { data, loading, error } = useQuery(query, {}, { cache: false });
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error.message}</p>;
-  }
-
-  // Render your component using the data returned by the query
-  console.log(data);
-};
-
-export default Component;
-```
-{% endcode %}
-{% endtab %}
-
 {% tab title="TypeScript" %}
 <pre class="language-tsx" data-title="Component.tsx"><code class="lang-tsx">import { useQuery } from "@airstack/airstack-react";
 
@@ -270,6 +233,43 @@ const Component = () => {
 
 export default Component;
 </code></pre>
+{% endtab %}
+
+{% tab title="JavaScript" %}
+{% code title="Component.jsx" %}
+```jsx
+import { useQuery } from "@airstack/airstack-react";
+
+const GET_VITALIK_LENS_FARCASTER_ENS = `
+query MyQuery {
+  Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
+    socials {
+      dappName
+      profileName
+    }
+    addresses
+  }
+}
+`;
+
+const Component = () => {
+  const { data, loading, error } = useQuery(query, {}, { cache: false });
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+
+  // Render your component using the data returned by the query
+  console.log(data);
+};
+
+export default Component;
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 

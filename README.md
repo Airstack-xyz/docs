@@ -23,7 +23,7 @@ In addition, [Airstack](https://airstack.xyz) also provides an[ AI solution](get
 
 ## Overview
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f6a6">🚦</span> <strong>API Capabilities</strong></td><td>Learn all the current features available on Airstack and its future roadmap.</td><td></td><td><a href="introduction/api-capabilities.md">api-capabilities.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f6e0">🛠</span> <strong>Use Cases</strong></td><td>Learn all the use cases that you can build using Airstack API for your dapps.</td><td></td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f6a6">🚦</span> <strong>API Capabilities</strong></td><td>Learn all the current features available on Airstack and its future roadmap.</td><td></td><td><a href="introduction/api-capabilities.md">api-capabilities.md</a></td></tr></tbody></table>
 
 ## Get Started
 

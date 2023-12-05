@@ -1,5 +1,5 @@
 ---
-description: Learn how to use Airstack in your frontend JavaScript/TypeScript application.
+description: Learn how to use Airstack in your frontend TypeScript/JavaScript application.
 layout:
   title:
     visible: true
@@ -17,7 +17,7 @@ layout:
 
 ## 🌐 JavaScript (Browser)
 
-In this tutorial, you will learn how to start integrating [Airstack](https://airstack.xyz) API into your frontend JavaScript/TypeScript application.
+In this tutorial, you will learn how to start integrating [Airstack](https://airstack.xyz) API into your frontend TypeScript/JavaScript application.
 
 ## Table Of Contents
 
@@ -80,9 +80,9 @@ Depending on the JavaScript framework that you are using, you might need to spec
 You can use [`init`](../../nodejs-sdk-reference/init.md) from the SDK to initialize it with the [Airstack API key](../get-api-key.md):
 
 {% tabs %}
-{% tab title="JavaScript" %}
-{% code title="index.js" %}
-```javascript
+{% tab title="TypeScript" %}
+{% code title="index.ts" %}
+```typescript
 import { init } from "@airstack/airstack-react";
 
 init(process.env.AIRSTACK_API_KEY);
@@ -90,9 +90,9 @@ init(process.env.AIRSTACK_API_KEY);
 {% endcode %}
 {% endtab %}
 
-{% tab title="TypeScript" %}
-{% code title="index.ts" %}
-```typescript
+{% tab title="JavaScript" %}
+{% code title="index.js" %}
+```javascript
 import { init } from "@airstack/airstack-react";
 
 init(process.env.AIRSTACK_API_KEY);
@@ -112,38 +112,6 @@ For more query examples, check out [**Guides**](broken-reference/) for various u
 {% endhint %}
 
 {% tabs %}
-{% tab title="JavaScript" %}
-{% code title="index.js" %}
-```javascript
-import { fetchQuery } from "@airstack/airstack-react";
-
-const GET_VITALIK_LENS_FARCASTER_ENS = `
-query MyQuery {
-  Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
-    socials {
-      dappName
-      profileName
-    }
-    addresses
-  }
-}
-`;
-
-const main = async () => {
-  const { data, error } = await fetchQuery(query);
-
-  if (error) {
-    throw new Error(error.message);
-  }
-
-  console.log(data);
-};
-
-main();
-```
-{% endcode %}
-{% endtab %}
-
 {% tab title="TypeScript" %}
 {% code title="index.ts" %}
 ```typescript
@@ -198,6 +166,38 @@ main();
 ```
 {% endcode %}
 {% endtab %}
+
+{% tab title="JavaScript" %}
+{% code title="index.js" %}
+```javascript
+import { fetchQuery } from "@airstack/airstack-react";
+
+const GET_VITALIK_LENS_FARCASTER_ENS = `
+query MyQuery {
+  Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
+    socials {
+      dappName
+      profileName
+    }
+    addresses
+  }
+}
+`;
+
+const main = async () => {
+  const { data, error } = await fetchQuery(query);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  console.log(data);
+};
+
+main();
+```
+{% endcode %}
+{% endtab %}
 {% endtabs %}
 
 The `data` variable will return and logged into your terminal as follows:
@@ -224,7 +224,7 @@ The `data` variable will return and logged into your terminal as follows:
 
 ### Developer Support
 
-If you have any questions or need help regarding integrating [Airstack](https://airstack.xyz) into your frontend JS/TS application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding integrating [Airstack](https://airstack.xyz) into your frontend TS/JS application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ### More Resources
 

@@ -2,7 +2,6 @@
 
 * [ℹ Introduction](README.md)
   * [🚦 API Capabilities](introduction/api-capabilities.md)
-  * [🛠 Use Cases](introduction/use-cases.md)
 * [⭐ Get Started](get-started/README.md)
   * [🗝 Get API Key](get-started/get-api-key.md)
   * [🤖 Airstack AI](get-started/airstack-ai.md)

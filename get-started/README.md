@@ -1,4 +1,7 @@
 ---
+description: >-
+  Learn how to start using and integrating Airstack API to fetch data from
+  various web3 ecosystem to power your ecosystem.
 layout:
   title:
     visible: true

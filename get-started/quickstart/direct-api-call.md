@@ -142,9 +142,9 @@ pnpm install dotenv
 and import the package to be able to inject the environment variable to your application:
 
 {% tabs %}
-{% tab title="JavaScript" %}
-{% code title="index.js" %}
-```javascript
+{% tab title="TypeScript" %}
+{% code title="index.ts" %}
+```typescript
 import { config } from "dotenv";
 
 config();
@@ -152,9 +152,9 @@ config();
 {% endcode %}
 {% endtab %}
 
-{% tab title="TypeScript" %}
-{% code title="index.ts" %}
-```typescript
+{% tab title="JavaScript" %}
+{% code title="index.js" %}
+```javascript
 import { config } from "dotenv";
 
 config();
@@ -174,45 +174,6 @@ For more query examples, check out [**Guides**](broken-reference/) for various u
 {% endhint %}
 
 {% tabs %}
-{% tab title="graphql-request (JS)" %}
-<pre class="language-javascript"><code class="lang-javascript">import { gql, GraphQLClient } from "graphql-request";
-
-const AIRSTACK_API_URL = "https://api.airstack.xyz/graphql";
-const AIRSTACK_API_KEY = process.env.AIRSTACK_API_KEY;
-
-const query = gql`
-  query MyQuery {
-    Wallet(input: { identity: "vitalik.eth", blockchain: ethereum }) {
-      socials {
-        dappName
-        profileName
-      }
-      addresses
-    }
-  }
-`;
-
-if (!AIRSTACK_API_KEY) throw new Error("AIRSTACK_API_KEY not set");
-
-const graphQLClient = new GraphQLClient(AIRSTACK_API_URL, {
-  headers: {
-<strong>    Authorization: AIRSTACK_API_KEY, // Add API key to Authorization header
-</strong>  },
-});
-
-const main = async () => {
-  try {
-    const data = await graphQLClient.request(query);
-    console.log(data);
-  } catch (e) {
-    throw new Error(e?.message)
-  }
-}
-
-main();
-</code></pre>
-{% endtab %}
-
 {% tab title="graphql-request (TS)" %}
 <pre class="language-typescript"><code class="lang-typescript">import { gql, GraphQLClient } from "graphql-request";
 
@@ -270,45 +231,38 @@ main();
 </code></pre>
 {% endtab %}
 
-{% tab title="node-fetch (JS)" %}
-<pre class="language-javascript" data-title="index.js"><code class="lang-javascript">import fetch from "node-fetch";
+{% tab title="graphql-request (JS)" %}
+<pre class="language-javascript"><code class="lang-javascript">import { gql, GraphQLClient } from "graphql-request";
 
 const AIRSTACK_API_URL = "https://api.airstack.xyz/graphql";
 const AIRSTACK_API_KEY = process.env.AIRSTACK_API_KEY;
 
-const query = `
-query MyQuery {
-  Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
-    socials {
-      dappName
-      profileName
+const query = gql`
+  query MyQuery {
+    Wallet(input: { identity: "vitalik.eth", blockchain: ethereum }) {
+      socials {
+        dappName
+        profileName
+      }
+      addresses
     }
-    addresses
   }
-}
 `;
+
+if (!AIRSTACK_API_KEY) throw new Error("AIRSTACK_API_KEY not set");
+
+const graphQLClient = new GraphQLClient(AIRSTACK_API_URL, {
+  headers: {
+<strong>    Authorization: AIRSTACK_API_KEY, // Add API key to Authorization header
+</strong>  },
+});
 
 const main = async () => {
   try {
-    if (!AIRSTACK_API_KEY) throw new Error("AIRSTACK_API_KEY not set");
-    
-    const res = await fetch(
-      AIRSTACK_API_URL,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-<strong>          Authorization: AIRSTACK_API_KEY // Add API key to Authorization header
-</strong>        },
-        body: JSON.stringify({ query }),
-      }
-    );
-    const json = await res?.json();
-    const data = json?.data;
-  
+    const data = await graphQLClient.request(query);
     console.log(data);
   } catch (e) {
-    throw new Error(e?.message);
+    throw new Error(e?.message)
   }
 }
 
@@ -376,6 +330,52 @@ const main = async () => {
     throw new Error((e as Error)?.message);
   }
 };
+
+main();
+</code></pre>
+{% endtab %}
+
+{% tab title="node-fetch (JS)" %}
+<pre class="language-javascript" data-title="index.js"><code class="lang-javascript">import fetch from "node-fetch";
+
+const AIRSTACK_API_URL = "https://api.airstack.xyz/graphql";
+const AIRSTACK_API_KEY = process.env.AIRSTACK_API_KEY;
+
+const query = `
+query MyQuery {
+  Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
+    socials {
+      dappName
+      profileName
+    }
+    addresses
+  }
+}
+`;
+
+const main = async () => {
+  try {
+    if (!AIRSTACK_API_KEY) throw new Error("AIRSTACK_API_KEY not set");
+    
+    const res = await fetch(
+      AIRSTACK_API_URL,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+<strong>          Authorization: AIRSTACK_API_KEY // Add API key to Authorization header
+</strong>        },
+        body: JSON.stringify({ query }),
+      }
+    );
+    const json = await res?.json();
+    const data = json?.data;
+  
+    console.log(data);
+  } catch (e) {
+    throw new Error(e?.message);
+  }
+}
 
 main();
 </code></pre>
