@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to get ERC20, 721, 1155, and POAPs of Farcaster User(s), including
-  images and metadata, on Ethereum, Polygon, and Gnosis (POAPs).
+  images and metadata, on Ethereum, Polygon, Base, and Gnosis (POAPs).
 layout:
   title:
     visible: true
@@ -29,9 +29,9 @@ In this guide you will learn how to use Airstack to:
 * [Get Polygon ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-polygon-erc20s-owned-by-farcaster-user-s)
 * [Get Base ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-base-erc20s-owned-by-farcaster-user-s)
 * [Get All ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-all-erc20s-owned-by-farcaster-user-s)
-* Get Ethereum NFTs Owned By Farcaster user(s)
-* Get Polygon NFTs Owned By Farcaster user(s)
-* Get Base NFTs Owned By Farcaster user(s)
+* [Get Ethereum NFTs Owned By Farcaster user(s)](get-token-balances.md#get-ethereum-nfts-owned-by-farcaster-user-s)
+* [Get Polygon NFTs Owned By Farcaster user(s)](get-token-balances.md#get-polygon-nfts-owned-by-farcaster-user-s)
+* [Get Base NFTs Owned By Farcaster user(s)](get-token-balances.md#get-base-nfts-owned-by-farcaster-user-s)
 * [Get All NFTs Owned By Farcaster user(s)](get-token-balances.md#get-all-nfts-owned-by-farcaster-user-s)
 * [Get All POAPs Owned By Farcaster user(s)](get-token-balances.md#get-all-poaps-owned-by-farcaster-user-s)
 
