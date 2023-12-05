@@ -445,7 +445,7 @@ You can fetch all ERC20 tokens on Ethereum, Polygon, and Base owned by any Lens 
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/z5mwViK3bq" %}
+{% embed url="https://app.airstack.xyz/query/aXsVio5nvm" %}
 Show ERC20 tokens on Ethereum, Polygon, and Base owned by lens/@bradorbradley and Lens profile id 100275
 {% endembed %}
 
@@ -974,7 +974,7 @@ You can fetch all NFTs on Ethereum, Polygon, and Base owned by any Lens Profile(
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/skXQHLkXin" %}
+{% embed url="https://app.airstack.xyz/query/xoAjUpSHcs" %}
 Show NFT on Ethereum and Polygon owned by lens/@bradorbradley and Lens profile id 100275
 {% endembed %}
 
