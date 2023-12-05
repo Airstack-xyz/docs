@@ -7,6 +7,7 @@
   * [🗝 Get API Key](get-started/get-api-key.md)
   * [🤖 Airstack AI](get-started/airstack-ai.md)
   * [🚀 Quickstart](get-started/quickstart/README.md)
+    * [🌐 JavaScript (Browser)](get-started/quickstart/javascript-browser.md)
     * [⚛ React](get-started/quickstart/react.md)
     * [🗼 Node.js](get-started/quickstart/node.md)
     * [🐍 Python](get-started/quickstart/python.md)

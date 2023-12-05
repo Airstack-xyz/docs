@@ -1,29 +1,18 @@
 ---
-description: Learn how to use Airstack in your Node.js application.
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: false
-  pagination:
-    visible: true
+description: Learn how to use Airstack in your frontend JavaScript/TypeScript application.
 ---
 
-# 🗼 Node.js
+# 🌐 JavaScript (Browser)
 
-In this tutorial, you will learn how to start integrating [Airstack](https://airstack.xyz) API into your [Node.js](https://nodejs.org/en) application.&#x20;
+In this tutorial, you will learn how to start integrating [Airstack](https://airstack.xyz) API into your frontend JavaScript/TypeScript application.&#x20;
 
 ## Table Of Contents
 
-* [Step 0: Pre-requisites](node.md#step-0-pre-requisites)
-* [Step 1: Install Airstack Node SDK](node.md#step-1-install-airstack-node-sdk)
-* [Step 2: Set Environment Variable](node.md#step-2-set-environment-variable)
-* [Step 3: Initialize SDK](node.md#step-3-initialize-sdk)
-* [Step 4: Call Your Query](node.md#step-4-call-your-query)
+* [Step 0: Pre-requisites](javascript-browser.md#step-0-pre-requisites)
+* [Step 1: Install Airstack Web SDK](javascript-browser.md#step-1-install-airstack-web-sdk)
+* [Step 2: Set Environment Variable](javascript-browser.md#step-2-set-environment-variable)
+* [Step 3: Initialize SDK](javascript-browser.md#step-3-initialize-sdk)
+* [Step 4: Call Your Query](javascript-browser.md#step-4-call-your-query)
 
 ## Step 0: Pre-requisites
 
@@ -31,26 +20,26 @@ In this tutorial, you will learn how to start integrating [Airstack](https://air
 * Git
 * Node v.16+
 
-## Step 1: Install Airstack Node SDK
+## Step 1: Install Airstack Web SDK
 
-Use a package manager to install the [Airstack Node SDK](broken-reference) into your [Node.js](https://nodejs.org/en) project:
+Use a package manager to install the Airstack Web SDK into your JS/TS project:
 
 {% tabs %}
 {% tab title="npm" %}
 ```sh
-npm install @airstack/node
+npm install @airstack/airstack-react
 ```
 {% endtab %}
 
 {% tab title="yarn" %}
 ```sh
-yarn add @airstack/node
+yarn add @airstack/airstack-react
 ```
 {% endtab %}
 
 {% tab title="pnpm" %}
 ```sh
-pnpm install @airstack/node
+pnpm install @airstack/airstack-react
 ```
 {% endtab %}
 {% endtabs %}
@@ -69,53 +58,9 @@ Add the [Airstack API key](../get-api-key.md) as the environment variable:
 AIRSTACK_API_KEY=YOUR_AIRSTACK_API_KEY
 ```
 
-If you are using Node version 20.6.0+, then you can simply import the environment variable to you Node.js app. Thus, directly proceed to the next step.
-
-If you are using Node version earlier than 20.6.0, then you need to install the `dotenv` package:
-
-{% tabs %}
-{% tab title="npm" %}
-```bash
-npm install dotenv
-```
-{% endtab %}
-
-{% tab title="yarn" %}
-```bash
-yarn add dotenv
-```
-{% endtab %}
-
-{% tab title="pnpm" %}
-```bash
-pnpm install dotenv
-```
-{% endtab %}
-{% endtabs %}
-
-and import the package to be able to inject the environment variable to your application:
-
-{% tabs %}
-{% tab title="JavaScript" %}
-{% code title="index.js" %}
-```javascript
-import { config } from "dotenv";
-
-config();
-```
-{% endcode %}
-{% endtab %}
-
-{% tab title="TypeScript" %}
-{% code title="index.ts" %}
-```typescript
-import { config } from "dotenv";
-
-config();
-```
-{% endcode %}
-{% endtab %}
-{% endtabs %}
+{% hint style="info" %}
+Depending on the JavaScript framework that you are using, you might need to specify a specific naming convention for your environment variables, e.g. vue needs `VUE_APP_AIRSTACK_API_KEY`
+{% endhint %}
 
 ## Step 3: Initialize SDK
 
@@ -125,7 +70,7 @@ You can use [`init`](../../nodejs-sdk-reference/init.md) from the SDK to initial
 {% tab title="JavaScript" %}
 {% code title="index.js" %}
 ```javascript
-import { init } from "@airstack/node";
+import { init } from "@airstack/airstack-react";
 
 init(process.env.AIRSTACK_API_KEY);
 ```
@@ -135,7 +80,7 @@ init(process.env.AIRSTACK_API_KEY);
 {% tab title="TypeScript" %}
 {% code title="index.ts" %}
 ```typescript
-import { init } from "@airstack/node";
+import { init } from "@airstack/airstack-react";
 
 init(process.env.AIRSTACK_API_KEY);
 ```
@@ -157,7 +102,7 @@ For more query examples, check out [**Guides**](broken-reference) for various us
 {% tab title="JavaScript" %}
 {% code title="index.js" %}
 ```javascript
-import { fetchQuery } from "@airstack/node";
+import { fetchQuery } from "@airstack/airstack-react";
 
 const GET_VITALIK_LENS_FARCASTER_ENS = `
 query MyQuery {
@@ -189,7 +134,7 @@ main();
 {% tab title="TypeScript" %}
 {% code title="index.ts" %}
 ```typescript
-import { fetchQuery } from "@airstack/node";
+import { fetchQuery } from "@airstack/airstack-react";
 
 interface QueryResponse {
   data: Data;
@@ -269,7 +214,7 @@ The `data` variable will return and logged into your terminal as follows:
 
 ## Developer Support
 
-If you have any questions or need help regarding integrating [Airstack](https://airstack.xyz) into your [Node.js ](https://nodejs.org/en)application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding integrating [Airstack](https://airstack.xyz) into your frontend JS/TS application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
@@ -279,4 +224,4 @@ Learn to build more with Airstack using our tutorials:
 * [Resolve Identities](../../guides/resolve-identities/)
 * [Combinations](../../guides/combinations/)
 * [Wallet API Reference](../../api-references/api-reference/wallet-api/)
-* [Node SDK Reference](broken-reference)
+* [Web SDK Reference](broken-reference)
