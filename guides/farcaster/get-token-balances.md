@@ -17,24 +17,32 @@ layout:
 
 # 💰 Get Token Balances
 
+## 💰 Get Token Balances
+
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and for integrating onchain and offchain data with Farcaster.
 
-# Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-- [Get All ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-all-erc20s-owned-by-farcaster-user-s)
-- [Get All NFTs Owned By Farcaster user(s)](get-token-balances.md#get-all-nfts-owned-by-farcaster-user-s)
-- [Get All POAPs Owned By Farcaster user(s)](get-token-balances.md#get-all-poaps-owned-by-farcaster-user-s)
+* [Get Ethereum ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-ethereum-erc20s-owned-by-farcaster-user-s)
+* [Get Polygon ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-polygon-erc20s-owned-by-farcaster-user-s)
+* [Get Base ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-base-erc20s-owned-by-farcaster-user-s)
+* [Get All ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-all-erc20s-owned-by-farcaster-user-s)
+* Get Ethereum NFTs Owned By Farcaster user(s)
+* Get Polygon NFTs Owned By Farcaster user(s)
+* Get Base NFTs Owned By Farcaster user(s)
+* [Get All NFTs Owned By Farcaster user(s)](get-token-balances.md#get-all-nfts-owned-by-farcaster-user-s)
+* [Get All POAPs Owned By Farcaster user(s)](get-token-balances.md#get-all-poaps-owned-by-farcaster-user-s)
 
-## Pre-requisites
+### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
-## Get Started
+### Get Started
 
-#### JavaScript/TypeScript/Python
+**JavaScript/TypeScript/Python**
 
 If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
@@ -51,7 +59,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -66,7 +73,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -81,15 +87,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -97,7 +100,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -121,11 +123,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -138,11 +138,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -160,35 +158,333 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
-#### Other Programming Languages
+**Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Get All ERC20s Owned By Farcaster user(s)
+## Get Ethereum ERC20s Owned By Farcaster user(s)
 
-You can fetch all ERC20 tokens on Ethereum and Polygon owned by any Farcaster user(s) using either their Farcaster names or IDs:
+You can fetch all ERC20 tokens on Ethereum owned by any Farcaster user(s) using either their Farcaster names or IDs:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/FxdfrqG3WS" %}
-Show ERC20 tokens on Ethereum and Polygon owned by Farcaster user name dwr.eth and user id 1
+{% embed url="https://app.airstack.xyz/query/5QXHPew792" %}
+Show ERC20 tokens on Ethereum owned by Farcaster user name dwr.eth and user id 1
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+```graphql
+query ERC20sOwnedByFarcasterUser {
+  TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["fc_fname:dwr.eth", "fc_fid:1"] }
+        tokenType: { _eq: ERC20 }
+      }
+      blockchain: ethereum
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      owner {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+      }
+      amount
+      tokenAddress
+      token {
+        name
+        symbol
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
 
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenBalances": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "socials": [
+              {
+                "profileName": "dwr.eth",
+                "userId": "3",
+                "userAssociatedAddresses": [
+                  "0x6b0bda3f2ffed5efc83fa8c024acff1dd45793f1",
+                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+                  "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
+                  "0x8fc5d6afe572fefc4ec153587b63ce543f6fa2ea",
+                  "0xb877f7bb52d28f06e60f557c00a56225124b357f",
+                  "0x74232bf61e994655592747e20bdf6fa9b9476f79"
+                ]
+              },
+              {
+                "profileName": "",
+                "userId": "188133",
+                "userAssociatedAddresses": [
+                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+                ]
+              }
+            ]
+          },
+          "amount": "151869896",
+          "tokenAddress": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "token": {
+            "name": "USD Coin",
+            "symbol": "USDC"
+          }
+        },
+        // Other Ethereum ERC20s
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweGJkODI0MGMyM2VjOThiMjFmMzhjNWQzZTFlZWE5NTdhYjgwZGE5Y2EweGQ3MDI5YmRlYTFjMTc0OTM4OTNhYWZlMjlhYWQ2OWVmODkyYjhmZjIiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2NDc1MjIyNDYiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Polygon ERC20s Owned By Farcaster user(s)
+
+You can fetch all ERC20 tokens on Polygon owned by any Farcaster user(s) using either their Farcaster names or IDs:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/34zjJBEPBl" %}
+Show ERC20 tokens on Polygon owned by Farcaster user name dwr.eth and user id 1
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query ERC20sOwnedByFarcasterUser {
+  TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["fc_fname:dwr.eth", "fc_fid:1"] }
+        tokenType: { _eq: ERC20 }
+      }
+      blockchain: polygon
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      owner {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+      }
+      amount
+      tokenAddress
+      token {
+        name
+        symbol
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenBalances": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "socials": [
+              {
+                "profileName": "dwr.eth",
+                "userId": "3",
+                "userAssociatedAddresses": [
+                  "0x6b0bda3f2ffed5efc83fa8c024acff1dd45793f1",
+                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+                  "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
+                  "0x8fc5d6afe572fefc4ec153587b63ce543f6fa2ea",
+                  "0xb877f7bb52d28f06e60f557c00a56225124b357f",
+                  "0x74232bf61e994655592747e20bdf6fa9b9476f79"
+                ]
+              },
+              {
+                "profileName": "",
+                "userId": "188133",
+                "userAssociatedAddresses": [
+                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+                ]
+              }
+            ]
+          },
+          "amount": "1100690000000000000000",
+          "tokenAddress": "0x74450a45b4f8ccb757f18824f5a2d1ce91f3e6f8",
+          "token": {
+            "name": "LikeButton.eth (PoS)",
+            "symbol": "❤️"
+          }
+        },
+        // Other Polygon ERC20s
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweGJkODI0MGMyM2VjOThiMjFmMzhjNWQzZTFlZWE5NTdhYjgwZGE5Y2EweGQ3MDI5YmRlYTFjMTc0OTM4OTNhYWZlMjlhYWQ2OWVmODkyYjhmZjIiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2NDc1MjIyNDYiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Base ERC20s Owned By Farcaster user(s)
+
+You can fetch all ERC20 tokens on Base owned by any Farcaster user(s) using either their Farcaster names or IDs:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/OaZlBhKXQ4" %}
+Show ERC20 tokens on Base owned by Farcaster user name dwr.eth and user id 1
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query ERC20sOwnedByFarcasterUser {
+  TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["fc_fname:dwr.eth", "fc_fid:1"] }
+        tokenType: { _eq: ERC20 }
+      }
+      blockchain: base
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      owner {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+      }
+      amount
+      tokenAddress
+      token {
+        name
+        symbol
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenBalances": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "socials": [
+              {
+                "profileName": "dwr.eth",
+                "userId": "3",
+                "userAssociatedAddresses": [
+                  "0x6b0bda3f2ffed5efc83fa8c024acff1dd45793f1",
+                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+                  "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
+                  "0x8fc5d6afe572fefc4ec153587b63ce543f6fa2ea",
+                  "0xb877f7bb52d28f06e60f557c00a56225124b357f",
+                  "0x74232bf61e994655592747e20bdf6fa9b9476f79"
+                ]
+              },
+              {
+                "profileName": "",
+                "userId": "188133",
+                "userAssociatedAddresses": [
+                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+                ]
+              }
+            ]
+          },
+          "amount": "1000000000000000000",
+          "tokenAddress": "0xdce2eb77135bc3c2eeaa00306e664741e2a6bcca",
+          "token": {
+            "name": "TedUnlonelyToken",
+            "symbol": "TED"
+          }
+        },
+        // Other Base ERC20s
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweGJkODI0MGMyM2VjOThiMjFmMzhjNWQzZTFlZWE5NTdhYjgwZGE5Y2EweGQ3MDI5YmRlYTFjMTc0OTM4OTNhYWZlMjlhYWQ2OWVmODkyYjhmZjIiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2NDc1MjIyNDYiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    }
+  }
+}     
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All ERC20s Owned By Farcaster user(s)
+
+You can fetch all ERC20 tokens on Ethereum, Polygon, and Base owned by any Farcaster user(s) using either their Farcaster names or IDs:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/FxdfrqG3WS" %}
+Show ERC20 tokens on Ethereum, Polygon, and Base owned by Farcaster user name dwr.eth and user id 1
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
 ```graphql
 query ERC20sOwnedByFarcasterUser {
   Ethereum: TokenBalances(
@@ -251,13 +547,41 @@ query ERC20sOwnedByFarcasterUser {
       prevCursor
     }
   }
+  Base: TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["fc_fname:dwr.eth", "fc_fid:1"] }
+        tokenType: { _eq: ERC20 }
+      }
+      blockchain: base
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      owner {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+      }
+      amount
+      tokenAddress
+      token {
+        name
+        symbol
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -285,7 +609,12 @@ query ERC20sOwnedByFarcasterUser {
             "symbol": "TED"
           }
         },
-      ]
+        // Other Ethereum ERC20s
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweGJkODI0MGMyM2VjOThiMjFmMzhjNWQzZTFlZWE5NTdhYjgwZGE5Y2EweGQ3MDI5YmRlYTFjMTc0OTM4OTNhYWZlMjlhYWQ2OWVmODkyYjhmZjIiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2NDc1MjIyNDYiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
     },
     "Polygon": {
       "TokenBalance": [
@@ -311,30 +640,391 @@ query ERC20sOwnedByFarcasterUser {
             "symbol": "YUP"
           }
         }
-      ]
+        // Other Polygon ERC20s
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweGJkODI0MGMyM2VjOThiMjFmMzhjNWQzZTFlZWE5NTdhYjgwZGE5Y2EweGQ3MDI5YmRlYTFjMTc0OTM4OTNhYWZlMjlhYWQ2OWVmODkyYjhmZjIiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2NDc1MjIyNDYiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    },
+    "Base": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "socials": [
+              {
+                "profileName": "dwr.eth",
+                "userId": "3",
+                "userAssociatedAddresses": [
+                  "0x6b0bda3f2ffed5efc83fa8c024acff1dd45793f1",
+                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+                  "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
+                  "0x8fc5d6afe572fefc4ec153587b63ce543f6fa2ea",
+                  "0xb877f7bb52d28f06e60f557c00a56225124b357f",
+                  "0x74232bf61e994655592747e20bdf6fa9b9476f79"
+                ]
+              },
+              {
+                "profileName": "",
+                "userId": "188133",
+                "userAssociatedAddresses": [
+                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+                ]
+              }
+            ]
+          },
+          "amount": "1000000000000000000",
+          "tokenAddress": "0xdce2eb77135bc3c2eeaa00306e664741e2a6bcca",
+          "token": {
+            "name": "TedUnlonelyToken",
+            "symbol": "TED"
+          }
+        },
+        // Other Base ERC20s
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweGJkODI0MGMyM2VjOThiMjFmMzhjNWQzZTFlZWE5NTdhYjgwZGE5Y2EweGQ3MDI5YmRlYTFjMTc0OTM4OTNhYWZlMjlhYWQ2OWVmODkyYjhmZjIiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2NDc1MjIyNDYiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
     }
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Get All NFTs Owned By Farcaster user(s)
+## Get Ethereum NFTs Owned By Farcaster user(s)
 
-You can fetch all NFTs on Ethereum and Polygon owned by any Farcaster user(s) using either their Farcaster names or IDs:
+You can fetch all NFTs on Ethereum owned by any Farcaster user(s) using either their Farcaster names or IDs:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/eEsGE50Xin" %}
-Show NFT on Ethereum and Polygon owned by farcaster user name dwr.eth and user id 1
+{% embed url="https://app.airstack.xyz/query/dRmGldKog8" %}
+Show NFT on Ethereum owned by farcaster user name dwr.eth and user id 1
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+```graphql
+query NFTsOwnedByFarcasterUser {
+  TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["fc_fname:dwr.eth", "fc_fid:1"] }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: ethereum
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      owner {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+      }
+      amount
+      tokenAddress
+      tokenId
+      tokenType
+      tokenNfts {
+        contentValue {
+          image {
+            extraSmall
+            small
+            medium
+            large
+          }
+        }
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
 
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenBalances": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "socials": [
+              {
+                "profileName": "dwr.eth",
+                "userId": "3",
+                "userAssociatedAddresses": [
+                  "0x74232bf61e994655592747e20bdf6fa9b9476f79",
+                  "0xb877f7bb52d28f06e60f557c00a56225124b357f",
+                  "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
+                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+                ]
+              }
+            ]
+          },
+          "amount": "1",
+          "tokenAddress": "0x1538c5ddbb073638b7cd1ae41ec2d9f9a4c24a7e",
+          "tokenId": "1",
+          "tokenType": "ERC721",
+          "tokenNfts": {
+            "contentValue": {
+              "image": {
+                "extraSmall": "https://assets.airstack.xyz/image/nft/1/0x1538c5ddbb073638b7cd1ae41ec2d9f9a4c24a7e/1/extra_small.jpg",
+                "small": "https://assets.airstack.xyz/image/nft/1/0x1538c5ddbb073638b7cd1ae41ec2d9f9a4c24a7e/1/small.jpg",
+                "medium": "https://assets.airstack.xyz/image/nft/1/0x1538c5ddbb073638b7cd1ae41ec2d9f9a4c24a7e/1/medium.jpg",
+                "large": "https://assets.airstack.xyz/image/nft/1/0x1538c5ddbb073638b7cd1ae41ec2d9f9a4c24a7e/1/large.jpg"
+              }
+            }
+          }
+        }
+        // Other Ethereum NFTs
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweGJkODI0MGMyM2VjOThiMjFmMzhjNWQzZTFlZWE5NTdhYjgwZGE5Y2EweGQ3MDI5YmRlYTFjMTc0OTM4OTNhYWZlMjlhYWQ2OWVmODkyYjhmZjIiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2NDc1MjIyNDYiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Polygon NFTs Owned By Farcaster user(s)
+
+You can fetch all NFTs on Polygon owned by any Farcaster user(s) using either their Farcaster names or IDs:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/u0zw9MTwto" %}
+Show NFT on Polygon owned by farcaster user name dwr.eth and user id 1
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query NFTsOwnedByFarcasterUser {
+  TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["fc_fname:dwr.eth", "fc_fid:1"] }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: polygon
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      owner {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+      }
+      amount
+      tokenAddress
+      tokenId
+      tokenType
+      tokenNfts {
+        contentValue {
+          image {
+            extraSmall
+            small
+            medium
+            large
+          }
+        }
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenBalances": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "socials": [
+              {
+                "profileName": "dwr.eth",
+                "userId": "3",
+                "userAssociatedAddresses": [
+                  "0x74232bf61e994655592747e20bdf6fa9b9476f79",
+                  "0xb877f7bb52d28f06e60f557c00a56225124b357f",
+                  "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
+                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+                ]
+              }
+            ]
+          },
+          "amount": "1",
+          "tokenAddress": "0x0f92612c5f539c89dc379e8aa42e3ba862a34b7e",
+          "tokenId": "8",
+          "tokenType": "ERC721",
+          "tokenNfts": {
+            "contentValue": {
+              "image": {
+                "extraSmall": "https://assets.airstack.xyz/image/nft/1/0x0f92612c5f539c89dc379e8aa42e3ba862a34b7e/8/extra_small.jpg",
+                "small": "https://assets.airstack.xyz/image/nft/1/0x0f92612c5f539c89dc379e8aa42e3ba862a34b7e/8/small.jpg",
+                "medium": "https://assets.airstack.xyz/image/nft/1/0x0f92612c5f539c89dc379e8aa42e3ba862a34b7e/8/medium.jpg",
+                "large": "https://assets.airstack.xyz/image/nft/1/0x0f92612c5f539c89dc379e8aa42e3ba862a34b7e/8/large.jpg"
+              }
+            }
+          }
+        }
+        // Other Polygon NFTs
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweGJkODI0MGMyM2VjOThiMjFmMzhjNWQzZTFlZWE5NTdhYjgwZGE5Y2EweGQ3MDI5YmRlYTFjMTc0OTM4OTNhYWZlMjlhYWQ2OWVmODkyYjhmZjIiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2NDc1MjIyNDYiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Base NFTs Owned By Farcaster user(s)
+
+You can fetch all NFTs on Base owned by any Farcaster user(s) using either their Farcaster names or IDs:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/mV7k1lYLjJ" %}
+Show NFT on Polygon owned by farcaster user name dwr.eth and user id 1
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query NFTsOwnedByFarcasterUser {
+  TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["fc_fname:dwr.eth", "fc_fid:1"] }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: base
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      owner {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+      }
+      amount
+      tokenAddress
+      tokenId
+      tokenType
+      tokenNfts {
+        contentValue {
+          image {
+            extraSmall
+            small
+            medium
+            large
+          }
+        }
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenBalances": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "socials": [
+              {
+                "profileName": "dwr.eth",
+                "userId": "3",
+                "userAssociatedAddresses": [
+                  "0x6b0bda3f2ffed5efc83fa8c024acff1dd45793f1",
+                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+                  "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
+                  "0x8fc5d6afe572fefc4ec153587b63ce543f6fa2ea",
+                  "0xb877f7bb52d28f06e60f557c00a56225124b357f",
+                  "0x74232bf61e994655592747e20bdf6fa9b9476f79"
+                ]
+              }
+            ]
+          },
+          "amount": "1",
+          "tokenAddress": "0xf63f652daf6c328544d40b3ed146c8248687c1d1",
+          "tokenId": "7",
+          "tokenType": "ERC1155",
+          "tokenNfts": {
+            "contentValue": {
+              "image": null
+            }
+          }
+        },
+        // Other Base NFTs
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweGJkODI0MGMyM2VjOThiMjFmMzhjNWQzZTFlZWE5NTdhYjgwZGE5Y2EweGQ3MDI5YmRlYTFjMTc0OTM4OTNhYWZlMjlhYWQ2OWVmODkyYjhmZjIiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2NDc1MjIyNDYiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All NFTs Owned By Farcaster user(s)
+
+You can fetch all NFTs on Ethereum, Polygon, and Base owned by any Farcaster user(s) using either their Farcaster names or IDs:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/BcKGVKm2Sr" %}
+Show NFT on Ethereum, Polygon, and Base owned by farcaster user name dwr.eth and user id 1
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
 ```graphql
 query NFTsOwnedByFarcasterUser {
   Ethereum: TokenBalances(
@@ -413,13 +1103,49 @@ query NFTsOwnedByFarcasterUser {
       prevCursor
     }
   }
+  Base: TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["fc_fname:dwr.eth", "fc_fid:1"] }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: base
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      owner {
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
+          profileName
+          userId
+          userAssociatedAddresses
+        }
+      }
+      amount
+      tokenAddress
+      tokenId
+      tokenType
+      tokenNfts {
+        contentValue {
+          image {
+            extraSmall
+            small
+            medium
+            large
+          }
+        }
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -454,8 +1180,13 @@ query NFTsOwnedByFarcasterUser {
               }
             }
           }
-        }
-      ]
+        },
+        // Other Ethereum NFTs
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweGJkODI0MGMyM2VjOThiMjFmMzhjNWQzZTFlZWE5NTdhYjgwZGE5Y2EweGQ3MDI5YmRlYTFjMTc0OTM4OTNhYWZlMjlhYWQ2OWVmODkyYjhmZjIiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2NDc1MjIyNDYiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
     },
     "Polygon": {
       "TokenBalance": [
@@ -488,13 +1219,53 @@ query NFTsOwnedByFarcasterUser {
               }
             }
           }
-        }
-      ]
+        },
+        // Other Polygon NFTs
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweGJkODI0MGMyM2VjOThiMjFmMzhjNWQzZTFlZWE5NTdhYjgwZGE5Y2EweGQ3MDI5YmRlYTFjMTc0OTM4OTNhYWZlMjlhYWQ2OWVmODkyYjhmZjIiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2NDc1MjIyNDYiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    },
+    "Base": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "socials": [
+              {
+                "profileName": "dwr.eth",
+                "userId": "3",
+                "userAssociatedAddresses": [
+                  "0x6b0bda3f2ffed5efc83fa8c024acff1dd45793f1",
+                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+                  "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
+                  "0x8fc5d6afe572fefc4ec153587b63ce543f6fa2ea",
+                  "0xb877f7bb52d28f06e60f557c00a56225124b357f",
+                  "0x74232bf61e994655592747e20bdf6fa9b9476f79"
+                ]
+              }
+            ]
+          },
+          "amount": "1",
+          "tokenAddress": "0xf63f652daf6c328544d40b3ed146c8248687c1d1",
+          "tokenId": "7",
+          "tokenType": "ERC1155",
+          "tokenNfts": {
+            "contentValue": {
+              "image": null
+            }
+          }
+        },
+        // Other Base NFTs
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweGJkODI0MGMyM2VjOThiMjFmMzhjNWQzZTFlZWE5NTdhYjgwZGE5Y2EweGQ3MDI5YmRlYTFjMTc0OTM4OTNhYWZlMjlhYWQ2OWVmODkyYjhmZjIiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2NDc1MjIyNDYiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
     }
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -512,7 +1283,6 @@ Show POAPs owned by Farcaster user name dwr.eth and user id 1
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query POAPsOwnedByFarcasterUser {
   Poaps(
@@ -548,11 +1318,9 @@ query POAPsOwnedByFarcasterUser {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -623,15 +1391,14 @@ query POAPsOwnedByFarcasterUser {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Developer Support
+### Developer Support
 
 If you have any questions or need help regarding fetching token balances of Farcaster user(s), please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-## More Resources
+### More Resources
 
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-- [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
