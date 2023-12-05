@@ -1,5 +1,7 @@
 ---
-description: Learn all the current features available on Airstack and its future roadmap.
+description: >-
+  Learn all the current capabilities/features available on Airstack and its
+  future roadmap.
 layout:
   title:
     visible: true
@@ -14,8 +16,6 @@ layout:
 ---
 
 # 🚦 API Capabilities
-
-## 🚦 API Capabilities
 
 ## Table Of Contents
 

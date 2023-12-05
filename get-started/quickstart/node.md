@@ -124,9 +124,9 @@ config();
 You can use [`init`](../../nodejs-sdk-reference/init.md) from the SDK to initialize it with the [Airstack API key](../get-api-key.md):
 
 {% tabs %}
-{% tab title="JavaScript" %}
-{% code title="index.js" %}
-```javascript
+{% tab title="TypeScript" %}
+{% code title="index.ts" %}
+```typescript
 import { init } from "@airstack/node";
 
 init(process.env.AIRSTACK_API_KEY);
@@ -134,9 +134,9 @@ init(process.env.AIRSTACK_API_KEY);
 {% endcode %}
 {% endtab %}
 
-{% tab title="TypeScript" %}
-{% code title="index.ts" %}
-```typescript
+{% tab title="JavaScript" %}
+{% code title="index.js" %}
+```javascript
 import { init } from "@airstack/node";
 
 init(process.env.AIRSTACK_API_KEY);
@@ -156,38 +156,6 @@ For more query examples, check out [**Guides**](broken-reference/) for various u
 {% endhint %}
 
 {% tabs %}
-{% tab title="JavaScript" %}
-{% code title="index.js" %}
-```javascript
-import { fetchQuery } from "@airstack/node";
-
-const GET_VITALIK_LENS_FARCASTER_ENS = `
-query MyQuery {
-  Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
-    socials {
-      dappName
-      profileName
-    }
-    addresses
-  }
-}
-`;
-
-const main = async () => {
-  const { data, error } = await fetchQuery(query);
-
-  if (error) {
-    throw new Error(error.message);
-  }
-
-  console.log(data);
-};
-
-main();
-```
-{% endcode %}
-{% endtab %}
-
 {% tab title="TypeScript" %}
 {% code title="index.ts" %}
 ```typescript
@@ -230,6 +198,38 @@ query MyQuery {
 
 const main = async () => {
   const { data, error }: QueryResponse = await fetchQuery(query);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  console.log(data);
+};
+
+main();
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="JavaScript" %}
+{% code title="index.js" %}
+```javascript
+import { fetchQuery } from "@airstack/node";
+
+const GET_VITALIK_LENS_FARCASTER_ENS = `
+query MyQuery {
+  Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
+    socials {
+      dappName
+      profileName
+    }
+    addresses
+  }
+}
+`;
+
+const main = async () => {
+  const { data, error } = await fetchQuery(query);
 
   if (error) {
     throw new Error(error.message);
