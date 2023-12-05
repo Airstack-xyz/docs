@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to get ERC20, 721, 1155, and POAPs Of Lens Profile(s), including
-  images and metadata, on Ethereum, Polygon, and Gnosis (POAPs).
+  images and metadata, on Ethereum, Polygon, Base, and Gnosis (POAPs).
 layout:
   title:
     visible: true
@@ -19,18 +19,24 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-In this tutorial, you will learn how to fetch Lens user(s) asset holdings which comprise ERC20s, ERC721s, ERC115s, and POAPs on Ethereum, Polygon, and Gnosis.
+In this tutorial, you will learn how to fetch Lens user(s) asset holdings which comprise ERC20s, ERC721s, ERC115s, and POAPs on Ethereum, Polygon, Base, and Gnosis.
 
 In this guide you will learn how to use Airstack to:
 
-- [Get All ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-all-erc20s-owned-by-lens-profile-s)
-- [Get All NFTs Owned By Lens Profile(s)](get-token-balances.md#get-all-nfts-owned-by-lens-profile-s)
-- [Get All POAPs Owned By Lens Profile(s)](get-token-balances.md#get-all-poaps-owned-by-lens-profile-s)
+* [Get Ethereum ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-ethereum-erc20s-owned-by-lens-profile-s)
+* [Get Polygon ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-polygon-erc20s-owned-by-lens-profile-s)
+* [Get Base ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-base-erc20s-owned-by-lens-profile-s)
+* [Get All ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-all-erc20s-owned-by-lens-profile-s)
+* [Get Ethereum NFTs Owned By Lens Profile(s)](get-token-balances.md#get-ethereum-nfts-owned-by-lens-profile-s)
+* [Get Polygon NFTs Owned By Lens Profile(s)](get-token-balances.md#get-polygon-nfts-owned-by-lens-profile-s)
+* [Get Base NFTs Owned By Lens Profile(s)](get-token-balances.md#get-base-nfts-owned-by-lens-profile-s)
+* [Get All NFTs Owned By Lens Profile(s)](get-token-balances.md#get-all-nfts-owned-by-lens-profile-s)
+* [Get All POAPs Owned By Lens Profile(s)](get-token-balances.md#get-all-poaps-owned-by-lens-profile-s)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -51,7 +57,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -66,7 +71,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -81,15 +85,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -97,7 +98,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -121,11 +121,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -138,11 +136,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -160,7 +156,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -174,21 +169,290 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Get All ERC20s Owned By Lens Profile(s)
+## Get Ethereum ERC20s Owned By Lens Profile(s)
 
-You can fetch all ERC20 tokens on Ethereum and Polygon owned by any Lens Profile(s):
+You can fetch all ERC20 tokens on Ethereum owned by any Lens Profile(s):
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/z5mwViK3bq" %}
-Show ERC20 tokens on Ethereum and Polygon owned by lens/@bradorbradley and Lens profile id 100275
+{% embed url="https://app.airstack.xyz/query/iHvIqJvOZh" %}
+Show ERC20 tokens on Ethereum owned by lens/@bradorbradley and Lens profile id 100275
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+```graphql
+query MyQuery {
+  TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["lens/@bradorbradley", "lens_id:100275"] }
+        tokenType: { _eq: ERC20 }
+      }
+      blockchain: ethereum
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      owner {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+          userAssociatedAddresses
+        }
+      }
+      amount
+      tokenAddress
+      token {
+        name
+        symbol
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
 
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Ethereum": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "socials": [
+              {
+                "profileName": "lens/@vitalik",
+                "profileTokenId": "100275",
+                "profileTokenIdHex": "0x0187b3",
+                "userAssociatedAddresses": [
+                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                ]
+              }
+            ]
+          },
+          "amount": "45934484403886362668",
+          "tokenAddress": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "token": {
+            "name": "Wrapped Ether",
+            "symbol": "WETH"
+          }
+        },
+        // Other Ethereum ERC20s
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Polygon ERC20s Owned By Lens Profile(s)
+
+You can fetch all ERC20 tokens on Polygon owned by any Lens Profile(s):
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/C8M7BrhcDK" %}
+Show ERC20 tokens on Polygon owned by lens/@bradorbradley and Lens profile id 100275
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["lens/@bradorbradley", "lens_id:100275"] }
+        tokenType: { _eq: ERC20 }
+      }
+      blockchain: polygon
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      owner {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+          userAssociatedAddresses
+        }
+      }
+      amount
+      tokenAddress
+      token {
+        name
+        symbol
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenBalances": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "socials": [
+              {
+                "profileName": "lens/@vitalik",
+                "profileTokenId": "100275",
+                "profileTokenIdHex": "0x0187b3",
+                "userAssociatedAddresses": [
+                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                ]
+              }
+            ]
+          },
+          "amount": "44281129",
+          "tokenAddress": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+          "token": {
+            "name": "(PoS) Tether USD",
+            "symbol": "USDT"
+          }
+        },
+        // Other Polygon ERC20s
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Base ERC20s Owned By Lens Profile(s)
+
+You can fetch all ERC20 tokens on Base owned by any Lens Profile(s):
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/oU8wM39MWT" %}
+Show ERC20 tokens on Base owned by lens/@bradorbradley and Lens profile id 100275
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["lens/@bradorbradley", "lens_id:100275"] }
+        tokenType: { _eq: ERC20 }
+      }
+      blockchain: base
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      owner {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+          userAssociatedAddresses
+        }
+      }
+      amount
+      tokenAddress
+      token {
+        name
+        symbol
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenBalances": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "socials": [
+              {
+                "profileName": "lens/@vitalik",
+                "profileTokenId": "100275",
+                "profileTokenIdHex": "0x0187b3",
+                "userAssociatedAddresses": [
+                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                ]
+              }
+            ]
+          },
+          "amount": "310194000000000000000000",
+          "tokenAddress": "0xac1bd2486aaf3b5c0fc3fd868558b082a531b2b4",
+          "token": {
+            "name": "Toshi",
+            "symbol": "TOSHI"
+          }
+        },
+        // Other Base ERC20s
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All ERC20s Owned By Lens Profile(s)
+
+You can fetch all ERC20 tokens on Ethereum, Polygon, and Base owned by any Lens Profile(s):
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/z5mwViK3bq" %}
+Show ERC20 tokens on Ethereum, Polygon, and Base owned by lens/@bradorbradley and Lens profile id 100275
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
 ```graphql
 query ERC20OwnedByLensProfiles {
   Ethereum: TokenBalances(
@@ -253,13 +517,42 @@ query ERC20OwnedByLensProfiles {
       prevCursor
     }
   }
+  Base: TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["lens/@bradorbradley", "lens_id:100275"] }
+        tokenType: { _eq: ERC20 }
+      }
+      blockchain: base
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      owner {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+          userAssociatedAddresses
+        }
+      }
+      amount
+      tokenAddress
+      token {
+        name
+        symbol
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -284,8 +577,13 @@ query ERC20OwnedByLensProfiles {
             "name": "Wrapped Ether",
             "symbol": "WETH"
           }
-        }
-      ]
+        },
+        // Other Ethereum ERC20s
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
     },
     "Polygon": {
       "TokenBalance": [
@@ -308,19 +606,371 @@ query ERC20OwnedByLensProfiles {
             "name": "Yup",
             "symbol": "YUP"
           }
-        }
-      ]
+        },
+        // Other Polygon ERC20s
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    },
+    "Base": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "socials": [
+              {
+                "profileName": "lens/@vitalik",
+                "profileTokenId": "100275",
+                "profileTokenIdHex": "0x0187b3",
+                "userAssociatedAddresses": [
+                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                ]
+              }
+            ]
+          },
+          "amount": "310194000000000000000000",
+          "tokenAddress": "0xac1bd2486aaf3b5c0fc3fd868558b082a531b2b4",
+          "token": {
+            "name": "Toshi",
+            "symbol": "TOSHI"
+          }
+        },
+        // Other Base ERC20s
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
     }
   }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
+## Get Ethereum NFTs Owned By Lens Profile(s)
+
+You can fetch all NFTs on Ethereum owned by any Lens Profile(s):
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/xoAjUpSHcs" %}
+Show NFT on Ethereum owned by lens/@bradorbradley and Lens profile id 100275
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["lens/@bradorbradley", "lens_id:100275"] }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: ethereum
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      owner {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+          userAssociatedAddresses
+        }
+      }
+      amount
+      tokenAddress
+      tokenId
+      tokenType
+      tokenNfts {
+        contentValue {
+          image {
+            extraSmall
+            small
+            medium
+            large
+          }
+        }
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenBalances": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "socials": [
+              {
+                "profileName": "lens/@vitalik",
+                "profileTokenId": "100275",
+                "profileTokenIdHex": "0x0187b3",
+                "userAssociatedAddresses": [
+                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                ]
+              }
+            ]
+          },
+          "amount": "1",
+          "tokenAddress": "0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85",
+          "tokenId": "93631715144692179688067815556165775057916676179424585455268666624027958254283",
+          "tokenType": "ERC721",
+          "tokenNfts": {
+            "contentValue": {
+              "image": {
+                "extraSmall": "https://assets.airstack.xyz/image/nft/nNBFvZ6wvuIHqDzTFi5pM/pM0Q1IAUgJRNTJrw7f4s3ANGkOaqLt5uB0akSKQqzzwkFP2k3F+pM22yvq3atTA66A1hk52OxQkPc5GWp5cl6hkqffkEcsvP3JAWyEPPyYsKMKIbbP1VsMuvSSOA7NTW+/a2HkQPhYY/PVrG6O9Is=/extra_small.svg",
+                "small": "https://assets.airstack.xyz/image/nft/nNBFvZ6wvuIHqDzTFi5pM/pM0Q1IAUgJRNTJrw7f4s3ANGkOaqLt5uB0akSKQqzzwkFP2k3F+pM22yvq3atTA66A1hk52OxQkPc5GWp5cl6hkqffkEcsvP3JAWyEPPyYsKMKIbbP1VsMuvSSOA7NTW+/a2HkQPhYY/PVrG6O9Is=/small.svg",
+                "medium": "https://assets.airstack.xyz/image/nft/nNBFvZ6wvuIHqDzTFi5pM/pM0Q1IAUgJRNTJrw7f4s3ANGkOaqLt5uB0akSKQqzzwkFP2k3F+pM22yvq3atTA66A1hk52OxQkPc5GWp5cl6hkqffkEcsvP3JAWyEPPyYsKMKIbbP1VsMuvSSOA7NTW+/a2HkQPhYY/PVrG6O9Is=/medium.svg",
+                "large": "https://assets.airstack.xyz/image/nft/nNBFvZ6wvuIHqDzTFi5pM/pM0Q1IAUgJRNTJrw7f4s3ANGkOaqLt5uB0akSKQqzzwkFP2k3F+pM22yvq3atTA66A1hk52OxQkPc5GWp5cl6hkqffkEcsvP3JAWyEPPyYsKMKIbbP1VsMuvSSOA7NTW+/a2HkQPhYY/PVrG6O9Is=/large.svg"
+              }
+            }
+          }
+        },
+        // Other Ethereum NFTs
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Polygon NFTs Owned By Lens Profile(s)
+
+You can fetch all NFTs on Polygon owned by any Lens Profile(s):
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/xSHo2KgP33" %}
+Show NFT on Polygon owned by lens/@bradorbradley and Lens profile id 100275
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["lens/@bradorbradley", "lens_id:100275"] }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: polygon
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      owner {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+          userAssociatedAddresses
+        }
+      }
+      amount
+      tokenAddress
+      tokenId
+      tokenType
+      tokenNfts {
+        contentValue {
+          image {
+            extraSmall
+            small
+            medium
+            large
+          }
+        }
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenBalances": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "socials": [
+              {
+                "profileName": "lens/@bradorbradley",
+                "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+                "profileTokenId": "36",
+                "profileTokenIdHex": "0x024",
+                "userAssociatedAddresses": [
+                  "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
+                ]
+              }
+            ]
+          },
+          "amount": "1",
+          "tokenAddress": "0x5ef718b8360ef2b82fb971b50350913e2bad4783",
+          "tokenId": "2525",
+          "tokenType": "ERC1155",
+          "tokenNfts": {
+            "contentValue": {
+              "image": {
+                "extraSmall": "https://assets.airstack.xyz/image/nft/137/0x5ef718b8360ef2b82fb971b50350913e2bad4783/2525/extra_small.png",
+                "small": "https://assets.airstack.xyz/image/nft/137/0x5ef718b8360ef2b82fb971b50350913e2bad4783/2525/small.png",
+                "medium": "https://assets.airstack.xyz/image/nft/137/0x5ef718b8360ef2b82fb971b50350913e2bad4783/2525/medium.png",
+                "large": "https://assets.airstack.xyz/image/nft/137/0x5ef718b8360ef2b82fb971b50350913e2bad4783/2525/large.png"
+              }
+            }
+          }
+        },
+        // Other Polygon NFTs
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Base NFTs Owned By Lens Profile(s)
+
+You can fetch all NFTs on Base owned by any Lens Profile(s):
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/kfGo5b21OJ" %}
+Show NFT on Base owned by lens/@bradorbradley and Lens profile id 100275
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["lens/@bradorbradley", "lens_id:100275"] }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: base
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      owner {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+          userAssociatedAddresses
+        }
+      }
+      amount
+      tokenAddress
+      tokenId
+      tokenType
+      tokenNfts {
+        contentValue {
+          image {
+            extraSmall
+            small
+            medium
+            large
+          }
+        }
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenBalances": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "socials": [
+              {
+                "profileName": "lens/@vitalik",
+                "profileTokenId": "100275",
+                "profileTokenIdHex": "0x0187b3",
+                "userAssociatedAddresses": [
+                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                ]
+              }
+            ]
+          },
+          "amount": "1",
+          "tokenAddress": "0xab54b8bd1118d535beecf43bf9c7d163879cf967",
+          "tokenId": "2",
+          "tokenType": "ERC1155",
+          "tokenNfts": {
+            "contentValue": {
+              "image": {
+                "extraSmall": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/extra_small.jpg",
+                "small": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/small.jpg",
+                "medium": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/medium.jpg",
+                "large": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/large.jpg"
+              }
+            }
+          }
+        },
+        // Other Base NFTs
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+```
 {% endtab %}
 {% endtabs %}
 
 ## Get All NFTs Owned By Lens Profile(s)
 
-You can fetch all NFTs on Ethereum and Polygon owned by any Lens Profile(s):
+You can fetch all NFTs on Ethereum, Polygon, and Base owned by any Lens Profile(s):
 
 ### Try Demo
 
@@ -332,7 +982,6 @@ Show NFT on Ethereum and Polygon owned by lens/@bradorbradley and Lens profile i
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query NFTsOwnedByLensProfiles {
   Ethereum: TokenBalances(
@@ -413,13 +1062,50 @@ query NFTsOwnedByLensProfiles {
       prevCursor
     }
   }
+  Base: TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["lens/@bradorbradley", "lens_id:100275"] }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: base
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      owner {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
+          profileName
+          profileTokenId
+          profileTokenIdHex
+          userAssociatedAddresses
+        }
+      }
+      amount
+      tokenAddress
+      tokenId
+      tokenType
+      tokenNfts {
+        contentValue {
+          image {
+            extraSmall
+            small
+            medium
+            large
+          }
+        }
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -452,8 +1138,13 @@ query NFTsOwnedByLensProfiles {
               }
             }
           }
-        }
-      ]
+        },
+        // Other Ethereum NFTs
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
     },
     "Polygon": {
       "TokenBalance": [
@@ -485,13 +1176,54 @@ query NFTsOwnedByLensProfiles {
               }
             }
           }
-        }
-      ]
+        },
+        // Other Polygon NFTs
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    },
+    "Base": {
+      "TokenBalance": [
+        {
+          "owner": {
+            "socials": [
+              {
+                "profileName": "lens/@vitalik",
+                "profileTokenId": "100275",
+                "profileTokenIdHex": "0x0187b3",
+                "userAssociatedAddresses": [
+                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                ]
+              }
+            ]
+          },
+          "amount": "1",
+          "tokenAddress": "0xab54b8bd1118d535beecf43bf9c7d163879cf967",
+          "tokenId": "2",
+          "tokenType": "ERC1155",
+          "tokenNfts": {
+            "contentValue": {
+              "image": {
+                "extraSmall": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/extra_small.jpg",
+                "small": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/small.jpg",
+                "medium": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/medium.jpg",
+                "large": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/large.jpg"
+              }
+            }
+          }
+        },
+        // Other Base NFTs
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
     }
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -509,7 +1241,6 @@ Show POAPs owned by lens/@bradorbradley and Lens profile id 100275
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query POAPsOwnedByLensProfiles {
   Poaps(
@@ -549,11 +1280,9 @@ query POAPsOwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -628,7 +1357,6 @@ query POAPsOwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -638,5 +1366,5 @@ If you have any questions or need help regarding fetching token balances of Lens
 
 ## More Resources
 
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-- [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
