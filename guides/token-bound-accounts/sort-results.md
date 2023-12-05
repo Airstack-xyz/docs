@@ -19,18 +19,18 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching ERC6551 dapps and integrating on-chain and off-chain data.
 
-### Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get The Latest Token Bound Accounts Created](sort-results.md#get-the-latest-token-bound-accounts-created)
-* [Get The Earliest Token Bound Accounts Created](sort-results.md#get-the-earliest-token-bound-accounts-created)
+- [Get The Latest Token Bound Accounts Created](sort-results.md#get-the-latest-token-bound-accounts-created)
+- [Get The Earliest Token Bound Accounts Created](sort-results.md#get-the-earliest-token-bound-accounts-created)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
+- Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
 
 ## Get Started
 
@@ -51,6 +51,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -65,6 +66,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -79,12 +81,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -92,6 +97,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -115,9 +121,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -130,9 +138,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -150,6 +160,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -177,6 +188,7 @@ Get The Latest Token Bound Accounts Created (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Accounts(
@@ -209,9 +221,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -242,6 +256,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -259,6 +274,7 @@ Get The Earliest Token Bound Accounts Created (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Accounts(
@@ -291,9 +307,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -324,6 +342,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -333,4 +352,4 @@ If you have any questions or need help regarding sorting ERC6551 token bound acc
 
 ## More Resources
 
-* [Accounts API Reference](../../api-references/api-reference/accounts-api/)
+- [Accounts API Reference](../../api-references/api-reference/accounts-api/)

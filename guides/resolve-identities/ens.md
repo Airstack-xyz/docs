@@ -19,17 +19,17 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [ENS](https://ens.domains) applications and for integrating on-chain and off-chain data from ENS.
 
-### Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-* [Get ENS from a given user(s)](ens.md#get-ens-from-a-given-user-s)
-* [Get the 0x address, Lens, and Farcaster from a given ENS name(s)](ens.md#get-the-0x-address-lens-and-farcaster-from-a-given-ens-name-s)
+- [Get ENS from a given user(s)](ens.md#get-ens-from-a-given-user-s)
+- [Get the 0x address, Lens, and Farcaster from a given ENS name(s)](ens.md#get-the-0x-address-lens-and-farcaster-from-a-given-ens-name-s)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -50,6 +50,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -64,6 +65,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -78,12 +80,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -91,6 +96,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -114,9 +120,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -129,9 +137,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -149,6 +159,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -169,13 +180,14 @@ You can get all the ENS names of a given user, both primary and non-primary name
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/SkTlH3Lh3I" %}
-Show me the ENS of 0x4b70d04124c2996de29e0caa050a49822faec6cc, lens/@stani, fc\_fname:vbuterin
+Show me the ENS of 0x4b70d04124c2996de29e0caa050a49822faec6cc, lens/@stani, fc_fname:vbuterin
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetENS {
   Domains(
@@ -199,9 +211,11 @@ query GetENS {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -252,6 +266,7 @@ query GetENS {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -269,6 +284,7 @@ Show me the 0x address, Lens, Farcaster of vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetUserDetailsFromENS {
   Socials(
@@ -285,9 +301,11 @@ query GetUserDetailsFromENS {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -308,6 +326,7 @@ query GetUserDetailsFromENS {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -317,5 +336,5 @@ If you have any questions or need help regarding resolving ENS name(s), please j
 
 ## More Resources
 
-* [Domains API Reference](../../api-references/api-reference/domains-api/)
-* [Socials API Reference](../../api-references/api-reference/socials-api/)
+- [Domains API Reference](../../api-references/api-reference/domains-api/)
+- [Socials API Reference](../../api-references/api-reference/socials-api/)

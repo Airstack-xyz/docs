@@ -19,20 +19,20 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching dapps and integrating on-chain and off-chain data from various blockchains.
 
-### Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Common Holders of 2 ERC20 Tokens](multiple-erc20s-or-nfts.md#common-holders-of-2-erc20-tokens)
-* [Common Holders of 2 NFTs](multiple-erc20s-or-nfts.md#common-holders-of-2-nfts)
-* [Common Holders of NFT That Held A Minimum Amount of ERC20 Token](multiple-erc20s-or-nfts.md#common-holders-of-nft-that-held-a-minimum-amount-of-erc20-token)
-* [Common Holders of A Token on Ethereum and A Token on Polygon (Cross-Chain)](multiple-erc20s-or-nfts.md#common-holders-of-a-token-on-ethereum-and-a-token-on-polygon-cross-chain)
-* [Common Holders of More Than 2 ERC20 Tokens or NFTs](multiple-erc20s-or-nfts.md#common-holders-of-more-than-2-erc20-tokens-or-nfts)
+- [Common Holders of 2 ERC20 Tokens](multiple-erc20s-or-nfts.md#common-holders-of-2-erc20-tokens)
+- [Common Holders of 2 NFTs](multiple-erc20s-or-nfts.md#common-holders-of-2-nfts)
+- [Common Holders of NFT That Held A Minimum Amount of ERC20 Token](multiple-erc20s-or-nfts.md#common-holders-of-nft-that-held-a-minimum-amount-of-erc20-token)
+- [Common Holders of A Token on Ethereum and A Token on Polygon (Cross-Chain)](multiple-erc20s-or-nfts.md#common-holders-of-a-token-on-ethereum-and-a-token-on-polygon-cross-chain)
+- [Common Holders of More Than 2 ERC20 Tokens or NFTs](multiple-erc20s-or-nfts.md#common-holders-of-more-than-2-erc20-tokens-or-nfts)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -53,6 +53,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -67,6 +68,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -81,12 +83,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -94,6 +99,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -113,9 +119,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/airstack-react";
 
@@ -128,9 +136,11 @@ const { data, error } = fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -148,6 +158,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -175,8 +186,8 @@ Since the number of objects returned in the responses will be dependent on the n
 {% hint style="info" %}
 Suppose there are two tokens:
 
-* Token A: 100,000 holders
-* Token B: 1,000 holders.
+- Token A: 100,000 holders
+- Token B: 1,000 holders.
 
 If Token A is the input on the 1st outermost query, then the end result will be **100,000 objects** in the response array.
 
@@ -189,7 +200,7 @@ The latter approach will be more efficient and easier for further formatting.
 
 ### Fetching
 
-You can fetch the common holders of two given ERC20, e.g. [USDT](https://explorer.airstack.xyz/token-holders?address=0xdac17f958d2ee523a2206206994597c13d831ec7\&blockchain=ethereum\&rawInput=%23%E2%8E%B1Tether+USD%E2%8E%B1%280xdac17f958d2ee523a2206206994597c13d831ec7+TOKEN+ethereum+null%29+\&inputType=ADDRESS) and [USDC](https://explorer.airstack.xyz/token-holders?address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&blockchain=ethereum\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29+\&inputType=ADDRESS):
+You can fetch the common holders of two given ERC20, e.g. [USDT](https://explorer.airstack.xyz/token-holders?address=0xdac17f958d2ee523a2206206994597c13d831ec7&blockchain=ethereum&rawInput=%23%E2%8E%B1Tether+USD%E2%8E%B1%280xdac17f958d2ee523a2206206994597c13d831ec7+TOKEN+ethereum+null%29+&inputType=ADDRESS) and [USDC](https://explorer.airstack.xyz/token-holders?address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48&blockchain=ethereum&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29+&inputType=ADDRESS):
 
 #### Try Demo
 
@@ -201,6 +212,7 @@ Show the common holders of both USDT and USDC
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfUSDTAndUSDC {
 <strong>  TokenBalances(input: {filter: {tokenAddress: {_eq: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}}, blockchain: ethereum, limit: 200}) {
 </strong>    TokenBalance {
@@ -215,9 +227,11 @@ Show the common holders of both USDT and USDC
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -244,6 +258,7 @@ Show the common holders of both USDT and USDC
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -255,6 +270,7 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(
@@ -264,9 +280,11 @@ const formatFunction = (data) =>
     .flat(1)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -279,6 +297,7 @@ def format_function(data):
     result = list(set(result))
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -300,7 +319,7 @@ The final result will the the list of all common holders in an array:
 
 ### Fetching
 
-You can fetch the common holders of two given NFTs, e.g. [BAYC](https://explorer.airstack.xyz/token-holders?address=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d\&rawInput=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d\&inputType=ADDRESS\&tokenType=ERC721) and [Moonbirds](https://explorer.airstack.xyz/token-holders?address=0x23581767a106ae21c074b2276D25e5C3e136a68b\&blockchain=ethereum\&rawInput=%23%E2%8E%B1Moonbirds%E2%8E%B1%280x23581767a106ae21c074b2276D25e5C3e136a68b+NFT\_COLLECTION+ethereum+null%29+\&inputType=ADDRESS):
+You can fetch the common holders of two given NFTs, e.g. [BAYC](https://explorer.airstack.xyz/token-holders?address=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d&rawInput=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d&inputType=ADDRESS&tokenType=ERC721) and [Moonbirds](https://explorer.airstack.xyz/token-holders?address=0x23581767a106ae21c074b2276D25e5C3e136a68b&blockchain=ethereum&rawInput=%23%E2%8E%B1Moonbirds%E2%8E%B1%280x23581767a106ae21c074b2276D25e5C3e136a68b+NFT_COLLECTION+ethereum+null%29+&inputType=ADDRESS):
 
 #### Try Demo
 
@@ -312,6 +331,7 @@ Show common holders of both BAYC and Moonbirds
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfBAYCAndMoonBirds {
 <strong>  TokenBalances(input: {filter: {tokenAddress: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}}, blockchain: ethereum, limit: 200}) {
 </strong>    TokenBalance {
@@ -327,9 +347,11 @@ Show common holders of both BAYC and Moonbirds
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -357,6 +379,7 @@ Show common holders of both BAYC and Moonbirds
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -368,6 +391,7 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(
@@ -377,9 +401,11 @@ const formatFunction = (data) =>
     .flat(1)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -392,6 +418,7 @@ def format_function(data):
     result = list(set(result))
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -413,7 +440,7 @@ The final result will the the list of all common holders in an array:
 
 ### Fetching
 
-You can fetch common holders of an NFT with a specific amount held for the ERC20, e.g. [Moonbirds](https://explorer.airstack.xyz/token-holders?address=0x23581767a106ae21c074b2276D25e5C3e136a68b\&blockchain=ethereum\&rawInput=%23%E2%8E%B1Moonbirds%E2%8E%B1%280x23581767a106ae21c074b2276D25e5C3e136a68b+NFT\_COLLECTION+ethereum+null%29+\&inputType=ADDRESS) holders with more than 10 [USDT](https://explorer.airstack.xyz/token-holders?address=0xdac17f958d2ee523a2206206994597c13d831ec7\&blockchain=ethereum\&rawInput=%23%E2%8E%B1Tether+USD%E2%8E%B1%280xdac17f958d2ee523a2206206994597c13d831ec7+TOKEN+ethereum+null%29+\&inputType=ADDRESS):
+You can fetch common holders of an NFT with a specific amount held for the ERC20, e.g. [Moonbirds](https://explorer.airstack.xyz/token-holders?address=0x23581767a106ae21c074b2276D25e5C3e136a68b&blockchain=ethereum&rawInput=%23%E2%8E%B1Moonbirds%E2%8E%B1%280x23581767a106ae21c074b2276D25e5C3e136a68b+NFT_COLLECTION+ethereum+null%29+&inputType=ADDRESS) holders with more than 10 [USDT](https://explorer.airstack.xyz/token-holders?address=0xdac17f958d2ee523a2206206994597c13d831ec7&blockchain=ethereum&rawInput=%23%E2%8E%B1Tether+USD%E2%8E%B1%280xdac17f958d2ee523a2206206994597c13d831ec7+TOKEN+ethereum+null%29+&inputType=ADDRESS):
 
 #### Try Demo
 
@@ -425,6 +452,7 @@ Show holders of Moonbirds NFT that also hold more than 10 USDT
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfMoonbirdsAndMoreThanTenUSDT {
 <strong>  TokenBalances(input: {filter: {tokenAddress: {_eq: "0x23581767a106ae21c074b2276D25e5C3e136a68b"}}, blockchain: ethereum, limit: 200}) {
 </strong>    TokenBalance {
@@ -447,9 +475,11 @@ Show holders of Moonbirds NFT that also hold more than 10 USDT
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -476,6 +506,7 @@ Show holders of Moonbirds NFT that also hold more than 10 USDT
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -487,6 +518,7 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(
@@ -496,9 +528,11 @@ const formatFunction = (data) =>
     .flat(1)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -511,6 +545,7 @@ def format_function(data):
     result = list(set(result))
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -532,7 +567,7 @@ The final result will the the list of all common holders in an array:
 
 ### Fetching
 
-You can fetch common holders of NFT from different chains, e.g. [BAYC](https://explorer.airstack.xyz/token-holders?address=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d\&rawInput=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d\&inputType=ADDRESS\&tokenType=ERC721) on Ethereum and [Cuddleverse](https://explorer.airstack.xyz/token-holders?address=0xb59bd2c3f24afa4a3177d0e886abe072ef9c8eb0\&rawInput=0xb59bd2c3f24afa4a3177d0e886abe072ef9c8eb0\&inputType=ADDRESS\&tokenType=ERC721) on Polygon:
+You can fetch common holders of NFT from different chains, e.g. [BAYC](https://explorer.airstack.xyz/token-holders?address=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d&rawInput=0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d&inputType=ADDRESS&tokenType=ERC721) on Ethereum and [Cuddleverse](https://explorer.airstack.xyz/token-holders?address=0xb59bd2c3f24afa4a3177d0e886abe072ef9c8eb0&rawInput=0xb59bd2c3f24afa4a3177d0e886abe072ef9c8eb0&inputType=ADDRESS&tokenType=ERC721) on Polygon:
 
 #### Try Demo
 
@@ -544,6 +579,7 @@ Show holders of BAYC on Ethereum that also holds CuddleVerse NFT on Polygon
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfBAYCAndCuddleVerse {
 <strong>  TokenBalances(input: {filter: {tokenAddress: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}}, blockchain: ethereum, limit: 200}) {
 </strong>    TokenBalance {
@@ -559,9 +595,11 @@ Show holders of BAYC on Ethereum that also holds CuddleVerse NFT on Polygon
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -589,6 +627,7 @@ Show holders of BAYC on Ethereum that also holds CuddleVerse NFT on Polygon
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -600,6 +639,7 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(
@@ -609,9 +649,11 @@ const formatFunction = (data) =>
     .flat(1)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -624,6 +666,7 @@ def format_function(data):
     result = list(set(result))
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -657,6 +700,7 @@ Show common holders of more than 2 ERC20 tokens or NFTs
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfMoreThanTwoTokensOrNfts {
   TokenBalances(
 <strong>    input: {filter: {tokenAddress: {_eq: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}}, blockchain: ethereum, limit: 200}
@@ -681,9 +725,11 @@ Show common holders of more than 2 ERC20 tokens or NFTs
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -724,6 +770,7 @@ Show common holders of more than 2 ERC20 tokens or NFTs
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -735,6 +782,7 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
+
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(
@@ -745,9 +793,11 @@ const formatFunction = (data) =>
     .flat(1)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_function(data):
     result = []
@@ -762,6 +812,7 @@ def format_function(data):
 
     return result
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -785,6 +836,6 @@ If you have any questions or need help regarding fetching token holders of multi
 
 ## More Resources
 
-* [Nested Queries](../../api-references/nested-queries.md)
-* [Token Holders Tutorial for Lens Devs](../lens/token-holders.md)
-* [Token Holders Tutorial for Farcaster Devs](../farcaster/token-holders.md)
+- [Nested Queries](../../api-references/nested-queries.md)
+- [Token Holders Tutorial for Lens Devs](../lens/token-holders.md)
+- [Token Holders Tutorial for Farcaster Devs](../farcaster/token-holders.md)

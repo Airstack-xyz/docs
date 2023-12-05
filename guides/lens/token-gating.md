@@ -20,18 +20,18 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-## Table Of Contents
+# Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Gating only user(s) that have Lens Profile](token-gating.md#gating-only-user-s-that-have-lens-profile)
-* [Gating only user(s) that have Lens Profile and NFT](token-gating.md#gating-only-user-s-that-have-lens-profile-and-nft)
-* [Gating only user(s) that have Lens Profile and POAP](token-gating.md#gating-only-user-s-that-have-lens-profile-and-poap)
+- [Gating only user(s) that have Lens Profile](token-gating.md#gating-only-user-s-that-have-lens-profile)
+- [Gating only user(s) that have Lens Profile and NFT](token-gating.md#gating-only-user-s-that-have-lens-profile-and-nft)
+- [Gating only user(s) that have Lens Profile and POAP](token-gating.md#gating-only-user-s-that-have-lens-profile-and-poap)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -52,6 +52,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -66,6 +67,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -80,12 +82,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -93,6 +98,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -112,9 +118,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/airstack-react";
 
@@ -127,9 +135,11 @@ const { data, error } = fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -147,6 +157,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -174,10 +185,17 @@ Show the Lens profile of bradorbradley.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetTokenGatingLens {
   Socials(
-    input: {filter: {identity: {_eq: "bradorbradley.eth"}, dappName: {_eq: lens}}, blockchain: ethereum}
+    input: {
+      filter: {
+        identity: { _eq: "bradorbradley.eth" }
+        dappName: { _eq: lens }
+      }
+      blockchain: ethereum
+    }
   ) {
     Social {
       profileName
@@ -188,9 +206,11 @@ query GetTokenGatingLens {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -233,6 +253,7 @@ query GetTokenGatingLens {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -254,14 +275,27 @@ Show the NFT balance of 0x8eC94086A724cbEC4D37097b8792cE99CaDCd520 on specific N
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
-    input: {filter: {tokenAddress: {_in: ["0x977e43ab3eb8c0aece1230ba187740342865ee78", "0x9d90669665607f08005cae4a7098143f554c59ef"]}, owner: {_eq: "0x8eC94086A724cbEC4D37097b8792cE99CaDCd520"}}, blockchain: ethereum, limit: 200}
+    input: {
+      filter: {
+        tokenAddress: {
+          _in: [
+            "0x977e43ab3eb8c0aece1230ba187740342865ee78"
+            "0x9d90669665607f08005cae4a7098143f554c59ef"
+          ]
+        }
+        owner: { _eq: "0x8eC94086A724cbEC4D37097b8792cE99CaDCd520" }
+      }
+      blockchain: ethereum
+      limit: 200
+    }
   ) {
     TokenBalance {
       owner {
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -272,9 +306,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -323,6 +359,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -348,14 +385,21 @@ Show if 0x4455951fa43b17bd211e0e8ae64d22fb47946ade hold some given specific POAP
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Poaps(
-    input: {filter: {eventId: {_in: ["127462", "141910"]}, owner: {_eq: "0x4455951fa43b17bd211e0e8ae64d22fb47946ade"}}, blockchain: ALL}
+    input: {
+      filter: {
+        eventId: { _in: ["127462", "141910"] }
+        owner: { _eq: "0x4455951fa43b17bd211e0e8ae64d22fb47946ade" }
+      }
+      blockchain: ALL
+    }
   ) {
     Poap {
       owner {
-        socials(input: {filter: {dappName: {_eq: lens}}}) {
+        socials(input: { filter: { dappName: { _eq: lens } } }) {
           profileName
           profileTokenId
           profileTokenIdHex
@@ -366,9 +410,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -393,6 +439,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -410,6 +457,6 @@ If you have any questions or need help regarding token gating, please join our A
 
 ## More Resources
 
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-* [Socials API Reference](../../api-references/api-reference/socials-api/)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+- [Socials API Reference](../../api-references/api-reference/socials-api/)
+- [POAPs API Reference](../../api-references/api-reference/poaps-api/)

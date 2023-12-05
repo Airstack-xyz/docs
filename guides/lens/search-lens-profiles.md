@@ -19,23 +19,23 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-## Table Of Contents
+# Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-* [Get All Lens Profiles](search-lens-profiles.md#get-all-lens-profiles)
-* [Get All Lens Profiles Created In Specified Time](search-lens-profiles.md#get-all-lens-profiles-created-in-specified-time)
-* [Get The Latest Lens Profiles Created](search-lens-profiles.md#get-the-latest-lens-profiles-created)
-* [Get The Earliest Lens Profiles Created](search-lens-profiles.md#get-the-earliest-lens-profiles-created)
-* [Get The Most Followed Lens Profiles](search-lens-profiles.md#get-the-most-followed-lens-profiles)
-* [Get The Least Followed Lens Profiles](search-lens-profiles.md#get-the-least-followed-lens-profiles)
-* [Get Lens Profiles That Is Following Others The Most](search-lens-profiles.md#get-lens-profiles-that-is-following-others-the-most)
-* [Get Lens Profiles That Is Following Others The Least](search-lens-profiles.md#get-lens-profiles-that-is-following-others-the-least)
+- [Get All Lens Profiles](search-lens-profiles.md#get-all-lens-profiles)
+- [Get All Lens Profiles Created In Specified Time](search-lens-profiles.md#get-all-lens-profiles-created-in-specified-time)
+- [Get The Latest Lens Profiles Created](search-lens-profiles.md#get-the-latest-lens-profiles-created)
+- [Get The Earliest Lens Profiles Created](search-lens-profiles.md#get-the-earliest-lens-profiles-created)
+- [Get The Most Followed Lens Profiles](search-lens-profiles.md#get-the-most-followed-lens-profiles)
+- [Get The Least Followed Lens Profiles](search-lens-profiles.md#get-the-least-followed-lens-profiles)
+- [Get Lens Profiles That Is Following Others The Most](search-lens-profiles.md#get-lens-profiles-that-is-following-others-the-most)
+- [Get Lens Profiles That Is Following Others The Least](search-lens-profiles.md#get-lens-profiles-that-is-following-others-the-least)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -56,6 +56,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -70,6 +71,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -84,12 +86,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -97,6 +102,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -120,9 +126,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -135,9 +143,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -155,6 +165,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -182,10 +193,15 @@ Show me all Lens profiles
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
-    input: {filter: {dappName: {_eq: lens}}, blockchain: ethereum, limit: 200}
+    input: {
+      filter: { dappName: { _eq: lens } }
+      blockchain: ethereum
+      limit: 200
+    }
   ) {
     Social {
       profileName
@@ -200,9 +216,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -225,7 +243,7 @@ query MyQuery {
           "userAssociatedAddresses": [
             "0x40cdc92aa92b0522b6fa3d57117ef9bddd214946"
           ]
-        },
+        }
         // Other Lens profiles
       ],
       "pageInfo": {
@@ -238,6 +256,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -255,10 +274,21 @@ Show me all Lens profiles created between November 12 to 19, 2023 UTC
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
-    input: {filter: {profileCreatedAtBlockTimestamp: {_gte: "2023-11-12T00:00:01Z", _lte: "2023-11-19T00:00:00Z"}, dappName: {_eq: lens}}, blockchain: ethereum, limit: 200}
+    input: {
+      filter: {
+        profileCreatedAtBlockTimestamp: {
+          _gte: "2023-11-12T00:00:01Z"
+          _lte: "2023-11-19T00:00:00Z"
+        }
+        dappName: { _eq: lens }
+      }
+      blockchain: ethereum
+      limit: 200
+    }
   ) {
     Social {
       profileName
@@ -274,9 +304,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -302,7 +334,7 @@ query MyQuery {
             "0x78e6d347c3820550cb9bb26aea4b43d4df1b4989"
           ],
           "profileCreatedAtBlockNumber": 49944932
-        },
+        }
         // Other Lens profiles created between November 12 to 19, 2023 UTC
       ],
       "pageInfo": {
@@ -315,6 +347,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -332,10 +365,16 @@ Show me all the latest Lens profiles created
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
-    input: {filter: {dappName: {_eq: lens}}, blockchain: ethereum, limit: 200, order: {profileCreatedAtBlockTimestamp: DESC}}
+    input: {
+      filter: { dappName: { _eq: lens } }
+      blockchain: ethereum
+      limit: 200
+      order: { profileCreatedAtBlockTimestamp: DESC }
+    }
   ) {
     Social {
       profileName
@@ -351,9 +390,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -379,7 +420,7 @@ query MyQuery {
             "0xfa6aa55f25c0cb728273d3ea4c261824821eb7aa"
           ],
           "profileCreatedAtBlockNumber": 50204562
-        },
+        }
         // Other Lens profiles, ordered by the latest creation block number
       ],
       "pageInfo": {
@@ -392,6 +433,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -409,10 +451,16 @@ Show me all the earliest Lens profiles created
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
-    input: {filter: {dappName: {_eq: lens}}, blockchain: ethereum, limit: 200, order: {profileCreatedAtBlockTimestamp: ASC}}
+    input: {
+      filter: { dappName: { _eq: lens } }
+      blockchain: ethereum
+      limit: 200
+      order: { profileCreatedAtBlockTimestamp: ASC }
+    }
   ) {
     Social {
       profileName
@@ -428,9 +476,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -456,7 +506,7 @@ query MyQuery {
             "0x396ac17c5e1e45999823c96c5137b56f1623f684"
           ],
           "profileCreatedAtBlockNumber": 28435442
-        },
+        }
         // Other Lens profiles,
       ],
       "pageInfo": {
@@ -469,6 +519,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -486,10 +537,16 @@ Show me the most followed Lens profiles
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
-    input: {filter: {dappName: {_eq: lens}}, blockchain: ethereum, limit: 200, order: {followerCount: DESC}}
+    input: {
+      filter: { dappName: { _eq: lens } }
+      blockchain: ethereum
+      limit: 200
+      order: { followerCount: DESC }
+    }
   ) {
     Social {
       profileName
@@ -505,9 +562,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -533,7 +592,7 @@ query MyQuery {
             "0x24a6d858342aaa20f1d058b8961cd3e712c2f859"
           ],
           "followerCount": 73733
-        },
+        }
         // other most followed lens profiles, sorted by number of followers in descending order
       ],
       "pageInfo": {
@@ -546,6 +605,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -563,10 +623,16 @@ Show me the least followed Lens profiles
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
-    input: {filter: {dappName: {_eq: lens}}, blockchain: ethereum, limit: 200, order: {followerCount: ASC}}
+    input: {
+      filter: { dappName: { _eq: lens } }
+      blockchain: ethereum
+      limit: 200
+      order: { followerCount: ASC }
+    }
   ) {
     Social {
       profileName
@@ -582,9 +648,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -610,7 +678,7 @@ query MyQuery {
             "0xc56bd5a8dbd6997686aa0c9e68bd5eeaf1145d86"
           ],
           "followerCount": 0
-        },
+        }
         // other least followed lens profiles, sorted by number of followers in ascending order
       ],
       "pageInfo": {
@@ -623,6 +691,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -640,10 +709,16 @@ Show me Lens Profiles that is following others the most
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
-    input: {filter: {dappName: {_eq: lens}}, blockchain: ethereum, limit: 200, order: {followingCount: DESC}}
+    input: {
+      filter: { dappName: { _eq: lens } }
+      blockchain: ethereum
+      limit: 200
+      order: { followingCount: DESC }
+    }
   ) {
     Social {
       profileName
@@ -659,9 +734,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -687,7 +764,7 @@ query MyQuery {
             "0x48b61678ea8748b81abc677d1bd6050878a86d27"
           ],
           "followingCount": 30021
-        },
+        }
         // Other Lens profiles that is following others the most, sorted by followingCount in descending order
       ],
       "pageInfo": {
@@ -700,6 +777,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -717,10 +795,16 @@ Show me Lens Profiles that is following others the least
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
-    input: {filter: {dappName: {_eq: lens}}, blockchain: ethereum, limit: 200, order: {followingCount: ASC}}
+    input: {
+      filter: { dappName: { _eq: lens } }
+      blockchain: ethereum
+      limit: 200
+      order: { followingCount: ASC }
+    }
   ) {
     Social {
       profileName
@@ -736,9 +820,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -764,7 +850,7 @@ query MyQuery {
             "0xc56bd5a8dbd6997686aa0c9e68bd5eeaf1145d86"
           ],
           "followingCount": 0
-        },
+        }
         // Other Lens profiles that is following others the least, sorted by followingCount in ascending order
       ],
       "pageInfo": {
@@ -777,6 +863,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -786,8 +873,8 @@ If you have any questions or need help regarding searching for Lens profiles, pl
 
 ## More Resources
 
-* [Socials API Reference](../../api-references/api-reference/socials-api/)
-* [Resolve Lens Profiles](resolve-lens-profiles.md)
-* [Lens Profile Details](lens-profile-details.md)
-* [Lens Followers](lens-followers.md)
-* [Lens Following](lens-following.md)
+- [Socials API Reference](../../api-references/api-reference/socials-api/)
+- [Resolve Lens Profiles](resolve-lens-profiles.md)
+- [Lens Profile Details](lens-profile-details.md)
+- [Lens Followers](lens-followers.md)
+- [Lens Following](lens-following.md)

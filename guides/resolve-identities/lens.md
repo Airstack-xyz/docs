@@ -19,17 +19,17 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [ENS](https://ens.domains) applications and for integrating on-chain and off-chain data from ENS.
 
-### Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-* [Get ENS from a given user(s)](lens.md#get-ens-from-a-given-user-s)
-* [Get the 0x address, Lens, and Farcaster from a given ENS name(s)](lens.md#get-the-0x-address-lens-and-farcaster-from-a-given-ens-name-s)
+- [Get ENS from a given user(s)](lens.md#get-ens-from-a-given-user-s)
+- [Get the 0x address, Lens, and Farcaster from a given ENS name(s)](lens.md#get-the-0x-address-lens-and-farcaster-from-a-given-ens-name-s)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -50,6 +50,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -64,6 +65,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -78,12 +80,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -91,6 +96,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -114,9 +120,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -129,9 +137,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -149,6 +159,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -167,17 +178,30 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/isK75uiZ3e" %}
-Show me the Lens handles of 0x4b70d04124c2996de29e0caa050a49822faec6cc, betashop.eth, fc\_fname:vbuterin
+Show me the Lens handles of 0x4b70d04124c2996de29e0caa050a49822faec6cc, betashop.eth, fc_fname:vbuterin
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetLens {
   Socials(
-    input: {filter: {identity: {_in: ["0x4b70d04124c2996de29e0caa050a49822faec6cc", "betashop.eth", "fc_fname:vbuterin"]}, dappSlug: {_eq: lens_polygon}}, blockchain: ethereum}
+    input: {
+      filter: {
+        identity: {
+          _in: [
+            "0x4b70d04124c2996de29e0caa050a49822faec6cc"
+            "betashop.eth"
+            "fc_fname:vbuterin"
+          ]
+        }
+        dappSlug: { _eq: lens_polygon }
+      }
+      blockchain: ethereum
+    }
   ) {
     Social {
       profileName
@@ -186,9 +210,11 @@ query GetLens {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -211,6 +237,7 @@ query GetLens {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -226,16 +253,36 @@ Show me the 0x address, Farcaster, and ENS of lens/@prashantbagga, lens/@betasho
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetAddressOfLens {
-  Socials(input: {filter: {identity: {_in: ["lens/@prashantbagga", "lens/@betashop9", "lens/@vitalik"]}, dappName: { _eq: farcaster}}, blockchain: ethereum}) {
+  Socials(
+    input: {
+      filter: {
+        identity: {
+          _in: ["lens/@prashantbagga", "lens/@betashop9", "lens/@vitalik"]
+        }
+        dappName: { _eq: farcaster }
+      }
+      blockchain: ethereum
+    }
+  ) {
     Social {
       userAddress
       dappName
       profileName
     }
   }
-  Domains(input: {filter: {owner: {_in: ["lens/@prashantbagga", "lens/@betashop9", "lens/@vitalik"]}}, blockchain: ethereum}) {
+  Domains(
+    input: {
+      filter: {
+        owner: {
+          _in: ["lens/@prashantbagga", "lens/@betashop9", "lens/@vitalik"]
+        }
+      }
+      blockchain: ethereum
+    }
+  ) {
     Domain {
       dappName
       name
@@ -243,9 +290,11 @@ query GetAddressOfLens {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -265,7 +314,7 @@ query GetAddressOfLens {
           "userAddress": "0xaa11ebefbb4723debabbfc85932c11f358e68306",
           "dappName": "farcaster",
           "profileName": "prxshant.eth"
-        },
+        }
       ]
     },
     "Domains": {
@@ -281,13 +330,14 @@ query GetAddressOfLens {
         {
           "dappName": "ens",
           "name": "vitalik.daohall.eth"
-        },
+        }
         // more domains
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -297,5 +347,5 @@ If you have any questions or need help regarding resolving Lens handle(s), pleas
 
 ## More Resources
 
-* [Domains API Reference](../../api-references/api-reference/domains-api/)
-* [Socials API Reference](../../api-references/api-reference/socials-api/)
+- [Domains API Reference](../../api-references/api-reference/domains-api/)
+- [Socials API Reference](../../api-references/api-reference/socials-api/)

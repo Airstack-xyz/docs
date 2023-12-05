@@ -21,20 +21,20 @@ Frequent token transfers between two parties could be a good indication that the
 
 To build such a contact recommendation feature, Airstack provides a [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api/) API for you to fetch all ERC20 token transfer data from either a user or multiple users on both Ethereum, Polygon, and Base.
 
-### Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-* [Get Token Transfers Of A User(s) on Ethereum](token-transfers.md#get-token-transfers-of-a-user-s-on-ethereum)
-* [Get Token Transfers Of A User(s) on Polygon](token-transfers.md#get-token-transfers-of-a-user-s-on-polygon)
-* [Get Token Transfers Of A User(s) on Base](token-transfers.md#get-token-transfers-of-a-user-s-on-base)
-* [Get Token Transfers Of A User(s) on Multiple Chains](token-transfers.md#get-token-transfers-of-a-user-s-on-multiple-chains)
-* [Get The Most Recent Token Transfers Of A User(s)](token-transfers.md#get-the-most-recent-token-transfers-of-a-user-s)
+- [Get Token Transfers Of A User(s) on Ethereum](token-transfers.md#get-token-transfers-of-a-user-s-on-ethereum)
+- [Get Token Transfers Of A User(s) on Polygon](token-transfers.md#get-token-transfers-of-a-user-s-on-polygon)
+- [Get Token Transfers Of A User(s) on Base](token-transfers.md#get-token-transfers-of-a-user-s-on-base)
+- [Get Token Transfers Of A User(s) on Multiple Chains](token-transfers.md#get-token-transfers-of-a-user-s-on-multiple-chains)
+- [Get The Most Recent Token Transfers Of A User(s)](token-transfers.md#get-the-most-recent-token-transfers-of-a-user-s)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -55,6 +55,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -69,6 +70,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -83,12 +85,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -96,6 +101,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -119,9 +125,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -134,9 +142,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -154,6 +164,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -172,17 +183,27 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/Cxy3fiJAKd" %}
-Show me token transfers from and to dwr.eth and fc\_fname:vitalik.eth on Ethereum
+Show me token transfers from and to dwr.eth and fc_fname:vitalik.eth on Ethereum
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetTokenTransfers {
   TokenTransfers(
-    input: {filter: {_or: {from: {_in: ["dwr.eth", "fc_fname:vbuterin"]}, to: {_in: ["dwr.eth", "fc_fname:vbuterin"]}}}, blockchain: ethereum, limit: 50}
+    input: {
+      filter: {
+        _or: {
+          from: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+          to: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+        }
+      }
+      blockchain: ethereum
+      limit: 50
+    }
   ) {
     TokenTransfer {
       amount
@@ -220,9 +241,11 @@ query GetTokenTransfers {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -238,9 +261,7 @@ query GetTokenTransfers {
             "decimals": 0
           },
           "from": {
-            "addresses": [
-              "0x0000000000000000000000000000000000000000"
-            ],
+            "addresses": ["0x0000000000000000000000000000000000000000"],
             "socials": [
               {
                 "dappName": "lens",
@@ -327,9 +348,7 @@ query GetTokenTransfers {
             ]
           },
           "to": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
             "socials": [
               {
                 "dappName": "farcaster",
@@ -384,13 +403,14 @@ query GetTokenTransfers {
             ]
           },
           "type": "MINT"
-        },
+        }
         // Other token transfers on Ethereum
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -399,17 +419,27 @@ query GetTokenTransfers {
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/KcoFgsDUJR" %}
-Show me token transfers from and to dwr.eth and fc\_fname:vitalik.eth on Polygon
+Show me token transfers from and to dwr.eth and fc_fname:vitalik.eth on Polygon
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetTokenTransfers {
   TokenTransfers(
-    input: {filter: {_or: {from: {_in: ["dwr.eth", "fc_fname:vbuterin"]}, to: {_in: ["dwr.eth", "fc_fname:vbuterin"]}}}, blockchain: polygon, limit: 50}
+    input: {
+      filter: {
+        _or: {
+          from: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+          to: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+        }
+      }
+      blockchain: polygon
+      limit: 50
+    }
   ) {
     TokenTransfer {
       amount
@@ -447,9 +477,11 @@ query GetTokenTransfers {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -465,9 +497,7 @@ query GetTokenTransfers {
             "decimals": 0
           },
           "from": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
             "socials": [
               {
                 "dappName": "farcaster",
@@ -522,9 +552,7 @@ query GetTokenTransfers {
             ]
           },
           "to": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
             "socials": [
               {
                 "dappName": "farcaster",
@@ -579,13 +607,14 @@ query GetTokenTransfers {
             ]
           },
           "type": "TRANSFER"
-        },
+        }
         // Other Polygon token transfers
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -594,17 +623,27 @@ query GetTokenTransfers {
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/HyCEvCtw1e" %}
-Show me token transfers from and to dwr.eth and fc\_fname:vitalik.eth on Base
+Show me token transfers from and to dwr.eth and fc_fname:vitalik.eth on Base
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetTokenTransfers {
   TokenTransfers(
-    input: {filter: {_or: {from: {_in: ["dwr.eth", "fc_fname:vbuterin"]}, to: {_in: ["dwr.eth", "fc_fname:vbuterin"]}}}, blockchain: base, limit: 50}
+    input: {
+      filter: {
+        _or: {
+          from: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+          to: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+        }
+      }
+      blockchain: base
+      limit: 50
+    }
   ) {
     TokenTransfer {
       amount
@@ -642,9 +681,11 @@ query GetTokenTransfers {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Second Tab" %}
+
 ```json
 {
   "data": {
@@ -660,9 +701,7 @@ query GetTokenTransfers {
             "decimals": 0
           },
           "from": {
-            "addresses": [
-              "0x0000000000000000000000000000000000000000"
-            ],
+            "addresses": ["0x0000000000000000000000000000000000000000"],
             "socials": [
               {
                 "dappName": "lens",
@@ -749,9 +788,7 @@ query GetTokenTransfers {
             ]
           },
           "to": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
             "socials": [
               {
                 "dappName": "farcaster",
@@ -806,13 +843,14 @@ query GetTokenTransfers {
             ]
           },
           "type": "MINT"
-        },
+        }
         // Other Base token transfers
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -821,18 +859,28 @@ query GetTokenTransfers {
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/ARv7hFj3ki" %}
-Show me token transfers from and to dwr.eth and fc\_fname:vitalik.eth
+Show me token transfers from and to dwr.eth and fc_fname:vitalik.eth
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetTokenTransfers {
   # first query on Ethereum
   ethereum: TokenTransfers(
-    input: {filter: {_or: {from: {_in: ["dwr.eth", "fc_fname:vbuterin"]}, to: {_in: ["dwr.eth", "fc_fname:vbuterin"]}}}, blockchain: ethereum, limit: 50}
+    input: {
+      filter: {
+        _or: {
+          from: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+          to: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+        }
+      }
+      blockchain: ethereum
+      limit: 50
+    }
   ) {
     TokenTransfer {
       amount
@@ -871,7 +919,16 @@ query GetTokenTransfers {
   }
   # second query on Polygon
   polygon: TokenTransfers(
-    input: {filter: {_or: {from: {_in: ["dwr.eth", "fc_fname:vbuterin"]}, to: {_in: ["dwr.eth", "fc_fname:vbuterin"]}}}, blockchain: polygon, limit: 50}
+    input: {
+      filter: {
+        _or: {
+          from: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+          to: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+        }
+      }
+      blockchain: polygon
+      limit: 50
+    }
   ) {
     TokenTransfer {
       amount
@@ -910,7 +967,16 @@ query GetTokenTransfers {
   }
   # third query on Polygon
   base: TokenTransfers(
-    input: {filter: {_or: {from: {_in: ["dwr.eth", "fc_fname:vbuterin"]}, to: {_in: ["dwr.eth", "fc_fname:vbuterin"]}}}, blockchain: base, limit: 50}
+    input: {
+      filter: {
+        _or: {
+          from: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+          to: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+        }
+      }
+      blockchain: base
+      limit: 50
+    }
   ) {
     TokenTransfer {
       amount
@@ -949,9 +1015,11 @@ query GetTokenTransfers {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -967,9 +1035,7 @@ query GetTokenTransfers {
             "decimals": 0
           },
           "from": {
-            "addresses": [
-              "0x0000000000000000000000000000000000000000"
-            ],
+            "addresses": ["0x0000000000000000000000000000000000000000"],
             "socials": [
               {
                 "dappName": "lens",
@@ -1056,9 +1122,7 @@ query GetTokenTransfers {
             ]
           },
           "to": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
             "socials": [
               {
                 "dappName": "farcaster",
@@ -1114,7 +1178,7 @@ query GetTokenTransfers {
           },
           "type": "MINT",
           "blockchain": "ethereum"
-        },
+        }
         // Other Ethereum token transfers
       ]
     },
@@ -1130,9 +1194,7 @@ query GetTokenTransfers {
             "decimals": 0
           },
           "from": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
             "socials": [
               {
                 "dappName": "farcaster",
@@ -1187,9 +1249,7 @@ query GetTokenTransfers {
             ]
           },
           "to": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
             "socials": [
               {
                 "dappName": "farcaster",
@@ -1245,7 +1305,7 @@ query GetTokenTransfers {
           },
           "type": "TRANSFER",
           "blockchain": "polygon"
-        },
+        }
         // Other Polygon token transfers
       ]
     },
@@ -1261,9 +1321,7 @@ query GetTokenTransfers {
             "decimals": 0
           },
           "from": {
-            "addresses": [
-              "0x0000000000000000000000000000000000000000"
-            ],
+            "addresses": ["0x0000000000000000000000000000000000000000"],
             "socials": [
               {
                 "dappName": "lens",
@@ -1350,9 +1408,7 @@ query GetTokenTransfers {
             ]
           },
           "to": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
             "socials": [
               {
                 "dappName": "farcaster",
@@ -1408,13 +1464,14 @@ query GetTokenTransfers {
           },
           "type": "MINT",
           "blockchain": "base"
-        },
+        }
         // Other Base token transfers
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1423,17 +1480,28 @@ query GetTokenTransfers {
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/oYrGbtsJOv" %}
-Show me the most recent token transfers from and to dwr.eth and fc\_fname:vitalik.eth
+Show me the most recent token transfers from and to dwr.eth and fc_fname:vitalik.eth
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetTokenTransfers {
   TokenTransfers(
-    input: {filter: {_or: {from: {_in: ["dwr.eth", "fc_fname:vbuterin"]}, to: {_in: ["dwr.eth", "fc_fname:vbuterin"]}}}, blockchain: ethereum, limit: 50, order: {blockTimestamp: DESC}}
+    input: {
+      filter: {
+        _or: {
+          from: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+          to: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+        }
+      }
+      blockchain: ethereum
+      limit: 50
+      order: { blockTimestamp: DESC }
+    }
   ) {
     TokenTransfer {
       amount
@@ -1470,9 +1538,11 @@ query GetTokenTransfers {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1487,16 +1557,12 @@ query GetTokenTransfers {
             "decimals": 8
           },
           "from": {
-            "addresses": [
-              "0x9720a34e34096c4921eef16ba7936ab801d0c489"
-            ],
+            "addresses": ["0x9720a34e34096c4921eef16ba7936ab801d0c489"],
             "socials": null,
             "domains": null
           },
           "to": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
             "socials": [
               {
                 "dappName": "farcaster",
@@ -1551,13 +1617,14 @@ query GetTokenTransfers {
             ]
           },
           "type": "TRANSFER"
-        },
+        }
         // More recent Ethereum token transfers
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1567,5 +1634,5 @@ If you have any questions or need help regarding integrating or building recomme
 
 ## More Resources
 
-* [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api/)
-* [On-Chain Graph](../onchain-graph.md)
+- [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api/)
+- [On-Chain Graph](../onchain-graph.md)

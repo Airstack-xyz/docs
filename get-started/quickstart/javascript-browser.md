@@ -17,19 +17,19 @@ layout:
 
 In this tutorial, you will learn how to start integrating [Airstack](https://airstack.xyz) API into your frontend JavaScript/TypeScript application.&#x20;
 
-## Table Of Contents
+# Table Of Contents
 
-* [Step 0: Pre-requisites](javascript-browser.md#step-0-pre-requisites)
-* [Step 1: Install Airstack Web SDK](javascript-browser.md#step-1-install-airstack-web-sdk)
-* [Step 2: Set Environment Variable](javascript-browser.md#step-2-set-environment-variable)
-* [Step 3: Initialize SDK](javascript-browser.md#step-3-initialize-sdk)
-* [Step 4: Call Your Query](javascript-browser.md#step-4-call-your-query)
+- [Step 0: Pre-requisites](javascript-browser.md#step-0-pre-requisites)
+- [Step 1: Install Airstack Web SDK](javascript-browser.md#step-1-install-airstack-web-sdk)
+- [Step 2: Set Environment Variable](javascript-browser.md#step-2-set-environment-variable)
+- [Step 3: Initialize SDK](javascript-browser.md#step-3-initialize-sdk)
+- [Step 4: Call Your Query](javascript-browser.md#step-4-call-your-query)
 
 ## Step 0: Pre-requisites
 
-* Completed [Get API Key](../get-api-key.md)
-* Git
-* Node v.16+
+- Completed [Get API Key](../get-api-key.md)
+- Git
+- Node v.16+
 
 ## Step 1: Install Airstack Web SDK
 
@@ -37,21 +37,27 @@ Use a package manager to install the Airstack Web SDK into your JS/TS project:
 
 {% tabs %}
 {% tab title="npm" %}
+
 ```sh
 npm install @airstack/airstack-react
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 ```sh
 yarn add @airstack/airstack-react
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 ```sh
 pnpm install @airstack/airstack-react
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -80,21 +86,25 @@ You can use [`init`](../../nodejs-sdk-reference/init.md) from the SDK to initial
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="index.js" %}
+
 ```javascript
 import { init } from "@airstack/airstack-react";
 
 init(process.env.AIRSTACK_API_KEY);
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="TypeScript" %}
 {% code title="index.ts" %}
+
 ```typescript
 import { init } from "@airstack/airstack-react";
 
 init(process.env.AIRSTACK_API_KEY);
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -103,7 +113,7 @@ init(process.env.AIRSTACK_API_KEY);
 
 Once you have initialized the SDK, you can use the [`fetchQuery`](../../react-sdk-reference/functions/fetchquery.md) to call the Airstack API.&#x20;
 
-Below you have been provided with Airstack query to fetch the 0x address, Lens, and Farcaster owned by [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS):
+Below you have been provided with Airstack query to fetch the 0x address, Lens, and Farcaster owned by [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS):
 
 {% hint style="info" %}
 For more query examples, check out [**Guides**](broken-reference) for various use cases you can build with Airstack.
@@ -112,6 +122,7 @@ For more query examples, check out [**Guides**](broken-reference) for various us
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="index.js" %}
+
 ```javascript
 import { fetchQuery } from "@airstack/airstack-react";
 
@@ -133,17 +144,19 @@ const main = async () => {
   if (error) {
     throw new Error(error.message);
   }
-  
+
   console.log(data);
-}
+};
 
 main();
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="TypeScript" %}
 {% code title="index.ts" %}
+
 ```typescript
 import { fetchQuery } from "@airstack/airstack-react";
 
@@ -170,7 +183,6 @@ interface Social {
   profileName: string;
 }
 
-
 const GET_VITALIK_LENS_FARCASTER_ENS = `
 query MyQuery {
   Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
@@ -189,12 +201,13 @@ const main = async () => {
   if (error) {
     throw new Error(error.message);
   }
-  
+
   console.log(data);
-}
+};
 
 main();
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -215,9 +228,7 @@ The `data` variable will return and logged into your terminal as follows:
           "profileName": "lens/@vitalik"
         }
       ],
-      "addresses": [
-        "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-      ]
+      "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"]
     }
   }
 }
@@ -231,8 +242,8 @@ If you have any questions or need help regarding integrating [Airstack](https://
 
 Learn to build more with Airstack using our tutorials:
 
-* [Onchain Graph](../../guides/onchain-graph.md)
-* [Resolve Identities](../../guides/resolve-identities/)
-* [Combinations](../../guides/combinations/)
-* [Wallet API Reference](../../api-references/api-reference/wallet-api/)
-* [Web SDK Reference](broken-reference)
+- [Onchain Graph](../../guides/onchain-graph.md)
+- [Resolve Identities](../../guides/resolve-identities/)
+- [Combinations](../../guides/combinations/)
+- [Wallet API Reference](../../api-references/api-reference/wallet-api/)
+- [Web SDK Reference](broken-reference)

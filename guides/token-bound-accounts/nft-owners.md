@@ -19,18 +19,18 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching ERC6551 dapps and integrating on-chain and off-chain data.
 
-### Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get Token Bound Accounts By NFT Owner Address](nft-owners.md#get-token-bound-accounts-by-nft-owner-address)
-* [Get The Owner Of NFT That Owns A Given Token Bound Accounts Address](nft-owners.md#get-the-owner-of-nft-that-owns-a-given-token-bound-accounts-address)
+- [Get Token Bound Accounts By NFT Owner Address](nft-owners.md#get-token-bound-accounts-by-nft-owner-address)
+- [Get The Owner Of NFT That Owns A Given Token Bound Accounts Address](nft-owners.md#get-the-owner-of-nft-that-owns-a-given-token-bound-accounts-address)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
+- Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
 
 ## Get Started
 
@@ -51,6 +51,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -65,6 +66,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -79,12 +81,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -92,6 +97,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -115,9 +121,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -130,9 +138,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -150,6 +160,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -177,6 +188,7 @@ Get Token Bound Accounts By NFT Owner Address (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -198,9 +210,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -266,6 +280,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -281,6 +296,7 @@ Get The Owner Of NFT That Owns A Given Token Bound Accounts Address
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Accounts(
@@ -301,9 +317,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -325,6 +343,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -334,7 +353,7 @@ If you have any questions or need help regarding fetching ERC6551 token bound ac
 
 ## More Resources
 
-* [Accounts API Reference](../../api-references/api-reference/accounts-api/)
+- [Accounts API Reference](../../api-references/api-reference/accounts-api/)
 
 1. owner of NFT that owns the ERC6551 accounts
 

@@ -19,19 +19,19 @@ In this tutorial, you will learn how to start integrating [Airstack](https://air
 
 This tutorial will only covering React app build with vite and create-react-app. Integration to React metaframeworks, e.g. Next.js, will be covered in other tutorials.
 
-## Table Of Contents
+# Table Of Contents
 
-* [Step 0: Pre-requisites](react.md#step-0-pre-requisites)
-* [Step 1: Install Airstack Web SDK](react.md#step-1-install-airstack-web-sdk)
-* [Step 2: Set Environment Variable](react.md#step-2-set-environment-variable)
-* [Step 3: Initialize SDK](react.md#step-3-initialize-sdk)
-* [Step 4: Call Your Query](react.md#step-4-call-your-query)
+- [Step 0: Pre-requisites](react.md#step-0-pre-requisites)
+- [Step 1: Install Airstack Web SDK](react.md#step-1-install-airstack-web-sdk)
+- [Step 2: Set Environment Variable](react.md#step-2-set-environment-variable)
+- [Step 3: Initialize SDK](react.md#step-3-initialize-sdk)
+- [Step 4: Call Your Query](react.md#step-4-call-your-query)
 
 ## Step 0: Pre-requisites
 
-* Completed [Get API Key](../get-api-key.md)
-* Git
-* Node v.16+
+- Completed [Get API Key](../get-api-key.md)
+- Git
+- Node v.16+
 
 ## Step 1: Install Airstack Web SDK
 
@@ -39,21 +39,27 @@ Use a package manager to install the [Airstack Web SDK ](broken-reference)into y
 
 {% tabs %}
 {% tab title="npm" %}
+
 ```sh
 npm install @airstack/airstack-react
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 ```sh
 yarn add @airstack/airstack-react
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 ```sh
 pnpm install @airstack/airstack-react
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -69,15 +75,19 @@ Add the [Airstack API key](../get-api-key.md) as the environment variable:
 
 {% tabs %}
 {% tab title="vite" %}
+
 ```sh
 VITE_AIRSTACK_API_KEY=YOUR_AIRSTACK_API_KEY
 ```
+
 {% endtab %}
 
 {% tab title="create-react-app" %}
+
 ```bash
 REACT_APP_AIRSTACK_API_KEY=YOUR_AIRSTACK_API_KEY
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -88,6 +98,7 @@ Wrap your application or React component with `AirstackProvider` from the SDK to
 {% tabs %}
 {% tab title="vite (JS)" %}
 {% code title="main.jsx" %}
+
 ```jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -102,11 +113,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </React.StrictMode>
 );
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="vite (TS)" %}
 {% code title="main.tsx" %}
+
 ```tsx
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -121,11 +134,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </React.StrictMode>
 );
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="create-react-app (JS)" %}
 {% code title="index.jsx" %}
+
 ```jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -140,11 +155,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </React.StrictMode>
 );
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="create-react-app (TS)" %}
 {% code title="index.tsx" %}
+
 ```tsx
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -159,6 +176,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </React.StrictMode>
 );
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -167,7 +185,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 Once you have initialized the SDK, you can use the [`useQuery`](../../react-sdk-reference/hooks/usequery.md) to call the Airstack API.&#x20;
 
-Below you have been provided with Airstack query to fetch the 0x address, Lens, and Farcaster owned by [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS):
+Below you have been provided with Airstack query to fetch the 0x address, Lens, and Farcaster owned by [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS):
 
 {% hint style="info" %}
 For more query examples, check out [**Guides**](broken-reference) for various use cases you can build with Airstack.
@@ -176,6 +194,7 @@ For more query examples, check out [**Guides**](broken-reference) for various us
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="Component.jsx" %}
+
 ```jsx
 import { useQuery } from "@airstack/airstack-react";
 
@@ -204,14 +223,16 @@ const Component = () => {
 
   // Render your component using the data returned by the query
   console.log(data);
-}
+};
 
 export default Component;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
 <pre class="language-tsx" data-title="Component.tsx"><code class="lang-tsx">import { useQuery } from "@airstack/airstack-react";
 
 interface QueryResponse {
@@ -268,6 +289,7 @@ const Component = () => {
 
 export default Component;
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -287,9 +309,7 @@ The `data` variable will return and logged into your browser's console as follow
           "profileName": "lens/@vitalik"
         }
       ],
-      "addresses": [
-        "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-      ]
+      "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"]
     }
   }
 }
@@ -303,8 +323,8 @@ If you have any questions or need help regarding integrating [Airstack](https://
 
 Learn to build more with Airstack using our tutorials:
 
-* [Onchain Graph](../../guides/onchain-graph.md)
-* [Resolve Identities](../../guides/resolve-identities/)
-* [Combinations](../../guides/combinations/)
-* [Wallet API Reference](../../api-references/api-reference/wallet-api/)
-* [Web SDK Reference](broken-reference)
+- [Onchain Graph](../../guides/onchain-graph.md)
+- [Resolve Identities](../../guides/resolve-identities/)
+- [Combinations](../../guides/combinations/)
+- [Wallet API Reference](../../api-references/api-reference/wallet-api/)
+- [Web SDK Reference](broken-reference)

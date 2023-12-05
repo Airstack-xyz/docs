@@ -20,23 +20,23 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum and Polygon.
 
-### Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-* [Get NFT Total Supply](nft-details.md#get-nft-total-supply)
-* [Get NFT Name & Symbol](nft-details.md#get-nft-name-and-symbol)
-* [Get NFT Metadata of Specific NFT](nft-details.md#get-nft-metadata-of-specific-nft)
-* [Get NFT Metadata of An NFT Collection](nft-details.md#get-nft-metadata-of-an-nft-collection)
-* [Get NFT Images of Specific NFT](nft-details.md#get-nft-images-of-specific-nft)
-* [Get NFT Images of An NFT Collection](nft-details.md#get-nft-images-of-an-nft-collection)
-* [Get Specific NFT in An NFT Collection](nft-details.md#get-specific-nft-in-an-nft-collection)
-* [Get All NFT In An NFT Collection](nft-details.md#get-all-nft-in-an-nft-collection)
+- [Get NFT Total Supply](nft-details.md#get-nft-total-supply)
+- [Get NFT Name & Symbol](nft-details.md#get-nft-name-and-symbol)
+- [Get NFT Metadata of Specific NFT](nft-details.md#get-nft-metadata-of-specific-nft)
+- [Get NFT Metadata of An NFT Collection](nft-details.md#get-nft-metadata-of-an-nft-collection)
+- [Get NFT Images of Specific NFT](nft-details.md#get-nft-images-of-specific-nft)
+- [Get NFT Images of An NFT Collection](nft-details.md#get-nft-images-of-an-nft-collection)
+- [Get Specific NFT in An NFT Collection](nft-details.md#get-specific-nft-in-an-nft-collection)
+- [Get All NFT In An NFT Collection](nft-details.md#get-all-nft-in-an-nft-collection)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -57,6 +57,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -71,6 +72,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -85,12 +87,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -98,6 +103,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -121,9 +127,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -136,9 +144,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -156,6 +166,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -171,7 +182,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get NFT Collection Total Supply
 
-You can fetch an NFT collection's total supply by using the `totalSupply` field from  [`Tokens`](../../api-references/api-reference/tokens-api/) API by providing NFT collection `address` as an input:
+You can fetch an NFT collection's total supply by using the `totalSupply` field from [`Tokens`](../../api-references/api-reference/tokens-api/) API by providing NFT collection `address` as an input:
 
 ### Try Code
 
@@ -183,10 +194,14 @@ Show me total supply of @BoredApeYachtClub
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query TotalSupply {
   Tokens(
-    input: {filter: {address: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}}, blockchain: ethereum}
+    input: {
+      filter: { address: { _eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D" } }
+      blockchain: ethereum
+    }
   ) {
     Token {
       totalSupply
@@ -194,9 +209,11 @@ query TotalSupply {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -210,12 +227,13 @@ query TotalSupply {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get NFT Name & Symbol
 
-You can fetch an NFT collection's name and symbol by using the `name`  and `symbol` fields from  [`Tokens`](../../api-references/api-reference/tokens-api/) API by providing NFT collection `address` as an input:
+You can fetch an NFT collection's name and symbol by using the `name` and `symbol` fields from [`Tokens`](../../api-references/api-reference/tokens-api/) API by providing NFT collection `address` as an input:
 
 ### Try Demo
 
@@ -227,10 +245,14 @@ Show me the name and symbol of @BoredApeYachtClub
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Tokens(
-    input: { filter: { address: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}}, blockchain: ethereum}
+    input: {
+      filter: { address: { _eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D" } }
+      blockchain: ethereum
+    }
   ) {
     Token {
       name
@@ -239,9 +261,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -256,12 +280,13 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get NFT Metadata of Specific NFT
 
-You can fetch an NFT's metadata (both raw and formatted version) by using the  [`TokenNfts`](../../api-references/api-reference/tokennfts-api/) API by specifying NFT collection `address` and the NFT `tokenId` as an input:
+You can fetch an NFT's metadata (both raw and formatted version) by using the [`TokenNfts`](../../api-references/api-reference/tokennfts-api/) API by specifying NFT collection `address` and the NFT `tokenId` as an input:
 
 ### Try Demo
 
@@ -273,10 +298,17 @@ Show me the NFT Metadata of @BoredApeYachtClub token ID 0
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenNfts(
-    input: {filter: {address: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}, tokenId: {_eq: "0"}}, blockchain: ethereum}
+    input: {
+      filter: {
+        address: { _eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D" }
+        tokenId: { _eq: "0" }
+      }
+      blockchain: ethereum
+    }
   ) {
     TokenNft {
       tokenId
@@ -298,9 +330,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -378,12 +412,13 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get NFT Metadata of An NFT Collection
 
-You can fetch all NFTs' metadata (both raw and formatted version) in an NFT collection by using the  [`TokenNfts`](../../api-references/api-reference/tokennfts-api/) API by providing NFT collection `address` as an input:
+You can fetch all NFTs' metadata (both raw and formatted version) in an NFT collection by using the [`TokenNfts`](../../api-references/api-reference/tokennfts-api/) API by providing NFT collection `address` as an input:
 
 ### Try Demo
 
@@ -395,9 +430,15 @@ Show me the NFT Metadata of @BoredApeYachtClub
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
-  TokenNfts(input: {filter: {address: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}}, blockchain: ethereum}) {
+  TokenNfts(
+    input: {
+      filter: { address: { _eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D" } }
+      blockchain: ethereum
+    }
+  ) {
     TokenNft {
       tokenId
       rawMetaData
@@ -418,9 +459,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -488,7 +531,7 @@ query MyQuery {
               }
             ]
           }
-        },
+        }
         // other NFTs
       ],
       "pageInfo": {
@@ -499,12 +542,13 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get NFT Images of Specific NFT
 
-You can fetch an NFT's image (both original and resized version) by using the  [`TokenNfts`](../../api-references/api-reference/tokennfts-api/) API by specifying NFT collection `address` and the NFT `tokenId` as an input:
+You can fetch an NFT's image (both original and resized version) by using the [`TokenNfts`](../../api-references/api-reference/tokennfts-api/) API by specifying NFT collection `address` and the NFT `tokenId` as an input:
 
 ### Try Demo
 
@@ -515,20 +559,27 @@ Show me the the original NFT image of @BoredApeYachtClub token ID 0 with all the
 {% hint style="info" %}
 Resized NFT images size guide:
 
-* `extra_small`: 125x125px
-* `small`: 250x250px
-* `medium`: 500x500px
-* `large`: 750x750px
-{% endhint %}
+- `extra_small`: 125x125px
+- `small`: 250x250px
+- `medium`: 500x500px
+- `large`: 750x750px
+  {% endhint %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenNfts(
-    input: {filter: {address: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}, tokenId: {_eq: "0"}}, blockchain: ethereum}
+    input: {
+      filter: {
+        address: { _eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D" }
+        tokenId: { _eq: "0" }
+      }
+      blockchain: ethereum
+    }
   ) {
     TokenNft {
       contentValue {
@@ -544,9 +595,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -567,14 +620,14 @@ query MyQuery {
     }
   }
 }
-
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get NFT Images of An NFT Collection
 
-You can fetch all NFTs' images (both original and resized version) in an NFT collection by using the  [`TokenNfts`](../../api-references/api-reference/tokennfts-api/) API by providing NFT collection `address` as an input:
+You can fetch all NFTs' images (both original and resized version) in an NFT collection by using the [`TokenNfts`](../../api-references/api-reference/tokennfts-api/) API by providing NFT collection `address` as an input:
 
 ### Try Demo
 
@@ -585,20 +638,24 @@ Show me the the original NFT image of @BoredApeYachtClub with all their resized 
 {% hint style="info" %}
 Resized NFT images size guide:
 
-* `extra_small`: 125x125px
-* `small`: 250x250px
-* `medium`: 500x500px
-* `large`: 750x750px
-{% endhint %}
+- `extra_small`: 125x125px
+- `small`: 250x250px
+- `medium`: 500x500px
+- `large`: 750x750px
+  {% endhint %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenNfts(
-    input: {filter: {address: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}}, blockchain: ethereum}
+    input: {
+      filter: { address: { _eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D" } }
+      blockchain: ethereum
+    }
   ) {
     TokenNft {
       tokenId
@@ -619,9 +676,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -638,19 +697,20 @@ query MyQuery {
               "original": "https://assets.airstack.xyz/image/nft/D+0AQrSsYYaYPkhHjNpMvNeST+YQ2SI7M2u7bB7tjmI6xynU3spMwkuRVDM/9nYZ/original_image.png"
             }
           }
-        },
+        }
         // other NFTs
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get Specific NFT in An NFT Collection
 
-You can fetch all individual NFTs' details in an NFT collection by using the  [`TokenNfts`](../../api-references/api-reference/tokennfts-api/) API by providing NFT collection `address` and the NFT `tokenId` as an input:
+You can fetch all individual NFTs' details in an NFT collection by using the [`TokenNfts`](../../api-references/api-reference/tokennfts-api/) API by providing NFT collection `address` and the NFT `tokenId` as an input:
 
 ### Try Demo
 
@@ -661,20 +721,27 @@ Show me @BoredApeYachtClub token ID 0 and their details
 {% hint style="info" %}
 Resized NFT images size guide:
 
-* `extra_small`: 125x125px
-* `small`: 250x250px
-* `medium`: 500x500px
-* `large`: 750x750px
-{% endhint %}
+- `extra_small`: 125x125px
+- `small`: 250x250px
+- `medium`: 500x500px
+- `large`: 750x750px
+  {% endhint %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenNfts(
-    input: {filter: {address: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}, tokenId: {_eq: "0"}}, blockchain: ethereum}
+    input: {
+      filter: {
+        address: { _eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D" }
+        tokenId: { _eq: "0" }
+      }
+      blockchain: ethereum
+    }
   ) {
     TokenNft {
       tokenURI
@@ -708,9 +775,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -810,12 +879,13 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get All NFT In An NFT Collection
 
-You can fetch all individual NFTs' details in an NFT collection by using the  [`TokenNfts`](../../api-references/api-reference/tokennfts-api/) API by providing NFT collection `address` as an input:
+You can fetch all individual NFTs' details in an NFT collection by using the [`TokenNfts`](../../api-references/api-reference/tokennfts-api/) API by providing NFT collection `address` as an input:
 
 ### Try Demo
 
@@ -826,20 +896,24 @@ Show me @BoredApeYachtClub and their details
 {% hint style="info" %}
 Resized NFT images size guide:
 
-* `extra_small`: 125x125px
-* `small`: 250x250px
-* `medium`: 500x500px
-* `large`: 750x750px
-{% endhint %}
+- `extra_small`: 125x125px
+- `small`: 250x250px
+- `medium`: 500x500px
+- `large`: 750x750px
+  {% endhint %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenNfts(
-    input: {filter: {address: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}}, blockchain: ethereum}
+    input: {
+      filter: { address: { _eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D" } }
+      blockchain: ethereum
+    }
   ) {
     TokenNft {
       tokenId
@@ -878,9 +952,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -975,7 +1051,7 @@ query MyQuery {
               "original": "https://assets.airstack.xyz/image/nft/D+0AQrSsYYaYPkhHjNpMvNeST+YQ2SI7M2u7bB7tjmI6xynU3spMwkuRVDM/9nYZ/original_image.png"
             }
           }
-        },
+        }
       ],
       "pageInfo": {
         "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweGJjNGNhMGVkYTc2NDdhOGFiN2MyMDYxYzJlMTE4YTE4YTkzNmYxM2QxMDQxIiwiRGF0YVR5cGUiOiJzdHJpbmcifX0sIlBhZ2luYXRpb25EaXJlY3Rpb24iOiJORVhUIn0=",
@@ -985,6 +1061,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -994,13 +1071,13 @@ If you have any questions or need help regarding fetching NFT details data, plea
 
 ## More Resources
 
-* [NFT Balances](nft-balances.md)
-* [NFT Holders](nft-holders.md)
-* [Spam NFT](spam-nft.md)
-* [Combinations (Common Holders)](../combinations/)
-  * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
-  * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
-* [Tokens In Common](../tokens-in-common/)
-  * [NFTs](../tokens-in-common/nfts.md)
-* [Tokens API Reference](../../api-references/api-reference/tokens-api/)
-* [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api/)
+- [NFT Balances](nft-balances.md)
+- [NFT Holders](nft-holders.md)
+- [Spam NFT](spam-nft.md)
+- [Combinations (Common Holders)](../combinations/)
+  - [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
+  - [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
+- [Tokens In Common](../tokens-in-common/)
+  - [NFTs](../tokens-in-common/nfts.md)
+- [Tokens API Reference](../../api-references/api-reference/tokens-api/)
+- [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api/)

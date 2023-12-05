@@ -19,20 +19,20 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-## Table Of Contents
+# Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-* [Get All 0x addresses of Lens profile(s)](resolve-lens-profiles.md#get-all-0x-addresses-of-lens-profile-s)
-* [Get all ENS domains owned by Lens profile(s)](resolve-lens-profiles.md#get-all-ens-domains-owned-by-lens-profile-s)
-* [Get All Web3 Social Accounts (Lens, Farcaster) owned by 0x address or ENS](resolve-lens-profiles.md#get-all-web3-social-accounts-lens-farcaster-owned-by-0x-address-or-ens)
-* [Get Farcaster of Lens Profile(s)](resolve-lens-profiles.md#get-farcaster-of-lens-profile-s)
-* [Check If XMTP is Enabled for Lens profile(s)](resolve-lens-profiles.md#check-if-xmtp-is-enabled-for-lens-profile-s)
+- [Get All 0x addresses of Lens profile(s)](resolve-lens-profiles.md#get-all-0x-addresses-of-lens-profile-s)
+- [Get all ENS domains owned by Lens profile(s)](resolve-lens-profiles.md#get-all-ens-domains-owned-by-lens-profile-s)
+- [Get All Web3 Social Accounts (Lens, Farcaster) owned by 0x address or ENS](resolve-lens-profiles.md#get-all-web3-social-accounts-lens-farcaster-owned-by-0x-address-or-ens)
+- [Get Farcaster of Lens Profile(s)](resolve-lens-profiles.md#get-farcaster-of-lens-profile-s)
+- [Check If XMTP is Enabled for Lens profile(s)](resolve-lens-profiles.md#check-if-xmtp-is-enabled-for-lens-profile-s)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -53,6 +53,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -67,6 +68,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -81,12 +83,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -94,6 +99,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -117,9 +123,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -132,9 +140,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -152,6 +162,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -179,6 +190,7 @@ Show 0x addresses of lens/@nader and Lens profile id 0x0187b3
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetAddressesOfLens {
   Socials(
@@ -199,9 +211,11 @@ query GetAddressesOfLens {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -228,6 +242,7 @@ query GetAddressesOfLens {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -245,6 +260,7 @@ Show all ENS domains owned by lens/@bradorbradley and lens profile id 0x0187b3
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetENSOfLens {
   Domains(
@@ -259,9 +275,11 @@ query GetENSOfLens {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -278,6 +296,7 @@ query GetENSOfLens {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -295,6 +314,7 @@ Show web3 socials (Lens, Farcaster) owned by bradorbradley.eth and 0xd8dA6BF2696
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetWeb3SocialsOfLens {
   Socials(
@@ -321,9 +341,11 @@ query GetWeb3SocialsOfLens {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -395,6 +417,7 @@ query GetWeb3SocialsOfLens {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -412,6 +435,7 @@ Show Farcasters owned by lens/@betashop9 and lens profile id 0x0187b3
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetFarcastersOfLens {
   Socials(
@@ -431,9 +455,11 @@ query GetFarcastersOfLens {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -460,6 +486,7 @@ query GetFarcastersOfLens {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -477,6 +504,7 @@ Show if XMTP is enabled for lens/@stani and Lens profile id 0x0187b3
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetLensOfFarcasters {
   XMTPs(
@@ -499,9 +527,11 @@ query GetLensOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -558,6 +588,7 @@ query GetLensOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -567,11 +598,11 @@ If you have any questions or need help regarding resolving identities for Lens p
 
 ## More Resources
 
-* [Resolve Identities](../resolve-identities/)
-  * [Lens](../resolve-identities/lens.md)
-* [Has XMTP](../xmtp/)
-  * [Check Lens Profile](../xmtp/check-single-user.md#by-lens-profile)
-  * [Bulk Check Lens Profiles](../xmtp/check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
-* [Lens Resolver](../../use-cases/lens/universal-resolver.md)
-* [Socials API Reference](../../api-references/api-reference/socials-api/)
-* [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
+- [Resolve Identities](../resolve-identities/)
+  - [Lens](../resolve-identities/lens.md)
+- [Has XMTP](../xmtp/)
+  - [Check Lens Profile](../xmtp/check-single-user.md#by-lens-profile)
+  - [Bulk Check Lens Profiles](../xmtp/check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
+- [Lens Resolver](../../use-cases/lens/universal-resolver.md)
+- [Socials API Reference](../../api-references/api-reference/socials-api/)
+- [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)

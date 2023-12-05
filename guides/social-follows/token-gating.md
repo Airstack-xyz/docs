@@ -19,18 +19,18 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 social applications with and integrating on-chain and off-chain data with [Lens](https://lens.xyz) and [Farcaster](https://farcaster.xyz).
 
-### Table Of Contents
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-* [Gating Only User(s) That Follows A Given User](token-gating.md#gating-only-user-s-that-have-common-followers)
-* [Gating Only User(s) That Have Common Followers](token-gating.md#gating-only-user-s-that-have-common-followers)
+- [Gating Only User(s) That Follows A Given User](token-gating.md#gating-only-user-s-that-have-common-followers)
+- [Gating Only User(s) That Have Common Followers](token-gating.md#gating-only-user-s-that-have-common-followers)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Finished [Followers](followers.md) and [Following](following.md)
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
+- Finished [Followers](followers.md) and [Following](following.md)
 
 ## Get Started
 
@@ -51,6 +51,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -65,6 +66,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -79,12 +81,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -92,6 +97,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -115,9 +121,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -130,9 +138,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -150,6 +160,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -169,7 +180,7 @@ You can build a token-gating system that gates only users that follow a given us
 
 This can be done by providing the user B's identity either a 0x address, ENS, cb.id, Lens, or Farcaster on the [`Wallet`](../../api-references/api-reference/wallet-api/) top-level query's `identity` input and the user A's identities in the [`socialFollowing`](../../api-references/api-reference/socialfollowings-api.md).
 
-For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) (user A) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS) (user B):
+For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) (user A) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS) (user B):
 
 ### Try Demo
 
@@ -185,6 +196,7 @@ If you need to check multiple users A simultaneously, then simply provide more i
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query isFollowing { # Top-level is User B's Identity (ipeciura.eth)
 <strong>  Wallet(input: {identity: "ipeciura.eth", blockchain: ethereum}) {
 </strong>    socialFollowings( # Here is User A's Identity (betashop.eth)
@@ -210,9 +222,11 @@ If you need to check multiple users A simultaneously, then simply provide more i
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Wallet": {
@@ -254,12 +268,13 @@ If you need to check multiple users A simultaneously, then simply provide more i
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
-If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&tokenType=\&activeView=\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=) on either Lens or Farcaster, then it will appear as a response in the `Following` array as shown in the [sample response](token-gating.md#response-1) and thus should **be given feature access**.
+If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29&inputType=ADDRESS&tokenType=&activeView=&activeTokenInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=) on either Lens or Farcaster, then it will appear as a response in the `Following` array as shown in the [sample response](token-gating.md#response-1) and thus should **be given feature access**.
 
-Otherwise, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) will be considered an **not be given any feature access**.
+Otherwise, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) will be considered an **not be given any feature access**.
 
 ## Gating Only User(s) That Have Common Followers
 
@@ -267,7 +282,7 @@ You can build a token-gating system that gates only users that have common follo
 
 This can be done by fetching the intersection of following between two or more users providing either 0x addresses, ENS names, Lens profiles, or Farcasters.
 
-For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) (user A) has any common following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS) (user B):
+For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) (user A) has any common following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS) (user B):
 
 ### Try Demo
 
@@ -279,6 +294,7 @@ Show me common following of both betashop.eth and ipeciura.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   SocialFollowings( # user A: betashop.eth
 <strong>    input: {filter: {identity: {_eq: "betashop.eth"}}, blockchain: ALL, limit: 200}
@@ -306,9 +322,11 @@ Show me common following of both betashop.eth and ipeciura.eth
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowings": {
@@ -350,12 +368,13 @@ Show me common following of both betashop.eth and ipeciura.eth
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
-If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) has common following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&tokenType=\&activeView=\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=) on either Lens or Farcaster, then it will appear as a response in the innermost `Following` array as shown in the [sample response](token-gating.md#response-1) and thus should **be given feature access**.
+If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) has common following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29&inputType=ADDRESS&tokenType=&activeView=&activeTokenInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=) on either Lens or Farcaster, then it will appear as a response in the innermost `Following` array as shown in the [sample response](token-gating.md#response-1) and thus should **be given feature access**.
 
-Otherwise, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) will be considered an **not be given any feature access**.
+Otherwise, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) will be considered an **not be given any feature access**.
 
 ## Developer Support
 
@@ -363,7 +382,7 @@ If you have any questions or need help regarding fetching Lens Followings data, 
 
 ## More Resources
 
-* [Wallet API Reference](../../api-references/api-reference/wallet-api/)
-* [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
-* [Token Gating For Lens Devs](../lens/token-gating.md)
-* [Token Gating For Farcaster Devs](../farcaster/token-gating.md)
+- [Wallet API Reference](../../api-references/api-reference/wallet-api/)
+- [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
+- [Token Gating For Lens Devs](../lens/token-gating.md)
+- [Token Gating For Farcaster Devs](../farcaster/token-gating.md)
