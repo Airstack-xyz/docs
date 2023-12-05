@@ -26,6 +26,8 @@ To build such a contact recommendation feature, Airstack provides a [`TokenTrans
 In this guide you will learn how to use Airstack to:
 
 * [Get Token Transfers Of A User(s) on Ethereum](token-transfers.md#get-token-transfers-of-a-user-s-on-ethereum)
+* [Get Token Transfers Of A User(s) on Polygon](token-transfers.md#get-token-transfers-of-a-user-s-on-polygon)
+* [Get Token Transfers Of A User(s) on Base](token-transfers.md#get-token-transfers-of-a-user-s-on-base)
 * [Get Token Transfers Of A User(s) on Multiple Chains](token-transfers.md#get-token-transfers-of-a-user-s-on-multiple-chains)
 * [Get The Most Recent Token Transfers Of A User(s)](token-transfers.md#get-the-most-recent-token-transfers-of-a-user-s)
 
@@ -384,6 +386,428 @@ query GetTokenTransfers {
           "type": "MINT"
         },
         // Other token transfers on Ethereum
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Token Transfers Of A User(s) on Polygon
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/KcoFgsDUJR" %}
+Show me token transfers from and to dwr.eth and fc\_fname:vitalik.eth on Polygon
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query GetTokenTransfers {
+  TokenTransfers(
+    input: {filter: {_or: {from: {_in: ["dwr.eth", "fc_fname:vbuterin"]}, to: {_in: ["dwr.eth", "fc_fname:vbuterin"]}}}, blockchain: polygon, limit: 50}
+  ) {
+    TokenTransfer {
+      amount
+      formattedAmount
+      blockTimestamp
+      token {
+        symbol
+        name
+        decimals
+      }
+      from {
+        addresses
+        socials {
+          dappName
+          profileName
+        }
+        domains {
+          isPrimary
+          name
+        }
+      }
+      to {
+        addresses
+        socials {
+          dappName
+          profileName
+        }
+        domains {
+          name
+          dappName
+        }
+      }
+      type
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenTransfers": {
+      "TokenTransfer": [
+        {
+          "amount": "1",
+          "formattedAmount": 1,
+          "blockTimestamp": "2022-11-25T12:22:36Z",
+          "token": {
+            "symbol": "VITALIK",
+            "name": "Cult Vitalik",
+            "decimals": 0
+          },
+          "from": {
+            "addresses": [
+              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+            ],
+            "socials": [
+              {
+                "dappName": "farcaster",
+                "profileName": "vitalik.eth"
+              },
+              {
+                "dappName": "lens",
+                "profileName": "lens/@vitalik"
+              }
+            ],
+            "domains": [
+              {
+                "isPrimary": false,
+                "name": "quantumexchange.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "7860000.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "offchainexample.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "brianshaw.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "vbuterin.stateofus.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "quantumsmartcontracts.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "Vitalik.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "openegp.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "vitalik.cannafam.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "VITALIK.eth"
+              }
+            ]
+          },
+          "to": {
+            "addresses": [
+              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+            ],
+            "socials": [
+              {
+                "dappName": "farcaster",
+                "profileName": "vitalik.eth"
+              },
+              {
+                "dappName": "lens",
+                "profileName": "lens/@vitalik"
+              }
+            ],
+            "domains": [
+              {
+                "name": "quantumexchange.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "7860000.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "offchainexample.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "brianshaw.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "vbuterin.stateofus.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "quantumsmartcontracts.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "Vitalik.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "openegp.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "vitalik.cannafam.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "VITALIK.eth",
+                "dappName": "ens"
+              }
+            ]
+          },
+          "type": "TRANSFER"
+        },
+        // Other Polygon token transfers
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Token Transfers Of A User(s) on Base
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/HyCEvCtw1e" %}
+Show me token transfers from and to dwr.eth and fc\_fname:vitalik.eth on Base
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query GetTokenTransfers {
+  TokenTransfers(
+    input: {filter: {_or: {from: {_in: ["dwr.eth", "fc_fname:vbuterin"]}, to: {_in: ["dwr.eth", "fc_fname:vbuterin"]}}}, blockchain: base, limit: 50}
+  ) {
+    TokenTransfer {
+      amount
+      formattedAmount
+      blockTimestamp
+      token {
+        symbol
+        name
+        decimals
+      }
+      from {
+        addresses
+        socials {
+          dappName
+          profileName
+        }
+        domains {
+          isPrimary
+          name
+        }
+      }
+      to {
+        addresses
+        socials {
+          dappName
+          profileName
+        }
+        domains {
+          name
+          dappName
+        }
+      }
+      type
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Second Tab" %}
+```json
+{
+  "data": {
+    "TokenTransfers": {
+      "TokenTransfer": [
+        {
+          "amount": "1",
+          "formattedAmount": 1,
+          "blockTimestamp": "2023-09-28T21:07:57Z",
+          "token": {
+            "symbol": "SWCFIT21",
+            "name": "I Called Congress - FIT21",
+            "decimals": 0
+          },
+          "from": {
+            "addresses": [
+              "0x0000000000000000000000000000000000000000"
+            ],
+            "socials": [
+              {
+                "dappName": "lens",
+                "profileName": ""
+              },
+              {
+                "dappName": "lens",
+                "profileName": ""
+              },
+              {
+                "dappName": "lens",
+                "profileName": ""
+              },
+              {
+                "dappName": "lens",
+                "profileName": ""
+              },
+              {
+                "dappName": "lens",
+                "profileName": ""
+              },
+              {
+                "dappName": "lens",
+                "profileName": ""
+              },
+              {
+                "dappName": "lens",
+                "profileName": ""
+              },
+              {
+                "dappName": "lens",
+                "profileName": ""
+              },
+              {
+                "dappName": "lens",
+                "profileName": "lens/@shatter"
+              },
+              {
+                "dappName": "lens",
+                "profileName": ""
+              }
+            ],
+            "domains": [
+              {
+                "isPrimary": false,
+                "name": "dappling-starter-cra-ei1tt5.dappling.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "👨🏿‍🤝‍👨🏻.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "asdkjfas.dev-poap.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "baez.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "[701636f5d42ce2b973edc83cbb7ab390f844dfbd4d8d506df4780d12c4ba318b].com"
+              },
+              {
+                "isPrimary": false,
+                "name": "smartcontractsaudit.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "[c887159df7c26ccac34df4c89ddc49c27708f30b2521e1454f6a1743aaa49fc8].crobit.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "nextjs-3eqpjx.dappling.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "nikito3.dev-poap.eth"
+              },
+              {
+                "isPrimary": false,
+                "name": "wally.dev-poap.eth"
+              }
+            ]
+          },
+          "to": {
+            "addresses": [
+              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+            ],
+            "socials": [
+              {
+                "dappName": "farcaster",
+                "profileName": "vitalik.eth"
+              },
+              {
+                "dappName": "lens",
+                "profileName": "lens/@vitalik"
+              }
+            ],
+            "domains": [
+              {
+                "name": "quantumexchange.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "7860000.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "offchainexample.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "brianshaw.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "vbuterin.stateofus.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "quantumsmartcontracts.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "Vitalik.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "openegp.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "vitalik.cannafam.eth",
+                "dappName": "ens"
+              },
+              {
+                "name": "VITALIK.eth",
+                "dappName": "ens"
+              }
+            ]
+          },
+          "type": "MINT"
+        },
+        // Other Base token transfers
       ]
     }
   }
