@@ -19,7 +19,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [ENS](https://ens.domains) applications and for integrating on-chain and off-chain data from ENS.
 
-In this tutorial, you will learn how to resolve ENS names from a give user and vice versa, reverse resolving a given user to their ENS names.
+### Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 

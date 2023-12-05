@@ -19,7 +19,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-In this tutorial, you will learn how to fetch ERC6551 accounts and all assets held inside the account that is owned by a Lens profile(s).
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 

@@ -19,7 +19,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching dapps and integrating on-chain and off-chain data from various blockchains.
 
-In this tutorial, you will learn how to fetch the common holders of multiple POAPs.
+### Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 

@@ -19,7 +19,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and for integrating onchain and offchain data with Farcaster.
 
-In this tutorial, you will learn how to resolve a Farcaster user name or ID to other [web3 identities](#user-content-fn-1)[^1] and vice versa.
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
@@ -470,5 +470,3 @@ If you have any questions or need help regarding resolving identities for Farcas
 * [Farcaster Resolver](../../use-cases/farcaster/universal-resolver.md)
 * [Socials API Reference](../../api-references/api-reference/socials-api/)
 * [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
-
-[^1]: 0x addresses, ENS domains, Lens, XMTP

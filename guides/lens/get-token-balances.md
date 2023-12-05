@@ -19,7 +19,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-In this tutorial, you will learn how to fetch Lens user(s) asset holdings which comprise ERC20s, ERC721s, ERC115s, and POAPs on Ethereum, Polygon, Base, and Gnosis.
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 

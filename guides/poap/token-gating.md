@@ -19,18 +19,18 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [POAP](https://poap.xyz/) applications and for integrating POAP on-chain data indexed directly from both Ethereum and Gnosis.
 
-In this tutorial, you will learn how to build a [POAP](https://poap.xyz) token gating system with various conditions.
+### Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Gating Only User(s) That Have A Given POAP](token-gating.md#gating-only-user-s-that-have-a-given-poap)
-- [Gating Only User(s) That Have Multiple Given POAP(s)](token-gating.md#gating-only-user-s-that-have-multiple-given-poap-s)
-- [Gating Only User(s) That Have Common POAP(s) With A Given User](token-gating.md#gating-only-user-s-that-have-common-poap-s-with-a-given-user)
+* [Gating Only User(s) That Have A Given POAP](token-gating.md#gating-only-user-s-that-have-a-given-poap)
+* [Gating Only User(s) That Have Multiple Given POAP(s)](token-gating.md#gating-only-user-s-that-have-multiple-given-poap-s)
+* [Gating Only User(s) That Have Common POAP(s) With A Given User](token-gating.md#gating-only-user-s-that-have-common-poap-s-with-a-given-user)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -51,7 +51,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -66,7 +65,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -81,15 +79,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -97,7 +92,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -121,11 +115,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -138,11 +130,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -160,7 +150,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -176,7 +165,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Gating Only User(s) That Have A Given POAP
 
-You can gate certain feature access only to users that have attended a certain POAP event, e.g. [EthCC\[6\] - Attendee POAP](https://explorer.airstack.xyz/token-holders?activeView=&address=141910&tokenType=&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29&inputType=POAP&activeTokenInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=&activeSocialInfo=&blockchain=gnosis):
+You can gate certain feature access only to users that have attended a certain POAP event, e.g. [EthCC\[6\] - Attendee POAP](https://explorer.airstack.xyz/token-holders?activeView=\&address=141910\&tokenType=\&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29\&inputType=POAP\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&activeSocialInfo=\&blockchain=gnosis):
 
 ### Try Demo
 
@@ -188,7 +177,6 @@ Show me if molpy.eth attended EthCC\[6] - Attendee
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Poaps(
@@ -204,11 +192,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Poaps": {
@@ -222,7 +208,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -232,7 +217,7 @@ In such case, the user shall be **granted feature access**. Otherwise, **no acce
 
 ## Gating Only User(s) That Have Multiple Given POAP(s)
 
-You can gate certain feature access only to users that have attended multiple given POAP events, e.g. [EthCC\[6\] - Attendee POAP](https://explorer.airstack.xyz/token-holders?activeView=&address=141910&tokenType=&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29&inputType=POAP&activeTokenInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=&activeSocialInfo=&blockchain=gnosis) and [EthDenver 2023 POAP](https://explorer.airstack.xyz/token-holders?activeView=&address=103093&tokenType=&rawInput=%23%E2%8E%B1ETHDenver+2023%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+103093%29&inputType=POAP&activeTokenInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=&activeSocialInfo=&blockchain=gnosis):&#x20;
+You can gate certain feature access only to users that have attended multiple given POAP events, e.g. [EthCC\[6\] - Attendee POAP](https://explorer.airstack.xyz/token-holders?activeView=\&address=141910\&tokenType=\&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29\&inputType=POAP\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&activeSocialInfo=\&blockchain=gnosis) and [EthDenver 2023 POAP](https://explorer.airstack.xyz/token-holders?activeView=\&address=103093\&tokenType=\&rawInput=%23%E2%8E%B1ETHDenver+2023%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+103093%29\&inputType=POAP\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&activeSocialInfo=\&blockchain=gnosis):
 
 {% hint style="info" %}
 If you would like to add more POAP events to check, then you can simply add another `owner.poaps` nesting under the innermost `poaps` field with the newly added POAPs `eventId` as an input .\
@@ -250,7 +235,6 @@ Show me if sponnet.eth attended both EthCC\[6] - Attendee and ETHDenver 2023
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Poaps(
@@ -270,11 +254,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -295,7 +277,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -307,7 +288,7 @@ Otherwise, **no feature access** shall be given to the user.
 
 You can gate certain feature access only to users that have attended the same POAP event as a given user.
 
-In other words, have common POAP(s) with the given user, e.g. checking if [`nich.eth` ](https://explorer.airstack.xyz/token-balances?address=nich.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1nich.eth%E2%8E%B1%28nich.eth++ethereum+null%29&inputType=ADDRESS)can be given any access by checking any common POAP with another user [`sponnet.eth`](https://explorer.airstack.xyz/token-balances?address=sponnet.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1sponnet.eth%E2%8E%B1%28sponnet.eth++ethereum+null%29&inputType=ADDRESS):&#x20;
+In other words, have common POAP(s) with the given user, e.g. checking if [`nich.eth` ](https://explorer.airstack.xyz/token-balances?address=nich.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1nich.eth%E2%8E%B1%28nich.eth++ethereum+null%29\&inputType=ADDRESS)can be given any access by checking any common POAP with another user [`sponnet.eth`](https://explorer.airstack.xyz/token-balances?address=sponnet.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1sponnet.eth%E2%8E%B1%28sponnet.eth++ethereum+null%29\&inputType=ADDRESS):
 
 {% hint style="info" %}
 If you would like to add more users, then you can simply add another `poapEvent.poaps` nesting under the innermost `poaps` field with the newly added POAPs `owner` as an input .\
@@ -325,7 +306,6 @@ show me the POAPs in common attended by both sponnet.eth and nich.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Poaps(
 <strong>    input: {filter: {owner: {_eq: "sponnet.eth"}}, blockchain: ALL, limit: 200}
@@ -349,11 +329,9 @@ show me the POAPs in common attended by both sponnet.eth and nich.eth
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Poaps": {
@@ -383,13 +361,12 @@ show me the POAPs in common attended by both sponnet.eth and nich.eth
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
-If [`nich.eth`](https://explorer.airstack.xyz/token-balances?address=nich.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1nich.eth%E2%8E%B1%28nich.eth++ethereum+null%29&inputType=ADDRESS) have at least 1 common POAP with [`sponnet.eth`](https://explorer.airstack.xyz/token-balances?address=sponnet.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1sponnet.eth%E2%8E%B1%28sponnet.eth++ethereum+null%29&inputType=ADDRESS) as shown in the [sample response](token-gating.md#response-2), then [`nich.eth`](https://explorer.airstack.xyz/token-balances?address=nich.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1nich.eth%E2%8E%B1%28nich.eth++ethereum+null%29&inputType=ADDRESS) can be given access to the gated feature.
+If [`nich.eth`](https://explorer.airstack.xyz/token-balances?address=nich.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1nich.eth%E2%8E%B1%28nich.eth++ethereum+null%29\&inputType=ADDRESS) have at least 1 common POAP with [`sponnet.eth`](https://explorer.airstack.xyz/token-balances?address=sponnet.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1sponnet.eth%E2%8E%B1%28sponnet.eth++ethereum+null%29\&inputType=ADDRESS) as shown in the [sample response](token-gating.md#response-2), then [`nich.eth`](https://explorer.airstack.xyz/token-balances?address=nich.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1nich.eth%E2%8E%B1%28nich.eth++ethereum+null%29\&inputType=ADDRESS) can be given access to the gated feature.
 
-Otherwise, **no feature access** shall be given to [`nich.eth`](https://explorer.airstack.xyz/token-balances?address=nich.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1nich.eth%E2%8E%B1%28nich.eth++ethereum+null%29&inputType=ADDRESS).
+Otherwise, **no feature access** shall be given to [`nich.eth`](https://explorer.airstack.xyz/token-balances?address=nich.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1nich.eth%E2%8E%B1%28nich.eth++ethereum+null%29\&inputType=ADDRESS).
 
 ## Developer Support
 
@@ -397,10 +374,10 @@ If you have any questions or need help building token gating with POAPs, please 
 
 ## More Resources
 
-- [Poaps API Reference](../../api-references/api-reference/poaps-api/)
-- [Poaps API Examples](../../api-references/api-reference/poaps-api/poaps-api-examples.md)
-- [Combinations](../combinations/)
-  - [Multiple POAPs](../combinations/multiple-poaps.md)
-  - [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
-- [Tokens In Common](../tokens-in-common/)
-  - [POAPs](../tokens-in-common/poaps.md)
+* [Poaps API Reference](../../api-references/api-reference/poaps-api/)
+* [Poaps API Examples](../../api-references/api-reference/poaps-api/poaps-api-examples.md)
+* [Combinations](../combinations/)
+  * [Multiple POAPs](../combinations/multiple-poaps.md)
+  * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
+* [Tokens In Common](../tokens-in-common/)
+  * [POAPs](../tokens-in-common/poaps.md)

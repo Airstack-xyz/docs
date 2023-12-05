@@ -19,21 +19,21 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and for integrating onchain and offchain data with Farcaster.
 
-In this tutorial, you will learn how to recommend followers for Farcaster users based on on-chain insights from token transfers, POAPs, NFTS, and token holder combinations.
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-- [Get Recommendation Follows For Farcaster User(s) Based on Token Transfers](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-token-transfers)
-- [Get Recommendation Follows For Farcaster User(s) Based on POAPs](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-poaps)
-- [Get Recommendation Follows For Farcaster User(s) Based on NFTs](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts)
-- [Get Recommendation Follows For Farcaster User(s) Based on NFTs and POAPs Commonly Held](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts-and-poaps-commonly-held)
-- [Get Recommendation Follows For Farcaster User(s) Based on Farcaster Followers](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-farcaster-followers)
-- [Get Recommendation Follows For Farcaster User(s) Based on Lens Following](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-lens-following)
+* [Get Recommendation Follows For Farcaster User(s) Based on Token Transfers](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-token-transfers)
+* [Get Recommendation Follows For Farcaster User(s) Based on POAPs](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-poaps)
+* [Get Recommendation Follows For Farcaster User(s) Based on NFTs](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts)
+* [Get Recommendation Follows For Farcaster User(s) Based on NFTs and POAPs Commonly Held](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts-and-poaps-commonly-held)
+* [Get Recommendation Follows For Farcaster User(s) Based on Farcaster Followers](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-farcaster-followers)
+* [Get Recommendation Follows For Farcaster User(s) Based on Lens Following](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-lens-following)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -54,7 +54,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -69,7 +68,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -84,15 +82,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -100,7 +95,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -124,11 +118,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -141,11 +133,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -163,7 +153,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -191,7 +180,6 @@ Show recommendations by token transfers for Farcaster user name varunsrin.eth an
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetRecommendationsByTokenTransfers {
   # first query on Ethereum
@@ -259,11 +247,9 @@ query GetRecommendationsByTokenTransfers {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -318,7 +304,6 @@ query GetRecommendationsByTokenTransfers {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -336,7 +321,6 @@ Show POAPs owned by Farcaster user name dwr.eth and user id 1
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query POAPsOwnedByFarcasterUser {
   Poaps(
@@ -372,11 +356,9 @@ query POAPsOwnedByFarcasterUser {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -447,7 +429,6 @@ query POAPsOwnedByFarcasterUser {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -465,7 +446,6 @@ Show follow recommendations based on POAP event IDs 6584, 14498, and 6481
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetAllAddressesSocialsAndENSOfPOAP {
   Poaps(
@@ -487,11 +467,9 @@ query GetAllAddressesSocialsAndENSOfPOAP {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -519,7 +497,6 @@ query GetAllAddressesSocialsAndENSOfPOAP {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -539,7 +516,6 @@ Show NFTs on Ethereum and Polygon owned by Farcaster user name varunsrin.eth and
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetNFTs {
   ethereum: TokenBalances(
@@ -572,11 +548,9 @@ query GetNFTs {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -609,7 +583,6 @@ query GetNFTs {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -627,7 +600,6 @@ Show follow recommendations based on NFTs
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetNFTHoldersAndImages {
   ethereum: TokenNfts(
@@ -684,11 +656,9 @@ query GetNFTHoldersAndImages {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -739,7 +709,6 @@ query GetNFTHoldersAndImages {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -761,7 +730,6 @@ Show common holders of Nouns NFT and EthCC POAP that also have Farcaster
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfNounsAndEthCC {
   TokenBalances(
 <strong>    input: {filter: {tokenAddress: {_eq: "0x9c8ff314c9bc7f6e59a9d9225fb22946427edc03"}}, blockchain: ethereum, limit: 200}
@@ -782,11 +750,9 @@ Show common holders of Nouns NFT and EthCC POAP that also have Farcaster
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -822,7 +788,6 @@ Show common holders of Nouns NFT and EthCC POAP that also have Farcaster
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -834,7 +799,6 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(({ owner }) =>
@@ -844,11 +808,9 @@ const formatFunction = (data) =>
     .flat(2)
     .filter((social, index, array) => array.indexOf(social) === index) ?? [];
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 def format_function(data):
     result = []
@@ -863,7 +825,6 @@ def format_function(data):
 
     return result
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -899,7 +860,6 @@ Show me all Farcaster followers of fname dwr.eth and their Farcaster account det
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -936,11 +896,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -1003,7 +961,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -1018,14 +975,13 @@ You can fetch follow recommendations for Farcaster user(s) by simply showing the
 #### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/mjaRr2aBoY" %}
-Show me all Lens following of fc_fname:dwr.eth and their Farcaster account details
+Show me all Lens following of fc\_fname:dwr.eth and their Farcaster account details
 {% endembed %}
 
 #### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowings(
@@ -1062,11 +1018,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowings": {
@@ -1162,7 +1116,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -1174,7 +1127,6 @@ To get the list of all following in a flat array and filter out all those that d
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 ```javascript
 /**
  * @description Formats the given data.
@@ -1198,11 +1150,9 @@ const formatFunction = (data) =>
     .flat(1)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 """
 Formats the given data.
@@ -1227,7 +1177,6 @@ def format_function(data):
 
     return result
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1253,10 +1202,10 @@ If you have any questions or need help regarding building a recommendation engin
 
 ## More Resources
 
-- [Contact Recommendation](../recommendation-engine/)
-  - [Token Transfers](../recommendation-engine/token-transfers.md)
-  - [POAPs](../recommendation-engine/poaps.md)
-  - [NFTs](../recommendation-engine/nfts.md)
-- [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api/)
-- [POAPs API Reference](../../api-references/api-reference/poaps-api/)
-- [TokenNft API Reference](../../api-references/api-reference/tokennfts-api/)
+* [Contact Recommendation](../recommendation-engine/)
+  * [Token Transfers](../recommendation-engine/token-transfers.md)
+  * [POAPs](../recommendation-engine/poaps.md)
+  * [NFTs](../recommendation-engine/nfts.md)
+* [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api/)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+* [TokenNft API Reference](../../api-references/api-reference/tokennfts-api/)

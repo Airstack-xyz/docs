@@ -20,18 +20,18 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and for integrating onchain and offchain data with Farcaster.
 
-In this tutorial, you will learn how to build token gating systems in your dapp that grant feature access to Farcaster user(s) based on specific onchain criteria.
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-- [Gating only user(s) that have Farcaster](token-gating.md#gating-only-user-s-that-have-farcaster)
-- [Gating only user(s) that have Farcaster and NFT](token-gating.md#gating-only-user-s-that-have-farcaster-and-nft)
-- [Gating only user(s) that have Farcaster and POAP](token-gating.md#gating-only-user-s-that-have-farcaster-and-poap)
+* [Gating only user(s) that have Farcaster](token-gating.md#gating-only-user-s-that-have-farcaster)
+* [Gating only user(s) that have Farcaster and NFT](token-gating.md#gating-only-user-s-that-have-farcaster-and-nft)
+* [Gating only user(s) that have Farcaster and POAP](token-gating.md#gating-only-user-s-that-have-farcaster-and-poap)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -41,59 +41,51 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -101,7 +93,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -125,11 +116,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -142,11 +131,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -164,7 +151,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -192,7 +178,6 @@ Show Farcaster name and ID of dwr.eth, 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA9604
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetTokenGatingFarcasters {
   Socials(
@@ -218,11 +203,9 @@ query GetTokenGatingFarcasters {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -243,7 +226,6 @@ query GetTokenGatingFarcasters {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -265,7 +247,6 @@ Show NFT balance of 0xfaba1e9ed7f667e8c7a851c9ed15aed99aa80289 on specific NFTs
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -293,11 +274,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -323,7 +302,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -349,7 +327,6 @@ Show if 0x4455951fa43b17bd211e0e8ae64d22fb47946ade hold some given specific POAP
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Poaps(
@@ -373,11 +350,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -403,7 +378,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -421,6 +395,6 @@ If you have any questions or need help regarding token gating, please join our A
 
 ## More Resources
 
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-- [Socials API Reference](../../api-references/api-reference/socials-api/)
-- [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+* [Socials API Reference](../../api-references/api-reference/socials-api/)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api/)

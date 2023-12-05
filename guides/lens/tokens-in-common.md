@@ -19,18 +19,18 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-In this tutorial, you will learn how to fetch ERC20, NFTs, or POAPs in common from multiple Lens profiles.
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-- [ERC20 Tokens In Common Owned By Lens Profile(s)](tokens-in-common.md#erc20-tokens-in-common-owned-by-lens-profile-s)
-- [NFTs In Common Owned By Lens Profile(s)](tokens-in-common.md#nfts-in-common-owned-by-lens-profile-s)
-- [POAPs In Common Owned By Lens Profile(s)](tokens-in-common.md#poaps-in-common-owned-lens-profile-s)
+* [ERC20 Tokens In Common Owned By Lens Profile(s)](tokens-in-common.md#erc20-tokens-in-common-owned-by-lens-profile-s)
+* [NFTs In Common Owned By Lens Profile(s)](tokens-in-common.md#nfts-in-common-owned-by-lens-profile-s)
+* [POAPs In Common Owned By Lens Profile(s)](tokens-in-common.md#poaps-in-common-owned-lens-profile-s)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -51,7 +51,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -66,7 +65,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -81,15 +79,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -97,7 +92,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -117,11 +111,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/airstack-react";
 
@@ -134,11 +126,9 @@ const { data, error } = fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -156,7 +146,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -184,7 +173,6 @@ Show common ERC20 tokens held by Lens profiles
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -218,11 +206,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -252,7 +238,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -270,7 +255,6 @@ Show common NFTs of two Lens profiles
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -304,11 +288,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -338,7 +320,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -356,7 +337,6 @@ Show common POAPs of two Lens profiles
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Poaps(
@@ -382,11 +362,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -417,7 +395,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -427,7 +404,7 @@ If you have any questions or need help regarding fetching common ERC20 tokens, N
 
 ## More Resources
 
-- [Tokens In Common Guides](../tokens-in-common/)
-- [Nested Queries](../../api-references/nested-queries.md)
-- [POAPs API Reference](../../api-references/api-reference/poaps-api/)
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+* [Tokens In Common Guides](../tokens-in-common/)
+* [Nested Queries](../../api-references/nested-queries.md)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)

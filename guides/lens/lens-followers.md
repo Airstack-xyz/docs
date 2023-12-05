@@ -19,27 +19,27 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-In this tutorial, you will learn how to fetch various use cases of Lens followers data.
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-- [Get Lens Followers of Lens Profile(s)](lens-followers.md#get-lens-followers-of-lens-profile-s)
-- [Check A Given Lens Profile is A Follower of User(s) on Lens](lens-followers.md#check-a-given-lens-profile-is-a-follower-of-user-s-on-lens)
-- [Get The Most Recent Lens Followers of Lens Profile(s)](lens-followers.md#get-the-most-recent-lens-followers-of-lens-profile-s)
-- [Get The Earliest Lens Followers of Lens Profile(s)](lens-followers.md#get-the-earliest-lens-followers-of-lens-profile-s)
-- [Get Lens Followers of Lens Profile(s) that has ENS Domain](lens-followers.md#get-lens-followers-of-lens-profile-s-that-has-ens-domain)
-- [Get Lens Followers of Lens Profile(s) that has XMTP Enabled](lens-followers.md#get-lens-followers-of-lens-profile-s-that-has-xmtp-enabled)
-- [Get Lens Profiles that have a certain amount of Followers](lens-followers.md#get-lens-profiles-that-have-a-certain-amount-of-followers)
-- [Get Lens and Farcaster Followers of Lens Profile(s)](lens-followers.md#get-lens-and-farcaster-followers-of-lens-profile-s)
-- [Get Lens Followers of Lens Profile(s) that Hold ERC20 Token(s)](lens-followers.md#get-lens-followers-of-lens-profile-s-that-hold-erc20-token-s)
-- [Get Lens Followers of Lens Profile(s) that Hold ERC721/1155 NFT(s)](lens-followers.md#get-lens-followers-of-lens-profile-s-that-hold-erc721-1155-nft-s)
-- [Get Lens Followers of Lens Profile(s) that Hold POAP(s)](lens-followers.md#get-lens-followers-of-lens-profile-s-that-hold-poap-s)
-- [Get Lens Followers of Lens Profile(s) that Hold Certain Amount of ERC20 Token(s)](lens-followers.md#get-lens-followers-of-lens-profile-s-that-hold-certain-amount-of-erc20-token-s)
+* [Get Lens Followers of Lens Profile(s)](lens-followers.md#get-lens-followers-of-lens-profile-s)
+* [Check A Given Lens Profile is A Follower of User(s) on Lens](lens-followers.md#check-a-given-lens-profile-is-a-follower-of-user-s-on-lens)
+* [Get The Most Recent Lens Followers of Lens Profile(s)](lens-followers.md#get-the-most-recent-lens-followers-of-lens-profile-s)
+* [Get The Earliest Lens Followers of Lens Profile(s)](lens-followers.md#get-the-earliest-lens-followers-of-lens-profile-s)
+* [Get Lens Followers of Lens Profile(s) that has ENS Domain](lens-followers.md#get-lens-followers-of-lens-profile-s-that-has-ens-domain)
+* [Get Lens Followers of Lens Profile(s) that has XMTP Enabled](lens-followers.md#get-lens-followers-of-lens-profile-s-that-has-xmtp-enabled)
+* [Get Lens Profiles that have a certain amount of Followers](lens-followers.md#get-lens-profiles-that-have-a-certain-amount-of-followers)
+* [Get Lens and Farcaster Followers of Lens Profile(s)](lens-followers.md#get-lens-and-farcaster-followers-of-lens-profile-s)
+* [Get Lens Followers of Lens Profile(s) that Hold ERC20 Token(s)](lens-followers.md#get-lens-followers-of-lens-profile-s-that-hold-erc20-token-s)
+* [Get Lens Followers of Lens Profile(s) that Hold ERC721/1155 NFT(s)](lens-followers.md#get-lens-followers-of-lens-profile-s-that-hold-erc721-1155-nft-s)
+* [Get Lens Followers of Lens Profile(s) that Hold POAP(s)](lens-followers.md#get-lens-followers-of-lens-profile-s-that-hold-poap-s)
+* [Get Lens Followers of Lens Profile(s) that Hold Certain Amount of ERC20 Token(s)](lens-followers.md#get-lens-followers-of-lens-profile-s-that-hold-certain-amount-of-erc20-token-s)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -60,7 +60,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -75,7 +74,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -90,15 +88,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -106,7 +101,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -130,11 +124,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -147,11 +139,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -169,7 +159,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -190,14 +179,13 @@ You can get the list of Lens followers of Lens profile(s) by inputting either th
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/6VKviRcwXH" %}
-Show me the Lens followers of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
+Show me the Lens followers of lens/@stani, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -244,11 +232,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -317,7 +303,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -337,7 +322,6 @@ Show me if lens/@shnoodles is a follower of a group of users on Lens
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query isFollowing {
   Wallet(input: {identity: "lens/@shnoodles", blockchain: ethereum}) {
     socialFollowers( # Check if lens/@shnoodles is a follower of these user identities on Lens
@@ -362,11 +346,9 @@ Show me if lens/@shnoodles is a follower of a group of users on Lens
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Wallet": {
@@ -432,11 +414,10 @@ Show me if lens/@shnoodles is a follower of a group of users on Lens
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
-If [`lens/@shnoodles`](https://explorer.airstack.xyz/token-balances?address=lens%2F%40shnoodles&blockchain=ethereum&rawInput=%23%E2%8E%B1lens%2F%40shnoodles%E2%8E%B1%28lens%2F%40shnoodles++ethereum+null%29&inputType=ADDRESS) is a follower of any of the users on Lens, then it will appear as a response in the `Follower` array as shown in the [sample response](lens-followers.md#response-1).
+If [`lens/@shnoodles`](https://explorer.airstack.xyz/token-balances?address=lens%2F%40shnoodles\&blockchain=ethereum\&rawInput=%23%E2%8E%B1lens%2F%40shnoodles%E2%8E%B1%28lens%2F%40shnoodles++ethereum+null%29\&inputType=ADDRESS) is a follower of any of the users on Lens, then it will appear as a response in the `Follower` array as shown in the [sample response](lens-followers.md#response-1).
 
 ## Get The Most Recent Lens Followers of Lens Profile(s)
 
@@ -445,14 +426,13 @@ You can get the list of most recent Lens followers of Lens profile(s) by inputti
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/IHBMwpSwoy" %}
-Show me the most recent Lens followers of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
+Show me the most recent Lens followers of lens/@stani, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -500,11 +480,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -573,7 +551,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -584,14 +561,13 @@ You can get the list of the earliest Lens followers of Lens profile(s) by inputt
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/5wOzfKr33V" %}
-Show me the earliest Lens followers of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
+Show me the earliest Lens followers of lens/@stani, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -639,11 +615,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -696,7 +670,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -707,14 +680,13 @@ You can get the list of Lens followers of Lens profile(s) and check if they have
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/etLz3ybvlu" %}
-Show me the Lens followers of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that have ENS Domain
+Show me the Lens followers of lens/@stani, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that have ENS Domain
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   SocialFollowers(
     input: {filter: {dappName: {_eq: lens}, identity: {_in: ["lens/@stani", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
@@ -750,11 +722,9 @@ Show me the Lens followers of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf5524
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -823,7 +793,6 @@ Show me the Lens followers of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf5524
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -838,14 +807,13 @@ You can get the list of Lens followers of Lens profile(s) and check if they have
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/KqHp79HKd5" %}
-Show me the Lens followers of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that have XMTP enabled
+Show me the Lens followers of lens/@stani, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that have XMTP enabled
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   SocialFollowers(
     input: {filter: {dappName: {_eq: lens}, identity: {_in: ["lens/@stani", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
@@ -880,11 +848,9 @@ Show me the Lens followers of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf5524
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -958,7 +924,6 @@ Show me the Lens followers of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf5524
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -980,7 +945,6 @@ Show me all Lens profiles that have more than or equal to 1000 followers
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {filter: {followerCount: {_gte: 1000}, dappName: {_eq: lens}}, blockchain: ethereum, limit: 200}
@@ -994,11 +958,9 @@ Show me all Lens profiles that have more than or equal to 1000 followers
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1027,7 +989,6 @@ Show me all Lens profiles that have more than or equal to 1000 followers
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1040,14 +1001,13 @@ You can get the list of Lens and Farcaster followers of Lens profile(s) by input
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/DTyOZg/EIet2oTIB8" %}
-Show me the Lens and Farcaster followers of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
+Show me the Lens and Farcaster followers of lens/@stani, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -1095,11 +1055,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1151,25 +1109,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Get Lens Followers of Lens Profile(s) that Hold ERC20 Token(s)
 
-You can get the list of Lens followers of Lens profile(s) and that hold certain ERC20 token(s), e.g. [USDC](https://explorer.airstack.xyz/token-holders?activeView=&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48&tokenType=&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29&inputType=TOKEN&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=&blockchain=ethereum), by inputting either their 0x address, [Lens profile name](#user-content-fn-19)[^19] or Lens profile ID (decimal[^20] or hex[^21]):
+You can get the list of Lens followers of Lens profile(s) and that hold certain ERC20 token(s), e.g. [USDC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&tokenType=\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29\&inputType=TOKEN\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting either their 0x address, [Lens profile name](#user-content-fn-19)[^19] or Lens profile ID (decimal[^20] or hex[^21]):
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/EozH1sSEkw" %}
-Show me the Lens followers of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that also hold USDC
+Show me the Lens followers of lens/@stani, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that also hold USDC
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   SocialFollowers(
     input: {filter: {identity: {_in: ["lens/@stani", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}, dappName: {_eq: lens}}, blockchain: ALL, limit: 200}
@@ -1204,11 +1160,9 @@ Show me the Lens followers of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf5524
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1280,25 +1234,23 @@ Show me the Lens followers of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf5524
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Get Lens Followers of Lens Profile(s) that Hold ERC721/1155 NFT(s)
 
-You can get the list of Lens followers of Lens profile(s) and that hold certain ERC721 or ERC1155 NFT(s), e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D&tokenType=&rawInput=%23%E2%8E%B1BoredApeYachtClub%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+NFT_COLLECTION+ethereum+null%29&inputType=NFT_COLLECTION&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=&blockchain=ethereum), by inputting either their 0x address, [Lens profile name](#user-content-fn-22)[^22] or Lens profile ID (decimal[^23] or hex[^24]):
+You can get the list of Lens followers of Lens profile(s) and that hold certain ERC721 or ERC1155 NFT(s), e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D\&tokenType=\&rawInput=%23%E2%8E%B1BoredApeYachtClub%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+NFT\_COLLECTION+ethereum+null%29\&inputType=NFT\_COLLECTION\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting either their 0x address, [Lens profile name](#user-content-fn-22)[^22] or Lens profile ID (decimal[^23] or hex[^24]):
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/YY1o5tZHx7" %}
-Show me the Lens followers of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that also hold BAYC
+Show me the Lens followers of lens/@stani, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that also hold BAYC
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -1355,11 +1307,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1431,25 +1381,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Get Lens Followers of Lens Profile(s) that Hold POAP(s)
 
-You can get the list of Lens followers of Lens profile(s) and that hold certain POAP(s), e.g. [EthCC\[6\] Attendee POAP](https://explorer.airstack.xyz/token-holders?activeView=&address=141910&tokenType=&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29&inputType=POAP&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=&blockchain=gnosis), by inputting either their 0x address, [Lens profile name](#user-content-fn-25)[^25] or Lens profile ID (decimal[^26] or hex[^27]):
+You can get the list of Lens followers of Lens profile(s) and that hold certain POAP(s), e.g. [EthCC\[6\] Attendee POAP](https://explorer.airstack.xyz/token-holders?activeView=\&address=141910\&tokenType=\&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29\&inputType=POAP\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=gnosis), by inputting either their 0x address, [Lens profile name](#user-content-fn-25)[^25] or Lens profile ID (decimal[^26] or hex[^27]):
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/Yr5VUSbjgp" %}
-Show me the Lens followers of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that also hold EthCC\[6] POAP
+Show me the Lens followers of lens/@stani, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that also hold EthCC\[6] POAP
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -1498,11 +1446,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1570,25 +1516,23 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Get Lens Followers of Lens Profile(s) that Hold Certain Amount of ERC20 Token(s)
 
-You can get the list of Lens followers of Lens profile(s) and that hold certain amount of ERC20 token(s), e.g. more than or equal to 1000 [USDC](https://explorer.airstack.xyz/token-holders?activeView=&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48&tokenType=&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29&inputType=TOKEN&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=&blockchain=ethereum), by inputting either their 0x address, [Lens profile name](#user-content-fn-28)[^28] or Lens profile ID (decimal[^29] or hex[^30]):
+You can get the list of Lens followers of Lens profile(s) and that hold certain amount of ERC20 token(s), e.g. more than or equal to 1000 [USDC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\&tokenType=\&rawInput=%23%E2%8E%B1USD+Coin%E2%8E%B1%280xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48+TOKEN+ethereum+null%29\&inputType=TOKEN\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=ethereum), by inputting either their 0x address, [Lens profile name](#user-content-fn-28)[^28] or Lens profile ID (decimal[^29] or hex[^30]):
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/6tkOHX8r23" %}
-Show me the Lens followers of lens/@stani, lens_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that also hold at least 1000 USDC
+Show me the Lens followers of lens/@stani, lens\_id:0x024, vitalik.eth, 0xeaf55242a90bb3289dB8184772b0B98562053559 that also hold at least 1000 USDC
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -1646,11 +1590,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -1725,7 +1667,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -1735,39 +1676,68 @@ If you have any questions or need help regarding fetching Lens Followers data, p
 
 ## More Resources
 
-- [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
-- [Wallet API Reference](../../api-references/api-reference/wallet-api/)
-- [Lens Following](broken-reference/)
-- [Farcaster Followers](../farcaster/farcaster-followers.md)
-- [Farcaster Following](../farcaster/farcaster-following.md)
+* [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
+* [Wallet API Reference](../../api-references/api-reference/wallet-api/)
+* [Lens Following](broken-reference/)
+* [Farcaster Followers](../farcaster/farcaster-followers.md)
+* [Farcaster Following](../farcaster/farcaster-following.md)
 
 [^1]: `profileName`
+
 [^2]: `profileTokenId`
+
 [^3]: `profileTokenIdHex`
+
 [^4]: `profileName`
+
 [^5]: `profileTokenId`
+
 [^6]: `profileTokenIdHex`
+
 [^7]: `profileName`
+
 [^8]: `profileTokenId`
+
 [^9]: `profileTokenIdHex`
+
 [^10]: `profileName`
+
 [^11]: `profileTokenId`
+
 [^12]: `profileTokenIdHex`
+
 [^13]: `profileName`
+
 [^14]: `profileTokenId`
+
 [^15]: `profileTokenIdHex`
+
 [^16]: `profileName`
+
 [^17]: `profileTokenId`
+
 [^18]: `profileTokenIdHex`
+
 [^19]: `profileName`
+
 [^20]: `profileTokenId`
+
 [^21]: `profileTokenIdHex`
+
 [^22]: `profileName`
+
 [^23]: `profileTokenId`
+
 [^24]: `profileTokenIdHex`
+
 [^25]: `profileName`
+
 [^26]: `profileTokenId`
+
 [^27]: `profileTokenIdHex`
+
 [^28]: `profileName`
+
 [^29]: `profileTokenId`
+
 [^30]: `profileTokenIdHex`

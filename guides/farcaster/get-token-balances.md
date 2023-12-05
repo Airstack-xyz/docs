@@ -19,18 +19,18 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and for integrating onchain and offchain data with Farcaster.
 
-In this tutorial, you will learn how to fetch Farcaster user(s) asset holdings which comprise ERC20s, ERC721s, ERC115s, and POAPs on Ethereum, Polygon, and Gnosis.
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-- [Get All ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-all-erc20s-owned-by-farcaster-user-s)
-- [Get All NFTs Owned By Farcaster user(s)](get-token-balances.md#get-all-nfts-owned-by-farcaster-user-s)
-- [Get All POAPs Owned By Farcaster user(s)](get-token-balances.md#get-all-poaps-owned-by-farcaster-user-s)
+* [Get All ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-all-erc20s-owned-by-farcaster-user-s)
+* [Get All NFTs Owned By Farcaster user(s)](get-token-balances.md#get-all-nfts-owned-by-farcaster-user-s)
+* [Get All POAPs Owned By Farcaster user(s)](get-token-balances.md#get-all-poaps-owned-by-farcaster-user-s)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -40,59 +40,51 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -100,7 +92,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -124,11 +115,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -141,11 +130,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -163,7 +150,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -191,7 +177,6 @@ Show ERC20 tokens on Ethereum and Polygon owned by Farcaster user name dwr.eth a
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query ERC20sOwnedByFarcasterUser {
   Ethereum: TokenBalances(
@@ -256,11 +241,9 @@ query ERC20sOwnedByFarcasterUser {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -319,7 +302,6 @@ query ERC20sOwnedByFarcasterUser {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -337,7 +319,6 @@ Show NFT on Ethereum and Polygon owned by farcaster user name dwr.eth and user i
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query NFTsOwnedByFarcasterUser {
   Ethereum: TokenBalances(
@@ -418,11 +399,9 @@ query NFTsOwnedByFarcasterUser {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -497,7 +476,6 @@ query NFTsOwnedByFarcasterUser {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -515,7 +493,6 @@ Show POAPs owned by Farcaster user name dwr.eth and user id 1
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query POAPsOwnedByFarcasterUser {
   Poaps(
@@ -551,11 +528,9 @@ query POAPsOwnedByFarcasterUser {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -626,7 +601,6 @@ query POAPsOwnedByFarcasterUser {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -636,5 +610,5 @@ If you have any questions or need help regarding fetching token balances of Farc
 
 ## More Resources
 
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-- [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api/)

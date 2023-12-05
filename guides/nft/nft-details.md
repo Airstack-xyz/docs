@@ -20,7 +20,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum and Polygon.
 
-In this tutorial, you will learn how to fetch ERC721 & ERC1155 NFT details data, which includes name, symbol, NFT images (original & resized), metadata from a specific NFT or an NFT collection.
+### Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 

@@ -19,7 +19,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
 
-In this tutorial, you will learn how to check if a user is a known sender or not and build a spam filter for your XMTP inbox UI through on-chain data, e.g. social follows and token transfers.
+## Table Of Contents
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 

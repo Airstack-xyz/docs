@@ -26,6 +26,8 @@ Developers building with [XMTP](https://xmtp.org) can use [Airstack](https://air
 1. check if users have [XMTP](https://xmtp.org) enabled (required in order to receive [XMTP](https://xmtp.org) messages)
 2. resolve [Lens](https://lens.xyz) profile names or IDs to 0x Ethereum addresses and vice versa.
 
+## Table Of Contents
+
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
 * [Check Lens Profile Has XMTP Enabled](has-xmtp.md#check-lens-profile-has-xmtp-enabled)

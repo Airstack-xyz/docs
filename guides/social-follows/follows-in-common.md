@@ -19,7 +19,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 social applications with and integrating on-chain and off-chain data with [Lens](https://lens.xyz) and [Farcaster](https://farcaster.xyz).
 
-In this tutorial, you will learn how to fetch followers and following in common data and its variations.
+### Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 

@@ -19,7 +19,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-In this tutorial, you will learn how to fetch Lens profile details with various [web3 identities](#user-content-fn-1)[^1]. Profile details include Lens profile name, profile ID, associated Ethereum addresses, registration date, and more.
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
@@ -1308,5 +1308,3 @@ If you have any questions or need help regarding fetching Lens profile details, 
 * [Resolve Lens Profiles](resolve-lens-profiles.md)
 * [Lens Followers](lens-followers.md)
 * [Lens Following](lens-following.md)
-
-[^1]: 0x addresses, ENS domains, Lens, XMTP

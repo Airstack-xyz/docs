@@ -20,7 +20,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum and Polygon.
 
-In this tutorial, you will learn how to fetch NFT holders of a specific NFT and NFT collection(s). You will also learn how to use the same query to check whether a given user hold a specific NFT collection, which can be a useful application for NFT-gating.
+### Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 

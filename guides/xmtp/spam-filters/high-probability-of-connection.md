@@ -19,7 +19,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
 
-In this tutorial, you will learn how to check if user A has a high probability of connection to user B to determine whether to classify user A as a spammer or not.
+## Table Of Contents
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to check high probability of connection by:
 

@@ -19,7 +19,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and for integrating on-chain (Optimism) and off-chain (Farcaster hubs) data from Farcaster.
 
-In this tutorial, you will learn how to resolve [Farcaster](https://farcaster.xyz) from a give user and vice versa, reverse resolving a given user to their Farcaster fname or fid.
+### Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 

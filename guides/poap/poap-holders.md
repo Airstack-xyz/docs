@@ -19,17 +19,17 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [POAP](https://poap.xyz/) applications and for integrating POAP on-chain data indexed directly from both Ethereum and Gnosis.
 
-In this tutorial, you will learn how to fetch [POAP](https://poap.xyz/) holders of a given [POAP(s)](https://poap.xyz/) and how to fetch common holders of multiple given [POAPs](https://poap.xyz/).
+### Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Get POAP Holders Of A Given POAP(s)](poap-holders.md#get-poap-holders-of-a-given-poap-s)
-- [Get POAP Common Holders Of Multiple POAPs](poap-holders.md#get-poap-common-holders-of-multiple-poaps)
+* [Get POAP Holders Of A Given POAP(s)](poap-holders.md#get-poap-holders-of-a-given-poap-s)
+* [Get POAP Common Holders Of Multiple POAPs](poap-holders.md#get-poap-common-holders-of-multiple-poaps)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -39,59 +39,51 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -99,7 +91,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -123,11 +114,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -140,11 +129,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -162,7 +149,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -178,7 +164,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get POAP Holders Of A Given POAP(s)
 
-You can fetch all POAP holders of a given POAP(s) by specifying the `eventId` of the POAP, e.g. `14190` for [EthCC\[6\] – Attendee POAP](https://explorer.airstack.xyz/token-holders?activeView=&address=141910&tokenType=&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29&inputType=POAP&activeTokenInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=&blockchain=gnosis):
+You can fetch all POAP holders of a given POAP(s) by specifying the `eventId` of the POAP, e.g. `14190` for [EthCC\[6\] – Attendee POAP](https://explorer.airstack.xyz/token-holders?activeView=\&address=141910\&tokenType=\&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29\&inputType=POAP\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&blockchain=gnosis):
 
 ### Try Demo
 
@@ -190,7 +176,6 @@ show me all holders of EthCC\[6] - Attendee POAP
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Poaps(
@@ -225,11 +210,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -291,7 +274,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -311,7 +293,6 @@ show me common holders of EthCC\[6] - Attendee and ETHDenver 2023 POAP
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
 <strong>  Poaps(input: {filter: {eventId: {_eq: "141910"}}, blockchain: ALL, limit: 200}) {
 </strong>    Poap {
@@ -339,11 +320,9 @@ show me common holders of EthCC\[6] - Attendee and ETHDenver 2023 POAP
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Poaps": {
@@ -397,7 +376,6 @@ show me common holders of EthCC\[6] - Attendee and ETHDenver 2023 POAP
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -407,10 +385,10 @@ If you have any questions or need help regarding fetching POAP balances, please 
 
 ## More Resources
 
-- [Poaps API Reference](../../api-references/api-reference/poaps-api/)
-- [Poaps API Examples](../../api-references/api-reference/poaps-api/poaps-api-examples.md)
-- [Combinations](../combinations/)
-  - [Multiple POAPs](../combinations/multiple-poaps.md)
-  - [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
-- [Tokens In Common](../tokens-in-common/)
-  - [POAPs](../tokens-in-common/poaps.md)
+* [Poaps API Reference](../../api-references/api-reference/poaps-api/)
+* [Poaps API Examples](../../api-references/api-reference/poaps-api/poaps-api-examples.md)
+* [Combinations](../combinations/)
+  * [Multiple POAPs](../combinations/multiple-poaps.md)
+  * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
+* [Tokens In Common](../tokens-in-common/)
+  * [POAPs](../tokens-in-common/poaps.md)

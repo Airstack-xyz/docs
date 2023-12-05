@@ -17,16 +17,12 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching dapps and integrating on-chain and off-chain data from various blockchains.
 
-In this tutorial, you will learn how to fetch ERC20 tokens in common from multiple users.
-
-In this guide you will learn how to use Airstack to:
-
-- [ERC20 Tokens In Common](erc20s.md#erc20-tokens-in-common)
+In this guide you will learn how to use Airstack to fetch [ERC20 Tokens In Common](erc20s.md#erc20-tokens-in-common).
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -36,59 +32,51 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -96,7 +84,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -116,11 +103,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/airstack-react";
 
@@ -133,11 +118,9 @@ const { data, error } = fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -155,7 +138,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -183,7 +165,6 @@ Show common ERC20 tokens held by users
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -214,11 +195,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -248,7 +227,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -258,7 +236,7 @@ If you have any questions or need help regarding fetching common ERC20 tokens of
 
 ## More Resources
 
-- [Nested Queries](../../api-references/nested-queries.md)
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-- [Tokens In Common For Lens Developers](../lens/tokens-in-common.md)
-- [Tokens In Common For Farcaster Developers](../farcaster/tokens-in-common.md)
+* [Nested Queries](../../api-references/nested-queries.md)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+* [Tokens In Common For Lens Developers](../lens/tokens-in-common.md)
+* [Tokens In Common For Farcaster Developers](../farcaster/tokens-in-common.md)

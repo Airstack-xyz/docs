@@ -19,6 +19,8 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications with profile images from various protocols.
 
+### Table Of Contents
+
 In this guide you will learn how to use Airstack to:
 
 * [Get ENS Profile Image](profile-image.md#get-ens-profile-image) (in various sizes)

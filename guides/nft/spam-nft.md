@@ -17,11 +17,13 @@ layout:
 
 # 🧹 Spam NFT
 
-[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Polygon, and base.
+[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Polygon, and Base.
 
 When indexing any new token, Airstack takes into consideration contract deployer address history, and other factors to determine if the token might be spam.
 
 Those contracts are the marked spam and can be filtered out. If you think that a given contract was incorrectly labeled as spam, please reach out to us [support@airstack.xyz](mailto:support@airstack.xyz).
+
+### Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 

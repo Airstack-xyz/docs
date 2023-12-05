@@ -19,7 +19,7 @@ layout:
 
 With [ERC6551](https://eips.ethereum.org/EIPS/eip-6551) accounts, NFT now has the capability to have an account on their own and perform writing actions to the blockchain as any other accounts on EVM. Thus, this also allows NFTs for the first time to own other assets, e.g. ERC20, ERC721, and ERC1155s.
 
-Since an NFT that has [ERC6551](https://eips.ethereum.org/EIPS/eip-6551) accounts can own another NFT that also can own another ERC6551 account, this creates a very unique, but complex, ownership structure of NFTs.
+### Table Of Contents
 
 Using [Airstack](https://airstack.xyz), you can efficiently traverse the [ERC6551](https://eips.ethereum.org/EIPS/eip-6551) ownership tree, both upwards and downwards in just a single API call.
 
@@ -32,16 +32,16 @@ There are various use cases for traversing the ERC6551 ownership tree, which inc
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Traverse Up ERC6551 Tree By ERC6551 Account Address](traverse-erc6551-tree.md#traverse-up-erc6551-tree-by-erc6551-account-address)
-- [Traverse Up ERC6551 Tree By NFT](traverse-erc6551-tree.md#traverse-up-erc6551-tree-by-nft)
-- [Traverse Down ERC6551 Tree By EOA Address](traverse-erc6551-tree.md#traverse-down-erc6551-tree-by-eoa-address)
-- [Traverse Down ERC6551 Tree By NFT](traverse-erc6551-tree.md#traverse-down-erc6551-tree-by-nft)
+* [Traverse Up ERC6551 Tree By ERC6551 Account Address](traverse-erc6551-tree.md#traverse-up-erc6551-tree-by-erc6551-account-address)
+* [Traverse Up ERC6551 Tree By NFT](traverse-erc6551-tree.md#traverse-up-erc6551-tree-by-nft)
+* [Traverse Down ERC6551 Tree By EOA Address](traverse-erc6551-tree.md#traverse-down-erc6551-tree-by-eoa-address)
+* [Traverse Down ERC6551 Tree By NFT](traverse-erc6551-tree.md#traverse-down-erc6551-tree-by-nft)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
-- Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+* Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
 
 ## Get Started
 
@@ -51,59 +51,51 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -111,7 +103,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -135,11 +126,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -152,11 +141,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -174,7 +161,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -210,7 +196,6 @@ To query the upper-level NFTs & ERC6551 accounts in the ERC6551 ownership tree, 
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Accounts(
@@ -261,11 +246,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -307,7 +290,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -333,7 +315,6 @@ To query the upper-level NFTs & ERC6551 accounts in the ERC6551 ownership tree, 
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -381,11 +362,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -436,7 +415,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -462,7 +440,6 @@ To query the lower-level NFTs & ERC6551 accounts in the ERC6551 ownership tree, 
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -510,11 +487,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -622,7 +597,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -648,7 +622,6 @@ To query the lower-level NFTs & ERC6551 accounts in the ERC6551 ownership, simpl
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Accounts(
@@ -690,11 +663,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -781,7 +752,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -791,5 +761,5 @@ If you have any questions or need help regarding traversing the ERC6551 tree, pl
 
 ## More Resources
 
-- [Accounts API Reference](../../api-references/api-reference/accounts-api/)
-- [ERC6551 Token Gating](token-gating.md)
+* [Accounts API Reference](../../api-references/api-reference/accounts-api/)
+* [ERC6551 Token Gating](token-gating.md)

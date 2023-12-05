@@ -19,7 +19,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and integrating on-chain and off-chain data with Farcaster.
 
-In this tutorial, you will learn how to fetch Farcaster user details with various [web3 identities](#user-content-fn-1)[^1]. User details include FID, Username(s), associated Ethereum addresses, registration date, and more.
+## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
@@ -1291,5 +1291,3 @@ If you have any questions or need help regarding fetching Farcaster user(s) prof
 * [Socials API Reference](../../api-references/api-reference/socials-api/)
 
 1. 0x address, ENS domain, Lens profile name and ID, Farcaster name and ID
-
-[^1]: 0x addresses, ENS domains, Lens, XMTP

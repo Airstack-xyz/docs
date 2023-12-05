@@ -19,9 +19,9 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
-In this tutorial, you will learn how to search for Lens profiles that fulfills the given filters or sort variables the API offered.
-
 ## Table Of Contents
+
+In this guide you will learn how to use Airstack to:
 
 * [Get All Lens Profiles](search-lens-profiles.md#get-all-lens-profiles)
 * [Get All Lens Profiles Created In Specified Time](search-lens-profiles.md#get-all-lens-profiles-created-in-specified-time)
