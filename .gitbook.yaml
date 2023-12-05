@@ -4,12 +4,21 @@ root: ./
   summary: SUMMARY.md​
 redirects:
   ai-assistant: get-started/airstack-ai.md
-  use-cases/recommendation-engine: use-cases/xmtp/recommendation-engine.md
-  use-cases/universal-resolver: use-cases/xmtp/universal-resolver.md
+  use-cases/recommendation-engine: guides/onchain-graph.md
+  use-cases/universal-resolver: guides/resolve-identities.md
   use-cases/universal-resolver/lens: use-cases/lens/universal-resolver.md
-  use-cases/recommendation-engine/recommendations-by-poaps: guides/contact-recommendation/poaps.md
-  use-cases/recommendation-engine/recommendations-by-token-transfers: guides/contact-recommendation/token-transfers.md
-  use-cases/recommendation-engine/recommendations-by-nfts: guides/contact-recommendation/nfts.md
+  use-cases/recommendation-engine/recommendations-by-poaps: guides/onchain-graph.md
+  use-cases/recommendation-engine/recommendations-by-token-transfers: guides/onchain-graph.md
+  use-cases/recommendation-engine/recommendations-by-nfts: guides/onchain-graph.md
+  use-cases/xmtp: guides/xmtp/README.md
+  use-cases/xmtp/universal-resolver: guides/resolve-identities/README.md
+  use-cases/xmtp/recommendation-engine: guides/onchain-graph.md
+  use-cases/lens: guides/lens/README.md
+  use-cases/lens/universal-resolver: guides/resolve-identities/lens.md
+  use-cases/farcaster: guides/farcaster/README.md
+  use-cases/farcaster/universal-resolver: guides/resolve-identities/farcaster.md
+  use-cases/erc6551: guides/token-bound-accounts/README.md
+  use-cases/poaps: guides/poap/README.md
   reference/api-reference/tokens-api/tokens-api-examples: api-references/api-reference/tokens-api/tokens-api-examples.md
   reference/api-reference/tokens-api: api-references/api-reference/tokens-api.md
   reference/api-reference/tokennfts-api: api-references/api-reference/tokennfts-api/README.md
