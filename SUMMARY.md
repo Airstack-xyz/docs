@@ -50,6 +50,7 @@
   * [🚪 Token Gating](guides/social-follows/token-gating.md)
 * [🖼 Profile Image](guides/profile-image.md)
 * [🪙 ERC20](guides/erc20/README.md)
+  * [📑 ERC20 Details](guides/erc20/erc20-details.md)
   * [⚖ ERC20 Balances](guides/erc20/erc20-balances.md)
   * [🗝 ERC20 Holders](guides/erc20/erc20-holders.md)
 * [♦ NFT](guides/nft/README.md)
