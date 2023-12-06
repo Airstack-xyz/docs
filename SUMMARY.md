@@ -36,6 +36,7 @@
   * [♦ NFT](guides/token-balances/get-token-balances-1.md)
   * [⚡ POAP](guides/token-balances/get-token-balances-2.md)
 * [🗝 Token Holders](guides/token-holders/README.md)
+  * [🪙 ERC20](guides/token-holders/erc20.md)
   * [♦ NFT](guides/token-holders/nft.md)
 * [🤝 Tokens In Common](guides/tokens-in-common/README.md)
   * [🪙 ERC20s](guides/tokens-in-common/erc20s.md)
