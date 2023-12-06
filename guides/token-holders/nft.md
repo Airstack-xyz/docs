@@ -16,7 +16,7 @@ layout:
     visible: true
 ---
 
-# 🗝 NFT Holders
+# ♦ NFT
 
 [Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Polygon, and Base.
 
@@ -24,9 +24,9 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-* [Get NFT Holder(s) of A Specific NFT](nft-holders.md#get-nft-holder-s-of-a-specific-nft)
-* [Get NFT Holders of NFT Collection(s)](nft-holders.md#get-nft-holders-of-nft-collection-s)
-* [Check If User Hold A Specific NFT Collection](nft-holders.md#check-if-user-hold-a-specific-nft-collection)
+* [Get NFT Holder(s) of A Specific NFT](nft.md#get-nft-holder-s-of-a-specific-nft)
+* [Get NFT Holders of NFT Collection(s)](nft.md#get-nft-holders-of-nft-collection-s)
+* [Check If User Hold A Specific NFT Collection](nft.md#check-if-user-hold-a-specific-nft-collection)
 
 ## Pre-requisites
 
@@ -461,9 +461,9 @@ If you have any questions or need help regarding fetching NFT holders data, plea
 
 ## More Resources
 
-* [NFT Details](nft-details.md)
-* [NFT Balances](nft-balances.md)
-* [Spam NFT](spam-nft.md)
+* [NFT Details](../nft/nft-details.md)
+* [NFT Balances](../nft/nft-balances.md)
+* [Spam NFT](../nft/spam-nft.md)
 * [Combinations (Common Holders)](../combinations/)
   * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
   * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
