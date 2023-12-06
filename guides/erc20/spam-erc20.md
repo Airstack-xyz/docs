@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to use Airstack to filter out spam NFTs and check whether an NFT is
-  a spam or not.
+  Learn how to use Airstack to filter out spam ERC20s and check whether an ERC20
+  token is a spam or not.
 layout:
   title:
     visible: true
@@ -15,9 +15,9 @@ layout:
     visible: true
 ---
 
-# 🧹 Spam NFT
+# 🧹 Spam ERC20
 
-[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Polygon, and Base.
+[Airstack](https://airstack.xyz) provides easy-to-use ERC20 token APIs for enriching Web3 applications with onchain and offchain ERC20 token data from Ethereum, Polygon, and Base.
 
 When indexing any new token, Airstack takes into consideration contract deployer address history, and other factors to determine if the token might be spam.
 
@@ -27,9 +27,9 @@ Those contracts are the marked spam and can be filtered out. If you think that a
 
 In this guide you will learn how to use Airstack to:
 
-* [Get Non-Spam NFT Balances Of Users](spam-nft.md#get-non-spam-nft-balances-of-user-s)
-* [Check If NFT Collection(s) Are Spam Or Not](spam-nft.md#check-if-nft-collection-s-are-spam-or-not)
-* [Show All Non-Spam NFTs](spam-nft.md#show-all-non-spam-nfts)
+* [Get Non-Spam ERC20 Token Balances Of Users](spam-erc20.md#get-non-spam-erc20-token-balances-of-user-s)
+* [Check If ERC20 Token(s) Are Spam Or Not](spam-erc20.md#check-if-erc20-token-s-are-spam-or-not)
+* [Show All Non-Spam ERC20 Tokens](spam-erc20.md#show-all-non-spam-erc20-tokens)
 
 ## Pre-requisites
 
@@ -167,18 +167,18 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Get Non-Spam NFT Balances Of User(s)
+## Get Non-Spam ERC20 Token Balances Of User(s)
 
 ### Fetching
 
-First, you can fetch the NFT balances of user(s) and show each NFT whether they are a spam or not using the `token.isSpam` field from the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API.
+First, you can fetch the ERC20 token balances of user(s) and show each ERC20 token whether they are a spam or not using the `token.isSpam` field from the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API.
 
 With the query below, provide an array of users' 0x addresses, ENS domains, cb.ids, Lens profiles, Farcaster fnames/fids to `owner` input:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/94LNTTi7Rp" %}
-Show users' NFT balances and check if each NFT is a spam or not
+{% embed url="https://app.airstack.xyz/query/gd2fCLJFjJ" %}
+Show users' ERC20 token balances and check if each ERC20 token is a spam or not
 {% endembed %}
 
 #### Code
@@ -198,15 +198,13 @@ query MyQuery {
             "fc_fname:vitalik.eth"
           ]
         }
-        tokenType: { _in: [ERC1155, ERC721] }
+        tokenType: { _eq: ERC20 }
       }
       blockchain: ethereum
     }
   ) {
     TokenBalance {
       tokenAddress
-      tokenId
-      tokenType
       token {
         isSpam
         name
@@ -225,15 +223,13 @@ query MyQuery {
             "fc_fname:vitalik.eth"
           ]
         }
-        tokenType: { _in: [ERC1155, ERC721] }
+        tokenType: { _eq: ERC20 }
       }
       blockchain: polygon
     }
   ) {
     TokenBalance {
       tokenAddress
-      tokenId
-      tokenType
       token {
         isSpam
         name
@@ -252,15 +248,13 @@ query MyQuery {
             "fc_fname:vitalik.eth"
           ]
         }
-        tokenType: { _in: [ERC1155, ERC721] }
+        tokenType: { _eq: ERC20 }
       }
       blockchain: base
     }
   ) {
     TokenBalance {
       tokenAddress
-      tokenId
-      tokenType
       token {
         isSpam
         name
@@ -278,67 +272,65 @@ query MyQuery {
     "Ethereum": {
       "TokenBalance": [
         {
-          "tokenAddress": "0x932261f9fc8da46c4a22e31b45c4de60623848bf",
-          "tokenId": "144778",
-          "tokenType": "ERC721",
+          "tokenAddress": "0xbaaa3b3b00def381c0794d0253a4a1ef3b2a9fbc",
           "token": {
-<strong>            "isSpam": false, // Not a spam NFT
-</strong>            "name": "Zerion DNA 1.0",
-            "symbol": "DNA"
+<strong>            "isSpam": false, // Not a spam ERC20 token
+</strong>            "name": "Monkeys George",
+            "symbol": "Monkeys George"
           }
         },
         {
-          "tokenAddress": "0x38f62679130121c85f28fb0c67dad560fab5688e",
-          "tokenId": "0",
-          "tokenType": "ERC1155",
+          "tokenAddress": "0xfe7377b49567387345b44fc603f0fa3d294e62c7",
           "token": {
-<strong>            "isSpam": true, // A spam NFT
-</strong>            "name": "$3,000 OP Reward",
-            "symbol": "$,3000 OP Reward"
+<strong>            "isSpam": false, // A Spam ERC20 token
+</strong>            "name": "THE PEOPLEs MONEY",
+            "symbol": "TPM"
           }
         },
-        // Other Ethereum NFTs
+        // Other Ethereum ERC20 tokens
       ]
     },
     "Polygon": {
       "TokenBalance": [
         {
-          "tokenAddress": "0xe7e7ead361f3aacd73a61a9bd6c10ca17f38e945",
-          "tokenId": "79233663829379634837589865448569342784712482819484549289560981379859480642508",
-          "tokenType": "ERC721",
+          "tokenAddress": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
           "token": {
-<strong>            "isSpam": false, // Not a spam NFT
-</strong>            "name": "lens Handles",
-            "symbol": "lens"
+<strong>            "isSpam": false, // Not a spam ERC20 token
+</strong>            "name": "(PoS) Tether USD",
+            "symbol": "USDT"
           }
         },
         {
-          "tokenAddress": "0x2f2071dfb236adfdde65dd07c78d86645b8abc97",
-          "tokenId": "0",
-          "tokenType": "ERC1155",
+          "tokenAddress": "0xb27cea9e38eeb387d3b0672287ca304fbff00b7c",
           "token": {
-<strong>            "isSpam": true, // A spam NFT
-</strong>            "name": "$1,000 USDT Rewards",
-            "symbol": "Voucher"
+<strong>            "isSpam": true, // A spam ERC20 token
+</strong>            "name": "Lens Rewards",
+            "symbol": "Claim via lens-rewards.xyz"
           }
         },
-        // Other Polygon NFTs
+        // Other Polygon ERC20 tokens
       ]
     },
     "Base": {
       "TokenBalance": [
         {
-          "tokenAddress": "0x7f9f222d2c492bf3c876ecb03a148884b90020f8",
-          "tokenId": "748",
-          "tokenType": "ERC721",
+          "tokenAddress": "0xac1bd2486aaf3b5c0fc3fd868558b082a531b2b4",
           "token": {
-            "isSpam": false,
-            "name": "I Called Congress - FIT21",
-            "symbol": "SWCFIT21"
+<strong>            "isSpam": false, // Not a spam ERC20 token
+</strong>            "name": "Toshi",
+            "symbol": "TOSHI"
+          }
+        },
+        {
+          "tokenAddress": "0xa11ab779517a0edfabb1b5d9db1cd3167b268858",
+          "token": {
+<strong>            "isSpam": true, // A spam ERC20 token
+</strong>            "name": "In 𝕏 S",
+            "symbol": "𝕏S"
           }
         },
       ],
-      // Other Base NFTs
+      // Other Base ERC20 tokens
     }
   }
 }
@@ -348,15 +340,13 @@ query MyQuery {
 
 ### Formatting
 
-Using the GraphQL response, you can filter out and aggregate the NFTs across Ethereum, Polygon, and Base by providing the response as to the `data` input of the `filterSpamNFTs` function:
+Using the GraphQL response, you can filter out and aggregate the ERC20 tokens across Ethereum, Polygon, and Base by providing the response as to the `data` input of the `filterSpamERC20Tokens` function:
 
 {% tabs %}
 {% tab title="TypeScript" %}
 ```typescript
-interface NFT {
+interface ERC20 {
   tokenAddress: string;
-  tokenId: string;
-  tokenType: string;
   token: {
     isSpam: boolean;
     name: string;
@@ -364,57 +354,57 @@ interface NFT {
   };
 }
 
-interface NFTWithBlockchain extends NFT {
+interface ERC20WithBlockchain extends ERC20 {
   blockchain: "ethereum" | "polygon" | "base";
 }
 
 interface TokenBalancesResponse {
   Ethereum: {
-    TokenBalance?: NFT[];
+    TokenBalance?: ERC20[];
   };
   Polygon: {
-    TokenBalance?: NFT[];
+    TokenBalance?: ERC20[];
   };
   Base: {
-    TokenBalance?: NFT[];
+    TokenBalance?: ERC20[];
   };
 }
 
-const filterSpamNFTs = (
+const filterSpamERC20Tokens = (
   data: TokenBalancesResponse
-): NFTWithBlockchain[] | undefined => {
+): ERC20WithBlockchain[] | undefined => {
   try {
     const { Ethereum, Polygon, Base } = data ?? {};
-    const ethNfts =
-      Ethereum?.TokenBalance?.map((nft: NFT) =>
-        nft?.token?.isSpam
+    const ethErc20Tokens =
+      Ethereum?.TokenBalance?.map((erc20Token: ERC20) =>
+        erc20Token?.token?.isSpam
           ? null
           : {
-              ...nft,
+              ...erc20Token,
               blockchain: "ethereum",
             }
       ) ?? [];
-    const polygonNfts =
-      Polygon?.TokenBalance?.map((nft: NFT) =>
-        nft?.token?.isSpam
+    const polygonErc20Tokens =
+      Polygon?.TokenBalance?.map((erc20Token: ERC20) =>
+        erc20Token?.token?.isSpam
           ? null
           : {
-              ...nft,
+              ...erc20Token,
               blockchain: "polygon",
             }
       ) ?? [];
-    const baseNfts =
-      Base?.TokenBalance?.map((nft: NFT) =>
-        nft?.token?.isSpam
+    const baseErc20Tokens =
+      Base?.TokenBalance?.map((erc20Token: ERC20) =>
+        erc20Token?.token?.isSpam
           ? null
           : {
-              ...nft,
+              ...erc20Token,
               blockchain: "base",
             }
       ) ?? [];
-    return [...ethNfts, ...polygonNfts, ...baseNfts]?.filter(
+    return [...ethErc20Tokens, ...polygonErc20Tokens, ...baseErc20Tokens]?.filter(
       Boolean
-    ) as NFTWithBlockchain[];
+    ) as ERC20WithBlockchain[];
   } catch (e) {
     console.error(e);
   }
@@ -424,37 +414,41 @@ const filterSpamNFTs = (
 
 {% tab title="JavaScript" %}
 ```javascript
-const filterSpamNFTs = (data) => {
+const filterSpamERC20Tokens = (data) => {
   try {
     const { Ethereum, Polygon, Base } = data ?? {};
-    const ethNfts =
-      Ethereum?.TokenBalance?.map((nft) =>
-        nft?.token?.isSpam
+    const ethErc20Tokens =
+      Ethereum?.TokenBalance?.map((erc20Token) =>
+        erc20Token?.token?.isSpam
           ? null
           : {
-              ...nft,
+              ...erc20Token,
               blockchain: "ethereum",
             }
       ) ?? [];
-    const polygonNfts =
-      Polygon?.TokenBalance?.map((nft) =>
-        nft?.token?.isSpam
+    const polygonErc20Tokens =
+      Polygon?.TokenBalance?.map((erc20Token) =>
+        erc20Token?.token?.isSpam
           ? null
           : {
-              ...nft,
+              ...erc20Token,
               blockchain: "polygon",
             }
       ) ?? [];
-    const baseNfts =
-      Base?.TokenBalance?.map((nft) =>
-        nft?.token?.isSpam
+    const baseErc20Tokens =
+      Base?.TokenBalance?.map((erc20Token) =>
+        erc20Token?.token?.isSpam
           ? null
           : {
-              ...nft,
+              ...erc20Token,
               blockchain: "base",
             }
       ) ?? [];
-    return [...ethNfts, ...polygonNfts, ...baseNfts]?.filter(Boolean);
+    return [
+      ...ethErc20Tokens,
+      ...polygonErc20Tokens,
+      ...baseErc20Tokens,
+    ]?.filter(Boolean);
   } catch (e) {
     console.error(e);
   }
@@ -467,28 +461,28 @@ const filterSpamNFTs = (data) => {
 from typing import List, Dict, Any, Optional
 import traceback
 
-def filter_spam_nfts(data: Optional[Dict[str, Any]]) -> List[Dict[str, Any]]:
+def filter_spam_erc20_tokens(data: Optional[Dict[str, Any]]) -> List[Dict[str, Any]]:
     try:
         ethereum = data.get('Ethereum', {}) if data else {}
         polygon = data.get('Polygon', {}) if data else {}
         base = data.get('Base', {}) if data else {}
 
-        eth_nfts = [
-            {**nft, 'blockchain': 'ethereum'} for nft in ethereum.get('TokenBalance', [])
-            if nft and not nft.get('token', {}).get('isSpam')
+        eth_erc20_tokens = [
+            {**erc20_token, 'blockchain': 'ethereum'} for erc20_token in ethereum.get('TokenBalance', [])
+            if erc20_token and not erc20_token.get('token', {}).get('isSpam')
         ]
 
-        polygon_nfts = [
-            {**nft, 'blockchain': 'polygon'} for nft in polygon.get('TokenBalance', [])
-            if nft and not nft.get('token', {}).get('isSpam')
+        polygon_erc20_tokens = [
+            {**erc20_token, 'blockchain': 'polygon'} for erc20_token in polygon.get('TokenBalance', [])
+            if erc20_token and not erc20_token.get('token', {}).get('isSpam')
         ]
 
-        base_nfts = [
-            {**nft, 'blockchain': 'base'} for nft in base.get('TokenBalance', [])
-            if nft and not nft.get('token', {}).get('isSpam')
+        base_erc20_tokens = [
+            {**erc20_token, 'blockchain': 'base'} for erc20_token in polygon.get('TokenBalance', [])
+            if erc20_token and not erc20_token.get('token', {}).get('isSpam')
         ]
 
-        return [nft for nft in eth_nfts + polygon_nfts + base_nfts if nft]
+        return [erc20_token for erc20_token in eth_erc20_tokens + polygon_erc20_tokens + base_erc20_tokens if erc20_token]
     except Exception:
         error = traceback.print_exc()
         raise Exception(error)
@@ -501,44 +495,34 @@ The formatted data will combine both Ethereum, Polygon, and Base NFTs hold by th
 ```json
 [
   {
-    "tokenAddress": "0x932261f9fc8da46c4a22e31b45c4de60623848bf",
-    "tokenId": "144778",
-    "tokenType": "ERC721",
-    "token": { "isSpam": false, "name": "Zerion DNA 1.0", "symbol": "DNA" },
+    "tokenAddress": "0xbaaa3b3b00def381c0794d0253a4a1ef3b2a9fbc",
+    "token": { "isSpam": false, "name": "Monkeys George", "symbol": "Monkeys George" },
     "blockchain": "ethereum"
   },
-  // Other Ethereum non-spam NFTs
+  // Other Ethereum non-spam ERC20 tokens
   {
-    "tokenAddress": "0xe7e7ead361f3aacd73a61a9bd6c10ca17f38e945",
-    "tokenId": "79233663829379634837589865448569342784712482819484549289560981379859480642508",
-    "tokenType": "ERC721",
-    "token": { "isSpam": false, "name": "lens Handles", "symbol": "lens" },
+    "tokenAddress": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+    "token": { "isSpam": false, "name": "(PoS) Tether USD", "symbol": "USDT" },
     "blockchain": "polygon"
   },
-  // Other Polygon non-spam NFTs
+  // Other Polygon non-spam ERC20 tokens
   {
-    "tokenAddress": "0x7f9f222d2c492bf3c876ecb03a148884b90020f8",
-    "tokenId": "748",
-    "tokenType": "ERC721",
-    "token": {
-      "isSpam": false,
-      "name": "I Called Congress - FIT21",
-      "symbol": "SWCFIT21"
-    },
+    "tokenAddress": "0xac1bd2486aaf3b5c0fc3fd868558b082a531b2b4",
+    "token": { "isSpam": false, "name": "Toshi", "symbol": "TOSHI" },
     "blockchain": "base"
-  }
-  // Other Base non-spam NFTs
+  },
+  // Other Base non-spam ERC20 tokens
 ]
 ```
 
-## Check If NFT Collection(s) Are Spam Or Not
+## Check If ERC20 Token(s) Are Spam Or Not
 
-You can use [Airstack](https://airstack.xyz) to check if NFT collection(s) are spam or not by using [`Tokens`](../../api-references/api-reference/tokens-api/) API and providing the NFT collection address(es) to `address` input:
+You can use [Airstack](https://airstack.xyz) to check if ERC20 token(s) are spam or not by using [`Tokens`](../../api-references/api-reference/tokens-api/) API and providing the ERC20 token address(es) to `address` input:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/yprF4nN1wf" %}
-Check if @BoredApeYachtClub, @Ethereum Name Service, and @Pudgy Penguins are spam NFTs or not
+{% embed url="https://app.airstack.xyz/query/lbqjtIyFrJ" %}
+Check if Wrapped Ether, USD Coin, and MATIC are spam ERC20 tokens or not
 {% endembed %}
 
 ### Code
@@ -550,12 +534,12 @@ query MyQuery {
   Tokens(
     input: {
       filter: {
-        type: { _in: [ERC1155, ERC721] }
+        type: { _eq: ERC20 }
         address: {
           _in: [
-            "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"
-            "0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85"
-            "0xBd3531dA5CF5857e7CfAA92426877b022e612cf8"
+            "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+            "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0"
           ]
         }
       }
@@ -580,25 +564,25 @@ query MyQuery {
     "Tokens": {
       "Token": [
         {
-<strong>          "isSpam": false, // not spam NFT
-</strong>          "address": "0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85",
-          "name": "Ethereum Name Service",
-          "symbol": "ENS",
-          "type": "ERC721"
+<strong>          "isSpam": false, // not Spam ERC20 tokens
+</strong>          "address": "0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0",
+          "name": "Matic Token",
+          "symbol": "MATIC",
+          "type": "ERC20"
         },
         {
-<strong>          "isSpam": false, // not spam NFT
-</strong>          "address": "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d",
-          "name": "BoredApeYachtClub",
-          "symbol": "BAYC",
-          "type": "ERC721"
+<strong>          "isSpam": false, // not Spam ERC20 tokens
+</strong>          "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "name": "USD Coin",
+          "symbol": "USDC",
+          "type": "ERC20"
         },
         {
-<strong>          "isSpam": false, // not spam NFT
-</strong>          "address": "0xbd3531da5cf5857e7cfaa92426877b022e612cf8",
-          "name": "PudgyPenguins",
-          "symbol": "PPG",
-          "type": "ERC721"
+<strong>          "isSpam": false, // not Spam ERC20 tokens
+</strong>          "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "name": "Wrapped Ether",
+          "symbol": "WETH",
+          "type": "ERC20"
         }
       ]
     }
@@ -608,14 +592,14 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## Show All Non-Spam NFTs
+## Show All Non-Spam ERC20 Tokens
 
-You can use [Airstack](https://airstack.xyz) to fetch all existing non-spam NFTs across Ethereum, Polygon, and Base:
+You can use [Airstack](https://airstack.xyz) to fetch all existing non-spam ERC20 tokens across Ethereum, Polygon, and Base:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/FBBLVTTfTD" %}
-Show all non-spam NFTs on Ethereum, Polygon, and Base
+{% embed url="https://app.airstack.xyz/query/ikS5WzdNMc" %}
+Show all non-spam ERC20s on Ethereum, Polygon, and Base
 {% endembed %}
 
 ### Code
@@ -626,7 +610,7 @@ Show all non-spam NFTs on Ethereum, Polygon, and Base
 query MyQuery {
   Ethereum: Tokens(
     input: {
-      filter: { isSpam: { _eq: false }, type: { _in: [ERC1155, ERC721] } }
+      filter: { isSpam: { _eq: false }, type: { _eq: ERC20 } }
       blockchain: ethereum
     }
   ) {
@@ -646,7 +630,7 @@ query MyQuery {
   }
   Polygon: Tokens(
     input: {
-      filter: { isSpam: { _eq: false }, type: { _in: [ERC1155, ERC721] } }
+      filter: { isSpam: { _eq: false }, type: { _eq: ERC20 } }
       blockchain: polygon
     }
   ) {
@@ -666,7 +650,7 @@ query MyQuery {
   }
   Base: Tokens(
     input: {
-      filter: { isSpam: { _eq: false }, type: { _in: [ERC1155, ERC721] } }
+      filter: { isSpam: { _eq: false }, type: { _eq: ERC20 } }
       blockchain: base
     }
   ) {
@@ -696,26 +680,26 @@ query MyQuery {
       "Token": [
         {
           "isSpam": false,
-          "address": "0x8754f54074400ce745a7ceddc928fb1b7e985ed6",
-          "name": "EulerBeats",
-          "symbol": "eBEATS",
-          "type": "ERC1155"
+          "address": "0x000000000000073760fc462304360d9e887e4ef4",
+          "name": "Fides",
+          "symbol": "FIDES",
+          "type": "ERC20"
         },
         {
           "isSpam": false,
-          "address": "0x0000000000000138bd6bd34cf4a3905576f58e25",
-          "name": "OpenAvatar",
-          "symbol": "AVATR",
-          "type": "ERC721"
+          "address": "0x0000000000000af8fe6e4de40f4804c90fa8ea8f",
+          "name": "EPS API",
+          "symbol": "EPSAPI",
+          "type": "ERC20"
         },
         {
           "isSpam": false,
-          "address": "0x00000000000009ca62911fdd88c8cf50565ab183",
-          "name": "Frensville Treasury Token",
-          "symbol": "FTTKN",
-          "type": "ERC721"
-        }
-        // Other non-spam Ethereum NFTs
+          "address": "0x00000000000045166c45af0fc6e4cf31d9e14b9a",
+          "name": "TopBidder",
+          "symbol": "BID",
+          "type": "ERC20"
+        },
+        // Other non-spam Ethereum ERC20 tokens
       ],
       "pageInfo": {
         "hasNextPage": true,
@@ -728,26 +712,26 @@ query MyQuery {
       "Token": [
         {
           "isSpam": false,
-          "address": "0x000000000437b3cce2530936156388bff5578fc3",
-          "name": "My NFT",
-          "symbol": "NFT",
-          "type": "ERC721"
+          "address": "0x0000000000000000000000000000000000001010",
+          "name": "Matic Token",
+          "symbol": "MATIC",
+          "type": "ERC20"
         },
         {
           "isSpam": false,
-          "address": "0x0000000009bba016bf81a230372961866ae7e6be",
-          "name": "Biteye Course Ticket: Lens",
-          "symbol": "BLENS",
-          "type": "ERC721"
+          "address": "0x0000000000004946c0e9f43f4dee607b0ef1fa1c",
+          "name": "Chi Gastoken by 1inch",
+          "symbol": "CHI",
+          "type": "ERC20"
         },
         {
           "isSpam": false,
-          "address": "0x000000009eab12592db703bfe50db40f3144aa91",
-          "name": "LuckySea.gg",
-          "symbol": "luckysea_nft",
-          "type": "ERC721"
-        }
-        // Other non-spam Polygon NFTs
+          "address": "0x000000000000bd3c2d7cba506f2b058f3589ac60",
+          "name": "U",
+          "symbol": "U",
+          "type": "ERC20"
+        },
+        // Other non-spam Polygon ERC20 tokens
       ],
       "pageInfo": {
         "hasNextPage": true,
@@ -760,26 +744,26 @@ query MyQuery {
       "Token": [
         {
           "isSpam": false,
-          "address": "0x000000000007ee3671914a485384e0f394d5b75c",
-          "name": "!fundrop finale ID",
-          "symbol": "FUNFINALE",
-          "type": "ERC721"
+          "address": "0x0000c16643e2b6849218cb33224ed3837bd85249",
+          "name": "ruse",
+          "symbol": "ruse",
+          "type": "ERC20"
         },
         {
           "isSpam": false,
-          "address": "0x0000000000771a79d0fc7f3b7fe270eb4498f20b",
-          "name": "MCT-XENFT",
-          "symbol": "MCT-XENFT",
-          "type": "ERC721"
+          "address": "0x0001bd3cecb64f58843a135303d160246d02454e",
+          "name": "Archly DEX Volatile AMM - ERN/HOP",
+          "symbol": "vAMM-ERN/HOP",
+          "type": "ERC20"
         },
         {
           "isSpam": false,
-          "address": "0x00000000d1329c5cd5386091066d49112e590969",
-          "name": "Curta",
-          "symbol": "CTF",
-          "type": "ERC721"
+          "address": "0x0003787e89033f89d3659b01d9c2f0e48b190e5a",
+          "name": "155",
+          "symbol": "15",
+          "type": "ERC20"
         },
-        // Other non-spam Base NFTs
+        // Other non-spam Base ERC20 tokens
       ],
       "pageInfo": {
         "hasNextPage": true,
@@ -800,9 +784,9 @@ If you have any questions or need help regarding fetching NFT details data, plea
 
 ## More Resources
 
-* [NFT Details](nft-details.md)
-* [NFT Balances](nft-balances.md)
-* [NFT Holders](nft-holders.md)
+* [NFT Details](../nft/nft-details.md)
+* [NFT Balances](../nft/nft-balances.md)
+* [NFT Holders](../nft/nft-holders.md)
 * [Combinations (Common Holders)](../combinations/)
   * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
   * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)

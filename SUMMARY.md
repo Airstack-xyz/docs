@@ -53,6 +53,7 @@
   * [📑 ERC20 Details](guides/erc20/erc20-details.md)
   * [⚖ ERC20 Balances](guides/erc20/erc20-balances.md)
   * [🗝 ERC20 Holders](guides/erc20/erc20-holders.md)
+  * [🧹 Spam ERC20](guides/erc20/spam-erc20.md)
 * [♦ NFT](guides/nft/README.md)
   * [📑 NFT Details](guides/nft/nft-details.md)
   * [⚖ NFT Balances](guides/nft/nft-balances.md)
