@@ -38,6 +38,7 @@
 * [🗝 Token Holders](guides/token-holders/README.md)
   * [🪙 ERC20](guides/token-holders/erc20.md)
   * [♦ NFT](guides/token-holders/nft.md)
+  * [⚡ POAP](guides/token-holders/poap.md)
 * [🤝 Tokens In Common](guides/tokens-in-common/README.md)
   * [🪙 ERC20s](guides/tokens-in-common/erc20s.md)
   * [♦ NFTs](guides/tokens-in-common/nfts.md)
