@@ -976,8 +976,8 @@ You can fetch all NFTs on Ethereum, Polygon, and Base owned by any Lens Profile(
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/xoAjUpSHcs" %}
-Show NFT on Ethereum and Polygon owned by lens/@bradorbradley and Lens profile id 100275
+{% embed url="https://app.airstack.xyz/query/znfmPP5ztI" %}
+Show NFT on Ethereum, Polygon, and Base owned by lens/@bradorbradley and Lens profile id 100275
 {% endembed %}
 
 #### Code
