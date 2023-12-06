@@ -17,9 +17,9 @@ layout:
 
 # ⚡ POAP
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating POAP balances data from Gnosis and Ethereum.
 
-In this guide you will learn how to use Airstack to [get All POAPs owned by user(s)](get-token-balances-2.md#get-all-poaps-owned-by-user-s).
+In this guide you will learn how to use Airstack to [get All POAPs owned by user(s)](poap.md#get-all-poaps-owned-by-user-s).
 
 ## Pre-requisites
 

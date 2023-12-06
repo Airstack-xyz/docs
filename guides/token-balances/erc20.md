@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to get NFT (ERC721/1155) balances of user(s), including images and
-  metadata, on Ethereum, Polygon, and Base.
+  Learn how to get ERC20 token balances of user(s) on Ethereum, Polygon, and
+  Base.
 layout:
   title:
     visible: true
@@ -15,18 +15,18 @@ layout:
     visible: true
 ---
 
-# ♦ NFT
+# 🪙 ERC20
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and i
 
 ## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-* [Get Ethereum NFTs Owned By User(s)](get-token-balances-1.md#get-ethereum-nfts-owned-by-user-s)
-* [Get Polygon NFTs Owned By User(s)](get-token-balances-1.md#get-polygon-nfts-owned-by-user-s)
-* [Get Base NFTs Owned By User(s)](get-token-balances-1.md#get-base-nfts-owned-by-user-s)
-* [Get All NFTs Owned By User(s)](get-token-balances-1.md#get-all-nfts-owned-by-user-s)
+* [Get Ethereum ERC20s Owned By User(s)](erc20.md#get-ethereum-erc20s-owned-by-user-s)
+* [Get Polygon ERC20s Owned By User(s)](erc20.md#get-polygon-erc20s-owned-by-user-s)
+* [Get Base ERC20s Owned By User(s)](erc20.md#get-base-erc20s-owned-by-user-s)
+* [Get All ERC20s Owned By User(s)](erc20.md#get-all-erc20s-owned-by-user-s)
 
 ## Pre-requisites
 
@@ -164,14 +164,14 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Get Ethereum NFTs Owned By User(s)
+## Get Ethereum ERC20s Owned By User(s)
 
-You can fetch all NFTs on Ethereum owned by any user(s):
+You can fetch all ERC20 tokens on Ethereum owned by any user(s):
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/YY707AZGs7" %}
-Show NFT on Ethereum owned by users
+{% embed url="https://app.airstack.xyz/query/DMXOQJeFXu" %}
+Show ERC20 tokens on Ethereum owned by users
 {% endembed %}
 
 ### Code
@@ -191,7 +191,7 @@ query MyQuery {
             "fc_fname:vitalik"
           ]
         }
-        tokenType: { _in: [ERC1155, ERC721] }
+        tokenType: { _eq: ERC20 }
       }
       blockchain: ethereum
       limit: 50
@@ -216,17 +216,9 @@ query MyQuery {
       }
       amount
       tokenAddress
-      tokenId
-      tokenType
-      tokenNfts {
-        contentValue {
-          image {
-            extraSmall
-            small
-            medium
-            large
-          }
-        }
+      token {
+        name
+        symbol
       }
     }
     pageInfo {
@@ -274,23 +266,21 @@ query MyQuery {
                   "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
                 ]
               }
-          },
-          "amount": "1",
-          "tokenAddress": "0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85",
-          "tokenId": "93631715144692179688067815556165775057916676179424585455268666624027958254283",
-          "tokenType": "ERC721",
-          "tokenNfts": {
-            "contentValue": {
-              "image": {
-                "extraSmall": "https://assets.airstack.xyz/image/nft/nNBFvZ6wvuIHqDzTFi5pM/pM0Q1IAUgJRNTJrw7f4s3ANGkOaqLt5uB0akSKQqzzwkFP2k3F+pM22yvq3atTA66A1hk52OxQkPc5GWp5cl6hkqffkEcsvP3JAWyEPPyYsKMKIbbP1VsMuvSSOA7NTW+/a2HkQPhYY/PVrG6O9Is=/extra_small.svg",
-                "small": "https://assets.airstack.xyz/image/nft/nNBFvZ6wvuIHqDzTFi5pM/pM0Q1IAUgJRNTJrw7f4s3ANGkOaqLt5uB0akSKQqzzwkFP2k3F+pM22yvq3atTA66A1hk52OxQkPc5GWp5cl6hkqffkEcsvP3JAWyEPPyYsKMKIbbP1VsMuvSSOA7NTW+/a2HkQPhYY/PVrG6O9Is=/small.svg",
-                "medium": "https://assets.airstack.xyz/image/nft/nNBFvZ6wvuIHqDzTFi5pM/pM0Q1IAUgJRNTJrw7f4s3ANGkOaqLt5uB0akSKQqzzwkFP2k3F+pM22yvq3atTA66A1hk52OxQkPc5GWp5cl6hkqffkEcsvP3JAWyEPPyYsKMKIbbP1VsMuvSSOA7NTW+/a2HkQPhYY/PVrG6O9Is=/medium.svg",
-                "large": "https://assets.airstack.xyz/image/nft/nNBFvZ6wvuIHqDzTFi5pM/pM0Q1IAUgJRNTJrw7f4s3ANGkOaqLt5uB0akSKQqzzwkFP2k3F+pM22yvq3atTA66A1hk52OxQkPc5GWp5cl6hkqffkEcsvP3JAWyEPPyYsKMKIbbP1VsMuvSSOA7NTW+/a2HkQPhYY/PVrG6O9Is=/large.svg"
+            ],
+            "xmtp": [
+              {
+                "isXMTPEnabled": true
               }
-            }
+            ]
+          },
+          "amount": "45934484403886362668",
+          "tokenAddress": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "token": {
+            "name": "Wrapped Ether",
+            "symbol": "WETH"
           }
         }
-        // Other Ethereum NFTs
+        // Other Ethereum ERC20s
       ],
       "pageInfo": {
         "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
@@ -303,14 +293,14 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## Get Polygon NFTs Owned By User(s)
+## Get Polygon ERC20s Owned By User(s)
 
-You can fetch all NFTs on Polygon owned by any user(s):
+You can fetch all ERC20 tokens on Polygon owned by any user(s):
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/kadx965TU2" %}
-Show NFT on Polygon owned by users
+{% embed url="https://app.airstack.xyz/query/HkihX2LMhH" %}
+Show ERC20 tokens on Polygon owned by users
 {% endembed %}
 
 ### Code
@@ -330,7 +320,7 @@ query MyQuery {
             "fc_fname:vitalik"
           ]
         }
-        tokenType: { _in: [ERC1155, ERC721] }
+        tokenType: { _eq: ERC20 }
       }
       blockchain: polygon
       limit: 50
@@ -355,17 +345,9 @@ query MyQuery {
       }
       amount
       tokenAddress
-      tokenId
-      tokenType
-      tokenNfts {
-        contentValue {
-          image {
-            extraSmall
-            small
-            medium
-            large
-          }
-        }
+      token {
+        name
+        symbol
       }
     }
     pageInfo {
@@ -413,23 +395,21 @@ query MyQuery {
                   "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
                 ]
               }
-          },
-          "amount": "1",
-          "tokenAddress": "0x5ef718b8360ef2b82fb971b50350913e2bad4783",
-          "tokenId": "2525",
-          "tokenType": "ERC1155",
-          "tokenNfts": {
-            "contentValue": {
-              "image": {
-                "extraSmall": "https://assets.airstack.xyz/image/nft/137/0x5ef718b8360ef2b82fb971b50350913e2bad4783/2525/extra_small.png",
-                "small": "https://assets.airstack.xyz/image/nft/137/0x5ef718b8360ef2b82fb971b50350913e2bad4783/2525/small.png",
-                "medium": "https://assets.airstack.xyz/image/nft/137/0x5ef718b8360ef2b82fb971b50350913e2bad4783/2525/medium.png",
-                "large": "https://assets.airstack.xyz/image/nft/137/0x5ef718b8360ef2b82fb971b50350913e2bad4783/2525/large.png"
+            ],
+            "xmtp": [
+              {
+                "isXMTPEnabled": true
               }
-            }
+            ]
+          },
+          "amount": "44281129",
+          "tokenAddress": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+          "token": {
+            "name": "(PoS) Tether USD",
+            "symbol": "USDT"
           }
         }
-        // Other Polygon NFTs
+        // Other Polygon ERC20s
       ],
       "pageInfo": {
         "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
@@ -442,14 +422,14 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## Get Base NFTs Owned By User(s)
+## Get Base ERC20s Owned By User(s)
 
-You can fetch all NFTs on Base owned by any user(s):
+You can fetch all ERC20 tokens on Base owned by any user(s):
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/aubOq2RpVu" %}
-Show NFT on Base owned by users
+{% embed url="https://app.airstack.xyz/query/SEjxd2XsrZ" %}
+Show ERC20 tokens on Base owned by users
 {% endembed %}
 
 ### Code
@@ -469,7 +449,7 @@ query MyQuery {
             "fc_fname:vitalik"
           ]
         }
-        tokenType: { _in: [ERC1155, ERC721] }
+        tokenType: { _eq: ERC20 }
       }
       blockchain: base
       limit: 50
@@ -494,17 +474,9 @@ query MyQuery {
       }
       amount
       tokenAddress
-      tokenId
-      tokenType
-      tokenNfts {
-        contentValue {
-          image {
-            extraSmall
-            small
-            medium
-            large
-          }
-        }
+      token {
+        name
+        symbol
       }
     }
     pageInfo {
@@ -552,23 +524,21 @@ query MyQuery {
                   "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
                 ]
               }
-          },
-          "amount": "1",
-          "tokenAddress": "0xab54b8bd1118d535beecf43bf9c7d163879cf967",
-          "tokenId": "2",
-          "tokenType": "ERC1155",
-          "tokenNfts": {
-            "contentValue": {
-              "image": {
-                "extraSmall": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/extra_small.jpg",
-                "small": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/small.jpg",
-                "medium": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/medium.jpg",
-                "large": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/large.jpg"
+            ],
+            "xmtp": [
+              {
+                "isXMTPEnabled": true
               }
-            }
+            ]
+          },
+          "amount": "310194000000000000000000",
+          "tokenAddress": "0xac1bd2486aaf3b5c0fc3fd868558b082a531b2b4",
+          "token": {
+            "name": "Toshi",
+            "symbol": "TOSHI"
           }
         }
-        // Other Base NFTs
+        // Other Base ERC20s
       ],
       "pageInfo": {
         "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
@@ -581,14 +551,14 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## Get All NFTs Owned By User(s)
+## Get All ERC20s Owned By User(s)
 
-You can fetch all NFTs on Ethereum, Polygon, and Base owned by any user(s):
+You can fetch all ERC20 tokens on Ethereum, Polygon, and Base owned by any user(s):
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/9z9PP1cNMg" %}
-Show NFT on Ethereum, Polygon, and Base owned by users
+{% embed url="https://app.airstack.xyz/query/gla6KJCgqy" %}
+Show ERC20 tokens on Ethereum, Polygon, and Base owned by users
 {% endembed %}
 
 ### Code
@@ -596,7 +566,7 @@ Show NFT on Ethereum, Polygon, and Base owned by users
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
-query NFTsOwnedByLensProfiles {
+query ERC20OwnedByLensProfiles {
   Ethereum: TokenBalances(
     input: {
       filter: {
@@ -608,7 +578,7 @@ query NFTsOwnedByLensProfiles {
             "fc_fname:vitalik"
           ]
         }
-        tokenType: { _in: [ERC1155, ERC721] }
+        tokenType: { _eq: ERC20 }
       }
       blockchain: ethereum
       limit: 50
@@ -633,17 +603,9 @@ query NFTsOwnedByLensProfiles {
       }
       amount
       tokenAddress
-      tokenId
-      tokenType
-      tokenNfts {
-        contentValue {
-          image {
-            extraSmall
-            small
-            medium
-            large
-          }
-        }
+      token {
+        name
+        symbol
       }
     }
     pageInfo {
@@ -662,7 +624,7 @@ query NFTsOwnedByLensProfiles {
             "fc_fname:vitalik"
           ]
         }
-        tokenType: { _in: [ERC1155, ERC721] }
+        tokenType: { _eq: ERC20 }
       }
       blockchain: polygon
       limit: 50
@@ -687,17 +649,9 @@ query NFTsOwnedByLensProfiles {
       }
       amount
       tokenAddress
-      tokenId
-      tokenType
-      tokenNfts {
-        contentValue {
-          image {
-            extraSmall
-            small
-            medium
-            large
-          }
-        }
+      token {
+        name
+        symbol
       }
     }
     pageInfo {
@@ -716,7 +670,7 @@ query NFTsOwnedByLensProfiles {
             "fc_fname:vitalik"
           ]
         }
-        tokenType: { _in: [ERC1155, ERC721] }
+        tokenType: { _eq: ERC20 }
       }
       blockchain: base
       limit: 50
@@ -741,17 +695,9 @@ query NFTsOwnedByLensProfiles {
       }
       amount
       tokenAddress
-      tokenId
-      tokenType
-      tokenNfts {
-        contentValue {
-          image {
-            extraSmall
-            small
-            medium
-            large
-          }
-        }
+      token {
+        name
+        symbol
       }
     }
     pageInfo {
@@ -799,23 +745,21 @@ query NFTsOwnedByLensProfiles {
                   "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
                 ]
               }
-          },
-          "amount": "1",
-          "tokenAddress": "0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85",
-          "tokenId": "93631715144692179688067815556165775057916676179424585455268666624027958254283",
-          "tokenType": "ERC721",
-          "tokenNfts": {
-            "contentValue": {
-              "image": {
-                "extraSmall": "https://assets.airstack.xyz/image/nft/nNBFvZ6wvuIHqDzTFi5pM/pM0Q1IAUgJRNTJrw7f4s3ANGkOaqLt5uB0akSKQqzzwkFP2k3F+pM22yvq3atTA66A1hk52OxQkPc5GWp5cl6hkqffkEcsvP3JAWyEPPyYsKMKIbbP1VsMuvSSOA7NTW+/a2HkQPhYY/PVrG6O9Is=/extra_small.svg",
-                "small": "https://assets.airstack.xyz/image/nft/nNBFvZ6wvuIHqDzTFi5pM/pM0Q1IAUgJRNTJrw7f4s3ANGkOaqLt5uB0akSKQqzzwkFP2k3F+pM22yvq3atTA66A1hk52OxQkPc5GWp5cl6hkqffkEcsvP3JAWyEPPyYsKMKIbbP1VsMuvSSOA7NTW+/a2HkQPhYY/PVrG6O9Is=/small.svg",
-                "medium": "https://assets.airstack.xyz/image/nft/nNBFvZ6wvuIHqDzTFi5pM/pM0Q1IAUgJRNTJrw7f4s3ANGkOaqLt5uB0akSKQqzzwkFP2k3F+pM22yvq3atTA66A1hk52OxQkPc5GWp5cl6hkqffkEcsvP3JAWyEPPyYsKMKIbbP1VsMuvSSOA7NTW+/a2HkQPhYY/PVrG6O9Is=/medium.svg",
-                "large": "https://assets.airstack.xyz/image/nft/nNBFvZ6wvuIHqDzTFi5pM/pM0Q1IAUgJRNTJrw7f4s3ANGkOaqLt5uB0akSKQqzzwkFP2k3F+pM22yvq3atTA66A1hk52OxQkPc5GWp5cl6hkqffkEcsvP3JAWyEPPyYsKMKIbbP1VsMuvSSOA7NTW+/a2HkQPhYY/PVrG6O9Is=/large.svg"
+            ],
+            "xmtp": [
+              {
+                "isXMTPEnabled": true
               }
-            }
+            ]
+          },
+          "amount": "45934484403886362668",
+          "tokenAddress": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "token": {
+            "name": "Wrapped Ether",
+            "symbol": "WETH"
           }
         }
-        // Other Ethereum NFTs
+        // Other Ethereum ERC20s
       ],
       "pageInfo": {
         "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
@@ -854,23 +798,21 @@ query NFTsOwnedByLensProfiles {
                   "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
                 ]
               }
-          },
-          "amount": "1",
-          "tokenAddress": "0x5ef718b8360ef2b82fb971b50350913e2bad4783",
-          "tokenId": "2525",
-          "tokenType": "ERC1155",
-          "tokenNfts": {
-            "contentValue": {
-              "image": {
-                "extraSmall": "https://assets.airstack.xyz/image/nft/137/0x5ef718b8360ef2b82fb971b50350913e2bad4783/2525/extra_small.png",
-                "small": "https://assets.airstack.xyz/image/nft/137/0x5ef718b8360ef2b82fb971b50350913e2bad4783/2525/small.png",
-                "medium": "https://assets.airstack.xyz/image/nft/137/0x5ef718b8360ef2b82fb971b50350913e2bad4783/2525/medium.png",
-                "large": "https://assets.airstack.xyz/image/nft/137/0x5ef718b8360ef2b82fb971b50350913e2bad4783/2525/large.png"
+            ],
+            "xmtp": [
+              {
+                "isXMTPEnabled": true
               }
-            }
+            ]
+          },
+          "amount": "457218374987121000000",
+          "tokenAddress": "0x086373fad3447f7f86252fb59d56107e9e0faafa",
+          "token": {
+            "name": "Yup",
+            "symbol": "YUP"
           }
         }
-        // Other Polygon NFTs
+        // Other Polygon ERC20s
       ],
       "pageInfo": {
         "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
@@ -909,23 +851,21 @@ query NFTsOwnedByLensProfiles {
                   "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
                 ]
               }
-          },
-          "amount": "1",
-          "tokenAddress": "0xab54b8bd1118d535beecf43bf9c7d163879cf967",
-          "tokenId": "2",
-          "tokenType": "ERC1155",
-          "tokenNfts": {
-            "contentValue": {
-              "image": {
-                "extraSmall": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/extra_small.jpg",
-                "small": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/small.jpg",
-                "medium": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/medium.jpg",
-                "large": "https://assets.airstack.xyz/image/nft/8453/KEYM3ihZQ1f7hNMrnxylaC9aymzRDEpR6k24WvE1bOeYTCP3FBEY8v0XMCaJUXyzqno4Vvx93EOQrbiH+i4aKQ==/large.jpg"
+            ],
+            "xmtp": [
+              {
+                "isXMTPEnabled": true
               }
-            }
+            ]
+          },
+          "amount": "310194000000000000000000",
+          "tokenAddress": "0xac1bd2486aaf3b5c0fc3fd868558b082a531b2b4",
+          "token": {
+            "name": "Toshi",
+            "symbol": "TOSHI"
           }
         }
-        // Other Base NFTs
+        // Other Base ERC20s
       ],
       "pageInfo": {
         "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
@@ -940,11 +880,9 @@ query NFTsOwnedByLensProfiles {
 
 ## Developer Support
 
-If you have any questions or need help regarding fetching NFT (ERC721/1155) balances of user(s), please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding fetching token balances of user(s), please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
-* [NFT Guides](../nft/)
-* [POAP Guides](../poap/)
+* [ERC20 Tokens In Common](../tokens-in-common/erc20s.md)
 * [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api/)

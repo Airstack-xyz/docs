@@ -13,7 +13,7 @@ layout:
     visible: true
 ---
 
-# ERC20s
+# 🪙 ERC20s
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching dapps and integrating on-chain and off-chain data from various blockchains.
 

@@ -15,7 +15,7 @@ layout:
     visible: true
 ---
 
-# 🪙 ERC20
+# ⚖ ERC20 Balances
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and i
 
@@ -23,10 +23,10 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-* [Get Ethereum ERC20s Owned By User(s)](get-token-balances.md#get-ethereum-erc20s-owned-by-user-s)
-* [Get Polygon ERC20s Owned By User(s)](get-token-balances.md#get-polygon-erc20s-owned-by-user-s)
-* [Get Base ERC20s Owned By User(s)](get-token-balances.md#get-base-erc20s-owned-by-user-s)
-* [Get All ERC20s Owned By User(s)](get-token-balances.md#get-all-erc20s-owned-by-user-s)
+* [Get Ethereum ERC20s Owned By User(s)](erc20-balances.md#get-ethereum-erc20s-owned-by-user-s)
+* [Get Polygon ERC20s Owned By User(s)](erc20-balances.md#get-polygon-erc20s-owned-by-user-s)
+* [Get Base ERC20s Owned By User(s)](erc20-balances.md#get-base-erc20s-owned-by-user-s)
+* [Get All ERC20s Owned By User(s)](erc20-balances.md#get-all-erc20s-owned-by-user-s)
 
 ## Pre-requisites
 
@@ -886,3 +886,5 @@ If you have any questions or need help regarding fetching token balances of user
 
 * [ERC20 Tokens In Common](../tokens-in-common/erc20s.md)
 * [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating ERC20 balances data from Ethereum, Polygon, and Base.

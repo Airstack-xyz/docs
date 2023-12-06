@@ -13,7 +13,7 @@ layout:
     visible: true
 ---
 
-# POAPs
+# ⚡ POAPs
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching dapps and integrating on-chain and off-chain data from various blockchains.
 
