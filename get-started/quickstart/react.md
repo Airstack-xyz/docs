@@ -85,7 +85,7 @@ REACT_APP_AIRSTACK_API_KEY=YOUR_AIRSTACK_API_KEY
 
 ### Step 3: Initialize SDK
 
-Wrap your application or React component with `AirstackProvider` from the SDK to initialize it with the [Airstack API key](../get-api-key.md):
+Add `init` function from the SDK to initialize it with the [Airstack API key](../get-api-key.md):
 
 {% tabs %}
 {% tab title="vite (TS)" %}
@@ -93,14 +93,14 @@ Wrap your application or React component with `AirstackProvider` from the SDK to
 ```tsx
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { AirstackProvider } from "@airstack/airstack-react";
+import { init } from "@airstack/airstack-react";
 import Component from "./Component";
+
+init(import.meta.env.VITE_AIRSTACK_API_KEY);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AirstackProvider apiKey={import.meta.env.VITE_AIRSTACK_API_KEY}>
-      <Component />
-    </AirstackProvider>
+    <Component />
   </React.StrictMode>
 );
 ```
@@ -112,14 +112,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 ```jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { AirstackProvider } from "@airstack/airstack-react";
+import { init } from "@airstack/airstack-react";
 import Component from "./Component";
+
+init(import.meta.env.VITE_AIRSTACK_API_KEY);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AirstackProvider apiKey={import.meta.env.VITE_AIRSTACK_API_KEY}>
-      <Component />
-    </AirstackProvider>
+    <Component />
   </React.StrictMode>
 );
 ```
@@ -131,14 +131,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 ```tsx
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { AirstackProvider } from "@airstack/airstack-react";
+import { init } from "@airstack/airstack-react";
 import Component from "./Component";
+
+init(process.env.REACT_APP_AIRSTACK_API_KEY);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AirstackProvider apiKey={process.env.REACT_APP_AIRSTACK_API_KEY}>
-      <Component />
-    </AirstackProvider>
+    <Component />
   </React.StrictMode>
 );
 ```
@@ -150,14 +150,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 ```jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { AirstackProvider } from "@airstack/airstack-react";
+import { init } from "@airstack/airstack-react";
 import Component from "./Component";
+
+init(process.env.REACT_APP_AIRSTACK_API_KEY);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AirstackProvider apiKey={process.env.REACT_APP_AIRSTACK_API_KEY}>
-      <Component />
-    </AirstackProvider>
+    <Component />
   </React.StrictMode>
 );
 ```
