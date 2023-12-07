@@ -59,7 +59,6 @@
   * [📑 NFT Details](guides/nft/nft-details.md)
   * [⚖ NFT Balances](guides/nft/nft-balances.md)
   * [🗝 NFT Holders](guides/nft/nft-holders.md)
-  * [📸 NFT Balance Snapshots](guides/nft/nft-balance-snapshots.md)
   * [🧹 Spam NFT](guides/nft/spam-nft.md)
 * [🔷 ENS Domain](guides/ens-domain/README.md)
   * [🖼 Profile Image](guides/ens-domain/profile-image.md)
