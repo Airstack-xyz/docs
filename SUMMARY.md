@@ -12,7 +12,7 @@
     * [🐍 Python](get-started/quickstart/python.md)
     * [🎯 Direct API Call](get-started/quickstart/direct-api-call.md)
   * [⛰ Airstack Explorer (No Code)](get-started/airstack-explorer.md)
-* [🔋 Pricing](pricing.md)
+* [🔋 Pricing](https://app.airstack.xyz/pricing)
 
 ## Guides
 

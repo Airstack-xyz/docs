@@ -1,5 +1,16 @@
 ---
 description: Airstack provides easy-to-use ERC20 Token API.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🪙 ERC20
