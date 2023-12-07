@@ -16,7 +16,7 @@ layout:
 
 <details>
 
-<summary>Show the most recent 10 6551 accounts on ethereum and polygon</summary>
+<summary>Show the most recent 10 6551 accounts on ethereum, polygon, and base</summary>
 
 ```graphql
 query MyQuery {
@@ -50,6 +50,32 @@ query MyQuery {
     input: {
       filter: { standard: { _eq: ERC6551 } }
       blockchain: polygon
+      order: { createdAtBlockTimestamp: DESC }
+      limit: 10
+    }
+  ) {
+    Account {
+      id
+      standard
+      blockchain
+      tokenAddress
+      tokenId
+      address {
+        identity
+      }
+      registry
+      implementation
+      salt
+      createdAtBlockNumber
+      createdAtBlockTimestamp
+      creationTransactionHash
+      deployer
+    }
+  }
+  baseAccounts: Accounts(
+    input: {
+      filter: { standard: { _eq: ERC6551 } }
+      blockchain: base
       order: { createdAtBlockTimestamp: DESC }
       limit: 10
     }
