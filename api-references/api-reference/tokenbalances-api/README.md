@@ -58,5 +58,5 @@ type TokenBalance {
 ```
 
 {% hint style="success" %}
-See [here](broken-reference/) for how to query with ENS or web3 social identities, such as Farcaster
+See [here](../../../guides/resolve-identities/) for how to query with ENS or web3 social identities, such as Farcaster
 {% endhint %}
