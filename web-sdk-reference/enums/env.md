@@ -1,5 +1,5 @@
 ---
-description: Environment options for the Airstack React SDK config.
+description: Environment options for the Airstack Web SDK config.
 layout:
   title:
     visible: true
@@ -18,7 +18,7 @@ layout:
 ## Example
 
 ```typescript
-"dev"
+"dev";
 ```
 
 ## Type Signature
