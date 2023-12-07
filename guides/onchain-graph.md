@@ -19,7 +19,7 @@ layout:
 
 The Onchain Graph is the **web3 address book.** It analyzes all of a user/wallet's onchain interactions and recommends contacts based on their strengh of relationship. It currently brings together all of the user's onchain interactions & tokens in common across POAPs, NFTs, token transfers, and Lens and Farcaster.
 
-Developers are utilizing Onchain Graph for recommendation engines, address books, spam filters, product enhancements, and more.
+Developers are utilizing Onchain Graph for recommendation engines, pre-populating friends lists, address books, spam filters, product enhancements, and more.
 
 ### Live Demo
 
