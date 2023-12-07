@@ -1,5 +1,7 @@
 ---
-description: Learn how to use Airstack to display the Onchain Graph of users.
+description: >-
+  Learn how to use Airstack to build a onchain contacts using onchain graph data
+  of users.
 layout:
   title:
     visible: true
@@ -13,30 +15,28 @@ layout:
     visible: true
 ---
 
-# 🕸 Onchain Graph
+# 📒 Onchain Contacts
 
-The Onchain Graph is the **web3 address book.** It analyzes all of a user/wallet's onchain interactions and recommends contacts based on their strengh of relationship. It currently brings together all of the user's onchain interactions & tokens in common across POAPs, NFTs, token transfers, and Lens and Farcaster.
+The Onchain Graph helps your construct address books and friends lists for your users. It enables you to solve cold start problems by pre-populating the user's onchain contacts immediately upon joining.
 
-Developers are utilizing Onchain Graph for recommendation engines, pre-populating friends lists, address books, spam filters, product enhancements, and more.
+To do so, the onchain graph  analyzes all of a user/wallet's onchain interactions and recommends contacts based on their strengh of relationship. It currently brings together all of the user's onchain friends, interactions & tokens in common across Farcaster, Lens, token transfers, POAP, and NFTs.
 
-### Live Demo
+<div align="center">
 
-We have integrated onchain graph into the [Airstack Explorer ](https://explorer.airstack.xyz)as you can see below. In Airstack Explorer you can enter any 0x address, Lens, Farcaster, or ENS and get the user's onchain graph.
+<figure><img src="../.gitbook/assets/image (7).png" alt="" width="375"><figcaption><p>Builder.fi's Onchain Contacts</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption><p>Onchain Graph integration on Airstack Explorer</p></figcaption></figure>
+ 
 
-To try it out yourself, click here:
+<figure><img src="../.gitbook/assets/converse.png" alt="" width="375"><figcaption><p>Converse's Onchain Contacts</p></figcaption></figure>
 
-{% embed url="https://explorer.airstack.xyz/onchain-graph?identity=betashop.eth" %}
-betashop.eth's onchain graph
-{% endembed %}
+</div>
 
 ## Table Of Contents
 
-In this tutorial, you'll learn how to build an onchain graph for your web3 social application using either JavaScript or Python.
+In this tutorial, you'll learn how to build an onchain contacts for your web3 social application using either JavaScript or Python.
 
 {% hint style="info" %}
-Currently, Airstack Explorer's onchain graph implementation has no backend and hence it takes time to scan and fetch all the data.
+Currently, Airstack Explorer's [Onchain Graph](https://explorer.airstack.xyz/onchain-graph?identity=vitalik.eth) implementation has no backend and hence it takes time to scan and fetch all the data.
 
 For **backend integrations**, it is best practice that you take the following approach for the best user experience:
 
@@ -49,21 +49,21 @@ With this approach, your user shall receive their onchain graph data almost inst
 In the future, we shall provide webhooks and a dedicated Onchain Graph API for lighter-weight integrations.
 {% endhint %}
 
-The algorithm for building onchain graph will be as follows:
+The algorithm for building a user's web3 address book will be as follows:
 
-1. [Fetch All Onchain Graph Data](onchain-graph.md#step-1-fetch-all-onchain-graph-data)
-   * [Fetch Common POAP Holders Data](onchain-graph.md#step-1.1-fetch-common-poap-holders-data)
-   * [Fetch Farcaster Followings Data](onchain-graph.md#step-1.2-fetch-farcaster-followings-data)
-   * [Fetch Lens Followings Data](onchain-graph.md#step-1.3-fetch-lens-followings-data)
-   * [Fetch Farcaster Followers Data](onchain-graph.md#step-1.4-fetch-farcaster-followers-data)
-   * [Fetch Lens Followers Data](onchain-graph.md#step-1.5-fetch-lens-followers-data)
-   * [Fetch Token Transfers Sent Data](onchain-graph.md#step-1.7-fetch-token-transfers-received-data)
-   * [Fetch Token Transfers Received Data](onchain-graph.md#step-1.7-fetch-token-transfers-received-data)
-   * [Fetch Common Ethereum Token Holders Data](onchain-graph.md#step-1.8-fetch-common-ethereum-nft-holders-data)
-   * [Fetch Common Polygon Token Holders Data](onchain-graph.md#step-1.9-fetch-common-polygon-nft-holders-data)
-   * [Fetch Common Base Token Holders Data](onchain-graph.md#step-1.10-fetch-common-polygon-nft-holders-data)
-2. [Aggregate All Data By User Identities](onchain-graph.md#step-2-aggregate-all-data-by-user-identities)
-3. [Scoring & Sorting](onchain-graph.md#step-3-scoring-and-sorting)
+1. [Fetch All Onchain Graph Data](onchain-contacts.md#step-1-fetch-all-onchain-graph-data)
+   * [Fetch Common POAP Holders Data](onchain-contacts.md#step-1.1-fetch-common-poap-holders-data)
+   * [Fetch Farcaster Followings Data](onchain-contacts.md#step-1.2-fetch-farcaster-followings-data)
+   * [Fetch Lens Followings Data](onchain-contacts.md#step-1.3-fetch-lens-followings-data)
+   * [Fetch Farcaster Followers Data](onchain-contacts.md#step-1.4-fetch-farcaster-followers-data)
+   * [Fetch Lens Followers Data](onchain-contacts.md#step-1.5-fetch-lens-followers-data)
+   * [Fetch Token Transfers Sent Data](onchain-contacts.md#step-1.7-fetch-token-transfers-received-data)
+   * [Fetch Token Transfers Received Data](onchain-contacts.md#step-1.7-fetch-token-transfers-received-data)
+   * [Fetch Common Ethereum Token Holders Data](onchain-contacts.md#step-1.8-fetch-common-ethereum-nft-holders-data)
+   * [Fetch Common Polygon Token Holders Data](onchain-contacts.md#step-1.9-fetch-common-polygon-nft-holders-data)
+   * [Fetch Common Base Token Holders Data](onchain-contacts.md#step-1.10-fetch-common-polygon-nft-holders-data)
+2. [Aggregate All Data By User Identities](onchain-contacts.md#step-2-aggregate-all-data-by-user-identities)
+3. [Scoring & Sorting](onchain-contacts.md#step-3-scoring-and-sorting)
 
 ### Pre-requisites
 
@@ -139,8 +139,8 @@ In this step, you'll learn to fetch all the data that you need to build the onch
 
 In order to fetch the common POAP holders that hold the POAPs attended by a given user, it will require 2 steps:
 
-1. [Fetch all non-virtual POAPs' event IDs owned by a user](onchain-graph.md#fetch-all-non-virtual-poaps-event-ids-owned-by-a-user)
-2. [Fetch all POAP holders of an array of POAP event IDs](onchain-graph.md#fetch-all-poap-holders-of-an-array-of-poap-event-ids)
+1. [Fetch all non-virtual POAPs' event IDs owned by a user](onchain-contacts.md#fetch-all-non-virtual-poaps-event-ids-owned-by-a-user)
+2. [Fetch all POAP holders of an array of POAP event IDs](onchain-contacts.md#fetch-all-poap-holders-of-an-array-of-poap-event-ids)
 
 **Fetch all non-virtual POAPs' event IDs owned by a user**
 
@@ -2397,8 +2397,8 @@ You can use [Airstack](https://airstack.xyz) to easily fetch all the users that 
 
 **Try Demo**
 
-{% embed url="https://app.airstack.xyz/query/IhG0IQGdBv" %}
-Show me token transfers from vitalik.eth on Ethereum, Polygon, and Base
+{% embed url="https://app.airstack.xyz/query/VWI4oIwg6S" %}
+Show me token transfers from vitalik.eth on Ethereum and Polygon
 {% endembed %}
 
 **Code**
@@ -2438,35 +2438,7 @@ query MyQuery($user: Identity!) {
   Polygon: TokenTransfers(
     input: {
       filter: { from: { _eq: $user } }
-      blockchain: polygon
-      limit: 200
-    }
-  ) {
-    TokenTransfer {
-      account: from {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          dappName
-          blockchain
-          profileName
-          profileImage
-          profileTokenId
-          profileTokenAddress
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
-  Base: TokenTransfers(
-    input: {
-      filter: { from: { _eq: $user } }
-      blockchain: base
+      blockchain: ethereum
       limit: 200
     }
   ) {
@@ -2529,105 +2501,26 @@ query MyQuery($user: Identity!) {
         // more Ethereum token transfers from vitalik.eth
       ]
     },
-    "Polygon": {
-      "TokenTransfer": [
-        {
-          "account": {
-            "addresses": ["0xd8b75eb7bd778ac0b3f5ffad69bcc2e25bccac95"],
-            "domains": [
-              {
-                "name": "toastmybread.eth",
-                "isPrimary": true
-              },
-              {
-                "name": "daerbymtsaot.eth",
-                "isPrimary": false
-              }
-            ],
-            "socials": null,
-            "xmtp": null
-          }
+    "Polygon": [
+      {
+        "account": {
+          "addresses": ["0xd8b75eb7bd778ac0b3f5ffad69bcc2e25bccac95"],
+          "domains": [
+            {
+              "name": "toastmybread.eth",
+              "isPrimary": true
+            },
+            {
+              "name": "daerbymtsaot.eth",
+              "isPrimary": false
+            }
+          ],
+          "socials": null,
+          "xmtp": null
         }
-        // more Polygon token transfers from vitalik.eth
-      ],
-    }
-    "Base": {
-      "TokenTransfer": [
-        {
-          "account": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
-            "domains": [
-              {
-                "name": "quantumexchange.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "7860000.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "offchainexample.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "brianshaw.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "vbuterin.stateofus.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "quantumsmartcontracts.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "Vitalik.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "openegp.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "vitalik.cannafam.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "VITALIK.eth",
-                "isPrimary": false
-              }
-            ],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "blockchain": "optimism",
-                "profileName": "vitalik.eth",
-                "profileImage": "https://i.imgur.com/gF9Yaeg.jpg",
-                "profileTokenId": "5650",
-                "profileTokenAddress": "0x00000000fc6c5f01fc30151999387bb99a9f489b"
-              },
-              {
-                "dappName": "lens",
-                "blockchain": "polygon",
-                "profileName": "lens/@vitalik",
-                "profileImage": "ipfs://QmQP1DyNH8upeBxKJYtfCDdUj3mRcZep8zhJTLe3ePXB7M",
-                "profileTokenId": "100275",
-                "profileTokenAddress": "0xdb46d1dc155634fbc732f92e853b10b288ad5a1d"
-              }
-            ],
-            "xmtp": [
-              {
-                "isXMTPEnabled": true
-              }
-            ]
-          }
-        },
-        // more Base token transfers from vitalik.eth
-      ]
-    }
+      }
+      // more Polygon token transfers from vitalik.eth
+    ]
   }
 }
 ```
@@ -2801,33 +2694,6 @@ query TokenSent($user: Identity!) {
         }
       }
     }
-    Base: TokenTransfers(
-      input: {filter: {from: {_eq: $user}}, blockchain: base, limit: 200}
-    ) {
-      TokenTransfer {
-        account: to {
-          addresses
-          primaryDomain {
-            name
-          }
-          domains {
-            name
-            isPrimary
-          }
-          socials {
-            dappName
-            blockchain
-            profileName
-            profileImage
-            profileTokenId
-            profileTokenAddress
-          }
-          xmtp {
-            isXMTPEnabled
-          }
-        }
-      }
-    }
   }
 `;
 
@@ -2848,11 +2714,8 @@ const fetchTokenSent = async (address, existingUsers = []) => {
       const polygonData = (data?.Polygon?.TokenTransfer ?? []).map(
         (transfer) => transfer.account
       );
-      const baseData = (data?.Base?.TokenTransfer ?? []).map(
-        (transfer) => transfer.account
-      );
 
-      const tokenTransfer = [...ethData, ...polygonData, ...baseData];
+      const tokenTransfer = [...ethData, ...polygonData];
       recommendedUsers = [
         ...formatTokenSentData(tokenTransfer, recommendedUsers),
       ];
@@ -2930,33 +2793,6 @@ query MyQuery($user: Identity!) {
       }
     }
   }
-  Base: TokenTransfers(
-      input: {filter: {from: {_eq: $user}}, blockchain: base, limit: 200}
-    ) {
-      TokenTransfer {
-        account: to {
-          addresses
-          primaryDomain {
-            name
-          }
-          domains {
-            name
-            isPrimary
-          }
-          socials {
-            dappName
-            blockchain
-            profileName
-            profileImage
-            profileTokenId
-            profileTokenAddress
-          }
-          xmtp {
-            isXMTPEnabled
-          }
-        }
-      }
-    }
 }
 """
 
@@ -2975,9 +2811,7 @@ async def fetch_token_sent(address, existing_users=[]):
                 'TokenTransfer', []) if res.data and 'Ethereum' in res.data and 'TokenTransfer' in res.data['Ethereum'] else [])]
             polygon_data = [transfer['account'] for transfer in (res.data.get('Polygon', {}).get(
                 'TokenTransfer', []) if res.data and 'Polygon' in res.data and 'TokenTransfer' in res.data['Polygon'] else [])]
-            base_data = [transfer['account'] for transfer in (res.data.get('Base', {}).get(
-                'TokenTransfer', []) if res.data and 'Base' in res.data and 'TokenTransfer' in res.data['Base'] else [])]
-            token_transfer = eth_data + polygon_data + base_data
+            token_transfer = eth_data + polygon_data
             recommended_users = format_token_sent_data(
                 token_transfer,
                 recommended_users
@@ -3002,8 +2836,8 @@ You can use [Airstack](https://airstack.xyz) to easily fetch all the users that 
 
 **Try Demo**
 
-{% embed url="https://app.airstack.xyz/query/a3EjaA49Gd" %}
-Show me token transfers received by vitalik.eth on Ethereum, Polygon, and Base
+{% embed url="https://app.airstack.xyz/query/QyjGuXOUIU" %}
+Show me token transfers received by vitalik.eth on Ethereum and Polygon
 {% endembed %}
 
 **Code**
@@ -3037,31 +2871,7 @@ query MyQuery($user: Identity!) {
     }
   }
   Polygon: TokenTransfers(
-    input: { filter: { to: { _eq: $user } }, blockchain: polygon, limit: 200 }
-  ) {
-    TokenTransfer {
-      account: to {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          dappName
-          blockchain
-          profileName
-          profileImage
-          profileTokenId
-          profileTokenAddress
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
-  Base: TokenTransfers(
-    input: { filter: { to: { _eq: $user } }, blockchain: base, limit: 200 }
+    input: { filter: { to: { _eq: $user } }, blockchain: ethereum, limit: 200 }
   ) {
     TokenTransfer {
       account: to {
@@ -3140,83 +2950,6 @@ query MyQuery($user: Identity!) {
           }
         }
         // more tokens received by vitalik.eth on Polygon
-      ]
-    },
-    "Base": {
-      "TokenTransfer": [
-        {
-          "account": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
-            "domains": [
-              {
-                "name": "quantumexchange.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "7860000.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "offchainexample.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "brianshaw.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "vbuterin.stateofus.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "quantumsmartcontracts.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "Vitalik.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "openegp.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "vitalik.cannafam.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "VITALIK.eth",
-                "isPrimary": false
-              }
-            ],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "blockchain": "optimism",
-                "profileName": "vitalik.eth",
-                "profileImage": "https://i.imgur.com/gF9Yaeg.jpg",
-                "profileTokenId": "5650",
-                "profileTokenAddress": "0x00000000fc6c5f01fc30151999387bb99a9f489b"
-              },
-              {
-                "dappName": "lens",
-                "blockchain": "polygon",
-                "profileName": "lens/@vitalik",
-                "profileImage": "ipfs://QmQP1DyNH8upeBxKJYtfCDdUj3mRcZep8zhJTLe3ePXB7M",
-                "profileTokenId": "100275",
-                "profileTokenAddress": "0xdb46d1dc155634fbc732f92e853b10b288ad5a1d"
-              }
-            ],
-            "xmtp": [
-              {
-                "isXMTPEnabled": true
-              }
-            ]
-          }
-        },
-        // more tokens received by vitalik.eth on Base
       ]
     }
   }
@@ -3398,31 +3131,7 @@ query MyQuery($user: Identity!) {
     }
   }
   Polygon: TokenTransfers(
-    input: {filter: {to: {_eq: $user}}, blockchain: polygon, limit: 200}
-  ) {
-    TokenTransfer {
-      account: to {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          dappName
-          blockchain
-          profileName
-          profileImage
-          profileTokenId
-          profileTokenAddress
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
-  Base: TokenTransfers(
-    input: {filter: {to: {_eq: $user}}, blockchain: base, limit: 200}
+    input: {filter: {to: {_eq: $user}}, blockchain: ethereum, limit: 200}
   ) {
     TokenTransfer {
       account: to {
@@ -3465,11 +3174,8 @@ const fetchTokenReceived = async (address, existingUsers = []) => {
       const polygonData = (data?.Polygon?.TokenTransfer ?? []).map(
         (transfer) => transfer.account
       );
-      const baseData = (data?.Base?.TokenTransfer ?? []).map(
-        (transfer) => transfer.account
-      );
 
-      const tokenTransfer = [...ethData, ...polygonData, ...baseData];
+      const tokenTransfer = [...ethData, ...polygonData];
       recommendedUsers = [
         ...formatTokenReceivedData(tokenTransfer, recommendedUsers),
       ];
@@ -3524,31 +3230,7 @@ query MyQuery($user: Identity!) {
     }
   }
   Polygon: TokenTransfers(
-    input: {filter: {to: {_eq: $user}}, blockchain: polygon, limit: 200}
-  ) {
-    TokenTransfer {
-      account: to {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          dappName
-          blockchain
-          profileName
-          profileImage
-          profileTokenId
-          profileTokenAddress
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
-  Base: TokenTransfers(
-    input: {filter: {to: {_eq: $user}}, blockchain: base, limit: 200}
+    input: {filter: {to: {_eq: $user}}, blockchain: ethereum, limit: 200}
   ) {
     TokenTransfer {
       account: to {
@@ -3589,9 +3271,7 @@ async def fetch_token_received(address, existing_users=[]):
                 'TokenTransfer', []) if res.data and 'Ethereum' in res.data and 'TokenTransfer' in res.data['Ethereum'] else [])]
             polygon_data = [transfer['account'] for transfer in (res.data.get('Polygon', {}).get(
                 'TokenTransfer', []) if res.data and 'Polygon' in res.data and 'TokenTransfer' in res.data['Polygon'] else [])]
-            base_data = [transfer['account'] for transfer in (res.data.get('Base', {}).get(
-                'TokenTransfer', []) if res.data and 'Base' in res.data and 'TokenTransfer' in res.data['Base'] else [])]
-            token_transfer = eth_data + polygon_data + base_data
+            token_transfer = eth_data + polygon_data
             recommended_users = format_token_received_data(
                 token_transfer,
                 recommended_users
@@ -3614,8 +3294,8 @@ async def fetch_token_received(address, existing_users=[]):
 
 In order to fetch the common Ethereum holders that hold the Ethereum NFTs hold by a given user, it will require 2 steps:
 
-1. [Fetch all Ethereum NFTs owned by a user](onchain-graph.md#fetch-all-ethereum-nfts-owned-by-a-user)
-2. [Fetch all Ethereum NFT owners](onchain-graph.md#fetch-all-ethereum-nft-owners)
+1. [Fetch all Ethereum NFTs owned by a user](onchain-contacts.md#fetch-all-ethereum-nfts-owned-by-a-user)
+2. [Fetch all Ethereum NFT owners](onchain-contacts.md#fetch-all-ethereum-nft-owners)
 
 **Fetch all Ethereum NFTs owned by a user**
 
@@ -5564,7 +5244,7 @@ async def fetch_base_nft(address, existing_users=[]):
 
 In the previous step, you have successfully create multiple functions to fetch a user's onchain and off-chain data, from POAPs to Lens and Farcasters followers.
 
-In this step, you'll use the data from [Step 1](onchain-graph.md#step-1-fetch-all-on-chain-graph-data) to aggregate all the data fetched and compile it into the given user's **onchain graph**.
+In this step, you'll use the data from [Step 1](onchain-contacts.md#step-1-fetch-all-on-chain-graph-data) to aggregate all the data fetched and compile it into the given user's **onchain graph**.
 
 Utilizing the data fetching functions that we have defined, we can easily import them into a single file and do an iterative call on every function step-by-step as shown below:
 
@@ -6101,11 +5781,15 @@ The sorted final result will look as shown below:
 ]
 </code></pre>
 
-And done! 🎉 :partying\_face: Congratulations you've just built an onchain graph!
+And done!
+
+The user's sorted & formatted onchain graph can then be served to the frontend and be shown to the given user can use to search for relevant people within their network, that is an onchain contacts.&#x20;
+
+🎉 :partying\_face: Congratulations you've just built onchain contacts into your app!
 
 ### Developer Support
 
-If you have any questions or need help regarding integrating or building onchain graph into your application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding integrating or building web3 address book into your web3 application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ### More Resources
 
@@ -6114,4 +5798,5 @@ If you have any questions or need help regarding integrating or building onchain
 * [SocialFollowings API Reference](../api-references/api-reference/socialfollowings-api.md)
 * [TokenTransfers API Reference](../api-references/api-reference/tokentransfers-api/)
 * [TokenBalances API Reference](../api-references/api-reference/tokenbalances-api/)
+* [Onchain Graph Guides](onchain-graph.md)
 * [Recommendation Engine Tutorial](recommendation-engine/)
