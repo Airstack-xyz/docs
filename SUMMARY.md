@@ -43,6 +43,7 @@
   * [🪙 ERC20s](guides/tokens-in-common/erc20s.md)
   * [♦ NFTs](guides/tokens-in-common/nfts.md)
   * [⚡ POAPs](guides/tokens-in-common/poaps.md)
+* [📸 Balance Snapshots](guides/balance-snapshots.md)
 * [🎉 Social Follows](guides/social-follows/README.md)
   * [🫂 Followers](guides/social-follows/followers.md)
   * [💐 Following](guides/social-follows/following.md)
