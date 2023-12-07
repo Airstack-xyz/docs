@@ -17,8 +17,6 @@ layout:
 
 # 📞 Recommendation Engines
 
-## 📞 Recommendation Engines
-
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and for integrating onchain and offchain data with Farcaster.
 
 ## Table Of Contents
@@ -174,7 +172,7 @@ To get recommendations by token transfers, simply fetch all token transfer that 
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/CJuhCzxDH0" %}
+{% embed url="https://app.airstack.xyz/query/fAtWCdyFrU" %}
 Show recommendations by token transfers for Farcaster user name varunsrin.eth and id 5650
 {% endembed %}
 
@@ -247,6 +245,39 @@ query GetRecommendationsByTokenTransfers {
       }
     }
   }
+  # third query on Base
+  base: TokenTransfers(
+    input: {
+      filter: {
+        _or: {
+          from: { _in: ["fc_fname:dwr", "fc_fid:5650"] }
+          to: { _in: ["fc_fname:dwr", "fc_fid:5650"] }
+        }
+      }
+      blockchain: base
+      limit: 50
+    }
+  ) {
+    TokenTransfer {
+      from {
+        addresses
+        socials(input: { filter: { dappName: { _in: farcaster } } }) {
+          userId
+          profileName
+        }
+        domains {
+          dappName
+        }
+      }
+      to {
+        addresses
+        socials(input: { filter: { dappName: { _in: farcaster } } }) {
+          userId
+          profileName
+        }
+      }
+    }
+  }
 }
 ```
 {% endtab %}
@@ -276,7 +307,8 @@ query GetRecommendationsByTokenTransfers {
               }
             ]
           }
-        }
+        },
+        // Other Ethereum Token Transfers
       ]
     },
     "polygon": {
@@ -300,7 +332,33 @@ query GetRecommendationsByTokenTransfers {
               }
             ]
           }
-        }
+        },
+        // Other Polygon Token Transfers
+      ]
+    },
+    "base": {
+      "TokenTransfer": [
+        {
+          "from": {
+            "addresses": [
+              "0x919ba4118e5b566b35b62364613bb8f6bd8e2c61"
+            ],
+            "socials": null,
+            "domains": null
+          },
+          "to": {
+            "addresses": [
+              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+            ],
+            "socials": [
+              {
+                "userId": "5650",
+                "profileName": "vitalik.eth"
+              }
+            ]
+          }
+        },
+        // Other Base Token Transfers
       ]
     }
   }
@@ -506,12 +564,12 @@ The follow recommendation will provide a list of Farcaster users with the Farcas
 
 ### Get Recommendation Follows For Farcaster User(s) Based on NFTs
 
-To get recommendations by NFTs, first fetch all NFTs that is owned by the Farcaster user(s) on both Ethereum and Polygon:
+To get recommendations by NFTs, first fetch all NFTs that is owned by the Farcaster user(s) on both Ethereum, Polygon, and Base:
 
-#### Try Code
+#### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/FZcNb4cU1W" %}
-Show NFTs on Ethereum and Polygon owned by Farcaster user name varunsrin.eth and id 5650
+{% embed url="https://app.airstack.xyz/query/ZpYY2KkXDv" %}
+Show NFTs on Ethereum, Polygon, and Base owned by Farcaster user name varunsrin.eth and id 5650
 {% endembed %}
 
 #### Code
@@ -548,6 +606,20 @@ query GetNFTs {
       tokenAddress
     }
   }
+  base: TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["fc_fname:varunsrin.eth", "fc_fid:5650"] }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: base
+      limit: 200
+    }
+  ) {
+    TokenBalance {
+      tokenAddress
+    }
+  }
 }
 ```
 {% endtab %}
@@ -567,7 +639,8 @@ query GetNFTs {
         {
           "tokenAddress": "0x5a3c077906abf9a46a9de87bb3c6d075a8a67851"
         }
-      ]
+      ],
+      // Other Ethereum NFT Collections
     },
     "polygon": {
       "TokenBalance": [
@@ -580,6 +653,21 @@ query GetNFTs {
         {
           "tokenAddress": "0x579720c63ed37fd4bd60a44fc27a25d6f169e95e"
         }
+      ],
+      // Other Polygon NFT Collections
+    },
+    "base": {
+      "TokenBalance": [
+        {
+          "tokenAddress": "0x7f9f222d2c492bf3c876ecb03a148884b90020f8"
+        },
+        {
+          "tokenAddress": "0xfd0c723375dd37085dded2c6bab99ee590edec7a"
+        },
+        {
+          "tokenAddress": "0x2790e25a247efa375bd313692356a9ffb0d5639f"
+        },
+        // Other Base NFT Collections
       ]
     }
   }
@@ -656,6 +744,32 @@ query GetNFTHoldersAndImages {
       }
     }
   }
+  base: TokenNfts(
+    input: {
+      filter: {
+        address: {
+          _in: [
+            "0xd18359edd97ff13609c1978452b05b43213222d7"
+            "0x27562885f784616be44a0dc801ff18ed4551ba3d"
+            "0x579720c63ed37fd4bd60a44fc27a25d6f169e95e"
+          ]
+        }
+      }
+      blockchain: base
+    }
+  ) {
+    TokenNft {
+      tokenBalances {
+        owner {
+          identity
+          socials(input: { filter: { dappName: { _eq: farcaster } } }) {
+            profileName
+            userId
+          }
+        }
+      }
+    }
+  }
 }
 ```
 {% endtab %}
@@ -685,21 +799,6 @@ query GetNFTHoldersAndImages {
           "tokenBalances": [
             {
               "owner": {
-                "identity": "0xa6c0f7bde119930fb919ed02f8155887ecf0d756",
-                "socials": [
-                  {
-                    "profileName": "n1",
-                    "userId": "3791"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "tokenBalances": [
-            {
-              "owner": {
                 "identity": "0xb16266ba63506cb4de9b2328bada30064e196a3b",
                 "socials": null // Have no Farcaster, can be filtered out
               }
@@ -707,6 +806,23 @@ query GetNFTHoldersAndImages {
           ]
         }
       ]
+    },
+    "polygon": {
+      "TokenNft": [
+        {
+          "tokenBalances": [
+            {
+              "owner": {
+                "identity": "0x87fdd2217f4d8531b5d091d1b290eb64d26f415b",
+                "socials": null
+              }
+            }
+          ]
+        },
+      ]
+    },
+    "base": {
+      "TokenNft": null
     }
   }
 }
