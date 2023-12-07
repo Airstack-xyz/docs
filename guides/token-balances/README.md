@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack API to fetch ERC20, NFTs, or POAPs balances of
   users.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # ⚖ Token Balances

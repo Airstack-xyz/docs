@@ -2,6 +2,17 @@
 description: >-
   Learn how to use the Airstack API fetch token balances time-series data of
   user(s) and their variations on Base.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 📸 Balance Snapshots

@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack API to fetch all ERC20 and NFTs (ERC721/1155)
   holders.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🗝 Token Holders
