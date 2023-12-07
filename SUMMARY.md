@@ -17,7 +17,7 @@
 ## Guides
 
 * [🕸 Onchain Graph](guides/onchain-graph.md)
-* [📞 Recommendation Engine](guides/recommendation-engine/README.md)
+* [📞 Recommendation Engines](guides/recommendation-engine/README.md)
   * [💸 Token Transfers](guides/recommendation-engine/token-transfers.md)
   * [🎫 POAPs](guides/recommendation-engine/poaps.md)
   * [♦ NFTs](guides/recommendation-engine/nfts.md)
