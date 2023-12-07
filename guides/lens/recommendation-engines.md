@@ -18,8 +18,6 @@ layout:
 
 # 📞 Recommendation Engines
 
-## 📞 Recommendation Engines
-
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
 ## Table Of Contents
@@ -172,7 +170,7 @@ To get recommendations by token transfers, simply fetch all token transfer that 
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/NUbezIUVe9" %}
+{% embed url="https://app.airstack.xyz/query/ldjkYhPw98" %}
 Show recommendations by token transfers for lens/@bradorbradley
 {% endembed %}
 
@@ -220,6 +218,35 @@ query GetRecommendationsByTokenTransfers {
         }
       }
       blockchain: polygon
+      limit: 50
+    }
+  ) {
+    TokenTransfer {
+      from {
+        addresses
+        socials(input: { filter: { dappName: { _in: lens } } }) {
+          userId
+          profileName
+        }
+      }
+      to {
+        addresses
+        socials(input: { filter: { dappName: { _in: lens } } }) {
+          userId
+          profileName
+        }
+      }
+    }
+  }
+  base: TokenTransfers(
+    input: {
+      filter: {
+        _or: {
+          from: { _in: ["lens/@bradorbradley"] }
+          to: { _in: ["lens/@bradorbradley"] }
+        }
+      }
+      blockchain: base
       limit: 50
     }
   ) {
@@ -290,6 +317,29 @@ query GetRecommendationsByTokenTransfers {
               {
                 "userId": "0xc8970a269384463c0033d7e71135e41581146006",
                 "profileName": "lens/@grams"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "base": {
+      "TokenTransfer": [
+        {
+          "from": {
+            "addresses": [
+              "0x32bea430631db4e416900db332f5431d265a954a"
+            ],
+            "socials": null
+          },
+          "to": {
+            "addresses": [
+              "0x8ec94086a724cbec4d37097b8792ce99cadcd520"
+            ],
+            "socials": [
+              {
+                "userId": "0x8ec94086a724cbec4d37097b8792ce99cadcd520",
+                "profileName": "lens/@bradorbradley"
               }
             ]
           }
@@ -499,12 +549,12 @@ The follow recommendation will provide a list of Lens profiles with the Lens pro
 
 ### Get Recommendation Follows For Lens Profile(s) Based on NFTs
 
-To get recommendations by NFTs, first fetch all NFTs that is owned by the Lens profile(s) on both Ethereum and Polygon:
+To get recommendations by NFTs, first fetch all NFTs that is owned by the Lens profile(s) on both Ethereum, Polygon, and Base:
 
 #### Try Code
 
-{% embed url="https://app.airstack.xyz/query/ik0ptBHZU3" %}
-Show NFTs on Ethereum and Polygon owned by lens/@bradorbradley
+{% embed url="https://app.airstack.xyz/query/ky5KSrfQ24" %}
+Show NFTs on Ethereum, Polygon, and Base owned by lens/@bradorbradley
 {% endembed %}
 
 #### Code
@@ -534,6 +584,20 @@ query GetNFTs {
         tokenType: { _in: [ERC1155, ERC721] }
       }
       blockchain: polygon
+      limit: 200
+    }
+  ) {
+    TokenBalance {
+      tokenAddress
+    }
+  }
+  base: TokenBalances(
+    input: {
+      filter: {
+        owner: { _in: ["lens/@bradorbradley"] }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: base
       limit: 200
     }
   ) {
@@ -574,6 +638,9 @@ query GetNFTs {
           "tokenAddress": "0xdeb053d41521672af06ba75d61be3364977461af"
         }
       ]
+    },
+    "base": {
+      "TokenBalance": null
     }
   }
 }
@@ -587,7 +654,7 @@ The next query for recommending follows based on NFTs will be fetching all the h
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/JIrNUBryfO" %}
+{% embed url="https://app.airstack.xyz/query/hiizdKMhjl" %}
 Show follow recommendations based on NFTs for lens/@bradorbradley
 {% endembed %}
 
@@ -649,6 +716,32 @@ query GetNFTHoldersAndImages {
       }
     }
   }
+  base: TokenNfts(
+    input: {
+      filter: {
+        address: {
+          _in: [
+            "0xa71d227ffc872a4627e832f87b49ef46b29dd050"
+            "0x5ef718b8360ef2b82fb971b50350913e2bad4783"
+            "0xdeb053d41521672af06ba75d61be3364977461af"
+          ]
+        }
+      }
+      blockchain: base
+    }
+  ) {
+    TokenNft {
+      tokenBalances {
+        owner {
+          identity
+          socials(input: { filter: { dappName: { _eq: lens } } }) {
+            profileName
+            userId
+          }
+        }
+      }
+    }
+  }
 }
 ```
 {% endtab %}
@@ -658,6 +751,9 @@ query GetNFTHoldersAndImages {
 {
   "data": {
     "ethereum": {
+      "TokenNft": null
+    },
+    "polygon": {
       "TokenNft": [
         {
           "tokenBalances": [
@@ -690,7 +786,10 @@ query GetNFTHoldersAndImages {
           ]
         }
       ]
-    }
+    },
+    "base": {
+      "TokenNft": null
+    },
   }
 }
 ```
