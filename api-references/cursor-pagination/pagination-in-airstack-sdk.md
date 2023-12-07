@@ -35,7 +35,7 @@ Thus, you can just provide a query without any of the cursor field in your schem
 
 ## Pre-requisites
 
-- [Airstack API key](../../get-started/get-api-key.md)
+* [Airstack API key](../../get-started/get-api-key.md)
 
 ### Install Airstack SDK
 
@@ -43,59 +43,51 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -105,7 +97,6 @@ Here is sample implementation of using the **special functions and variables** m
 
 {% tabs %}
 {% tab title="React" %}
-
 <pre class="language-jsx"><code class="lang-jsx">import { init, useQueryWithPagination } from "@airstack/airstack-react";
 
 init("YOUR_AIRSTACK_API_KEY");
@@ -157,11 +148,9 @@ const Component = () => {
 
 export default Component;
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQueryWithPagination } from "@airstack/node";
 
@@ -210,11 +199,9 @@ const main = async () => {
 
 main();
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -258,7 +245,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -268,8 +254,8 @@ If you have any questions or need help regarding how to use cursor pagination wi
 
 ## More Resources
 
-- [React SDK Reference](../../react-sdk-reference/overview.md)
-  - [`useQueryWithPagination`](../../react-sdk-reference/hooks/usequerywithpagination.md)
-  - [`useLazyQueryWithPagination`](../../react-sdk-reference/hooks/uselazyquerywithpagination.md)
-- [NodeJS SDK Reference](../../nodejs-sdk-reference/overview.md)
-  - [`fetchQueryWithPagination`](../../react-sdk-reference/functions/fetchquerywithpagination.md)
+* [React SDK Reference](../../web-sdk-reference/overview.md)
+  * [`useQueryWithPagination`](../../web-sdk-reference/hooks/usequerywithpagination.md)
+  * [`useLazyQueryWithPagination`](../../web-sdk-reference/hooks/uselazyquerywithpagination.md)
+* [NodeJS SDK Reference](../../nodejs-sdk-reference/overview.md)
+  * [`fetchQueryWithPagination`](../../web-sdk-reference/functions/fetchquerywithpagination.md)
