@@ -26,7 +26,7 @@ Building such a contract recommendation feature based on NFTs takes two steps:
 
 [Airstack](https://www.airstack.xyz/) provides you the `TokenBalances` API to fetch the NFT held by a user(s) and the `TokenNFTs` API to fetch all the holders of a certain NFT collection.
 
-With [Airstack](https://airstack.xyz), it's possible to do [cross-chain queries](../contact-recommendation/broken-reference/) that get NFT results from **both Ethereum and Polygon** in a single call.
+With [Airstack](https://airstack.xyz), it's possible to do [cross-chain queries](../contact-recommendation/broken-reference/) that get NFT results from **multiple chains, e.g. Ethereum, Polygon, and Base**, in a single call.
 
 ## Get All NFTs Held By A User(s)
 
@@ -34,10 +34,18 @@ First, you will fetch all the NFTs held by a user(s) to create the contact recom
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetNFTs($address: [Identity!]) {
   ethereum: TokenBalances(
-    input: {filter: {owner: {_in: $address}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: ethereum, limit: 10}
+    input: {
+      filter: {
+        owner: { _in: $address }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: ethereum
+      limit: 10
+    }
   ) {
     TokenBalance {
       tokenAddress
@@ -64,7 +72,14 @@ query GetNFTs($address: [Identity!]) {
     }
   }
   polygon: TokenBalances(
-    input: {filter: {owner: {_in: $address}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: polygon, limit: 10}
+    input: {
+      filter: {
+        owner: { _in: $address }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: polygon
+      limit: 10
+    }
   ) {
     TokenBalance {
       tokenAddress
@@ -92,14 +107,17 @@ query GetNFTs($address: [Identity!]) {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variable" %}
+
 ```json
 {
   "address": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"]
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -113,10 +131,11 @@ In addition, the query will also fetch all NFT images that you can use to be dis
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetNFTHoldersAndImages($address: [Address!]) {
   ethereum: TokenNfts(
-    input: {filter: {address: {_in: $address}}, blockchain: ethereum}
+    input: { filter: { address: { _in: $address } }, blockchain: ethereum }
   ) {
     TokenNft {
       address
@@ -150,7 +169,7 @@ query GetNFTHoldersAndImages($address: [Address!]) {
     }
   }
   polygon: TokenNfts(
-    input: {filter: {address: {_in: $address}}, blockchain: polygon}
+    input: { filter: { address: { _in: $address } }, blockchain: polygon }
   ) {
     TokenNft {
       address
@@ -185,6 +204,7 @@ query GetNFTHoldersAndImages($address: [Address!]) {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -194,7 +214,12 @@ query GetNFTHoldersAndImages($address: [Address!]) {
 
 ```graphql
 query GetNFTHoldersAndImages {
-  TokenNfts(input: {filter: {address: {_eq: "0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03"}}, blockchain: ethereum}) {
+  TokenNfts(
+    input: {
+      filter: { address: { _eq: "0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03" } }
+      blockchain: ethereum
+    }
+  ) {
     TokenNft {
       address
       tokenId
@@ -237,5 +262,5 @@ If you have any questions or need help regarding integrating or building recomme
 
 ## More Resources
 
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-* [On-Chain Graph](../onchain-graph.md)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+- [On-Chain Graph](../onchain-graph.md)
