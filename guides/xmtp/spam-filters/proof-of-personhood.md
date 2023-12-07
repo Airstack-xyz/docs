@@ -18,8 +18,6 @@ layout:
 
 # 🎭 Proof of Personhood
 
-## 🎭 Proof of Personhood
-
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
 
 ## Table Of Contents
@@ -188,8 +186,8 @@ We recommend combining multiple criteria to determine if a user is likely to be 
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/dvRSbWiNKG" %}
-Show me token transfers by vitalik.eth
+{% embed url="https://app.airstack.xyz/query/VAonm8FOCY" %}
+Show me token transfers by vitalik.eth on Ethereum, Polygon, and Base
 {% endembed %}
 
 #### Code
@@ -276,6 +274,45 @@ query GetTokenTransfers {
       prevCursor
     }
   }
+  base: TokenTransfers(
+    input: { filter: { from: { _in: ["vitalik.eth"] } }, blockchain: base }
+  ) {
+    TokenTransfer {
+      from {
+        addresses
+        domains {
+          name
+        }
+        socials {
+          dappName
+          profileName
+          profileTokenId
+          profileTokenIdHex
+          userId
+          userAssociatedAddresses
+        }
+      }
+      to {
+        addresses
+        domains {
+          name
+        }
+        socials {
+          dappName
+          profileName
+          profileTokenId
+          profileTokenIdHex
+          userId
+          userAssociatedAddresses
+        }
+      }
+      transactionHash
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
 }
 ```
 {% endtab %}
@@ -294,33 +331,7 @@ query GetTokenTransfers {
               {
                 "name": "quantumexchange.eth"
               },
-              {
-                "name": "7860000.eth"
-              },
-              {
-                "name": "offchainexample.eth"
-              },
-              {
-                "name": "brianshaw.eth"
-              },
-              {
-                "name": "vbuterin.stateofus.eth"
-              },
-              {
-                "name": "quantumsmartcontracts.eth"
-              },
-              {
-                "name": "Vitalik.eth"
-              },
-              {
-                "name": "openegp.eth"
-              },
-              {
-                "name": "vitalik.cannafam.eth"
-              },
-              {
-                "name": "VITALIK.eth"
-              }
+              // other ENS domains
             ],
             "socials": [
               {
@@ -362,7 +373,130 @@ query GetTokenTransfers {
           },
           "transactionHash": "0xd2e0d4e8aae125a7edae14c7dab106c1620be136b239e7f9dbd60861034b0c25"
         },
-        // other token transfers
+        // other Ethereum token transfers
+      ]
+    },
+    "polygon": {
+<strong>      "TokenTransfer": [ // If TokenTransfer array is not empty, then there are token transfers 
+</strong>        {
+          "from": {
+            "addresses": [
+              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+            ],
+            "domains": [
+              {
+                "name": "7860000.eth"
+              },
+              // Other ENS domains
+            ],
+            "socials": [
+              {
+                "dappName": "farcaster",
+                "profileName": "vitalik.eth",
+                "profileTokenId": "5650",
+                "profileTokenIdHex": "0x1612",
+                "userId": "5650",
+                "userAssociatedAddresses": [
+                  "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
+                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                ]
+              },
+              {
+                "dappName": "lens",
+                "profileName": "lens/@vitalik",
+                "profileTokenId": "100275",
+                "profileTokenIdHex": "0x0187b3",
+                "userId": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+                "userAssociatedAddresses": [
+                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                ]
+              }
+            ]
+          },
+          "to": {
+            "addresses": [
+              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+            ],
+            "domains": [
+              {
+                "name": "quantumexchange.eth"
+              },
+              // Other ENS domains
+            ],
+            "socials": [
+              {
+                "dappName": "farcaster",
+                "profileName": "vitalik.eth",
+                "profileTokenId": "5650",
+                "profileTokenIdHex": "0x1612",
+                "userId": "5650",
+                "userAssociatedAddresses": [
+                  "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
+                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                ]
+              },
+              {
+                "dappName": "lens",
+                "profileName": "lens/@vitalik",
+                "profileTokenId": "100275",
+                "profileTokenIdHex": "0x0187b3",
+                "userId": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+                "userAssociatedAddresses": [
+                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                ]
+              }
+            ]
+          },
+          "transactionHash": "0x499ec2aa83944bdcdd73abd0c069a46d7fffdff77845cc079bdf5c450cae5814"
+        },
+      ]
+    },
+    "base": {
+<strong>      "TokenTransfer": [ // If TokenTransfer array is not empty, then there are token transfers 
+</strong>        {
+          "from": {
+            "addresses": [
+              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+            ],
+            "domains": [
+              {
+                "name": "quantumexchange.eth"
+              },
+              // Other ENS domains
+            ],
+            "socials": [
+              {
+                "dappName": "farcaster",
+                "profileName": "vitalik.eth",
+                "profileTokenId": "5650",
+                "profileTokenIdHex": "0x1612",
+                "userId": "5650",
+                "userAssociatedAddresses": [
+                  "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
+                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                ]
+              },
+              {
+                "dappName": "lens",
+                "profileName": "lens/@vitalik",
+                "profileTokenId": "100275",
+                "profileTokenIdHex": "0x0187b3",
+                "userId": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+                "userAssociatedAddresses": [
+                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+                ]
+              }
+            ]
+          },
+          "to": {
+            "addresses": [
+              "0xdef5de2d4337e3e8534b32f7b05a58c7f7be89f3"
+            ],
+            "domains": null,
+            "socials": null
+          },
+          "transactionHash": "0x5b7faf6bd2266c3344bd5ee79fdbca32416b5162b97afbd41a39bbd1516d1ea7"
+        },
       ]
     }
   }
@@ -371,7 +505,7 @@ query GetTokenTransfers {
 {% endtab %}
 {% endtabs %}
 
-If the `ethereum.TokenTransfer` or the `polygon.TokenTransfer` array has non-zero length, then the user have a history of transferring token to other users and thus can be **considered non-spammer**.
+If the `TokenTransfer` array has non-zero length, then the user have a history of transferring token to other users and thus can be **considered non-spammer**.
 
 Otherwise, the user should be **considered a potential spammer**.
 
@@ -387,8 +521,8 @@ We recommend combining multiple criterion to determine if a user is likely to be
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/5teoS4ZS1X" %}
-show me vitalik.eth token balances on Ethereum and Polygon
+{% embed url="https://app.airstack.xyz/query/WCyrqtr2Hq" %}
+show me vitalik.eth token balances on Ethereum, Polygon, and Base
 {% endembed %}
 
 #### Code
@@ -441,6 +575,28 @@ query MyQuery {
       prevCursor
     }
   }
+  Base: TokenBalances(
+    input: {
+      filter: { owner: { _in: ["vitalik.eth"] } }
+      blockchain: base
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      tokenAddress
+      tokenId
+      amount
+      tokenType
+      token {
+        name
+        symbol
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
 }
 ```
 {% endtab %}
@@ -460,36 +616,58 @@ query MyQuery {
             "symbol": "FINE"
           }
         },
+        // more Ethereum tokens
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjhhYzhmMzQ1ZjE4NWU3NzUwODU1ZjJjMDkzMmI5MzYxNmY4MWQ0MTFhNjg2NmFhNTZiZmVjN2QzNGQ4YjNhZTgiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTY5NDgyMTUiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    },
+    "Polygon": {
+      "TokenBalance": [
         {
-          "tokenAddress": "0xd56736e79093d31be093ba1b5a5fe32e054b9592",
-          "tokenId": "",
-          "amount": "57415038814950477",
-          "tokenType": "ERC20",
+          "tokenAddress": "0xfeb8513330db3c46b1fc1f8a5e1cd362cd7f67af",
+          "tokenId": "0",
+          "amount": "2",
+          "tokenType": "ERC1155",
           "token": {
-            "name": "Nucleus",
-            "symbol": "NUCLEUS"
+            "name": "$1,000 USDC Reward",
+            "symbol": "$1,000 USDC Reward"
           }
         },
+        // more Polygon tokens
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjhhYzhmMzQ1ZjE4NWU3NzUwODU1ZjJjMDkzMmI5MzYxNmY4MWQ0MTFhNjg2NmFhNTZiZmVjN2QzNGQ4YjNhZTgiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTY5NDgyMTUiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    },
+    "Base": {
+      "TokenBalance": [
         {
-          "tokenAddress": "0xa362cd1e14705f0bdd9347fccffe0d67a7cf6e2b",
-          "tokenId": "",
-          "amount": "400000000000000000000",
-          "tokenType": "ERC20",
+          "tokenAddress": "0x7f9f222d2c492bf3c876ecb03a148884b90020f8",
+          "tokenId": "748",
+          "amount": "1",
+          "tokenType": "ERC721",
           "token": {
-            "name": "Chloe Clem",
-            "symbol": "CHLOE"
+            "name": "I Called Congress - FIT21",
+            "symbol": "SWCFIT21"
           }
         },
-        // more tokens
-      ]
-    }
+        // more Base tokens
+      ],
+      "pageInfo": {
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjhhYzhmMzQ1ZjE4NWU3NzUwODU1ZjJjMDkzMmI5MzYxNmY4MWQ0MTFhNjg2NmFhNTZiZmVjN2QzNGQ4YjNhZTgiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTY5NDgyMTUiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
+        "prevCursor": ""
+      }
+    },
   }
 }
 </code></pre>
 {% endtab %}
 {% endtabs %}
 
-If the `Ethereum.TokenBalance` or the `Polygon.TokenBalance` array has non-zero length, then the user have some ERC20/721/1155 tokens hold in either Ethereum or Polygon and thus can be **considered non-spammer**.
+If the `TokenBalance` array has non-zero length, then the user have some ERC20/721/1155 tokens hold in either Ethereum, Polygon, and Base and thus can be **considered non-spammer**.
 
 Otherwise, the user should be **considered a potential spammer**.
 
