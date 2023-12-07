@@ -59,3 +59,4 @@ redirects:
   get-started/pricing: pricing.md
   get-started/api-status-and-roadmap: introduction/api-capabilities.md
   readme/use-cases: guides/onchain-graph.md
+  pricing: https://app.airstack.com/pricing
