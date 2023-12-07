@@ -1,7 +1,7 @@
 # Table of contents
 
 * [ℹ Introduction](README.md)
-  * [🚦 API Capabilities](introduction/api-capabilities.md)
+  * [🚦 API Capabilities](readme/api-capabilities.md)
 * [⭐ Get Started](get-started/README.md)
   * [🗝 Get API Key](get-started/get-api-key.md)
   * [🤖 Airstack AI](get-started/airstack-ai.md)

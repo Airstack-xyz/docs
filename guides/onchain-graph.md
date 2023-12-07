@@ -25,7 +25,7 @@ Developers are utilizing Onchain Graph for recommendation engines, pre-populatin
 
 We have integrated onchain graph into the [Airstack Explorer ](https://explorer.airstack.xyz)as you can see below. In Airstack Explorer you can enter any 0x address, Lens, Farcaster, or ENS and get the user's onchain graph.
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>Onchain Graph integration on Airstack Explorer</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption><p>Onchain Graph integration on Airstack Explorer</p></figcaption></figure>
 
 To try it out yourself, click here:
 

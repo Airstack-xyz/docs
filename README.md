@@ -15,7 +15,7 @@ layout:
 
 # ℹ Introduction
 
-<figure><img src=".gitbook/assets/image (6).png" alt=""><figcaption><p>Airstack Web3 Integration</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (5).png" alt=""><figcaption><p>Airstack Web3 Integration</p></figcaption></figure>
 
 [Airstack](https://airstack.xyz) is a web3 development platform that provides powerful GraphQL APIs for integrating on-chain and off-chain data into any application. With Airstack, you can easily connect your applications to any web3 ecosystem.
 
@@ -23,7 +23,7 @@ In addition, [Airstack](https://airstack.xyz) also provides an[ AI solution](get
 
 ## Overview
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f6a6">🚦</span> <strong>API Capabilities</strong></td><td>Learn all the current features available on Airstack and its future roadmap.</td><td></td><td><a href="introduction/api-capabilities.md">api-capabilities.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f6a6">🚦</span> <strong>API Capabilities</strong></td><td>Learn all the current features available on Airstack and its future roadmap.</td><td></td><td><a href="readme/api-capabilities.md">api-capabilities.md</a></td></tr></tbody></table>
 
 ## Get Started
 
