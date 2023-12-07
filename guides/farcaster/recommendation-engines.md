@@ -705,7 +705,7 @@ The next query for recommending follows based on NFTs will be fetching all the h
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/j1IKcsBzht" %}
+{% embed url="https://app.airstack.xyz/query/DfxElQUlKx" %}
 Show follow recommendations based on NFTs
 {% endembed %}
 
