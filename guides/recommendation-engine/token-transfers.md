@@ -19,7 +19,7 @@ layout:
 
 Frequent token transfers between two parties could be a good indication that the parties involved know each other. Therefore, you can also use token transfers to build your contact recommendation feature.
 
-To build such a contact recommendation feature, Airstack provides a [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api/) API for you to fetch all ERC20 token transfer data from either a user or multiple users on both Ethereum, Polygon, and Base.
+To build such a contact recommendation feature, Airstack provides a [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api/) API for you to fetch all ERC20 token transfer data from either a user or multiple users on Ethereum, Polygon, and Base.
 
 ## Table Of Contents
 

@@ -177,7 +177,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get NFT Balances of User(s)
 
-You can use [Airstack](https://airstack.xyz) to fetch NFT balance of user(s) across both Ethereum, Polygon, and Base by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API and providing an array of users' 0x address, ENS domain, cb.id, Lens profile, or Farcaster fname/fid to `owner` input:
+You can use [Airstack](https://airstack.xyz) to fetch NFT balance of user(s) across Ethereum, Polygon, and Base by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API and providing an array of users' 0x address, ENS domain, cb.id, Lens profile, or Farcaster fname/fid to `owner` input:
 
 ### Try Demo
 

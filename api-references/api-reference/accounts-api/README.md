@@ -20,7 +20,7 @@ The Accounts API fetches the list of all [ERC6551s](https://eips.ethereum.org/EI
 
 ## Supported ERC6551 Registries
 
-Currently, [Airstack](https://airstack.xyz) indexes all the official ERC6551 registry contract on both Ethereum, Polygon, and Base:
+Currently, [Airstack](https://airstack.xyz) indexes all the official ERC6551 registry contract on Ethereum, Polygon, and Base:
 
 <table><thead><tr><th width="210">Version</th><th>Registry Address</th></tr></thead><tbody><tr><td>0.2.0</td><td><a href="https://etherscan.io/address/0x02101dfB77FDE026414827Fdc604ddAF224F0921"><code>0x02101dfB77FDE026414827Fdc604ddAF224F0921</code></a></td></tr><tr><td>0.3.0</td><td><a href="https://etherscan.io/address/0x284be69BaC8C983a749956D7320729EB24bc75f9"><code>0x284be69BaC8C983a749956D7320729EB24bc75f9</code></a></td></tr><tr><td>0.3.1</td><td><a href="https://etherscan.io/address/0x000000006551c19487814612e58fe06813775758"><code>0x000000006551c19487814612e58FE06813775758</code></a></td></tr></tbody></table>
 
