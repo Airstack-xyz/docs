@@ -184,7 +184,7 @@ interface Social {
   profileName: string;
 }
 
-const GET_VITALIK_LENS_FARCASTER_ENS = `
+const query = `
 query MyQuery {
   Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
     socials {
@@ -216,7 +216,7 @@ main();
 ```javascript
 import { fetchQuery } from "@airstack/node";
 
-const GET_VITALIK_LENS_FARCASTER_ENS = `
+const query = `
 query MyQuery {
   Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
     socials {

@@ -204,7 +204,7 @@ interface Social {
 }
 
 
-const GET_VITALIK_LENS_FARCASTER_ENS = `
+const query = `
 query MyQuery {
   Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
     socials {
@@ -240,7 +240,7 @@ export default Component;
 ```jsx
 import { useQuery } from "@airstack/airstack-react";
 
-const GET_VITALIK_LENS_FARCASTER_ENS = `
+const query = `
 query MyQuery {
   Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
     socials {
