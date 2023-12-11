@@ -165,7 +165,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Best Practices
 
-With [nested queries](../../api-references/nested-queries.md), Airstack finds the intersection of common token holders of multiple ERC20 tokens or NFTs in the following order:
+With [nested queries](../../api-references/overview/nested-queries.md), Airstack finds the intersection of common token holders of multiple ERC20 tokens or NFTs in the following order:
 
 1. Filtering token holders on the 1st outermost query
 2. Comparing token holders of 1st outermost query against the token holders on 2nd outermost query
@@ -1011,6 +1011,6 @@ If you have any questions or need help regarding fetching token holders of multi
 
 ## More Resources
 
-* [Nested Queries](../../api-references/nested-queries.md)
+* [Nested Queries](../../api-references/overview/nested-queries.md)
 * [Token Holders Tutorial for Lens Devs](../lens/token-holders.md)
 * [Token Holders Tutorial for Farcaster Devs](../farcaster/token-holders.md)

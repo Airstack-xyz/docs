@@ -569,7 +569,7 @@ If you have any questions or need help regarding fetching holders or attendees o
 
 ## More Resources
 
-* [Nested Queries](../../api-references/nested-queries.md)
+* [Nested Queries](../../api-references/overview/nested-queries.md)
 * [Resolve Identities](../resolve-identities/)
   * [ENS](../resolve-identities/ens.md)
   * [Lens](../resolve-identities/lens.md)

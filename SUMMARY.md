@@ -114,6 +114,13 @@
 
 ## API References
 
+* [ℹ Overview](api-references/overview/README.md)
+  * [🔐 Authentication](api-references/overview/authentication.md)
+  * [📍 Cursor Pagination](api-references/overview/cursor-pagination/README.md)
+    * [Overview](api-references/overview/cursor-pagination/overview.md)
+    * [Pagination in Airstack SDK](api-references/overview/cursor-pagination/pagination-in-airstack-sdk.md)
+  * [📏 Working with GraphQL](api-references/overview/working-with-graphql.md)
+  * [🥅 Nested Queries](api-references/overview/nested-queries.md)
 * [📖 API Reference](api-references/api-reference/README.md)
   * [Accounts API](api-references/api-reference/accounts-api/README.md)
     * [Accounts API Examples](api-references/api-reference/accounts-api/accounts-api-examples.md)
@@ -142,11 +149,6 @@
     * [TokenTransfers Examples](api-references/api-reference/tokentransfers-api/tokentransfers-examples.md)
   * [Airstack Identity API](api-references/api-reference/airstack-identity-api.md)
   * [Cross-chain Queries](api-references/api-reference/cross-chain-queries.md)
-* [Working with GraphQL](api-references/working-with-graphql.md)
-* [📍 Cursor Pagination](api-references/cursor-pagination/README.md)
-  * [Overview](api-references/cursor-pagination/overview.md)
-  * [Pagination in Airstack SDK](api-references/cursor-pagination/pagination-in-airstack-sdk.md)
-* [Nested Queries](api-references/nested-queries.md)
 
 ## Web SDK Reference
 
