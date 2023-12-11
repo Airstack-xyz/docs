@@ -1,4 +1,7 @@
 ---
+description: >-
+  Learn all the available logical comparison operators for filtering out the
+  desired API results.
 layout:
   title:
     visible: true
