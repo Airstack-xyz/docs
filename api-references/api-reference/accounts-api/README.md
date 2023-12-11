@@ -1,4 +1,8 @@
 ---
+description: >-
+  Learn all the detailed references of Accounts API that provide ERC6551
+  accounts information, including the input filters, supported chains, and
+  output fields.
 layout:
   title:
     visible: true
@@ -28,7 +32,7 @@ If you are deploying ERC6551 using a custom registry contract, please reach out 
 
 ## Inputs
 
-### Filters
+### filter
 
 | Name                      | Type                             | Description                                                  |
 | ------------------------- | -------------------------------- | ------------------------------------------------------------ |
@@ -38,7 +42,7 @@ If you are deploying ERC6551 using a custom registry contract, please reach out 
 | `address`                 | `Identity_Comparator_Exp`        | The address of an ERC6551 account.                           |
 | `createdAtBlockTimestamp` | `Time_Comparator_Exp`            | The block timestamp of the ERC6551 creation transaction.     |
 
-### Blockchain
+### blockchain
 
 | Enum       | Description      |
 | ---------- | ---------------- |
@@ -46,27 +50,31 @@ If you are deploying ERC6551 using a custom registry contract, please reach out 
 | `polygon`  | Polygon mainnet  |
 | `base`     | Base mainnet     |
 
+### order
+
+| Name                      | Description                                                                                                                           |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `createdAtBlockTimestamp` | Sort the result by the block timestamp of the ERC6551 creation transaction, either in ascending (`ASC`) or descending (`DESC`) order. |
+
 ## Outputs
 
-```graphql
-type Account {
-  id: ID! # Airstack unique identifier for the ERC6551 account.
-  standard: AccountStandard! # The standard of the ERC6551.
-  blockchain: Blockchain # The blockchain where the ERC6551 token-bound account is created.
-  tokenAddress: String # The token address of the ERC721 token that owns the ERC6551.
-  tokenId: String # The token ID of the ERC721 token that owns the ERC6551.
-  address: Wallet! # The details of an ERC6551 account (address, socials, token balances).
-  registry: String # The registry address used to deploy the smart contract wallet.
-  implementation: String # The implementation address of the on-chain smart contract account.
-  salt: String # The salt for ERC6551 creation.
-  createdAtBlockNumber: Int # The block number of the ERC6551 creation transaction.
-  createdAtBlockTimestamp: Time # The block timestamp of the ERC6551 creation transaction.
-  creationTransactionHash: String # The transaction Hash of the ERC6551 creation transaction.
-  deployer: String # The address of the deployer.
-  nft: TokenNft # The NFT that owns the ERC6551 account.
-  updatedAtBlockNumber: Int # The block number of the latest update on the ERC6551.
-  updatedAtBlockTimestamp: Time # The block timestamp of the latest update on the ERC6551.
-}
-```
+| Name                      | Type               | Description                                                           |
+| ------------------------- | ------------------ | --------------------------------------------------------------------- |
+| `id`                      | `ID!`              | Airstack unique identifier for the ERC6551 account.                   |
+| `standard`                | `AccountStandard!` | The standard of the ERC6551.                                          |
+| `blockchain`              | `Blockchain`       | The blockchain where the ERC6551 token-bound account is deployed.     |
+| `tokenAddress`            | `String`           | The token address of the ERC721 token that owns the ERC6551.          |
+| `tokenId`                 | `String`           | The token ID of the ERC721 token that owns the ERC6551.               |
+| `address`                 | `Wallet!`          | The details of an ERC6551 account (address, socials, token balances). |
+| `registry`                | `String`           | The registry address used to deploy the smart contract wallet.        |
+| `implementation`          | `String`           | The implementation address of the on-chain smart contract account.    |
+| `salt`                    | `String`           | The salt for ERC6551 creation.                                        |
+| `createdAtBlockNumber`    | `Int`              | The block number of the ERC6551 creation transaction.                 |
+| `createdAtBlockTimestamp` | `Time`             | The block timestamp of the ERC6551 creation transaction.              |
+| `creationTransactionHash` | `String`           | The transaction Hash of the ERC6551 creation transaction.             |
+| `deployer`                | `String`           | The address of the deployer.                                          |
+| `nft`                     | `TokenNft`         | The NFT that owns the ERC6551 account.                                |
+| `updatedAtBlockNumber`    | `Int`              | The block number of the latest update on the ERC6551.                 |
+| `updatedAtBlockTimestamp` | `Time`             | The block timestamp of the latest update on the ERC6551.              |
 
 [^1]: indexingnon-deployed [ERC6551s](https://eips.ethereum.org/EIPS/eip-6551) or TBAs (token-bound accounts)
