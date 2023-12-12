@@ -18,6 +18,7 @@
 
 * [✈ Basics](guides/basics/README.md)
   * [🌪 Variables](guides/basics/variables.md)
+  * [🎯 Direct API Call](get-started/quickstart/direct-api-call.md)
 * [🕸 Onchain Graph](guides/onchain-graph.md)
 * [📒 Onchain Contacts](guides/onchain-contacts.md)
 * [📞 Recommendation Engines](guides/recommendation-engine/README.md)
