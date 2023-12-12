@@ -60,3 +60,12 @@ redirects:
   get-started/api-status-and-roadmap: introduction/api-capabilities.md
   readme/use-cases: guides/onchain-graph.md
   pricing: README.md
+  api-references/api-reference/accounts-api/accounts-api-examples: guides/token-bound-accounts/README.md
+  api-references/api-reference/tokens-api/tokens-api-examples: guides/erc20/README.md
+  api-references/api-reference/tokennfts-api/token-nfts-examples: guides/nft/README.md
+  api-references/api-reference/tokenbalances-api/tokenbalances-examples: guides/token-balances/README.md
+  api-references/api-reference/domains-api/domains-api-examples: guides/ens-domains/README.md
+  api-references/api-reference/socials-api/socials-api-examples: guides/lens/README.md
+  api-references/api-reference/xmtps-api/xmtps-api-examples: guides/xmtp/README.md
+  api-references/api-reference/poaps-api/poaps-api-examples: guides/poap/README.md
+  api-references/api-reference/poapevents-api/poapevent-api-examples: guides/poap/README.md
