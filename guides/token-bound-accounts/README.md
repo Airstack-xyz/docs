@@ -19,7 +19,7 @@ layout:
 # 🪆 Tokenbound ERC6551
 
 {% hint style="info" %}
-[Airstack](https://airstack.xyz) indexes all the official registry contracts (for more details, check [here](../../api-references/api-reference/accounts-api/#supported-erc6551-registries)).
+[Airstack](https://airstack.xyz) indexes all the official registry contracts (for more details, check [here](../../api-references/api-reference/accounts-api.md#supported-erc6551-registries)).
 
 If you are deploying ERC6551 using a custom Registry contract, please reach out to us to add it to the [Airstack](https://airstack.xyz) API by joining our [Telegram](https://t.me/+1k3c2FR7z51mNDRh).
 {% endhint %}

@@ -578,6 +578,6 @@ If you have any questions or need help regarding checking if Lens profile(s) hav
 * [Lens Followers](broken-reference/)
 * [Lens Followings](broken-reference/)
 * [Lens Resolver](broken-reference)
-* [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
+* [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)
 * [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
 * [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)

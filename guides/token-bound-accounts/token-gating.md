@@ -32,9 +32,9 @@ Thus, the algorithm for ERC6551 token-gating will be as follows:
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
-- Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+* Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
 
 ## Get Started
 
@@ -44,59 +44,51 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-
-#### React
+**React**
 
 ```sh
 npm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
-#### React
+**React**
 
 ```sh
 yarn add @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
-#### React
+**React**
 
 ```sh
 pnpm install @airstack/airstack-react
 ```
 
-#### Node
+**Node**
 
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -104,7 +96,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -128,11 +119,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -145,11 +134,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -167,7 +154,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -195,7 +181,6 @@ Verify Ownership of Token(s) or NFT(s) on an EOA
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -214,11 +199,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -232,7 +215,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -242,7 +224,7 @@ On the other hand, if the `amount` field does not exist, the EOA does not hold t
 
 ## Step 2: Get All Token Bound ERC6551 Accounts
 
-Given a 0x address, Lens profile, Farcaster, or ENS, you can fetch all the [1st-level token-bound accounts](#user-content-fn-1)[^1]:&#x20;
+Given a 0x address, Lens profile, Farcaster, or ENS, you can fetch all the [1st-level token-bound accounts](#user-content-fn-1)[^1]:
 
 ### Try Demo
 
@@ -254,7 +236,6 @@ Show all ERC6551 accounts owned by the NFTs owned by 0x6da658f5840fecc688a4bd007
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -276,11 +257,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -329,7 +308,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -339,7 +317,6 @@ By formatting the the output with the following format function:
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 ```javascript
 const formatFunction = (data) =>
   data?.TokenBalances?.TokenBalance?.map(({ tokenNfts }) =>
@@ -351,11 +328,9 @@ const formatFunction = (data) =>
     .flat(2)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 def format_function(data):
     result = []
@@ -372,7 +347,6 @@ def format_function(data):
 
     return result
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -400,7 +374,6 @@ Verify ownership of NFT on ERC6551 Accounts
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -426,11 +399,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -444,7 +415,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -458,7 +428,6 @@ The complete code will look like as follows:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { useState, useEffect } from "react";
 import { init, useLazyQuery } from "@airstack/airstack-react";
@@ -571,11 +540,9 @@ const Component = () => {
   )
 }
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -671,11 +638,9 @@ isAccessGrantedERC6551(
   "14"
 );
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -773,7 +738,6 @@ asyncio.run(
     )
 )
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -783,11 +747,11 @@ If you have any questions or need help regarding building token gating for ERC65
 
 ## More Resources
 
-- [TokenBalances API](../../api-references/api-reference/tokenbalances-api/)
-- [Accounts API](../../api-references/api-reference/accounts-api/)
-- [Other Tokenbound ERC6551 Tutorials](./)
-  - [NFTs](nfts.md)
-  - [NFT Owners](nft-owners.md)
-  - [Sort Results](sort-results.md)
+* [TokenBalances API](../../api-references/api-reference/tokenbalances-api.md)
+* [Accounts API](../../api-references/api-reference/accounts-api.md)
+* [Other Tokenbound ERC6551 Tutorials](./)
+  * [NFTs](nfts.md)
+  * [NFT Owners](nft-owners.md)
+  * [Sort Results](sort-results.md)
 
 [^1]: Token bound accounts that is owned directly by the NFT that is owned directly by the given 0x address, Lens profile, Farcaster, or ENS.

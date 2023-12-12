@@ -34,7 +34,6 @@ First, you will fetch all the NFTs held by a user(s) to create the contact recom
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetNFTs($address: [Identity!]) {
   ethereum: TokenBalances(
@@ -107,17 +106,14 @@ query GetNFTs($address: [Identity!]) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variable" %}
-
 ```json
 {
   "address": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"]
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -131,7 +127,6 @@ In addition, the query will also fetch all NFT images that you can use to be dis
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetNFTHoldersAndImages($address: [Address!]) {
   ethereum: TokenNfts(
@@ -204,7 +199,6 @@ query GetNFTHoldersAndImages($address: [Address!]) {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -262,5 +256,5 @@ If you have any questions or need help regarding integrating or building recomme
 
 ## More Resources
 
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-- [On-Chain Graph](../onchain-graph.md)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+* [On-Chain Graph](../onchain-graph.md)

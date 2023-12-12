@@ -385,8 +385,8 @@ If you have any questions or need help regarding fetching POAP balances, please 
 
 ## More Resources
 
-* [Poaps API Reference](../../api-references/api-reference/poaps-api/)
-* [Poaps API Examples](../../api-references/api-reference/poaps-api/poaps-api-examples.md)
+* [Poaps API Reference](../../api-references/api-reference/poaps-api.md)
+* [Poaps API Examples](broken-reference)
 * [Combinations](../combinations/)
   * [Multiple POAPs](../combinations/multiple-poaps.md)
   * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)

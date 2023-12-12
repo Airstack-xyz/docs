@@ -498,7 +498,7 @@ If you have any questions or need help regarding checking XMTP for multiple user
 
 ### More Resources
 
-* [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
+* [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)
 * [Has XMTP For Lens Developers](../lens/has-xmtp.md)
 * [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
 * [Universal Resolver](broken-reference)

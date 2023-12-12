@@ -314,4 +314,4 @@ If you have any questions or need help regarding fetching POAP balances of user(
 ## More Resources
 
 * [POAP Guides](../poap/)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api.md)

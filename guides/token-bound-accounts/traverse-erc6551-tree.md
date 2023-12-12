@@ -32,16 +32,16 @@ There are various use cases for traversing the ERC6551 ownership tree, which inc
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Traverse Up ERC6551 Tree By ERC6551 Account Address](traverse-erc6551-tree.md#traverse-up-erc6551-tree-by-erc6551-account-address)
-- [Traverse Up ERC6551 Tree By NFT](traverse-erc6551-tree.md#traverse-up-erc6551-tree-by-nft)
-- [Traverse Down ERC6551 Tree By EOA Address](traverse-erc6551-tree.md#traverse-down-erc6551-tree-by-eoa-address)
-- [Traverse Down ERC6551 Tree By NFT](traverse-erc6551-tree.md#traverse-down-erc6551-tree-by-nft)
+* [Traverse Up ERC6551 Tree By ERC6551 Account Address](traverse-erc6551-tree.md#traverse-up-erc6551-tree-by-erc6551-account-address)
+* [Traverse Up ERC6551 Tree By NFT](traverse-erc6551-tree.md#traverse-up-erc6551-tree-by-nft)
+* [Traverse Down ERC6551 Tree By EOA Address](traverse-erc6551-tree.md#traverse-down-erc6551-tree-by-eoa-address)
+* [Traverse Down ERC6551 Tree By NFT](traverse-erc6551-tree.md#traverse-down-erc6551-tree-by-nft)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
-- Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+* Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
 
 ## Get Started
 
@@ -62,7 +62,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -77,7 +76,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -92,15 +90,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -108,7 +103,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -132,11 +126,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -149,11 +141,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -171,7 +161,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -207,7 +196,6 @@ To query the upper-level NFTs & ERC6551 accounts in the ERC6551 ownership tree, 
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Accounts(
@@ -258,11 +246,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -304,7 +290,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -314,7 +299,7 @@ Suppose that you know the NFT `X` and would like to get the ERC6551 account that
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-08-29 at 23.05.06.png" alt=""><figcaption><p>ERC6551 Tree Example Chart</p></figcaption></figure>
 
-Then, you can use the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API to do so with the following query by providing the NFT `X`'s token address and token ID to the `tokenAddress` and `tokenId` filter input, respectively:
+Then, you can use the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API to do so with the following query by providing the NFT `X`'s token address and token ID to the `tokenAddress` and `tokenId` filter input, respectively:
 
 ### Try Demo
 
@@ -330,7 +315,6 @@ To query the upper-level NFTs & ERC6551 accounts in the ERC6551 ownership tree, 
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -378,11 +362,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -433,7 +415,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -443,7 +424,7 @@ Suppose that you know the user's EOA wallet address `X` and would like to get al
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-08-29 at 23.09.20.png" alt=""><figcaption><p>ERC6551 Tree Example Chart</p></figcaption></figure>
 
-Then, you can use the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API to do so with the following query by providing the EOA address `X` to the `owner` filter input:
+Then, you can use the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API to do so with the following query by providing the EOA address `X` to the `owner` filter input:
 
 ### Try Demo
 
@@ -459,7 +440,6 @@ To query the lower-level NFTs & ERC6551 accounts in the ERC6551 ownership tree, 
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -507,11 +487,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -619,7 +597,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -629,7 +606,7 @@ Suppose that you know the user's EOA wallet address `X` and would like to get al
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-08-29 at 23.18.14.png" alt=""><figcaption><p>ERC6551 Tree Example Chart</p></figcaption></figure>
 
-Then, you can use the [`Accounts`](../../api-references/api-reference/accounts-api/) API to do so with the following query by providing the NFT `X`'s token address and token ID to the `tokenAddress` and `tokenId` filter input, respectively:
+Then, you can use the [`Accounts`](../../api-references/api-reference/accounts-api.md) API to do so with the following query by providing the NFT `X`'s token address and token ID to the `tokenAddress` and `tokenId` filter input, respectively:
 
 ### Try Demo
 
@@ -645,7 +622,6 @@ To query the lower-level NFTs & ERC6551 accounts in the ERC6551 ownership, simpl
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Accounts(
@@ -687,11 +663,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -778,7 +752,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -788,5 +761,5 @@ If you have any questions or need help regarding traversing the ERC6551 tree, pl
 
 ## More Resources
 
-- [Accounts API Reference](../../api-references/api-reference/accounts-api/)
-- [ERC6551 Token Gating](token-gating.md)
+* [Accounts API Reference](../../api-references/api-reference/accounts-api.md)
+* [ERC6551 Token Gating](token-gating.md)

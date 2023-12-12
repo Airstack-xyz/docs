@@ -23,13 +23,13 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Get Farcaster from a given user(s)](farcaster.md#get-farcaster-from-a-given-user-s)
-- [Get the Ethereum address, Lens, and ENS from a given Farcaster(s)](farcaster.md#get-the-ethereum-address-lens-and-ens-from-a-given-farcaster-s)
+* [Get Farcaster from a given user(s)](farcaster.md#get-farcaster-from-a-given-user-s)
+* [Get the Ethereum address, Lens, and ENS from a given Farcaster(s)](farcaster.md#get-the-ethereum-address-lens-and-ens-from-a-given-farcaster-s)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -50,7 +50,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -65,7 +64,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -80,15 +78,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -96,7 +91,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -120,11 +114,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -137,11 +129,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -159,7 +149,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -185,7 +174,6 @@ Show Farcaster name of prxshant.eth and lens/@vitalik
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetFarcaster {
   Socials(
@@ -204,11 +192,9 @@ query GetFarcaster {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -227,7 +213,6 @@ query GetFarcaster {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -236,14 +221,13 @@ query GetFarcaster {
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/W43n5Ow33G" %}
-Show the 0x addresses, ENS, and Lens of fc_fname:vitalik.eth
+Show the 0x addresses, ENS, and Lens of fc\_fname:vitalik.eth
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetAddressOfFarcasters {
   Socials(
@@ -265,11 +249,9 @@ query GetAddressOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -307,7 +289,6 @@ query GetAddressOfFarcasters {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -317,5 +298,5 @@ If you have any questions or need help regarding resolving Farcaster user(s), pl
 
 ## More Resources
 
-- [Domains API Reference](../../api-references/api-reference/domains-api/)
-- [Socials API Reference](../../api-references/api-reference/socials-api/)
+* [Domains API Reference](../../api-references/api-reference/domains-api.md)
+* [Socials API Reference](../../api-references/api-reference/socials-api.md)

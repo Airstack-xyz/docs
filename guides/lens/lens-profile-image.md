@@ -235,5 +235,5 @@ If you have any questions or need help regarding fetching Lens profile images da
 ## More Resources
 
 * [Profile Image Guides](../profile-image.md)
-* [Socials API Reference](../../api-references/api-reference/socials-api/)
+* [Socials API Reference](../../api-references/api-reference/socials-api.md)
 * [Lens Profile Details](lens-profile-details.md)

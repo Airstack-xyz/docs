@@ -485,5 +485,5 @@ If you have any questions or need help regarding resolving identities for Farcas
 * [Resolve Identities](../resolve-identities/)
   * [Farcaster](../resolve-identities/farcaster.md)
 * [Farcaster Resolver](broken-reference)
-* [Socials API Reference](../../api-references/api-reference/socials-api/)
-* [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
+* [Socials API Reference](../../api-references/api-reference/socials-api.md)
+* [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)

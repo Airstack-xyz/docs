@@ -23,13 +23,13 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-- [Get ENS from a given user(s)](lens.md#get-ens-from-a-given-user-s)
-- [Get the 0x address, Lens, and Farcaster from a given ENS name(s)](lens.md#get-the-0x-address-lens-and-farcaster-from-a-given-ens-name-s)
+* [Get ENS from a given user(s)](lens.md#get-ens-from-a-given-user-s)
+* [Get the 0x address, Lens, and Farcaster from a given ENS name(s)](lens.md#get-the-0x-address-lens-and-farcaster-from-a-given-ens-name-s)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -50,7 +50,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -65,7 +64,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -80,15 +78,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -96,7 +91,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -120,11 +114,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -137,11 +129,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -159,7 +149,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -178,14 +167,13 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/isK75uiZ3e" %}
-Show me the Lens handles of 0x4b70d04124c2996de29e0caa050a49822faec6cc, betashop.eth, fc_fname:vbuterin
+Show me the Lens handles of 0x4b70d04124c2996de29e0caa050a49822faec6cc, betashop.eth, fc\_fname:vbuterin
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetLens {
   Socials(
@@ -210,11 +198,9 @@ query GetLens {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -237,7 +223,6 @@ query GetLens {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -253,7 +238,6 @@ Show me the 0x address, Farcaster, and ENS of lens/@prashantbagga, lens/@betasho
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetAddressOfLens {
   Socials(
@@ -290,11 +274,9 @@ query GetAddressOfLens {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -337,7 +319,6 @@ query GetAddressOfLens {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -347,5 +328,5 @@ If you have any questions or need help regarding resolving Lens handle(s), pleas
 
 ## More Resources
 
-- [Domains API Reference](../../api-references/api-reference/domains-api/)
-- [Socials API Reference](../../api-references/api-reference/socials-api/)
+* [Domains API Reference](../../api-references/api-reference/domains-api.md)
+* [Socials API Reference](../../api-references/api-reference/socials-api.md)

@@ -237,5 +237,5 @@ If you have any questions or need help regarding fetching ENS profile images dat
 ## More Resources
 
 * [Profile Image Guides](../profile-image.md)
-* [Domains API Reference](../../api-references/api-reference/domains-api/)
-* [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api/)
+* [Domains API Reference](../../api-references/api-reference/domains-api.md)
+* [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api.md)

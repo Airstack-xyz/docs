@@ -165,7 +165,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ### NFT Holders
 
-Get the NFT holders that have XMTP using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API and provide an NFT contract address for the `$tokenAddress` input:
+Get the NFT holders that have XMTP using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and provide an NFT contract address for the `$tokenAddress` input:
 
 #### Try Demo
 
@@ -232,7 +232,7 @@ query MyQuery {
 
 ### POAP Holders
 
-Get the POAP holders that have XMTP using the [Poaps](../../api-references/api-reference/poaps-api/) API and provide an POAP event ID for the <mark style="color:red;">`$eventId`</mark> input:
+Get the POAP holders that have XMTP using the [Poaps](../../api-references/api-reference/poaps-api.md) API and provide an POAP event ID for the <mark style="color:red;">`$eventId`</mark> input:
 
 #### Try Demo
 
@@ -296,7 +296,7 @@ If you have any questions or need help regarding checking XMTP for holders of a 
 
 ### More Resources
 
-* [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
+* [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)
 * [Has XMTP For Lens Developers](../lens/has-xmtp.md)
 * [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
 * [Universal Resolver](broken-reference)

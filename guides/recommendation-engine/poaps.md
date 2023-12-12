@@ -112,5 +112,5 @@ If you have any questions or need help regarding integrating or building recomme
 
 ## More Resources
 
-* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
 * [On-Chain Graph](../onchain-graph.md)

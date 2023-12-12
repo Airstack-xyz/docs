@@ -435,7 +435,7 @@ If you have any questions or need help regarding determine a user's high probabi
 
 ### More Resources
 
-* [Poaps API Reference](../../../api-references/api-reference/poaps-api/)
+* [Poaps API Reference](../../../api-references/api-reference/poaps-api.md)
 * [SocialFollowers API Reference](../../../api-references/api-reference/socialfollowers-api.md)
 * [Known Senders](known-senders.md)
 * [Proof of Personhood](proof-of-personhood.md)

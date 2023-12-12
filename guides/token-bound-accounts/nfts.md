@@ -23,17 +23,17 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Get Token Bound Accounts (ERC6551) By NFT Collection Address(es)](nfts.md#get-token-bound-accounts-erc6551-by-nft-collection-address-es)
-- [Get Cross-Chain Token Bound Accounts (ERC6551) By NFT Collection Address(es)](nfts.md#get-cross-chain-token-bound-accounts-erc6551-by-nft-collection-address-es)
-- [Get Token Bound Accounts By Specific NFT](nfts.md#get-token-bound-accounts-by-specific-nft)
-- [Get Cross-Chain Token Bound Accounts By Specific NFT](nfts.md#get-cross-chain-token-bound-accounts-erc6551-by-nft-collection-address-es)
-- [Get Owner NFT of a Token Bound Account](nfts.md#get-owner-nft-of-a-token-bound-account)
+* [Get Token Bound Accounts (ERC6551) By NFT Collection Address(es)](nfts.md#get-token-bound-accounts-erc6551-by-nft-collection-address-es)
+* [Get Cross-Chain Token Bound Accounts (ERC6551) By NFT Collection Address(es)](nfts.md#get-cross-chain-token-bound-accounts-erc6551-by-nft-collection-address-es)
+* [Get Token Bound Accounts By Specific NFT](nfts.md#get-token-bound-accounts-by-specific-nft)
+* [Get Cross-Chain Token Bound Accounts By Specific NFT](nfts.md#get-cross-chain-token-bound-accounts-erc6551-by-nft-collection-address-es)
+* [Get Owner NFT of a Token Bound Account](nfts.md#get-owner-nft-of-a-token-bound-account)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
-- Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
+* Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
 
 ## Get Started
 
@@ -54,7 +54,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -69,7 +68,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -84,15 +82,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -100,7 +95,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -124,11 +118,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -141,11 +133,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -163,7 +153,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -191,7 +180,6 @@ Get Token Bound Accounts (ERC6551) By NFT Collection Address(es)
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Accounts(
@@ -223,11 +211,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -261,13 +247,12 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Get Cross-Chain Token Bound Accounts (ERC6551) By NFT Collection Address(es)
 
-You can fetch the cross-chain token bound ERC6551 accounts of an NFT collection address(es), e.g. all Polygon ERC6551 accounts owned by an Ethereum NFT collection [Art Blocks](https://explorer.airstack.xyz/token-holders?activeView=&address=0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270&tokenType=&rawInput=%23%E2%8E%B1Art+Blocks%E2%8E%B1%280xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270+NFT_COLLECTION+ethereum+null%29&inputType=NFT_COLLECTION&activeTokenInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=&activeSocialInfo=&blockchain=ethereum):
+You can fetch the cross-chain token bound ERC6551 accounts of an NFT collection address(es), e.g. all Polygon ERC6551 accounts owned by an Ethereum NFT collection [Art Blocks](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270\&tokenType=\&rawInput=%23%E2%8E%B1Art+Blocks%E2%8E%B1%280xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270+NFT\_COLLECTION+ethereum+null%29\&inputType=NFT\_COLLECTION\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&activeSocialInfo=\&blockchain=ethereum):
 
 ### Try Demo
 
@@ -279,7 +264,6 @@ Show all Polygon ERC6551 accounts owned by Ethereum NFT Artblocks
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Accounts(
@@ -310,11 +294,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -346,7 +328,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -364,7 +345,6 @@ Get Token Bound Accounts By Specific NFT (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Accounts(
@@ -393,11 +373,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -425,13 +403,12 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Get Cross-Chain Token Bound Accounts By Specific NFT
 
-You can get the cross-chain token bound ERC6551 accounts of a specific NFT, e.g. all ERC6551 accounts on both Polygon that is owned by a given Ethereum [Art Blocks](https://explorer.airstack.xyz/token-holders?activeView=&address=0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270&tokenType=&rawInput=%23%E2%8E%B1Art+Blocks%E2%8E%B1%280xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270+NFT_COLLECTION+ethereum+null%29&inputType=NFT_COLLECTION&activeTokenInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=&activeSocialInfo=&blockchain=ethereum) NFT:
+You can get the cross-chain token bound ERC6551 accounts of a specific NFT, e.g. all ERC6551 accounts on both Polygon that is owned by a given Ethereum [Art Blocks](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270\&tokenType=\&rawInput=%23%E2%8E%B1Art+Blocks%E2%8E%B1%280xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270+NFT\_COLLECTION+ethereum+null%29\&inputType=NFT\_COLLECTION\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&activeSocialInfo=\&blockchain=ethereum) NFT:
 
 ### Try Demo
 
@@ -443,7 +420,6 @@ Show me the Polygon ERC6551 accounts owned by Ethereum Art Blocks NFT token ID 9
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Accounts(
@@ -475,11 +451,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -511,7 +485,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -529,7 +502,6 @@ Get Owner NFT of a Token Bound Account (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Accounts(
@@ -551,11 +523,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -576,7 +546,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -586,6 +555,6 @@ If you have any questions or need help regarding fetching ERC6551 token bound ac
 
 ## More Resources
 
-- [Accounts API Reference](../../api-references/api-reference/accounts-api/)
+* [Accounts API Reference](../../api-references/api-reference/accounts-api.md)
 
 [^1]: This is represented as `tokenAddress` parameter in the GraphQL query.

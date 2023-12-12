@@ -1359,5 +1359,5 @@ If you have any questions or need help regarding building a recommendation engin
   * [POAPs](../recommendation-engine/poaps.md)
   * [NFTs](../recommendation-engine/nfts.md)
 * [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api/)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
-* [TokenNft API Reference](../../api-references/api-reference/tokennfts-api/)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
+* [TokenNft API Reference](../../api-references/api-reference/tokennfts-api.md)

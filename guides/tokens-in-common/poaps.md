@@ -233,6 +233,6 @@ If you have any questions or need help regarding fetching common POAPs of multip
 ## More Resources
 
 * [Nested Queries](../../api-references/overview/nested-queries.md)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
 * [Tokens In Common For Lens Developers](../lens/tokens-in-common.md)
 * [Tokens In Common For Farcaster Developers](../farcaster/tokens-in-common.md)

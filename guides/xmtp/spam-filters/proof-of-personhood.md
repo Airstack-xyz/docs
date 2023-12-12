@@ -947,9 +947,9 @@ If you have any questions or need help regarding creating a proof of personhood 
 ### More Resources
 
 * [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api/)
-* [TokenBalances API Reference](../../../api-references/api-reference/tokenbalances-api/)
-* [Poaps API Reference](../../../api-references/api-reference/poaps-api/)
-* [Domains API Reference](../../../api-references/api-reference/domains-api/)
-* [Socials API Reference](../../../api-references/api-reference/socials-api/)
+* [TokenBalances API Reference](../../../api-references/api-reference/tokenbalances-api.md)
+* [Poaps API Reference](../../../api-references/api-reference/poaps-api.md)
+* [Domains API Reference](../../../api-references/api-reference/domains-api.md)
+* [Socials API Reference](../../../api-references/api-reference/socials-api.md)
 * [Known Senders](known-senders.md)
 * [High Probability of Connection](high-probability-of-connection.md)

@@ -165,7 +165,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get ERC20 Token Holders
 
-You can use [Airstack](https://airstack.xyz) to fetch ERC20 token holders of a given contract address(es) by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API and providing the token contract address(es) to `tokenAddress` input:
+You can use [Airstack](https://airstack.xyz) to fetch ERC20 token holders of a given contract address(es) by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing the token contract address(es) to `tokenAddress` input:
 
 ### Try Demo
 
@@ -248,7 +248,7 @@ query MyQuery {
 
 ## Check If User Hold A Specific ERC20 Token
 
-You can use [Airstack](https://airstack.xyz) to check if a user hold a given ERC20 token by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API.
+You can use [Airstack](https://airstack.xyz) to check if a user hold a given ERC20 token by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API.
 
 For inputs, provide the token contract address(es) to `tokenAddress` and user's 0x address, ENS domain, cb.id, Lens profile, or Farcaster fname/fid to `owner` as an input:
 
@@ -345,4 +345,4 @@ If you have any questions or need help regarding fetching ERC20 holders data, pl
   * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
   * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
 * [ERC20 Tokens In Common](../tokens-in-common/erc20s.md)
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)

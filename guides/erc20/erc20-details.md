@@ -165,7 +165,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get ERC20 Token Total Supply
 
-You can fetch an ERC20 token's total supply by using the `totalSupply` field from [`Tokens`](../../api-references/api-reference/tokens-api/) API by providing ERC20 token contract `address` as an input:
+You can fetch an ERC20 token's total supply by using the `totalSupply` field from [`Tokens`](../../api-references/api-reference/tokens-api.md) API by providing ERC20 token contract `address` as an input:
 
 ### Try Code
 
@@ -214,7 +214,7 @@ query TotalSupply {
 
 ## Get ERC20 Token Name & Symbol
 
-You can fetch an ERC20 token's name and symbol by using the `name` and `symbol` fields from [`Tokens`](../../api-references/api-reference/tokens-api/) API by providing ERC20 token contract `address` as an input:
+You can fetch an ERC20 token's name and symbol by using the `name` and `symbol` fields from [`Tokens`](../../api-references/api-reference/tokens-api.md) API by providing ERC20 token contract `address` as an input:
 
 ### Try Demo
 
@@ -263,7 +263,7 @@ query MyQuery {
 
 ## Get ERC20 Token Logo Images
 
-You can fetch all ERC20 token logo images by using the [`Tokens`](../../api-references/api-reference/tokens-api/) API by providing ERC20 token contract `address` as an input:
+You can fetch all ERC20 token logo images by using the [`Tokens`](../../api-references/api-reference/tokens-api.md) API by providing ERC20 token contract `address` as an input:
 
 ### Try Demo
 
@@ -321,4 +321,4 @@ If you have any questions or need help regarding fetching ERC20 details data, pl
   * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
   * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
 * [ERC20 Tokens In Common](../tokens-in-common/erc20s.md)
-* [Tokens API Reference](../../api-references/api-reference/tokens-api/)
+* [Tokens API Reference](../../api-references/api-reference/tokens-api.md)

@@ -1290,6 +1290,6 @@ If you have any questions or need help regarding fetching Farcaster user(s) prof
 * [Resolve Identities](../resolve-identities/)
   * [Farcaster](../resolve-identities/farcaster.md)
 * [Farcaster Resolver](broken-reference)
-* [Socials API Reference](../../api-references/api-reference/socials-api/)
+* [Socials API Reference](../../api-references/api-reference/socials-api.md)
 
 1. 0x address, ENS domain, Lens profile name and ID, Farcaster name and ID

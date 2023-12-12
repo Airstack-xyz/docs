@@ -678,9 +678,9 @@ If you have any questions or need help regarding checking if Farcaster(s) have X
   * [Bulk Check Farcasters](has-xmtp.md#bulk-check-farcasters-have-xmtp-enabled)
 * [Resolve Farcaster Users](resolve-farcaster-users.md)
 * [Farcaster Resolver Demo](broken-reference)
-* [XMTPs API Reference](../../api-references/api-reference/xmtps-api/)
-* [Socials API Reference](../../api-references/api-reference/socials-api/)
-* [Domains API Reference](../../api-references/api-reference/domains-api/)
+* [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)
+* [Socials API Reference](../../api-references/api-reference/socials-api.md)
+* [Domains API Reference](../../api-references/api-reference/domains-api.md)
 
 1. e.g. `varunsrin.eth`
 2. e.g. `fc_fid:602`

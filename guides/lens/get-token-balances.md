@@ -1368,5 +1368,5 @@ If you have any questions or need help regarding fetching token balances of Lens
 
 ### More Resources
 
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api.md)

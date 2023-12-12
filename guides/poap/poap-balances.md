@@ -24,16 +24,16 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Get POAPs Held By 0x Address(es)](poap-balances.md#get-poaps-held-by-0x-address-es)
-- [Get POAPs Held By ENS Domain(s)](poap-balances.md#get-poaps-held-by-ens-domain-s)
-- [Get POAPs Held By Lens Profile(s)](poap-balances.md#get-poaps-held-by-lens-profile-s)
-- [Get POAPs Held By Farcaster User(s)](poap-balances.md#get-poaps-held-by-farcaster-user-s)
-- [Get POAPs In Common Held By Multiple Users](poap-balances.md#get-poaps-in-common-held-by-multiple-users)
+* [Get POAPs Held By 0x Address(es)](poap-balances.md#get-poaps-held-by-0x-address-es)
+* [Get POAPs Held By ENS Domain(s)](poap-balances.md#get-poaps-held-by-ens-domain-s)
+* [Get POAPs Held By Lens Profile(s)](poap-balances.md#get-poaps-held-by-lens-profile-s)
+* [Get POAPs Held By Farcaster User(s)](poap-balances.md#get-poaps-held-by-farcaster-user-s)
+* [Get POAPs In Common Held By Multiple Users](poap-balances.md#get-poaps-in-common-held-by-multiple-users)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -54,7 +54,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -69,7 +68,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -84,15 +82,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -100,7 +95,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -124,11 +118,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -141,11 +133,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -163,7 +153,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -191,7 +180,6 @@ Show me all poaps hold by 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Poaps(
@@ -211,11 +199,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -250,7 +236,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -268,7 +253,6 @@ Show me all POAPs hold by vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Poaps(
@@ -285,11 +269,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -324,7 +306,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -342,7 +323,6 @@ Show me all POAPs hold by lens/@vitalik
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Poaps(
@@ -359,11 +339,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -398,7 +376,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -416,7 +393,6 @@ Show me all poaps hold by Farcaster user fname vitalik.eth and fid 602
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Poaps(
@@ -437,11 +413,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -476,13 +450,12 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Get POAPs In Common Held By Multiple Users
 
-You can fetch all the POAPs commonly held by multiple users, in the following example take 2 users [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) and [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS):
+You can fetch all the POAPs commonly held by multiple users, in the following example take 2 users [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) and [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS):
 
 ### Try Demo
 
@@ -494,7 +467,6 @@ Show me common POAPs hold by both betashop.eth and ipeciura.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query CommonPOAPs {
   Poaps(
@@ -524,11 +496,9 @@ query CommonPOAPs {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Poaps": {
@@ -558,7 +528,6 @@ query CommonPOAPs {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -568,16 +537,17 @@ If you have any questions or need help regarding fetching POAP balances, please 
 
 ## More Resources
 
-- [Poaps API Reference](../../api-references/api-reference/poaps-api/)
-- [Poaps API Examples](../../api-references/api-reference/poaps-api/poaps-api-examples.md)
-- [Combinations](../combinations/)
-  - [Multiple POAPs](../combinations/multiple-poaps.md)
-  - [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
-- [Tokens In Common](../tokens-in-common/)
-  - [POAPs](../tokens-in-common/poaps.md)
+* [Poaps API Reference](../../api-references/api-reference/poaps-api.md)
+* [Poaps API Examples](broken-reference)
+* [Combinations](../combinations/)
+  * [Multiple POAPs](../combinations/multiple-poaps.md)
+  * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
+* [Tokens In Common](../tokens-in-common/)
+  * [POAPs](../tokens-in-common/poaps.md)
 
 1. e.g. `vitalik.eth`
 2. e.g. `fc_fid:602`
 
 [^1]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
+
 [^2]: e.g. `fc_fname:vitalik.eth`

@@ -23,15 +23,15 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-- [Get NFT Balances of User(s)](nft-balances.md#get-nft-balances-of-user-s)
-- [Get NFT Balances of User(s) on Specific Chain](nft-balances.md#get-nft-balances-of-user-s-on-specific-chain)
-- [Get Only ERC721/1155 NFT Balances of User(s)](nft-balances.md#get-only-erc721-1155-nft-balances-of-user-s)
-- [Get NFT Balances of User(s) on Specific NFT Collection(s)](nft-balances.md#get-nft-balances-of-user-s-on-specific-nft-collection-s)
+* [Get NFT Balances of User(s)](nft-balances.md#get-nft-balances-of-user-s)
+* [Get NFT Balances of User(s) on Specific Chain](nft-balances.md#get-nft-balances-of-user-s-on-specific-chain)
+* [Get Only ERC721/1155 NFT Balances of User(s)](nft-balances.md#get-only-erc721-1155-nft-balances-of-user-s)
+* [Get NFT Balances of User(s) on Specific NFT Collection(s)](nft-balances.md#get-nft-balances-of-user-s-on-specific-nft-collection-s)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -52,7 +52,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -67,7 +66,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -82,15 +80,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -98,7 +93,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -122,11 +116,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -139,11 +131,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -161,7 +151,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -177,7 +166,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get NFT Balances of User(s)
 
-You can use [Airstack](https://airstack.xyz) to fetch NFT balance of user(s) across Ethereum, Polygon, and Base by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API and providing an array of users' 0x address, ENS domain, cb.id, Lens profile, or Farcaster fname/fid to `owner` input:
+You can use [Airstack](https://airstack.xyz) to fetch NFT balance of user(s) across Ethereum, Polygon, and Base by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing an array of users' 0x address, ENS domain, cb.id, Lens profile, or Farcaster fname/fid to `owner` input:
 
 ### Try Demo
 
@@ -189,7 +178,6 @@ Show me the NFT balances of users
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Ethereum: TokenBalances(
@@ -320,11 +308,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -418,13 +404,12 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Get NFT Balances of User(s) on Specific Chain
 
-You can use [Airstack](https://airstack.xyz) to fetch NFT balance of user(s) on a specific chain, e.g. Ethereum, by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API.
+You can use [Airstack](https://airstack.xyz) to fetch NFT balance of user(s) on a specific chain, e.g. Ethereum, by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API.
 
 For the inputs, specify `blockchain` to `ethereum` and provide an array of users' 0x address, ENS domain, cb.id, Lens profile, or Farcaster fname/fid to `owner`:
 
@@ -438,7 +423,6 @@ Show me NFT balances of users on Ethereum
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -485,11 +469,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -525,13 +507,12 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Get Only ERC721/1155 NFT Balances of User(s)
 
-You can use [Airstack](https://airstack.xyz) to fetch only either ERC721 or ERC1155 NFT balance of user(s) by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API.
+You can use [Airstack](https://airstack.xyz) to fetch only either ERC721 or ERC1155 NFT balance of user(s) by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API.
 
 For the inputs, specify `tokenType` to `ERC721` and provide an array of users' 0x address, ENS domain, cb.id, Lens profile, or Farcaster fname/fid to `owner`:
 
@@ -545,7 +526,6 @@ Show me only the ERC721 NFT balances of users
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Ethereum: TokenBalances(
@@ -676,11 +656,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -774,13 +752,12 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Get NFT Balances of User(s) on Specific NFT Collection(s)
 
-You can use [Airstack](https://airstack.xyz) to fetch NFT balance of user(s) on a specific NFT collection, e.g. [Ethereum Name Service](https://explorer.airstack.xyz/token-holders?activeView=&address=0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85&tokenType=&rawInput=%23%E2%8E%B1ENS%E2%8E%B1%280x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85+NFT_COLLECTION+ethereum+null%29&inputType=NFT_COLLECTION&activeTokenInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=&activeSocialInfo=&blockchain=ethereum), by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API.
+You can use [Airstack](https://airstack.xyz) to fetch NFT balance of user(s) on a specific NFT collection, e.g. [Ethereum Name Service](https://explorer.airstack.xyz/token-holders?activeView=\&address=0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85\&tokenType=\&rawInput=%23%E2%8E%B1ENS%E2%8E%B1%280x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85+NFT\_COLLECTION+ethereum+null%29\&inputType=NFT\_COLLECTION\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&activeSocialInfo=\&blockchain=ethereum), by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API.
 
 For the inputs, specify `tokenAddress` with the NFT collection address and provide an array of users' 0x address, ENS domain, cb.id, Lens profile, or Farcaster fname/fid to `owner`:
 
@@ -794,7 +771,6 @@ Show me all ENS NFT held by users
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -828,11 +804,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -856,7 +830,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -866,12 +839,12 @@ If you have any questions or need help regarding fetching NFT balances data, ple
 
 ## More Resources
 
-- [NFT Details](nft-details.md)
-- [NFT Holders](nft-holders.md)
-- [Spam NFT](spam-nft.md)
-- [Combinations (Common Holders)](../combinations/)
-  - [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
-  - [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
-- [Tokens In Common](../tokens-in-common/)
-  - [NFTs](../tokens-in-common/nfts.md)
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+* [NFT Details](nft-details.md)
+* [NFT Holders](nft-holders.md)
+* [Spam NFT](spam-nft.md)
+* [Combinations (Common Holders)](../combinations/)
+  * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
+  * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
+* [Tokens In Common](../tokens-in-common/)
+  * [NFTs](../tokens-in-common/nfts.md)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)

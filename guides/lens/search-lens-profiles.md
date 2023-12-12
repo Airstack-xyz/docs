@@ -172,7 +172,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ### Get All Lens Profiles
 
-You can globally fetch all Lens profiles using the [`Socials`](../../api-references/api-reference/socials-api/) API by specifying `dappName` to `lens`:
+You can globally fetch all Lens profiles using the [`Socials`](../../api-references/api-reference/socials-api.md) API by specifying `dappName` to `lens`:
 
 #### Try Demo
 
@@ -249,7 +249,7 @@ query MyQuery {
 
 ### Get All Lens Profiles Created In Specified Time
 
-You can fetch all Lens profiles that are created in a specified time using the [`Socials`](../../api-references/api-reference/socials-api/) API by specifying `dappName` to `lens` and `profileCreatedAtBlockTimestamp` to the desired block timestamp range:
+You can fetch all Lens profiles that are created in a specified time using the [`Socials`](../../api-references/api-reference/socials-api.md) API by specifying `dappName` to `lens` and `profileCreatedAtBlockTimestamp` to the desired block timestamp range:
 
 #### Try Demo
 
@@ -336,7 +336,7 @@ query MyQuery {
 
 ### Get The Latest Lens Profiles Created
 
-You can fetch all the latest Lens profiles created using the [`Socials`](../../api-references/api-reference/socials-api/) API by specifying `dappName` to `lens` and sorting `profileCreatedAtBlockTimestamp` in descending order:
+You can fetch all the latest Lens profiles created using the [`Socials`](../../api-references/api-reference/socials-api.md) API by specifying `dappName` to `lens` and sorting `profileCreatedAtBlockTimestamp` in descending order:
 
 #### Try Demo
 
@@ -418,7 +418,7 @@ query MyQuery {
 
 ### Get The Earliest Lens Profiles Created
 
-You can fetch all the latest Lens profiles created using the [`Socials`](../../api-references/api-reference/socials-api/) API by specifying `dappName` to `lens` and sorting `profileCreatedAtBlockTimestamp` in ascending order:
+You can fetch all the latest Lens profiles created using the [`Socials`](../../api-references/api-reference/socials-api.md) API by specifying `dappName` to `lens` and sorting `profileCreatedAtBlockTimestamp` in ascending order:
 
 #### Try Demo
 
@@ -500,7 +500,7 @@ query MyQuery {
 
 ### Get The Most Followed Lens Profiles
 
-You can fetch all the most followed Lens profiles using the [`Socials`](../../api-references/api-reference/socials-api/) API by specifying `dappName` to `lens` and sorting `followerCount` in descending order:
+You can fetch all the most followed Lens profiles using the [`Socials`](../../api-references/api-reference/socials-api.md) API by specifying `dappName` to `lens` and sorting `followerCount` in descending order:
 
 #### Try Demo
 
@@ -582,7 +582,7 @@ query MyQuery {
 
 ### Get The Least Followed Lens Profiles
 
-You can fetch all the least followed Lens profiles using the [`Socials`](../../api-references/api-reference/socials-api/) API by specifying `dappName` to `lens` and sorting `followerCount` in ascending order:
+You can fetch all the least followed Lens profiles using the [`Socials`](../../api-references/api-reference/socials-api.md) API by specifying `dappName` to `lens` and sorting `followerCount` in ascending order:
 
 #### Try Demo
 
@@ -664,7 +664,7 @@ query MyQuery {
 
 ### Get Lens Profiles That Is Following Others The Most
 
-You can fetch all Lens profiles that is following other profiles the most using the [`Socials`](../../api-references/api-reference/socials-api/) API by specifying `dappName` to `lens` and sorting `followingCount` in descending order:
+You can fetch all Lens profiles that is following other profiles the most using the [`Socials`](../../api-references/api-reference/socials-api.md) API by specifying `dappName` to `lens` and sorting `followingCount` in descending order:
 
 #### Try Demo
 
@@ -746,7 +746,7 @@ query MyQuery {
 
 ### Get Lens Profiles That Is Following Others The Least
 
-You can fetch all Lens profiles that is following other profiles the least using the [`Socials`](../../api-references/api-reference/socials-api/) API by specifying `dappName` to `lens` and sorting `followingCount` in ascending order:
+You can fetch all Lens profiles that is following other profiles the least using the [`Socials`](../../api-references/api-reference/socials-api.md) API by specifying `dappName` to `lens` and sorting `followingCount` in ascending order:
 
 #### Try Demo
 
@@ -832,7 +832,7 @@ If you have any questions or need help regarding searching for Lens profiles, pl
 
 ### More Resources
 
-* [Socials API Reference](../../api-references/api-reference/socials-api/)
+* [Socials API Reference](../../api-references/api-reference/socials-api.md)
 * [Resolve Lens Profiles](resolve-lens-profiles.md)
 * [Lens Profile Details](lens-profile-details.md)
 * [Lens Followers](lens-followers.md)

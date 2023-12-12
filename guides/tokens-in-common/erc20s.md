@@ -237,6 +237,6 @@ If you have any questions or need help regarding fetching common ERC20 tokens of
 ## More Resources
 
 * [Nested Queries](../../api-references/overview/nested-queries.md)
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
 * [Tokens In Common For Lens Developers](../lens/tokens-in-common.md)
 * [Tokens In Common For Farcaster Developers](../farcaster/tokens-in-common.md)

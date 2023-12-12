@@ -37,9 +37,9 @@ For **PoapEvents** API, it will return POAPs data from both Ethereum and Gnosis 
 You just need to specify the input to `ALL` for the query to work.
 {% endhint %}
 
-| Enum  | Description                                                                                                              |
-| ----- | ------------------------------------------------------------------------------------------------------------------------ |
-| `ALL` | Both Ethereum & Gnosis Mainnet. To fetch POAPs data from individual chains, check [`dappName`](./#filters) filter input. |
+| Enum  | Description                                                                                                                        |
+| ----- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `ALL` | Both Ethereum & Gnosis Mainnet. To fetch POAPs data from individual chains, check [`dappName`](poaps-api.md#filters) filter input. |
 
 ## Outputs
 

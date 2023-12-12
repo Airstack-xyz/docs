@@ -418,5 +418,5 @@ If you have any questions or need help regarding fetching token bound ERC6551 ac
 ### More Resources
 
 * [Tokenbound ERC6551 Guides](../token-bound-accounts/)
-* [Accounts API References](../../api-references/api-reference/accounts-api/)
-* [TokenBalances API References](../../api-references/api-reference/tokenbalances-api/)
+* [Accounts API References](../../api-references/api-reference/accounts-api.md)
+* [TokenBalances API References](../../api-references/api-reference/tokenbalances-api.md)

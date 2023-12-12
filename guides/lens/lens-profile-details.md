@@ -1306,7 +1306,7 @@ If you have any questions or need help regarding fetching Lens profile details, 
 
 ### More Resources
 
-* [Socials API Reference](../../api-references/api-reference/socials-api/)
+* [Socials API Reference](../../api-references/api-reference/socials-api.md)
 * [Resolve Lens Profiles](resolve-lens-profiles.md)
 * [Lens Followers](lens-followers.md)
 * [Lens Following](lens-following.md)

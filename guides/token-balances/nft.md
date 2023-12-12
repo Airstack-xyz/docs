@@ -946,5 +946,5 @@ If you have any questions or need help regarding fetching NFT (ERC721/1155) bala
 
 * [NFT Guides](../nft/)
 * [POAP Guides](../poap/)
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api/)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api/)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api.md)

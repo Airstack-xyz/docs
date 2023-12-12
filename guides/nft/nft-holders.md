@@ -166,7 +166,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get NFT Holder(s) of A Specific NFT
 
-You can use [Airstack](https://airstack.xyz) to fetch NFT holder(s) of a specifc NFT by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API and providing the NFT collection address(es) to `tokenAddress` and the token ID to `tokenId` as an input:
+You can use [Airstack](https://airstack.xyz) to fetch NFT holder(s) of a specifc NFT by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing the NFT collection address(es) to `tokenAddress` and the token ID to `tokenId` as an input:
 
 {% hint style="info" %}
 For ERC721 NFT, there's only **1 unique holder** for each token ID.
@@ -263,7 +263,7 @@ query MyQuery {
 
 ## Get NFT Holders of NFT Collection(s)
 
-You can use [Airstack](https://airstack.xyz) to fetch NFT holders of a given NFT collection(s) by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API and providing the NFT collection address(es) to `tokenAddress` input:
+You can use [Airstack](https://airstack.xyz) to fetch NFT holders of a given NFT collection(s) by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing the NFT collection address(es) to `tokenAddress` input:
 
 ### Try Demo
 
@@ -362,7 +362,7 @@ query MyQuery {
 
 ## Check If User Hold A Specific NFT Collection
 
-You can use [Airstack](https://airstack.xyz) to check if a user hold a given NFT Collection by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api/) API.
+You can use [Airstack](https://airstack.xyz) to check if a user hold a given NFT Collection by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API.
 
 For inputs, provide the NFT collection address(es) to `tokenAddress` and user's 0x address, ENS domain, cb.id, Lens profile, or Farcaster fname/fid to `owner` as an input:
 
@@ -469,5 +469,5 @@ If you have any questions or need help regarding fetching NFT holders data, plea
   * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
 * [Tokens In Common](../tokens-in-common/)
   * [NFTs](../tokens-in-common/nfts.md)
-* [Tokens API Reference](../../api-references/api-reference/tokens-api/)
-* [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api/)
+* [Tokens API Reference](../../api-references/api-reference/tokens-api.md)
+* [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api.md)
