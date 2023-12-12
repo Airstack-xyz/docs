@@ -2,6 +2,17 @@
 description: >-
   Learn how you can do multiple queries execution using Airstack GraphQL API to
   fetch data more efficiently in a single request.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🎆 Multiple Queries Execution
