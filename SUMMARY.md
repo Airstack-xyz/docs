@@ -8,6 +8,7 @@
   * [🚀 Quickstart](get-started/quickstart/README.md)
     * [🌐 JavaScript (Browser)](get-started/quickstart/javascript-browser.md)
     * [⚛ React](get-started/quickstart/react.md)
+    * [⏭ Next.js (Browser)](get-started/quickstart/next.md)
     * [🗼 Node.js](get-started/quickstart/node.md)
     * [🐍 Python](get-started/quickstart/python.md)
     * [🎯 Direct API Call](get-started/quickstart/direct-api-call.md)

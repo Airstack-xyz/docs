@@ -24,7 +24,7 @@ In this tutorial, you will learn how to start integrating [Airstack](https://air
 * [Step 0: Pre-requisites](python.md#step-0-pre-requisites)
 * [Step 1: Install Airstack Python SDK](python.md#step-1-install-airstack-python-sdk)
 * [Step 2: Set Environment Variable](python.md#step-2-set-environment-variable)
-* [Step 3: Initialize SDK](python.md#step-3-initialize-sdk)
+* [Step 3: Create API Client](python.md#step-3-create-api-client)
 * [Step 4: Call Your Query](python.md#step-4-call-your-query)
 
 ### Step 0: Pre-requisites
@@ -137,7 +137,7 @@ asyncio.run(main())
 ```
 {% endcode %}
 
-The `data` variable will return and logged into your browser's console as follows:
+The `data` variable will return and logged into your terminal as follows:
 
 ```json
 {

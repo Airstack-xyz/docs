@@ -1,5 +1,5 @@
 ---
-description: Learn how to use Airstack in your React application.
+description: Learn how to use Airstack in your Next.js client-side (browser) application.
 layout:
   title:
     visible: true
@@ -13,23 +13,17 @@ layout:
     visible: true
 ---
 
-# ⚛ React
+# ⏭ Next.js (Browser)
 
-In this tutorial, you will learn how to start integrating [Airstack](https://airstack.xyz) API into your React application.
-
-{% hint style="info" %}
-This tutorial will only covering React app build with vite and create-react-app.
-
-If you are looking to integrate [Airstack](https://airstack.xyz) with Next.js, click [here](next.md).
-{% endhint %}
+In this tutorial, you will learn how to start integrating [Airstack](https://airstack.xyz) API into your Next.js application.
 
 ## Table Of Contents
 
-* [Step 0: Pre-requisites](react.md#step-0-pre-requisites)
-* [Step 1: Install Airstack Web SDK](react.md#step-1-install-airstack-web-sdk)
-* [Step 2: Set Environment Variable](react.md#step-2-set-environment-variable)
-* [Step 3: Initialize SDK](react.md#step-3-initialize-sdk)
-* [Step 4: Call Your Query](react.md#step-4-call-your-query)
+* [Step 0: Pre-requisites](next.md#step-0-pre-requisites)
+* [Step 1: Install Airstack Web SDK](next.md#step-1-install-airstack-web-sdk)
+* [Step 2: Set Environment Variable](next.md#step-2-set-environment-variable)
+* [Step 3: Initialize SDK](next.md#step-3-initialize-sdk)
+* [Step 4: Call Your Query](next.md#step-4-call-your-query)
 
 ### Step 0: Pre-requisites
 
@@ -39,7 +33,7 @@ If you are looking to integrate [Airstack](https://airstack.xyz) with Next.js, c
 
 ### Step 1: Install Airstack Web SDK
 
-Use a package manager to install the [Airstack Web SDK ](broken-reference/)into your React project:
+Use a package manager to install the [Airstack Web SDK ](broken-reference/)into your Next.js project:
 
 {% tabs %}
 {% tab title="npm" %}
@@ -71,97 +65,43 @@ touch .env
 
 Add the [Airstack API key](../get-api-key.md) as the environment variable:
 
-{% tabs %}
-{% tab title="vite" %}
 ```sh
-VITE_AIRSTACK_API_KEY=YOUR_AIRSTACK_API_KEY
+NEXT_PUBLIC_AIRSTACK_API_KEY=YOUR_AIRSTACK_API_KEY
 ```
-{% endtab %}
-
-{% tab title="create-react-app" %}
-```bash
-REACT_APP_AIRSTACK_API_KEY=YOUR_AIRSTACK_API_KEY
-```
-{% endtab %}
-{% endtabs %}
 
 ### Step 3: Initialize SDK
 
-Add `init` function from the SDK to initialize it with the [Airstack API key](../get-api-key.md):
+Wrap your component with the `AirstackProvider` from the SDK to initialize it with the [Airstack API key](../get-api-key.md):
 
 {% tabs %}
-{% tab title="vite (TS)" %}
-{% code title="main.tsx" %}
+{% tab title="Page Router (TS)" %}
+{% code title="_app.tsx" %}
 ```tsx
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { init } from "@airstack/airstack-react";
-import Component from "./Component";
+import { init, AirstackProvider } from "@airstack/airstack-react";
 
-init(import.meta.env.VITE_AIRSTACK_API_KEY);
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Component />
-  </React.StrictMode>
-);
+export default function App({ Component, pageProps }) {
+  return (
+    <AirstackProvider apiKey={process.env.NEXT_PUBLIC_AIRSTACK_API_KEY ?? ""}>
+      <Component {...pageProps} />
+    </AirstackProvider>
+  )
+};
 ```
 {% endcode %}
 {% endtab %}
 
-{% tab title="vite (JS)" %}
-{% code title="main.jsx" %}
+{% tab title="Page Router (JS)" %}
+{% code title="_app.jsx" %}
 ```jsx
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { init } from "@airstack/airstack-react";
-import Component from "./Component";
+import { init, AirstackProvider } from "@airstack/airstack-react";
 
-init(import.meta.env.VITE_AIRSTACK_API_KEY);
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Component />
-  </React.StrictMode>
-);
-```
-{% endcode %}
-{% endtab %}
-
-{% tab title="create-react-app (TS)" %}
-{% code title="index.tsx" %}
-```tsx
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { init } from "@airstack/airstack-react";
-import Component from "./Component";
-
-init(process.env.REACT_APP_AIRSTACK_API_KEY);
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Component />
-  </React.StrictMode>
-);
-```
-{% endcode %}
-{% endtab %}
-
-{% tab title="create-react-app (JS)" %}
-{% code title="index.jsx" %}
-```jsx
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { init } from "@airstack/airstack-react";
-import Component from "./Component";
-
-init(process.env.REACT_APP_AIRSTACK_API_KEY);
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Component />
-  </React.StrictMode>
-);
+export default function App({ Component, pageProps }) {
+  return (
+    <AirstackProvider apiKey={process.env.NEXT_PUBLIC_AIRSTACK_API_KEY ?? ""}>
+      <Component {...pageProps} />
+    </AirstackProvider>
+  )
+};
 ```
 {% endcode %}
 {% endtab %}
@@ -179,7 +119,7 @@ For more query examples, check out [**Guides**](broken-reference/) for various u
 
 {% tabs %}
 {% tab title="TypeScript" %}
-<pre class="language-tsx" data-title="Component.tsx"><code class="lang-tsx">import { useQuery } from "@airstack/airstack-react";
+<pre class="language-tsx" data-title="index.tsx"><code class="lang-tsx">import { useQuery } from "@airstack/airstack-react";
 
 interface QueryResponse {
   data: Data;
@@ -219,7 +159,8 @@ query MyQuery {
 `;
 
 const Component = () => {
-<strong>  const { data, loading, error }: QueryResponse = useQuery(query, {}, { cache: false });
+<strong>  const res: QueryResponse = useQuery&#x3C;Data>(query, {}, { cache: false });
+</strong><strong>  const { data, loading, error } = res ?? {};
 </strong>
   if (loading) {
     return &#x3C;p>Loading...&#x3C;/p>;
@@ -238,7 +179,7 @@ export default Component;
 {% endtab %}
 
 {% tab title="JavaScript" %}
-{% code title="Component.jsx" %}
+{% code title="index.jsx" %}
 ```jsx
 import { useQuery } from "@airstack/airstack-react";
 
@@ -299,7 +240,7 @@ The `data` variable will return and logged into your browser's console as follow
 
 ### Developer Support
 
-If you have any questions or need help regarding integrating [Airstack](https://airstack.xyz) into your React application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding integrating [Airstack](https://airstack.xyz) into your Next.js client side application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ### More Resources
 
