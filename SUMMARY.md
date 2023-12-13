@@ -21,6 +21,7 @@
   * [🌪 Variables](guides/basics/variables.md)
   * [🎯 Direct API Call](get-started/quickstart/direct-api-call.md)
   * [🎆 Multiple Queries Execution](guides/basics/multiple-queries-execution.md)
+  * [♋ Cross Chain Queries](guides/basics/cross-chain-queries.md)
 * [🕸 Onchain Graph](guides/onchain-graph.md)
 * [📒 Onchain Contacts](guides/onchain-contacts.md)
 * [📞 Recommendation Engines](guides/recommendation-engine/README.md)
@@ -144,7 +145,6 @@
   * [TokenTransfers API](api-references/api-reference/tokentransfers-api/README.md)
     * [TokenTransfers Examples](api-references/api-reference/tokentransfers-api/tokentransfers-examples.md)
   * [Airstack Identity API](api-references/api-reference/airstack-identity-api.md)
-  * [Cross-chain Queries](api-references/api-reference/cross-chain-queries.md)
 
 ## Web SDK Reference
 
