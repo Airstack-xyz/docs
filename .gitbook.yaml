@@ -69,3 +69,4 @@ redirects:
   api-references/api-reference/xmtps-api/xmtps-api-examples: guides/xmtp/README.md
   api-references/api-reference/poaps-api/poaps-api-examples: guides/poap/README.md
   api-references/api-reference/poapevents-api/poapevent-api-examples: guides/poap/README.md
+  api-references/api-reference/cross-chain-queries: guides/basics/cross-chain-queries.md
