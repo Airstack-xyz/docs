@@ -182,9 +182,9 @@ For more query examples, check out [**Guides**](broken-reference/) for various u
 <pre class="language-tsx" data-title="Component.tsx"><code class="lang-tsx">import { useQuery } from "@airstack/airstack-react";
 
 interface QueryResponse {
-  data: Data;
+  data: Data | null;
   loading: boolean;
-  error: Error;
+  error: Error | null;
 }
 
 interface Data {
@@ -219,7 +219,7 @@ query MyQuery {
 `;
 
 const Component = () => {
-<strong>  const { data, loading, error }: QueryResponse = useQuery(query, {}, { cache: false });
+<strong>  const { data, loading, error }: QueryResponse = useQuery&#x3C;Data>(query, {}, { cache: false });
 </strong>
   if (loading) {
     return &#x3C;p>Loading...&#x3C;/p>;
