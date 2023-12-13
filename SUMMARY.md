@@ -19,6 +19,7 @@
 
 * [✈ Basics](guides/basics/README.md)
   * [🌪 Variables](guides/basics/variables.md)
+  * [📑 Pagination](guides/basics/pagination-in-airstack-sdk.md)
   * [🎯 Direct API Call](get-started/quickstart/direct-api-call.md)
   * [🎆 Multiple Queries Execution](guides/basics/multiple-queries-execution.md)
   * [♋ Cross Chain Queries](guides/basics/cross-chain-queries.md)
@@ -122,9 +123,7 @@
 
 * [ℹ Overview](api-references/overview/README.md)
   * [🔐 Authentication](api-references/overview/authentication.md)
-  * [📍 Cursor Pagination](api-references/overview/cursor-pagination/README.md)
-    * [Overview](api-references/overview/cursor-pagination/overview.md)
-    * [Pagination in Airstack SDK](api-references/overview/cursor-pagination/pagination-in-airstack-sdk.md)
+  * [📍 Cursor Pagination](api-references/overview/cursor-pagination.md)
   * [📏 Working with GraphQL](api-references/overview/working-with-graphql.md)
   * [🥅 Nested Queries](api-references/overview/nested-queries.md)
 * [📖 API Reference](api-references/api-reference/README.md)

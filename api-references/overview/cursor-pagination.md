@@ -1,7 +1,5 @@
 ---
-description: >-
-  Learn how does cursor pagination works in Airstack API to paginate through all
-  the data returned.
+description: Learn how to use cursor pagination to get all the data from Airstack queries.
 layout:
   title:
     visible: true
@@ -15,7 +13,13 @@ layout:
     visible: true
 ---
 
-# Overview
+# 📍 Cursor Pagination
+
+[Airstack](https://airstack.xyz) uses [cursor-based paginations](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/) to retrieve huge amounts of on-chain and off-chain data that is broken down into pages with a **maximum of 200 objects** returned in a single response.
+
+{% hint style="info" %}
+If you're look on how to implement pagination using the Airstack SDKs in your application, click [here](../../guides/basics/pagination-in-airstack-sdk.md).
+{% endhint %}
 
 ## How Does It Work?
 
@@ -181,3 +185,7 @@ Show me all holders of @BoredApeYachtClub on the 2nd page (Demo)
 ## Developer Support
 
 If you have any questions or need help regarding how cursor pagination work, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+
+## More Resources
+
+* [Pagination Guides](../../guides/basics/pagination-in-airstack-sdk.md)

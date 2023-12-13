@@ -464,7 +464,7 @@ If you have any questions or need help regarding adding variables into your Airs
 
 ### More Resources
 
-* [API Overview](../../api-references/overview/cursor-pagination/overview.md)
+* [API Overview](../../api-references/overview/)
 * [Variables Guides](variables.md)
 * [Direct API Call](../../get-started/quickstart/direct-api-call.md)
 * [SocialFollowings API References](../../api-references/api-reference/socialfollowings-api.md)

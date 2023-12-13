@@ -87,7 +87,7 @@ If you have any questions or need help regarding adding variables into your Airs
 
 ### More Resources
 
-* [API Overview](../../api-references/overview/cursor-pagination/overview.md)
+* [API Overview](../../api-references/overview/)
 * [API References](../../api-references/api-reference/)
 * [Direct API Call](../../get-started/quickstart/direct-api-call.md)
 * [Multiple Queries Execution](multiple-queries-execution.md)
