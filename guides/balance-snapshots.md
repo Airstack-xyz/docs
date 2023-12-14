@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to use the Airstack API fetch token balances time-series data of
-  user(s) and their variations on Base.
+  Learn how to use Airstack's to fetch token balances and token holders at a
+  specific point in time.
 layout:
   title:
     visible: true
@@ -17,18 +17,20 @@ layout:
 
 # 📸 Balance Snapshots
 
-[Airstack](https://airstack.xyz) provides easy-to-use [Snapshots API](../api-references/api-reference/snapshots-api.md) for enriching Web3 applications with onchain token balances time-series data from Base.
+[Airstack](https://airstack.xyz) provides easy-to-use [Snapshots API](../api-references/api-reference/snapshots-api.md)s for fetching token balances and token holders at a specific point in time. This feature set is currently available for the Base blockchain and will be available soon for Ethereum and Polygon.&#x20;
 
 ## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
 * [Get All Tokens Held By User](balance-snapshots.md#get-all-tokens-held-by-user)
-* [Get User's Balance Snapshots Of Specified Time](balance-snapshots.md#get-users-balance-snapshots-of-specified-time)
+* [Get User's Balance Snapshot at a Specified Time](balance-snapshots.md#get-users-balance-snapshots-of-specified-time) (`date`, `timestamp` or `blockNumber`)
 * [Get User's Historical Balance Of Specified ERC20 Token](balance-snapshots.md#get-users-historical-balances-of-specified-erc20-token)
 * [Get User's Historical Balance Of Specified NFT Collection](balance-snapshots.md#get-users-historical-balance-of-specified-nft-collection)
 * [Get User's Historical Balance Of Specified NFT](balance-snapshots.md#get-users-historical-balance-of-specified-nft)
 * [Get User's Historical Balance Of Certain Token Type(s)](balance-snapshots.md#get-users-historical-balance-of-certain-token-type-s)
+* Get Token holders of an NFT at a Specified Time (`date`, `timestamp` or `blockNumber)`
+* Get Token holders of an ERC-20 at a Specified Time (`date`, `timestamp` or `blockNumber)`
 
 ## Pre-requisites
 
