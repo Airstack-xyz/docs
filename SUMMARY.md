@@ -53,6 +53,7 @@
   * [♦ NFTs](guides/tokens-in-common/nfts.md)
   * [⚡ POAPs](guides/tokens-in-common/poaps.md)
 * [📸 Balance Snapshots](guides/balance-snapshots.md)
+* [⛓ Holder Snapshots](guides/holder-snapshots.md)
 * [💰 Wallet](guides/wallet.md)
 * [🎉 Social Follows](guides/social-follows/README.md)
   * [🫂 Followers](guides/social-follows/followers.md)

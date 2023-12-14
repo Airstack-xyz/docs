@@ -1,7 +1,5 @@
 ---
-description: >-
-  Learn how to use Airstack to fetch token balances and token holders at a
-  specific point in time.
+description: Learn how to use Airstack to fetch token balances at a specific point in time.
 layout:
   title:
     visible: true
@@ -17,20 +15,17 @@ layout:
 
 # 📸 Balance Snapshots
 
-[Airstack](https://airstack.xyz) provides easy-to-use [Snapshots API](../api-references/api-reference/snapshots-api.md)s for fetching token balances and token holders at a specific point in time. This feature set is currently available for the Base blockchain and will be available soon for Ethereum and Polygon.&#x20;
+[Airstack](https://airstack.xyz) provides easy-to-use [Snapshots API](../api-references/api-reference/snapshots-api.md)s for fetching token balances at a specific point in time. This feature set is currently available for the Base blockchain and will be available soon for Ethereum and Polygon.&#x20;
 
 ## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get All Tokens Held By User](balance-snapshots.md#get-all-tokens-held-by-user)
-* [Get User's Balance Snapshot at a Specified Time](balance-snapshots.md#get-users-balance-snapshots-of-specified-time) (`date`, `timestamp` or `blockNumber`)
+* [Get User's Token Balances at a Specified Time](balance-snapshots.md#get-users-token-balances-of-specified-time) (`date`, `timestamp` or `blockNumber`)
 * [Get User's Historical Balance Of Specified ERC20 Token](balance-snapshots.md#get-users-historical-balances-of-specified-erc20-token)
 * [Get User's Historical Balance Of Specified NFT Collection](balance-snapshots.md#get-users-historical-balance-of-specified-nft-collection)
 * [Get User's Historical Balance Of Specified NFT](balance-snapshots.md#get-users-historical-balance-of-specified-nft)
 * [Get User's Historical Balance Of Certain Token Type(s)](balance-snapshots.md#get-users-historical-balance-of-certain-token-type-s)
-* Get Token holders of an NFT at a Specified Time (`date`, `timestamp` or `blockNumber)`
-* Get Token holders of an ERC-20 at a Specified Time (`date`, `timestamp` or `blockNumber)`
 
 ## Pre-requisites
 
@@ -168,123 +163,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Get All Tokens Held By User
-
-You can fetch all the tokens ever held by user and their time series data by using [`Snapshots`](../api-references/api-reference/snapshots-api.md) API and providing user(s) 0x address, ENS, cb.id, Lens, or Farcaster to `owner` input:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/eLsnFmzhNd" %}
-Show me all tokens ever held by a user
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  Snapshots(
-    input: {
-      filter: {
-        owner: {
-          _in: [
-            "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
-            "vitalik.eth",
-            "lens/@vitalik",
-            "fc_fname:vitalik"
-          ]
-        }
-      },
-      blockchain: base,
-      limit: 200
-    }
-  ) {
-    Snapshot {
-      tokenAddress
-      tokenId
-      tokenType
-      formattedAmount
-      token {
-        name
-        symbol
-        isSpam
-      }
-      tokenNft {
-        contentValue {
-          image {
-            extraSmall
-            large
-            medium
-            original
-            small
-          }
-        }
-      }
-      startBlockNumber
-      startBlockTimestamp
-      endBlockNumber
-      endBlockTimestamp
-    }
-    pageInfo {
-      hasNextPage
-      hasPrevPage
-      nextCursor
-      prevCursor
-    }
-  }
-}
-```
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-{
-  "data": {
-    "Snapshots": {
-      "Snapshot": [
-        {
-          "tokenAddress": "0x6e30433b8c65e76fa095e85260a244b3c3bc1865",
-          "tokenId": "273",
-          "tokenType": "ERC721",
-          "formattedAmount": 1,
-          "token": {
-            "name": "Base Echo",
-            "symbol": "$",
-            "isSpam": false
-          },
-          "tokenNft": {
-            "contentValue": {
-              "image": {
-                "extraSmall": "https://assets.airstack.xyz/image/nft/8453/8ptb4/bkF79jKGc/p1otcqwQSv+qMZ6PvIpudahqBysb50fH7Q/xnptwoac3JTkzk0pHtn5XHPWr/LWAZCp5eA==/extra_small.png",
-                "large": "https://assets.airstack.xyz/image/nft/8453/8ptb4/bkF79jKGc/p1otcqwQSv+qMZ6PvIpudahqBysb50fH7Q/xnptwoac3JTkzk0pHtn5XHPWr/LWAZCp5eA==/large.png",
-                "medium": "https://assets.airstack.xyz/image/nft/8453/8ptb4/bkF79jKGc/p1otcqwQSv+qMZ6PvIpudahqBysb50fH7Q/xnptwoac3JTkzk0pHtn5XHPWr/LWAZCp5eA==/medium.png",
-                "original": "https://assets.airstack.xyz/image/nft/8453/8ptb4/bkF79jKGc/p1otcqwQSv+qMZ6PvIpudahqBysb50fH7Q/xnptwoac3JTkzk0pHtn5XHPWr/LWAZCp5eA==/original_image.png",
-                "small": "https://assets.airstack.xyz/image/nft/8453/8ptb4/bkF79jKGc/p1otcqwQSv+qMZ6PvIpudahqBysb50fH7Q/xnptwoac3JTkzk0pHtn5XHPWr/LWAZCp5eA==/small.png"
-              }
-            }
-          },
-          "startBlockNumber": 2790948,
-          "startBlockTimestamp": "2023-08-18T15:07:23Z",
-          "endBlockNumber": -1,
-          "endBlockTimestamp": "2023-12-06T20:41:15Z"
-        },
-        // Other tokens that was ever held by vitalik
-      ],
-      "pageInfo": {
-        "hasNextPage": true,
-        "hasPrevPage": false,
-        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjRkZGUxMzhhNGExNTVhYmRjMWMzYTkwMTM0MmM4NGViIiwiRGF0YVR5cGUiOiJzdHJpbmcifX0sIlBhZ2luYXRpb25EaXJlY3Rpb24iOiJORVhUIn0=",
-        "prevCursor": ""
-      }
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## Get User's Balance Snapshots Of Specified Time
+## Get User's Token Balances Of Specified Time
 
 You can fetch all the tokens ever held by user at a specified time by using [`Snapshots`](../api-references/api-reference/snapshots-api.md) API and providing user(s) 0x address, ENS, cb.id, Lens, or Farcaster to `owner` input and time input to either `date`, `timestamp` or `blockNumber`:
 
@@ -866,6 +745,7 @@ If you have any questions or need help regarding fetching balance snapshots data
 
 ## More Resources
 
+* [Holder Snapshots Guides](holder-snapshots.md)
 * [Token Balances Guides](token-balances/)
 * [Token Holders Guides](token-holders/)
 * [Combinations Guides](combinations/)
