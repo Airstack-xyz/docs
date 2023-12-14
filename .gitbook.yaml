@@ -71,3 +71,4 @@ redirects:
   api-references/api-reference/poapevents-api/poapevent-api-examples: guides/poap/README.md
   api-references/api-reference/cross-chain-queries: guides/basics/cross-chain-queries.md
   api-references/api-reference/tokentransfers-api/tokentransfers-examples: guides/token-transfers.md
+  api-references/api-reference/wallet-api/wallet-api-examples: guides/wallet.md
