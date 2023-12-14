@@ -248,5 +248,5 @@ Learn to build more with Airstack using our tutorials:
 * [Onchain Graph](../../guides/onchain-graph.md)
 * [Resolve Identities](../../guides/resolve-identities/)
 * [Combinations](../../guides/combinations/)
-* [Wallet API Reference](../../api-references/api-reference/wallet-api/)
+* [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
 * [Web SDK Reference](broken-reference/)

@@ -493,7 +493,7 @@ If you have any questions or need help regarding creating a known sender inbox f
 
 ### More Resources
 
-* [Wallet API Reference](../../../api-references/api-reference/wallet-api/)
+* [Wallet API Reference](../../../api-references/api-reference/wallet-api.md)
 * [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api.md)
 * [Proof of Personhood](proof-of-personhood.md)
 * [High Probability of Connection](high-probability-of-connection.md)

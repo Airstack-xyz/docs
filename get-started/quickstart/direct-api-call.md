@@ -57,7 +57,7 @@ In this tutorial, you'll be shown example with [`node-fetch`](https://www.npmjs.
 
 ### Step 1: Install 3rd Party Library
 
-Use a package manager to install the [Airstack Node SDK](broken-reference/) into your [Node.js](https://nodejs.org/en) project:
+Use a package manager to install the [Airstack Node SDK](broken-reference) into your [Node.js](https://nodejs.org/en) project:
 
 {% tabs %}
 {% tab title="graphql-request" %}
@@ -170,7 +170,7 @@ Once you have installed one of the 3rd party SDK, you can directly make calls to
 Below you have been provided with Airstack query to fetch the 0x address, Lens, and Farcaster owned by [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS):
 
 {% hint style="info" %}
-For more query examples, check out [**Guides**](broken-reference/) for various use cases you can build with Airstack.
+For more query examples, check out [**Guides**](broken-reference) for various use cases you can build with Airstack.
 {% endhint %}
 
 {% tabs %}
@@ -415,5 +415,5 @@ Learn to build more with Airstack using our tutorials:
 * [Onchain Graph](../../guides/onchain-graph.md)
 * [Resolve Identities](../../guides/resolve-identities/)
 * [Combinations](../../guides/combinations/)
-* [Wallet API Reference](../../api-references/api-reference/wallet-api/)
-* [Node SDK Reference](broken-reference/)
+* [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
+* [Node SDK Reference](broken-reference)

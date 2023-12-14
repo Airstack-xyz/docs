@@ -1716,7 +1716,7 @@ If you have any questions or need help regarding fetching Lens Following data, p
 ### More Resources
 
 * [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
-* [Wallet API Reference](../../api-references/api-reference/wallet-api/)
+* [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
 * [Lens Followers](broken-reference/)
 * [Farcaster Followers](../farcaster/farcaster-followers.md)
 * [Farcaster Following](../farcaster/farcaster-following.md)
