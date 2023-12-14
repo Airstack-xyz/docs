@@ -1,6 +1,6 @@
 ---
 description: >-
-  Learn how to use Airstack's to fetch token balances and token holders at a
+  Learn how to use Airstack to fetch token balances and token holders at a
   specific point in time.
 layout:
   title:
