@@ -340,7 +340,9 @@ If you have any questions or need help regarding fetching ERC20 holders data, pl
 
 ## More Resources
 
-* [NFT Holders](nft.md)
+* [Holder Snapshots Guides](../holder-snapshots.md)
+* [Balance Snapshots Guides](../balance-snapshots.md)
+* [ERC20 Holders](erc20.md)
 * [Combinations (Common Holders)](../combinations/)
   * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
   * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)

@@ -944,7 +944,11 @@ If you have any questions or need help regarding fetching NFT (ERC721/1155) bala
 
 ## More Resources
 
+* [Balance Snapshots Guides](../balance-snapshots.md)
+* [Holder Snapshots Guides](../holder-snapshots.md)
 * [NFT Guides](../nft/)
 * [POAP Guides](../poap/)
+* [NFTs In Common Guides](../tokens-in-common/nfts.md)
+* [NFT Holders Guides](../nft/nft-holders.md)
 * [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
 * [POAPs API Reference](../../api-references/api-reference/poaps-api.md)

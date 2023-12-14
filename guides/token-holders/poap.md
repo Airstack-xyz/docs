@@ -385,6 +385,10 @@ If you have any questions or need help regarding fetching POAP balances, please 
 
 ## More Resources
 
+* [Holder Snapshots Guides](../holder-snapshots.md)
+* [Balance Snapshots Guides](../balance-snapshots.md)
+* [POAP Holders](poap.md)
+* [POAP Balances](../token-balances/poap.md)
 * [Poaps API Reference](../../api-references/api-reference/poaps-api.md)
 * [Poaps API Examples](broken-reference)
 * [Combinations](../combinations/)

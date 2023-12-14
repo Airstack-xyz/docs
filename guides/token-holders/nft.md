@@ -461,9 +461,12 @@ If you have any questions or need help regarding fetching NFT holders data, plea
 
 ## More Resources
 
+* [Holder Snapshots Guides](../holder-snapshots.md)
+* [Balance Snapshots Guides](../balance-snapshots.md)
 * [NFT Details](../nft/nft-details.md)
 * [NFT Balances](../nft/nft-balances.md)
 * [Spam NFT](../nft/spam-nft.md)
+* [NFT Holders](nft.md)
 * [Combinations (Common Holders)](../combinations/)
   * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
   * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)

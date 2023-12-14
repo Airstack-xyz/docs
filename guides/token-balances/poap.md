@@ -313,5 +313,9 @@ If you have any questions or need help regarding fetching POAP balances of user(
 
 ## More Resources
 
+* [Balance Snapshots Guides](../balance-snapshots.md)
+* [Holder Snapshots Guides](../holder-snapshots.md)
 * [POAP Guides](../poap/)
+* [POAPs In Common Guides](../tokens-in-common/poaps.md)
+* [POAP Holders Guides](../token-holders/poap.md)
 * [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
