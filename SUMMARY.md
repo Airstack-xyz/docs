@@ -47,6 +47,7 @@
   * [🪙 ERC20](guides/token-holders/erc20.md)
   * [♦ NFT](guides/token-holders/nft.md)
   * [⚡ POAP](guides/token-holders/poap.md)
+* [💸 Token Transfers](guides/token-transfers.md)
 * [🤝 Tokens In Common](guides/tokens-in-common/README.md)
   * [🪙 ERC20s](guides/tokens-in-common/erc20s.md)
   * [♦ NFTs](guides/tokens-in-common/nfts.md)
@@ -141,8 +142,7 @@
   * [XMTPs API](api-references/api-reference/xmtps-api.md)
   * [Poaps API](api-references/api-reference/poaps-api.md)
   * [PoapEvents API](api-references/api-reference/poapevents-api.md)
-  * [TokenTransfers API](api-references/api-reference/tokentransfers-api/README.md)
-    * [TokenTransfers Examples](api-references/api-reference/tokentransfers-api/tokentransfers-examples.md)
+  * [TokenTransfers API](api-references/api-reference/tokentransfers-api.md)
   * [Airstack Identity API](api-references/api-reference/airstack-identity-api.md)
 
 ## Web SDK Reference

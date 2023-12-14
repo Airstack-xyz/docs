@@ -6112,6 +6112,6 @@ If you have any questions or need help regarding integrating or building onchain
 * [Poaps API Reference](../api-references/api-reference/poaps-api.md)
 * [SocialFollowers API Reference](../api-references/api-reference/socialfollowers-api.md)
 * [SocialFollowings API Reference](../api-references/api-reference/socialfollowings-api.md)
-* [TokenTransfers API Reference](../api-references/api-reference/tokentransfers-api/)
+* [TokenTransfers API Reference](../api-references/api-reference/tokentransfers-api.md)
 * [TokenBalances API Reference](../api-references/api-reference/tokenbalances-api.md)
 * [Recommendation Engine Tutorial](recommendation-engine/)

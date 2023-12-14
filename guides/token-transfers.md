@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to construct queries to build a recommendation engine based on token
-  transfers.
+  Learn how to use Airstack to fetch all ERC20/721/1155 token transfers data,
+  from or to user(s), across Ethereum, Polygon, and Base.
 layout:
   title:
     visible: true
@@ -17,9 +17,7 @@ layout:
 
 # 💸 Token Transfers
 
-Frequent token transfers between two parties could be a good indication that the parties involved know each other. Therefore, you can also use token transfers to build your contact recommendation feature.
-
-To build such a contact recommendation feature, Airstack provides a [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API for you to fetch all ERC20 token transfer data from either a user or multiple users on Ethereum, Polygon, and Base.
+[Airstack](https://airstack.xyz) provides a [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API for you to fetch all ERC20/721/1155 token transfers data from either a user or multiple users on Ethereum, Polygon, and Base.
 
 ## Table Of Contents
 
@@ -165,7 +163,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
-<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
 ## Get Token Transfers Of A User(s) on Ethereum
 
@@ -1603,5 +1601,5 @@ If you have any questions or need help regarding integrating or building recomme
 
 ## More Resources
 
-* [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api.md)
-* [On-Chain Graph](../onchain-graph.md)
+* [TokenTransfers API Reference](../api-references/api-reference/tokentransfers-api.md)
+* [On-Chain Graph](onchain-graph.md)
