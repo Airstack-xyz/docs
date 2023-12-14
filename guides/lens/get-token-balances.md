@@ -17,8 +17,6 @@ layout:
 
 # 💰 Get Token Balances
 
-## 💰 Get Token Balances
-
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
 ## Table Of Contents
@@ -1368,5 +1366,7 @@ If you have any questions or need help regarding fetching token balances of Lens
 
 ### More Resources
 
+* [Balance Snapshots Guides](../balance-snapshots.md)
+* [Holder Snapshots Guides](../holder-snapshots.md)
 * [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
 * [POAPs API Reference](../../api-references/api-reference/poaps-api.md)

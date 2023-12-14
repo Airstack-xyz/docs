@@ -884,7 +884,10 @@ If you have any questions or need help regarding fetching token balances of user
 
 ## More Resources
 
+* [Balance Snapshots Guides](../balance-snapshots.md)
+* [Holder Snapshots Guides](../holder-snapshots.md)
 * [ERC20 Tokens In Common](../tokens-in-common/erc20s.md)
+* [ERC20 Token Holders](erc20-holders.md)
 * [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating ERC20 balances data from Ethereum, Polygon, and Base.

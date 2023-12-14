@@ -17,8 +17,6 @@ layout:
 
 # 💰 Get Token Balances
 
-## 💰 Get Token Balances
-
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and for integrating onchain and offchain data with Farcaster.
 
 ## Table Of Contents
@@ -1401,4 +1399,6 @@ If you have any questions or need help regarding fetching token balances of Farc
 ### More Resources
 
 * [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+* [Balance Snapshots Guides](../balance-snapshots.md)
+* [Holder Snapshots Guides](../holder-snapshots.md)
 * [POAPs API Reference](../../api-references/api-reference/poaps-api.md)

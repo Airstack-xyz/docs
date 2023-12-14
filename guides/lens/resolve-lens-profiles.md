@@ -17,8 +17,6 @@ layout:
 
 # 🆔 Resolve Lens Profiles
 
-## 🆔 Resolve Lens Profiles
-
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
 ## Table Of Contents

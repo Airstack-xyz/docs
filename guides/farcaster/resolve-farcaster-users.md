@@ -17,8 +17,6 @@ layout:
 
 # 🆔 Resolve Farcaster Users
 
-## 🆔 Resolve Farcaster Users
-
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and for integrating onchain and offchain data with Farcaster.
 
 ## Table Of Contents

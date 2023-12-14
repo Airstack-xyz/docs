@@ -839,6 +839,8 @@ If you have any questions or need help regarding fetching NFT balances data, ple
 
 ## More Resources
 
+* [Balance Snapshots Guides](../balance-snapshots.md)
+* [Holder Snapshots Guides](../holder-snapshots.md)
 * [NFT Details](nft-details.md)
 * [NFT Holders](nft-holders.md)
 * [Spam NFT](spam-nft.md)

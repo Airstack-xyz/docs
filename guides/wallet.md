@@ -1010,3 +1010,5 @@ If you have any questions or need help regarding fetching balance snapshots data
 * [Farcaster Guides](farcaster/)
 * [Token Balances Guides](token-balances/)
 * [Token Transfers Guides](token-transfers.md)
+* [Balance Snapshots Guides](balance-snapshots.md)
+* [Holder Snapshots Guides](holder-snapshots.md)

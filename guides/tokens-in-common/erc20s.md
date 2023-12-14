@@ -240,3 +240,5 @@ If you have any questions or need help regarding fetching common ERC20 tokens of
 * [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
 * [Tokens In Common For Lens Developers](../lens/tokens-in-common.md)
 * [Tokens In Common For Farcaster Developers](../farcaster/tokens-in-common.md)
+* [Balance Snapshots Guides](../balance-snapshots.md)
+* [Holder Snapshots Guides](../holder-snapshots.md)

@@ -800,6 +800,8 @@ If you have any questions or need help regarding fetching NFT details data, plea
 
 ## More Resources
 
+* [Balance Snapshots Guides](../balance-snapshots.md)
+* [Holder Snapshots Guides](../holder-snapshots.md)
 * [NFT Details](nft-details.md)
 * [NFT Balances](nft-balances.md)
 * [NFT Holders](nft-holders.md)
