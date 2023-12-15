@@ -37,7 +37,7 @@ Thus, you can just provide a query without any of the cursor field in your schem
 
 * [Airstack API key](../../get-started/get-api-key.md)
 
-### Install Airstack SDK
+## Install Airstack SDK
 
 If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
@@ -91,7 +91,7 @@ pip install airstack
 {% endtab %}
 {% endtabs %}
 
-### Example
+## Example
 
 Here is sample implementation of using the **special functions and variables** mentioned above for paginating through all the data returned by the API:
 

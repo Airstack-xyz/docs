@@ -23,6 +23,7 @@
   * [🎯 Direct API Call](get-started/quickstart/direct-api-call.md)
   * [🎆 Multiple Queries Execution](guides/basics/multiple-queries-execution.md)
   * [♋ Cross Chain Queries](guides/basics/cross-chain-queries.md)
+  * [💡 Generate TypeScript Interfaces](guides/basics/generate-typescript-interfaces.md)
 * [🕸 Onchain Graph](guides/onchain-graph.md)
 * [📒 Onchain Contacts](guides/onchain-contacts.md)
 * [📞 Recommendation Engines](guides/recommendation-engine/README.md)
