@@ -1,5 +1,16 @@
 ---
 description: Learn what ERROR_004 is and how to resolve the error.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # ERROR\_004
