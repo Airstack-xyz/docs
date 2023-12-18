@@ -2,6 +2,17 @@
 description: >-
   Learn all the errors that you might get from calling the Airstack API within
   and how to resolve each error on your own through the suggested resolutions.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # ❌ Errors
