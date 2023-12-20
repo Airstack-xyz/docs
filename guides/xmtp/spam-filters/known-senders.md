@@ -175,7 +175,7 @@ This is done to provide **multiple layers of filtration** that will make it near
 
 This can be done by providing the user B's identiy either a 0x address, ENS, cb.id, Lens, or Farcaster on the `Wallet` top-level query's `identity` input and the user A's identities in the [`socialFollowings`](../../../api-references/api-reference/socialfollowings-api.md).
 
-For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) (user A) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS) (user B):
+For example, check if dwr.eth (user A) is following vitalik.eth (user B):
 
 #### Try Demo
 
@@ -266,15 +266,15 @@ query isFollowing { # Top-level is User B's Identity (ipeciura.eth)
 {% endtab %}
 {% endtabs %}
 
-If dwr.eth is following vitalik.eth on either Lens or Farcaster, then it will appear as a response in the `Following` array as shown, from the perspective of dwr.eth - vitalik.eth is a known sender.
+If dwr.eth is following vitalik.eth on either Lens or Farcaster, then it will appear as a response in the `Following` array as shown, from the perspective of dwr.eth - vitalik.eth is a known contact.
 
-Otherwise, vitalik.eth will be considered an **unknown sender** and should be classified as one in the UI.
+Otherwise, vitalik.eth will be considered an **unknown contact** and should be classified as one in the UI.
 
 ### Check If User A Have Any Token Transfers History With User B
 
 This can be done by providing the user A's identity either a 0x address, ENS, cb.id, Lens, or Farcaster on the `from` input and the user B's on the `to` input.
 
-For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) (user A) have transfered any tokens [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS) (user B):
+For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) (user A) have transferred any tokens [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS) (user B):
 
 Try Demo
 
