@@ -35,29 +35,15 @@ First, you will fetch all the NFTs held by a user(s) to create the contact recom
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
-query GetNFTs($address: [Identity!]) {
+query GetNFTs($Identity: [Identity!]) {
   ethereum: TokenBalances(
-    input: {
-      filter: {
-        owner: { _in: $address }
-        tokenType: { _in: [ERC1155, ERC721] }
-      }
-      blockchain: ethereum
-      limit: 10
-    }
+    input: {filter: {owner: {_in: $Identity}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: ethereum, limit: 50}
   ) {
     TokenBalance {
       tokenAddress
       amount
       formattedAmount
       tokenType
-      owner {
-        addresses
-        socials {
-          profileName
-          userAssociatedAddresses
-        }
-      }
       tokenNfts {
         address
         tokenId
@@ -68,30 +54,22 @@ query GetNFTs($address: [Identity!]) {
           }
         }
       }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+      hasNextPage
+      hasPrevPage
     }
   }
   polygon: TokenBalances(
-    input: {
-      filter: {
-        owner: { _in: $address }
-        tokenType: { _in: [ERC1155, ERC721] }
-      }
-      blockchain: polygon
-      limit: 10
-    }
+    input: {filter: {owner: {_in: $Identity}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: polygon, limit: 50}
   ) {
     TokenBalance {
       tokenAddress
       amount
       formattedAmount
       tokenType
-      owner {
-        addresses
-        socials {
-          profileName
-          userAssociatedAddresses
-        }
-      }
       tokenNfts {
         address
         tokenId
@@ -102,16 +80,48 @@ query GetNFTs($address: [Identity!]) {
           }
         }
       }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+      hasNextPage
+      hasPrevPage
+    }
+  }
+  base: TokenBalances(
+    input: {filter: {owner: {_in: $Identity}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: base, limit: 50}
+  ) {
+    TokenBalance {
+      tokenAddress
+      amount
+      formattedAmount
+      tokenType
+      tokenNfts {
+        address
+        tokenId
+        blockchain
+        contentValue {
+          image {
+            original
+          }
+        }
+      }
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+      hasNextPage
+      hasPrevPage
     }
   }
 }
 ```
 {% endtab %}
 
-{% tab title="Variable" %}
+{% tab title="Variables" %}
 ```json
 {
-  "address": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"]
+  "Identity": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"]
 }
 ```
 {% endtab %}
@@ -163,40 +173,14 @@ query GetNFTHoldersAndImages($address: [Address!]) {
       prevCursor
     }
   }
-  polygon: TokenNfts(
-    input: { filter: { address: { _in: $address } }, blockchain: polygon }
-  ) {
-    TokenNft {
-      address
-      tokenId
-      contentValue {
-        image {
-          extraSmall
-          small
-          medium
-          large
-          original
-        }
-      }
-      tokenBalances {
-        owner {
-          domains {
-            name
-            isPrimary
-          }
-          identity
-          socials {
-            profileName
-            dappName
-          }
-        }
-      }
-    }
-    pageInfo {
-      nextCursor
-      prevCursor
-    }
-  }
+}
+```
+{% endtab %}
+
+{% tab title="Variables" %}
+```
+{
+  "address": ["0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03"]
 }
 ```
 {% endtab %}
