@@ -1,7 +1,4 @@
 ---
-description: >-
-  Learn how to use Airstack to universally resolve and reverse resolve Lens
-  handles to other web3 identities (Farcaster, ENS, Ethereum address).
 layout:
   title:
     visible: true
@@ -17,7 +14,7 @@ layout:
 
 # 🌿 Lens
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [ENS](https://ens.domains) applications and for integrating on-chain and off-chain data from ENS.
+Learn how to use Airstack to universally resolve and reverse resolve Lens handles to other web3 identities (Farcaster, ENS, Ethereum address). Airstack supports both Lens v1, and Lens v2 profile names in the API inputs, you can freely use stani.lens or lens/@stani.
 
 ## Table Of Contents
 
@@ -177,23 +174,17 @@ Show me the Lens handles of 0x4b70d04124c2996de29e0caa050a49822faec6cc, betashop
 ```graphql
 query GetLens {
   Socials(
-    input: {
-      filter: {
-        identity: {
-          _in: [
-            "0x4b70d04124c2996de29e0caa050a49822faec6cc"
-            "betashop.eth"
-            "fc_fname:vbuterin"
-          ]
-        }
-        dappSlug: { _eq: lens_polygon }
-      }
-      blockchain: ethereum
-    }
+    input: {filter: {identity: {_in: ["0x4b70d04124c2996de29e0caa050a49822faec6cc", "betashop.eth", "fc_fname:vbuterin"]}, dappName: {_eq: lens}}, blockchain: ethereum}
   ) {
     Social {
-      profileName
       dappName
+      profileName
+      userId
+      profileImageContentValue{
+        image{
+          medium
+        }
+      }      
     }
   }
 }
@@ -207,16 +198,34 @@ query GetLens {
     "Socials": {
       "Social": [
         {
-          "profileName": "lens/@prashantbagga",
-          "dappName": "lens"
-        },
-        {
+          "dappName": "lens",
           "profileName": "lens/@betashop9",
-          "dappName": "lens"
+          "userId": "0xeaf55242a90bb3289db8184772b0b98562053559",
+          "profileImageContentValue": {
+            "image": {
+              "medium": "https://assets.airstack.xyz/image/social/ZZh4MAMUy3nBc21Ujz5IMsHFulAJlQYwXE27nrWEHoA=/medium.png"
+            }
+          }
         },
         {
+          "dappName": "lens",
+          "profileName": "lens/@prashantbagga",
+          "userId": "0x4b70d04124c2996de29e0caa050a49822faec6cc",
+          "profileImageContentValue": {
+            "image": {
+              "medium": "https://assets.airstack.xyz/image/social/kXSdPRb6NpBizLxqlmvRCeDuBUOX7B6R1DWSQ3qHBqk=/medium.jpg"
+            }
+          }
+        },
+        {
+          "dappName": "lens",
           "profileName": "lens/@vitalik",
-          "dappName": "lens"
+          "userId": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+          "profileImageContentValue": {
+            "image": {
+              "medium": "https://assets.airstack.xyz/image/social/WA1TRm9gbDHIiCUF6iXICUfjUq/5gWZ5lBaDpcgYv0Y=/medium.jpg"
+            }
+          }
         }
       ]
     }
@@ -241,35 +250,18 @@ Show me the 0x address, Farcaster, and ENS of lens/@prashantbagga, lens/@betasho
 ```graphql
 query GetAddressOfLens {
   Socials(
-    input: {
-      filter: {
-        identity: {
-          _in: ["lens/@prashantbagga", "lens/@betashop9", "lens/@vitalik"]
-        }
-        dappName: { _eq: farcaster }
-      }
-      blockchain: ethereum
-    }
+    input: {filter: {identity: {_in: ["lens/@prashantbagga", "betashop9.lens", "lens/@vitalik"]}, dappName: {_eq: lens}}, blockchain: ethereum}
   ) {
     Social {
       userAddress
       dappName
       profileName
-    }
-  }
-  Domains(
-    input: {
-      filter: {
-        owner: {
-          _in: ["lens/@prashantbagga", "lens/@betashop9", "lens/@vitalik"]
+      userAddressDetails {
+        domains {
+          name
+          isPrimary
         }
       }
-      blockchain: ethereum
-    }
-  ) {
-    Domain {
-      dappName
-      name
     }
   }
 }
@@ -283,37 +275,88 @@ query GetAddressOfLens {
     "Socials": {
       "Social": [
         {
-          "userAddress": "0x66bd69c7064d35d146ca78e6b186e57679fba249",
-          "dappName": "farcaster",
-          "profileName": "betashop.eth"
+          "userAddress": "0xeaf55242a90bb3289db8184772b0b98562053559",
+          "dappName": "lens",
+          "profileName": "lens/@betashop9",
+          "userAddressDetails": {
+            "domains": [
+              {
+                "name": "jasongoldberg.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "betashop.eth",
+                "isPrimary": true
+              }
+            ]
+          }
         },
         {
-          "userAddress": "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
-          "dappName": "farcaster",
-          "profileName": "vitalik.eth"
+          "userAddress": "0x4b70d04124c2996de29e0caa050a49822faec6cc",
+          "dappName": "lens",
+          "profileName": "lens/@prashantbagga",
+          "userAddressDetails": {
+            "domains": [
+              {
+                "name": "prxshant.eth",
+                "isPrimary": true
+              },
+              {
+                "name": "prashantbagga.eth",
+                "isPrimary": false
+              }
+            ]
+          }
         },
         {
-          "userAddress": "0xaa11ebefbb4723debabbfc85932c11f358e68306",
-          "dappName": "farcaster",
-          "profileName": "prxshant.eth"
+          "userAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+          "dappName": "lens",
+          "profileName": "lens/@vitalik",
+          "userAddressDetails": {
+            "domains": [
+              {
+                "name": "quantumexchange.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "7860000.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "offchainexample.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "brianshaw.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "vbuterin.stateofus.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "quantumsmartcontracts.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "Vitalik.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "openegp.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "vitalik.cannafam.eth",
+                "isPrimary": false
+              },
+              {
+                "name": "VITALIK.eth",
+                "isPrimary": false
+              }
+            ]
+          }
         }
-      ]
-    },
-    "Domains": {
-      "Domain": [
-        {
-          "dappName": "ens",
-          "name": "skynft.eth"
-        },
-        {
-          "dappName": "ens",
-          "name": "quantumexchange.eth"
-        },
-        {
-          "dappName": "ens",
-          "name": "vitalik.daohall.eth"
-        }
-        // more domains
       ]
     }
   }
