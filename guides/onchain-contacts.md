@@ -49,6 +49,13 @@ With this approach, your user shall receive their onchain graph data almost inst
 In the future, we shall provide webhooks and a dedicated Onchain Graph API for lighter-weight integrations.
 {% endhint %}
 
+Here are quick links to get useful follows in common data between users of web3 social:
+
+* Mutual followers: [https://app.airstack.xyz/query/e4OBTMgeQD](https://app.airstack.xyz/query/e4OBTMgeQD)
+* Mutual Following - both identities are following: [https://app.airstack.xyz/query/WAJ2U2AJyx](https://app.airstack.xyz/query/WAJ2U2AJyx)
+* Users followed by user 1, who are following user 2 [https://app.airstack.xyz/query/1zMbo6mvsD](https://app.airstack.xyz/query/1zMbo6mvsD)
+* Users with mutual follows (they follow identity, identity is following them back) [https://app.airstack.xyz/query/GYUEgS3p2P](https://app.airstack.xyz/query/GYUEgS3p2P)
+
 The algorithm for building a user's web3 address book will be as follows:
 
 1. [Fetch All Onchain Graph Data](onchain-contacts.md#step-1-fetch-all-onchain-graph-data)
