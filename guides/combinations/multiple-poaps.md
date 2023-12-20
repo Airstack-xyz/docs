@@ -17,8 +17,6 @@ layout:
 
 # ⚡ Multiple POAPs
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching dapps and integrating on-chain and off-chain data from various blockchains.
-
 ## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
@@ -198,12 +196,13 @@ Show common holders of EthGlobal Lisbon and EthCC \[6] POAPs
 
 {% tabs %}
 {% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfEthGlobalLisbonAndEthCC {
-<strong>  Poaps(input: {filter: {eventId: {_eq: "127462"}}, blockchain: ALL, limit: 200}) {
-</strong>    Poap {
+```graphql
+query GetCommonHoldersOfEthGlobalLisbonAndEthCC {
+  Poaps(input: {filter: {eventId: {_eq: "127462"}}, blockchain: ALL, limit: 200}) {
+    Poap {
       owner {
-<strong>        poaps(input: {blockchain: ALL, filter: {eventId: {_eq: "141910"}}}) {
-</strong>          owner {
+        poaps(input: {blockchain: ALL, filter: {eventId: {_eq: "141910"}}}) {
+          owner {
             addresses
           }
         }
@@ -211,7 +210,7 @@ Show common holders of EthGlobal Lisbon and EthCC \[6] POAPs
     }
   }
 }
-</code></pre>
+```
 {% endtab %}
 
 {% tab title="Response" %}

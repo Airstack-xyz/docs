@@ -191,65 +191,68 @@ If you need to check multiple users A simultaneously, then simply provide more i
 
 {% tabs %}
 {% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query isFollowing { # Top-level is User B's Identity (ipeciura.eth)
-<strong>  Wallet(input: {identity: "ipeciura.eth", blockchain: ethereum}) {
-</strong>    socialFollowings( # Here is User A's Identity (betashop.eth)
-<strong>      input: {filter: {identity: {_in: ["betashop.eth"]}}}
-</strong>    ) {
+```graphql
+query isFollowing { # Top-level is User B's Identity (ipeciura.eth)
+  Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
+    socialFollowings( # Here is User A's Identity (betashop.eth)
+      input: {filter: {identity: {_in: ["dwr.eth"]}}}
+    ) {
       Following {
         dappName
-        dappSlug
-        followingProfileId
-        followerProfileId
         followerAddress {
-          addresses
           socials {
             dappName
             profileName
-          }
-          domains {
-            name
           }
         }
       }
     }
   }
 }
-</code></pre>
+```
 {% endtab %}
 
 {% tab title="Response" %}
-<pre class="language-json"><code class="lang-json">{
+```json
+{
   "data": {
     "Wallet": {
       "socialFollowings": {
         "Following": [
           {
-<strong>            "dappName": "farcaster", // following on Farcaster
-</strong>            "dappSlug": "farcaster_optimism",
-            "followingProfileId": "2602",
-            "followerProfileId": "602",
+            "dappName": "lens", // dwr.eth is following vitalik.eth on Lens
             "followerAddress": {
-              "addresses": [
-                "0x66bd69c7064d35d146ca78e6b186e57679fba249",
-                "0xeaf55242a90bb3289db8184772b0b98562053559"
-              ],
               "socials": [
                 {
                   "dappName": "farcaster",
-<strong>                  "profileName": "betashop.eth" // betashop.eth is following ipeciura.eth
-</strong>                },
-                {
-                  "dappName": "lens",
-                  "profileName": "lens/@betashop9"
-                }
-              ],
-              "domains": [
-                {
-                  "name": "jasongoldberg.eth"
+                  "profileName": "dwr.eth"
                 },
                 {
-                  "name": "betashop.eth"
+                  "dappName": "farcaster",
+                  "profileName": ""
+                },
+                {
+                  "dappName": "lens",
+                  "profileName": "lens/@danromero"
+                }
+              ]
+            }
+          },
+          {
+            "dappName": "farcaster", // dwr.eth is following vitalik.eth on Farcaster
+            "followerAddress": {
+              "socials": [
+                {
+                  "dappName": "farcaster",
+                  "profileName": "dwr.eth"
+                },
+                {
+                  "dappName": "farcaster",
+                  "profileName": ""
+                },
+                {
+                  "dappName": "lens",
+                  "profileName": "lens/@danromero"
                 }
               ]
             }
@@ -259,13 +262,13 @@ If you need to check multiple users A simultaneously, then simply provide more i
     }
   }
 }
-</code></pre>
+```
 {% endtab %}
 {% endtabs %}
 
-If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&tokenType=\&activeView=\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=) on either Lens or Farcaster, then it will appear as a response in the `Following` array as shown in the [sample response](known-senders.md#response-1) and thus should be classified as a **known sender**.
+If dwr.eth is following vitalik.eth on either Lens or Farcaster, then it will appear as a response in the `Following` array as shown, from the perspective of dwr.eth - vitalik.eth is a known sender.
 
-Otherwise, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) will be considered an **unknown sender** and should be classified as one in the UI.
+Otherwise, vitalik.eth will be considered an **unknown sender** and should be classified as one in the UI.
 
 ### Check If User A Have Any Token Transfers History With User B
 
