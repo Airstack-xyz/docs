@@ -25,6 +25,8 @@ In this guide you will learn how to use Airstack to:
 
 * [Get ENS from a given user(s)](ens.md#get-ens-from-a-given-user-s)
 * [Get the 0x address, Lens, and Farcaster from a given ENS name(s)](ens.md#get-the-0x-address-lens-and-farcaster-from-a-given-ens-name-s)
+* [Get the 0x address, Lens, and Farcaster from a given cb.id (Offchain)](ens.md#get-the-0x-address-lens-and-farcaster-from-a-given-cb.id-offchain)
+* [Get the 0x address, Lens, and Farcaster from a given Namestone Subdomain (Offchain)](ens.md#get-the-0x-address-lens-and-farcaster-from-a-given-namestone-subdomain-offchain)
 
 ## Pre-requisites
 
@@ -257,12 +259,12 @@ query GetENS {
 
 ## Get the 0x address, Lens, and Farcaster from a given ENS name(s)
 
-You can get all the 0x address, Lens, and Farcaster of ENS names:
+You can get the 0x address, Lens, and Farcaster of ENS names:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/dHXYUnz0Uo" %}
-Show me the 0x address, Lens, Farcaster of vitalik.eth
+{% embed url="https://app.airstack.xyz/query/LAFfZPgdlt" %}
+show me the 0x address, Lens, Farcaster of vitalik.eth
 {% endembed %}
 
 ### Code
@@ -271,16 +273,17 @@ Show me the 0x address, Lens, Farcaster of vitalik.eth
 {% tab title="Query" %}
 ```graphql
 query GetUserDetailsFromENS {
-  Socials(
-    input: {
-      filter: { identity: { _in: ["vitalik.eth"] } }
-      blockchain: ethereum
-    }
+  Domains(
+    input: {filter: {name: {_in: ["vitalik.eth"]}}, blockchain: ethereum}
   ) {
-    Social {
-      userAddress
-      dappName
-      profileName
+    Domain {
+      resolvedAddress
+      resolvedAddressDetails {
+        socials {
+          profileName
+          dappName
+        }
+      }
     }
   }
 }
@@ -291,17 +294,142 @@ query GetUserDetailsFromENS {
 ```json
 {
   "data": {
-    "Socials": {
-      "Social": [
+    "Domains": {
+      "Domain": [
         {
-          "userAddress": "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
-          "dappName": "farcaster",
-          "profileName": "vitalik.eth"
-        },
+          "resolvedAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+          "resolvedAddressDetails": {
+            "socials": [
+              {
+                "profileName": "vitalik.eth",
+                "dappName": "farcaster"
+              },
+              {
+                "profileName": "lens/@vitalik",
+                "dappName": "lens"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get the 0x address, Lens, and Farcaster from a given cb.id (Offchain)
+
+You can get the 0x address, Lens, and Farcaster of cb.ids:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/OLqqmKXrqj" %}
+Show me the 0x address, Lens, and Farcaster of yosephks.cb.id
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query GetCbDotID {
+  Domains(
+    input: {filter: {name: {_in: ["yosephks.cb.id"]}}, blockchain: ethereum}
+  ) {
+    Domain {
+      resolvedAddress
+      resolvedAddressDetails {
+        socials {
+          profileName
+          dappName
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Domains": {
+      "Domain": [
         {
-          "userAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
-          "dappName": "lens",
-          "profileName": "lens/@vitalik"
+          "resolvedAddress": "0xc7486219881c780b676499868716b27095317416",
+          "resolvedAddressDetails": {
+            "socials": [
+              {
+                "profileName": "lens/@yosephks",
+                "dappName": "lens"
+              },
+              {
+                "profileName": "yosephks.eth",
+                "dappName": "farcaster"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get the 0x address, Lens, and Farcaster from a given Namestone Subdomain (Offchain)
+
+You can get the 0x address, Lens, and Farcaster of [Namestone](https://namestone.xyz/) subdomains:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/tYYXAwIXUu" %}
+Show me the 0x address, Lens, and Farcaster of namestone.testbrand.eth
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query GetNamestone {
+  Domains(
+    input: {filter: {name: {_in: ["namestone.testbrand.eth"]}}, blockchain: ethereum}
+  ) {
+    Domain {
+      resolvedAddress
+      resolvedAddressDetails {
+        socials {
+          profileName
+          dappName
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Domains": {
+      "Domain": [
+        {
+          "resolvedAddress": "0x57632ba9a844af0ab7d5cdf98b0056c8d87e3a85",
+          "resolvedAddressDetails": {
+            "socials": [
+              {
+                "profileName": "heeroyuy",
+                "dappName": "farcaster"
+              }
+            ]
+          }
         }
       ]
     }
@@ -317,5 +445,6 @@ If you have any questions or need help regarding resolving ENS name(s), please j
 
 ## More Resources
 
+* [ENS Domains Guide](../ens-domain/)
 * [Domains API Reference](../../api-references/api-reference/domains-api.md)
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)
