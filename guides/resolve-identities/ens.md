@@ -195,8 +195,9 @@ query GetENS {
     }
   ) {
     Domain {
-      dappName
       name
+      isPrimary
+      resolvedAddress
     }
   }
 }
@@ -210,44 +211,189 @@ query GetENS {
     "Domains": {
       "Domain": [
         {
-          "dappName": "ens",
-          "name": "skynft.eth"
+          "name": "skynft.eth",
+          "isPrimary": false,
+          "resolvedAddress": ""
         },
         {
-          "dappName": "ens",
-          "name": "quantumexchange.eth"
+          "name": "quantumexchange.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
         },
         {
-          "dappName": "ens",
-          "name": "vitalik.daohall.eth"
+          "name": "vitalik.daohall.eth",
+          "isPrimary": false,
+          "resolvedAddress": ""
         },
         {
-          "dappName": "ens",
-          "name": "brianshaw.eth"
+          "name": "brianshaw.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
         },
         {
-          "dappName": "ens",
-          "name": "vbuterin.eth"
+          "name": "vbuterin.eth",
+          "isPrimary": false,
+          "resolvedAddress": ""
         },
         {
-          "dappName": "ens",
-          "name": "klock.eth"
+          "name": "klock.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0xdb5802f5579b97be83bd48acad271187f7813148"
         },
         {
-          "dappName": "ens",
-          "name": "quantumsmartcontracts.eth"
+          "name": "quantumsmartcontracts.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
         },
         {
-          "dappName": "ens",
-          "name": "legendgames.eth"
+          "name": "legendgames.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0xdb5802f5579b97be83bd48acad271187f7813148"
         },
         {
-          "dappName": "ens",
-          "name": "vitalik.ethid.eth"
+          "name": "vitalik.ethid.eth",
+          "isPrimary": false,
+          "resolvedAddress": ""
         },
         {
-          "dappName": "ens",
-          "name": "elddem.eth"
+          "name": "elddem.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0xdb5802f5579b97be83bd48acad271187f7813148"
+        },
+        {
+          "name": "v‍i‍t‍a‍l‍i‍k‍.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0xc341683d1ee57b13ab90a1fc00f38dc6f7afdd14"
+        },
+        {
+          "name": "happybirthdayvitalik.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0x000001f568875f378bf6d170b790967fe429c81a"
+        },
+        {
+          "name": "openegp.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+        },
+        {
+          "name": "satoshichained.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0xdb5802f5579b97be83bd48acad271187f7813148"
+        },
+        {
+          "name": "[96ac36fc321a672a62d6674124081d3998301fd403505f4eae1f0a1f824391f1].addr.reverse",
+          "isPrimary": false,
+          "resolvedAddress": ""
+        },
+        {
+          "name": "quantumdapps.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+        },
+        {
+          "name": "slasha.vitalik.eth",
+          "isPrimary": false,
+          "resolvedAddress": ""
+        },
+        {
+          "name": "v-buterin.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0x2b3a83b27139d0501ed2345716121189e7994964"
+        },
+        {
+          "name": "vitalik-b.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0x2b3a83b27139d0501ed2345716121189e7994964"
+        },
+        {
+          "name": "ethereumgoodprivacy.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0x6b0c50a96e8ff1e740b4518253078ec79c3a139c"
+        },
+        {
+          "name": "prxshant.eth",
+          "isPrimary": true,
+          "resolvedAddress": "0x4b70d04124c2996de29e0caa050a49822faec6cc"
+        },
+        {
+          "name": "denarii.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0x8a8b5318d3a59fa6d1d0a83a1b0506f2796b5670"
+        },
+        {
+          "name": "@LudwigEth #ens.eth",
+          "isPrimary": false,
+          "resolvedAddress": ""
+        },
+        {
+          "name": "prashantbagga.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0x4b70d04124c2996de29e0caa050a49822faec6cc"
+        },
+        {
+          "name": "vitalik.rpl.eth",
+          "isPrimary": false,
+          "resolvedAddress": ""
+        },
+        {
+          "name": "vitalik.xeenon.eth",
+          "isPrimary": false,
+          "resolvedAddress": ""
+        },
+        {
+          "name": "vitalik.eth",
+          "isPrimary": true,
+          "resolvedAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+        },
+        {
+          "name": "vitalik-buterin.eth",
+          "isPrimary": false,
+          "resolvedAddress": ""
+        },
+        {
+          "name": "pool.denarii.eth",
+          "isPrimary": false,
+          "resolvedAddress": ""
+        },
+        {
+          "name": "quantum-ethereum.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0x6b0c50a96e8ff1e740b4518253078ec79c3a139c"
+        },
+        {
+          "name": "qthereum.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0x6b0c50a96e8ff1e740b4518253078ec79c3a139c"
+        },
+        {
+          "name": "denarius.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0xdb5802f5579b97be83bd48acad271187f7813148"
+        },
+        {
+          "name": "tfw_cheese_under_my_toe_nails_and_it_stanks_but_in_a_good_way_in_fact_so_good_i_wanna_smear_it_on_a_toast_and_eat_it.eth",
+          "isPrimary": false,
+          "resolvedAddress": ""
+        },
+        {
+          "name": "list.denarii.eth",
+          "isPrimary": false,
+          "resolvedAddress": ""
+        },
+        {
+          "name": "ephemeralgoodprivacy.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0x6b0c50a96e8ff1e740b4518253078ec79c3a139c"
+        },
+        {
+          "name": "vitalik.takoyaki.eth",
+          "isPrimary": false,
+          "resolvedAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+        },
+        {
+          "name": "@LudwigEth.eth",
+          "isPrimary": false,
+          "resolvedAddress": ""
         }
       ]
     }
