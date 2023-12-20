@@ -291,6 +291,7 @@ If you need to check multiple users A simultaneously, then simply provide more i
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
+
 query GetTokenTransfers {
   ethereum: TokenTransfers(
     input: {
@@ -301,31 +302,9 @@ query GetTokenTransfers {
     TokenTransfer {
       from {
         addresses
-        domains {
-          name
-        }
-        socials {
-          dappName
-          profileName
-          profileTokenId
-          profileTokenIdHex
-          userId
-          userAssociatedAddresses
-        }
       }
       to {
         addresses
-        domains {
-          name
-        }
-        socials {
-          dappName
-          profileName
-          profileTokenId
-          profileTokenIdHex
-          userId
-          userAssociatedAddresses
-        }
       }
       transactionHash
     }
@@ -343,31 +322,29 @@ query GetTokenTransfers {
     TokenTransfer {
       from {
         addresses
-        domains {
-          name
-        }
-        socials {
-          dappName
-          profileName
-          profileTokenId
-          profileTokenIdHex
-          userId
-          userAssociatedAddresses
-        }
       }
       to {
         addresses
-        domains {
-          name
-        }
-        socials {
-          dappName
-          profileName
-          profileTokenId
-          profileTokenIdHex
-          userId
-          userAssociatedAddresses
-        }
+      }
+      transactionHash
+    }
+    pageInfo {
+      nextCursor
+      prevCursor
+    }
+  }
+    base: TokenTransfers(
+    input: {
+      filter: { from: { _in: ["betashop.eth"] }, to: { _eq: "ipeciura.eth" } }
+      blockchain: base
+    }
+  ) {
+    TokenTransfer {
+      from {
+        addresses
+      }
+      to {
+        addresses
       }
       transactionHash
     }
@@ -486,9 +463,9 @@ query GetTokenTransfers {
 {% endtab %}
 {% endtabs %}
 
-If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) have transferred any tokens to [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&tokenType=\&activeView=\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=) on either Ethereum or Polygon, then either the `ethereum.TokenTransfer` or the `polygon.TokenTransfer` array has non-zero length. Thus, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) should be classified as a **known sender**.
+If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) have transferred any tokens to [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&tokenType=\&activeView=\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=) on either Ethereum, Polygon, or Base then either the `ethereum.TokenTransfer, polygon.TokenTransfer, or base.TokenTransfer` array has non-zero length. Thus,[`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&tokenType=\&activeView=\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=) should be classified as a **known contact**.
 
-Otherwise, `betashop.eth` will be considered an **unknown sender** and should be classified as one in the UI.
+Otherwise, `ipeciura.eth` will be considered an **unknown contact** and should be classified as one in the UI.
 
 ### Developer Support
 
