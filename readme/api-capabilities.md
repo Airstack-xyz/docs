@@ -30,7 +30,7 @@ layout:
 
 ### Technology
 
-* [Airstack](https://app.airstack.xyz) **indexes onchain and offchain data** (see tables below for summary of what’s indexed as of 15 Nov 2023). Whenever possible we default to onchain as the source of truth.
+* [Airstack](https://app.airstack.xyz) **indexes onchain and offchain data**. Whenever possible we default to onchain as the source of truth.
 * **Onchain** data is indexed through a blend of Substreams, RPC nodes, and Subgraphs. New transactions from the chains and projects we index appear in Airstack within seconds of onchain finalization. We use a blend of technologies depending on the use case.
   * We index onchain data optimistically without waiting for block confirmation
   * If our indexing layer detects a reorg, then we will redo those blocks
@@ -56,7 +56,7 @@ We currently offer rate limit of 3000/min and burst of 300/second.
 
 #### Blockchains, Tokens, and Dapps\*
 
-<table><thead><tr><th>Feature</th><th width="107">Ethereum</th><th width="100">Polygon</th><th width="85">Base</th><th width="89">Gnosis (POAP)</th><th width="105">Optimism</th><th>Offchain</th></tr></thead><tbody><tr><td>ERC-20</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td>Metadata</td></tr><tr><td>ERC-721</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td>Resized images Metadata, housed in our CDN</td></tr><tr><td>ERC-1155</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td>Resized images Metadata, housed in our CDN</td></tr><tr><td>ERC-6551</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td>Resized images Metadata, housed in our CDN</td></tr><tr><td>Token Balances</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td>Resized images Metadata, housed in our CDN</td></tr><tr><td>Token Holders</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td>Resized images Metadata, housed in our CDN</td></tr><tr><td>Transfer History</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td></tr><tr><td>Mints</td><td>Nov 2023</td><td>Nov 2023</td><td>✅</td><td></td><td></td><td></td></tr><tr><td>POAP</td><td>✅</td><td></td><td></td><td>✅</td><td></td><td>Resized images Metadata, housed in our CDN</td></tr><tr><td>Domains</td><td>ENS Primary All</td><td></td><td></td><td></td><td></td><td>Metadata Images</td></tr><tr><td>Lens Profiles, bios, images</td><td></td><td>✅</td><td></td><td></td><td></td><td></td></tr><tr><td>Lens Social Graph</td><td></td><td>✅</td><td></td><td></td><td></td><td></td></tr><tr><td>Farcaster Profiles, bios, images</td><td></td><td></td><td></td><td></td><td>✅</td><td>✅ Hubs</td></tr><tr><td>Farcaster social graph</td><td></td><td></td><td></td><td></td><td></td><td>✅ Hubs</td></tr><tr><td>XMTP</td><td></td><td></td><td></td><td></td><td></td><td>✅</td></tr><tr><td>Tokens in common, holders in common</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td></tr><tr><td>Rec Engines</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td></tr><tr><td>Spam filters</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td></tr><tr><td>Snapshot<br>time series data</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td></tr><tr><td>Contracts / dapps</td><td>Q1 2023</td><td>Q1 2023</td><td>✅</td><td></td><td></td><td></td></tr><tr><td>Uniswap swaps</td><td>Q1 2023</td><td>Q1 2023</td><td>✅</td><td></td><td></td><td></td></tr><tr><td>AI Natural language queries</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Webhooks</td><td>Q1 2023</td><td>Q1 2023</td><td>✅</td><td>Q1 2023</td><td>Q1 2023</td><td>Q1 2023</td></tr><tr><td>API for Airstack AI</td><td>Q1 2023</td><td>Q1 2023</td><td>✅</td><td>Q1 2023</td><td>Q1 2023</td><td>Q1 2023</td></tr></tbody></table>
+<table><thead><tr><th>Feature</th><th width="107">Ethereum</th><th width="100">Polygon</th><th width="85">Base</th><th width="89">Gnosis (POAP)</th><th width="105">Optimism</th><th>Offchain</th></tr></thead><tbody><tr><td>ERC-20</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td>Metadata</td></tr><tr><td>ERC-721</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td>Resized images Metadata, housed in our CDN</td></tr><tr><td>ERC-1155</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td>Resized images Metadata, housed in our CDN</td></tr><tr><td>ERC-6551</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td>Resized images Metadata, housed in our CDN</td></tr><tr><td>Token Balances</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td>Resized images Metadata, housed in our CDN</td></tr><tr><td>Token Holders</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td>Resized images Metadata, housed in our CDN</td></tr><tr><td>Transfer History</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td></tr><tr><td>Mints</td><td>Q1 2024</td><td>Q1 2024</td><td>Q1 2024</td><td></td><td></td><td></td></tr><tr><td>POAP</td><td>✅</td><td></td><td></td><td>✅</td><td></td><td>Resized images Metadata, housed in our CDN</td></tr><tr><td>Domains</td><td>ENS Primary All</td><td></td><td></td><td></td><td></td><td>Metadata Images</td></tr><tr><td>Lens Profiles, bios, images</td><td></td><td>✅</td><td></td><td></td><td></td><td></td></tr><tr><td>Lens Social Graph</td><td></td><td>✅</td><td></td><td></td><td></td><td></td></tr><tr><td>Farcaster Profiles, bios, images</td><td></td><td></td><td></td><td></td><td>✅</td><td>✅ Hubs</td></tr><tr><td>Farcaster social graph</td><td></td><td></td><td></td><td></td><td></td><td>✅ Hubs</td></tr><tr><td>XMTP</td><td></td><td></td><td></td><td></td><td></td><td>✅</td></tr><tr><td>Tokens in common, holders in common</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td></tr><tr><td>Rec Engines</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td></tr><tr><td>Spam filters</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td></tr><tr><td>Snapshot<br>time series data</td><td>Q4 2023</td><td>Q1 2024</td><td>✅</td><td>✅</td><td></td><td></td></tr><tr><td>Contracts / dapps</td><td>Q1 2024</td><td>Q1 2024</td><td></td><td></td><td></td><td></td></tr><tr><td>Uniswap swaps</td><td>Q1 2024</td><td>Q1 2024</td><td></td><td></td><td></td><td></td></tr><tr><td>AI Natural language queries</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Webhooks</td><td>Q1 2024</td><td>Q1 2024</td><td>Q1 2024</td><td>Q1 2024</td><td>Q1 2024</td><td>Q1 2024</td></tr><tr><td>API for Airstack AI</td><td>Q1 2024</td><td>Q1 2024</td><td>Q1 2024</td><td>Q1 2024</td><td>Q1 2024</td><td>Q1 2024</td></tr></tbody></table>
 
 #### Domains Specific
 
@@ -75,61 +75,61 @@ We currently offer rate limit of 3000/min and burst of 300/second.
 
 #### Lens Specific
 
-| Features                                                                          | Availability         |
-| --------------------------------------------------------------------------------- | -------------------- |
-| Lens Followers                                                                    | :white\_check\_mark: |
-| Lens Following                                                                    | :white\_check\_mark: |
-| Has XMTP                                                                          | :white\_check\_mark: |
-| Resolve Lens to 0x                                                                | :white\_check\_mark: |
-| Resolve Lens to ENS                                                               | :white\_check\_mark: |
-| Resolve Lens to Farcaster                                                         | :white\_check\_mark: |
-| Has more than X Followers                                                         | :white\_check\_mark: |
-| Followers More than X                                                             | :white\_check\_mark: |
-| Mutually following                                                                | :white\_check\_mark: |
-| Followers in Common                                                               | :white\_check\_mark: |
-| More than X Followers in Common                                                   | :white\_check\_mark: |
-| All POAPs of Lens User                                                            | :white\_check\_mark: |
-| All Lens users who have POAP                                                      | :white\_check\_mark: |
-| All tokens and NFTs of Lens User                                                  | :white\_check\_mark: |
-| All Lens users who have tokens and NFTs                                           | :white\_check\_mark: |
-| Combo: Follows/following and has POAPs                                            | :white\_check\_mark: |
-| Combos: Follows/following and has Tokens                                          | :white\_check\_mark: |
-| Combos: Follows/following and has XMTP                                            | :white\_check\_mark: |
-| Also follows/following on Farcaster                                               | :white\_check\_mark: |
-| Date specific data (e.g. followed before/after date, had token before/after date) | Nov 2023             |
-| Lens V2                                                                           | :white\_check\_mark: |
-| Lens Profile metadata: profile images, bio, etc.                                  | :white\_check\_mark: |
-| Lens Collects, combos thereof                                                     | Q1 2024              |
-| Mints by Lens users                                                               | Dec 2023             |
-| Lens users’ Contract Interactions                                                 | Dec 2023             |
-| Open Actions indexing                                                             | Q1 2024              |
+| Features                                             | Availability         |
+| ---------------------------------------------------- | -------------------- |
+| Lens Followers                                       | :white\_check\_mark: |
+| Lens Following                                       | :white\_check\_mark: |
+| Has XMTP                                             | :white\_check\_mark: |
+| Resolve Lens to 0x                                   | :white\_check\_mark: |
+| Resolve Lens to ENS                                  | :white\_check\_mark: |
+| Resolve Lens to Farcaster                            | :white\_check\_mark: |
+| Has more than X Followers                            | :white\_check\_mark: |
+| Followers More than X                                | :white\_check\_mark: |
+| Mutually following                                   | :white\_check\_mark: |
+| Followers in Common                                  | :white\_check\_mark: |
+| More than X Followers in Common                      | :white\_check\_mark: |
+| All POAPs of Lens User                               | :white\_check\_mark: |
+| All Lens users who have POAP                         | :white\_check\_mark: |
+| All tokens and NFTs of Lens User                     | :white\_check\_mark: |
+| All Lens users who have tokens and NFTs              | :white\_check\_mark: |
+| Combo: Follows/following and has POAPs               | :white\_check\_mark: |
+| Combos: Follows/following and has Tokens             | :white\_check\_mark: |
+| Combos: Follows/following and has XMTP               | :white\_check\_mark: |
+| Also follows/following on Farcaster                  | :white\_check\_mark: |
+| Date specific data (e.g. followed before/after date) | :white\_check\_mark: |
+| Lens V2                                              | :white\_check\_mark: |
+| Lens Profile metadata: profile images, bio, etc.     | :white\_check\_mark: |
+| Lens Collects, combos thereof                        | Q1 2024              |
+| Mints by Lens users                                  | Dec 2023             |
+| Lens users’ Contract Interactions                    | Q1 2024              |
+| Open Actions indexing                                | Q1 2024              |
 
 #### Farcaster Specific
 
-| Features                                                                          | Availability         |
-| --------------------------------------------------------------------------------- | -------------------- |
-| Farcaster Followers                                                               | :white\_check\_mark: |
-| Farcaster Following                                                               | :white\_check\_mark: |
-| Has XMTP                                                                          | :white\_check\_mark: |
-| Resolve Farcaster to 0x                                                           | :white\_check\_mark: |
-| Resolve Farcaster to ENS                                                          | :white\_check\_mark: |
-| Resolve Farcaster to Lens                                                         | :white\_check\_mark: |
-| Has more than X Followers                                                         | :white\_check\_mark: |
-| Followers More than X                                                             | :white\_check\_mark: |
-| Mutually following                                                                | :white\_check\_mark: |
-| Followers in Common                                                               | :white\_check\_mark: |
-| More than X Followers in Common                                                   | :white\_check\_mark: |
-| All POAPs of Farcaster User                                                       | :white\_check\_mark: |
-| All Farcaster users who have a POAP                                               | :white\_check\_mark: |
-| All tokens and NFTs of Farcaster User                                             | :white\_check\_mark: |
-| All Farcaster users who have tokens and NFTs                                      | :white\_check\_mark: |
-| Combo: Follows/following and has POAPs                                            | :white\_check\_mark: |
-| Combos: Follows/following and has Tokens                                          | :white\_check\_mark: |
-| Combos: Follows/following and has XMTP                                            | :white\_check\_mark: |
-| Also follows/following on Lens                                                    | :white\_check\_mark: |
-| Date specific data (e.g. followed before/after date, had token before/after date) | DeC 2023             |
-| Mints by Farcaster users                                                          | Dec 2023             |
-| Farcaster users’ Contract Interactions                                            | Dec 2023             |
+| Features                                             | Availability         |
+| ---------------------------------------------------- | -------------------- |
+| Farcaster Followers                                  | :white\_check\_mark: |
+| Farcaster Following                                  | :white\_check\_mark: |
+| Has XMTP                                             | :white\_check\_mark: |
+| Resolve Farcaster to 0x                              | :white\_check\_mark: |
+| Resolve Farcaster to ENS                             | :white\_check\_mark: |
+| Resolve Farcaster to Lens                            | :white\_check\_mark: |
+| Has more than X Followers                            | :white\_check\_mark: |
+| Followers More than X                                | :white\_check\_mark: |
+| Mutually following                                   | :white\_check\_mark: |
+| Followers in Common                                  | :white\_check\_mark: |
+| More than X Followers in Common                      | :white\_check\_mark: |
+| All POAPs of Farcaster User                          | :white\_check\_mark: |
+| All Farcaster users who have a POAP                  | :white\_check\_mark: |
+| All tokens and NFTs of Farcaster User                | :white\_check\_mark: |
+| All Farcaster users who have tokens and NFTs         | :white\_check\_mark: |
+| Combo: Follows/following and has POAPs               | :white\_check\_mark: |
+| Combos: Follows/following and has Tokens             | :white\_check\_mark: |
+| Combos: Follows/following and has XMTP               | :white\_check\_mark: |
+| Also follows/following on Lens                       | :white\_check\_mark: |
+| Date specific data (e.g. followed before/after date) | :white\_check\_mark: |
+| Mints by Farcaster users                             | Dec 2023             |
+| Farcaster users’ Contract Interactions               | Dec 2023             |
 
 #### ERC-6551 Specific
 
