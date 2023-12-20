@@ -64,7 +64,7 @@ query GetAllPOAPs($Identity: [Identity!]) {
 ```
 {% endtab %}
 
-{% tab title="Variable" %}
+{% tab title="Variables" %}
 ```json
 {
   "Identity": "dwr.eth"
