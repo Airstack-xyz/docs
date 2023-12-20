@@ -314,21 +314,27 @@ Show common holders of both BAYC and Moonbirds
 
 {% tabs %}
 {% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfBAYCAndMoonBirds {
-<strong>  TokenBalances(input: {filter: {tokenAddress: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}}, blockchain: ethereum, limit: 200}) {
-</strong>    TokenBalance {
+```graphql
+query GetCommonHoldersOfBAYCAndMoonBirds {
+  TokenBalances(
+    input: {filter: {tokenAddress: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}}, blockchain: ethereum, limit: 200}
+  ) {
+    TokenBalance {
       owner {
-<strong>        tokenBalances(input: {filter: {tokenAddress: {_eq: "0x23581767a106ae21c074b2276D25e5C3e136a68b"}}, limit: 200}) {
-</strong>          owner {
+        tokenBalances(
+          input: {filter: {tokenAddress: {_eq: "0x23581767a106ae21c074b2276D25e5C3e136a68b"}}, limit: 200}
+        ) {
+          owner {
             addresses
           }
+          tokenAddress
           tokenId
         }
       }
     }
   }
 }
-</code></pre>
+```
 {% endtab %}
 
 {% tab title="Response" %}
