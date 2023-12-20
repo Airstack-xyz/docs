@@ -29,8 +29,8 @@ In the future, [Airstack](https://www.airstack.xyz/) will provide a dedicated re
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
-query GetAllPOAPs($address: [Identity!]) {
-  Poaps(input: {filter: {owner: {_in: $address}}, blockchain: ALL, limit: 10}) {
+query GetAllPOAPs($Identity: [Identity!]) {
+  Poaps(input: {filter: {owner: {_in: $Identity}}, blockchain: ALL, limit: 10}) {
     Poap {
       id
       eventId
@@ -67,7 +67,7 @@ query GetAllPOAPs($address: [Identity!]) {
 {% tab title="Variable" %}
 ```json
 {
-  "address": ["dwr.eth", "fc_fname:vbuterin"]
+  "Identity": "dwr.eth"
 }
 ```
 {% endtab %}
@@ -92,13 +92,11 @@ query GetAllAddressesSocialsAndENSOfPOAP($eventId: [String!]) {
         socials {
           profileName
           dappName
-          dappSlug
         }
       }
       poapEvent {
         eventId
       }
-      tokenId
     }
   }
 }
