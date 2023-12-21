@@ -21,13 +21,18 @@ layout:
 
 ## Table Of Contents
 
-In this guide you will learn how to use Airstack to:
+In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get Token Transfers Of A User(s) on Ethereum](token-transfers.md#get-token-transfers-of-a-user-s-on-ethereum)
-* [Get Token Transfers Of A User(s) on Polygon](token-transfers.md#get-token-transfers-of-a-user-s-on-polygon)
-* [Get Token Transfers Of A User(s) on Base](token-transfers.md#get-token-transfers-of-a-user-s-on-base)
-* [Get Token Transfers Of A User(s) on Multiple Chains](token-transfers.md#get-token-transfers-of-a-user-s-on-multiple-chains)
-* [Get The Most Recent Token Transfers Of A User(s)](token-transfers.md#get-the-most-recent-token-transfers-of-a-user-s)
+* [Get Token Transfers Sent From A User on Ethereum](token-transfers.md#get-token-transfers-sent-from-a-user-on-ethereum)
+* [Get Token Transfers Received By A User on Ethereum](token-transfers.md#get-token-transfers-received-by-a-user-on-ethereum)
+* [Get Token Transfers Sent From A User on Polygon](token-transfers.md#get-token-transfers-sent-from-a-user-on-polygon)
+* [Get Token Transfers Received By A User on Polygon](token-transfers.md#get-token-transfers-received-by-a-user-on-polygon)
+* [Get Token Transfers Sent From A User on Base](token-transfers.md#get-token-transfers-sent-from-a-user-on-base)
+* [Get Token Transfers Received By A User on Base](token-transfers.md#get-token-transfers-received-by-a-user-on-base)
+* [Get Token Transfers Sent From A User on Multiple Chains](token-transfers.md#get-token-transfers-sent-from-a-user-on-multiple-chains)
+* [Get Token Transfers Received By A User on Multiple Chains](token-transfers.md#get-token-transfers-received-by-a-user-on-multiple-chains)
+* [Get The Most Recent Token Transfers Sent From A User](token-transfers.md#get-the-most-recent-token-transfers-sent-from-a-user-s)
+* [Get The Most Recent Token Transfers Received By A User](token-transfers.md#get-the-most-recent-token-transfers-received-by-a-user)
 
 ## Pre-requisites
 
@@ -165,12 +170,164 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Get Token Transfers Of A User(s) on Ethereum
+## Get Token Transfers Sent From A User on Ethereum
+
+You can fetch all token transfers sent from a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), on Ethereum by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/Cxy3fiJAKd" %}
-Show me token transfers from and to dwr.eth and fc\_fname:vitalik.eth on Ethereum
+{% embed url="https://app.airstack.xyz/query/ZGtUdm88Lv" %}
+Show me token transfers sent from betashop.eth on Ethereum
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
+  TokenTransfers(
+    input: {
+      filter: {
+        # Only get token transfers from betashop.eth
+<strong>        from: {_eq: "betashop.eth"},
+</strong>        # Only get token transfers with non-zero amount
+<strong>        formattedAmount: {_gt: 0},
+</strong>        # Remove all minting/burning + self-transfer
+<strong>        _nor: {
+</strong>          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]}
+        }
+      },
+      blockchain: ethereum,
+      limit: 50
+    }
+  ) {
+    TokenTransfer {
+      formattedAmount
+      tokenType
+      token {
+        name
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenTransfers": {
+      "TokenTransfer": [
+        {
+          "formattedAmount": 25,
+          "tokenType": "ERC20",
+          "token": {
+            "name": "USD Coin"
+          },
+        },
+        {
+          "formattedAmount": 25,
+          "tokenType": "ERC20",
+          "token": {
+            "name": "USD Coin"
+          },
+        },
+        // Other token transfers from betashop.eth on Ethereum
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+All the users returned from the `to` response field can be compiled and returned as a recommendation in your application.
+
+## Get Token Transfers Received By A User on Ethereum
+
+You can fetch all token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), on Ethereum by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/d0vekk7Ako" %}
+Show me token transfers received by betashop.eth on Ethereum
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
+  TokenTransfers(
+    input: {
+      filter: {
+        # Only get token transfers to betashop.eth
+<strong>        to: {_eq: "betashop.eth"},
+</strong>        # Only get token transfers with non-zero amount
+<strong>        formattedAmount: {_gt: 0},
+</strong>        # Remove all minting/burning + self-transfer
+<strong>        _nor: {
+</strong>          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]}
+        }
+      },
+      blockchain: ethereum,
+      limit: 50
+    }
+  ) {
+    TokenTransfer {
+      formattedAmount
+      tokenType
+      token {
+        name
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenTransfers": {
+      "TokenTransfer": [
+        {
+          "formattedAmount": 1,
+          "tokenType": "ERC721",
+          "token": {
+            "name": "ETHGlobal Pragma Lisbon"
+          },
+        },
+        {
+          "formattedAmount": 0.00005,
+          "tokenType": "ERC20",
+          "token": {
+            "name": "Wrapped Ether"
+          },
+        },
+        // Other Token Transfers received by betashop.eth on Ethereum
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+All the users returned from the `from` response field can be compiled and returned as a recommendation in your application.
+
+## Get Token Transfers Sent From A User on Polygon
+
+You can fetch all token transfers sent from a given user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS), on Polygon by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/FLruoqln49" %}
+Show me token transfers sent from ipeciura.eth on Polygon
 {% endembed %}
 
 ### Code
@@ -182,47 +339,26 @@ query GetTokenTransfers {
   TokenTransfers(
     input: {
       filter: {
-        _or: {
-          from: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
-          to: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+        # Only get token transfers from ipeciura.eth
+        from: {_eq: "ipeciura.eth"},
+        # Only get token transfers with non-zero amount
+        formattedAmount: {_gt: 0},
+        # Remove all minting/burning + self-transfer
+        _nor: {
+          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "ipeciura.eth"]}
         }
-      }
-      blockchain: ethereum
+      },
+      blockchain: polygon,
       limit: 50
     }
   ) {
     TokenTransfer {
-      amount
       formattedAmount
-      blockTimestamp
+      tokenType
       token {
-        symbol
         name
-        decimals
       }
-      from {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          isPrimary
-          name
-        }
-      }
-      to {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          name
-          dappName
-        }
-      }
-      type
     }
   }
 }
@@ -236,159 +372,20 @@ query GetTokenTransfers {
     "TokenTransfers": {
       "TokenTransfer": [
         {
-          "amount": "1",
           "formattedAmount": 1,
-          "blockTimestamp": "2022-05-06T05:10:47Z",
+          "tokenType": "ERC20",
           "token": {
-            "symbol": "Karafuru 3D",
-            "name": "Karafuru 3D",
-            "decimals": 0
+            "name": "(PoS) Decentraland MANA"
           },
-          "from": {
-            "addresses": ["0x0000000000000000000000000000000000000000"],
-            "socials": [
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@shatter"
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              }
-            ],
-            "domains": [
-              {
-                "isPrimary": false,
-                "name": "dappling-starter-cra-ei1tt5.dappling.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "👨🏿‍🤝‍👨🏻.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "asdkjfas.dev-poap.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "baez.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "[701636f5d42ce2b973edc83cbb7ab390f844dfbd4d8d506df4780d12c4ba318b].com"
-              },
-              {
-                "isPrimary": false,
-                "name": "smartcontractsaudit.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "[c887159df7c26ccac34df4c89ddc49c27708f30b2521e1454f6a1743aaa49fc8].crobit.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "nextjs-3eqpjx.dappling.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "nikito3.dev-poap.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "wally.dev-poap.eth"
-              }
-            ]
+        },
+        {
+          "formattedAmount": 0.002048431232076552,
+          "tokenType": "ERC20",
+          "token": {
+            "name": "Wrapped Ether"
           },
-          "to": {
-            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "profileName": "vitalik.eth"
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@vitalik"
-              }
-            ],
-            "domains": [
-              {
-                "name": "quantumexchange.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "7860000.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "offchainexample.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "brianshaw.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "vbuterin.stateofus.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "quantumsmartcontracts.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "Vitalik.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "openegp.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "vitalik.cannafam.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "VITALIK.eth",
-                "dappName": "ens"
-              }
-            ]
-          },
-          "type": "MINT"
-        }
-        // Other token transfers on Ethereum
+        },
+        // Other Polygon token transfers sent by ipeciura.eth
       ]
     }
   }
@@ -397,68 +394,50 @@ query GetTokenTransfers {
 {% endtab %}
 {% endtabs %}
 
-## Get Token Transfers Of A User(s) on Polygon
+All the users returned from the `to` response field can be compiled and returned as a recommendation in your application.
+
+## Get Token Transfers Received By A User on Polygon
+
+You can fetch all token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), on Polygon by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/KcoFgsDUJR" %}
-Show me token transfers from and to dwr.eth and fc\_fname:vitalik.eth on Polygon
+{% embed url="https://app.airstack.xyz/query/yO5BgLYsV0" %}
+Show me token transfers received by betashop.eth on Polygon
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-```graphql
-query GetTokenTransfers {
+<pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
   TokenTransfers(
     input: {
       filter: {
-        _or: {
-          from: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
-          to: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+        # Only get token transfers to betashop.eth
+<strong>        to: {_eq: "betashop.eth"},
+</strong>        # Only get token transfers with non-zero amount
+<strong>        formattedAmount: {_gt: 0},
+</strong>        # Remove all minting/burning + self-transfer
+<strong>        _nor: {
+</strong>          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]}
         }
-      }
-      blockchain: polygon
+      },
+      blockchain: polygon,
       limit: 50
     }
   ) {
     TokenTransfer {
-      amount
       formattedAmount
-      blockTimestamp
+      tokenType
       token {
-        symbol
         name
-        decimals
       }
-      from {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          isPrimary
-          name
-        }
-      }
-      to {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          name
-          dappName
-        }
-      }
-      type
     }
   }
 }
-```
+</code></pre>
 {% endtab %}
 
 {% tab title="Response" %}
@@ -468,127 +447,20 @@ query GetTokenTransfers {
     "TokenTransfers": {
       "TokenTransfer": [
         {
-          "amount": "1",
-          "formattedAmount": 1,
-          "blockTimestamp": "2022-11-25T12:22:36Z",
+          "formattedAmount": 520.95,
+          "tokenType": "ERC20",
           "token": {
-            "symbol": "VITALIK",
-            "name": "Cult Vitalik",
-            "decimals": 0
+            "name": "@SNXPool.com"
           },
-          "from": {
-            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "profileName": "vitalik.eth"
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@vitalik"
-              }
-            ],
-            "domains": [
-              {
-                "isPrimary": false,
-                "name": "quantumexchange.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "7860000.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "offchainexample.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "brianshaw.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "vbuterin.stateofus.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "quantumsmartcontracts.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "Vitalik.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "openegp.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "vitalik.cannafam.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "VITALIK.eth"
-              }
-            ]
+        },
+        {
+          "formattedAmount": 1,
+          "tokenType": "ERC721",
+          "token": {
+            "name": "Firefly Pass"
           },
-          "to": {
-            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "profileName": "vitalik.eth"
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@vitalik"
-              }
-            ],
-            "domains": [
-              {
-                "name": "quantumexchange.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "7860000.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "offchainexample.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "brianshaw.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "vbuterin.stateofus.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "quantumsmartcontracts.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "Vitalik.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "openegp.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "vitalik.cannafam.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "VITALIK.eth",
-                "dappName": "ens"
-              }
-            ]
-          },
-          "type": "TRANSFER"
-        }
-        // Other Polygon token transfers
+        },
+        // Other Token Transfers received by betashop.eth on Polygon
       ]
     }
   }
@@ -597,230 +469,73 @@ query GetTokenTransfers {
 {% endtab %}
 {% endtabs %}
 
-## Get Token Transfers Of A User(s) on Base
+All the users returned from the `from` response field can be compiled and returned as a recommendation in your application.
+
+## Get Token Transfers Sent From A User on Base
+
+You can fetch all token transfers sent from a given user, e.g. [`jessepollak.eth`](https://explorer.airstack.xyz/token-balances?address=jessepollak.eth\&rawInput=%23%E2%8E%B1jessepollak.eth%E2%8E%B1%28jessepollak.eth++ethereum+null%29\&inputType=ADDRESS), on Base by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/HyCEvCtw1e" %}
-Show me token transfers from and to dwr.eth and fc\_fname:vitalik.eth on Base
+{% embed url="https://app.airstack.xyz/query/ubt2YJHZHj" %}
+Show me token transfers sent from jessepollak.eth on Base
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-```graphql
-query GetTokenTransfers {
+<pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
   TokenTransfers(
     input: {
       filter: {
-        _or: {
-          from: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
-          to: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+        # Only get token transfers from jessepollak.eth
+<strong>        from: {_eq: "jessepollak.eth"},
+</strong>        # Only get token transfers with non-zero amount
+<strong>        formattedAmount: {_gt: 0},
+</strong>        # Remove all minting/burning + self-transfer
+<strong>        _nor: {
+</strong>          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "jessepollak.eth"]}
         }
-      }
-      blockchain: base
+      },
+      blockchain: base,
       limit: 50
     }
   ) {
     TokenTransfer {
-      amount
       formattedAmount
-      blockTimestamp
+      tokenType
       token {
-        symbol
         name
-        decimals
       }
-      from {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          isPrimary
-          name
-        }
-      }
-      to {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          name
-          dappName
-        }
-      }
-      type
     }
   }
 }
-```
+</code></pre>
 {% endtab %}
 
-{% tab title="Second Tab" %}
+{% tab title="Response" %}
 ```json
 {
   "data": {
     "TokenTransfers": {
       "TokenTransfer": [
         {
-          "amount": "1",
-          "formattedAmount": 1,
-          "blockTimestamp": "2023-09-28T21:07:57Z",
+          "formattedAmount": 100,
+          "tokenType": "ERC20",
           "token": {
-            "symbol": "SWCFIT21",
-            "name": "I Called Congress - FIT21",
-            "decimals": 0
+            "name": "USD Coin"
           },
-          "from": {
-            "addresses": ["0x0000000000000000000000000000000000000000"],
-            "socials": [
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@shatter"
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              }
-            ],
-            "domains": [
-              {
-                "isPrimary": false,
-                "name": "dappling-starter-cra-ei1tt5.dappling.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "👨🏿‍🤝‍👨🏻.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "asdkjfas.dev-poap.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "baez.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "[701636f5d42ce2b973edc83cbb7ab390f844dfbd4d8d506df4780d12c4ba318b].com"
-              },
-              {
-                "isPrimary": false,
-                "name": "smartcontractsaudit.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "[c887159df7c26ccac34df4c89ddc49c27708f30b2521e1454f6a1743aaa49fc8].crobit.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "nextjs-3eqpjx.dappling.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "nikito3.dev-poap.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "wally.dev-poap.eth"
-              }
-            ]
+        },
+        {
+          "formattedAmount": 99,
+          "tokenType": "ERC20",
+          "token": {
+            "name": "USD Base Coin"
           },
-          "to": {
-            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "profileName": "vitalik.eth"
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@vitalik"
-              }
-            ],
-            "domains": [
-              {
-                "name": "quantumexchange.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "7860000.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "offchainexample.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "brianshaw.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "vbuterin.stateofus.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "quantumsmartcontracts.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "Vitalik.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "openegp.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "vitalik.cannafam.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "VITALIK.eth",
-                "dappName": "ens"
-              }
-            ]
-          },
-          "type": "MINT"
-        }
-        // Other Base token transfers
+        },
+        // Other Base token transfers sent by jessepollak.eth
       ]
     }
   }
@@ -829,12 +544,360 @@ query GetTokenTransfers {
 {% endtab %}
 {% endtabs %}
 
-## Get Token Transfers Of A User(s) on Multiple Chains
+All the users returned from the `to` response field can be compiled and returned as a recommendation in your application.
+
+## Get Token Transfers Received By A User on Base
+
+You can fetch all token transfers received by a given user, e.g. [`barmstrong.eth`](https://explorer.airstack.xyz/token-balances?address=barmstrong.eth\&rawInput=%23%E2%8E%B1barmstrong.eth%E2%8E%B1%28barmstrong.eth++ethereum+null%29\&inputType=ADDRESS), on Base by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/ARv7hFj3ki" %}
-Show me token transfers from and to dwr.eth and fc\_fname:vitalik.eth
+{% embed url="https://app.airstack.xyz/query/RIffwTnhus" %}
+Show me token transfers received by barmstrong.eth on Base
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
+  TokenTransfers(
+    input: {
+      filter: {
+        # Only get token transfers to barmstrong.eth
+<strong>        to: {_eq: "barmstrong.eth"},
+</strong>        # Only get token transfers with non-zero amount
+<strong>        formattedAmount: {_gt: 0},
+</strong>        # Remove all minting/burning + self-transfer
+<strong>        _nor: {
+</strong>          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "barmstrong.eth"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]}
+        }
+      },
+      blockchain: base,
+      limit: 50
+    }
+  ) {
+    TokenTransfer {
+      formattedAmount
+      tokenType
+      token {
+        name
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenTransfers": {
+      "TokenTransfer": [
+        {
+          "formattedAmount": 1,
+          "tokenType": "ERC721",
+          "token": {
+            "name": "BasePunks"
+          },
+        },
+        {
+          "formattedAmount": 1,
+          "tokenType": "ERC721",
+          "token": {
+            "name": "Bullcasso"
+          },
+        },
+        // Other Token Transfers received by barmstrong.eth on Base
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+All the users returned from the `from` response field can be compiled and returned as a recommendation in your application.
+
+## Get Token Transfers Sent From A User on Multiple Chains
+
+You can fetch all token transfers sent from a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Polygon, and Base, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/ikmf1dpeUy" %}
+Show me all token transfers sent from betashop.eth on Ethereum, Polygon, and Base
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
+  # first query on Ethereum
+  Ethereum: TokenTransfers(
+    input: {
+      filter: {
+        # Only get token transfers from betashop.eth
+<strong>        from: {_eq: "betashop.eth"},
+</strong>        # Only get token transfers with non-zero amount
+<strong>        formattedAmount: {_gt: 0},
+</strong>        # Remove all minting/burning + self-transfer
+<strong>        _nor: {
+</strong>          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]}
+        }
+      },
+      blockchain: ethereum,
+      limit: 50
+    }
+  ) {
+    TokenTransfer {
+      formattedAmount
+      tokenType
+      token {
+        name
+      }
+    }
+  }
+  # second query on Polygon
+  Polygon: TokenTransfers(
+    input: {
+      filter: {
+        # Only get token transfers from betashop.eth
+<strong>        from: {_eq: "betashop.eth"},
+</strong>        # Only get token transfers with non-zero amount
+<strong>        formattedAmount: {_gt: 0},
+</strong>        # Remove all minting/burning + self-transfer
+<strong>        _nor: {
+</strong>          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]}
+        }
+      },
+      blockchain: polygon,
+      limit: 50
+    }
+  ) {
+    TokenTransfer {
+      formattedAmount
+      tokenType
+      token {
+        name
+      }
+    }
+  }
+  # third query on Base
+  Base: TokenTransfers(
+    input: {
+      filter: {
+        # Only get token transfers from betashop.eth
+<strong>        from: {_eq: "betashop.eth"},
+</strong>        # Only get token transfers with non-zero amount
+<strong>        formattedAmount: {_gt: 0},
+</strong>        # Remove all minting/burning + self-transfer
+<strong>        _nor: {
+</strong>          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]}
+        }
+      },
+      blockchain: base,
+      limit: 50
+    }
+  ) {
+    TokenTransfer {
+      formattedAmount
+      tokenType
+      token {
+        name
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Ethereum": {
+      "TokenTransfer": [
+        {
+          "formattedAmount": 25,
+          "tokenType": "ERC20",
+          "token": {
+            "name": "USD Coin"
+          },
+        },
+        // Other token transfers sent by betashop.eth on Ethereum
+      ]
+    },
+    "Polygon": {
+<strong>      "TokenTransfer": null // No tokens sent by betashop.eth on Polygon
+</strong>    },
+    "Base": {
+      "TokenTransfer": [
+        {
+          "formattedAmount": 100,
+          "tokenType": "ERC20",
+          "token": {
+            "name": "USD Coin"
+          },
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+All the users returned from the `to` response field can be compiled and returned as a recommendation in your application.
+
+## Get Token Transfers Received By A User on Multiple Chains
+
+You can fetch all token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Polygon, and Base, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/LQXsneqJLy" %}
+Show me token transfers received by betashop.eth on Ethereum, Polygon, and Base
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
+  # first query on Ethereum
+  Ethereum: TokenTransfers(
+    input: {
+      filter: {
+        # Only get token transfers to betashop.eth
+<strong>        to: {_eq: "betashop.eth"},
+</strong>        # Only get token transfers with non-zero amount
+<strong>        formattedAmount: {_gt: 0},
+</strong>        # Remove all minting/burning + self-transfer
+<strong>        _nor: {
+</strong>          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]}
+        }
+      },
+      blockchain: ethereum,
+      limit: 50
+    }
+  ) {
+    TokenTransfer {
+      formattedAmount
+      tokenType
+      token {
+        name
+      }
+    }
+  }
+  # second query on Polygon
+  Polygon: TokenTransfers(
+    input: {
+      filter: {
+        # Only get token transfers to betashop.eth
+<strong>        to: {_eq: "betashop.eth"},
+</strong>        # Only get token transfers with non-zero amount
+<strong>        formattedAmount: {_gt: 0},
+</strong>        # Remove all minting/burning + self-transfer
+<strong>        _nor: {
+</strong>          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]}
+        }
+      },
+      blockchain: polygon,
+      limit: 50
+    }
+  ) {
+    TokenTransfer {
+      formattedAmount
+      tokenType
+      token {
+        name
+      }
+    }
+  }
+  # third query on Base
+  Base: TokenTransfers(
+    input: {
+      filter: {
+        # Only get token transfers to betashop.eth
+<strong>        to: {_eq: "betashop.eth"},
+</strong>        # Only get token transfers with non-zero amount
+<strong>        formattedAmount: {_gt: 0},
+</strong>        # Remove all minting/burning + self-transfer
+<strong>        _nor: {
+</strong>          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]}
+        }
+      },
+      blockchain: base,
+      limit: 50
+    }
+  ) {
+    TokenTransfer {
+      formattedAmount
+      tokenType
+      token {
+        name
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Ethereum": {
+      "TokenTransfer": [
+        {
+          "formattedAmount": 1,
+          "tokenType": "ERC721",
+          "token": {
+            "name": "ETHGlobal Pragma Lisbon"
+          },
+        },
+        // Other Token Transfers received by betashop.eth on Ethereum
+      ]
+    },
+    "Polygon": {
+      "TokenTransfer": [
+        {
+          "formattedAmount": 1,
+          "tokenType": "ERC721",
+          "token": {
+            "name": "Firefly Pass"
+          },
+        },
+        // Other Token Transfers received by betashop.eth on Polygon
+      ]
+    },
+    "Base": {
+<strong>      "TokenTransfer": null // No Tokens received by betashop.eth on Base
+</strong>    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+All the users returned from the `from` response field can be compiled and returned as a recommendation in your application.
+
+## Get The Most Recent Token Transfers Sent From A User(s)
+
+You can fetch all most recent token transfers sent from a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Polygon, and Base, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/ROziBGPGJI" %}
+Show me the most recent token transfers sent from betashop.eth on Ethereum, Polygon, and Base
 {% endembed %}
 
 ### Code
@@ -844,754 +907,257 @@ Show me token transfers from and to dwr.eth and fc\_fname:vitalik.eth
 ```graphql
 query GetTokenTransfers {
   # first query on Ethereum
-  ethereum: TokenTransfers(
+  Ethereum: TokenTransfers(
     input: {
       filter: {
-        _or: {
-          from: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
-          to: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+        # Only get token transfers from betashop.eth
+        from: {_eq: "betashop.eth"},
+        # Only get token transfers with non-zero amount
+        formattedAmount: {_gt: 0},
+        # Remove all minting/burning + self-transfer
+        _nor: {
+          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]}
         }
-      }
-      blockchain: ethereum
-      limit: 50
+      },
+      blockchain: ethereum,
+      limit: 50,
+      order: { blockTimestamp: DESC } # Order transfers by blocktimestamp in descending order
     }
   ) {
     TokenTransfer {
-      amount
       formattedAmount
-      blockTimestamp
+      tokenType
       token {
-        symbol
         name
-        decimals
       }
-      from {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          isPrimary
-          name
-        }
-      }
-      to {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          name
-          dappName
-        }
-      }
-      type
-      blockchain
     }
   }
   # second query on Polygon
-  polygon: TokenTransfers(
+  Polygon: TokenTransfers(
     input: {
       filter: {
-        _or: {
-          from: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
-          to: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+        # Only get token transfers from betashop.eth
+        from: {_eq: "betashop.eth"},
+        # Only get token transfers with non-zero amount
+        formattedAmount: {_gt: 0},
+        # Remove all minting/burning + self-transfer
+        _nor: {
+          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]}
         }
-      }
-      blockchain: polygon
-      limit: 50
+      },
+      blockchain: polygon,
+      limit: 50,
+      order: { blockTimestamp: DESC } # Order transfers by blocktimestamp in descending order
     }
   ) {
     TokenTransfer {
-      amount
       formattedAmount
-      blockTimestamp
+      tokenType
       token {
-        symbol
         name
-        decimals
       }
-      from {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          isPrimary
-          name
-        }
-      }
-      to {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          name
-          dappName
-        }
-      }
-      type
-      blockchain
     }
   }
-  # third query on Polygon
-  base: TokenTransfers(
+  # third query on Base
+  Base: TokenTransfers(
     input: {
       filter: {
-        _or: {
-          from: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
-          to: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+        # Only get token transfers from betashop.eth
+        from: {_eq: "betashop.eth"},
+        # Only get token transfers with non-zero amount
+        formattedAmount: {_gt: 0},
+        # Remove all minting/burning + self-transfer
+        _nor: {
+          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]}
         }
-      }
-      blockchain: base
-      limit: 50
+      },
+      blockchain: base,
+      limit: 50,
+      order: { blockTimestamp: DESC } # Order transfers by blocktimestamp in descending order
     }
   ) {
     TokenTransfer {
-      amount
       formattedAmount
-      blockTimestamp
+      tokenType
       token {
-        symbol
         name
-        decimals
       }
-      from {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          isPrimary
-          name
-        }
-      }
-      to {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          name
-          dappName
-        }
-      }
-      type
-      blockchain
     }
   }
-}
+} 
 ```
 {% endtab %}
 
 {% tab title="Response" %}
-```json
-{
+<pre class="language-json"><code class="lang-json">{
   "data": {
-    "ethereum": {
+    "Ethereum": {
       "TokenTransfer": [
         {
-          "amount": "1",
-          "formattedAmount": 1,
-          "blockTimestamp": "2022-05-06T05:10:47Z",
+          "formattedAmount": 125,
+          "tokenType": "ERC20",
           "token": {
-            "symbol": "Karafuru 3D",
-            "name": "Karafuru 3D",
-            "decimals": 0
+            "name": "USD Coin"
           },
-          "from": {
-            "addresses": ["0x0000000000000000000000000000000000000000"],
-            "socials": [
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@shatter"
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              }
-            ],
-            "domains": [
-              {
-                "isPrimary": false,
-                "name": "dappling-starter-cra-ei1tt5.dappling.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "👨🏿‍🤝‍👨🏻.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "asdkjfas.dev-poap.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "baez.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "[701636f5d42ce2b973edc83cbb7ab390f844dfbd4d8d506df4780d12c4ba318b].com"
-              },
-              {
-                "isPrimary": false,
-                "name": "smartcontractsaudit.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "[c887159df7c26ccac34df4c89ddc49c27708f30b2521e1454f6a1743aaa49fc8].crobit.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "nextjs-3eqpjx.dappling.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "nikito3.dev-poap.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "wally.dev-poap.eth"
-              }
-            ]
-          },
-          "to": {
-            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "profileName": "vitalik.eth"
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@vitalik"
-              }
-            ],
-            "domains": [
-              {
-                "name": "quantumexchange.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "7860000.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "offchainexample.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "brianshaw.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "vbuterin.stateofus.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "quantumsmartcontracts.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "Vitalik.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "openegp.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "vitalik.cannafam.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "VITALIK.eth",
-                "dappName": "ens"
-              }
-            ]
-          },
-          "type": "MINT",
-          "blockchain": "ethereum"
-        }
-        // Other Ethereum token transfers
+        },
+        // Other most recent token transfers sent by betashop.eth on Ethereum
       ]
     },
-    "polygon": {
+    "Polygon": {
+<strong>      "TokenTransfer": null // no tokens sent by betashop.eth on Polygon
+</strong>    },
+    "Base": {
       "TokenTransfer": [
         {
-          "amount": "1",
-          "formattedAmount": 1,
-          "blockTimestamp": "2022-11-25T12:22:36Z",
+          "formattedAmount": 100,
+          "tokenType": "ERC20",
           "token": {
-            "symbol": "VITALIK",
-            "name": "Cult Vitalik",
-            "decimals": 0
+            "name": "USD Coin"
           },
-          "from": {
-            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "profileName": "vitalik.eth"
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@vitalik"
-              }
-            ],
-            "domains": [
-              {
-                "isPrimary": false,
-                "name": "quantumexchange.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "7860000.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "offchainexample.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "brianshaw.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "vbuterin.stateofus.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "quantumsmartcontracts.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "Vitalik.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "openegp.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "vitalik.cannafam.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "VITALIK.eth"
-              }
-            ]
-          },
-          "to": {
-            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "profileName": "vitalik.eth"
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@vitalik"
-              }
-            ],
-            "domains": [
-              {
-                "name": "quantumexchange.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "7860000.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "offchainexample.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "brianshaw.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "vbuterin.stateofus.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "quantumsmartcontracts.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "Vitalik.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "openegp.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "vitalik.cannafam.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "VITALIK.eth",
-                "dappName": "ens"
-              }
-            ]
-          },
-          "type": "TRANSFER",
-          "blockchain": "polygon"
         }
-        // Other Polygon token transfers
-      ]
-    },
-    "base": {
-      "TokenTransfer": [
-        {
-          "amount": "1",
-          "formattedAmount": 1,
-          "blockTimestamp": "2023-09-28T21:07:57Z",
-          "token": {
-            "symbol": "SWCFIT21",
-            "name": "I Called Congress - FIT21",
-            "decimals": 0
-          },
-          "from": {
-            "addresses": ["0x0000000000000000000000000000000000000000"],
-            "socials": [
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@shatter"
-              },
-              {
-                "dappName": "lens",
-                "profileName": ""
-              }
-            ],
-            "domains": [
-              {
-                "isPrimary": false,
-                "name": "dappling-starter-cra-ei1tt5.dappling.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "👨🏿‍🤝‍👨🏻.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "asdkjfas.dev-poap.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "baez.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "[701636f5d42ce2b973edc83cbb7ab390f844dfbd4d8d506df4780d12c4ba318b].com"
-              },
-              {
-                "isPrimary": false,
-                "name": "smartcontractsaudit.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "[c887159df7c26ccac34df4c89ddc49c27708f30b2521e1454f6a1743aaa49fc8].crobit.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "nextjs-3eqpjx.dappling.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "nikito3.dev-poap.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "wally.dev-poap.eth"
-              }
-            ]
-          },
-          "to": {
-            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "profileName": "vitalik.eth"
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@vitalik"
-              }
-            ],
-            "domains": [
-              {
-                "name": "quantumexchange.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "7860000.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "offchainexample.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "brianshaw.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "vbuterin.stateofus.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "quantumsmartcontracts.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "Vitalik.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "openegp.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "vitalik.cannafam.eth",
-                "dappName": "ens"
-              },
-              {
-                "name": "VITALIK.eth",
-                "dappName": "ens"
-              }
-            ]
-          },
-          "type": "MINT",
-          "blockchain": "base"
-        }
-        // Other Base token transfers
       ]
     }
   }
 }
-```
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
-## Get The Most Recent Token Transfers Of A User(s)
+All the users returned from the `to` response field can be compiled and returned as a recommendation in your application.
+
+## Get The Most Recent Token Transfers Received By A User
+
+You can fetch most recent token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Polygon, and Base, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/oYrGbtsJOv" %}
-Show me the most recent token transfers from and to dwr.eth and fc\_fname:vitalik.eth
+{% embed url="https://app.airstack.xyz/query/iMj7ZfdCAF" %}
+Show me the most recent token transfers received by betashop.eth on Ethereum, Polygon, and Base
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-```graphql
-query GetTokenTransfers {
-  TokenTransfers(
+<pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
+  Ethereum: TokenTransfers(
     input: {
       filter: {
-        _or: {
-          from: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
-          to: { _in: ["dwr.eth", "fc_fname:vbuterin"] }
+        # Only get token transfers to betashop.eth
+<strong>        to: {_eq: "betashop.eth"},
+</strong>        # Only get token transfers with non-zero amount
+<strong>        formattedAmount: {_gt: 0},
+</strong>        # Remove all minting/burning + self-transfer
+<strong>        _nor: {
+</strong>          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]}
         }
-      }
-      blockchain: ethereum
-      limit: 50
-      order: { blockTimestamp: DESC }
-    }
+      },
+      blockchain: ethereum,
+      limit: 50,
+<strong>      order: { blockTimestamp: DESC } # Order transfers by blocktimestamp in descending order
+</strong>    }
   ) {
     TokenTransfer {
-      amount
-      blockTimestamp
+      formattedAmount
+      tokenType
       token {
-        symbol
         name
-        decimals
       }
-      from {
-        addresses
-        socials {
-          dappName
-          profileName
+    }
+  }
+  Polygon: TokenTransfers(
+    input: {
+      filter: {
+        # Only get token transfers to betashop.eth
+<strong>        to: {_eq: "betashop.eth"},
+</strong>        # Only get token transfers with non-zero amount
+<strong>        formattedAmount: {_gt: 0},
+</strong>        # Remove all minting/burning + self-transfer
+<strong>        _nor: {
+</strong>          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]}
         }
-        domains {
-          isPrimary
-          name
-        }
+      },
+      blockchain: polygon,
+      limit: 50,
+<strong>      order: { blockTimestamp: DESC } # Order transfers by blocktimestamp in descending order
+</strong>    }
+  ) {
+    TokenTransfer {
+      formattedAmount
+      tokenType
+      token {
+        name
       }
-      to {
-        addresses
-        socials {
-          dappName
-          profileName
+    }
+  }
+  Base: TokenTransfers(
+    input: {
+      filter: {
+        # Only get token transfers to betashop.eth
+        to: {_eq: "betashop.eth"},
+        # Only get token transfers with non-zero amount
+        formattedAmount: {_gt: 0},
+        # Remove all minting/burning + self-transfer
+        _nor: {
+          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]},
+          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]}
         }
-        domains {
-          isPrimary
-          name
-        }
+      },
+      blockchain: base,
+      limit: 50,
+<strong>      order: { blockTimestamp: DESC } # Order transfers by blocktimestamp in descending order
+</strong>    }
+  ) {
+    TokenTransfer {
+      formattedAmount
+      tokenType
+      token {
+        name
       }
-      type
     }
   }
 }
-```
+</code></pre>
 {% endtab %}
 
 {% tab title="Response" %}
-```json
-{
+<pre class="language-json"><code class="lang-json">{
   "data": {
-    "TokenTransfers": {
+    "Ethereum": {
       "TokenTransfer": [
         {
-          "amount": "1458330000000000",
-          "blockTimestamp": "2023-12-05T07:57:59Z",
+          "formattedAmount": 1250,
+          "tokenType": "ERC20",
           "token": {
-            "symbol": "Antspepe",
-            "name": "Antspepe",
-            "decimals": 8
+            "name": "USD Coin"
           },
-          "from": {
-            "addresses": ["0x9720a34e34096c4921eef16ba7936ab801d0c489"],
-            "socials": null,
-            "domains": null
-          },
-          "to": {
-            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "profileName": "vitalik.eth"
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@vitalik"
-              }
-            ],
-            "domains": [
-              {
-                "isPrimary": false,
-                "name": "quantumexchange.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "7860000.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "offchainexample.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "brianshaw.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "vbuterin.stateofus.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "quantumsmartcontracts.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "Vitalik.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "openegp.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "vitalik.cannafam.eth"
-              },
-              {
-                "isPrimary": false,
-                "name": "VITALIK.eth"
-              }
-            ]
-          },
-          "type": "TRANSFER"
-        }
-        // More recent Ethereum token transfers
+        },
+        // Other most recent token transfers received by betashop.eth on Ethereum
       ]
-    }
+    },
+    "Polygon": {
+      "TokenTransfer": [
+        {
+          "formattedAmount": 0.002298977414845877,
+          "tokenType": "ERC20",
+          "token": {
+            "name": "Stable Coin"
+          },
+        },
+        // Other most recent token transfers received by betashop.eth on Polygon
+      ]
+    },
+    "Base": {
+<strong>      "TokenTransfer": null // No tokens received by betashop.eth on Base
+</strong>    }
   }
 }
-```
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
