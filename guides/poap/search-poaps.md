@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack RegEx Filter to search for POAPs that fulfill the
   given criteria
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🔎 Search POAPs
