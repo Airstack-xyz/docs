@@ -19,7 +19,7 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [POAP](https://poap.xyz/) applications and for integrating POAP on-chain data indexed directly from both Ethereum and Gnosis.
 
-Using the `_regex` operator in [`PoapEvents`](../../api-references/api-reference/poapevents-api.md) API, now you can search for POAPs easily with any regex script and build your very own POAP search engine into your application.
+Using the `_regex` operator in [`PoapEvents`](../../api-references/api-reference/poapevents-api.md) API, now you can search for POAPs easily with any [standard regex patterns](https://learn.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference) and build your very own POAP search engine into your application.
 
 ## Table Of Contents
 
