@@ -3,6 +3,17 @@ description: >-
   Airstack provides easy-to-use APIs for enriching ENS applications and
   integrating ENS on-chain and off-chain (cb.id & Namestone subdomains) data
   indexed directly from both Ethereum.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🔷 ENS Domain
