@@ -544,9 +544,7 @@ If you have any questions or need help regarding fetching POAP balances, please 
   * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
 * [Tokens In Common](../tokens-in-common/)
   * [POAPs](../tokens-in-common/poaps.md)
-
-1. e.g. `vitalik.eth`
-2. e.g. `fc_fid:602`
+* [Search POAPs](search-poaps.md)
 
 [^1]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
 

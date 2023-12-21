@@ -79,6 +79,7 @@
   * [⚖ POAP Balances](guides/poap/poap-balances.md)
   * [🗝 POAP Holders](guides/poap/poap-holders.md)
   * [🥳 POAP Events](guides/poap/poap-events.md)
+  * [🔎 Search POAPs](guides/poap/search-poaps.md)
   * [🚪 Token Gating](guides/poap/token-gating.md)
 * [🪆 Tokenbound ERC6551](guides/token-bound-accounts/README.md)
   * [♦ NFTs](guides/token-bound-accounts/nfts.md)

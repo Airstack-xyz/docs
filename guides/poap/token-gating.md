@@ -381,3 +381,4 @@ If you have any questions or need help building token gating with POAPs, please 
   * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
 * [Tokens In Common](../tokens-in-common/)
   * [POAPs](../tokens-in-common/poaps.md)
+* [Search POAPs](search-poaps.md)
