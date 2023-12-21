@@ -17,24 +17,24 @@ layout:
 
 # 💸 Token Transfers
 
-Frequent token transfers between two parties could be a good indication that the parties involved know each other. Therefore, you can also use token transfers to build your contact recommendation feature.
+Token transfers between two parties could be a good indication that the parties involved know each other. Therefore, you can also use token transfers to build your recommendation engine.
 
-To build such a contact recommendation feature, Airstack provides a [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API for you to fetch all ERC20 token transfer data from either a user or multiple users on Ethereum, Polygon, and Base.
+To build such a recommendation engine, Airstack provides a [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API for you to fetch all ERC20/721/1155 token transfer data from either a user or multiple users on Ethereum, Polygon, and Base.
 
 ## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-* [Get Token Transfers Of A User(s) on Ethereum](token-transfers.md#get-token-transfers-of-a-user-s-on-ethereum)
-* [Get Token Transfers Of A User(s) on Polygon](token-transfers.md#get-token-transfers-of-a-user-s-on-polygon)
-* [Get Token Transfers Of A User(s) on Base](token-transfers.md#get-token-transfers-of-a-user-s-on-base)
-* [Get Token Transfers Of A User(s) on Multiple Chains](token-transfers.md#get-token-transfers-of-a-user-s-on-multiple-chains)
-* [Get The Most Recent Token Transfers Of A User(s)](token-transfers.md#get-the-most-recent-token-transfers-of-a-user-s)
+- [Get Token Transfers Of A User(s) on Ethereum](token-transfers.md#get-token-transfers-of-a-user-s-on-ethereum)
+- [Get Token Transfers Of A User(s) on Polygon](token-transfers.md#get-token-transfers-of-a-user-s-on-polygon)
+- [Get Token Transfers Of A User(s) on Base](token-transfers.md#get-token-transfers-of-a-user-s-on-base)
+- [Get Token Transfers Of A User(s) on Multiple Chains](token-transfers.md#get-token-transfers-of-a-user-s-on-multiple-chains)
+- [Get The Most Recent Token Transfers Of A User(s)](token-transfers.md#get-the-most-recent-token-transfers-of-a-user-s)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -55,6 +55,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -69,6 +70,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -83,12 +85,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -96,6 +101,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -119,9 +125,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -134,9 +142,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -154,6 +164,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -172,13 +183,14 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/Cxy3fiJAKd" %}
-Show me token transfers from and to dwr.eth and fc\_fname:vitalik.eth on Ethereum
+Show me token transfers from and to dwr.eth and fc_fname:vitalik.eth on Ethereum
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetTokenTransfers {
   TokenTransfers(
@@ -194,44 +206,20 @@ query GetTokenTransfers {
     }
   ) {
     TokenTransfer {
-      amount
       formattedAmount
-      blockTimestamp
+      tokenType
       token {
-        symbol
         name
-        decimals
       }
-      from {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          isPrimary
-          name
-        }
-      }
-      to {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          name
-          dappName
-        }
-      }
-      type
     }
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -396,6 +384,7 @@ query GetTokenTransfers {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -404,13 +393,14 @@ query GetTokenTransfers {
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/KcoFgsDUJR" %}
-Show me token transfers from and to dwr.eth and fc\_fname:vitalik.eth on Polygon
+Show me token transfers from and to dwr.eth and fc_fname:vitalik.eth on Polygon
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetTokenTransfers {
   TokenTransfers(
@@ -426,44 +416,20 @@ query GetTokenTransfers {
     }
   ) {
     TokenTransfer {
-      amount
       formattedAmount
-      blockTimestamp
+      tokenType
       token {
-        symbol
         name
-        decimals
       }
-      from {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          isPrimary
-          name
-        }
-      }
-      to {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          name
-          dappName
-        }
-      }
-      type
     }
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -596,6 +562,7 @@ query GetTokenTransfers {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -604,13 +571,14 @@ query GetTokenTransfers {
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/HyCEvCtw1e" %}
-Show me token transfers from and to dwr.eth and fc\_fname:vitalik.eth on Base
+Show me token transfers from and to dwr.eth and fc_fname:vitalik.eth on Base
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetTokenTransfers {
   TokenTransfers(
@@ -626,44 +594,20 @@ query GetTokenTransfers {
     }
   ) {
     TokenTransfer {
-      amount
       formattedAmount
-      blockTimestamp
+      tokenType
       token {
-        symbol
         name
-        decimals
       }
-      from {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          isPrimary
-          name
-        }
-      }
-      to {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          name
-          dappName
-        }
-      }
-      type
     }
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Second Tab" %}
+
 ```json
 {
   "data": {
@@ -828,6 +772,7 @@ query GetTokenTransfers {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -836,13 +781,14 @@ query GetTokenTransfers {
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/ARv7hFj3ki" %}
-Show me token transfers from and to dwr.eth and fc\_fname:vitalik.eth
+Show me token transfers from and to dwr.eth and fc_fname:vitalik.eth
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetTokenTransfers {
   # first query on Ethereum
@@ -859,38 +805,11 @@ query GetTokenTransfers {
     }
   ) {
     TokenTransfer {
-      amount
       formattedAmount
-      blockTimestamp
+      tokenType
       token {
-        symbol
         name
-        decimals
       }
-      from {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          isPrimary
-          name
-        }
-      }
-      to {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          name
-          dappName
-        }
-      }
-      type
-      blockchain
     }
   }
   # second query on Polygon
@@ -907,38 +826,11 @@ query GetTokenTransfers {
     }
   ) {
     TokenTransfer {
-      amount
       formattedAmount
-      blockTimestamp
+      tokenType
       token {
-        symbol
         name
-        decimals
       }
-      from {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          isPrimary
-          name
-        }
-      }
-      to {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          name
-          dappName
-        }
-      }
-      type
-      blockchain
     }
   }
   # third query on Polygon
@@ -955,52 +847,26 @@ query GetTokenTransfers {
     }
   ) {
     TokenTransfer {
-      amount
       formattedAmount
-      blockTimestamp
+      tokenType
       token {
-        symbol
         name
-        decimals
       }
-      from {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          isPrimary
-          name
-        }
-      }
-      to {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          name
-          dappName
-        }
-      }
-      type
-      blockchain
     }
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
     "ethereum": {
       "TokenTransfer": [
         {
-          "amount": "1",
           "formattedAmount": 1,
           "blockTimestamp": "2022-05-06T05:10:47Z",
           "token": {
@@ -1445,6 +1311,7 @@ query GetTokenTransfers {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1453,13 +1320,14 @@ query GetTokenTransfers {
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/oYrGbtsJOv" %}
-Show me the most recent token transfers from and to dwr.eth and fc\_fname:vitalik.eth
+Show me the most recent token transfers from and to dwr.eth and fc_fname:vitalik.eth
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetTokenTransfers {
   TokenTransfers(
@@ -1476,43 +1344,20 @@ query GetTokenTransfers {
     }
   ) {
     TokenTransfer {
-      amount
-      blockTimestamp
+      formattedAmount
+      tokenType
       token {
-        symbol
         name
-        decimals
       }
-      from {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          isPrimary
-          name
-        }
-      }
-      to {
-        addresses
-        socials {
-          dappName
-          profileName
-        }
-        domains {
-          isPrimary
-          name
-        }
-      }
-      type
     }
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1594,14 +1439,15 @@ query GetTokenTransfers {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Developer Support
 
-If you have any questions or need help regarding integrating or building recommendation engine with token transfers data into your application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding integrating or building recommendation engine with token transfer data into your application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
-* [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api.md)
-* [On-Chain Graph](../onchain-graph.md)
+- [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api.md)
+- [On-Chain Graph](../onchain-graph.md)
