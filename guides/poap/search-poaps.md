@@ -228,7 +228,7 @@ Search all POAPs that starts with ETHGlobal
 
 ## Search All POAPs In Case Insensitive Manner
 
-You can search all POAP events that contain a given word in an insensitive manner by using the [`PoapEvents`](../../api-references/api-reference/poapevents-api.md) API:
+You can search all POAP events that contain a given word in a case-insensitive manner by using the [`PoapEvents`](../../api-references/api-reference/poapevents-api.md) API:
 
 {% hint style="info" %}
 When doing case-insensitive search, it is **best practice** that you use `(?i)devcon` pattern instead of others (e.g. `[Dd]evcon`).
