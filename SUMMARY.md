@@ -73,6 +73,7 @@
   * [🗝 NFT Holders](guides/nft/nft-holders.md)
   * [🧹 Spam NFT](guides/nft/spam-nft.md)
 * [🔷 ENS Domain](guides/ens-domain/README.md)
+  * [🆔 Resolve ENS Domain](guides/ens-domain/resolve-ens-domain.md)
   * [🖼 Profile Image](guides/ens-domain/profile-image.md)
 * [⚡ POAP](guides/poap/README.md)
   * [⚖ POAP Balances](guides/poap/poap-balances.md)
