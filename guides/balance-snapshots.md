@@ -17,7 +17,7 @@ layout:
 
 # 📸 Balance Snapshots
 
-[Airstack](https://airstack.xyz) provides easy-to-use [Snapshots API](../api-references/api-reference/snapshots-api.md)s for fetching token balances at a specific point in time. This feature set is currently available for the Base blockchain and will be available soon for Ethereum and Polygon.&#x20;
+[Airstack](https://airstack.xyz) provides easy-to-use [Snapshots API](../api-references/api-reference/snapshots-api.md)s for fetching token balances at a specific point in time. This feature set is currently available for the Ethereum and Base blockchain and will be available soon for Polygon.&#x20;
 
 The [Snapshots API](../api-references/api-reference/snapshots-api.md) use timestamp, date, or block number as an input to specify the time:
 

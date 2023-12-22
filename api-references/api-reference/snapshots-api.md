@@ -37,9 +37,10 @@ The Snapshots API works by returning token balances/holders on a given time, fol
 
 ### Blockchain
 
-| Name   | Description  |
-| ------ | ------------ |
-| `base` | Base mainnet |
+| Name       | Description      |
+| ---------- | ---------------- |
+| `ethereum` | Ethereum mainnet |
+| `base`     | Base mainnet     |
 
 ### Outputs
 

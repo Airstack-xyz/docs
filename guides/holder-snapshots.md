@@ -15,14 +15,14 @@ layout:
 
 # ⛓ Holder Snapshots
 
-[Airstack](https://airstack.xyz) provides easy-to-use [Snapshots API](../api-references/api-reference/snapshots-api.md)s for fetching token holders at a specific point in time. This feature set is currently available for the Base blockchain and will be available soon for Ethereum and Polygon.&#x20;
+[Airstack](https://airstack.xyz) provides easy-to-use [Snapshots API](../api-references/api-reference/snapshots-api.md)s for fetching token holders at a specific point in time. This feature set is currently available for the Ethereum and Base blockchain and will be available soon for Polygon.&#x20;
 
 ## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get ERC20 Token Holders at a Specified Time](holder-snapshots.md#get-erc20-token-holders-snapshot-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
-* [Get NFT Collection Holders at a Specified Time](holder-snapshots.md#get-nft-collection-holders-snapshot-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
+* [Get ERC20 Token Holders at a Specified Time on Base](holder-snapshots.md#get-erc20-token-holders-snapshot-on-base-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
+* [Get NFT Collection Holders at a Specified Time on Base](holder-snapshots.md#get-nft-collection-holders-snapshot-on-base-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
 
 ## Pre-requisites
 
@@ -160,13 +160,278 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Get ERC20 Token Holders Snapshot at a Specified Time
+## Get ERC20 Token Holders Snapshot On Base at a Specified Time
 
-You can fetch all the tokens holders of an ERC20 at a specified time by using [`Snapshots`](../api-references/api-reference/snapshots-api.md) API and providing the ERC20 token address to `tokenAddress` input and time input to either `date`, `timestamp` or `blockNumber`:
+You can fetch all the tokens holders of an ERC20 at a specified time on Ethereum by using [`Snapshots`](../api-references/api-reference/snapshots-api.md) API and providing the ERC20 token address to `tokenAddress` input and time input to either `date`, `timestamp` or `blockNumber`:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/RlfipZZEEK" %}
+Show me holder snapshots of ERC20 token USDC on Ethereum
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Snapshots(
+    input: {
+      filter: {
+        date: {_eq: "2023-12-01"},
+        tokenType: {_eq: ERC20},
+        tokenAddress: {_eq: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Snapshot {
+      owner {
+        addresses
+        domains {
+          name
+          isPrimary
+        }
+        socials {
+          profileName
+          dappName
+        }
+        xmtp {
+          isXMTPEnabled
+        }
+      }
+      startBlockNumber
+      startBlockTimestamp
+      endBlockNumber
+      endBlockTimestamp
+    }
+    pageInfo {
+      hasNextPage
+      hasPrevPage
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Snapshots": {
+      "Snapshot": [
+        {
+          "owner": {
+            "addresses": [
+              "0xa33bea09c687dde84d46c314a5035053fb5b7ae0"
+            ],
+            "domains": [
+              {
+                "name": "josedao.eth",
+                "isPrimary": false
+              },
+              // Other ENS domains
+            ],
+            "socials": null,
+            "xmtp": null
+          },
+          "startBlockNumber": 14403557,
+          "startBlockTimestamp": "2022-03-17T10:45:44Z",
+<strong>          "endBlockNumber": -1, // -1 indicate that the user still hold the token at present
+</strong>          "endBlockTimestamp": "2023-12-22T10:43:10Z"
+        },
+        {
+          "owner": {
+            "addresses": [
+              "0x9ded50a74342fdfa27fd9fc6d7bc5238852c4c69"
+            ],
+            "domains": null,
+            "socials": null,
+            "xmtp": null
+          },
+          "startBlockNumber": 16645470,
+          "startBlockTimestamp": "2023-02-17T02:28:35Z",
+<strong>          "endBlockNumber": -1, // -1 indicate that the user still hold the token at present
+</strong>          "endBlockTimestamp": "2023-12-22T10:43:10Z"
+        },
+        {
+          "owner": {
+            "addresses": [
+              "0x907016209b974bd4a456f3c0ec66bd387ef6e93d"
+            ],
+            "domains": null,
+            "socials": null,
+            "xmtp": null
+          },
+          "startBlockNumber": 18486290,
+          "startBlockTimestamp": "2023-11-02T18:51:11Z",
+<strong>          "endBlockNumber": -1, // -1 indicate that the user still hold the token at present
+</strong>          "endBlockTimestamp": "2023-12-22T10:43:10Z"
+        },
+        // Other USDC holders on 2023-12-01
+      ],
+      "pageInfo": {
+        "hasNextPage": true,
+        "hasPrevPage": false,
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjExMzgwYWRkNTFhODliNTU1MDg2MjBiNjBiY2YxNTIxIiwiRGF0YVR5cGUiOiJzdHJpbmcifX0sIlBhZ2luYXRpb25EaXJlY3Rpb24iOiJORVhUIn0=",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Get NFT Collection Holders Snapshot on Base at a Specified Time
+
+You can fetch all the tokens holders of an NFT collection at a specified time on Ethereum by using [`Snapshots`](../api-references/api-reference/snapshots-api.md) API and providing the NFT collection address to `tokenAddress` input and time input to either `date`, `timestamp` or `blockNumber`:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/PsFHGX4gsb" %}
+Show token holder snapshots of NFT collection BAYC on Ethereum at 2023-12-01
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Snapshots(
+    input: {
+      filter: {
+        date: {_eq: "2023-12-01"},
+        tokenType: {_in: [ERC721, ERC1155]},
+        tokenAddress: {_eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"}
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Snapshot {
+      owner {
+        addresses
+        domains {
+          name
+          isPrimary
+        }
+        socials {
+          profileName
+          dappName
+        }
+        xmtp {
+          isXMTPEnabled
+        }
+      }
+      tokenId
+      tokenNft {
+        contentValue {
+          image {
+            extraSmall
+            large
+            medium
+            original
+            small
+          }
+        }
+        metaData {
+          name
+          description
+          attributes {
+            value
+            trait_type
+            maxValue
+            displayType
+          }
+        }
+      }
+      startBlockNumber
+      startBlockTimestamp
+      endBlockNumber
+      endBlockTimestamp
+    }
+    pageInfo {
+      hasNextPage
+      hasPrevPage
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Snapshots": {
+      "Snapshot": [
+        {
+          "owner": {
+            "addresses": [
+              "0x3b3a9d6e11931a0f0b992f029cc2289f108736de"
+            ],
+            "domains": null,
+            "socials": null,
+            "xmtp": null
+          },
+          "tokenId": "477",
+          "tokenNft": {
+            "contentValue": {
+              "image": {
+                "extraSmall": "https://assets.airstack.xyz/image/nft/D+0AQrSsYYaYPkhHjNpMvNeST+YQ2SI7M2u7bB7tjmLB2yzUS6GJMnuY4OdFSDSFmmu7mpqwl3eJ8Lerg6+OhQ==/extra_small.png",
+                "large": "https://assets.airstack.xyz/image/nft/D+0AQrSsYYaYPkhHjNpMvNeST+YQ2SI7M2u7bB7tjmLB2yzUS6GJMnuY4OdFSDSFmmu7mpqwl3eJ8Lerg6+OhQ==/large.png",
+                "medium": "https://assets.airstack.xyz/image/nft/D+0AQrSsYYaYPkhHjNpMvNeST+YQ2SI7M2u7bB7tjmLB2yzUS6GJMnuY4OdFSDSFmmu7mpqwl3eJ8Lerg6+OhQ==/medium.png",
+                "original": "https://assets.airstack.xyz/image/nft/D+0AQrSsYYaYPkhHjNpMvNeST+YQ2SI7M2u7bB7tjmLB2yzUS6GJMnuY4OdFSDSFmmu7mpqwl3eJ8Lerg6+OhQ==/original_image.png",
+                "small": "https://assets.airstack.xyz/image/nft/D+0AQrSsYYaYPkhHjNpMvNeST+YQ2SI7M2u7bB7tjmLB2yzUS6GJMnuY4OdFSDSFmmu7mpqwl3eJ8Lerg6+OhQ==/small.png"
+              }
+            },
+            "metaData": {
+              "name": "",
+              "description": "",
+              "attributes": [
+                {
+                  "value": "Bored",
+                  "trait_type": "Mouth",
+                  "maxValue": null,
+                  "displayType": null
+                },
+                // other attributes
+              ]
+            }
+          },
+          "startBlockNumber": 14112920,
+          "startBlockTimestamp": "2022-01-31T09:49:41Z",
+<strong>          "endBlockNumber": -1, // -1 indicate that the user still hold the token at present
+</strong>          "endBlockTimestamp": "2023-12-22T10:52:19Z"
+        },
+        // Other holders of BAYC on 2023-12-01
+      ],
+      "pageInfo": {
+        "hasNextPage": true,
+        "hasPrevPage": false,
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjExMzgwYWRkNTFhODliNTU1MDg2MjBiNjBiY2YxNTIxIiwiRGF0YVR5cGUiOiJzdHJpbmcifX0sIlBhZ2luYXRpb25EaXJlY3Rpb24iOiJORVhUIn0=",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Get ERC20 Token Holders Snapshot On Base at a Specified Time
+
+You can fetch all the tokens holders of an ERC20 at a specified time on Base by using [`Snapshots`](../api-references/api-reference/snapshots-api.md) API and providing the ERC20 token address to `tokenAddress` input and time input to either `date`, `timestamp` or `blockNumber`:
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/7uE9NJTAz7" %}
+Show me holder snapshots of ERC20 token 0x4158734d47fc9692176b5085e0f52ee0da5d47f1 on Base
+{% endembed %}
 
 ### Code
 
@@ -281,9 +546,9 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## Get NFT Collection Holders Snapshot at a Specified Time
+## Get NFT Collection Holders Snapshot on Base at a Specified Time
 
-You can fetch all the tokens holders of an NFT collection at a specified time by using [`Snapshots`](../api-references/api-reference/snapshots-api.md) API and providing the NFT collection address to `tokenAddress` input and time input to either `date`, `timestamp` or `blockNumber`:
+You can fetch all the tokens holders of an NFT collection at a specified time on Base by using [`Snapshots`](../api-references/api-reference/snapshots-api.md) API and providing the NFT collection address to `tokenAddress` input and time input to either `date`, `timestamp` or `blockNumber`:
 
 ### Try Demo
 
