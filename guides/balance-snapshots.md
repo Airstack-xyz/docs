@@ -46,7 +46,8 @@ For more details, check out the [Snapshots API references](../api-references/api
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get User's Token Balances at a Specified Time](balance-snapshots.md#get-users-token-balances-of-specified-time) (`date`, `timestamp` or `blockNumber`)
+* [Get User's Token Balances Of Specified Time on Ethereum](balance-snapshots.md#get-users-token-balances-of-specified-time-on-base) (`date`, `timestamp` or `blockNumber`)
+* [Get User's Token Balances at a Specified Time on Base](balance-snapshots.md#get-users-token-balances-of-specified-time-on-base) (`date`, `timestamp` or `blockNumber`)
 * [Get User's Historical Balance Of Specified ERC20 Token](balance-snapshots.md#get-users-historical-balances-of-specified-erc20-token)
 * [Get User's Historical Balance Of Specified NFT Collection](balance-snapshots.md#get-users-historical-balance-of-specified-nft-collection)
 * [Get User's Historical Balance Of Specified NFT](balance-snapshots.md#get-users-historical-balance-of-specified-nft)
@@ -188,14 +189,121 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Get User's Token Balances Of Specified Time
+## Get User's Token Balances Of Specified Time on Ethereum
 
-You can fetch all the tokens ever held by user at a specified time by using [`Snapshots`](../api-references/api-reference/snapshots-api.md) API and providing user(s) 0x address, ENS, cb.id, Lens, or Farcaster to `owner` input and time input to either `date`, `timestamp` or `blockNumber`:
+You can fetch all the tokens ever held by user at a specified time on Ethereum by using [`Snapshots`](../api-references/api-reference/snapshots-api.md) API and providing user(s) 0x address, ENS, cb.id, Lens, or Farcaster to `owner` input and time input to either `date`, `timestamp` or `blockNumber`:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/6mXI6CHjL8" %}
+Show me balance snapshots of users on Ethereum on Aug 18, 2023
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  Snapshots(
+    input: {
+      filter: {
+        owner: {
+          _in: [
+            "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "vitalik.eth",
+            "lens/@vitalik",
+            "fc_fname:vitalik"
+          ]
+        },
+<strong>        date: {_eq: "2023-08-18"} # Specifying date to Aug 18, 2023
+</strong>      },
+      blockchain: ethereum,
+      limit: 200
+    }
+  ) {
+    Snapshot {
+      tokenAddress
+      tokenId
+      tokenType
+      token {
+        name
+        symbol
+        isSpam
+      }
+      tokenNft {
+        contentValue {
+          image {
+            extraSmall
+            large
+            medium
+            original
+            small
+          }
+        }
+      }
+      startBlockNumber
+      startBlockTimestamp
+      endBlockNumber
+      endBlockTimestamp
+    }
+    pageInfo {
+      hasNextPage
+      hasPrevPage
+      nextCursor
+      prevCursor
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Snapshots": {
+      "Snapshot": [
+        {
+          "tokenAddress": "0xa1f92f70dce96c7cd32aafd93cd4bff7debdf853",
+          "tokenId": "162",
+          "tokenType": "ERC721",
+          "token": {
+            "name": "Cosmic Corpse Society",
+            "symbol": "CCS",
+            "isSpam": false
+          },
+          "tokenNft": {
+            "contentValue": {
+              "image": null
+            }
+          },
+          "startBlockNumber": 15537991,
+          "startBlockTimestamp": "2022-09-15T08:44:23Z",
+<strong>          "endBlockNumber": -1, // -1 indicate asset is no longer hold at present date
+</strong>          "endBlockTimestamp": "2023-12-22T12:04:57Z"
+        },
+        // Other Ethereum tokens held specifically on Aug 18, 2023
+      ],
+      "pageInfo": {
+        "hasNextPage": true,
+        "hasPrevPage": false,
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjBjMWVlOTZmYjkyMzc1OWM3MGRlMWQ2ZmRlZGFiZTE5IiwiRGF0YVR5cGUiOiJzdHJpbmcifX0sIlBhZ2luYXRpb25EaXJlY3Rpb24iOiJORVhUIn0=",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Get User's Token Balances Of Specified Time on Base
+
+You can fetch all the tokens ever held by user at a specified time on Base by using [`Snapshots`](../api-references/api-reference/snapshots-api.md) API and providing user(s) 0x address, ENS, cb.id, Lens, or Farcaster to `owner` input and time input to either `date`, `timestamp` or `blockNumber`:
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/4gYLbXKAgh" %}
-Show me balance snapshots of users on Aug 18, 2023
+Show me balance snapshots of users on Base on Aug 18, 2023
 {% endembed %}
 
 ### Code
@@ -283,10 +391,10 @@ Show me balance snapshots of users on Aug 18, 2023
           },
           "startBlockNumber": 2790948,
           "startBlockTimestamp": "2023-08-18T15:07:23Z",
-<strong>          "endBlockNumber": -1, // Asset is no longer hold at present date
+<strong>          "endBlockNumber": -1, // -1 indicate asset is no longer hold at present date
 </strong>          "endBlockTimestamp": "2023-12-06T20:35:37Z"
         },
-        // Other tokens held specifically on Aug 18, 2023
+        // Other Base tokens held specifically on Aug 18, 2023
       ],
       "pageInfo": {
         "hasNextPage": true,
