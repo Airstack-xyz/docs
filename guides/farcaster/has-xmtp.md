@@ -34,17 +34,17 @@ Developers building with [XMTP](https://xmtp.org) can use [Airstack](https://air
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Check if Farcaster User Has XMTP Enabled](has-xmtp.md#check-farcaster-has-xmtp-enabled)
-* [Bulk Check Farcaster Users Have XMTP Enabled](has-xmtp.md#bulk-check-farcasters-have-xmtp-enabled)
-* [Get all 0x addresses of Farcaster user(s)](has-xmtp.md#get-all-0x-addresses-of-farcaster-user-s)
-* [Get all Farcasters owned by 0x address](has-xmtp.md#get-all-farcasters-owned-by-0x-address)
-* [Get Farcaster Followers of Farcaster User(s) that has XMTP Enabled](has-xmtp.md#get-farcaster-followers-of-farcaster-user-s-that-has-xmtp-enabled)
-* [Get Farcaster Followings of Farcaster User(s) that has XMTP Enabled](has-xmtp.md#get-farcaster-followings-of-farcaster-user-s-that-has-xmtp-enabled)
+- [Check if Farcaster User Has XMTP Enabled](has-xmtp.md#check-farcaster-has-xmtp-enabled)
+- [Bulk Check Farcaster Users Have XMTP Enabled](has-xmtp.md#bulk-check-farcasters-have-xmtp-enabled)
+- [Get all 0x addresses of Farcaster user(s)](has-xmtp.md#get-all-0x-addresses-of-farcaster-user-s)
+- [Get all Farcasters owned by 0x address](has-xmtp.md#get-all-farcasters-owned-by-0x-address)
+- [Get Farcaster Followers of Farcaster User(s) that has XMTP Enabled](has-xmtp.md#get-farcaster-followers-of-farcaster-user-s-that-has-xmtp-enabled)
+- [Get Farcaster Followings of Farcaster User(s) that has XMTP Enabled](has-xmtp.md#get-farcaster-followings-of-farcaster-user-s-that-has-xmtp-enabled)
 
 ### Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ### Get Started
 
@@ -65,6 +65,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -79,6 +80,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -93,12 +95,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -106,6 +111,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -129,9 +135,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -144,9 +152,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -164,6 +174,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -191,6 +202,7 @@ Check Farcaster has XMTP enabled (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   XMTPs(
@@ -205,9 +217,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -221,6 +235,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -238,6 +253,7 @@ Check Farcaster Name and ID have XMTP enabled (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   XMTPs(
@@ -258,9 +274,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -277,6 +295,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -294,6 +313,7 @@ Show 0x addresses of Farcaster user name dwr.eth and user ID 1
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetAddressesOfFarcasters {
   Socials(
@@ -308,9 +328,11 @@ query GetAddressesOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -340,6 +362,7 @@ query GetAddressesOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -357,6 +380,7 @@ Show Farcasters owned by Ethereum address 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA9
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetFarcastersOfEthereumAddress {
   Socials(
@@ -376,9 +400,11 @@ query GetFarcastersOfEthereumAddress {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -397,6 +423,7 @@ query GetFarcastersOfEthereumAddress {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -407,13 +434,14 @@ You can get the list of Farcaster followers of Farcaster user(s) and check if ea
 #### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/pRTpTuyHa8" %}
-Show me Farcaster followers of fc\_fname:dwr.eth, fc\_fid:602, varunsrin.eth, and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 and check if XMTP is enabled
+Show me Farcaster followers of fc_fname:dwr.eth, fc_fid:602, varunsrin.eth, and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 and check if XMTP is enabled
 {% endembed %}
 
 #### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -463,9 +491,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -526,6 +556,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -536,13 +567,14 @@ You can get the list of Farcaster following of Farcaster user(s) and check if ea
 #### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/Gpgb0KvNyb" %}
-Show me Farcaster following of fc\_fname:dwr.eth, fc\_fid:602, varunsrin.eth, and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 and if XMTP is enabled
+Show me Farcaster following of fc_fname:dwr.eth, fc_fid:602, varunsrin.eth, and 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 and if XMTP is enabled
 {% endembed %}
 
 #### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   SocialFollowings(
@@ -591,9 +623,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -664,6 +698,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -673,22 +708,18 @@ If you have any questions or need help regarding checking if Farcaster(s) have X
 
 ### More Resources
 
-* [Has XMTP](../xmtp/)
-  * [Check Farcaster](../xmtp/check-single-user.md#by-farcaster-name-or-id)
-  * [Bulk Check Farcasters](has-xmtp.md#bulk-check-farcasters-have-xmtp-enabled)
-* [Resolve Farcaster Users](resolve-farcaster-users.md)
-* [Farcaster Resolver Demo](broken-reference)
-* [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)
-* [Socials API Reference](../../api-references/api-reference/socials-api.md)
-* [Domains API Reference](../../api-references/api-reference/domains-api.md)
+- [Has XMTP](../xmtp/)
+  - [Check Farcaster](../xmtp/check-single-user.md#by-farcaster-name-or-id)
+  - [Bulk Check Farcasters](has-xmtp.md#bulk-check-farcasters-have-xmtp-enabled)
+- [Resolve Farcaster Users](resolve-farcaster-users.md)
+- [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)
+- [Socials API Reference](../../api-references/api-reference/socials-api.md)
+- [Domains API Reference](../../api-references/api-reference/domains-api.md)
 
 1. e.g. `varunsrin.eth`
 2. e.g. `fc_fid:602`
 
 [^1]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
-
 [^2]: e.g. `fc_fname:dwr.eth`
-
 [^3]: e.g. `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
-
 [^4]: e.g. `fc_fname:dwr.eth`

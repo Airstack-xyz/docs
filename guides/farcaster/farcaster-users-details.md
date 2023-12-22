@@ -25,19 +25,19 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-* [Get Farcaster Profile Details By Farcaster ID](farcaster-users-details.md#get-farcaster-profile-details-by-farcaster-id)
-* [Get Farcaster Profile Details By Farcaster Name](farcaster-users-details.md#get-farcaster-profile-details-by-farcaster-name)
-* [Get Farcaster Profile Details By 0x address](farcaster-users-details.md#get-farcaster-profile-details-by-0x-address)
-* [Get Farcaster Profile Details By ENS Domain](farcaster-users-details.md#get-farcaster-profile-details-by-ens-domain)
-* [Get Farcaster Profile Details By Lens Profile Name](farcaster-users-details.md#get-farcaster-profile-details-by-lens-profile-name)
-* [Get Farcaster Profile Details By Lens Profile ID](farcaster-users-details.md#get-farcaster-profile-details-by-lens-profile-id)
-* [Bulk Query Farcaster Profile Details](farcaster-users-details.md#bulk-query-farcaster-profile-details)
-* [Bulk Query All Farcaster Users Profile Details](farcaster-users-details.md#bulk-query-all-farcaster-users-profile-details)
+- [Get Farcaster Profile Details By Farcaster ID](farcaster-users-details.md#get-farcaster-profile-details-by-farcaster-id)
+- [Get Farcaster Profile Details By Farcaster Name](farcaster-users-details.md#get-farcaster-profile-details-by-farcaster-name)
+- [Get Farcaster Profile Details By 0x address](farcaster-users-details.md#get-farcaster-profile-details-by-0x-address)
+- [Get Farcaster Profile Details By ENS Domain](farcaster-users-details.md#get-farcaster-profile-details-by-ens-domain)
+- [Get Farcaster Profile Details By Lens Profile Name](farcaster-users-details.md#get-farcaster-profile-details-by-lens-profile-name)
+- [Get Farcaster Profile Details By Lens Profile ID](farcaster-users-details.md#get-farcaster-profile-details-by-lens-profile-id)
+- [Bulk Query Farcaster Profile Details](farcaster-users-details.md#bulk-query-farcaster-profile-details)
+- [Bulk Query All Farcaster Users Profile Details](farcaster-users-details.md#bulk-query-all-farcaster-users-profile-details)
 
 ### Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ### Get Started
 
@@ -58,6 +58,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -72,6 +73,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -86,12 +88,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -99,6 +104,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -122,9 +128,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -137,9 +145,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -157,6 +167,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -177,13 +188,14 @@ You can get the Farcaster user profile details by their Farcaster ID:
 #### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/zHwW2c2wnJ" %}
-Show all farcaster profile details and registration info for farcaster user fc\_fid:3
+Show all farcaster profile details and registration info for farcaster user fc_fid:3
 {% endembed %}
 
 #### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -227,9 +239,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -277,6 +291,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -287,13 +302,14 @@ You can get the Farcaster user profile details by their Farcaster Name:
 #### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/KbIaoE7JjM" %}
-Show all farcaster profile details and registration info for farcaster user fc\_fname:dwr.eth
+Show all farcaster profile details and registration info for farcaster user fc_fname:dwr.eth
 {% endembed %}
 
 #### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -340,9 +356,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -390,6 +408,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -407,6 +426,7 @@ Show all farcaster profile details and registration info for 0x74232bf61e9946555
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -453,9 +473,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -503,6 +525,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -520,6 +543,7 @@ Show all farcaster profile details and registration info for dwr.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -563,9 +587,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -613,6 +639,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -630,6 +657,7 @@ Show all farcaster profile details and registration info for lens/@danromero
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -676,9 +704,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -726,6 +756,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -736,13 +767,14 @@ You can get the Farcaster user profile details by their Lens profile ID:
 #### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/YxNJMrJE5R" %}
-Show all farcaster profile details and registration info for lens\_id:0x0b46d
+Show all farcaster profile details and registration info for lens_id:0x0b46d
 {% endembed %}
 
 #### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -789,9 +821,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -839,6 +873,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -849,13 +884,14 @@ You can bulk query the profile details of multiple Farcaster users by their vari
 #### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/4AI9nPEwjs" %}
-Show all farcaster profile details and registration info for fc\_fname:dwr.eth and vitalik.eth
+Show all farcaster profile details and registration info for fc_fname:dwr.eth and vitalik.eth
 {% endembed %}
 
 #### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -902,9 +938,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -987,6 +1025,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1002,6 +1041,7 @@ Show all Farcaster user with fid 1, 2, 3 profile details and registration info
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -1045,9 +1085,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1166,6 +1208,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1189,6 +1232,7 @@ Show all farcaster users profile details and registration info
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -1229,9 +1273,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1278,6 +1324,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1287,9 +1334,8 @@ If you have any questions or need help regarding fetching Farcaster user(s) prof
 
 ### More Resources
 
-* [Resolve Identities](../resolve-identities/)
-  * [Farcaster](../resolve-identities/farcaster.md)
-* [Farcaster Resolver](broken-reference)
-* [Socials API Reference](../../api-references/api-reference/socials-api.md)
+- [Resolve Identities](../resolve-identities/)
+  - [Farcaster](../resolve-identities/farcaster.md)
+- [Socials API Reference](../../api-references/api-reference/socials-api.md)
 
 1. 0x address, ENS domain, Lens profile name and ID, Farcaster name and ID

@@ -23,13 +23,13 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get POAP Events In A Specific Period Of Time](poap-events.md#get-poap-events-in-a-given-city)
-* [Get POAP Events In A Given City](poap-events.md#get-poap-events-in-a-specific-period-of-time)
+- [Get POAP Events In A Specific Period Of Time](poap-events.md#get-poap-events-in-a-given-city)
+- [Get POAP Events In A Given City](poap-events.md#get-poap-events-in-a-specific-period-of-time)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -50,6 +50,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -64,6 +65,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -78,12 +80,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -91,6 +96,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -114,9 +120,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -129,9 +137,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -149,6 +159,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -176,6 +187,7 @@ Show me all POAP events in the last 30 days
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   PoapEvents(
@@ -210,9 +222,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -278,6 +292,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -295,6 +310,7 @@ Show me all POAPs that happened in Dubai
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   PoapEvents(
@@ -325,9 +341,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -393,6 +411,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -402,11 +421,10 @@ If you have any questions or need help regarding fetching POAP balances, please 
 
 ## More Resources
 
-* [Poaps API Reference](../../api-references/api-reference/poaps-api.md)
-* [Poaps API Examples](broken-reference)
-* [Combinations](../combinations/)
-  * [Multiple POAPs](../combinations/multiple-poaps.md)
-  * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
-* [Tokens In Common](../tokens-in-common/)
-  * [POAPs](../tokens-in-common/poaps.md)
-* [Search POAPs](search-poaps.md)
+- [Poaps API Reference](../../api-references/api-reference/poaps-api.md)
+- [Combinations](../combinations/)
+  - [Multiple POAPs](../combinations/multiple-poaps.md)
+  - [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
+- [Tokens In Common](../tokens-in-common/)
+  - [POAPs](../tokens-in-common/poaps.md)
+- [Search POAPs](search-poaps.md)
