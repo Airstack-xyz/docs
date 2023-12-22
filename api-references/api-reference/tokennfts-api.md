@@ -1,4 +1,8 @@
 ---
+description: >-
+  Learn all the detailed references of TokenNfts API that provide ERC721/1155
+  NFT detail information, including the input filters, supported chains, and
+  output fields.
 layout:
   title:
     visible: true
@@ -12,7 +16,7 @@ layout:
     visible: true
 ---
 
-# TokenNFTs API
+# TokenNfts API
 
 The TokenNFTs API provides detailed data about a specific NFT token within an NFT Collection, either an ERC721 or ERC1155 contract. You can use this API to return token-specific metadata, including traits, and <mark style="background-color:green;">**resized images**</mark>.
 

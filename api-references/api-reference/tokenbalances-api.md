@@ -1,4 +1,8 @@
 ---
+description: >-
+  Learn all the detailed references of TokenBalances API that provide
+  ERC20/721/1155 token balances/holders information, including the input
+  filters, supported chains, and output fields.
 layout:
   title:
     visible: true
@@ -58,5 +62,5 @@ type TokenBalance {
 ```
 
 {% hint style="success" %}
-See [here](../../../guides/resolve-identities/) for how to query with ENS or web3 social identities, such as Farcaster
+See [here](../../guides/resolve-identities/) for how to query with ENS or web3 social identities, such as Farcaster
 {% endhint %}

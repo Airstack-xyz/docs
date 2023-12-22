@@ -1,4 +1,8 @@
 ---
+description: >-
+  Learn all the detailed references of Poaps API that provide POAP
+  balances/holders information, including the input filters, supported chains,
+  and output fields.
 layout:
   title:
     visible: true

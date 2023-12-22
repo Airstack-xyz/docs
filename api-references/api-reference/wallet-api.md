@@ -1,4 +1,7 @@
 ---
+description: >-
+  Learn all the detailed references of Wallet API that provide wallet detail
+  information, including the input filters, supported chains, and output fields.
 layout:
   title:
     visible: true

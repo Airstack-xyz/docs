@@ -1,4 +1,8 @@
 ---
+description: >-
+  Learn all the detailed references of XMTPs API that checks if user(s) have
+  XMTP enabled, including the input filters, supported chains, and output
+  fields.
 layout:
   title:
     visible: true

@@ -1,4 +1,8 @@
 ---
+description: >-
+  Learn all the detailed references of PoapEvents API that provide POAP events
+  detailed information, including the input filters, supported chains, and
+  output fields.
 layout:
   title:
     visible: true

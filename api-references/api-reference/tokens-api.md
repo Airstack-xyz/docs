@@ -1,8 +1,8 @@
 ---
 description: >-
   Learn all the detailed references of Tokens API that provide ERC20/721/1155
-  token information, including the input filters, supported chains, and output
-  fields.
+  token detail information, including the input filters, supported chains, and
+  output fields.
 layout:
   title:
     visible: true

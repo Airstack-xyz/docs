@@ -1,4 +1,8 @@
 ---
+description: >-
+  Learn all the detailed references of Domains API that provide ENS domains
+  onchain and offchain (cb.id & Namestone) information, including the input
+  filters, supported chains, and output fields.
 layout:
   title:
     visible: true

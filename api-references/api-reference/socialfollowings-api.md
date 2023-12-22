@@ -1,4 +1,8 @@
 ---
+description: >-
+  Learn all the detailed references of SocialFollowings API that provide a given
+  user's social followings information, including the input filters, supported
+  chains, and output fields.
 layout:
   title:
     visible: true

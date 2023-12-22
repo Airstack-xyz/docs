@@ -1,4 +1,8 @@
 ---
+description: >-
+  Learn all the detailed references of Socials API that provide a given user's
+  web3 social information, including the input filters, supported chains, and
+  output fields.
 layout:
   title:
     visible: true
