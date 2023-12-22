@@ -40,6 +40,10 @@ It is important to keep in mind that the `startBlockNumber` and `startBlockTimes
 
 For more details, check out the [Snapshots API references](../api-references/api-reference/snapshots-api.md).
 
+{% hint style="info" %}
+It is important to note that **AMM LP tokens** or tokens that generate yield over time will not be reflected into the `amount` or `formattedAmount` field. Instead, it will only return the initial amount after staking/depositing.
+{% endhint %}
+
 ## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
