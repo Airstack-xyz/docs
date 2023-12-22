@@ -1163,9 +1163,10 @@ Show me the most recent token transfers received by betashop.eth on Ethereum, Po
 
 ## Developer Support
 
-If you have any questions or need help regarding integrating or building recommendation engine with token transfers data into your application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding fetching token transfers data into your application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
 * [TokenTransfers API Reference](../api-references/api-reference/tokentransfers-api.md)
 * [On-Chain Graph](onchain-graph.md)
+* [Token Mints Guides](token-mints.md)
