@@ -17,6 +17,29 @@ layout:
 
 [Airstack](https://airstack.xyz) provides easy-to-use [Snapshots API](../api-references/api-reference/snapshots-api.md)s for fetching token holders at a specific point in time. This feature set is currently available for the Ethereum and Base blockchain and will be available soon for Polygon.&#x20;
 
+The [Snapshots API](../api-references/api-reference/snapshots-api.md) use timestamp, date, or block number as an input to specify the time:
+
+| Name          | Type   | Description                                                                                     |
+| ------------- | ------ | ----------------------------------------------------------------------------------------------- |
+| `blockNumber` | `Int`  | Allows filtering based on specific block number (integer), 14562584                             |
+| `date`        | `Date` | Allows filtering based on specific date with YYYY-MM-DD format, e.g. 2023-10-25                 |
+| `timestamp`   | `Int`  | Epoch Unix timestamp to fetch the specified time snapshots of balances/holders, e.g. 1702559139 |
+
+and returns a list of tokens held by a user at the speficied timestamp, date, or block number.
+
+Each object returned will be followed by a range of block number (`startBlockNumber` and `endBlockNumber`) and timestamp (`startBlockTimestamp` and `endBlockTimestamp`) that shows when was the token was first and last held:
+
+| Name                  | Type   | Description                                                                                             |
+| --------------------- | ------ | ------------------------------------------------------------------------------------------------------- |
+| `endBlockNumber`      | `Int`  | Block number when the token was **last** held. If still hold to present, it will return `-1`.           |
+| `endBlockTimestamp`   | `Time` | Timestamp when the token was **last** held. If still hold to present, it will return present timestamp. |
+| `startBlockNumber`    | `Int`  | Block number when the token was **first** held by owner.                                                |
+| `startBlockTimestamp` | `Time` | Timestamp when the token was **first** held.                                                            |
+
+It is important to keep in mind that the `startBlockNumber` and `startBlockTimestamp` can have a different value to the input, but will always have time value less than or equal to the specified time.
+
+For more details, check out the [Snapshots API references](../api-references/api-reference/snapshots-api.md).
+
 ## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
