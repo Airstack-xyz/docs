@@ -21,6 +21,8 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
+* [Get ERC20 Token Holders at a Specified Time on Ethereum](holder-snapshots.md#get-erc20-token-holders-snapshot-on-ethereum-at-a-specified-time)  (`date`, `timestamp` or `blockNumber`)
+* [Get NFT Collection Holders at a Specified Time on Ethereum](holder-snapshots.md#get-nft-collection-holders-snapshot-on-ethereum-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
 * [Get ERC20 Token Holders at a Specified Time on Base](holder-snapshots.md#get-erc20-token-holders-snapshot-on-base-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
 * [Get NFT Collection Holders at a Specified Time on Base](holder-snapshots.md#get-nft-collection-holders-snapshot-on-base-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
 
@@ -160,7 +162,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Get ERC20 Token Holders Snapshot On Base at a Specified Time
+## Get ERC20 Token Holders Snapshot On Ethereum at a Specified Time
 
 You can fetch all the tokens holders of an ERC20 at a specified time on Ethereum by using [`Snapshots`](../api-references/api-reference/snapshots-api.md) API and providing the ERC20 token address to `tokenAddress` input and time input to either `date`, `timestamp` or `blockNumber`:
 
@@ -285,7 +287,7 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## Get NFT Collection Holders Snapshot on Base at a Specified Time
+## Get NFT Collection Holders Snapshot on Ethereum at a Specified Time
 
 You can fetch all the tokens holders of an NFT collection at a specified time on Ethereum by using [`Snapshots`](../api-references/api-reference/snapshots-api.md) API and providing the NFT collection address to `tokenAddress` input and time input to either `date`, `timestamp` or `blockNumber`:
 
