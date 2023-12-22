@@ -48,6 +48,7 @@ In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
 * [Get User's Token Balances Of Specified Time on Ethereum](balance-snapshots.md#get-users-token-balances-of-specified-time-on-base) (`date`, `timestamp` or `blockNumber`)
 * [Get User's Token Balances at a Specified Time on Base](balance-snapshots.md#get-users-token-balances-of-specified-time-on-base) (`date`, `timestamp` or `blockNumber`)
+* [Get User's Token Balances Of Specified Time on Ethereum and Base](balance-snapshots.md#get-users-token-balances-of-specified-time-on-ethereum-and-base) (`date`, `timestamp` or `blockNumber`)
 * [Get User's Historical Balance Of Specified ERC20 Token](balance-snapshots.md#get-users-historical-balances-of-specified-erc20-token)
 * [Get User's Historical Balance Of Specified NFT Collection](balance-snapshots.md#get-users-historical-balance-of-specified-nft-collection)
 * [Get User's Historical Balance Of Specified NFT](balance-snapshots.md#get-users-historical-balance-of-specified-nft)
@@ -368,6 +369,198 @@ Show me balance snapshots of users on Base on Aug 18, 2023
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Snapshots": {
+      "Snapshot": [
+        {
+          "tokenAddress": "0x6e30433b8c65e76fa095e85260a244b3c3bc1865",
+          "tokenId": "273",
+          "tokenType": "ERC721",
+          "token": {
+            "name": "Base Echo",
+            "symbol": "$",
+            "isSpam": false
+          },
+          "tokenNft": {
+            "contentValue": {
+              "image": {
+                "extraSmall": "https://assets.airstack.xyz/image/nft/8453/8ptb4/bkF79jKGc/p1otcqwQSv+qMZ6PvIpudahqBysb50fH7Q/xnptwoac3JTkzk0pHtn5XHPWr/LWAZCp5eA==/extra_small.png",
+                "large": "https://assets.airstack.xyz/image/nft/8453/8ptb4/bkF79jKGc/p1otcqwQSv+qMZ6PvIpudahqBysb50fH7Q/xnptwoac3JTkzk0pHtn5XHPWr/LWAZCp5eA==/large.png",
+                "medium": "https://assets.airstack.xyz/image/nft/8453/8ptb4/bkF79jKGc/p1otcqwQSv+qMZ6PvIpudahqBysb50fH7Q/xnptwoac3JTkzk0pHtn5XHPWr/LWAZCp5eA==/medium.png",
+                "original": "https://assets.airstack.xyz/image/nft/8453/8ptb4/bkF79jKGc/p1otcqwQSv+qMZ6PvIpudahqBysb50fH7Q/xnptwoac3JTkzk0pHtn5XHPWr/LWAZCp5eA==/original_image.png",
+                "small": "https://assets.airstack.xyz/image/nft/8453/8ptb4/bkF79jKGc/p1otcqwQSv+qMZ6PvIpudahqBysb50fH7Q/xnptwoac3JTkzk0pHtn5XHPWr/LWAZCp5eA==/small.png"
+              }
+            }
+          },
+          "startBlockNumber": 2790948,
+          "startBlockTimestamp": "2023-08-18T15:07:23Z",
+<strong>          "endBlockNumber": -1, // -1 indicate asset is no longer hold at present date
+</strong>          "endBlockTimestamp": "2023-12-06T20:35:37Z"
+        },
+        // Other Base tokens held specifically on Aug 18, 2023
+      ],
+      "pageInfo": {
+        "hasNextPage": true,
+        "hasPrevPage": false,
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjRkZGUxMzhhNGExNTVhYmRjMWMzYTkwMTM0MmM4NGViIiwiRGF0YVR5cGUiOiJzdHJpbmcifX0sIlBhZ2luYXRpb25EaXJlY3Rpb24iOiJORVhUIn0=",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Get User's Token Balances Of Specified Time on Ethereum and Base
+
+You can fetch all the tokens ever held by user at a specified time across multiple chains, e.g. Ethereum and Base, by using [`Snapshots`](../api-references/api-reference/snapshots-api.md) API and providing user(s) 0x address, ENS, cb.id, Lens, or Farcaster to `owner` input and time input to either `date`, `timestamp` or `blockNumber`:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/Et9sxm16nq" %}
+Show me balance snapshots of users on Base on Aug 18, 2023
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  Ethereum: Snapshots(
+    input: {
+      filter: {
+        owner: {
+          _in: [
+            "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "vitalik.eth",
+            "lens/@vitalik",
+            "fc_fname:vitalik"
+          ]
+        },
+<strong>        date: {_eq: "2023-08-18"} # Specifying date to Aug 18, 2023
+</strong>      },
+      blockchain: ethereum,
+      limit: 200
+    }
+  ) {
+    Snapshot {
+      tokenAddress
+      tokenId
+      tokenType
+      token {
+        name
+        symbol
+        isSpam
+      }
+      tokenNft {
+        contentValue {
+          image {
+            extraSmall
+            large
+            medium
+            original
+            small
+          }
+        }
+      }
+      startBlockNumber
+      startBlockTimestamp
+      endBlockNumber
+      endBlockTimestamp
+    }
+    pageInfo {
+      hasNextPage
+      hasPrevPage
+      nextCursor
+      prevCursor
+    }
+  }
+  Base: Snapshots(
+    input: {
+      filter: {
+        owner: {
+          _in: [
+            "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "vitalik.eth",
+            "lens/@vitalik",
+            "fc_fname:vitalik"
+          ]
+        },
+<strong>        date: {_eq: "2023-08-18"} # Specifying date to Aug 18, 2023
+</strong>      },
+      blockchain: base,
+      limit: 200
+    }
+  ) {
+    Snapshot {
+      tokenAddress
+      tokenId
+      tokenType
+      token {
+        name
+        symbol
+        isSpam
+      }
+      tokenNft {
+        contentValue {
+          image {
+            extraSmall
+            large
+            medium
+            original
+            small
+          }
+        }
+      }
+      startBlockNumber
+      startBlockTimestamp
+      endBlockNumber
+      endBlockTimestamp
+    }
+    pageInfo {
+      hasNextPage
+      hasPrevPage
+      nextCursor
+      prevCursor
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Ethereum": {
+      "Snapshot": [
+        {
+          "tokenAddress": "0xa1f92f70dce96c7cd32aafd93cd4bff7debdf853",
+          "tokenId": "162",
+          "tokenType": "ERC721",
+          "token": {
+            "name": "Cosmic Corpse Society",
+            "symbol": "CCS",
+            "isSpam": false
+          },
+          "tokenNft": {
+            "contentValue": {
+              "image": null
+            }
+          },
+          "startBlockNumber": 15537991,
+          "startBlockTimestamp": "2022-09-15T08:44:23Z",
+<strong>          "endBlockNumber": -1, // -1 indicate asset is no longer hold at present date
+</strong>          "endBlockTimestamp": "2023-12-22T12:04:57Z"
+        },
+        // Other Ethereum tokens held specifically on Aug 18, 2023
+      ],
+      "pageInfo": {
+        "hasNextPage": true,
+        "hasPrevPage": false,
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjBjMWVlOTZmYjkyMzc1OWM3MGRlMWQ2ZmRlZGFiZTE5IiwiRGF0YVR5cGUiOiJzdHJpbmcifX0sIlBhZ2luYXRpb25EaXJlY3Rpb24iOiJORVhUIn0=",
+        "prevCursor": ""
+      }
+    },
+    "Base": {
       "Snapshot": [
         {
           "tokenAddress": "0x6e30433b8c65e76fa095e85260a244b3c3bc1865",
