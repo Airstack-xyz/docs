@@ -36,15 +36,11 @@ You just need to specify the input to `ALL` for the query to work.
 | ----- | ----------- |
 | `ALL` | -           |
 
-### Sorts
-
 ## Outputs
 
-```graphql
-type Social {
-  blockchain: Blockchain # Blockchain associated with the social identity
-  id: ID # Airstack unique identifier for this particular element
-  isXMTPEnabled: Boolean # indicate whether a user has XMTP
-  owner: Wallet! # **Nested query** allowing to retrieve address, domain names, and social profiles of the owner
-}
-```
+| Name            | Type                       | Description                                                                                       |
+| --------------- | -------------------------- | ------------------------------------------------------------------------------------------------- |
+| `blockchain`    | `Blockchain`               | Blockchain associated with the social identity                                                    |
+| `id`            | `ID`                       | Airstack unique identifier for this particular element                                            |
+| `isXMTPEnabled` | `Boolean`                  | indicate whether a user has XMTP                                                                  |
+| `owner`         | [`Wallet!`](wallet-api.md) | \*\*Nested query\*\* allowing to retrieve address, domain names, and social profiles of the owner |

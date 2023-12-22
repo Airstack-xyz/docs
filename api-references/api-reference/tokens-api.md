@@ -45,7 +45,7 @@ Querying by name or symbol returns all contracts with matching data. These field
 | `polygon`  | Polygon mainnet  |
 | `base`     | Base mainnet     |
 
-### order
+### Order
 
 | Name     | Description                                                                                                                                           |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
