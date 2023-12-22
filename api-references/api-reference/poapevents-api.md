@@ -28,7 +28,7 @@ In addition, PoapEvents API allows in-depth filtering of the PAOPs based on the 
 | `dappSlug`       | `PoapDappSlug_Comparator_Exp` | POAP Dapp Version                                                                                                 |
 | `eventId`        | `String_Comparator_Exp`       | POAP event ID                                                                                                     |
 | `tokenMints`     | `Int_Comparator_Exp`          | Number of POAPs minted                                                                                            |
-| `eventName`      | `String_Comparator_Exp`       | POAP event name - exact match only                                                                                |
+| `eventName`      | `Regex_String_Comparator_Exp` | POAP event name                                                                                                   |
 | `country`        | `String_Comparator_Exp`       | POAP event country                                                                                                |
 | `city`           | `String_Comparator_Exp`       | POAP event city                                                                                                   |
 | `startDate`      | `String_Comparator_Exp`       | POAP event start date YYYY-MM-DD                                                                                  |
