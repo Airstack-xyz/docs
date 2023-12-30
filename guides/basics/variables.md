@@ -2,6 +2,17 @@
 description: >-
   Learn how you can add variables to an Airstack GraphQL query to provide
   dynamic inputs into the API.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🌪 Variables
