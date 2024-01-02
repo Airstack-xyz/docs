@@ -167,6 +167,20 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
+## Best Practices
+
+Here are some best practices to keep in mind to use the `_regex` filter optimally:
+
+1. **Case Insensitivity**
+
+If case insensitivity is not necessary, avoid using the case-insensitive flag (`i`) in your regex, as it may slow down the query.
+
+If you need case-insensitive search, it is **best practice** that you use `(?i)devcon` pattern instead of other patterns (e.g. `[Dd]evcon`) for most optimal response time.
+
+2. **Avoid Wildcard**
+
+Structure your regex pattern as specific as possible and avoid using wildcard (`.*`) in your regex if possible, as it can lead to more extensive scans and longer response times.
+
 ## Search All POAPs Starting With Given Words
 
 You can search all POAP events that start with given word by using the [`PoapEvents`](../../api-references/api-reference/poapevents-api.md) API:
