@@ -21,12 +21,20 @@ All tokens minted are essentially token transfers from a [null address (0x00...0
 
 <table><thead><tr><th width="176">Input Filter</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>operator</code></td><td>user's 0x address, ENS, cb.id, Lens, or Farcaster</td><td>Executor of the transaction.</td></tr><tr><td><code>from</code></td><td>0x0000000000000000000000000000000000000000</td><td>Sender in the ERC20/721/1155 token transfers.</td></tr><tr><td><code>to</code></td><td>user's 0x address, ENS, cb.id, Lens, or Farcaster</td><td>Receiver in the ERC20/721/1155 token transfers.</td></tr></tbody></table>
 
+You also have the option to add `blockTimestamp` filter to your query to fetch all tokens that are minted during a specified period of time:&#x20;
+
+| Input Filter     | Value                                                                                                                                                                                                                                                                                                                                                                                            | Description                                                                                                                                                                                 |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `blockTimestamp` | <p>Specific time period to fetch token mints, best to use <code>_gt</code> or <code>_gte</code> and <code>_lt</code> or <code>_lte</code> filters to specify the period.<br><br>Look at example below for <a href="token-mints.md#get-nft-mints-by-a-user-in-a-specified-period">NFT</a> and <a href="token-mints.md#get-erc20-token-mints-by-a-user-in-a-specified-period">ERC20 </a>mints.</p> | <p>Allows entering blockTimestamp to filter transactions which happened in specific periods.<br><br>Time format should be following the unix timstamp format, e.g. 2023-01-01T00:00:00Z</p> |
+
 ## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
 * [Get NFT Mints By A User](token-mints.md#get-nft-mints-by-a-user)
 * [Get ERC20 Token Mints By A User](token-mints.md#get-erc20-token-mints-by-a-user)
+* [Get NFT Mints By A User in a Specified Period](token-mints.md#get-nft-mints-by-a-user)
+* [Get ERC20 Token Mints By A User in a Specified Period](token-mints.md#get-erc20-token-mints-by-a-user-in-a-specified-period)
 
 ## Pre-requisites
 
@@ -364,7 +372,7 @@ You can fetch all ERC20 tokens minted by a user, e.g. [`ipeciura.eth`](https://e
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/lpLjUCQZmI" %}
+{% embed url="https://app.airstack.xyz/query/z5zfXp6oIz" %}
 Show me all ERC20 tokens minted by ipeciura.eth
 {% endembed %}
 
@@ -377,11 +385,11 @@ Show me all ERC20 tokens minted by ipeciura.eth
     input: {
       filter: {
         # Only get mints that are executed by the same user
-<strong>        operator: {_eq: "betashop.eth"},
+<strong>        operator: {_eq: "ipeciura.eth"},
 </strong>        # Mints are token transfers that has null address as `from`
 <strong>        from: {_eq: "0x0000000000000000000000000000000000000000"},
 </strong>        # Set this to the user that receive the token mints
-<strong>        to: {_eq: "betashop.eth"},
+<strong>        to: {_eq: "ipeciura.eth"},
 </strong>        # Get only ERC20 tokens
 <strong>        tokenType: {_eq: ERC20},
 </strong>      },
@@ -393,17 +401,9 @@ Show me all ERC20 tokens minted by ipeciura.eth
       blockchain
       formattedAmount
       tokenAddress
-      tokenNft {
-        metaData {
-          name
-        }
-        contentValue {
-          image {
-            medium
-          }
-        }
+      token {
+        name
       }
-      tokenType
     }
   }
   Polygon: TokenTransfers(
@@ -414,7 +414,7 @@ Show me all ERC20 tokens minted by ipeciura.eth
 </strong>        # Mints are token transfers that has null address as `from`
 <strong>        from: {_eq: "0x0000000000000000000000000000000000000000"},
 </strong>        # Set this to the user that receive the token mints
-<strong>        to: {_eq: "betashop.eth"},
+<strong>        to: {_eq: "ipeciura.eth"},
 </strong>        # Get only ERC20 tokens
 <strong>        tokenType: {_eq: ERC20},
 </strong>      },
@@ -426,28 +426,20 @@ Show me all ERC20 tokens minted by ipeciura.eth
       blockchain
       formattedAmount
       tokenAddress
-      tokenNft {
-        metaData {
-          name
-        }
-        contentValue {
-          image {
-            medium
-          }
-        }
+      token {
+        name
       }
-      tokenType
     }
   }
   Base: TokenTransfers(
     input: {
       filter: {
         # Only get mints that are executed by the same user
-<strong>        operator: {_eq: "betashop.eth"},
+<strong>        operator: {_eq: "ipeciura.eth"},
 </strong>        # Mints are token transfers that has null address as `from`
 <strong>        from: {_eq: "0x0000000000000000000000000000000000000000"},
 </strong>        # Set this to the user that receive the token mints
-<strong>        to: {_eq: "betashop.eth"},
+<strong>        to: {_eq: "ipeciura.eth"},
 </strong>        # Get only ERC20 tokens
 <strong>        tokenType: {_eq: ERC20},
 </strong>      },
@@ -458,6 +450,84 @@ Show me all ERC20 tokens minted by ipeciura.eth
     TokenTransfer {
       blockchain
       formattedAmount
+      tokenAddress
+      token {
+        name
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Ethereum": {
+<strong>      "TokenTransfer": null // No ERC20 token minted on Ethereum
+</strong>    },
+    "Polygon": {
+      "TokenTransfer": [
+        {
+          "blockchain": "polygon",
+          "formattedAmount": 0.01697896348647009,
+          "tokenAddress": "0xadbf1854e5883eb8aa7baf50705338739e558e5b",
+          "token": {
+            "name": "Uniswap V2"
+          }
+        },
+        // Other ERC20 tokens minted by ipeciura.eth on Polygon
+      ]
+    },
+    "Base": {
+<strong>      "TokenTransfer": null // No ERC20 token minted on Base
+</strong>    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Get NFT Mints By A User in a Specified Period
+
+You can fetch all NFTs minted during a specified period of time by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS), across different chains, e.g. Polygon, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/1NeCdgZKG8" %}
+Show me ERC721/1155 Polygon NFT mints by ipeciura.eth in 2023
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  TokenTransfers(
+    input: {
+      filter: {
+        # Only get mints that are executed by the same user
+<strong>        operator: {_eq: "ipeciura.eth"},
+</strong>        # Mints are token transfers that has null address as `from`
+<strong>        from: {_eq: "0x0000000000000000000000000000000000000000"},
+</strong>        # Set this to the user that receive the token mints
+<strong>        to: {_eq: "ipeciura.eth"},
+</strong>        # Get only ERC721/1155 NFTs
+<strong>        tokenType: {_in: [ERC721, ERC1155]},
+</strong>        # Specify time stamp (in 2023)
+<strong>        blockTimestamp: {
+</strong>          _gt: "2023-01-01T00:00:00Z", # (greater than - after Jan 1, 2023)
+          _lt: "2024-01-01T00:00:00Z" # (less than - before Jan 1, 2024)
+        }
+      },
+      blockchain: polygon,
+      order: {blockTimestamp: DESC}
+    }
+  ) {
+    TokenTransfer {
+      blockchain
+      formattedAmount
+      blockTimestamp
       tokenAddress
       tokenNft {
         metaData {
@@ -477,29 +547,116 @@ Show me all ERC20 tokens minted by ipeciura.eth
 {% endtab %}
 
 {% tab title="Response" %}
-<pre class="language-json"><code class="lang-json">{
+```json
+{
   "data": {
-    "Ethereum": {
-<strong>      "TokenTransfer": null // No ERC20 token minted on Ethereum
-</strong>    },
-    "Polygon": {
+    "TokenTransfers": {
+      "TokenTransfer": [
+        {
+          "blockchain": "polygon",
+          "formattedAmount": 1,
+          "blockTimestamp": "2023-11-09T13:26:53Z",
+          "tokenAddress": "0xd3b4de0d85c44c57993b3b18d42b00de81809eea",
+          "tokenNft": {
+            "metaData": {
+              "name": "Unveiling Airstack's Onchain Graph #1"
+            },
+            "contentValue": {
+              "image": {
+                "medium": "https://assets.airstack.xyz/image/nft/N3xsCM4U2UsyVojt4p4OUOsbwHHkyl1MPU9iEHe4mr0FqR+Vy4cMTaTFc03m2rVApXUy38ASkynABWL/M3lLaQ==/medium.jpg"
+              }
+            }
+          },
+          "tokenType": "ERC721"
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get ERC20 Token Mints By A User in a Specified Period
+
+You can fetch all ERC20 tokens minted during a specified period of time by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS), across different chains, e.g. Polygon, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/kQk6CRK9aT" %}
+Show me all Polygon ERC20 token mints by ipeciura.eth in 2022
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  TokenTransfers(
+    input: {
+      filter: {
+        # Only get mints that are executed by the same user
+<strong>        operator: {_eq: "ipeciura.eth"},
+</strong>        # Mints are token transfers that has null address as `from`
+<strong>        from: {_eq: "0x0000000000000000000000000000000000000000"},
+</strong>        # Set this to the user that receive the token mints
+<strong>        to: {_eq: "ipeciura.eth"},
+</strong>        # Get only ERC20 tokens
+<strong>        tokenType: {_eq: ERC20}
+</strong>        # Specify time stamp (in 2022)
+<strong>        blockTimestamp: {
+</strong>          _gt: "2022-01-01T00:00:00Z", # (greater than - before Jan 1, 2022)
+          _lt: "2023-01-01T00:00:00Z" # (less than - before Jan 1, 2023)
+        }
+      },
+      blockchain: polygon,
+      order: {blockTimestamp: DESC}
+    }
+  ) {
+    TokenTransfer {
+      blockchain
+      formattedAmount
+      blockTimestamp
+      tokenAddress
+      token {
+        name
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenTransfers": {
       "TokenTransfer": [
         {
           "blockchain": "polygon",
           "formattedAmount": 0.01697896348647009,
+          "blockTimestamp": "2022-07-15T15:37:02Z",
           "tokenAddress": "0xadbf1854e5883eb8aa7baf50705338739e558e5b",
-          "tokenNft": null,
-          "tokenType": "ERC20"
+          "token": {
+            "name": "Uniswap V2"
+          }
         },
-        // Other ERC20 tokens minted by ipeciura.eth on Polygon
+        {
+          "blockchain": "polygon",
+          "formattedAmount": 0.9908239030713007,
+          "blockTimestamp": "2022-07-15T14:45:54Z",
+          "tokenAddress": "0x9928340f9e1aaad7df1d95e27bd9a5c715202a56",
+          "token": {
+            "name": "Balancer B-stMATIC-STABLE RewardGauge Deposit"
+          }
+        },
+        // Other ERC20 tokens minted by ipeciura.eth on Polygon in 2022
       ]
-    },
-    "Base": {
-<strong>      "TokenTransfer": null // No ERC20 token minted on Base
-</strong>    }
+    }
   }
 }
-</code></pre>
+```
 {% endtab %}
 {% endtabs %}
 
