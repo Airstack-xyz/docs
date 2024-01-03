@@ -181,7 +181,7 @@ show me all Farcaster users starting with "a"
       filter: {
         # This regex pattern will search all Farcaster users
         # starting with "a"
-<strong>        profileName: {_regex: "a"},
+<strong>        profileName: {_regex: "^a"},
 </strong>        dappName: {_eq: farcaster}
       },
       blockchain: ethereum
