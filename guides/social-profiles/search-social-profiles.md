@@ -546,7 +546,12 @@ show me all Farcaster users that has 3 letters or less
 
 ## Get All Social Profiles Starting With Given Words
 
-You can fetch all Lens and Farcaster users that starts with given words by providing an array of regex patterns containing `"^<given-words>"`  for Farcaster search and `"^lens/@<given-words>"` for Lens search to the <mark style="color:red;">**`_regex_in`**</mark> operator in [`Socials`](../../api-references/api-reference/socials-api.md) API:
+You can fetch all Lens and Farcaster users that starts with given words by providing an array of regex patterns containing:
+
+* `"^<given-words>"`  for Farcaster search
+* `"^lens/@<given-words>"` for Lens search
+
+to the <mark style="color:red;">**`_regex_in`**</mark> operator in [`Socials`](../../api-references/api-reference/socials-api.md) API:
 
 ### Try Demo
 
