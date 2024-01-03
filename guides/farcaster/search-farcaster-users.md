@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack to search for Farcaster users that fulfills the
   given filters or sort variables the API offered.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🔎 Search Farcaster Users
