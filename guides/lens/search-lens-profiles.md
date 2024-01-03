@@ -254,7 +254,7 @@ You can fetch all Lens profiles that starts with given words by providing the re
 
 ### Try Demo
 
-{% embed url="https://app.uat.airstack.xyz/query/horOizPtW9" %}
+{% embed url="https://app.airstack.xyz/query/uzlh7IZa4c" %}
 show me all Lens profiles starting with "a"
 {% endembed %}
 
@@ -267,7 +267,7 @@ show me all Lens profiles starting with "a"
     input: {
       filter: {
         # This regex pattern will search all Lens profile
-        # starting with "abc"
+        # starting with "a"
 <strong>        profileName: {_regex: "^lens/@a"},
 </strong>        dappName: {_eq: lens}
       },
@@ -316,7 +316,7 @@ You can fetch all Lens profiles that contains given words by providing `"<given-
 
 ### Try Demo
 
-{% embed url="https://app.uat.airstack.xyz/query/AWj6eTeSuN" %}
+{% embed url="https://app.airstack.xyz/query/wBDukQXH3E" %}
 show me all Lens profiles containing with "abc"
 {% endembed %}
 
@@ -378,7 +378,7 @@ You can fetch all Lens profiles that has certain number of letters in its profil
 
 ### Try Demo
 
-{% embed url="https://app.uat.airstack.xyz/query/rnux6ByRRm" %}
+{% embed url="https://app.airstack.xyz/query/EocCe2Et9c" %}
 show me all Lens profiles that has 3 letters or less
 {% endembed %}
 
@@ -392,8 +392,9 @@ show me all Lens profiles that has 3 letters or less
       filter: {
         # This regex pattern search all Lens profiles that have 1-3
         # letters in its profile name
-<strong>        profileName: {_regex: "^.{1,3}$"}
-</strong>      },
+<strong>        profileName: {_regex: "^lens/@.{1,3}$"},
+</strong>        dappName: {_eq: lens}
+      },
       blockchain: ethereum
     }
   ) {
@@ -413,16 +414,16 @@ show me all Lens profiles that has 3 letters or less
     "Socials": {
       "Social": [
         {
-          "dappName": "farcaster",
-          "profileName": "977"
+          "dappName": "lens",
+          "profileName": "lens/@emi"
         },
         {
-          "dappName": "farcaster",
-          "profileName": "nem"
+          "dappName": "lens",
+          "profileName": "lens/@dev"
         },
         {
-          "dappName": "farcaster",
-          "profileName": "vw"
+          "dappName": "lens",
+          "profileName": "lens/@bak"
         },
         // Other lens profiles with less than 3 letters
       ]
