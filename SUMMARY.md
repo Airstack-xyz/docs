@@ -117,6 +117,7 @@
   * [💰 Get Token Balances](guides/farcaster/get-token-balances.md)
   * [🆔 Resolve Farcaster Users](guides/farcaster/resolve-farcaster-users.md)
   * [✍ Farcaster Users Details](guides/farcaster/farcaster-users-details.md)
+  * [🔎 Search Farcaster Users](guides/farcaster/search-farcaster-users.md)
   * [🖼 Farcaster Profile Image](guides/farcaster/farcaster-profile-image.md)
   * [🫂 Farcaster Followers](guides/farcaster/farcaster-followers.md)
   * [💐 Farcaster Following](guides/farcaster/farcaster-following.md)

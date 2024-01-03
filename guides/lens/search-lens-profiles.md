@@ -1012,11 +1012,11 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-### Developer Support
+## Developer Support
 
 If you have any questions or need help regarding searching for Lens profiles, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-### More Resources
+## More Resources
 
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)
 * [Resolve Lens Profiles](resolve-lens-profiles.md)
