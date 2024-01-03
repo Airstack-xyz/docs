@@ -32,6 +32,9 @@ In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 * [Get All Farcaster Users Starting With Given Words](search-social-profiles.md#get-all-farcaster-users-starting-with-given-words)
 * [Get All Farcaster Users Containing Given Words](search-social-profiles.md#get-all-farcaster-users-containing-given-words)
 * [Get All Farcaster Users That Has Certain Number of Letters](search-social-profiles.md#get-all-farcaster-users-that-has-certain-number-of-letters)
+* [Get All Social Profiles Starting With Given Words](search-social-profiles.md#get-all-social-profiles-starting-with-given-words)
+* [Get All Social Profiles Containing Given Words](search-social-profiles.md#get-all-social-profiles-containing-given-words)
+* [Get All Social Profiles That Has Certain Number of Letters](search-social-profiles.md#get-all-social-profiles-that-has-certain-number-of-letters)
 
 ## Pre-requisites
 
