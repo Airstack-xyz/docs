@@ -17,8 +17,6 @@ layout:
 
 # 🔎 Search Lens Profiles
 
-## 🔎 Search Lens Profiles
-
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
 ## Table Of Contents
@@ -26,6 +24,9 @@ layout:
 In this guide you will learn how to use Airstack to:
 
 * [Get All Lens Profiles](search-lens-profiles.md#get-all-lens-profiles)
+* [Get All Lens Profiles Starting With Given Words](search-lens-profiles.md#get-all-lens-profiles-starting-with-given-words)
+* [Get All Lens Profiles Containing Given Words](search-lens-profiles.md#get-all-lens-profiles-containing-given-words)
+* [Get All Lens Profiles That Has Certain Number of Letters](search-lens-profiles.md#get-all-lens-profiles-that-has-certain-number-of-letters)
 * [Get All Lens Profiles Created In Specified Time](search-lens-profiles.md#get-all-lens-profiles-created-in-specified-time)
 * [Get The Latest Lens Profiles Created](search-lens-profiles.md#get-the-latest-lens-profiles-created)
 * [Get The Earliest Lens Profiles Created](search-lens-profiles.md#get-the-earliest-lens-profiles-created)
@@ -170,17 +171,17 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-### Get All Lens Profiles
+## Get All Lens Profiles
 
 You can globally fetch all Lens profiles using the [`Socials`](../../api-references/api-reference/socials-api.md) API by specifying `dappName` to `lens`:
 
-#### Try Demo
+### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/atPGpXtsm7" %}
 Show me all Lens profiles
 {% endembed %}
 
-#### Code
+### Code
 
 {% tabs %}
 {% tab title="Query" %}
@@ -247,17 +248,202 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-### Get All Lens Profiles Created In Specified Time
+## Get All Lens Profiles Starting With Given Words
+
+You can fetch all Lens profiles that starts with given words by providing the regex pattern `"^lens/@<given-words>"` to the <mark style="color:red;">**`_regex`**</mark> operator in [`Socials`](../../api-references/api-reference/socials-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.uat.airstack.xyz/query/horOizPtW9" %}
+show me all Lens profiles starting with "a"
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        # This regex pattern will search all Lens profile
+        # starting with "abc"
+<strong>        profileName: {_regex: "^lens/@a"},
+</strong>        dappName: {_eq: lens}
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Social {
+      dappName
+      profileName
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "dappName": "lens",
+          "profileName": "lens/@anastasia1337"
+        },
+        {
+          "dappName": "lens",
+          "profileName": "lens/@amg888"
+        },
+        {
+          "dappName": "lens",
+          "profileName": "lens/@alexdark"
+        },
+        // Other Lens profiles starting with "a"
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All Lens Profiles Containing Given Words
+
+You can fetch all Lens profiles that contains given words by providing `"<given-words>"` directly to the <mark style="color:red;">**`_regex`**</mark> operator in [`Socials`](../../api-references/api-reference/socials-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.uat.airstack.xyz/query/AWj6eTeSuN" %}
+show me all Lens profiles containing with "abc"
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        # This regex pattern will search all Lens profiles
+        # containing "abc"
+<strong>        profileName: {_regex: "abc"},
+</strong>        dappName: {_eq: lens}
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Social {
+      dappName
+      profileName
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "dappName": "lens",
+          "profileName": "lens/@abcoathup"
+        },
+        {
+          "dappName": "lens",
+          "profileName": "lens/@phabc"
+        },
+        {
+          "dappName": "lens",
+          "profileName": "lens/@abc888"
+        },
+        // Other Lens profiles containing with "abc"
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All Lens Profiles That Has Certain Number of Letters
+
+You can fetch all Lens profiles that has certain number of letters in its profile name by providing `"^.{min_number_of_letters, max_number_of_letters}$"` directly to the <mark style="color:red;">**`_regex`**</mark> operator in [`Socials`](../../api-references/api-reference/socials-api.md) API, where the minimum should always be less than or equal to the maximum:
+
+### Try Demo
+
+{% embed url="https://app.uat.airstack.xyz/query/rnux6ByRRm" %}
+show me all Lens profiles that has 3 letters or less
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        # This regex pattern search all Lens profiles that have 1-3
+        # letters in its profile name
+<strong>        profileName: {_regex: "^.{1,3}$"}
+</strong>      },
+      blockchain: ethereum
+    }
+  ) {
+    Social {
+      dappName
+      profileName
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "dappName": "farcaster",
+          "profileName": "977"
+        },
+        {
+          "dappName": "farcaster",
+          "profileName": "nem"
+        },
+        {
+          "dappName": "farcaster",
+          "profileName": "vw"
+        },
+        // Other lens profiles with less than 3 letters
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All Lens Profiles Created In Specified Time
 
 You can fetch all Lens profiles that are created in a specified time using the [`Socials`](../../api-references/api-reference/socials-api.md) API by specifying `dappName` to `lens` and `profileCreatedAtBlockTimestamp` to the desired block timestamp range:
 
-#### Try Demo
+### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/Hl3mxK7tfU" %}
 Show me all Lens profiles created between November 12 to 19, 2023 UTC
 {% endembed %}
 
-#### Code
+### Code
 
 {% tabs %}
 {% tab title="Query" %}
@@ -334,17 +520,17 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-### Get The Latest Lens Profiles Created
+## Get The Latest Lens Profiles Created
 
 You can fetch all the latest Lens profiles created using the [`Socials`](../../api-references/api-reference/socials-api.md) API by specifying `dappName` to `lens` and sorting `profileCreatedAtBlockTimestamp` in descending order:
 
-#### Try Demo
+### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/RsnIUb5lGD" %}
 Show me all the latest Lens profiles created
 {% endembed %}
 
-#### Code
+### Code
 
 {% tabs %}
 {% tab title="Query" %}
@@ -416,17 +602,17 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-### Get The Earliest Lens Profiles Created
+## Get The Earliest Lens Profiles Created
 
 You can fetch all the latest Lens profiles created using the [`Socials`](../../api-references/api-reference/socials-api.md) API by specifying `dappName` to `lens` and sorting `profileCreatedAtBlockTimestamp` in ascending order:
 
-#### Try Demo
+### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/fSFKyUc0Yi" %}
 Show me all the earliest Lens profiles created
 {% endembed %}
 
-#### Code
+### Code
 
 {% tabs %}
 {% tab title="Query" %}
