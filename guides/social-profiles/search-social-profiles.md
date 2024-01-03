@@ -22,6 +22,14 @@ layout:
 
 With this, you can build your very own social profile search engine easily and plug it into your application.
 
+For demo on social profile search engine, check out Airstack Explorer [here](https://explorer.airstack.xyz).
+
+<div align="center" data-full-width="true">
+
+<figure><img src="../../.gitbook/assets/Explorer - Regex Social Search - Vitalik Dawufi Betashop - Stops at Explorer.gif" alt=""><figcaption><p>Airstack Explorer Social Profile Search Engine</p></figcaption></figure>
+
+</div>
+
 ## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
