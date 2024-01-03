@@ -984,7 +984,7 @@ Show current ERC20 token balances of Minted ERC20 tokens on Polygon by ipeciura.
 <strong>            "tokenBalances": [] // Empty array indicates that the minted ERC20 token have 0 balance (no longer held)
 </strong>          }
         },
-        // 
+        // Other ERC20 tokens minted by ipeciura.eth on Polygon
       ]
     }
   }
