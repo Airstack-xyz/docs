@@ -26,15 +26,15 @@ With this, you can build your very own social profile search engine easily and p
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
+* [Get All Social Profiles Starting With Given Words](search-social-profiles.md#get-all-social-profiles-starting-with-given-words)
+* [Get All Social Profiles Containing Given Words](search-social-profiles.md#get-all-social-profiles-containing-given-words)
+* [Get All Social Profiles That Has Certain Number of Letters](search-social-profiles.md#get-all-social-profiles-that-has-certain-number-of-letters)
 * [Get All Lens Profiles Starting With Given Words](search-social-profiles.md#get-all-lens-profiles-starting-with-given-words)
 * [Get All Lens Profiles Containing Given Words](search-social-profiles.md#get-all-lens-profiles-containing-given-words)
 * [Get All Lens Profiles That Has Certain Number of Letters](search-social-profiles.md#get-all-lens-profiles-that-has-certain-number-of-letters)
 * [Get All Farcaster Users Starting With Given Words](search-social-profiles.md#get-all-farcaster-users-starting-with-given-words)
 * [Get All Farcaster Users Containing Given Words](search-social-profiles.md#get-all-farcaster-users-containing-given-words)
 * [Get All Farcaster Users That Has Certain Number of Letters](search-social-profiles.md#get-all-farcaster-users-that-has-certain-number-of-letters)
-* [Get All Social Profiles Starting With Given Words](search-social-profiles.md#get-all-social-profiles-starting-with-given-words)
-* [Get All Social Profiles Containing Given Words](search-social-profiles.md#get-all-social-profiles-containing-given-words)
-* [Get All Social Profiles That Has Certain Number of Letters](search-social-profiles.md#get-all-social-profiles-that-has-certain-number-of-letters)
 
 ## Pre-requisites
 
@@ -171,6 +171,200 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
+
+## Get All Social Profiles Starting With Given Words
+
+You can fetch all Lens and Farcaster users that starts with given words by providing an array of regex patterns containing:
+
+* `"^<given-words>"`  for Farcaster search
+* `"^lens/@<given-words>"` for Lens search
+
+to the <mark style="color:red;">**`_regex_in`**</mark> operator in [`Socials`](../../api-references/api-reference/socials-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/z7uWnFzcXD" %}
+show me all Lens and Farcaster profiles starting with "a"
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        # This regex pattern will search Lens &#x26; Farcaster profiles
+        # starting with "a"
+<strong>        profileName: {_regex_in: ["^a", "^lens/@a"]},
+</strong>      },
+      blockchain: ethereum
+    }
+  ) {
+    Social {
+      dappName
+      profileName
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "dappName": "farcaster",
+          "profileName": "atty"
+        },
+        {
+          "dappName": "lens",
+          "profileName": "lens/@anastasia1337"
+        },
+        {
+          "dappName": "farcaster",
+          "profileName": "anita-mpf"
+        },
+        // Other Lens & Farcaster profiles starting with "a"
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All Social Profiles Containing Given Words
+
+You can fetch all Lens and Farcaster users that contains given words by providing `"<given-words>"` directly to the <mark style="color:red;">**`_regex`**</mark> operator in [`Socials`](../../api-references/api-reference/socials-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/IBrXUm2Rm1" %}
+show me all Lens and Farcaster profiles containing with "abc"
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        # This regex pattern will search Lens &#x26; Farcaster profiles
+        # containing "abc"
+<strong>        profileName: {_regex: "abc"}
+</strong>      },
+      blockchain: ethereum
+    }
+  ) {
+    Social {
+      dappName
+      profileName
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "dappName": "lens",
+          "profileName": "lens/@abcoathup"
+        },
+        {
+          "dappName": "lens",
+          "profileName": "lens/@phabc"
+        },
+        {
+          "dappName": "farcaster",
+          "profileName": "abcabc"
+        },
+        // Other Lens and Farcaster profiles containing "abc"
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All Social Profiles That Has Certain Number of Letters
+
+You can fetch all Lens and Farcaster users that starts with given words by providing an array of regex patterns containing:
+
+* `"^.{min_number_of_letters, max_number_of_letters}$"`  for Farcaster search
+* `"^lens/@.{min_number_of_letters, max_number_of_letters}$"` for Lens search
+
+to the <mark style="color:red;">**`_regex_in`**</mark> operator in [`Socials`](../../api-references/api-reference/socials-api.md) API, where the minimum should always be less than or equal to the maximum:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/szgoFIqPfe" %}
+Show me all Lens and Farcaster profiles that has 3 letters or less
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        # This regex pattern search Lens &#x26; Farcaster profiles
+        # that have 1-3 letters in its profile name
+<strong>        profileName: {_regex_in: ["^.{1,3}$", "^lens/@.{1,3}$"]}
+</strong>        dappName: {_eq: farcaster}
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Social {
+      dappName
+      profileName
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "dappName": "farcaster",
+          "profileName": "977"
+        },
+        {
+          "dappName": "farcaster",
+          "profileName": "nem"
+        },
+        {
+          "dappName": "farcaster",
+          "profileName": "vw"
+        },
+        // Other Lens & Farcaster profiles that has 3 letters or less
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Get All Lens Profiles Starting With Given Words
 
@@ -536,200 +730,6 @@ show me all Farcaster users that has 3 letters or less
           "profileName": "vw"
         },
         // Other Farcaster users with less than 3 letters
-      ]
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## Get All Social Profiles Starting With Given Words
-
-You can fetch all Lens and Farcaster users that starts with given words by providing an array of regex patterns containing:
-
-* `"^<given-words>"`  for Farcaster search
-* `"^lens/@<given-words>"` for Lens search
-
-to the <mark style="color:red;">**`_regex_in`**</mark> operator in [`Socials`](../../api-references/api-reference/socials-api.md) API:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/z7uWnFzcXD" %}
-show me all Lens and Farcaster profiles starting with "a"
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
-  Socials(
-    input: {
-      filter: {
-        # This regex pattern will search Lens &#x26; Farcaster profiles
-        # starting with "a"
-<strong>        profileName: {_regex_in: ["^a", "^lens/@a"]},
-</strong>      },
-      blockchain: ethereum
-    }
-  ) {
-    Social {
-      dappName
-      profileName
-    }
-  }
-}
-</code></pre>
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-{
-  "data": {
-    "Socials": {
-      "Social": [
-        {
-          "dappName": "farcaster",
-          "profileName": "atty"
-        },
-        {
-          "dappName": "lens",
-          "profileName": "lens/@anastasia1337"
-        },
-        {
-          "dappName": "farcaster",
-          "profileName": "anita-mpf"
-        },
-        // Other Lens & Farcaster profiles starting with "a"
-      ]
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## Get All Social Profiles Containing Given Words
-
-You can fetch all Lens and Farcaster users that contains given words by providing `"<given-words>"` directly to the <mark style="color:red;">**`_regex`**</mark> operator in [`Socials`](../../api-references/api-reference/socials-api.md) API:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/IBrXUm2Rm1" %}
-show me all Lens and Farcaster profiles containing with "abc"
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
-  Socials(
-    input: {
-      filter: {
-        # This regex pattern will search Lens &#x26; Farcaster profiles
-        # containing "abc"
-<strong>        profileName: {_regex: "abc"}
-</strong>      },
-      blockchain: ethereum
-    }
-  ) {
-    Social {
-      dappName
-      profileName
-    }
-  }
-}
-</code></pre>
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-{
-  "data": {
-    "Socials": {
-      "Social": [
-        {
-          "dappName": "lens",
-          "profileName": "lens/@abcoathup"
-        },
-        {
-          "dappName": "lens",
-          "profileName": "lens/@phabc"
-        },
-        {
-          "dappName": "farcaster",
-          "profileName": "abcabc"
-        },
-        // Other Lens and Farcaster profiles containing "abc"
-      ]
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## Get All Social Profiles That Has Certain Number of Letters
-
-You can fetch all Lens and Farcaster users that starts with given words by providing an array of regex patterns containing:
-
-* `"^.{min_number_of_letters, max_number_of_letters}$"`  for Farcaster search
-* `"^lens/@.{min_number_of_letters, max_number_of_letters}$"` for Lens search
-
-to the <mark style="color:red;">**`_regex_in`**</mark> operator in [`Socials`](../../api-references/api-reference/socials-api.md) API, where the minimum should always be less than or equal to the maximum:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/szgoFIqPfe" %}
-Show me all Lens and Farcaster profiles that has 3 letters or less
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
-  Socials(
-    input: {
-      filter: {
-        # This regex pattern search Lens &#x26; Farcaster profiles
-        # that have 1-3 letters in its profile name
-<strong>        profileName: {_regex_in: ["^.{1,3}$", "^lens/@.{1,3}$"]}
-</strong>        dappName: {_eq: farcaster}
-      },
-      blockchain: ethereum
-    }
-  ) {
-    Social {
-      dappName
-      profileName
-    }
-  }
-}
-</code></pre>
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-{
-  "data": {
-    "Socials": {
-      "Social": [
-        {
-          "dappName": "farcaster",
-          "profileName": "977"
-        },
-        {
-          "dappName": "farcaster",
-          "profileName": "nem"
-        },
-        {
-          "dappName": "farcaster",
-          "profileName": "vw"
-        },
-        // Other Lens & Farcaster profiles that has 3 letters or less
       ]
     }
   }
