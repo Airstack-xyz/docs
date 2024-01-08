@@ -17,9 +17,11 @@ layout:
 
 <figure><img src=".gitbook/assets/API docs asset (1).png" alt=""><figcaption><p>Airstack Web3 Integrations</p></figcaption></figure>
 
-[Airstack](https://airstack.xyz) is a web3 development platform that provides powerful GraphQL APIs for integrating on-chain and off-chain data into any application. With Airstack, you can easily connect your applications to any web3 ecosystem.
+[Airstack](https://airstack.xyz) is the **easiest way to build composable blockchain applications**. Our GraphQL APIs uniquely enable integrating cross-chain, cross-protocol/dapp, onchain, and off-chain data into any application. &#x20;
 
-In addition, [Airstack](https://airstack.xyz) also provides an[ AI solution](get-started/airstack-ai.md) that enables you to build queries using natural language searches – a great way to get started and learn the APIs.
+[Airstack](https://airstack.xyz) provides an[ **AI solution**](get-started/airstack-ai.md) that enables you to build queries using natural language searches – a great way to get started and learn the APIs.
+
+Airstack **Abstractions** enable devs to easily integrate use cases not just data. The GUIDES in the left menu are designed to help you easily find abstractions that match your use cases.
 
 ## Overview
 
