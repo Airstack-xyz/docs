@@ -47,6 +47,7 @@ layout:
 * Airstack’s data is uniquely organized to allow for **composability**, combining data from any of the Airstack data sources and APIs in a single query/response.
 * Airstack provides **GraphQL APIs** for the data, with the unique ability to **query cross-chain, cross-project, and combine onchain and offchain data in a single query & response**
 * **Airstack AI** engine writes GraphQL queries for the user, allowing for complex natural language queries such as “show me all attendees of @ethcc6 and their Lens profiles and if they have XMTP” or “show POAPs in common for stani.lens and betashop9.lens”
+* **Abstractions.** Airstack abstractions enable devs to easily integrate use cases not just data. The GUIDES in the left menu are designed to help you easily find abstractions that match your use cases.
 
 ### Rate Limits
 
