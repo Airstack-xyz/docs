@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack to fetch certain versions of token-bound (ERC6551)
   accounts.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 💎 Account Versions
