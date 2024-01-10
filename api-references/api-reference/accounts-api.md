@@ -34,13 +34,14 @@ If you are deploying ERC6551 using a custom registry contract, please reach out 
 
 ### Filter
 
-| Name                      | Type                             | Description                                                  |
-| ------------------------- | -------------------------------- | ------------------------------------------------------------ |
-| `standard`                | `AccountStandard_Comparator_Exp` | The standard of the ERC6551.                                 |
-| `tokenAddress`            | `String_Comparator_Exp`          | The token address of the ERC721 token that owns the ERC6551. |
-| `tokenId`                 | `String_Comparator_Exp`          | The token ID of the ERC721 token that owns the ERC6551.      |
-| `address`                 | `Identity_Comparator_Exp`        | The address of an ERC6551 account.                           |
-| `createdAtBlockTimestamp` | `Time_Comparator_Exp`            | The block timestamp of the ERC6551 creation transaction.     |
+| Name                      | Type                             | Description                                                                                                                                          |
+| ------------------------- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `standard`                | `AccountStandard_Comparator_Exp` | The standard of the ERC6551.                                                                                                                         |
+| `tokenAddress`            | `Address_Comparator_Exp`         | The token address of the ERC721 token that owns the ERC6551.                                                                                         |
+| `tokenId`                 | `String_Comparator_Exp`          | The token ID of the ERC721 token that owns the ERC6551.                                                                                              |
+| `address`                 | `Identity_Comparator_Exp`        | The address of an ERC6551 account.                                                                                                                   |
+| `createdAtBlockTimestamp` | `Time_Comparator_Exp`            | The block timestamp of the ERC6551 creation transaction.                                                                                             |
+| `registry`                | `Address_Comparator_Exp`         | The registry of the ERC6551 account. This can be used to fetch certain [versions](accounts-api.md#supported-erc6551-registries) of ERC6551 accounts. |
 
 ### Blockchain
 
