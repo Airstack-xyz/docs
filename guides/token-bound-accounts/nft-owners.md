@@ -336,6 +336,4 @@ If you have any questions or need help regarding fetching ERC6551 token bound ac
 
 * [Accounts API Reference](../../api-references/api-reference/accounts-api.md)
 
-1. owner of NFT that owns the ERC6551 accounts
-
 [^1]: owner of NFT that owns the ERC6551 accounts
