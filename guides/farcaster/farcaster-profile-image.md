@@ -157,11 +157,20 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get Farcaster Profile Image
 
-You can provide the user's fname, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), into the `profileName` input filter and fetch the Farcaster profile image from the response with the `profileImage` field:
+You can provide the user's fname, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), into the `profileName` input filter and fetch the Farcaster profile image from the response with the `profileImage` giving the original profile image and `profileImageContentValue` providing the resized versions:
+
+{% hint style="info" %}
+The images returned will already be resized by Airstack and can be used directly within your application:
+
+* extra\_small: 125x125px
+* small: 250x250px
+* medium: 500x500px
+* large: 750x750px
+{% endhint %}
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/S3zEhemN0K" %}
+{% embed url="https://app.airstack.xyz/query/DGytdRwbjx" %}
 Show Farcaster profile image of Farcaster user vitalik.eth
 {% endembed %}
 
@@ -182,6 +191,15 @@ query MyQuery {
   ) {
     Social {
       profileImage
+      profileImageContentValue {
+        image {
+          extraSmall
+          large
+          medium
+          original
+          small
+        }
+      }
     }
   }
 }
@@ -195,7 +213,16 @@ query MyQuery {
     "Socials": {
       "Social": [
         {
-          "profileImage": "https://i.imgur.com/gF9Yaeg.jpg"
+          "profileImage": "https://i.imgur.com/gF9Yaeg.jpg",
+          "profileImageContentValue": {
+            "image": {
+              "extraSmall": "https://assets.airstack.xyz/image/social/t7c6r/zEOQzL8ozyEr1fFmzEH3KbNAYrWqlNPs9+OwU=/extra_small.jpg",
+              "large": "https://assets.airstack.xyz/image/social/t7c6r/zEOQzL8ozyEr1fFmzEH3KbNAYrWqlNPs9+OwU=/large.jpg",
+              "medium": "https://assets.airstack.xyz/image/social/t7c6r/zEOQzL8ozyEr1fFmzEH3KbNAYrWqlNPs9+OwU=/medium.jpg",
+              "original": "https://assets.airstack.xyz/image/social/t7c6r/zEOQzL8ozyEr1fFmzEH3KbNAYrWqlNPs9+OwU=/original_image.jpg",
+              "small": "https://assets.airstack.xyz/image/social/t7c6r/zEOQzL8ozyEr1fFmzEH3KbNAYrWqlNPs9+OwU=/small.jpg"
+            }
+          }
         }
       ]
     }
