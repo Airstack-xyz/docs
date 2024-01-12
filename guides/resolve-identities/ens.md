@@ -591,6 +591,6 @@ If you have any questions or need help regarding resolving ENS name(s), please j
 
 ## More Resources
 
-* [ENS Domains Guide](../ens-domain/)
+* [ENS Domains Guide](../ens-domains/)
 * [Domains API Reference](../../api-references/api-reference/domains-api.md)
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)

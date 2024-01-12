@@ -15,7 +15,7 @@ layout:
     visible: true
 ---
 
-# 🆔 Resolve ENS Domain
+# 🆔 Resolve ENS Domains
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [ENS](https://ens.domains) applications and integrating on-chain and off-chain data with [ENS](https://ens.domains).
 
@@ -23,11 +23,11 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get All 0x addresses of ENS Domain(s)](resolve-ens-domain.md#get-all-0x-addresses-of-ens-domain-s)
-* [Get All Web3 Social Accounts (Lens, Farcaster) owned by 0x address or ENS](resolve-ens-domain.md#get-all-web3-social-accounts-lens-farcaster-owned-by-0x-address-or-ens)
-* [Check If XMTP is Enabled for ENS Domain(s)](resolve-ens-domain.md#check-if-xmtp-is-enabled-for-ens-domain-s)
-* [Get the 0x address, Lens, and Farcaster from a given cb.id (Offchain)](resolve-ens-domain.md#get-the-0x-address-lens-and-farcaster-from-a-given-cb.id-offchain)
-* [Get the 0x address, Lens, and Farcaster from a given Namestone Subdomain (Offchain)](resolve-ens-domain.md#get-the-0x-address-lens-and-farcaster-from-a-given-namestone-subdomain-offchain)
+* [Get All 0x addresses of ENS Domain(s)](resolve-ens-domains.md#get-all-0x-addresses-of-ens-domain-s)
+* [Get All Web3 Social Accounts (Lens, Farcaster) owned by 0x address or ENS](resolve-ens-domains.md#get-all-web3-social-accounts-lens-farcaster-owned-by-0x-address-or-ens)
+* [Check If XMTP is Enabled for ENS Domain(s)](resolve-ens-domains.md#check-if-xmtp-is-enabled-for-ens-domain-s)
+* [Get the 0x address, Lens, and Farcaster from a given cb.id (Offchain)](resolve-ens-domains.md#get-the-0x-address-lens-and-farcaster-from-a-given-cb.id-offchain)
+* [Get the 0x address, Lens, and Farcaster from a given Namestone Subdomain (Offchain)](resolve-ens-domains.md#get-the-0x-address-lens-and-farcaster-from-a-given-namestone-subdomain-offchain)
 
 ## Pre-requisites
 

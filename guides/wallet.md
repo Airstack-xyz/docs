@@ -1005,7 +1005,7 @@ If you have any questions or need help regarding fetching balance snapshots data
 * [Socials API References](../api-references/api-reference/socials-api.md)
 * [TokenBalances API References](../api-references/api-reference/tokenbalances-api.md)
 * [TokenTransfers API References](../api-references/api-reference/tokentransfers-api.md)
-* [ENS Domain Guides](ens-domain/)
+* [ENS Domain Guides](ens-domains/)
 * [Lens Guides](lens/)
 * [Farcaster Guides](farcaster/)
 * [Token Balances Guides](token-balances/)
