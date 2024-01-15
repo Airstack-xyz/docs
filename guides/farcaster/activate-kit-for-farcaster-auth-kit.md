@@ -27,6 +27,9 @@ With Airstack Activate you can immediately fetch all of the user's:
 * Connected addresses
 * Following
 * Followers
+* Onchain activity (e.g. POAPs, NFTs, tokens)
+
+You can also use Airstack regex search to enable auto-complete user search for Farcaster users within your app.
 
 ## Table Of Contents
 
