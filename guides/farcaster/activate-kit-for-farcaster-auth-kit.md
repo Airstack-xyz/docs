@@ -1,8 +1,7 @@
 ---
 description: >-
-  Airstack Activate Kit enables you to execute a series of API calls to populate
-  Farcaster users' profiles, connected addresses, and follows and keep it always
-  in sync.
+  Airstack Activate Kit enables you to execute a series of API calls to activate
+  Farcaster users after they connect with Farcaster Auth Kit.
 layout:
   title:
     visible: true
@@ -28,8 +27,9 @@ With Airstack Activate you can immediately fetch all of the user's:
 * Following
 * Followers
 * Onchain activity (e.g. POAPs, NFTs, tokens)
+* Onchain graph
 
-You can also use Airstack regex search to enable auto-complete search for Farcaster users within your app.
+You can also use Airstack regex search to enable auto-complete search for Farcaster users in your app.
 
 ## Table Of Contents
 
