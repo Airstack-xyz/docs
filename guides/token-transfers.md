@@ -243,8 +243,6 @@ Show me token transfers sent from betashop.eth on Ethereum
 {% endtab %}
 {% endtabs %}
 
-All the users returned from the `to` response field can be compiled and returned as a recommendation in your application.
-
 ## Get Token Transfers Received By A User on Ethereum
 
 You can fetch all token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), on Ethereum by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
@@ -317,8 +315,6 @@ Show me token transfers received by betashop.eth on Ethereum
 ```
 {% endtab %}
 {% endtabs %}
-
-All the users returned from the `from` response field can be compiled and returned as a recommendation in your application.
 
 ## Get Token Transfers Sent From A User on Polygon
 
@@ -394,8 +390,6 @@ query GetTokenTransfers {
 {% endtab %}
 {% endtabs %}
 
-All the users returned from the `to` response field can be compiled and returned as a recommendation in your application.
-
 ## Get Token Transfers Received By A User on Polygon
 
 You can fetch all token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), on Polygon by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
@@ -468,8 +462,6 @@ Show me token transfers received by betashop.eth on Polygon
 ```
 {% endtab %}
 {% endtabs %}
-
-All the users returned from the `from` response field can be compiled and returned as a recommendation in your application.
 
 ## Get Token Transfers Sent From A User on Base
 
@@ -544,8 +536,6 @@ Show me token transfers sent from jessepollak.eth on Base
 {% endtab %}
 {% endtabs %}
 
-All the users returned from the `to` response field can be compiled and returned as a recommendation in your application.
-
 ## Get Token Transfers Received By A User on Base
 
 You can fetch all token transfers received by a given user, e.g. [`barmstrong.eth`](https://explorer.airstack.xyz/token-balances?address=barmstrong.eth\&rawInput=%23%E2%8E%B1barmstrong.eth%E2%8E%B1%28barmstrong.eth++ethereum+null%29\&inputType=ADDRESS), on Base by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
@@ -618,8 +608,6 @@ Show me token transfers received by barmstrong.eth on Base
 ```
 {% endtab %}
 {% endtabs %}
-
-All the users returned from the `from` response field can be compiled and returned as a recommendation in your application.
 
 ## Get Token Transfers Sent From A User on Multiple Chains
 
@@ -753,8 +741,6 @@ Show me all token transfers sent from betashop.eth on Ethereum, Polygon, and Bas
 {% endtab %}
 {% endtabs %}
 
-All the users returned from the `to` response field can be compiled and returned as a recommendation in your application.
-
 ## Get Token Transfers Received By A User on Multiple Chains
 
 You can fetch all token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Polygon, and Base, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
@@ -887,8 +873,6 @@ Show me token transfers received by betashop.eth on Ethereum, Polygon, and Base
 </code></pre>
 {% endtab %}
 {% endtabs %}
-
-All the users returned from the `from` response field can be compiled and returned as a recommendation in your application.
 
 ## Get The Most Recent Token Transfers Sent From A User(s)
 
@@ -1025,8 +1009,6 @@ query GetTokenTransfers {
 </code></pre>
 {% endtab %}
 {% endtabs %}
-
-All the users returned from the `to` response field can be compiled and returned as a recommendation in your application.
 
 ## Get The Most Recent Token Transfers Received By A User
 
