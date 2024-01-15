@@ -18,7 +18,7 @@ layout:
 
 # 💡 Activate Kit for Farcaster Auth Kit
 
-Farcaster Auth Kit enables your users to login to your app with with their Farcaster custody address. Airstack Activate Kit is the next immediate step.
+[Farcaster Auth Kit](https://docs.farcaster.xyz/auth-kit/introduction) enables your users to login to your app with their Farcaster custody address. Airstack Activate Kit is the next immediate step.
 
 With Airstack Activate you can immediately fetch all of the user's:
 
@@ -1506,7 +1506,7 @@ To learn more how to build this into your application, check out [Onchain Graph]
 
 ## Developer Support
 
-If you have any questions or need help regarding the activate kit for Farcaster Auth Kit, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding the activate kit for [Farcaster Auth Kit](https://docs.farcaster.xyz/auth-kit/introduction), please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
