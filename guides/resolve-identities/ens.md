@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to use Airstack to universally resolve and reverse resolve ENS to
-  other web3 identities (Farcaster, Lens, 0x address).
+  Learn how to use Airstack to universally resolve and reverse resolve ENS,
+  Namestone, and cb.id to other web3 identities (Farcaster, Lens, 0x address).
 layout:
   title:
     visible: true
@@ -17,7 +17,7 @@ layout:
 
 # 🔷 ENS
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [ENS](https://ens.domains) applications and for integrating on-chain and off-chain data from ENS.
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [ENS](https://ens.domains) applications and for integrating on-chain ENS data and off-chain data from Namestone and cb.id.
 
 ## Table Of Contents
 
@@ -166,7 +166,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get ENS from a given user(s)
 
-You can get all the ENS names of a given user, both primary and non-primary names, by providing either 0x addresses, Lens profile, or Farcaster:
+You can get all the ENS names and offchain domains (Namestone & cb.id) of a given user, both primary and non-primary names, by providing either 0x addresses, Lens profile, or Farcaster:
 
 ### Try Demo
 

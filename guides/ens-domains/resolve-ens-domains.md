@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to resolve ENS Domain to 0x address, Lens, Farcaster, and XMTP and
-  Reverse Resolution.
+  Learn how to resolve ENS and Offchain Domains (Namestone & cb.id) to 0x
+  address, Lens, Farcaster, and XMTP and Reverse Resolution.
 layout:
   title:
     visible: true
@@ -23,6 +23,7 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
+* [Get ENS and Offchain Domains (Namestone & cb.id) of user(s)](resolve-ens-domains.md#get-ens-and-offchain-domains-namestone-and-cb.id-of-user-s)
 * [Get All 0x addresses of ENS Domain(s)](resolve-ens-domains.md#get-all-0x-addresses-of-ens-domain-s)
 * [Get All Web3 Social Accounts (Lens, Farcaster) owned by 0x address or ENS](resolve-ens-domains.md#get-all-web3-social-accounts-lens-farcaster-owned-by-0x-address-or-ens)
 * [Check If XMTP is Enabled for ENS Domain(s)](resolve-ens-domains.md#check-if-xmtp-is-enabled-for-ens-domain-s)
@@ -164,6 +165,64 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
+
+## Get ENS and Offchain Domains (Namestone & cb.id) of user(s)
+
+You can fetch the ENS and offchain domains (Namestone & cb.id) of user(s) by using the [`Domains`](../../api-references/api-reference/domains-api.md) API and providing either the 0x address, Lens, or Farcaster to `resolvedAddress`:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/PEqpmpWvDg" %}
+Show me the ENS and offchain domains (Namestone & cb.id) of users
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query GetENSNameStoneCBID {
+  Domains(
+    input: {
+      filter: {
+        resolvedAddress: {
+          _in: [
+            "0xc7486219881C780B676499868716B27095317416",
+            "lens/@yosephks",
+            "fc_fname:yosephks.eth"
+          ]
+        }
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Domain {
+      name
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Domains": {
+      "Domain": [
+        {
+          "name": "yosephks.eth"
+        },
+        {
+          "name": "yosephks.cb.id"
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Get All 0x addresses of ENS Domain(s)
 
