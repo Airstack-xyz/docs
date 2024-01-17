@@ -22,7 +22,7 @@ layout:
 
 ## Table Of Contents
 
-In this guide, you will learn how to use [Airstack](https://airstack.xyz) to create proof of personhood mechanism by:
+In this guide, you will learn how to use [Airstack](https://airstack.xyz) to create a proof of personhood mechanism by:
 
 * [Token Transfers](proof-of-personhood.md#token-transfers)
 * [Token Balances](proof-of-personhood.md#token-balances)
@@ -30,14 +30,16 @@ In this guide, you will learn how to use [Airstack](https://airstack.xyz) to cre
 * [Has Lens Profile](proof-of-personhood.md#has-lens-profile)
 * [Has Farcaster Account](proof-of-personhood.md#has-farcaster-account)
 * [Has Non-Virtual POAPs](proof-of-personhood.md#has-non-virtual-poaps)
+* [Has X or More Followers on Lens](proof-of-personhood.md#has-x-or-more-followers-on-lens)
+* [Has X or More Followers on Farcaster](proof-of-personhood.md#has-x-or-more-followers-on-farcaster)
 
-### Pre-requisites
+## Pre-requisites
 
 * An [Airstack](https://airstack.xyz/) account (free)
 * Basic knowledge of GraphQL
 * Basic knowledge of [XMTP](https://xmtp.org)
 
-### Get Started
+## Get Started
 
 **JavaScript/TypeScript/Python**
 
@@ -162,19 +164,19 @@ asyncio.run(main())
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
+## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-### Best Practice
+## Best Practice
 
 While choosing a specific criteria will significantly decrease the number of spam appearing on your user's XMTP inbox, It is best practice that you **combine** the multiple criterion given here to build your **spam filter**.
 
 This is done to provide **multiple layers of filtration** that will make it nearly impossible for spammers to have their messages slide into your users' XMTP inbox.
 
-### Token Transfers
+## Token Transfers
 
 You can build proof of personhood by checking if there are any token transfers history from the given user:
 
@@ -184,13 +186,13 @@ You can build proof of personhood by checking if there are any token transfers h
 We recommend combining multiple criteria to determine if a user is likely to be a real person.
 {% endhint %}
 
-#### Try Demo
+### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/VAonm8FOCY" %}
 Show me token transfers by vitalik.eth on Ethereum, Polygon, and Base
 {% endembed %}
 
-#### Code
+### Code
 
 {% tabs %}
 {% tab title="Query" %}
@@ -509,7 +511,7 @@ If the `TokenTransfer` array has non-zero length, then the user have a history o
 
 Otherwise, the user should be **considered a potential spammer**.
 
-### Token Balances
+## Token Balances
 
 You can build proof of personhood by checking if there are any ERC20/721/1155 tokens hold by the given user:
 
@@ -519,13 +521,13 @@ You can build proof of personhood by checking if there are any ERC20/721/1155 to
 We recommend combining multiple criterion to determine if a user is likely to be a real person.
 {% endhint %}
 
-#### Try Demo
+### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/WCyrqtr2Hq" %}
 show me vitalik.eth token balances on Ethereum, Polygon, and Base
 {% endembed %}
 
-#### Code
+### Code
 
 {% tabs %}
 {% tab title="Query" %}
@@ -671,7 +673,7 @@ If the `TokenBalance` array has non-zero length, then the user have some ERC20/7
 
 Otherwise, the user should be **considered a potential spammer**.
 
-### Has Primary ENS
+## Has Primary ENS
 
 You can build proof of personhood by checking if the given user hold any primary ENS:
 
@@ -681,13 +683,13 @@ You can build proof of personhood by checking if the given user hold any primary
 We recommend combining multiple criterion to determine if a user is likely to be a real person.
 {% endhint %}
 
-#### Try Demo
+### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/6re2GWPzw5" %}
 show me if 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 has any primary ENS
 {% endembed %}
 
-#### Code
+### Code
 
 {% tabs %}
 {% tab title="Query" %}
@@ -734,7 +736,7 @@ If the `Domain` array has non-zero length, then the user has primary ENS domain 
 
 Otherwise, the user should be **considered a potential spammer**.
 
-### Has Lens Profile
+## Has Lens Profile
 
 You can build proof of personhood by checking if the given user hold any Lens profile:
 
@@ -744,13 +746,13 @@ You can build proof of personhood by checking if the given user hold any Lens pr
 We recommend combining multiple criterion to determine if a user is likely to be a real person.
 {% endhint %}
 
-#### Try Demo
+### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/aoZPofhxXD" %}
 show me if 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 has any Lens profile
 {% endembed %}
 
-#### Code
+### Code
 
 {% tabs %}
 {% tab title="Query" %}
@@ -797,7 +799,7 @@ If the `Social` array has non-zero length, then the user has Lens profile(s) for
 
 Otherwise, the user should be **considered a potential spammer**.
 
-### Has Farcaster Account
+## Has Farcaster Account
 
 You can build proof of personhood by checking if the given user hold any Farcaster account:
 
@@ -807,13 +809,13 @@ You can build proof of personhood by checking if the given user hold any Farcast
 We recommend combining multiple criterion to determine if a user is likely to be a real person.
 {% endhint %}
 
-#### Try Demo
+### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/4GPOVP5rUE" %}
 show me if 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 has any Farcaster profile
 {% endembed %}
 
-#### Code
+### Code
 
 {% tabs %}
 {% tab title="Query" %}
@@ -940,11 +942,135 @@ All you need to check is whether there is at least 1 POAP with the `isVirtualEve
 
 Otherwise, the user should be **considered a potential spammer**.
 
-### Developer Support
+## Has X or More Followers on Lens
+
+You can build proof of personhood by checking if the given user provided in `identity` field has X or more followers on Lens:
+
+{% hint style="success" %}
+:first\_place: **BEST PRACTICES**
+
+We recommend combining multiple criterion to determine if a user is likely to be a real person.
+{% endhint %}
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/nTifqyUgc5" %}
+Check if Lens profile owned by 0xeaf55242a90bb3289dB8184772b0B98562053559 have more than or qual to 100 followers on Lens
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        followerCount: {_gt: 100},
+        dappName: {_eq: lens},
+        identity: {_eq: "0xeaf55242a90bb3289dB8184772b0B98562053559"}
+      },
+      blockchain: ethereum,
+      limit: 200
+    }
+  ) {
+    Social {
+      followerCount
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "followerCount": 394
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+All you need to check is whether `Socials.Social` return non-null value. If yes, then the given user will be shown with the precise `followerCount` on Lens and indicate that the given user have more than or equal to certain number of followers. Thus, the given user can be **considered a non-spammer**.
+
+Otherwise, the user should be **considered a potential spammer**.
+
+## Has X or More Followers on Farcaster
+
+You can build proof of personhood by checking if the given user provided in `identity` field has X or more followers on Farcaster:
+
+{% hint style="success" %}
+:first\_place: **BEST PRACTICES**
+
+We recommend combining multiple criterion to determine if a user is likely to be a real person.
+{% endhint %}
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/Ghlt7XV2HR" %}
+Check if Farcaster profile owned by 0xeaf55242a90bb3289dB8184772b0B98562053559 have more than or equal to 100 followers on Farcaster
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        followerCount: {_gt: 100},
+        dappName: {_eq: farcaster},
+        identity: {_eq: "0xeaf55242a90bb3289dB8184772b0B98562053559"}
+      },
+      blockchain: ethereum,
+      limit: 200
+    }
+  ) {
+    Social {
+      followerCount
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "followerCount": 17122
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+All you need to check is whether `Socials.Social` return non-null value. If yes, then the given user will be shown with the precise `followerCount` on Farcaster and indicate that the given user have more than or equal to certain number of followers. Thus, the given user can be **considered a non-spammer**.
+
+Otherwise, the user should be **considered a potential spammer**.
+
+## Developer Support
 
 If you have any questions or need help regarding creating a proof of personhood to classify spammers on your XMTP messaging app, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
-### More Resources
+## More Resources
 
 * [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api.md)
 * [TokenBalances API Reference](../../../api-references/api-reference/tokenbalances-api.md)
