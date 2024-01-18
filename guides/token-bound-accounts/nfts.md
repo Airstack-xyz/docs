@@ -17,13 +17,22 @@ layout:
 
 # ♦ NFTs
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching ERC6551 dapps and integrating on-chain and off-chain data.
+[Airstack](https://airstack.xyz) provides easy-to-use APIs that index both deployed and non-deployed (optimistic) ERC6551 accounts across Ethereum, Polygon, and Base to enrich ERC6551 dapps with on-chain and off-chain data.
+
+For non-deployed (optimistic) ERC6551 accounts, it will be available in the [`tokenNfts`](../../api-references/api-reference/tokennfts-api.md) nested queries and the value will be calculated through a hashing function that depends on 3 input variables:
+
+| Variables        | Default Value                                | Description                                                                                                                                                                                              |
+| ---------------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `registry`       | `0x000000006551c19487814612e58FE06813775758` | <p>The registry address of the ERC6551 account. This can be used to indicate the different <a href="account-versions.md">versions</a> of ERC6551 accounts.<br><br>This defaults to registry v.0.3.1.</p> |
+| `implementation` | `0x55266d75D1a14E4572138116aF39863Ed6596E7F` | <p>The implementation address of ERC6551 account.<br><br>Defaulting implementation to the official standard ERC6551 implementation address.</p>                                                          |
+| `salt`           | 0                                            | The ERC6551 account's salt.                                                                                                                                                                              |
 
 ## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
 * [Get Token Bound Accounts (ERC6551) By NFT Collection Address(es)](nfts.md#get-token-bound-accounts-erc6551-by-nft-collection-address-es)
+* [Get All Deployed and Non-Deployed (Optimistic) Token Bound Accounts (ERC6551) By NFT Collection Address(es)](nfts.md#get-all-deployed-and-non-deployed-optimistic-token-bound-accounts-erc6551-by-nft-collection-address)
 * [Get Cross-Chain Token Bound Accounts (ERC6551) By NFT Collection Address(es)](nfts.md#get-cross-chain-token-bound-accounts-erc6551-by-nft-collection-address-es)
 * [Get Token Bound Accounts By Specific NFT](nfts.md#get-token-bound-accounts-by-specific-nft)
 * [Get Cross-Chain Token Bound Accounts By Specific NFT](nfts.md#get-cross-chain-token-bound-accounts-erc6551-by-nft-collection-address-es)
@@ -168,7 +177,11 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get Token Bound Accounts (ERC6551) By NFT Collection Address(es)
 
-You can get all the ERC6551 accounts owned by a given [NFT collection address(es)](#user-content-fn-1)[^1]:
+You can get all the deployed ERC6551 accounts owned by a given [NFT collection address(es)](#user-content-fn-1)[^1]:&#x20;
+
+{% hint style="info" %}
+If you would like to include NFTs with no TBA and show the associated non-deployed (optimistic) TBAs to be included in the result, then check [this query](nfts.md#get-all-deployed-and-non-deployed-optimistic-token-bound-accounts-erc6551-by-nft-collection-address) instead.
+{% endhint %}
 
 ### Try Demo
 
@@ -247,6 +260,109 @@ query MyQuery {
   }
 }
 ```
+{% endtab %}
+{% endtabs %}
+
+## Get All Deployed and Non-Deployed (Optimistic) Token Bound Accounts (ERC6551) By NFT Collection Address(es)
+
+You can fetch all deployed and non-deployed (optimistic) TBAs on an NFT Collection
+
+{% hint style="info" %}
+For non-deployed (optimistic) TBAs, it can be checked through some of the fields' value:
+
+* `createdAtBlockNumber`: -1
+* `createdAtBlockTimestamp`: `null`
+* `creationTransactionHash`: `null`
+{% endhint %}
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/ZQg2Vl8HmO" %}
+Show me all TBAs, both deployed and non-deployed (optimistic), on Sapienz NFT collection
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  TokenNfts(
+    input: {
+      filter: {
+        address: {_in: ["0x26727ed4f5ba61d3772d1575bca011ae3aef5d36"]}
+      },
+      blockchain: ethereum,
+      limit: 200
+    }
+  ) {
+    TokenNft {
+      address
+      tokenId
+      erc6551Accounts {
+        createdAtBlockNumber
+        createdAtBlockTimestamp
+        address {
+          addresses
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "TokenNfts": {
+      "TokenNft": [
+        {
+          "tokenId": "0",
+          // This NFT have 2 deployed TBAs on Ethereum
+<strong>          "erc6551Accounts": [
+</strong>            {
+<strong>              "createdAtBlockNumber": 17213826, // Block number when the TBA was created
+</strong>              "createdAtBlockTimestamp": "2023-05-08T05:53:59Z",
+              "address": {
+                "addresses": [
+                  "0x5416e5dc14caa0950b2a24ede1eb0e97c360bcf5"
+                ]
+              }
+            },
+            {
+              "createdAtBlockNumber": 18467201,
+              "createdAtBlockTimestamp": "2023-10-31T02:40:23Z",
+              "address": {
+                "addresses": [
+                  "0xb5307cb1ae1385f64de8442d5d48ff86479f4f8c"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "tokenId": "100",
+          "erc6551Accounts": [
+            {
+              // This NFT have no TBA
+<strong>              "createdAtBlockNumber": -1,
+</strong>              "createdAtBlockTimestamp": null,
+              "address": {
+                "addresses": [
+                  // This TBA address is optimistic
+<strong>                  "0x35dc2fd127fcc7a0ed33b29d7e58e4bc01b13b2d"
+</strong>                ]
+              }
+            }
+          ]
+        },
+        //
+      ]
+    }
+  }
+}
+</code></pre>
 {% endtab %}
 {% endtabs %}
 

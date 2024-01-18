@@ -17,7 +17,15 @@ layout:
 
 # 📭 NFT Owners
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching ERC6551 dapps and integrating on-chain and off-chain data.
+[Airstack](https://airstack.xyz) provides easy-to-use APIs that index both deployed and non-deployed (optimistic) ERC6551 accounts across Ethereum, Polygon, and Base to enrich ERC6551 dapps with on-chain and off-chain data.
+
+For non-deployed (optimistic) ERC6551 accounts, it will be available in the [`tokenNfts`](../../api-references/api-reference/tokennfts-api.md) nested queries and the value will be calculated through a hashing function that depends on 3 input variables:
+
+| Variables        | Default Value                                | Description                                                                                                                                                                                              |
+| ---------------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `registry`       | `0x000000006551c19487814612e58FE06813775758` | <p>The registry address of the ERC6551 account. This can be used to indicate the different <a href="account-versions.md">versions</a> of ERC6551 accounts.<br><br>This defaults to registry v.0.3.1.</p> |
+| `implementation` | `0x55266d75D1a14E4572138116aF39863Ed6596E7F` | <p>The implementation address of ERC6551 account.<br><br>Defaulting implementation to the official standard ERC6551 implementation address.</p>                                                          |
+| `salt`           | 0                                            | The ERC6551 account's salt.                                                                                                                                                                              |
 
 ## Table Of Contents
 
@@ -167,6 +175,14 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 You can fetch all the token bound accounts owned by a given [NFT owner](#user-content-fn-1)[^1] address `owner`:
 
+{% hint style="info" %}
+For non-deployed (optimistic) TBAs, it can be checked through some of the fields' value:
+
+* `createdAtBlockNumber`: -1
+* `createdAtBlockTimestamp`: `null`
+* `creationTransactionHash`: `null`
+{% endhint %}
+
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/5GhSQXiErE" %}
@@ -181,17 +197,24 @@ Get Token Bound Accounts By NFT Owner Address (Demo)
 query MyQuery {
   TokenBalances(
     input: {
-      filter: { owner: { _in: "0xcf94ba8779848141d685d44452c975c2ddc04945" } }
-      blockchain: ethereum
+      filter: {
+        owner: {_in: "0xa75b7833c78EBA62F1C5389f811ef3A7364D44DE"},
+        tokenType: {_eq: ERC721}
+      },
+      blockchain: ethereum,
       limit: 200
     }
   ) {
     TokenBalance {
       tokenNfts {
+        address
+        tokenId
         erc6551Accounts {
           address {
             addresses
           }
+          createdAtBlockNumber
+          createdAtBlockTimestamp
         }
       }
     }
@@ -201,75 +224,67 @@ query MyQuery {
 {% endtab %}
 
 {% tab title="Response" %}
-```json
-{
+<pre class="language-json"><code class="lang-json">{
   "data": {
     "TokenBalances": {
       "TokenBalance": [
         {
           "tokenNfts": {
-            "erc6551Accounts": [
+            "address": "0x26727ed4f5ba61d3772d1575bca011ae3aef5d36",
+            "tokenId": "0",
+            // This NFT have 2 TBAs deployed on Ethereum mainnet
+<strong>            "erc6551Accounts": [
+</strong>              {
+                "address": {
+                  "addresses": [
+                    "0x5416e5dc14caa0950b2a24ede1eb0e97c360bcf5"
+                  ]
+                },
+                "createdAtBlockNumber": 17213826,
+                "createdAtBlockTimestamp": "2023-05-08T05:53:59Z"
+              },
               {
                 "address": {
-                  "addresses": ["0x9ff8faf2c61f50d24677e9cb5aaf988c91525539"]
-                }
+                  "addresses": [
+                    "0xb5307cb1ae1385f64de8442d5d48ff86479f4f8c"
+                  ]
+                },
+                "createdAtBlockNumber": 18467201,
+                "createdAtBlockTimestamp": "2023-10-31T02:40:23Z"
               }
             ]
           }
         },
         {
           "tokenNfts": {
+            "address": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+            "tokenId": "207000185",
             "erc6551Accounts": [
               {
                 "address": {
-                  "addresses": ["0x5f27c4c4f66fbb9d1bddbcef60ada4731757b128"]
-                }
+                  "addresses": [
+                    // Non-deployed (Optimistic) TBA address
+<strong>                    "0x062e978c4867df2ed10a3092234659829d44b9f1"
+</strong>                  ]
+                },
+<strong>                "createdAtBlockNumber": -1, // This indicate that the TBA has not been deployed yet
+</strong>                "createdAtBlockTimestamp": null
               }
             ]
           }
         },
-        {
-          "tokenNfts": {
-            "erc6551Accounts": [
-              {
-                "address": {
-                  "addresses": ["0x5661094b8b369aff4075a9a75a1bcc51cdb5901e"]
-                }
-              }
-            ]
-          }
-        },
-        {
-          "tokenNfts": {
-            "erc6551Accounts": [
-              {
-                "address": {
-                  "addresses": ["0x28d3fb76ad7e1076735a2bac3cac260c6349f45b"]
-                }
-              }
-            ]
-          }
-        },
-        {
-          "tokenNfts": {
-            "erc6551Accounts": [
-              {
-                "address": {
-                  "addresses": ["0x7bc2cb8d74c2238a126fd495c7ce079ae36e6396"]
-                }
-              }
-            ]
-          }
-        }
+        // Other ERC721 NFTs with their TBA address
       ]
     }
   }
 }
-```
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
 ## Get The Owner Of NFT That Owns A Given Token Bound Accounts Address
+
+You can find the owner of the NFT that owns a given TBA by using the `Accounts` API and providing the TBA address to the `address` fitler:
 
 ### Try Demo
 
@@ -335,5 +350,6 @@ If you have any questions or need help regarding fetching ERC6551 token bound ac
 ## More Resources
 
 * [Accounts API Reference](../../api-references/api-reference/accounts-api.md)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
 
 [^1]: owner of NFT that owns the ERC6551 accounts
