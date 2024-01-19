@@ -300,7 +300,7 @@ Show me all TBAs, both deployed and non-deployed (optimistic), on Sapienz NFT co
       tokenId
       erc6551Accounts(
       # set this to `true` to hide all optimistic/non-deployed TBAs
-<strong>        input: {showOptimisticAddress: false}
+<strong>        input: {showOptimisticAddress: true}
 </strong>      ) {
         createdAtBlockNumber
         createdAtBlockTimestamp
