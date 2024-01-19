@@ -57,6 +57,16 @@ If you are deploying ERC6551 using a custom registry contract, please reach out 
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | `createdAtBlockTimestamp` | Sort the result by the block timestamp of the ERC6551 creation transaction, either in ascending (`ASC`) or descending (`DESC`) order. |
 
+### Nested Input\*
+
+{% hint style="info" %}
+The nested inputs only appear within the nested input, but not for top-level `Accounts` APIs.
+{% endhint %}
+
+| Name                    | Type      | Description                                                            |
+| ----------------------- | --------- | ---------------------------------------------------------------------- |
+| `showOptimisticAddress` | `Boolean` | If set true, it will show all the optimistic TBA addresses. Otherwise, |
+
 ## Outputs
 
 | Name                      | Type               | Description                                                                                                                                                                                                                                                            |

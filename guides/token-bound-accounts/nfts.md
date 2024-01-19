@@ -285,8 +285,7 @@ Show me all TBAs, both deployed and non-deployed (optimistic), on Sapienz NFT co
 
 {% tabs %}
 {% tab title="Query" %}
-```graphql
-query MyQuery {
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   TokenNfts(
     input: {
       filter: {
@@ -299,7 +298,10 @@ query MyQuery {
     TokenNft {
       address
       tokenId
-      erc6551Accounts {
+      erc6551Accounts(
+      # set this to `true` to hide all optimistic/non-deployed TBAs
+<strong>        input: {showOptimisticAddress: false}
+</strong>      ) {
         createdAtBlockNumber
         createdAtBlockTimestamp
         address {
@@ -309,7 +311,7 @@ query MyQuery {
     }
   }
 }
-```
+</code></pre>
 {% endtab %}
 
 {% tab title="Response" %}
