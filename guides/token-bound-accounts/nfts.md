@@ -265,7 +265,7 @@ query MyQuery {
 
 ## Get All Deployed and Non-Deployed (Optimistic) Token Bound Accounts (ERC6551) By NFT Collection Address(es)
 
-You can fetch all deployed and non-deployed (optimistic) TBAs on an NFT Collection
+You can fetch all deployed and non-deployed (optimistic) TBAs on NFT Collection(s) by using the [`TokenNfts`](../../api-references/api-reference/tokennfts-api.md) API and providing the NFT collection address to the `address` filter:
 
 {% hint style="info" %}
 For non-deployed (optimistic) TBAs, it can be checked through some of the fields' value:
@@ -299,7 +299,7 @@ Show me all TBAs, both deployed and non-deployed (optimistic), on Sapienz NFT co
       address
       tokenId
       erc6551Accounts(
-      # set this to `true` to hide all optimistic/non-deployed TBAs
+      # set this to `true` to show all optimistic/non-deployed TBAs
 <strong>        input: {showOptimisticAddress: true}
 </strong>      ) {
         createdAtBlockNumber
@@ -674,5 +674,6 @@ If you have any questions or need help regarding fetching ERC6551 token bound ac
 ## More Resources
 
 * [Accounts API Reference](../../api-references/api-reference/accounts-api.md)
+* [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api.md)
 
 [^1]: This is represented as `tokenAddress` parameter in the GraphQL query.
