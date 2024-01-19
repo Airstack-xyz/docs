@@ -33,6 +33,7 @@ In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
 * [Get Token Bound Accounts (ERC6551) By NFT Collection Address(es)](nfts.md#get-token-bound-accounts-erc6551-by-nft-collection-address-es)
 * [Get All Deployed and Non-Deployed (Optimistic) Token Bound Accounts (ERC6551) By NFT Collection Address(es)](nfts.md#get-all-deployed-and-non-deployed-optimistic-token-bound-accounts-erc6551-by-nft-collection-address)
+* [Get Optimistic Token Bound Accounts (ERC6551) for Custom Implementations](nfts.md#get-optimistic-custom)
 * [Get Cross-Chain Token Bound Accounts (ERC6551) By NFT Collection Address(es)](nfts.md#get-cross-chain-token-bound-accounts-erc6551-by-nft-collection-address-es)
 * [Get Token Bound Accounts By Specific NFT](nfts.md#get-token-bound-accounts-by-specific-nft)
 * [Get Cross-Chain Token Bound Accounts By Specific NFT](nfts.md#get-cross-chain-token-bound-accounts-erc6551-by-nft-collection-address-es)
@@ -299,7 +300,7 @@ Show me all TBAs, both deployed and non-deployed (optimistic), on Sapienz NFT co
       address
       tokenId
       erc6551Accounts(
-      # set this to `true` to show all optimistic/non-deployed TBAs
+      # set this to `true` to show all optimistic/non-deployed and deployed TBAs
       # set this to `false` to show all deployed TBA accounts
 <strong>        input: {showOptimisticAddress: true}
 </strong>      ) {
@@ -369,13 +370,91 @@ Show me all TBAs, both deployed and non-deployed (optimistic), on Sapienz NFT co
 {% endtab %}
 {% endtabs %}
 
+## Get Optimistic Token Bound Accounts (ERC6551) for Custom Implementations <a href="#get-optimistic-custom" id="get-optimistic-custom"></a>
+
+You can fetch non-deployed (optimistic) TBAs on NFT Collection(s) by using the [`TokenNfts`](../../api-references/api-reference/tokennfts-api.md) API and providing the NFT collection address. You can control which optimistic accounts to retrieve by changing the values of implementation, registry, and salt in the input filters.
+
+{% hint style="info" %}
+At the moment only \_eq is supported for the inputs. If you want to get multiple custom implementations in one call, you need to duplicate your query and set aliases for each if you want to pass them in one API call. You can find an example how to do that [here](https://app.airstack.xyz/query/pcCmFDJVZv).
+{% endhint %}
+
+### Try  Demo
+
+{% embed url="https://app.airstack.xyz/query/RR88ljW7Be" %}
+Get Moonbirds NFT collection Optimistic TBAs with Custom Parameters
+{% endembed %}
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query GetOptimisticWithCustomParameters {
+  TokenNfts(
+    input: {filter: {address: {_eq: "0x23581767a106ae21c074b2276D25e5C3e136a68b"}}, blockchain: ethereum}
+  ) {
+    TokenNft {
+      erc6551Accounts(
+        input: {filter: {
+        # Your custom implementation address
+        implementation: {_eq: "0x2d25602551487c3f3354dd80d76d54383a243358"}, 
+        # Your custom registry address
+        registry: {_eq: "0x02101dfB77FDE026414827Fdc604ddAF224F0921"}, 
+        # Your salt number
+        salt: {_eq: "0"}}, 
+        showOptimisticAddress: true, limit: 200}
+      ) {
+        implementation
+        registry
+        salt
+        createdAtBlockNumber
+        createdAtBlockTimestamp
+        creationTransactionHash
+        address {
+        # Optimistic TBA address
+          addresses
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```graphql
+{
+  "data": {
+    "TokenNfts": {
+      "TokenNft": [
+        {
+          "erc6551Accounts": [
+            {
+              "implementation": "0x2d25602551487c3f3354dd80d76d54383a243358",
+              "registry": "0x02101dfb77fde026414827fdc604ddaf224f0921",
+              "salt": "0",
+              # Block Number "-1" means it's not yet deployed
+              "createdAtBlockNumber": -1,
+              "createdAtBlockTimestamp": null,
+              "creationTransactionHash": null,
+              "address": {
+                "addresses": [
+                # Optimistic TBA address
+                  "0xc6dd4ab4631f526fe4f8d4fc73d5136570c4d035"
+                ]
+              }
+            }
+          ]
+        },
+```
+{% endtab %}
+{% endtabs %}
+
 ## Get Cross-Chain Token Bound Accounts (ERC6551) By NFT Collection Address(es)
 
 You can fetch the cross-chain token bound ERC6551 accounts of an NFT collection address(es), e.g. all Polygon ERC6551 accounts owned by an Ethereum NFT collection [Art Blocks](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270\&tokenType=\&rawInput=%23%E2%8E%B1Art+Blocks%E2%8E%B1%280xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270+NFT\_COLLECTION+ethereum+null%29\&inputType=NFT\_COLLECTION\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&activeSocialInfo=\&blockchain=ethereum):
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/pGvkCRA8Fa" %}
+{% embed url="https://app.airstack.xyz/query/pGvkCRA8Fa" fullWidth="false" %}
 Show all Polygon ERC6551 accounts owned by Ethereum NFT Artblocks
 {% endembed %}
 
