@@ -63,9 +63,9 @@ If you are deploying ERC6551 using a custom registry contract, please reach out 
 The nested inputs only appear within the nested input, but not for top-level `Accounts` APIs.
 {% endhint %}
 
-| Name                    | Type      | Description                                                            |
-| ----------------------- | --------- | ---------------------------------------------------------------------- |
-| `showOptimisticAddress` | `Boolean` | If set true, it will show all the optimistic TBA addresses. Otherwise, |
+| Name                    | Type      | Description                                                                                                                                                                   |
+| ----------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `showOptimisticAddress` | `Boolean` | If set true, it will show all the optimistic/non-deployed TBA addresses. Otherwise, the optimistic/non-deployed TBAs will be hidden and only the deployed ones will be shown. |
 
 ## Outputs
 
