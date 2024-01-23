@@ -17,11 +17,9 @@ layout:
 
 # 🆔 Resolve ENS Domains
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [ENS](https://ens.domains) applications and integrating on-chain and off-chain data with [ENS](https://ens.domains).
-
 ## Table Of Contents
 
-In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
+In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 
 * [Get ENS and Offchain Domains (Namestone & cb.id) of user(s)](resolve-ens-domains.md#get-ens-and-offchain-domains-namestone-and-cb.id-of-user-s)
 * [Get All 0x addresses of ENS Domain(s)](resolve-ens-domains.md#get-all-0x-addresses-of-ens-domain-s)

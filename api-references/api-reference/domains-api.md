@@ -55,7 +55,7 @@ For **Domains** API, the `blockchain` input will fetch all ENS either onchain (E
 
 | Name                                     | Type                                                                           | Description                                                                                                      |
 | ---------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| avatar                                   | tringS                                                                         | Link to the ENS Avatar or NFT PFP                                                                                |
+| avatar                                   | `String`                                                                       | Link to the ENS Avatar or NFT PFP                                                                                |
 | `blockchain`                             | `Blockchain!`                                                                  | Blockchain, where the domain is located                                                                          |
 | `chainId`                                | `String`                                                                       | Unique blockchain identifier                                                                                     |
 | `createdAtBlockNumber`                   | `Int`                                                                          | Block number when the domain was created                                                                         |
