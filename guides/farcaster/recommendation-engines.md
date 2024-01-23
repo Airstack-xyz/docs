@@ -1316,10 +1316,10 @@ If you have any questions or need help regarding building a recommendation engin
 
 ### More Resources
 
-* [Recommendation Engine](../recommend-users/)
-  * [Token Transfers](../recommend-users/token-transfers.md)
-  * [POAPs](../recommend-users/poaps.md)
-  * [NFTs](../recommend-users/nfts.md)
+* [Recommendation Engine](../recommendation-engine/)
+  * [Token Transfers](../recommendation-engine/token-transfers.md)
+  * [POAPs](../recommendation-engine/poaps.md)
+  * [NFTs](../recommendation-engine/nfts.md)
 * [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api.md)
 * [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
 * [TokenNft API Reference](../../api-references/api-reference/tokennfts-api.md)

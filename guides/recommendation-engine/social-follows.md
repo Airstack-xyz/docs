@@ -1,7 +1,5 @@
 ---
-description: >-
-  Learn how to construct queries to build a recommendation engine based on the
-  social follows of the user(s).
+description: Learn how to recommend users based on Social Follows
 layout:
   title:
     visible: true

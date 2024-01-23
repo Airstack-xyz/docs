@@ -6114,4 +6114,4 @@ If you have any questions or need help regarding integrating or building onchain
 * [SocialFollowings API Reference](../api-references/api-reference/socialfollowings-api.md)
 * [TokenTransfers API Reference](../api-references/api-reference/tokentransfers-api.md)
 * [TokenBalances API Reference](../api-references/api-reference/tokenbalances-api.md)
-* [Recommendation Engine Tutorial](recommend-users/)
+* [Recommendation Engine Tutorial](recommendation-engine/)

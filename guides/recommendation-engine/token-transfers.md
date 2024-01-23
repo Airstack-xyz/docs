@@ -1,7 +1,5 @@
 ---
-description: >-
-  Learn how to construct queries to build a recommendation engine based on token
-  transfers.
+description: Learn how to recommend users based on token transfers
 layout:
   title:
     visible: true
@@ -17,7 +15,7 @@ layout:
 
 # 💸 Token Transfers
 
-Token transfers between two parties could be a good indication that the parties involved know each other. Therefore, you can also use token transfers to build your recommendation engine.
+Token transfers between two parties are a good indication that the parties involved know each other. Therefore, you can also use token transfers to build your recommendation engine.
 
 To build such a recommendation engine, Airstack provides a [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API for you to fetch the users involved in a given user's all ERC20/721/1155 token transfers across Ethereum, Polygon, and Base.
 

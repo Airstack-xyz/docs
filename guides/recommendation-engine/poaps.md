@@ -1,7 +1,5 @@
 ---
-description: >-
-  Learn how to construct queries to build a recommendation engine based on POAPs
-  collected by the user(s).
+description: Learn how to recommend users based on POAPs
 layout:
   title:
     visible: true
@@ -17,7 +15,7 @@ layout:
 
 # 🎫 POAPs
 
-You can use POAP for building a contact recommendation feature for your user to help them connect with users that attend relevant events in the past. To build such a contact recommendation feature, you will need to take two steps:
+You can use POAP for building a contact recommendation feature for your user to help them connect with users that attended relevant events in the past. To build such a contact recommendation feature, you will need to take two steps:
 
 1. **Query Get POAPs from a given user(s)**
 2. Use the list of POAPs held from Query #1 as an input to query **Get all addresses and ENS of the attendees of a given POAP** event(s)

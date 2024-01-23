@@ -1,7 +1,5 @@
 ---
-description: >-
-  Learn how to construct queries to build a recommendation engine based on NFTs
-  held by the user(s).
+description: Learn how to recommend users based on NFTs
 layout:
   title:
     visible: true
@@ -17,7 +15,7 @@ layout:
 
 # ♦ NFTs
 
-NFTs tend to be built around the community or DAO members holding it and the holders of the same NFT likely have the same interests that can be a solid basis for contact recommendations.
+NFTs are often built around communities of common interests and can be a solid basis for contact recommendations.
 
 Building such a contract recommendation feature based on NFTs takes two steps:
 

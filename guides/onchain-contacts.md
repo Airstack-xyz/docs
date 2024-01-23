@@ -5806,4 +5806,4 @@ If you have any questions or need help regarding integrating or building web3 ad
 * [TokenTransfers API Reference](../api-references/api-reference/tokentransfers-api.md)
 * [TokenBalances API Reference](../api-references/api-reference/tokenbalances-api.md)
 * [Onchain Graph Guides](onchain-graph.md)
-* [Recommendation Engine Tutorial](recommend-users/)
+* [Recommendation Engine Tutorial](recommendation-engine/)
