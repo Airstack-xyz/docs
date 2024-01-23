@@ -2,6 +2,17 @@
 description: >-
   Learn how to use Airstack to fetch the ENS domain details, such as manager,
   text records, and multichain addresses.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # ✍ ENS Domain Details
