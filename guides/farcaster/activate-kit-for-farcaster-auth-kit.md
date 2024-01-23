@@ -1517,7 +1517,7 @@ If you have any questions or need help regarding the activate kit for [Farcaster
 * [Farcaster Following](farcaster-following.md)
 * [Get Token Balances](../lens/get-token-balances.md)
 * [Token Mints](../token-mints.md)
-* [Token Transfers](../recommendation-engine/token-transfers.md)
+* [Token Transfers](../recommend-users/token-transfers.md)
 * [Balance Snapshots](../balance-snapshots.md)
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)
 * [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
