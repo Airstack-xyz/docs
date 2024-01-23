@@ -47,13 +47,18 @@ redirects:
   reference/api-reference/nftsaletransactions-api/nftsaletransactions-api-examples: api-references/api-reference/nftsaletransactions-api/nftsaletransactions-api-examples.md
   reference/working-with-graphql: api-references/working-with-graphql.md
   guides/has-xmtp: guides/xmtp/README.md
-  guides/contact-recommendation: guides/recommendation-engine/README.md
-  guides/contact-recommendation/poaps: guides/contact-recommendation/poaps.md
-  guides/contact-recommendation/token-transfers: guides/contact-recommendation/token-transfers.md
-  guides/contact-recommendation/nfts: guides/contact-recommendation/nfts.md
-  guides/contact-recommendation/social-follows: guides/contact-recommendation/social-follows.md
+  guides/contact-recommendation: guides/recommend-users/README.md
+  guides/contact-recommendation/poaps: guides/recommend-users/poaps.md
+  guides/contact-recommendation/token-transfers: guides/recommend-users/token-transfers.md
+  guides/contact-recommendation/nfts: guides/recommend-users/nfts.md
+  guides/contact-recommendation/social-follows: guides/recommend-users/social-follows.md
   guides/contact-recommendation/on-chain-graph: guides/onchain-graph.md
   guides/on-chain-graph: guides/onchain-graph.md
+  guides/recommendation-engine/token-transfers: guides/recommend-users/token-transfers.md
+  guides/recommendation-engine/poaps: guides/recommend-users/poaps.md
+  guides/recommendation-engine/nfts: guides/recommend-users/nfts.md
+  guides/recommendation-engine/social-follows: guides/recommend-users/social-follows.md
+  guides/recommendation-engine: guides/recommend-users/README.md
   readme: README.md
   readme-1: README.md
   get-started/pricing: pricing.md
