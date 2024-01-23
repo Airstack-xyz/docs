@@ -395,3 +395,7 @@ query MyQuery {
 If you have any questions or need help regarding resolving identities for ENS domain(s), please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ### More Resources
+
+* [Resolve ENS Domain](resolve-ens-domains.md)
+* [ENS Profile Image](profile-image.md)
+* [Domains API Reference](../../api-references/api-reference/domains-api.md)
