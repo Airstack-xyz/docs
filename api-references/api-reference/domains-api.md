@@ -31,7 +31,6 @@ This API can also resolve a domain name into a wallet/contract address.
 | `isPrimary`       | `Boolean_Comparator_Exp`  | allows to filter out domains which are set/not set as primary                    |
 | `name`            | `String_Comparator_Exp`   | Domain name, e.g. "vitalik.eth" or a subdomain, e.g. "illionaire.illionaire.eth" |
 | `owner`           | `Identity_Comparator_Exp` | Identity: blockchain address, domain name, social identity                       |
-| `parent`          | `String_Comparator_Exp`   | Airstack unique hash to retrieve on-chain data to be used in filters             |
 | `resolvedAddress` | `Address_Comparator_Exp`  | Blockchain address to which the domain resolves to                               |
 
 ### Blockchain
@@ -54,41 +53,46 @@ For **Domains** API, the `blockchain` input will fetch all ENS either onchain (E
 
 ## Output
 
-| Name                                     | Type                              | Description                                                                                                      |
-| ---------------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `blockchain`                             | `Blockchain!`                     | Blockchain, where the domain is located                                                                          |
-| `chainId`                                | `String`                          | Unique blockchain identifier                                                                                     |
-| `createdAtBlockNumber`                   | `Int`                             | Block number when the domain was created                                                                         |
-| `createdAtBlockTimestamp`                | `Time`                            | Timestamp when the domain was created                                                                            |
-| `dappName`                               | `DomainDappName`                  | DApp name associated with the domain (e.g.,ENS)                                                                  |
-| `dappSlug`                               | `DomainDappSlug`                  | DApp slug (contract version) associated with the domain                                                          |
-| `expiryTimestamp`                        | `Time`                            | Timestamp when the domain registration expires; note - ENS has a 3-month grace period after the expiry timestamp |
-| `formattedRegistrationCost`              | `Float`                           | Registration cost for the domain                                                                                 |
-| `formattedRegistrationCostInNativeToken` | `Float`                           | Registration cost in the native token                                                                            |
-| `formattedRegistrationCostInUSDC`        | `Float`                           | Registration cost in USDC                                                                                        |
-| `id`                                     | `ID`                              | Airstack unique identifier for the domain                                                                        |
-| `isPrimary`                              | `Boolean`                         | Indicates if the domain is set to be primary                                                                     |
-| `labelHash`                              | `String`                          | Airstack unique domain hash                                                                                      |
-| `labelName`                              | `String`                          | Domain name wihtout the domain ending, eg. 'vitalik' instead of 'vitalik.eth'                                    |
-| `lastUpdatedBlockNumber`                 | `Int`                             | Block number when the domain was last updated                                                                    |
-| `lastUpdatedBlockTimestamp`              | `Time`                            | Timestamp when the domain was last updated                                                                       |
-| `name`                                   | `String`                          | Domain name                                                                                                      |
-| `owner`                                  | `Address!`                        | Domain owner address                                                                                             |
-| `ownerDetails`                           | [`Wallet`](wallet-api.md)         | Domain owner's details – domains, socials, XMTP, token balances, etc.                                            |
-| `parent`                                 | `String`                          | Airstack unique hash to retrieve on-chain data to be used in filters                                             |
-| `paymentToken`                           | [`Token`](tokens-api.md)          | Nested query - can retrieve payment token data (name, symbol, etc.)                                              |
-| `paymentTokenCostInNativeToken`          | `Float`                           | Domain registration cost in blockchain native token                                                              |
-| `paymentTokenCostInUSDC`                 | `Float`                           | Domain registration cost in USDC                                                                                 |
-| `registrationCost`                       | `String`                          | Registration cost for the domain                                                                                 |
-| `registrationCostInNativeToken`          | `String`                          | Registration cost in the native token                                                                            |
-| `registrationCostInUSDC`                 | `String`                          | Registration cost in USDC as a string                                                                            |
-| `resolvedAddress`                        | `Address`                         | Address to which the domain is resolved                                                                          |
-| `resolvedAddressDetails`                 | [`Wallet`](wallet-api.md)         | Resolved address details – domains, socials, XMTP, token balances, etc.                                          |
-| `subDomainCount`                         | `Int`                             | Count of subdomains linked to the domain                                                                         |
-| `subDomains`                             | [`[Domain]`](domains-api.md)      | Nested query - all subdomain-related data                                                                        |
-| `tokenId`                                | `String`                          | Domain Token ID associated with the domain, if applicable                                                        |
-| `tokenNft`                               | [`[TokenNft!]`](tokennfts-api.md) | Nested query - NFT details of the ENS domain NFT                                                                 |
-| `ttl`                                    | `String`                          | Time-to-live value for the domain                                                                                |
+| Name                                     | Type                                                                           | Description                                                                                                      |
+| ---------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| avatar                                   | tringS                                                                         | Link to the ENS Avatar or NFT PFP                                                                                |
+| `blockchain`                             | `Blockchain!`                                                                  | Blockchain, where the domain is located                                                                          |
+| `chainId`                                | `String`                                                                       | Unique blockchain identifier                                                                                     |
+| `createdAtBlockNumber`                   | `Int`                                                                          | Block number when the domain was created                                                                         |
+| `createdAtBlockTimestamp`                | `Time`                                                                         | Timestamp when the domain was created                                                                            |
+| `dappName`                               | `DomainDappName`                                                               | DApp name associated with the domain (e.g.,ENS)                                                                  |
+| `dappSlug`                               | `DomainDappSlug`                                                               | DApp slug (contract version) associated with the domain                                                          |
+| `expiryTimestamp`                        | `Time`                                                                         | Timestamp when the domain registration expires; note - ENS has a 3-month grace period after the expiry timestamp |
+| `formattedRegistrationCost`              | `Float`                                                                        | Registration cost for the domain                                                                                 |
+| `formattedRegistrationCostInNativeToken` | `Float`                                                                        | Registration cost in the native token                                                                            |
+| `formattedRegistrationCostInUSDC`        | `Float`                                                                        | Registration cost in USDC                                                                                        |
+| `id`                                     | `ID`                                                                           | Airstack unique identifier for the domain                                                                        |
+| isNameWrapped                            | Boolean                                                                        | Indication if the ENS name is Wrapped (ERC1155) or not (ERC721).                                                 |
+| `isPrimary`                              | `Boolean`                                                                      | Indicates if the domain is set to be primary                                                                     |
+| `labelHash`                              | `String`                                                                       | Airstack unique domain hash                                                                                      |
+| `labelName`                              | `String`                                                                       | Domain name wihtout the domain ending, eg. 'vitalik' instead of 'vitalik.eth'                                    |
+| `lastUpdatedBlockNumber`                 | `Int`                                                                          | Block number when the domain was last updated                                                                    |
+| `lastUpdatedBlockTimestamp`              | `Time`                                                                         | Timestamp when the domain was last updated                                                                       |
+| manager                                  | Address!                                                                       | Domain manager address                                                                                           |
+| managerDetails                           | [Wallet](https://airstackxyz.slack.com/archives/C05FCDM3LTC/p1705944466794539) | Domain manager's details – domains, socials, XMTP, token balances, etc.                                          |
+| `name`                                   | `String`                                                                       | Domain name                                                                                                      |
+| `owner`                                  | `Address!`                                                                     | Domain owner address                                                                                             |
+| `ownerDetails`                           | [`Wallet`](wallet-api.md)                                                      | Domain owner's details – domains, socials, XMTP, token balances, etc.                                            |
+| `parent`                                 | `String`                                                                       | Airstack unique hash to retrieve on-chain data to be used in filters                                             |
+| `paymentToken`                           | [`Token`](tokens-api.md)                                                       | Nested query - can retrieve payment token data (name, symbol, etc.)                                              |
+| `paymentTokenCostInNativeToken`          | `Float`                                                                        | Domain registration cost in blockchain native token                                                              |
+| `paymentTokenCostInUSDC`                 | `Float`                                                                        | Domain registration cost in USDC                                                                                 |
+| `registrationCost`                       | `String`                                                                       | Registration cost for the domain                                                                                 |
+| `registrationCostInNativeToken`          | `String`                                                                       | Registration cost in the native token                                                                            |
+| `registrationCostInUSDC`                 | `String`                                                                       | Registration cost in USDC as a string                                                                            |
+| `resolvedAddress`                        | `Address`                                                                      | Address to which the domain is resolved                                                                          |
+| `resolvedAddressDetails`                 | [`Wallet`](wallet-api.md)                                                      | Resolved address details – domains, socials, XMTP, token balances, etc.                                          |
+| `subDomainCount`                         | `Int`                                                                          | Count of subdomains linked to the domain                                                                         |
+| `subDomains`                             | [`[Domain]`](domains-api.md)                                                   | Nested query - all subdomain-related data                                                                        |
+| texts                                    | \[DomainTexts!]                                                                | ENS domain additional onchain records set by the user, such as links, socials, etc.                              |
+| `tokenId`                                | `String`                                                                       | Domain Token ID associated with the domain, if applicable                                                        |
+| `tokenNft`                               | [`[TokenNft!]`](tokennfts-api.md)                                              | Nested query - NFT details of the ENS domain NFT                                                                 |
+| `ttl`                                    | `String`                                                                       | Time-to-live value for the domain                                                                                |
 
 {% hint style="info" %}
 For ENS, the ENS domain name by default references the resolved address. In some rare cases, the owner and resolved addresses may differ (the owner set it to resolve to another wallet).
