@@ -36,6 +36,7 @@
   * [♦ NFTs](guides/recommendation-engine/nfts.md)
   * [🎉 Social Follows](guides/recommendation-engine/social-follows.md)
 * [🆔 Resolve Identities](guides/resolve-identities/README.md)
+  * [🔑 0x Address](guides/resolve-identities/0x-address.md)
   * [🔷 ENS](guides/resolve-identities/ens.md)
   * [🌿 Lens](guides/resolve-identities/lens.md)
   * [🟪 Farcaster](guides/resolve-identities/farcaster.md)
