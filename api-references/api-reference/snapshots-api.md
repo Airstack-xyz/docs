@@ -41,6 +41,7 @@ The Snapshots API works by returning token balances/holders on a given time, fol
 | ---------- | ---------------- |
 | `ethereum` | Ethereum mainnet |
 | `base`     | Base mainnet     |
+| `zora`     | Zora mainnet     |
 
 ### Outputs
 

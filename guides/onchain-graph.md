@@ -4979,7 +4979,7 @@ query MyQuery($user: Identity!) {
 {% endtab %}
 {% endtabs %}
 
-Then, the response can be filtered to only Polygon NFTs and be formatted into an array of token addresses to be used in the next step:
+Then, the response can be filtered to only Base NFTs and be formatted into an array of token addresses to be used in the next step:
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -5161,7 +5161,7 @@ query MyQuery($tokenAddresses: [Address!]) {
 {% endtab %}
 {% endtabs %}
 
-The response then can be formatted further with the following formatting function to extract all the recommended users that has common Polygon NFTs with a given user:
+The response then can be formatted further with the following formatting function to extract all the recommended users that has common Base NFTs with a given user:
 
 {% tabs %}
 {% tab title="JavaScript" %}

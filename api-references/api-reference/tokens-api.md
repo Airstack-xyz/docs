@@ -44,6 +44,7 @@ Querying by name or symbol returns all contracts with matching data. These field
 | `ethereum` | Ethereum mainnet |
 | `polygon`  | Polygon mainnet  |
 | `base`     | Base mainnet     |
+| `zora`     | Zora mainnet     |
 
 ### Order
 

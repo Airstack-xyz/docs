@@ -40,6 +40,7 @@ The TokenBalances API covers the owners and balances of ERC20, ERC721, and ERC11
 | `ethereum` | Ethereum mainnet |
 | `polygon`  | Polygon mainnet  |
 | `base`     | Base mainnet     |
+| `zora`     | Zora mainnet     |
 
 ## Outputs
 
