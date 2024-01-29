@@ -20,11 +20,11 @@ layout:
 
 <div>
 
-<figure><img src="../../../.gitbook/assets/iPhone 14 &#x26; 15 Pro - 57.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/iPhone 14 &#x26; 15 Pro - 64-min.png" alt=""><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../../.gitbook/assets/iPhone 14 &#x26; 15 Pro - 59.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/iPhone 14 &#x26; 15 Pro - 65-min.png" alt=""><figcaption></figcaption></figure>
 
 </div>
 

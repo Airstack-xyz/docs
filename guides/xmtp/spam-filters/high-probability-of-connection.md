@@ -37,19 +37,17 @@ Additionally, you can use [XMTP Consent](https://xmtp.org/docs/build/user-consen
 
 As demonstrated below, your app's interface can also feature user-friendly options for users to apply consent or deny consent. Applying consent should move the user to the Primary Inbox.
 
-
-
 <div>
 
-<figure><img src="../../../.gitbook/assets/Move to Primary 1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Move to Primary 1-min.png" alt=""><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../../.gitbook/assets/Move to Primary 2 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Move to Primary 2-min.png" alt=""><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../../.gitbook/assets/Move to Primary 3 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Move to Primary 4-min.png" alt=""><figcaption></figcaption></figure>
 
 </div>
 
