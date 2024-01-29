@@ -77,3 +77,6 @@ redirects:
   api-references/api-reference/cross-chain-queries: guides/basics/cross-chain-queries.md
   api-references/api-reference/tokentransfers-api/tokentransfers-examples: guides/token-transfers.md
   api-references/api-reference/wallet-api/wallet-api-examples: guides/wallet.md
+  guides/xmtp/spam-filters/known-senders: guides/xmtp/spam-filters/primary-inbox.md
+  guides/xmtp/spam-filters/high-probability-of-connection: guides/xmtp/spam-filters/general-inbox.md
+  guides/xmtp/spam-filters/proof-of-personhood: guides/xmtp/spam-filters/request-inbox.md
