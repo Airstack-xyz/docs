@@ -49,11 +49,11 @@ Some criteria that can be checked for splitting the request inbox:
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to create a request inbox by:
 
-* [Check If Senders Have Non-Virtual POAPs](proof-of-personhood.md#check-if-senders-have-any-non-virtual-poaps)
-* [Check If Senders Have X or More Followers on Lens](proof-of-personhood.md#check-if-senders-have-x-or-more-followers-on-lens)
-* [Check If Senders Have X or More Followers on Farcaster](proof-of-personhood.md#check-if-senders-have-x-or-more-followers-on-farcaster)
-* [Check If Senders Have Any Token Transfers](proof-of-personhood.md#check-if-senders-have-any-token-transfers)
-* [Check If Senders Have Any Token Balances](proof-of-personhood.md#check-if-senders-have-any-token-balances)
+* [Check If Senders Have Non-Virtual POAPs](request-inbox.md#check-if-senders-have-any-non-virtual-poaps)
+* [Check If Senders Have X or More Followers on Lens](request-inbox.md#check-if-senders-have-x-or-more-followers-on-lens)
+* [Check If Senders Have X or More Followers on Farcaster](request-inbox.md#check-if-senders-have-x-or-more-followers-on-farcaster)
+* [Check If Senders Have Any Token Transfers](request-inbox.md#check-if-senders-have-any-token-transfers)
+* [Check If Senders Have Any Token Balances](request-inbox.md#check-if-senders-have-any-token-balances)
 
 ## Pre-requisites
 
@@ -744,5 +744,5 @@ If you have any questions or need help regarding creating a request inbox on you
 * [Poaps API Reference](../../../api-references/api-reference/poaps-api.md)
 * [Domains API Reference](../../../api-references/api-reference/domains-api.md)
 * [Socials API Reference](../../../api-references/api-reference/socials-api.md)
-* [Primary Inbox](known-senders.md)
-* [General Inbox](high-probability-of-connection.md)
+* [Primary Inbox](primary-inbox.md)
+* [General Inbox](general-inbox.md)

@@ -25,7 +25,7 @@ Some criteria that can be checked for a user to be included in the primary inbox
 * Senders is followed by the user on Farcaster
 * The user has sent tokens to the Sender&#x20;
 
-If the sender meets none of the listed criteria, they should be removed from the primary inbox and then checked to see if they belong in the [**General Inbox**](high-probability-of-connection.md).
+If the sender meets none of the listed criteria, they should be removed from the primary inbox and then checked to see if they belong in the [**General Inbox**](general-inbox.md).
 
 Additionally, you can use [XMTP Consent](https://xmtp.org/docs/build/user-consent) to check if a sender has given consent (has an `Allowed` consent value) to the sender before including them in the primary inbox. By default, you should place all senders that have been given consent directly into the **Primary Inbox**.
 
@@ -49,9 +49,9 @@ As demonstrated below, your app's interface can also feature user-friendly optio
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to build an XMTP primary inbox by:
 
-* [Check If A Given User Is Following The Senders on Lens](known-senders.md#check-if-a-given-user-is-following-senders-on-lens)
-* [Check If A Given User Is Following The Senders on Farcaster](known-senders.md#check-if-a-given-user-is-following-senders-on-farcaster)
-* [Check If A Given User Has Sent Tokens To The Senders](known-senders.md#check-if-a-given-user-has-sent-tokens-to-senders)
+* [Check If A Given User Is Following The Senders on Lens](primary-inbox.md#check-if-a-given-user-is-following-senders-on-lens)
+* [Check If A Given User Is Following The Senders on Farcaster](primary-inbox.md#check-if-a-given-user-is-following-senders-on-farcaster)
+* [Check If A Given User Has Sent Tokens To The Senders](primary-inbox.md#check-if-a-given-user-has-sent-tokens-to-senders)
 
 ### Pre-requisites
 
@@ -515,5 +515,5 @@ If you have any questions or need help regarding creating a primary inbox for yo
 
 * [Wallet API Reference](../../../api-references/api-reference/wallet-api.md)
 * [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api.md)
-* [General Inbox](high-probability-of-connection.md)
-* [Request Inbox](proof-of-personhood.md)
+* [General Inbox](general-inbox.md)
+* [Request Inbox](request-inbox.md)

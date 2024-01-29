@@ -31,7 +31,7 @@ Some criteria that can be checked for a user to be included in the general inbox
 * People the User follows have sent the Sender tokens&#x20;
 * Senders have ENS and other factors (e.g. ENS + attended non-virtual POAPs)
 
-If the sender doesn't meet the criteria, they should be removed from the main inbox and then placed into the [**Request Inbox**](proof-of-personhood.md).
+If the sender doesn't meet the criteria, they should be removed from the main inbox and then placed into the [**Request Inbox**](request-inbox.md).
 
 Additionally, you can use [XMTP Consent](https://xmtp.org/docs/build/user-consent) to check if a sender has given consent (has an `Allowed` consent value) to the sender before including them in the primary inbox. By default, you should place all senders that have been given consent directly into the **Primary Inbox**.
 
@@ -55,14 +55,14 @@ As demonstrated below, your app's interface can also feature user-friendly optio
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to build an XMTP general inbox by:
 
-* [Check If A Given User's Onchain Graph Score Above X](high-probability-of-connection.md#check-if-a-given-users-onchain-graph-score-above-x)
-  * [Common POAP Events Attended](high-probability-of-connection.md#common-poap-events-attended)
-  * [Common NFT Collections Minted](high-probability-of-connection.md#common-nft-collections-minted)
-  * [Common NFT Collections Hold](high-probability-of-connection.md#common-nft-collections-hold)
-* [Check If The Sender Is Being Followed By One of The User's Followers on Lens](high-probability-of-connection.md#check-if-the-sender-is-being-followed-by-one-of-the-users-followers-on-lens)
-* [Check If The Sender Is Being Followed By One of The User's Followers on Farcaster](high-probability-of-connection.md#check-if-the-sender-is-being-followed-by-one-of-users-followers-on-farcaster)
-* [Check If Any of The User's Followers on Lens or Farcaster Sent Any Token To The Sender](high-probability-of-connection.md#check-if-any-of-the-users-followers-on-lens-or-farcaster-sent-any-token-to-the-sender)
-* [Check If XMTP Users Have Any ENS and Attended Any Non-Virtual POAPs](high-probability-of-connection.md#check-if-xmtp-users-have-any-ens-and-attended-any-non-virtual-poaps)
+* [Check If A Given User's Onchain Graph Score Above X](general-inbox.md#check-if-a-given-users-onchain-graph-score-above-x)
+  * [Common POAP Events Attended](general-inbox.md#common-poap-events-attended)
+  * [Common NFT Collections Minted](general-inbox.md#common-nft-collections-minted)
+  * [Common NFT Collections Hold](general-inbox.md#common-nft-collections-hold)
+* [Check If The Sender Is Being Followed By One of The User's Followers on Lens](general-inbox.md#check-if-the-sender-is-being-followed-by-one-of-the-users-followers-on-lens)
+* [Check If The Sender Is Being Followed By One of The User's Followers on Farcaster](general-inbox.md#check-if-the-sender-is-being-followed-by-one-of-users-followers-on-farcaster)
+* [Check If Any of The User's Followers on Lens or Farcaster Sent Any Token To The Sender](general-inbox.md#check-if-any-of-the-users-followers-on-lens-or-farcaster-sent-any-token-to-the-sender)
+* [Check If XMTP Users Have Any ENS and Attended Any Non-Virtual POAPs](general-inbox.md#check-if-xmtp-users-have-any-ens-and-attended-any-non-virtual-poaps)
 
 ## Pre-requisites
 
@@ -1399,5 +1399,5 @@ If you have any questions or need help regarding building your general inbox on 
 
 * [Poaps API Reference](../../../api-references/api-reference/poaps-api.md)
 * [SocialFollowers API Reference](../../../api-references/api-reference/socialfollowers-api.md)
-* [Primary Inbox](known-senders.md)
-* [Request Inbox](proof-of-personhood.md)
+* [Primary Inbox](primary-inbox.md)
+* [Request Inbox](request-inbox.md)
