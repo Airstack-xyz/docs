@@ -57,7 +57,7 @@ We currently offer rate limit of 3000/min and burst of 300/second.
 
 #### This chart summarizes the major Abstractions, Features and Blockchains available in Airstack.&#x20;
 
-#### Please consults the tables below and the developer guides for granular details.&#x20;
+Please consults the tables below and the developer guides for granular details.&#x20;
 
 <figure><img src="../.gitbook/assets/Frame 1057364-min.png" alt=""><figcaption></figcaption></figure>
 
