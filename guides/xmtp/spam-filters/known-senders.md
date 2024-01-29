@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how you can categorize a message sender as a known or unknown one to
-  avoid unknown and unwanted senders spamming your user's XMTP inbox.
+  Learn how to build a primary inbox that only includes messages from known
+  senders.
 layout:
   title:
     visible: true
@@ -15,18 +15,25 @@ layout:
     visible: true
 ---
 
-# 📔 Known Senders
+# 📔 Primary Inbox
 
-## 📔 Known Senders
+The Primary Inbox should contain all the users that a given user certainly knows.&#x20;
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
+Some criteria that can be checked for a user to be included in the primary inbox are:
+
+* The sender is followed by the user on Lens
+* The sender is followed by the user on Farcaster
+* The user has sent the sender tokens
+
+If the sender meets none of the listed criteria, they should be removed from the primary inbox and then checked to see if they belong in the [**General Inbox**](high-probability-of-connection.md).
 
 ## Table Of Contents
 
-In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
+In this guide, you will learn how to use [Airstack](https://airstack.xyz) to build an XMTP primary inbox by:
 
-* [Check If User A Is Following User B](known-senders.md#check-if-user-a-is-following-user-b)
-* [Check If User A Have Any Token Transfers History With User B](known-senders.md#check-if-user-a-have-any-token-transfers-history-with-user-b)
+* [Check If A Given User Is Following The Senders on Lens](known-senders.md#check-if-a-given-user-is-following-senders-on-lens)
+* [Check If A Given User Is Following The Senders on Farcaster](known-senders.md#check-if-a-given-user-is-following-senders-on-farcaster)
+* [Check If A Given User Has Sent Tokens To The Senders](known-senders.md#check-if-a-given-user-has-sent-tokens-to-senders)
 
 ### Pre-requisites
 
@@ -165,45 +172,48 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-### Best Practice
+## Best Practice
 
 While choosing a specific criteria will significantly decrease the number of spam appearing on your user's XMTP inbox, It is best practice that you **combine** the multiple criterion given here to build your **known sender** inbox.
 
 This is done to provide **multiple layers of filtration** that will make it nearly impossible for spammers to have their messages slide into your users' XMTP inbox.
 
-### Check If User A Is Following User B
+## Check If A Given User Is Following Senders on Lens
 
-This can be done by providing the user B's identiy either a 0x address, ENS, cb.id, Lens, or Farcaster on the `Wallet` top-level query's `identity` input and the user A's identities in the [`socialFollowings`](../../../api-references/api-reference/socialfollowings-api.md).
-
-For example, check if dwr.eth (user A) is following vitalik.eth (user B):
-
-#### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/gxn0jQ0ADA" %}
-Show me if betashop.eth is following ipeciura.eth
-{% endembed %}
-
-#### Code
+You can check if a given user is following senders on Lens by providing an array of senders' 0x addresses to the `$senders` variable and the main user to the `$mainUser` variable using the [`Wallet`](../../wallet.md) API:
 
 {% hint style="info" %}
-If you need to check multiple users A simultaneously, then simply provide more identities into the `identity` input in the [`socialFollowings`](../../../api-references/api-reference/socialfollowings-api.md) nested API.
+You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
 {% endhint %}
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/sm0sottpSa" %}
+Show me if a given user is following senders on Lens
+{% endembed %}
+
+### Code
 
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
-query isFollowing { # Top-level is User B's Identity (ipeciura.eth)
-  Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
-    socialFollowings( # Here is User A's Identity (betashop.eth)
-      input: {filter: {identity: {_in: ["dwr.eth"]}}}
+query isFollowing(
+  $mainUser: Identity!,
+  $senders: [Identity!]
+) {
+  Wallet(input: {identity: $mainUser, blockchain: ethereum}) {
+    socialFollowers(
+      input: {
+        filter: {
+          dappName: {_eq: lens},
+          identity: {_in: $senders}
+        }
+      }
     ) {
-      Following {
+      Follower {
         dappName
-        followerAddress {
-          socials {
-            dappName
-            profileName
-          }
+        followingAddress {
+          addresses
         }
       }
     }
@@ -212,147 +222,15 @@ query isFollowing { # Top-level is User B's Identity (ipeciura.eth)
 ```
 {% endtab %}
 
-{% tab title="Response" %}
+{% tab title="Variables" %}
 ```json
 {
-  "data": {
-    "Wallet": {
-      "socialFollowings": {
-        "Following": [
-          {
-            "dappName": "lens", // dwr.eth is following vitalik.eth on Lens
-            "followerAddress": {
-              "socials": [
-                {
-                  "dappName": "farcaster",
-                  "profileName": "dwr.eth"
-                },
-                {
-                  "dappName": "farcaster",
-                  "profileName": ""
-                },
-                {
-                  "dappName": "lens",
-                  "profileName": "lens/@danromero"
-                }
-              ]
-            }
-          },
-          {
-            "dappName": "farcaster", // dwr.eth is following vitalik.eth on Farcaster
-            "followerAddress": {
-              "socials": [
-                {
-                  "dappName": "farcaster",
-                  "profileName": "dwr.eth"
-                },
-                {
-                  "dappName": "farcaster",
-                  "profileName": ""
-                },
-                {
-                  "dappName": "lens",
-                  "profileName": "lens/@danromero"
-                }
-              ]
-            }
-          }
-        ]
-      }
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-If dwr.eth is following vitalik.eth on either Lens or Farcaster, then it will appear as a response in the `Following` array as shown, from the perspective of dwr.eth - vitalik.eth is a known contact.
-
-Otherwise, vitalik.eth will be considered an **unknown contact** and should be classified as one in the UI.
-
-### Check If User A Have Any Token Transfers History With User B
-
-This can be done by providing the user A's identity either a 0x address, ENS, cb.id, Lens, or Farcaster on the `from` input and the user B's on the `to` input.
-
-For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) (user A) have transferred any tokens [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS) (user B):
-
-Try Demo
-
-{% embed url="https://app.airstack.xyz/query/fBJOJH9bZA" %}
-Show token transfers history from betashop.eth to ipeciura.eth
-{% endembed %}
-
-#### Code
-
-{% hint style="info" %}
-If you need to check multiple users A simultaneously, then simply provide more identities into the `from` input in the both the `ethereum` and `polygon` query.
-{% endhint %}
-
-{% tabs %}
-{% tab title="Query" %}
-```graphql
-
-query GetTokenTransfers {
-  ethereum: TokenTransfers(
-    input: {
-      filter: { from: { _in: ["betashop.eth"] }, to: { _eq: "ipeciura.eth" } }
-      blockchain: ethereum
-    }
-  ) {
-    TokenTransfer {
-      from {
-        addresses
-      }
-      to {
-        addresses
-      }
-      transactionHash
-    }
-    pageInfo {
-      nextCursor
-      prevCursor
-    }
-  }
-  polygon: TokenTransfers(
-    input: {
-      filter: { from: { _in: ["betashop.eth"] }, to: { _eq: "ipeciura.eth" } }
-      blockchain: polygon
-    }
-  ) {
-    TokenTransfer {
-      from {
-        addresses
-      }
-      to {
-        addresses
-      }
-      transactionHash
-    }
-    pageInfo {
-      nextCursor
-      prevCursor
-    }
-  }
-    base: TokenTransfers(
-    input: {
-      filter: { from: { _in: ["betashop.eth"] }, to: { _eq: "ipeciura.eth" } }
-      blockchain: base
-    }
-  ) {
-    TokenTransfer {
-      from {
-        addresses
-      }
-      to {
-        addresses
-      }
-      transactionHash
-    }
-    pageInfo {
-      nextCursor
-      prevCursor
-    }
-  }
+  "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559",
+  "senders": [
+    "0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB",
+    "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2",
+    "0x0964256674E42d61f0fF84097E28F65311786ccb"
+  ]
 }
 ```
 {% endtab %}
@@ -360,101 +238,28 @@ query GetTokenTransfers {
 {% tab title="Response" %}
 <pre class="language-json"><code class="lang-json">{
   "data": {
-    "ethereum": {
-<strong>      "TokenTransfer": [ // If the array is not empty, this indicates there are token transferred previously
-</strong>        {
-          "from": {
-            "addresses": [
-              "0xeaf55242a90bb3289db8184772b0b98562053559"
-            ],
-            "domains": [
-              {
-                "name": "jasongoldberg.eth"
-              },
-              {
-                "name": "betashop.eth"
-              }
-            ],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "profileName": "betashop.eth",
-                "profileTokenId": "602",
-                "profileTokenIdHex": "0x025a",
-                "userId": "602",
-                "userAssociatedAddresses": [
-                  "0x66bd69c7064d35d146ca78e6b186e57679fba249",
-                  "0xeaf55242a90bb3289db8184772b0b98562053559"
-                ]
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@betashop9",
-                "profileTokenId": "94472",
-                "profileTokenIdHex": "0x017108",
-                "userId": "0xeaf55242a90bb3289db8184772b0b98562053559",
-                "userAssociatedAddresses": [
-                  "0xeaf55242a90bb3289db8184772b0b98562053559"
-                ]
-              }
-            ]
+    "Wallet": {
+      "socialFollowers": {
+        "Follower": [
+          {
+            "dappName": "lens",
+            "followingAddress": {
+              "addresses": [
+                // main user is following this XMTP user on Lens
+<strong>                "0x0964256674e42d61f0ff84097e28f65311786ccb"
+</strong>              ]
+            }
           },
-          "to": {
-            "addresses": [
-              "0xb59aa5bb9270d44be3fa9b6d67520a2d28cf80ab"
-            ],
-            "domains": [
-              {
-                "name": "ipeciura.eth"
-              },
-              {
-                "name": "shnoodles.eth"
-              },
-              {
-                "name": "🅱🏪👨‍💻.eth"
-              },
-              {
-                "name": "getjam.eth"
-              }
-            ],
-            "socials": [
-              {
-                "dappName": "lens",
-                "profileName": "lens/@shnoodles",
-                "profileTokenId": "27561",
-                "profileTokenIdHex": "0x6ba9",
-                "userId": "0xb59aa5bb9270d44be3fa9b6d67520a2d28cf80ab",
-                "userAssociatedAddresses": [
-                  "0xb59aa5bb9270d44be3fa9b6d67520a2d28cf80ab"
-                ]
-              },
-              {
-                "dappName": "farcaster",
-                "profileName": "ipeciura",
-                "profileTokenId": "2602",
-                "profileTokenIdHex": "0x0a2a",
-                "userId": "2602",
-                "userAssociatedAddresses": [
-                  "0x40ceb58e8f17ae4fa6124684aaad22a39c33fb8c",
-                  "0xb59aa5bb9270d44be3fa9b6d67520a2d28cf80ab"
-                ]
-              }
-            ]
-          },
-          "transactionHash": "0x4f98621583fa88beae2ef2d8c3cfd13541b202d806e5da76ea98008bbb48d119"
-        },
-        // other token transfers
-      ],
-      "pageInfo": {
-        "nextCursor": "",
-        "prevCursor": ""
-      }
-    },
-    "polygon": {
-<strong>      "TokenTransfer": null, // Indicate no token transfers on Polygon
-</strong>      "pageInfo": {
-        "nextCursor": "",
-        "prevCursor": ""
+          {
+            "dappName": "lens",
+            "followingAddress": {
+              "addresses": [
+                // main user is following this XMTP user on Lens
+<strong>                "0xb59aa5bb9270d44be3fa9b6d67520a2d28cf80ab"
+</strong>              ]
+            }
+          }
+        ]
       }
     }
   }
@@ -463,15 +268,232 @@ query GetTokenTransfers {
 {% endtab %}
 {% endtabs %}
 
-If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS) have transferred any tokens to [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&tokenType=\&activeView=\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=) on either Ethereum, Polygon, or Base then either the `ethereum.TokenTransfer, polygon.TokenTransfer, or base.TokenTransfer` array has non-zero length. Thus,[`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&tokenType=\&activeView=\&activeTokenInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=) should be classified as a **known contact**.
+## Check If A Given User Is Following Senders on Farcaster
 
-Otherwise, `ipeciura.eth` will be considered an **unknown contact** and should be classified as one in the UI.
+You can check if a given user is following senders on Farcaster by providing an array of senders' 0x addresses to the `$senders` variable and the main user to the `$mainUser` variable using the [`Wallet`](../../wallet.md) API:
 
-### Developer Support
+{% hint style="info" %}
+You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
+{% endhint %}
 
-If you have any questions or need help regarding creating a known sender inbox for your XMTP messaging app, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+### Try Demo
 
-### More Resources
+{% embed url="https://app.airstack.xyz/query/bW28GNZSZ7" %}
+Show me if a given user is following senders on Farcaster
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query isFollowing(
+  $mainUser: Identity!,
+  $senders: [Identity!]
+) {
+  Wallet(input: {identity: $mainUser, blockchain: ethereum}) {
+    socialFollowers(
+      input: {
+        filter: {
+          dappName: {_eq: farcaster},
+          identity: {_in: $senders}
+        }
+      }
+    ) {
+      Follower {
+        dappName
+        followingAddress {
+          addresses
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559",
+  "senders": [
+    "0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB",
+    "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2",
+    "0x0964256674E42d61f0fF84097E28F65311786ccb"
+  ]
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Wallet": {
+      "socialFollowers": {
+        "Follower": [
+          {
+            "dappName": "farcaster",
+            "followingAddress": {
+              "addresses": [
+                "0x40ceb58e8f17ae4fa6124684aaad22a39c33fb8c",
+                // The main user follow this XMTP user on Farcaster
+<strong>                "0xb59aa5bb9270d44be3fa9b6d67520a2d28cf80ab"
+</strong>              ]
+            }
+          },
+          {
+            "dappName": "farcaster",
+            "followingAddress": {
+              "addresses": [
+                "0xe1b1e3bbf4f29bd7253d6fc1e2ddc9cacb0a546a",
+                // The main user follow this XMTP user on Farcaster
+<strong>                "0x0964256674e42d61f0ff84097e28f65311786ccb"
+</strong>              ]
+            }
+          },
+          {
+            "dappName": "farcaster",
+            "followingAddress": {
+              "addresses": [
+                "0x6b0bda3f2ffed5efc83fa8c024acff1dd45793f1",
+                // The main user follow this XMTP user on Farcaster
+<strong>                "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+</strong>                // Other Farcaster connected addresses
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Check If A Given User Has Sent Tokens To Senders
+
+You can check if a given user has sent any tokens to the senders on either Ethereum, Polygon, or Base by providing an array of senders' 0x addresses to the `$senders` variable and the main user to the `$mainUser` variable using the [`TokenTransfers`](../../../api-references/api-reference/tokentransfers-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/6OQ7Is97pl" %}
+Show historical token transfers from main user to senders
+{% endembed %}
+
+### Code
+
+{% hint style="info" %}
+You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
+{% endhint %}
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers(
+  $mainUser: Identity!,
+  $senders: [Identity!]
+) {
+  # Check Ethereum token transfers
+<strong>  ethereum: TokenTransfers(
+</strong>    input: {
+      filter: {
+        from: {_eq: $mainUser},
+        to: {_in: $senders}
+      },
+      blockchain: ethereum
+    }
+  ) {
+    TokenTransfer {
+      to {
+        addresses
+      }
+    }
+  }
+  # Check Polygon token transfers
+<strong>  polygon: TokenTransfers(
+</strong>    input: {
+      filter: {
+        from: {_eq: $mainUser},
+        to: {_in: $senders}
+      },
+      blockchain: polygon
+    }
+  ) {
+    TokenTransfer {
+      to {
+        addresses
+      }
+    }
+  }
+  # Check Base token transfers
+  base: TokenTransfers(
+    input: {
+      filter: {
+        from: {_eq: $mainUser},
+        to: {_in: $senders}
+      },
+      blockchain: base
+    }
+  ) {
+    TokenTransfer {
+      to {
+        addresses
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559",
+  "senders": [
+    "0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB",
+    "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2",
+    "0x0964256674E42d61f0fF84097E28F65311786ccb"
+  ]
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "ethereum": {
+      "TokenTransfer": [
+        {
+          "to": {
+            "addresses": [
+              "0xb59aa5bb9270d44be3fa9b6d67520a2d28cf80ab"
+            ]
+          }
+        },
+        // ...Other token transfers
+        // If other XMTP users' addresses, does not appear,
+        // then the main user never sent any tokens to those XMTP users
+      ]
+    },
+    "polygon": {
+      // no transfers from the main user to XMTP users on Polygon
+<strong>      "TokenTransfer": null 
+</strong>    },
+    "base": {
+      // no transfers from the main user to XMTP users on Base
+<strong>      "TokenTransfer": null
+</strong>    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Developer Support
+
+If you have any questions or need help regarding creating a primary inbox for your XMTP messaging app, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+
+## More Resources
 
 * [Wallet API Reference](../../../api-references/api-reference/wallet-api.md)
 * [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api.md)

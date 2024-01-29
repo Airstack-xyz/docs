@@ -1,8 +1,8 @@
 ---
 description: >-
-  Learn how you can build a proof of personhood mechanism through on-chain and
-  off-chain data indexed by Airstack to determine if a user can be considered a
-  spammer in your XMTP messaging app.
+  Learn how you can build and split your request inbox by using Airstack to
+  determine if a user can be considered a real user or not in your XMTP
+  messaging app.
 layout:
   title:
     visible: true
@@ -16,22 +16,34 @@ layout:
     visible: true
 ---
 
-# 🎭 Proof of Personhood
+# 🎭 Request Inbox
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
+In the request inbox, it should contain all the users that a given user does not know and does not have any connection with. In other words, it should contain all the spam messages and the goal is for the users to avoid reaching this inbox.
+
+However, occasionally some real users do not have any connections to the given user but would like to reach out. In this case, you can split out the request inbox further into:
+
+* **Top Requests**: Only include users in the request inbox that is likely a real person
+* **All Requests**: All users in the request inbox without any filter
+
+Using the Airstack API, you can run a query against all the senders that are in the request inbox to determine if they are real users or not and place them in the **Top Requests Inbox**.
+
+Some criteria that can be checked for splitting the request inbox:
+
+* Senders have sent tokens/NFTs previously
+* Senders hold some tokens/NFTs
+* Senders have X number of followers on Farcaster
+* Senders have X number of followers on Lens
+* Senders Have Non-Virtual POAPs
 
 ## Table Of Contents
 
-In this guide, you will learn how to use [Airstack](https://airstack.xyz) to create a proof of personhood mechanism by:
+In this guide, you will learn how to use [Airstack](https://airstack.xyz) to create a request inbox by:
 
-* [Token Transfers](proof-of-personhood.md#token-transfers)
-* [Token Balances](proof-of-personhood.md#token-balances)
-* [Has Primary ENS](proof-of-personhood.md#has-primary-ens)
-* [Has Lens Profile](proof-of-personhood.md#has-lens-profile)
-* [Has Farcaster Account](proof-of-personhood.md#has-farcaster-account)
-* [Has Non-Virtual POAPs](proof-of-personhood.md#has-non-virtual-poaps)
-* [Has X or More Followers on Lens](proof-of-personhood.md#has-x-or-more-followers-on-lens)
-* [Has X or More Followers on Farcaster](proof-of-personhood.md#has-x-or-more-followers-on-farcaster)
+* [Check If Senders Have Any Token Transfers](proof-of-personhood.md#check-if-senders-have-any-token-transfers)
+* [Check If Senders Have Any Token Balances](proof-of-personhood.md#check-if-senders-have-any-token-balances)
+* [Check If Senders Have Non-Virtual POAPs](proof-of-personhood.md#check-if-senders-have-any-non-virtual-poaps)
+* [Check If Senders Have X or More Followers on Lens](proof-of-personhood.md#check-if-senders-have-x-or-more-followers-on-lens)
+* [Check If Senders Have X or More Followers on Farcaster](proof-of-personhood.md#check-if-senders-have-x-or-more-followers-on-farcaster)
 
 ## Pre-requisites
 
@@ -176,20 +188,18 @@ While choosing a specific criteria will significantly decrease the number of spa
 
 This is done to provide **multiple layers of filtration** that will make it nearly impossible for spammers to have their messages slide into your users' XMTP inbox.
 
-## Token Transfers
+## Check If Senders Have Any Token Transfers
 
 You can build proof of personhood by checking if there are any token transfers history from the given user:
 
-{% hint style="success" %}
-:first\_place: **BEST PRACTICES**
-
-We recommend combining multiple criteria to determine if a user is likely to be a real person.
+{% hint style="info" %}
+You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
 {% endhint %}
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/VAonm8FOCY" %}
-Show me token transfers by vitalik.eth on Ethereum, Polygon, and Base
+{% embed url="https://app.airstack.xyz/query/0OUsMMyg43" %}
+Show me token transfers by senders on Ethereum, Polygon, Base, and Zora
 {% endembed %}
 
 ### Code
@@ -197,124 +207,55 @@ Show me token transfers by vitalik.eth on Ethereum, Polygon, and Base
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
-query GetTokenTransfers {
+query GetTokenTransfers($senders: [Identity!]) {
   ethereum: TokenTransfers(
-    input: { filter: { from: { _in: ["vitalik.eth"] } }, blockchain: ethereum }
+    input: {filter: {from: {_in: $senders}}, blockchain: ethereum, order: {blockTimestamp: DESC}}
   ) {
     TokenTransfer {
+      transactionHash
       from {
         addresses
-        domains {
-          name
-        }
-        socials {
-          dappName
-          profileName
-          profileTokenId
-          profileTokenIdHex
-          userId
-          userAssociatedAddresses
-        }
       }
-      to {
-        addresses
-        domains {
-          name
-        }
-        socials {
-          dappName
-          profileName
-          profileTokenId
-          profileTokenIdHex
-          userId
-          userAssociatedAddresses
-        }
-      }
-      transactionHash
-    }
-    pageInfo {
-      nextCursor
-      prevCursor
     }
   }
   polygon: TokenTransfers(
-    input: { filter: { from: { _in: ["vitalik.eth"] } }, blockchain: polygon }
+    input: {filter: {from: {_in: $senders}}, blockchain: polygon, order: {blockTimestamp: DESC}}
   ) {
     TokenTransfer {
+      transactionHash
       from {
         addresses
-        domains {
-          name
-        }
-        socials {
-          dappName
-          profileName
-          profileTokenId
-          profileTokenIdHex
-          userId
-          userAssociatedAddresses
-        }
       }
-      to {
-        addresses
-        domains {
-          name
-        }
-        socials {
-          dappName
-          profileName
-          profileTokenId
-          profileTokenIdHex
-          userId
-          userAssociatedAddresses
-        }
-      }
-      transactionHash
-    }
-    pageInfo {
-      nextCursor
-      prevCursor
     }
   }
-  base: TokenTransfers(
-    input: { filter: { from: { _in: ["vitalik.eth"] } }, blockchain: base }
-  ) {
+  base: TokenTransfers(input: {filter: {from: {_in: $senders}}, blockchain: base, order: {blockTimestamp: DESC}}) {
     TokenTransfer {
+      transactionHash
       from {
         addresses
-        domains {
-          name
-        }
-        socials {
-          dappName
-          profileName
-          profileTokenId
-          profileTokenIdHex
-          userId
-          userAssociatedAddresses
-        }
       }
-      to {
-        addresses
-        domains {
-          name
-        }
-        socials {
-          dappName
-          profileName
-          profileTokenId
-          profileTokenIdHex
-          userId
-          userAssociatedAddresses
-        }
-      }
-      transactionHash
-    }
-    pageInfo {
-      nextCursor
-      prevCursor
     }
   }
+  zora: TokenTransfers(input: {filter: {from: {_in: $senders}}, blockchain: zora, order: {blockTimestamp: DESC}}) {
+    TokenTransfer {
+      transactionHash
+      from {
+        addresses
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "senders": [
+    "0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB",
+    "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2",
+    "0x0964256674E42d61f0fF84097E28F65311786ccb"
+  ]
 }
 ```
 {% endtab %}
@@ -325,55 +266,10 @@ query GetTokenTransfers {
     "ethereum": {
 <strong>      "TokenTransfer": [ // If TokenTransfer array is not empty, then there are token transfers 
 </strong>        {
+          "transactionHash": "0xd2e0d4e8aae125a7edae14c7dab106c1620be136b239e7f9dbd60861034b0c25",
           "from": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
-            "domains": [
-              {
-                "name": "quantumexchange.eth"
-              },
-              // other ENS domains
-            ],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "profileName": "vitalik.eth",
-                "profileTokenId": "5650",
-                "profileTokenIdHex": "",
-                "userId": "5650",
-                "userAssociatedAddresses": [
-                  "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
-                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-                ]
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@vitalik",
-                "profileTokenId": "100275",
-                "profileTokenIdHex": "",
-                "userId": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
-                "userAssociatedAddresses": [
-                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-                ]
-              }
-            ]
-          },
-          "to": {
-            "addresses": [
-              "0xd8b75eb7bd778ac0b3f5ffad69bcc2e25bccac95"
-            ],
-            "domains": [
-              {
-                "name": "toastmybread.eth"
-              },
-              {
-                "name": "daerbymtsaot.eth"
-              }
-            ],
-            "socials": null
-          },
-          "transactionHash": "0xd2e0d4e8aae125a7edae14c7dab106c1620be136b239e7f9dbd60861034b0c25"
+            "addresses": "0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB"
+          }
         },
         // other Ethereum token transfers
       ]
@@ -381,124 +277,36 @@ query GetTokenTransfers {
     "polygon": {
 <strong>      "TokenTransfer": [ // If TokenTransfer array is not empty, then there are token transfers 
 </strong>        {
+          "transactionHash": "0x499ec2aa83944bdcdd73abd0c069a46d7fffdff77845cc079bdf5c450cae5814",
           "from": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
-            "domains": [
-              {
-                "name": "7860000.eth"
-              },
-              // Other ENS domains
-            ],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "profileName": "vitalik.eth",
-                "profileTokenId": "5650",
-                "profileTokenIdHex": "0x1612",
-                "userId": "5650",
-                "userAssociatedAddresses": [
-                  "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
-                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-                ]
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@vitalik",
-                "profileTokenId": "100275",
-                "profileTokenIdHex": "0x0187b3",
-                "userId": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
-                "userAssociatedAddresses": [
-                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-                ]
-              }
-            ]
-          },
-          "to": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
-            "domains": [
-              {
-                "name": "quantumexchange.eth"
-              },
-              // Other ENS domains
-            ],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "profileName": "vitalik.eth",
-                "profileTokenId": "5650",
-                "profileTokenIdHex": "0x1612",
-                "userId": "5650",
-                "userAssociatedAddresses": [
-                  "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
-                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-                ]
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@vitalik",
-                "profileTokenId": "100275",
-                "profileTokenIdHex": "0x0187b3",
-                "userId": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
-                "userAssociatedAddresses": [
-                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-                ]
-              }
-            ]
-          },
-          "transactionHash": "0x499ec2aa83944bdcdd73abd0c069a46d7fffdff77845cc079bdf5c450cae5814"
+            "addresses": "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2"
+          }
         },
+        // Other Polygon token transfers
       ]
     },
     "base": {
 <strong>      "TokenTransfer": [ // If TokenTransfer array is not empty, then there are token transfers 
 </strong>        {
+          "transactionHash": "0x5b7faf6bd2266c3344bd5ee79fdbca32416b5162b97afbd41a39bbd1516d1ea7",
+          "from": {
+            "addresses": "0x0964256674E42d61f0fF84097E28F65311786ccb"
+          }
+        },
+        // Other Base token transfers
+      ]
+    },
+    "zora": {
+      "TokenTransfer": [
+        {
+          "transactionHash": "0x928c96854d4aa1c7852472885efb0c2506b7a2b27e81562d6fef6480f9e12a86",
           "from": {
             "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
-            "domains": [
-              {
-                "name": "quantumexchange.eth"
-              },
-              // Other ENS domains
-            ],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "profileName": "vitalik.eth",
-                "profileTokenId": "5650",
-                "profileTokenIdHex": "0x1612",
-                "userId": "5650",
-                "userAssociatedAddresses": [
-                  "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
-                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-                ]
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@vitalik",
-                "profileTokenId": "100275",
-                "profileTokenIdHex": "0x0187b3",
-                "userId": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
-                "userAssociatedAddresses": [
-                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-                ]
-              }
+              "0x0964256674e42d61f0ff84097e28f65311786ccb"
             ]
-          },
-          "to": {
-            "addresses": [
-              "0xdef5de2d4337e3e8534b32f7b05a58c7f7be89f3"
-            ],
-            "domains": null,
-            "socials": null
-          },
-          "transactionHash": "0x5b7faf6bd2266c3344bd5ee79fdbca32416b5162b97afbd41a39bbd1516d1ea7"
+          }
         },
+        // Other Zora token transfers
       ]
     }
   }
@@ -507,98 +315,97 @@ query GetTokenTransfers {
 {% endtab %}
 {% endtabs %}
 
-If the `TokenTransfer` array has non-zero length, then the user have a history of transferring token to other users and thus can be **considered non-spammer**.
-
-Otherwise, the user should be **considered a potential spammer**.
-
-## Token Balances
+## Check If Senders Have Any Token Balances
 
 You can build proof of personhood by checking if there are any ERC20/721/1155 tokens hold by the given user:
 
-{% hint style="success" %}
-:first\_place: **BEST PRACTICES**
-
-We recommend combining multiple criterion to determine if a user is likely to be a real person.
+{% hint style="info" %}
+You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
 {% endhint %}
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/WCyrqtr2Hq" %}
-show me vitalik.eth token balances on Ethereum, Polygon, and Base
+{% embed url="https://app.airstack.xyz/query/uUiadl5vB6" %}
+show me senders' token balances on Ethereum, Polygon, Base, and Zora
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-```graphql
-query MyQuery {
-  Ethereum: TokenBalances(
-    input: {
-      filter: { owner: { _in: ["vitalik.eth"] } }
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery($senders: [Identity!]) {
+  # Ethereum token balances
+<strong>  Ethereum: TokenBalances(
+</strong>    input: {
+      filter: { owner: { _in: $senders } }
       blockchain: ethereum
       limit: 50
     }
   ) {
     TokenBalance {
       tokenAddress
-      tokenId
-      amount
-      tokenType
-      token {
-        name
-        symbol
+      owner {
+        addresses
       }
     }
-    pageInfo {
-      nextCursor
-      prevCursor
-    }
   }
-  Polygon: TokenBalances(
-    input: {
-      filter: { owner: { _in: ["vitalik.eth"] } }
+  # Polygon token balances
+<strong>  Polygon: TokenBalances(
+</strong>    input: {
+      filter: { owner: { _in: $senders } }
       blockchain: polygon
       limit: 50
     }
   ) {
     TokenBalance {
       tokenAddress
-      tokenId
-      amount
-      tokenType
-      token {
-        name
-        symbol
+      owner {
+        addresses
       }
     }
-    pageInfo {
-      nextCursor
-      prevCursor
-    }
   }
-  Base: TokenBalances(
-    input: {
-      filter: { owner: { _in: ["vitalik.eth"] } }
+  # Base token balances
+<strong>  Base: TokenBalances(
+</strong>    input: {
+      filter: { owner: { _in: $senders } }
       blockchain: base
       limit: 50
     }
   ) {
     TokenBalance {
       tokenAddress
-      tokenId
-      amount
-      tokenType
-      token {
-        name
-        symbol
+      owner {
+        addresses
       }
     }
-    pageInfo {
-      nextCursor
-      prevCursor
+  }
+  # Zora token balances
+<strong>  Zora: TokenBalances(
+</strong>    input: {
+      filter: { owner: { _in: $senders } }
+      blockchain: zora
+      limit: 50
+    }
+  ) {
+    TokenBalance {
+      tokenAddress
+      owner {
+        addresses
+      }
     }
   }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "senders": [
+    "0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB",
+    "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2",
+    "0x0964256674E42d61f0fF84097E28F65311786ccb"
+  ]
 }
 ```
 {% endtab %}
@@ -609,121 +416,57 @@ query MyQuery {
     "Ethereum": {
 <strong>      "TokenBalance": [ // Shows that hold some tokens in Ethereum
 </strong>        {
-          "tokenAddress": "0x75c97384ca209f915381755c582ec0e2ce88c1ba",
-          "tokenId": "",
-          "amount": "47077057573",
-          "tokenType": "ERC20",
-          "token": {
-            "name": "FINE",
-            "symbol": "FINE"
+          "tokenAddress": "0xbf5495efe5db9ce00f80364c8b423567e58d2110",
+          "owner": {
+            "addresses": [
+              // This sender hold tokens inside its wallet on Ethereum
+<strong>              "0x0964256674e42d61f0ff84097e28f65311786ccb"
+</strong>            ]
           }
         },
         // more Ethereum tokens
-      ],
-      "pageInfo": {
-        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjhhYzhmMzQ1ZjE4NWU3NzUwODU1ZjJjMDkzMmI5MzYxNmY4MWQ0MTFhNjg2NmFhNTZiZmVjN2QzNGQ4YjNhZTgiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTY5NDgyMTUiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
-        "prevCursor": ""
-      }
+      ]
     },
     "Polygon": {
       "TokenBalance": [
         {
-          "tokenAddress": "0xfeb8513330db3c46b1fc1f8a5e1cd362cd7f67af",
-          "tokenId": "0",
-          "amount": "2",
-          "tokenType": "ERC1155",
-          "token": {
-            "name": "$1,000 USDC Reward",
-            "symbol": "$1,000 USDC Reward"
+          "tokenAddress": "0x8a2c53c06348d4af7f3fce97a79124205a92dcf7",
+          "owner": {
+            "addresses": [
+              // This sender hold tokens inside its wallet on Polygon
+<strong>              "0x0964256674e42d61f0ff84097e28f65311786ccb"
+</strong>            ]
           }
         },
         // more Polygon tokens
-      ],
-      "pageInfo": {
-        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjhhYzhmMzQ1ZjE4NWU3NzUwODU1ZjJjMDkzMmI5MzYxNmY4MWQ0MTFhNjg2NmFhNTZiZmVjN2QzNGQ4YjNhZTgiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTY5NDgyMTUiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
-        "prevCursor": ""
-      }
+      ]
     },
     "Base": {
       "TokenBalance": [
         {
-          "tokenAddress": "0x7f9f222d2c492bf3c876ecb03a148884b90020f8",
-          "tokenId": "748",
-          "amount": "1",
-          "tokenType": "ERC721",
-          "token": {
-            "name": "I Called Congress - FIT21",
-            "symbol": "SWCFIT21"
+          "tokenAddress": "0x73d8048044b24e6fba5833849c3e5c26c6523719",
+          "owner": {
+            "addresses": [
+              // This sender hold tokens inside its wallet on Base
+<strong>              "0x0964256674e42d61f0ff84097e28f65311786ccb"
+</strong>            ]
           }
         },
         // more Base tokens
-      ],
-      "pageInfo": {
-        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjhhYzhmMzQ1ZjE4NWU3NzUwODU1ZjJjMDkzMmI5MzYxNmY4MWQ0MTFhNjg2NmFhNTZiZmVjN2QzNGQ4YjNhZTgiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTY5NDgyMTUiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
-        "prevCursor": ""
-      }
+      ]
     },
-  }
-}
-</code></pre>
-{% endtab %}
-{% endtabs %}
-
-If the `TokenBalance` array has non-zero length, then the user have some ERC20/721/1155 tokens hold in either Ethereum, Polygon, and Base and thus can be **considered non-spammer**.
-
-Otherwise, the user should be **considered a potential spammer**.
-
-## Has Primary ENS
-
-You can build proof of personhood by checking if the given user hold any primary ENS:
-
-{% hint style="success" %}
-:first\_place: **BEST PRACTICES**
-
-We recommend combining multiple criterion to determine if a user is likely to be a real person.
-{% endhint %}
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/6re2GWPzw5" %}
-show me if 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 has any primary ENS
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  Domains(
-    input: {
-      filter: {
-        owner: { _in: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"] }
-        isPrimary: { _eq: true }
-      }
-      blockchain: ethereum
-    }
-  ) {
-    Domain {
-      name
-      owner
-      isPrimary
-    }
-  }
-}
-```
-{% endtab %}
-
-{% tab title="Response" %}
-<pre class="language-json"><code class="lang-json">{
-  "data": {
-    "Domains": {
-      "Domain": [
+    "Zora": {
+      "TokenBalance": [
         {
-<strong>          "name": "vitalik.eth", // This is the primary ENS
-</strong>          "owner": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
-          "isPrimary": true
-        }
+          "tokenAddress": "0x7b7a8caf6882d29ebd893b038b873d277344e397",
+          "owner": {
+            "addresses": [
+              // This sender hold tokens inside its wallet on Zora
+<strong>              "0x0964256674e42d61f0ff84097e28f65311786ccb"
+</strong>            ]
+          }
+        },
+        // more Zora tokens
       ]
     }
   }
@@ -732,153 +475,18 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-If the `Domain` array has non-zero length, then the user has primary ENS domain for their account, in the example it is `vitalik.eth`, and thus can be **considered non-spammer**.
-
-Otherwise, the user should be **considered a potential spammer**.
-
-## Has Lens Profile
-
-You can build proof of personhood by checking if the given user hold any Lens profile:
-
-{% hint style="success" %}
-:first\_place: **BEST PRACTICES**
-
-We recommend combining multiple criterion to determine if a user is likely to be a real person.
-{% endhint %}
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/aoZPofhxXD" %}
-show me if 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 has any Lens profile
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  Socials(
-    input: {
-      filter: {
-        dappName: { _eq: lens }
-        identity: { _in: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"] }
-      }
-      blockchain: ethereum
-    }
-  ) {
-    Social {
-      profileName
-      profileTokenId
-      profileTokenIdHex
-    }
-  }
-}
-```
-{% endtab %}
-
-{% tab title="Response" %}
-<pre class="language-json"><code class="lang-json">{
-  "data": {
-    "Socials": {
-      "Social": [
-        {
-<strong>          "profileName": "lens/@vitalik", // This is the Lens profile
-</strong>          "profileTokenId": "100275",
-          "profileTokenIdHex": "0x0187b3"
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-{% endtab %}
-{% endtabs %}
-
-If the `Social` array has non-zero length, then the user has Lens profile(s) for their account, in the example it is [`lens/@vitalik`](https://explorer.airstack.xyz/token-balances?address=lens%2F%40vitalik\&blockchain=ethereum\&rawInput=%23%E2%8E%B1lens%2F%40vitalik%E2%8E%B1%28lens%2F%40vitalik++ethereum+null%29\&inputType=ADDRESS), and thus can be **considered non-spammer**.
-
-Otherwise, the user should be **considered a potential spammer**.
-
-## Has Farcaster Account
-
-You can build proof of personhood by checking if the given user hold any Farcaster account:
-
-{% hint style="success" %}
-:first\_place: **BEST PRACTICES**
-
-We recommend combining multiple criterion to determine if a user is likely to be a real person.
-{% endhint %}
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/4GPOVP5rUE" %}
-show me if 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 has any Farcaster profile
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  Socials(
-    input: {
-      filter: {
-        dappName: { _eq: farcaster }
-        identity: { _in: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"] }
-      }
-      blockchain: ethereum
-    }
-  ) {
-    Social {
-      profileName
-      userId
-      userAssociatedAddresses
-    }
-  }
-}
-```
-{% endtab %}
-
-{% tab title="Response" %}
-<pre class="language-json"><code class="lang-json">{
-  "data": {
-    "Socials": {
-      "Social": [
-        {
-<strong>          "profileName": "vitalik.eth", // This is the Farcaster account
-</strong>          "userId": "5650",
-          "userAssociatedAddresses": [
-            "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
-            "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-          ]
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-{% endtab %}
-{% endtabs %}
-
-If the `Social` array has non-zero length, then the user has Farcaster account(s) for their account, in the example it is `vitalik.eth`, and thus can be **considered non-spammer**.
-
-Otherwise, the user should be **considered a potential spammer**.
-
-### Has Non-Virtual POAPs
+## Check If Senders Have Any Non-Virtual POAPs
 
 You can build proof of personhood by checking if the given user ever attended and obtained any non-virtual POAPs:
 
-{% hint style="success" %}
-:first\_place: **BEST PRACTICES**
-
-We recommend combining multiple criterion to determine if a user is likely to be a real person.
+{% hint style="info" %}
+You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
 {% endhint %}
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/EjEAFk2Xv7" %}
-show me all POAPs owned by vitalik.eth and see if they are virtual or not
+{% embed url="https://app.airstack.xyz/query/79XSqLCL5I" %}
+show me all POAPs owned by senders and see if they are virtual or not
 {% endembed %}
 
 #### Code
@@ -886,10 +494,10 @@ show me all POAPs owned by vitalik.eth and see if they are virtual or not
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
-query POAPsOwnedByVitalik {
+query POAPsOwned($senders: [Identity!]) {
   Poaps(
     input: {
-      filter: { owner: { _in: ["vitalik.eth"] } }
+      filter: { owner: { _in: $senders } }
       blockchain: ALL
       limit: 50
     }
@@ -900,12 +508,27 @@ query POAPsOwnedByVitalik {
       poapEvent {
         isVirtualEvent
       }
+      owner {
+        addresses
+      }
     }
     pageInfo {
       nextCursor
       prevCursor
     }
   }
+}
+```
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "senders": [
+    "0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB",
+    "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2",
+    "0x0964256674E42d61f0fF84097E28F65311786ccb"
+  ]
 }
 ```
 {% endtab %}
@@ -920,14 +543,25 @@ query POAPsOwnedByVitalik {
           "mintHash": "0x4974ddc3ada2100b8e4cb2e17fb993324f71e0676cdd33dfff107899fca16e90",
           "poapEvent": {
 <strong>            "isVirtualEvent": false // This is not virtual event
-</strong>          }
+</strong>          },
+          "owner": {
+            "addresses": [
+              // This sender has attended a non-virtual POAP event
+<strong>              "0x0964256674e42d61f0ff84097e28f65311786ccb"
+</strong>            ]
+          }
         },
         {
           "mintOrder": 12,
           "mintHash": "0xdbb3a298401c221e6596557cecd0c0c8944e0dd538b7d81b6d97449b5911ce98",
           "poapEvent": {
 <strong>            "isVirtualEvent": true // This is virtual event
-</strong>          }
+</strong>          },
+          "owner": {
+            "addresses": [
+              "0x0964256674e42d61f0ff84097e28f65311786ccb"
+            ]
+          }
         },
         // more POAPs
       ]
@@ -938,24 +572,18 @@ query POAPsOwnedByVitalik {
 {% endtab %}
 {% endtabs %}
 
-All you need to check is whether there is at least 1 POAP with the `isVirtualEvent` field shown as `false`. If yes, then the given user have ever attended a non-virtual POAP event and thus can be **considered a non-spammer**.
-
-Otherwise, the user should be **considered a potential spammer**.
-
-## Has X or More Followers on Lens
+## Check If Senders Have X or More Followers on Lens
 
 You can build proof of personhood by checking if the given user provided in `identity` field has X or more followers on Lens:
 
-{% hint style="success" %}
-:first\_place: **BEST PRACTICES**
-
-We recommend combining multiple criterion to determine if a user is likely to be a real person.
+{% hint style="info" %}
+You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
 {% endhint %}
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/nTifqyUgc5" %}
-Check if Lens profile owned by 0xeaf55242a90bb3289dB8184772b0B98562053559 have more than or qual to 100 followers on Lens
+{% embed url="https://app.airstack.xyz/query/FkIONmlhsH" %}
+Check if senders' Lens profile have more than or equal to 100 followers on Lens
 {% endembed %}
 
 ### Code
@@ -963,13 +591,13 @@ Check if Lens profile owned by 0xeaf55242a90bb3289dB8184772b0B98562053559 have m
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
-query MyQuery {
+query MyQuery($xmtpUsers: Identity!) {
   Socials(
     input: {
       filter: {
         followerCount: {_gt: 100},
         dappName: {_eq: lens},
-        identity: {_eq: "0xeaf55242a90bb3289dB8184772b0B98562053559"}
+        identity: {_in: $senders}
       },
       blockchain: ethereum,
       limit: 200
@@ -983,6 +611,18 @@ query MyQuery {
 ```
 {% endtab %}
 
+{% tab title="Variables" %}
+```json
+{
+  "senders": [
+    "0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB",
+    "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2",
+    "0x0964256674E42d61f0fF84097E28F65311786ccb"
+  ]
+}
+```
+{% endtab %}
+
 {% tab title="Response" %}
 ```json
 {
@@ -990,7 +630,12 @@ query MyQuery {
     "Socials": {
       "Social": [
         {
-          "followerCount": 394
+          "followerCount": 231,
+          "userAddress": "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+        },
+        {
+          "followerCount": 209,
+          "userAddress": "0x0964256674e42d61f0ff84097e28f65311786ccb"
         }
       ]
     }
@@ -1000,24 +645,18 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-All you need to check is whether `Socials.Social` return non-null value. If yes, then the given user will be shown with the precise `followerCount` on Lens and indicate that the given user have more than or equal to certain number of followers. Thus, the given user can be **considered a non-spammer**.
-
-Otherwise, the user should be **considered a potential spammer**.
-
-## Has X or More Followers on Farcaster
+## Check If Senders Have X or More Followers on Farcaster
 
 You can build proof of personhood by checking if the given user provided in `identity` field has X or more followers on Farcaster:
 
-{% hint style="success" %}
-:first\_place: **BEST PRACTICES**
-
-We recommend combining multiple criterion to determine if a user is likely to be a real person.
+{% hint style="info" %}
+You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
 {% endhint %}
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/Ghlt7XV2HR" %}
-Check if Farcaster profile owned by 0xeaf55242a90bb3289dB8184772b0B98562053559 have more than or equal to 100 followers on Farcaster
+{% embed url="https://app.airstack.xyz/query/Ls1K8nOeZ7" %}
+Check if senders' Farcaster profile have more than or equal to 100 followers on Farcaster
 {% endembed %}
 
 ### Code
@@ -1025,13 +664,13 @@ Check if Farcaster profile owned by 0xeaf55242a90bb3289dB8184772b0B98562053559 h
 {% tabs %}
 {% tab title="Query" %}
 ```graphql
-query MyQuery {
+query MyQuery($senders: [Identity!]) {
   Socials(
     input: {
       filter: {
         followerCount: {_gt: 100},
         dappName: {_eq: farcaster},
-        identity: {_eq: "0xeaf55242a90bb3289dB8184772b0B98562053559"}
+        identity: {_in: $senders}
       },
       blockchain: ethereum,
       limit: 200
@@ -1039,8 +678,21 @@ query MyQuery {
   ) {
     Social {
       followerCount
+      userAddress
     }
   }
+}
+```
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "senders": [
+    "0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB",
+    "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2",
+    "0x0964256674E42d61f0fF84097E28F65311786ccb"
+  ]
 }
 ```
 {% endtab %}
@@ -1052,7 +704,16 @@ query MyQuery {
     "Socials": {
       "Social": [
         {
-          "followerCount": 17122
+          "followerCount": 51956,
+          "userAddress": "0x6b0bda3f2ffed5efc83fa8c024acff1dd45793f1"
+        },
+        {
+          "followerCount": 4320,
+          "userAddress": "0xe1b1e3bbf4f29bd7253d6fc1e2ddc9cacb0a546a"
+        },
+        {
+          "followerCount": 164,
+          "userAddress": "0x40ceb58e8f17ae4fa6124684aaad22a39c33fb8c"
         }
       ]
     }
@@ -1062,13 +723,9 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-All you need to check is whether `Socials.Social` return non-null value. If yes, then the given user will be shown with the precise `followerCount` on Farcaster and indicate that the given user have more than or equal to certain number of followers. Thus, the given user can be **considered a non-spammer**.
-
-Otherwise, the user should be **considered a potential spammer**.
-
 ## Developer Support
 
-If you have any questions or need help regarding creating a proof of personhood to classify spammers on your XMTP messaging app, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding creating a request inbox on your XMTP messaging app, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
