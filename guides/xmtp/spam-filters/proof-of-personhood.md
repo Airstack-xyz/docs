@@ -18,32 +18,42 @@ layout:
 
 # 🎭 Request Inbox
 
-In the request inbox, it should contain all the users that a given user does not know and does not have any connection with. In other words, it should contain all the spam messages and the goal is for the users to avoid reaching this inbox.
+<div>
 
-However, occasionally some real users do not have any connections to the given user but would like to reach out. In this case, you can split out the request inbox further into:
+<figure><img src="../../../.gitbook/assets/iPhone 14 &#x26; 15 Pro - 57.png" alt=""><figcaption></figcaption></figure>
 
-* **Top Requests**: Only include users in the request inbox that is likely a real person
-* **All Requests**: All users in the request inbox without any filter
+ 
 
-Using the Airstack API, you can run a query against all the senders that are in the request inbox to determine if they are real users or not and place them in the **Top Requests Inbox**.
+<figure><img src="../../../.gitbook/assets/iPhone 14 &#x26; 15 Pro - 59.png" alt=""><figcaption></figcaption></figure>
+
+</div>
+
+The request inbox is for users unknown to the main user and without any connections. It typically holds spam, which users should avoid.&#x20;
+
+There could also occasionally be real users with no connections who might want to contact the main user. To manage this, we recommend dividing the request inbox even further into two parts:
+
+* **Top Requests**: This includes likely real users from the request inbox.
+* **All Requests**: This contains all users in the request inbox, without filtering.
+
+Use the Airstack API to check if senders in the request inbox are genuine and place them in the **Top Requests Inbox**.
 
 Some criteria that can be checked for splitting the request inbox:
 
-* Senders have sent tokens/NFTs previously
-* Senders hold some tokens/NFTs
-* Senders have X number of followers on Farcaster
+* Senders Have Non-Virtual POAPs (IRL POAPs can only be minted in person, so this is a strong positive signal)
+* Senders have X number of followers on Farcaster (e.g. if the user has >1000 followers you may have some confidence they are a real user)
 * Senders have X number of followers on Lens
-* Senders Have Non-Virtual POAPs
+* Senders have/have not sent tokens/NFTs previously (If the user has no wallet history it's a strong negative signal)
+* Senders hold some tokens/NFTs (If the user has no wallet history it's a strong negative signal)
 
 ## Table Of Contents
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to create a request inbox by:
 
-* [Check If Senders Have Any Token Transfers](proof-of-personhood.md#check-if-senders-have-any-token-transfers)
-* [Check If Senders Have Any Token Balances](proof-of-personhood.md#check-if-senders-have-any-token-balances)
 * [Check If Senders Have Non-Virtual POAPs](proof-of-personhood.md#check-if-senders-have-any-non-virtual-poaps)
 * [Check If Senders Have X or More Followers on Lens](proof-of-personhood.md#check-if-senders-have-x-or-more-followers-on-lens)
 * [Check If Senders Have X or More Followers on Farcaster](proof-of-personhood.md#check-if-senders-have-x-or-more-followers-on-farcaster)
+* [Check If Senders Have Any Token Transfers](proof-of-personhood.md#check-if-senders-have-any-token-transfers)
+* [Check If Senders Have Any Token Balances](proof-of-personhood.md#check-if-senders-have-any-token-balances)
 
 ## Pre-requisites
 
@@ -184,13 +194,13 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Best Practice
 
-While choosing a specific criteria will significantly decrease the number of spam appearing on your user's XMTP inbox, It is best practice that you **combine** the multiple criterion given here to build your **spam filter**.
+While choosing a specific criteria will significantly decrease the number of spam appearing on your user's XMTP inbox, It is best practice that you **combine** the multiple criterion given here to build and split your **Request Inbox**.
 
 This is done to provide **multiple layers of filtration** that will make it nearly impossible for spammers to have their messages slide into your users' XMTP inbox.
 
 ## Check If Senders Have Any Token Transfers
 
-You can build proof of personhood by checking if there are any token transfers history from the given user:
+You can check if senders have sent any token by providing an array of senders' 0x addresses to the `$senders` variable using the [`TokenTransfers`](../../../api-references/api-reference/tokentransfers-api.md) API:
 
 {% hint style="info" %}
 You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
@@ -317,7 +327,7 @@ query GetTokenTransfers($senders: [Identity!]) {
 
 ## Check If Senders Have Any Token Balances
 
-You can build proof of personhood by checking if there are any ERC20/721/1155 tokens hold by the given user:
+You can check if senders hold any token in their wallet across multiple chains, e.g. Ethereum, Polygon, Base, or Zora, by providing an array of senders' 0x addresses to the `$senders` variable using the [`TokenBalances`](../../../api-references/api-reference/tokenbalances-api.md) API:
 
 {% hint style="info" %}
 You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
@@ -477,7 +487,7 @@ show me senders' token balances on Ethereum, Polygon, Base, and Zora
 
 ## Check If Senders Have Any Non-Virtual POAPs
 
-You can build proof of personhood by checking if the given user ever attended and obtained any non-virtual POAPs:
+You can check if senders have attended any non-virtual POAPs by providing an array of senders' 0x addresses to the `$senders` variable using the [`Poaps`](../../../api-references/api-reference/poaps-api.md) API:
 
 {% hint style="info" %}
 You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
@@ -574,7 +584,7 @@ query POAPsOwned($senders: [Identity!]) {
 
 ## Check If Senders Have X or More Followers on Lens
 
-You can build proof of personhood by checking if the given user provided in `identity` field has X or more followers on Lens:
+You can check if senders have X or more Lens followers by providing an array of senders' 0x addresses to the `$senders` variable using the [`Socials`](../../../api-references/api-reference/socials-api.md) API:
 
 {% hint style="info" %}
 You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
@@ -647,7 +657,7 @@ query MyQuery($xmtpUsers: Identity!) {
 
 ## Check If Senders Have X or More Followers on Farcaster
 
-You can build proof of personhood by checking if the given user provided in `identity` field has X or more followers on Farcaster:
+You can check if senders have X or more Farcaster followers by providing an array of senders' 0x addresses to the `$senders` variable using the [`Socials`](../../../api-references/api-reference/socials-api.md) API:
 
 {% hint style="info" %}
 You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
@@ -734,5 +744,5 @@ If you have any questions or need help regarding creating a request inbox on you
 * [Poaps API Reference](../../../api-references/api-reference/poaps-api.md)
 * [Domains API Reference](../../../api-references/api-reference/domains-api.md)
 * [Socials API Reference](../../../api-references/api-reference/socials-api.md)
-* [Known Senders](known-senders.md)
-* [High Probability of Connection](high-probability-of-connection.md)
+* [Primary Inbox](known-senders.md)
+* [General Inbox](high-probability-of-connection.md)

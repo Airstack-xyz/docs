@@ -23,7 +23,7 @@ Primary, General, and Requests. \
 \
 **Primary** = people that you know
 
-**General** = people or brands you may know and who are unlikely to be spam
+**General** = people you may know and who are unlikely to be spam
 
 **Requests** = unknown and suspect senders, which can also be split further into a 4th bucket.
 

@@ -22,16 +22,36 @@ The General inbox should contain all the users that a given user is likely to kn
 
 Some criteria that can be checked for a user to be included in the general inbox are:
 
-* X match score on **Onchain Graph,** plus:
-  * Senders have non-virtual POAPs in common
-  * Senders minted >x NFTs in common
-  * Senders have Several NFTs in common
-* Senders' followers following the main user on Farcaster
-* Senders' followers following the main user on Lens
-* Senders have sent tokens to the main user
-* Senders Have ENS and other factors (e.g. ENS + attended IRL POAPs)
+* \>X match score on **Onchain Graph, which includes**:
+  * Sender has non-virtual POAPs in common with the user
+  * Sender has minted >X NFTs in common with the user
+  * Sender has several NFTs in common with the user
+* People the User follows are following the Sender on Farcaster&#x20;
+* People the User follows are following the Sender on Lens
+* People the User follows have sent the Sender tokens&#x20;
+* Senders have ENS and other factors (e.g. ENS + attended non-virtual POAPs)
 
 If the sender doesn't meet the criteria, they should be removed from the main inbox and then placed into the [**Request Inbox**](proof-of-personhood.md).
+
+Additionally, you can use [XMTP Consent](https://xmtp.org/docs/build/user-consent) to check if a sender has given consent (has an `Allowed` consent value) to the sender before including them in the primary inbox. By default, you should place all senders that have been given consent directly into the **Primary Inbox**.
+
+As demonstrated below, your app's interface can also feature user-friendly options for users to apply consent or deny consent. Applying consent should move the user to the Primary Inbox.
+
+
+
+<div>
+
+<figure><img src="../../../.gitbook/assets/Move to Primary 1 (1).png" alt=""><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../../../.gitbook/assets/Move to Primary 2 (1).png" alt=""><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../../../.gitbook/assets/Move to Primary 3 (1).png" alt=""><figcaption></figcaption></figure>
+
+</div>
 
 ## Table Of Contents
 
@@ -185,7 +205,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Best Practice
 
-While choosing a specific criteria will significantly decrease the number of spam appearing on your user's XMTP inbox, It is best practice that you **combine** the multiple criterion given here to build your **spam filter**.
+While choosing a specific criteria will significantly decrease the number of spam appearing on your user's XMTP inbox, It is best practice that you **combine** the multiple criterion given here to build your **General Inbox**.
 
 This is done to provide **multiple layers of filtration** that will make it nearly impossible for spammers to have their messages slide into your users' XMTP inbox.
 
@@ -206,6 +226,10 @@ After implementing the [onchain graph](../../onchain-graph.md), you'll be able t
 Besides the [onchain graph](../../onchain-graph.md) score, you can also include other conditions to evaluate these criteria:
 
 ### Common POAP Events Attended
+
+{% hint style="info" %}
+You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
+{% endhint %}
 
 You can check if the senders have any common POAP events attended with the user by providing an array of senders' 0x addresses to the `$senders` variable and the user to the `$mainUser` variable using the [`Poaps`](../../../api-references/api-reference/poaps-api.md) API:
 
@@ -301,6 +325,12 @@ query CommonPOAPs(
 You can check if the senders have any common NFT collections minted with the user by taking 2 steps.&#x20;
 
 First, fetch all the NFT addresses minted by the user by providing the user to the `$mainUser` variable using the [`TokenTransfers`](../../../api-references/api-reference/tokentransfers-api.md) API:
+
+{% hint style="info" %}
+For this check, you will need a backend to store all the NFT that the user minted
+
+You can update the data on your end periodically to get the data most up to date.
+{% endhint %}
 
 #### Try Demo
 
@@ -419,9 +449,15 @@ query MyQuery($mainUser: Identity!) {
 
 Once you have the list of NFT addresses from each chain, you can them compile them into an array and provide them as a variable input to the next query along with an array of senders' 0x addresses to the `$senders` variable to the [`TokenTransfers`](../../../api-references/api-reference/tokentransfers-api.md) API:
 
+{% hint style="info" %}
+You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
+{% endhint %}
+
 #### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/7dmCbRKGEZ" %}
+Show me all common NFTs minted by senders across Ethereum, Polygon, and Base
+{% endembed %}
 
 #### Code
 
@@ -526,44 +562,51 @@ Once you have the list of NFT addresses from each chain, you can them compile th
 {% endtab %}
 
 {% tab title="Response" %}
-```json
-{
+<pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
       "TokenTransfer": [
         {
           "to": {
             "addresses": [
-              "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
-            ]
+              // This sender has the same NFT collection minted as
+              // the user on Ethereum
+<strong>              "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
+</strong>            ]
           }
         },
         // Other NFTs minted
       ]
     },
     "Polygon": {
-      "TokenTransfer": null
-    },
+<strong>      "TokenTransfer": null // The senders did not mint anything on Polygon
+</strong>    },
     "Base": {
       "TokenTransfer": [
         {
           "to": {
             "addresses": [
-              "0x0964256674e42d61f0ff84097e28f65311786ccb"
-            ]
+              // This sender has the same NFT collection minted as
+              // the user on Base
+<strong>              "0x0964256674e42d61f0ff84097e28f65311786ccb"
+</strong>            ]
           }
         },
       ]
     }
   }
 }
-```
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
 ### Common NFT Collections Hold
 
 You can check if the senders have any common NFT collections hold with the user by providing an array of senders' 0x addresses to the `$senders` variable and the user to the `$mainUser` variable using the [`TokenBalances`](../../../api-references/api-reference/tokenbalances-api.md) API:
+
+{% hint style="info" %}
+You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
+{% endhint %}
 
 #### Try Demo
 
@@ -692,26 +735,30 @@ query MyQuery($mainUser: Identity!, $senders: [Identity!]) {
 
 ## Check If The Senders Are Being Followed By One of The User's Followers on Lens
 
-You can check if the senders are is being followed by one of the user's followers on Lens by providing an array of senders' 0x addresses to the `$senders` variable and the main user to the `$mainUser` variable using the [`SocialFollowers`](../../../api-references/api-reference/socialfollowers-api.md) API:
-
 {% hint style="info" %}
-You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
+For this check, you will need a backend to store the data fetched:
+
+* the user's followers on Lens
+* the addresses that is being followed by the user's followers on Lens
+
+You can update the data on your end periodically to get the data most up to date.
 {% endhint %}
+
+You can check if the senders are is being followed by one of the user's followers on Lens by fetching data from Airstack twice.
+
+First, fetch all the Lens followers of a user by providing the main user to the `$mainUser` variable using the [`SocialFollowers`](../../../api-references/api-reference/socialfollowers-api.md) API:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/9ZQGpCeETB" %}
-Check If the user's followers on Lens are following senders
+{% embed url="https://app.airstack.xyz/query/hcPIPm0XSE" %}
+Get all Lens followers of a given user
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query MyQuery(
-  $mainUser: Identity!,
-  $senders: [Identity!]
-) {
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery($mainUser: Identity!) {
   # Get all the user's followers
 <strong>  SocialFollowers(
 </strong>    input: {
@@ -725,23 +772,7 @@ Check If the user's followers on Lens are following senders
   ) {
     Follower {
       followerAddress {
-        # Check here if the followers is following any of the senders
-<strong>        socialFollowings(
-</strong>          input: {
-            filter: {
-              identity: {_in: $senders},
-              # Only check following on Lens
-<strong>              dappName: {_eq: lens}
-</strong>            },
-            limit: 200
-          }
-        ) {
-          Following {
-            followerAddress {
-              addresses
-            }
-          }
-        }
+        addresses
       }
     }
   }
@@ -753,79 +784,160 @@ Check If the user's followers on Lens are following senders
 ```json
 {
   "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559",
-  "senders": [
-    "0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB",
-    "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2",
-    "0x0964256674E42d61f0fF84097E28F65311786ccb"
-  ]
 }
 ```
 {% endtab %}
 
 {% tab title="Response" %}
-<pre class="language-json"><code class="lang-json">{
+```json
+{
   "data": {
     "SocialFollowers": {
       "Follower": [
         {
           "followerAddress": {
-            "socialFollowings": {
-              "Following": [
-                {
-                  "followerAddress": {
-                    "addresses": [
-                    // This indicate that this sender is being followed
-                    // by one of the user's followers on Lens
-<strong>                      "0x0964256674e42d61f0ff84097e28f65311786ccb"
-</strong>                    ]
-                  }
-                }
-              ]
-            }
+            "addresses": [
+              "0xe5b38d69b10b0a5d990c000fb5bdfce04e6a4071"
+            ]
           }
         },
         {
           "followerAddress": {
-            "socialFollowings": {
-              // This is one of the user's followers on Lens that does
-              // not follow any of the sender on Lens
-<strong>              "Following": null
-</strong>            }
+            "addresses": [
+              "0x714b831eb02fe854283219b2b9f1c6951f46dcb9"
+            ]
           }
         },
-        // Other user's followers on Lens
+        {
+          "followerAddress": {
+            "addresses": [
+              "0xb366d5b211f90625ac9ce9af3325e9e6fa627777"
+            ]
+          }
+        },
+        // Other followers on Farcaster
       ]
     }
   }
 }
-</code></pre>
+```
 {% endtab %}
 {% endtabs %}
 
-## Check If The Senders Are Being Followed By One of User's Followers on Farcaster
-
-You can check if the senders are is being followed by one of the user's followers on Farcaster by providing an array of senders' 0x addresses to the `$senders` variable and the main user to the `$mainUser` variable using the [`SocialFollowers`](../../../api-references/api-reference/socialfollowers-api.md) API:
+Then, compile the list of users followers and provide it as a variable input to `$userFollowers` by using the [`SocialFollowings`](../../../api-references/api-reference/socialfollowings-api.md) API:
 
 {% hint style="info" %}
-For this check, you will need a backend to store the user's followers on Farcaster.
-
-After having ther user's followers stored, you can then provide it as an input to the following query with a maximum of 200 wallet inputs to the `$senders` variable per API call.
+This query accepts a maximum of 200 wallet inputs to the `$userFollowers` variable per API call.
 {% endhint %}
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/N7H5GRJFYN" %}
-Check If user's followers on Farcaster are following senders
+{% embed url="https://app.airstack.xyz/query/hM5ujvfOrR" %}
+Show me all addresses that is being followed by the user's followers on Lens
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query MyQuery(
-  $mainUser: Identity!,
-  $senders: [Identity!]
-) {
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery($userFollowers: [Identity!]) {
+  # Get all the Lens followings of the user's followers
+<strong>  SocialFollowings(
+</strong>    input: {
+      filter: {
+        identity: {_in: $userFollowers},
+        # Only check on Lens
+        dappName: {_eq: lens}
+      },
+      blockchain: ALL
+    }
+  ) {
+    Following {
+      followingAddress {
+        addresses
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "userFollowers": [
+    "0xe5b38d69b10b0a5d990c000fb5bdfce04e6a4071",
+    "0x714b831eb02fe854283219b2b9f1c6951f46dcb9",
+    "0xb366d5b211f90625ac9ce9af3325e9e6fa627777"
+  ]
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "SocialFollowings": {
+      "Following": [
+        {
+          "followingAddress": {
+            "addresses": [
+              "0x2ee5baf1fbaf679b5611fa2b93ae4c752ff62693"
+            ]
+          }
+        },
+        {
+          "followingAddress": {
+            "addresses": [
+              "0x960fd829fbec155f616102f6e654bfab9b9b3ae4"
+            ]
+          }
+        },
+        {
+          "followingAddress": {
+            "addresses": [
+              "0xeaf55242a90bb3289db8184772b0b98562053559"
+            ]
+          }
+        },
+        // Other addresses being followed by user's followers on Farcaster
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+Once you have all these data stored in your backend, you can use it to check whether the sender is one of the addresses that is being followed by the user's followers on Lens.
+
+## Check If The Senders Are Being Followed By One of User's Followers on Farcaster
+
+{% hint style="info" %}
+For this check, you will need a backend to store the data fetched:
+
+* the user's followers on Farcaster
+* the addresses that is being followed by the user's followers on Farcaster
+
+You can update the data on your end periodically to get the data most up to date.
+{% endhint %}
+
+You can check if the senders are is being followed by one of the user's followers on Farcaster by fetching data from Airstack twice.
+
+First, fetch all the Farcaster followers of a user by providing the main user to the `$mainUser` variable using the [`SocialFollowers`](../../../api-references/api-reference/socialfollowers-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/I05ZH0bp0A" %}
+Get all Farcaster followers of a given user
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery($mainUser: Identity!) {
   # Get all the user's followers
 <strong>  SocialFollowers(
 </strong>    input: {
@@ -839,23 +951,7 @@ Check If user's followers on Farcaster are following senders
   ) {
     Follower {
       followerAddress {
-        # Check here if the followers is following any of the senders
-<strong>        socialFollowings(
-</strong>          input: {
-            filter: {
-              identity: {_in: $senders},
-              # Only check on Farcaster
-<strong>              dappName: {_eq: farcaster}
-</strong>            },
-            limit: 200
-          }
-        ) {
-          Following {
-            followerAddress {
-              addresses
-            }
-          }
-        }
+        addresses
       }
     }
   }
@@ -867,62 +963,219 @@ Check If user's followers on Farcaster are following senders
 ```json
 {
   "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559",
-  "senders": [
-    "0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB",
-    "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2",
-    "0x0964256674E42d61f0fF84097E28F65311786ccb"
-  ]
 }
 ```
 {% endtab %}
 
 {% tab title="Response" %}
-<pre class="language-json"><code class="lang-json">{
+```json
+{
   "data": {
     "SocialFollowers": {
       "Follower": [
         {
           "followerAddress": {
-            "socialFollowings": {
-              "Following": [
-                {
-                  "followerAddress": {
-                    "addresses": [
-                      "0x6b0bda3f2ffed5efc83fa8c024acff1dd45793f1",
-                      // This sender is being followed on Farcaster
-                      // by one of the user's Farcaster followers
-<strong>                      "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
-</strong>                      "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
-                      "0x8fc5d6afe572fefc4ec153587b63ce543f6fa2ea",
-                      "0xb877f7bb52d28f06e60f557c00a56225124b357f",
-                      "0x74232bf61e994655592747e20bdf6fa9b9476f79"
-                    ]
-                  }
-                },
-              ]
-            }
-          },
-          {
-          "followerAddress": {
-            "socialFollowings": {
-              // This Farcaster follower does not follow any of the
-              // sender
-<strong>              "Following": null
-</strong>            }
+            "addresses": [
+              "0x2fd0e9793f691b097e782c871ac300cf35d0c315"
+            ]
           }
-          // Other followers on Farcaster
-        ]
+        },
+        {
+          "followerAddress": {
+            "addresses": [
+              "0xff77c6d3392202c84a347d17f8499c580df8ec78"
+            ]
+          }
+        },
+        {
+          "followerAddress": {
+            "addresses": [
+              "0x52d543a222d3a499a0e88d05b3d9739b9936f66c"
+            ]
+          }
+        },
+        // Other followers on Farcaster
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+Then, compile the list of users followers and provide it as a variable input to `$userFollowers` by using the [`SocialFollowings`](../../../api-references/api-reference/socialfollowings-api.md) API:
+
+{% hint style="info" %}
+This query accepts a maximum of 200 wallet inputs to the `$userFollowers` variable per API call.
+{% endhint %}
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/ZqGUj9NcwQ" %}
+Show me all addresses that is being followed by the user's followers on Farcaster
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery($userFollowers: [Identity!]) {
+  # Get all the Farcaster followings of the user's followers
+<strong>  SocialFollowings(
+</strong>    input: {
+      filter: {
+        identity: {_in: $userFollowers},
+        # Only check on Farcaster
+        dappName: {_eq: farcaster}
+      },
+      blockchain: ALL
+    }
+  ) {
+    Following {
+      followingAddress {
+        addresses
       }
     }
   }
 }
 </code></pre>
 {% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "userFollowers": [
+    "0x2fd0e9793f691b097e782c871ac300cf35d0c315",
+    "0xff77c6d3392202c84a347d17f8499c580df8ec78",
+    "0x52d543a222d3a499a0e88d05b3d9739b9936f66c"
+  ]
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "SocialFollowings": {
+      "Following": [
+        {
+          "followingAddress": {
+            "addresses": [
+              "0x66bd69c7064d35d146ca78e6b186e57679fba249",
+              "0xeaf55242a90bb3289db8184772b0b98562053559"
+            ]
+          }
+        },
+        {
+          "followingAddress": {
+            "addresses": [
+              "0x66bd69c7064d35d146ca78e6b186e57679fba249",
+              "0xeaf55242a90bb3289db8184772b0b98562053559"
+            ]
+          }
+        },
+        // Other addresses being followed by user's followers on Farcaster
+      ]
+    }
+  }
+}
+```
+{% endtab %}
 {% endtabs %}
+
+Once you have all these data stored in your backend, you can use it to check whether the sender is one of the addresses that is being followed by the user's followers on Farcaster.
 
 ## Check If Any of The User's Followers on Lens or Farcaster Sent Any Token To The Sender
 
-You can check if senders have received any tokens from any of the user's Lens or Farcaster followers on either Etherum, Polygon, Base, or Zora by providing an array of senders's 0x addresses to the `$senders` variable and the main user to the `$mainUser` variable using the [`SocialFollowers`](../../../api-references/api-reference/socialfollowers-api.md) API:
+You can check if the senders are is being followed by one of the user's followers on Farcaster by fetching data from Airstack twice.
+
+First, fetch all the Lens and Farcaster followers of a user by providing the main user to the `$mainUser` variable using the [`SocialFollowers`](../../../api-references/api-reference/socialfollowers-api.md) API:
+
+{% hint style="info" %}
+For this check, you will need a backend to store the user's followers on Lens and Farcaster.
+
+You can update the data on your end periodically to get the data most up to date.
+{% endhint %}
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/qOKffKdoMY" %}
+Get all Lens and Farcaster followers of a given user
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery($mainUser: Identity!) {
+  # Get all the user's followers
+<strong>  SocialFollowers(
+</strong>    input: {
+      filter: {
+        identity: {_eq: $mainUser}
+      },
+      blockchain: ALL
+    }
+  ) {
+    Follower {
+      followerAddress {
+        addresses
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559",
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "SocialFollowers": {
+      "Follower": [
+        {
+          "dappName": "farcaster",
+          "followerAddress": {
+            "addresses": [
+              "0x2fd0e9793f691b097e782c871ac300cf35d0c315"
+            ]
+          }
+        },
+        {
+          "dappName": "farcaster",
+          "followerAddress": {
+            "addresses": [
+              "0xff77c6d3392202c84a347d17f8499c580df8ec78"
+            ]
+          }
+        },
+        {
+          "dappName": "farcaster",
+          "followerAddress": {
+            "addresses": [
+              "0x52d543a222d3a499a0e88d05b3d9739b9936f66c"
+            ]
+          }
+        },
+        // Other followers on Lens & Farcaster
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+Then, compile the list of users followers and provide it as a variable input to `$userFollowers` along with the senders' 0x address to the `$senders` variable by using the [`TokenTransfers`](../../../api-references/api-reference/tokentransfers-api.md) API:
 
 {% hint style="info" %}
 You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
@@ -930,8 +1183,8 @@ You can use this query to filter senders **on the fly** with a maximum of 200 wa
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/1H45sogWyR" %}
-Check if user's followers on Lens or Farcaster sent any tokens to senders
+{% embed url="https://app.airstack.xyz/query/G2Jnn5qDiU" %}
+Show all token transfers from user's followers on Lens or Farcaster sent to senders
 {% endembed %}
 
 ### Code
@@ -939,42 +1192,70 @@ Check if user's followers on Lens or Farcaster sent any tokens to senders
 {% tabs %}
 {% tab title="Query" %}
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery(
-  $mainUser: Identity!,
+  $userFollowers: [Identity!],
   $senders: [Identity!]
 ) {
-  SocialFollowers(
-    input: {filter: {identity: {_eq: $mainUser}, dappName: {_eq: farcaster}}, blockchain: ALL, cursor: "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjAzYjk0ZTExODE1NTM2NGM3OTk0YzU5MTBkY2JjMmJiOTJkNzk0MzBlYTAyYWNlNmVjYzRjNTZiMWI4MjY5ZjAiLCJEYXRhVHlwZSI6InN0cmluZyJ9fSwiUGFnaW5hdGlvbkRpcmVjdGlvbiI6Ik5FWFQifQ=="}
+  # Check for any Ethereum Token Transfers
+<strong>  Ethereum: TokenTransfers(
+</strong>    input: {
+      filter: {
+        from: {_in: $userFollowers},
+        to: {_in: $senders}
+      },
+      blockchain: ethereum
+    }
   ) {
-    Follower {
-      followerAddress {
-        # Check for any Ethereum token transfers to senders
-<strong>        ethereum: tokenTransfers(
-</strong>          input: {filter: {to: {_in: $senders}}, blockchain: ethereum}
-        ) {
-          to {
-            addresses
-          }
-        }
-        # Check for any Polygon token transfers to senders
-<strong>        polygon: tokenTransfers(
-</strong>          input: {filter: {to: {_in: $senders}}, blockchain: polygon}
-        ) {
-          to {
-            addresses
-          }
-        }
-        # Check for any Base token transfers to senders
-<strong>        base: tokenTransfers(input: {filter: {to: {_in: $senders}}, blockchain: base}) {
-</strong>          to {
-            addresses
-          }
-        }
-        # Check for any Zora token transfers to senders
-<strong>        zora: tokenTransfers(input: {filter: {to: {_in: $senders}}, blockchain: zora}) {
-</strong>          to {
-            addresses
-          }
-        }
+    TokenTransfer {
+      to {
+        addresses
+      }
+    }
+  }
+  # Check for any Polygon Token Transfers
+<strong>  Polygon: TokenTransfers(
+</strong>    input: {
+      filter: {
+        from: {_in: $userFollowers},
+        to: {_in: $senders}
+      },
+      blockchain: polygon
+    }
+  ) {
+    TokenTransfer {
+      to {
+        addresses
+      }
+    }
+  }
+  # Check for any Base Token Transfers
+<strong>  Base: TokenTransfers(
+</strong>    input: {
+      filter: {
+        from: {_in: $userFollowers},
+        to: {_in: $senders}
+      },
+      blockchain: base
+    }
+  ) {
+    TokenTransfer {
+      to {
+        addresses
+      }
+    }
+  }
+  # Check for any Zora Token Transfers
+<strong>  Zora: TokenTransfers(
+</strong>    input: {
+      filter: {
+        from: {_in: $userFollowers},
+        to: {_in: $senders}
+      },
+      blockchain: zora
+    }
+  ) {
+    TokenTransfer {
+      to {
+        addresses
       }
     }
   }
@@ -985,7 +1266,11 @@ Check if user's followers on Lens or Farcaster sent any tokens to senders
 {% tab title="Variables" %}
 ```json
 {
-  "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559",
+  "userFollowers": [
+    "0x2fd0e9793f691b097e782c871ac300cf35d0c315",
+    "0xff77c6d3392202c84a347d17f8499c580df8ec78",
+    "0x52d543a222d3a499a0e88d05b3d9739b9936f66c"
+  ],
   "senders": [
     "0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB",
     "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2",
@@ -998,35 +1283,28 @@ Check if user's followers on Lens or Farcaster sent any tokens to senders
 {% tab title="Response" %}
 <pre class="language-json"><code class="lang-json">{
   "data": {
-    "SocialFollowers": {
-      "Follower": [
+    "Ethereum": {
+      "TokenTransfer": [
         {
-          "followerAddress": {
-            "ethereum": [
-              {
-                "to": {
-                  "addresses": [
-                    // This sender has received token transfer
-                    // from one of the user's follower
-<strong>                    "0xb59aa5bb9270d44be3fa9b6d67520a2d28cf80ab"
-</strong>                  ]
-                }
-              }
-            ],
-            "polygon": [],
-            "base": [],
-            "zora": []
+          "to": {
+            "addresses": [
+              // This sender has received token transfer
+              // from one of the user's follower
+<strong>              "0xb59aa5bb9270d44be3fa9b6d67520a2d28cf80ab"
+</strong>            ]
           }
         },
-        {
-          "followerAddress": {
-            "ethereum": [],
-            "polygon": [],
-            "base": [],
-            "zora": []
-          }
-        },
+        // Other token transfers on Ethereum
       ]
+    },
+    "Polygon": {
+      "TokenTransfer": null
+    },
+    "Base": {
+      "TokenTransfer": null
+    },
+    "Zora": {
+      "TokenTransfer": null
     }
   }
 }
@@ -1123,5 +1401,5 @@ If you have any questions or need help regarding building your general inbox on 
 
 * [Poaps API Reference](../../../api-references/api-reference/poaps-api.md)
 * [SocialFollowers API Reference](../../../api-references/api-reference/socialfollowers-api.md)
-* [Known Senders](known-senders.md)
-* [Proof of Personhood](proof-of-personhood.md)
+* [Primary Inbox](known-senders.md)
+* [Request Inbox](proof-of-personhood.md)

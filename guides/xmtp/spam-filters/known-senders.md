@@ -21,11 +21,29 @@ The Primary Inbox should contain all the users that a given user certainly knows
 
 Some criteria that can be checked for a user to be included in the primary inbox are:
 
-* The sender is followed by the user on Lens
-* The sender is followed by the user on Farcaster
-* The user has sent the sender tokens
+* Senders is followed by the user on Lens
+* Senders is followed by the user on Farcaster
+* The user has sent tokens to the Sender&#x20;
 
 If the sender meets none of the listed criteria, they should be removed from the primary inbox and then checked to see if they belong in the [**General Inbox**](high-probability-of-connection.md).
+
+Additionally, you can use [XMTP Consent](https://xmtp.org/docs/build/user-consent) to check if a sender has given consent (has an `Allowed` consent value) to the sender before including them in the primary inbox. By default, you should place all senders that have been given consent directly into the **Primary Inbox**.
+
+As demonstrated below, your app's interface can also feature user-friendly options for users to apply consent or deny consent.
+
+<div>
+
+<figure><img src="../../../.gitbook/assets/Keep in Primary 1.png" alt=""><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../../../.gitbook/assets/Keep in Primary 2.png" alt=""><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../../../.gitbook/assets/Keep in Primary 3.png" alt=""><figcaption></figcaption></figure>
+
+</div>
 
 ## Table Of Contents
 
@@ -174,7 +192,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Best Practice
 
-While choosing a specific criteria will significantly decrease the number of spam appearing on your user's XMTP inbox, It is best practice that you **combine** the multiple criterion given here to build your **known sender** inbox.
+While choosing a specific criteria will significantly decrease the number of spam appearing on your user's XMTP inbox, It is best practice that you **combine** the multiple criterion given here to build your **Primary Inbox**.
 
 This is done to provide **multiple layers of filtration** that will make it nearly impossible for spammers to have their messages slide into your users' XMTP inbox.
 
@@ -497,5 +515,5 @@ If you have any questions or need help regarding creating a primary inbox for yo
 
 * [Wallet API Reference](../../../api-references/api-reference/wallet-api.md)
 * [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api.md)
-* [Proof of Personhood](proof-of-personhood.md)
-* [High Probability of Connection](high-probability-of-connection.md)
+* [General Inbox](high-probability-of-connection.md)
+* [Request Inbox](proof-of-personhood.md)
