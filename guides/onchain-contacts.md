@@ -68,7 +68,8 @@ The algorithm for building a user's web3 address book will be as follows:
    * [Fetch Token Transfers Received Data](onchain-contacts.md#step-1.7-fetch-token-transfers-received-data)
    * [Fetch Common Ethereum Token Holders Data](onchain-contacts.md#step-1.8-fetch-common-ethereum-nft-holders-data)
    * [Fetch Common Polygon Token Holders Data](onchain-contacts.md#step-1.9-fetch-common-polygon-nft-holders-data)
-   * [Fetch Common Base Token Holders Data](onchain-contacts.md#step-1.10-fetch-common-polygon-nft-holders-data)
+   * [Fetch Common Base Token Holders Data](onchain-contacts.md#step-1.10-fetch-common-base-nft-holders-data)
+   * [Fetch Common Zora Token Holders Data](onchain-contacts.md#step-1.11-fetch-common-zora-token-holders-data)
 2. [Aggregate All Data By User Identities](onchain-contacts.md#step-2-aggregate-all-data-by-user-identities)
 3. [Scoring & Sorting](onchain-contacts.md#step-3-scoring-and-sorting)
 
@@ -4603,7 +4604,7 @@ async def fetch_polygon_nft(address, existing_users=[]):
 {% endtab %}
 {% endtabs %}
 
-#### Step 1.10: Fetch Common Polygon NFT Holders Data
+#### Step 1.10: Fetch Common Base NFT Holders Data
 
 You can use Airstack to fetch all the NFTs that are hold by a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), on Base:
 
@@ -5007,7 +5008,7 @@ In order to paginate through all the data, you can utilize `fetchQueryWithPagina
 {% tabs %}
 {% tab title="JavaScript" %}
 <pre class="language-javascript" data-title="functions/formatBaseNftData.js"><code class="lang-javascript">import { init, fetchQueryWithPagination } from "@airstack/node"; // or @airstack/airstack-react for frontend javascript
-import formatPolygonNftData from "./utils/formatPolygonNftData";
+import formatBaseNftData from "./utils/formatBaseNftData";
 
 // get your API key at https://app.airstack.xyz/profile-settings/api-keys
 init("YOUR_AIRSTACK_API_KEY");
@@ -5062,7 +5063,7 @@ query MyQuery($tokenAddresses: [Address!]) {
 }
 `;
 
-const formatBaseNftData = async (address, existingUsers = []) => {
+const fetchBaseNft = async (address, existingUsers = []) => {
   let baseNftDataResponse;
   let recommendedUsers = [...existingUsers];
   while (true) {
@@ -5089,7 +5090,7 @@ const formatBaseNftData = async (address, existingUsers = []) => {
       let baseNftHoldersDataResponse;
       while (true) {
         if (tokenAddresses.length === 0) break;
-        if (!pbaseNftHoldersDataResponse) {
+        if (!baseNftHoldersDataResponse) {
           // Pagination #2: Fetch Base NFT Holders
 <strong>          baseNftHoldersDataResponse = await fetchQueryWithPagination(
 </strong>            nftQuery,
@@ -5140,6 +5141,7 @@ export default fetchBaseNft;
 {% endtab %}
 
 {% tab title="Python" %}
+{% code title="functions/base_nft.py" %}
 ```python
 from airstack.execute_query import AirstackClient
 from utils.base_nft import format_base_nft_data
@@ -5244,6 +5246,655 @@ async def fetch_base_nft(address, existing_users=[]):
 
     return recommended_users
 ```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+#### Step 1.11: Fetch Common Zora Token Holders Data
+
+You can use Airstack to fetch all the NFTs that are hold by a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), on Zora:
+
+**Try Demo**
+
+{% embed url="https://app.airstack.xyz/query/UH8vLkv6Nf" %}
+Show me all Zora NFT address owned by vitalik.eth
+{% endembed %}
+
+**Code**
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery($user: Identity!) {
+  TokenBalances(
+    input: {
+      filter: { tokenType: { _in: [ERC721] }, owner: { _eq: $user } }
+      blockchain: zora
+      limit: 200
+    }
+  ) {
+    TokenBalance {
+      tokenAddress
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "user": "vitalik.eth"
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenBalances": {
+      "TokenBalance": [
+        {
+          "tokenAddress": "0x87c7d8006e3d96811110f419d667c86f7a07d325"
+        },
+        {
+          "tokenAddress": "0x491b247de8995c3a438bc12e3375217a000cdbd0"
+        },
+        {
+          "tokenAddress": "0x9565b41bdb9e79e8b877ddbdaf2af81f44368f94"
+        },
+        // other Zora NFTs hold by vitalik.eth
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+Then, the response can be filtered to only Zora NFTs and be formatted into an array of token addresses to be used in the next step:
+
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+const tokenAddresses =
+  data?.TokenBalances?.TokenBalance?.map((token) => token.tokenAddress) ?? [];
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+token_addresses = [token['tokenAddress'] for token in data.get('TokenBalances', {}).get('TokenBalance', [])] if data and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances'] else []
+```
+{% endtab %}
+{% endtabs %}
+
+where `data` is the response from the API. The formatted result will have a format as follows:
+
+```json
+[
+  "0x87c7d8006e3d96811110f419d667c86f7a07d325",
+  "0x491b247de8995c3a438bc12e3375217a000cdbd0",
+  "0x9565b41bdb9e79e8b877ddbdaf2af81f44368f94",
+  "0x47764e368cfbc98e601462c107452f4f0ddd1632",
+  "0xbfb2b3c41e8d61a23750f3723be1f40b0f86ab5f",
+  "0xca803ff1db7943d997803b4d53940c1b57151538",
+  "0xd387dca83813f541035299bf0e0d073d3cd3b8e0",
+  "0xf421f9041bef1380756b31d11d5a3f06cc11a241",
+  "0xb6040323ce2e79357faeec1490b1ecf3936969cb",
+  "0xad0a41328a40f6d18f3458529470173e88fff53f",
+  "0x00a958d6199a700588c303904d41405d80f47278"
+  // other Zora NFT addresses
+]
+```
+
+**Fetch all Zora NFT owners**
+
+Using the array of token addresses from the first step, you can fetch all Zora NFT holders that hold any of the NFTs that the given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), owned on Zora:
+
+**Try Demo**
+
+{% embed url="https://app.airstack.xyz/query/6EZayal7am" %}
+Show me Zora NFT holders of an array of Zora NFT addresses
+{% endembed %}
+
+**Code**
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery($tokenAddresses: [Address!]) {
+  TokenBalances(
+    input: {
+      filter: {
+        tokenAddress: { _in: $tokenAddresses }
+        tokenType: { _in: [ERC721] }
+      }
+      blockchain: zora
+      limit: 200
+    }
+  ) {
+    TokenBalance {
+      token {
+        name
+        address
+        tokenNfts {
+          tokenId
+        }
+        blockchain
+        logo {
+          small
+        }
+      }
+      owner {
+        addresses
+        domains {
+          name
+          isPrimary
+        }
+        socials {
+          dappName
+          blockchain
+          profileName
+          profileImage
+          profileTokenId
+          profileTokenAddress
+        }
+        xmtp {
+          isXMTPEnabled
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "tokenAddresses": [
+    "0x87c7d8006e3d96811110f419d667c86f7a07d325",
+    "0x491b247de8995c3a438bc12e3375217a000cdbd0",
+    "0x9565b41bdb9e79e8b877ddbdaf2af81f44368f94",
+    "0x47764e368cfbc98e601462c107452f4f0ddd1632",
+    "0xbfb2b3c41e8d61a23750f3723be1f40b0f86ab5f",
+    "0xca803ff1db7943d997803b4d53940c1b57151538",
+    "0xd387dca83813f541035299bf0e0d073d3cd3b8e0",
+    "0xf421f9041bef1380756b31d11d5a3f06cc11a241",
+    "0xb6040323ce2e79357faeec1490b1ecf3936969cb",
+    "0xad0a41328a40f6d18f3458529470173e88fff53f",
+    "0x00a958d6199a700588c303904d41405d80f47278"
+    // other Base NFT addresses
+  ]
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenBalances": {
+      "TokenBalance": [
+        {
+          "token": {
+            "name": "Zeon Face",
+            "address": "0x491b247de8995c3a438bc12e3375217a000cdbd0",
+            "tokenNfts": [
+              {
+                "tokenId": "45"
+              },
+              {
+                "tokenId": "13"
+              },
+              {
+                "tokenId": "30"
+              },
+              {
+                "tokenId": "56"
+              },
+              {
+                "tokenId": "77"
+              },
+              {
+                "tokenId": "5"
+              },
+              {
+                "tokenId": "108"
+              },
+              {
+                "tokenId": "67"
+              },
+              {
+                "tokenId": "20"
+              },
+              {
+                "tokenId": "114"
+              }
+            ],
+            "blockchain": "zora",
+            "logo": {
+              "small": null
+            }
+          },
+          "owner": {
+            "addresses": [
+              "0xf127f1e31aef9f2bd25b10e09baa606e38de62c4"
+            ],
+            "domains": null,
+            "socials": null,
+            "xmtp": null
+          }
+        },
+        // Other Zora NFT owners
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+The response then can be formatted further with the following formatting function to extract all the recommended users that has common Zora NFTs with a given user:
+
+{% tabs %}
+{% tab title="JavaScript" %}
+{% code title="utils/formatZoraNftData.js" %}
+```javascript
+const formatZoraNftData = (data, _recommendedUsers = []) => {
+  const recommendedUsers = [..._recommendedUsers];
+
+  for (const nft of data) {
+    const { owner, token } = nft ?? {};
+    const { name, logo, address, tokenNfts = [] } = token ?? {};
+    const { addresses } = owner ?? {};
+    const tokenNft = tokenNfts?.[0];
+
+    const existingUserIndex = recommendedUsers.findIndex(
+      ({ addresses: recommendedUsersAddresses }) =>
+        recommendedUsersAddresses?.some?.((address) =>
+          addresses?.includes?.(address)
+        )
+    );
+
+    if (existingUserIndex !== -1) {
+      const _addresses = recommendedUsers?.[existingUserIndex]?.addresses || [];
+      recommendedUsers[existingUserIndex].addresses = [
+        ..._addresses,
+        ...addresses,
+      ]?.filter((address, index, array) => array.indexOf(address) === index);
+      const _nfts = recommendedUsers?.[existingUserIndex]?.nfts || [];
+      const nftExists = _nfts.some((nft) => nft.address === address);
+      if (!nftExists) {
+        _nfts?.push({
+          name,
+          image: logo?.small,
+          blockchain: "zora",
+          address,
+          tokenNfts: tokenNft,
+        });
+      }
+      recommendedUsers[existingUserIndex].nfts = [..._nfts];
+    } else {
+      recommendedUsers.push({
+        ...owner,
+        nfts: [
+          {
+            name,
+            image: logo?.small,
+            blockchain: "zora",
+            address,
+            tokenNfts: tokenNft,
+          },
+        ],
+      });
+    }
+  }
+  return recommendedUsers;
+};
+
+export default formatZoraNftData;
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Python" %}
+{% code title="utils/zora_nft.py" %}
+```python
+def format_zora_nft_data(data, _recommended_users=None):
+    if _recommended_users is None:
+        _recommended_users = []
+
+    recommended_users = _recommended_users.copy()
+
+    for nft in data or []:
+        owner = nft.get('owner', {})
+        token = nft.get('token', {})
+
+        name = token.get('name')
+        logo = token.get('logo', {})
+        address = token.get('address')
+        token_nfts = token.get('tokenNfts', [])
+        addresses = owner.get('addresses', [])
+        token_nft = token_nfts[0] if len(token_nfts) > 0 else None
+
+        existing_user_index = -1
+        for index, recommended_user in enumerate(recommended_users):
+            recommended_user_addresses = recommended_user.get('addresses', [])
+            if any(addr in recommended_user_addresses for addr in addresses):
+                existing_user_index = index
+                break
+
+        if existing_user_index != -1:
+            _addresses = recommended_users[existing_user_index].get('addresses', [])
+            _addresses.extend(addresses)
+            _addresses = list(set(_addresses))  # Remove duplicates
+            recommended_users[existing_user_index]['addresses'] = _addresses
+
+            _nfts = recommended_users[existing_user_index].get('nfts', [])
+            nft_exists = any(nft['address'] == address for nft in _nfts)
+            if not nft_exists:
+                _nfts.append({
+                    'name': name,
+                    'image': logo.get('small'),
+                    'blockchain': 'zora',
+                    'address': address,
+                    'tokenNfts': token_nfts
+                })
+            recommended_users[existing_user_index]['nfts'] = _nfts
+        else:
+            recommended_users.append({
+                **owner,
+                'nfts': [{
+                    'name': name,
+                    'image': logo.get('small'),
+                    'blockchain': 'zora',
+                    'address': address,
+                    'tokenNfts': token_nfts
+                }]
+            })
+
+    return recommended_users
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+The formatted result will have a format as follows:
+
+<pre class="language-json"><code class="lang-json">[
+  {
+    "addresses": ["0xf127f1e31aef9f2bd25b10e09baa606e38de62c4"],
+    "domains": null,
+    "socials": null,
+    "xmtp": null,
+    // show all common Zora NFTs that is also owned by vitalik.eth
+<strong>    "nfts": [
+</strong>      {
+        "name": "Zeon Face"",
+        "image": null,
+        "blockchain": "zora",
+        "address": "0x491b247de8995c3a438bc12e3375217a000cdbd0",
+        "tokenNfts": {
+          "tokenId": "45"
+        }
+      }
+    ]
+  },
+  // other onchain graph users
+]
+</code></pre>
+
+**Iterate to fetch all common Zora NFT holders**
+
+With the queries for fetching all the common Zora NFT holders that holds the same Zora NFTs as the given user established, it will be essential to fetch all the data using paginations.
+
+In order to paginate through all the data, you can utilize `fetchQueryWithPagination` and `execute_paginated_query` from the JavaScript (React & Node) and Python SDKs, respectively. The full code implementation for this will be as follows:
+
+{% tabs %}
+{% tab title="JavaScript" %}
+<pre class="language-javascript" data-title="functions/fetchZoraNftData.js"><code class="lang-javascript">import { init, fetchQueryWithPagination } from "@airstack/node"; // or @airstack/airstack-react for frontend javascript
+import formatZoraNftData from "./utils/formatZoraNftData";
+
+// get your API key at https://app.airstack.xyz/profile-settings/api-keys
+init("YOUR_AIRSTACK_API_KEY");
+
+const nftAddressesQuery = `
+query MyQuery($user: Identity!) {
+  TokenBalances(input: {filter: {tokenType: {_in: [ERC721]}, owner: {_eq: $user}}, blockchain: zora, limit: 200}) {
+    TokenBalance {
+      tokenAddress
+    }
+  }
+}
+`;
+
+const nftQuery = `
+query MyQuery($tokenAddresses: [Address!]) {
+  TokenBalances(
+    input: {filter: {tokenAddress: {_in: $tokenAddresses}, tokenType: {_in: [ERC721]}}, blockchain: zora, limit: 200}
+  ) {
+    TokenBalance {
+      token {
+        name
+        address
+        tokenNfts {
+          tokenId
+        }
+        blockchain
+        logo {
+          small
+        }
+      }
+      owner {
+        addresses
+        domains {
+          name
+          isPrimary
+        }
+        socials {
+          dappName
+          blockchain
+          profileName
+          profileImage
+          profileTokenId
+          profileTokenAddress
+        }
+        xmtp {
+          isXMTPEnabled
+        }
+      }
+    }
+  }
+}
+`;
+
+const fetchZoraNft = async (address, existingUsers = []) => {
+  let zoraNftDataResponse;
+  let recommendedUsers = [...existingUsers];
+  while (true) {
+    if (!zoraNftDataResponse) {
+      // Pagination #1: Fetch Zora NFTs
+<strong>      zoraNftDataResponse = await fetchQueryWithPagination(
+</strong>        nftAddressesQuery,
+        {
+          user: address,
+        }
+      );
+    }
+    const {
+      data: zoraNftData,
+      error: zoraNftError,
+      hasNextPage: zoraNftHasNextPage,
+      getNextPage: zoraNftGetNextPage,
+    } = zoraNftDataResponse ?? {};
+    if (!zoraNftError) {
+      const tokenAddresses =
+        zoraNftData?.TokenBalances?.TokenBalance?.map(
+          (token) => token.tokenAddress
+        ) ?? [];
+      let zoraNftHoldersDataResponse;
+      while (true) {
+        if (tokenAddresses.length === 0) break;
+        if (!zoraNftHoldersDataResponse) {
+          // Pagination #2: Zora Base NFT Holders
+<strong>          zoraNftHoldersDataResponse = await fetchQueryWithPagination(
+</strong>            nftQuery,
+            {
+              tokenAddresses,
+            }
+          );
+        }
+        const {
+          data: zoraNftHoldersData,
+          error: zoraNftHoldersError,
+          hasNextPage: zoraNftHoldersHasNextPage,
+          getNextPage: zoraNftHoldersGetNextPage,
+        } = zoraNftHoldersDataResponse;
+        if (!zoraNftHoldersError) {
+          recommendedUsers = [
+            ...formatBaseNftData(
+              zoraNftHoldersData?.TokenBalances?.TokenBalance,
+              recommendedUsers
+            ),
+          ];
+          if (!zoraNftHoldersHasNextPage) {
+            break;
+          } else {
+            zoraNftHoldersDataResponse =
+              await zoraNftHoldersGetNextPage();
+          }
+        } else {
+          console.error("Error: ", zoraNftHoldersError);
+          break;
+        }
+      }
+      if (!zoraNftHasNextPage) {
+        break;
+      } else {
+        zoraNftDataResponse = await zoraNftGetNextPage();
+      }
+    } else {
+      console.error("Error: ", zoraNftError);
+      break;
+    }
+  }
+  return recommendedUsers;
+};
+
+export default fetchZoraNft;
+</code></pre>
+{% endtab %}
+
+{% tab title="Python" %}
+{% code title="" %}
+```python
+from airstack.execute_query import AirstackClient
+from utils.zora_nft import format_zora_nft_data
+
+# get your API key at https://app.airstack.xyz/profile-settings/api-keys
+api_client = AirstackClient(api_key="YOUR_AIRSTACK_API_KEY")
+
+nft_addresses_query = """
+query MyQuery($user: Identity!) {
+  TokenBalances(input: {filter: {tokenType: {_in: [ERC721]}, owner: {_eq: $user}}, blockchain: zora, limit: 200}) {
+    TokenBalance {
+      tokenAddress
+    }
+  }
+}
+"""
+
+nft_query = """
+query MyQuery($tokenAddresses: [Address!]) {
+  TokenBalances(
+    input: {filter: {tokenAddress: {_in: $tokenAddresses}, tokenType: {_in: [ERC721]}}, blockchain: zora, limit: 200}
+  ) {
+    TokenBalance {
+      token {
+        name
+        address
+        tokenNfts {
+          tokenId
+        }
+        blockchain
+        logo {
+          small
+        }
+      }
+      owner {
+        addresses
+        domains {
+          name
+          isPrimary
+        }
+        socials {
+          dappName
+          blockchain
+          profileName
+          profileImage
+          profileTokenId
+          profileTokenAddress
+        }
+        xmtp {
+          isXMTPEnabled
+        }
+      }
+    }
+  }
+}
+"""
+
+
+async def fetch_zora_nft(address, existing_users=[]):
+    zora_nft_response = None
+    recommended_users = existing_users.copy()
+    while True:
+        if zora_nft_response is None:
+            execute_query_client = api_client.create_execute_query_object(
+                query=nft_addresses_query, variables={'user': address})
+            # Pagination #1: Fetch Zora NFTs
+            zora_nft_response = await execute_query_client.execute_paginated_query()
+
+        if zora_nft_response.error is None:
+            token_addresses = [token['tokenAddress'] for token in zora_nft_response.data.get('TokenBalances', {}).get(
+                'TokenBalance', [])] if zora_nft_response.data and 'TokenBalances' in zora_nft_response.data and 'TokenBalance' in zora_nft_response.data['TokenBalances'] else []
+            zora_nft_holders_response = None
+            while True:
+                if base_nft_holders_response is None:
+                    execute_query_client = api_client.create_execute_query_object(
+                        query=nft_query, variables={'tokenAddresses': token_addresses})
+                    # Pagination #2: Fetch Zora NFT Holders
+                    zora_nft_holders_response = await execute_query_client.execute_paginated_query()
+
+                if zora_nft_holders_response.error is None:
+                    recommended_users = format_zora_nft_data(
+                        zora_nft_holders_response.data.get(
+                            'TokenBalances', {}).get('TokenBalance', []),
+                        recommended_users
+                    )
+
+                    if not zora_nft_holders_response.has_next_page:
+                        break
+                    else:
+                        zora_nft_holders_response = await zora_nft_holders_response.get_next_page
+                else:
+                    print("Error: ", zora_nft_holders_response.error)
+                    break
+
+            if not zora_nft_response.has_next_page:
+                break
+            else:
+                zora_nft_response = await zora_nft_response.get_next_page
+        else:
+            print("Error: ", zora_nft_response.error)
+            break
+
+    return recommended_users
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -5269,6 +5920,7 @@ import fetchTokenReceived from "./functions/fetchTokenReceived";
 import fetchEthNft from "./functions/fetchEthNft";
 import fetchPolygonNft from "./functions/fetchPolygonNft";
 import fetchBaseNft from "./functions/fetchBaseNft";
+import fetchZoraNft from "./functions/fetchZoraNft";
 
 const fetchOnChainGraphData = async (address) => {
   let recommendedUsers = [];
@@ -5283,6 +5935,7 @@ const fetchOnChainGraphData = async (address) => {
     fetchEthNft,
     fetchPolygonNft,
     fetchBaseNft,
+    fetchZoraNft,
   ];
   for (const func of fetchFunctions) {
     recommendedUsers = await func(address, recommendedUsers);
@@ -5309,6 +5962,7 @@ from functions.token_received import fetch_token_received
 from functions.ethereum_nft import fetch_eth_nft
 from functions.polygon_nft import fetch_polygon_nft
 from functions.base_nft import fetch_base_nft
+from functions.zora_nft import fetch_zora_nft
 
 async def fetch_on_chain_graph_data(address):
     recommended_users = []
@@ -5323,6 +5977,7 @@ async def fetch_on_chain_graph_data(address):
         fetch_eth_nft,
         fetch_polygon_nft,
         fetch_base_nft,
+        fetch_zora_nft,
     ]
     for func in fetch_functions:
         recommended_users = await func(address, recommended_users)
@@ -5363,6 +6018,7 @@ Each data has different methods to calculate **points** and has their **individu
 | Common Ethereum NFTs   | number of Ethereum NFTs hold | 5                |
 | Common Polygon NFTs    | number of Polygon NFTs hold  | 0                |
 | Common Base NFTs       | number of Base NFTs hold     | 3                |
+| Common Zora NFTs       | number of Zora NFTs hold     | 3                |
 
 Thus, translating this into code, the score calculation function will look as follows:
 
@@ -5381,6 +6037,7 @@ const defaultScoreMap = {
   commonEthNfts: 5,
   commonPolygonNfts: 0,
   commonBaseNfts: 3,
+  commonZoraNfts: 3,
 };
 
 const identityMap = (identities) =>
@@ -5450,10 +6107,14 @@ const calculatingScore = (user, scoreMap = defaultScoreMap) => {
     const baseNftCount = uniqueNfts.filter(
       (nft) => nft.blockchain === "base"
     ).length;
+    const zoraNftCount = uniqueNfts.filter(
+      (nft) => nft.blockchain === "zora"
+    ).length;
     score +=
       scoreMap.commonEthNfts * ethNftCount +
       scoreMap.commonPolygonNfts * polygonNftCount +
-      scoreMap.commonBaseNfts * baseNftCount;
+      scoreMap.commonBaseNfts * baseNftCount +
+      scoreMap.commonZoraNfts * zoraNftCount
   }
   if (user.poaps) {
     score += scoreMap.commonPoaps * user.poaps.length;
@@ -5483,6 +6144,8 @@ default_score_map = {
     'commonPoaps': 7,
     'commonEthNfts': 5,
     'commonPolygonNfts': 0,
+    'commonBaseNfts': 3,
+    'commonZoraNfts': 3
 }
 
 
@@ -5541,9 +6204,13 @@ def calculating_score(user, score_map=None):
         'nfts', []) if not is_burned_address(nft['address'])}
     eth_nft_count = sum(1 for nft in unique_nfts if 'ethereum' in nft)
     polygon_nft_count = sum(1 for nft in unique_nfts if 'polygon' in nft)
+    base_nft_count = sum(1 for nft in unique_nfts if 'base' in nft)
+    zora_nft_count = sum(1 for nft in unique_nfts if 'zora' in nft)
 
     score += (score_map['commonEthNfts'] * eth_nft_count) + \
-        (score_map['commonPolygonNfts'] * polygon_nft_count)
+        (score_map['commonPolygonNfts'] * polygon_nft_count) + \
+        (score_map['commonBaseNfts'] * base_nft_count) + \
+        (score_map['commonZoraNfts'] * zora_nft_count)
 
     poaps = user.get('poaps', [])
     score += score_map['commonPoaps'] * len(poaps)
