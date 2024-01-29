@@ -2398,8 +2398,8 @@ You can use [Airstack](https://airstack.xyz) to easily fetch all the users that 
 
 **Try Demo**
 
-{% embed url="https://app.airstack.xyz/query/IhG0IQGdBv" %}
-Show me token transfers from vitalik.eth on Ethereum, Polygon, and Base
+{% embed url="https://app.airstack.xyz/query/5h8u6JCSGx" %}
+Show me token transfers from vitalik.eth on Ethereum, Polygon, Base, and Zora
 {% endembed %}
 
 **Code**
@@ -2416,7 +2416,7 @@ query MyQuery($user: Identity!) {
     }
   ) {
     TokenTransfer {
-      account: from {
+      account: to {
         addresses
         domains {
           name
@@ -2444,7 +2444,7 @@ query MyQuery($user: Identity!) {
     }
   ) {
     TokenTransfer {
-      account: from {
+      account: to {
         addresses
         domains {
           name
@@ -2472,8 +2472,41 @@ query MyQuery($user: Identity!) {
     }
   ) {
     TokenTransfer {
-      account: from {
+      account: to {
         addresses
+        domains {
+          name
+          isPrimary
+        }
+        socials {
+          dappName
+          blockchain
+          profileName
+          profileImage
+          profileTokenId
+          profileTokenAddress
+        }
+        xmtp {
+          isXMTPEnabled
+        }
+      }
+    }
+  }
+  Zora: TokenTransfers(
+    input: {
+      filter: {
+        from: {_eq: $user}
+      },
+      blockchain: base,
+      limit: 200
+    }
+  ) {
+    TokenTransfer {
+      account: to {
+        addresses
+        primaryDomain {
+          name
+        }
         domains {
           name
           isPrimary
@@ -2505,8 +2538,7 @@ query MyQuery($user: Identity!) {
 {% endtab %}
 
 {% tab title="Response" %}
-```json
-{
+<pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
       "TokenTransfer": [
@@ -2561,45 +2593,10 @@ query MyQuery($user: Identity!) {
             ],
             "domains": [
               {
-                "name": "quantumexchange.eth",
-                "isPrimary": false
+                "name": "vitalik.eth",
+                "isPrimary": true
               },
-              {
-                "name": "7860000.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "offchainexample.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "brianshaw.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "vbuterin.stateofus.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "quantumsmartcontracts.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "Vitalik.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "openegp.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "vitalik.cannafam.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "VITALIK.eth",
-                "isPrimary": false
-              }
+              // Other ENS domains
             ],
             "socials": [
               {
@@ -2628,10 +2625,14 @@ query MyQuery($user: Identity!) {
         },
         // more Base token transfers from vitalik.eth
       ]
-    }
+    },
+    "Zora": {
+      // Not token transfers from vitalik.eth on Zora
+<strong>      "TokenTransfer": null
+</strong>    }
   }
 }
-```
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
@@ -2829,6 +2830,33 @@ query TokenSent($user: Identity!) {
         }
       }
     }
+    Zora: TokenTransfers(
+      input: {filter: {from: {_eq: $user}}, blockchain: zora, limit: 200}
+    ) {
+      TokenTransfer {
+        account: to {
+          addresses
+          primaryDomain {
+            name
+          }
+          domains {
+            name
+            isPrimary
+          }
+          socials {
+            dappName
+            blockchain
+            profileName
+            profileImage
+            profileTokenId
+            profileTokenAddress
+          }
+          xmtp {
+            isXMTPEnabled
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -2852,8 +2880,15 @@ const fetchTokenSent = async (address, existingUsers = []) => {
       const baseData = (data?.Base?.TokenTransfer ?? []).map(
         (transfer) => transfer.account
       );
-
-      const tokenTransfer = [...ethData, ...polygonData, ...baseData];
+      const zoraData = (data?.Zora?.TokenTransfer ?? []).map(
+        (transfer) => transfer.account
+      );
+      const tokenTransfer = [
+        ...ethData,
+        ...polygonData,
+        ...baseData,
+        ...zoraData,
+      ];
       recommendedUsers = [
         ...formatTokenSentData(tokenTransfer, recommendedUsers),
       ];
@@ -2887,7 +2922,7 @@ query MyQuery($user: Identity!) {
     input: {filter: {from: {_eq: $user}}, blockchain: ethereum, limit: 200}
   ) {
     TokenTransfer {
-      account: from {
+      account: to {
         addresses
         domains {
           name
@@ -2911,7 +2946,7 @@ query MyQuery($user: Identity!) {
     input: {filter: {from: {_eq: $user}}, blockchain: ethereum, limit: 200}
   ) {
     TokenTransfer {
-      account: from {
+      account: to {
         addresses
         domains {
           name
@@ -2932,32 +2967,59 @@ query MyQuery($user: Identity!) {
     }
   }
   Base: TokenTransfers(
-      input: {filter: {from: {_eq: $user}}, blockchain: base, limit: 200}
-    ) {
-      TokenTransfer {
-        account: to {
-          addresses
-          primaryDomain {
-            name
-          }
-          domains {
-            name
-            isPrimary
-          }
-          socials {
-            dappName
-            blockchain
-            profileName
-            profileImage
-            profileTokenId
-            profileTokenAddress
-          }
-          xmtp {
-            isXMTPEnabled
-          }
+    input: {filter: {from: {_eq: $user}}, blockchain: base, limit: 200}
+  ) {
+    TokenTransfer {
+      account: to {
+        addresses
+        primaryDomain {
+          name
+        }
+        domains {
+          name
+          isPrimary
+        }
+        socials {
+          dappName
+          blockchain
+          profileName
+          profileImage
+          profileTokenId
+          profileTokenAddress
+        }
+        xmtp {
+          isXMTPEnabled
         }
       }
     }
+  }
+  Zora: TokenTransfers(
+    input: {filter: {from: {_eq: $user}}, blockchain: zora, limit: 200}
+  ) {
+    TokenTransfer {
+      account: to {
+        addresses
+        primaryDomain {
+          name
+        }
+        domains {
+          name
+          isPrimary
+        }
+        socials {
+          dappName
+          blockchain
+          profileName
+          profileImage
+          profileTokenId
+          profileTokenAddress
+        }
+        xmtp {
+          isXMTPEnabled
+        }
+      }
+    }
+  }
 }
 """
 
@@ -2978,7 +3040,9 @@ async def fetch_token_sent(address, existing_users=[]):
                 'TokenTransfer', []) if res.data and 'Polygon' in res.data and 'TokenTransfer' in res.data['Polygon'] else [])]
             base_data = [transfer['account'] for transfer in (res.data.get('Base', {}).get(
                 'TokenTransfer', []) if res.data and 'Base' in res.data and 'TokenTransfer' in res.data['Base'] else [])]
-            token_transfer = eth_data + polygon_data + base_data
+            zora_data = [transfer['account'] for transfer in (res.data.get('Zora', {}).get(
+                'TokenTransfer', []) if res.data and 'Zora' in res.data and 'TokenTransfer' in res.data['Zora'] else [])]
+            token_transfer = eth_data + polygon_data + base_data + zora_data
             recommended_users = format_token_sent_data(
                 token_transfer,
                 recommended_users
@@ -3003,8 +3067,8 @@ You can use [Airstack](https://airstack.xyz) to easily fetch all the users that 
 
 **Try Demo**
 
-{% embed url="https://app.airstack.xyz/query/a3EjaA49Gd" %}
-Show me token transfers received by vitalik.eth on Ethereum, Polygon, and Base
+{% embed url="https://app.airstack.xyz/query/N2AuaaKBI7" %}
+Show me token transfers received by vitalik.eth on Ethereum, Polygon, Base, and Zora
 {% endembed %}
 
 **Code**
@@ -3017,7 +3081,7 @@ query MyQuery($user: Identity!) {
     input: { filter: { to: { _eq: $user } }, blockchain: ethereum, limit: 200 }
   ) {
     TokenTransfer {
-      account: to {
+      account: from {
         addresses
         domains {
           name
@@ -3041,7 +3105,7 @@ query MyQuery($user: Identity!) {
     input: { filter: { to: { _eq: $user } }, blockchain: polygon, limit: 200 }
   ) {
     TokenTransfer {
-      account: to {
+      account: from {
         addresses
         domains {
           name
@@ -3065,7 +3129,31 @@ query MyQuery($user: Identity!) {
     input: { filter: { to: { _eq: $user } }, blockchain: base, limit: 200 }
   ) {
     TokenTransfer {
-      account: to {
+      account: from {
+        addresses
+        domains {
+          name
+          isPrimary
+        }
+        socials {
+          dappName
+          blockchain
+          profileName
+          profileImage
+          profileTokenId
+          profileTokenAddress
+        }
+        xmtp {
+          isXMTPEnabled
+        }
+      }
+    }
+  }
+  Zora: TokenTransfers(
+    input: { filter: { to: { _eq: $user } }, blockchain: zora, limit: 200 }
+  ) {
+    TokenTransfer {
+      account: from {
         addresses
         domains {
           name
@@ -3152,45 +3240,10 @@ query MyQuery($user: Identity!) {
             ],
             "domains": [
               {
-                "name": "quantumexchange.eth",
-                "isPrimary": false
+                "name": "vitalik.eth",
+                "isPrimary": true
               },
-              {
-                "name": "7860000.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "offchainexample.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "brianshaw.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "vbuterin.stateofus.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "quantumsmartcontracts.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "Vitalik.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "openegp.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "vitalik.cannafam.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "VITALIK.eth",
-                "isPrimary": false
-              }
+              // Other ENS domain
             ],
             "socials": [
               {
@@ -3218,6 +3271,48 @@ query MyQuery($user: Identity!) {
           }
         },
         // more tokens received by vitalik.eth on Base
+      ]
+    },
+    "Zora": {
+      "TokenTransfer": [
+        {
+          "account": {
+            "addresses": [
+              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+            ],
+            "domains": [
+              {
+                "name": "vitalik.eth",
+                "isPrimary": false
+              },
+              // Other ENS domain
+            ],
+            "socials": [
+              {
+                "dappName": "farcaster",
+                "blockchain": "optimism",
+                "profileName": "vitalik.eth",
+                "profileImage": "https://i.imgur.com/IzJxuId.jpg",
+                "profileTokenId": "5650",
+                "profileTokenAddress": "0x00000000fc6c5f01fc30151999387bb99a9f489b"
+              },
+              {
+                "dappName": "lens",
+                "blockchain": "polygon",
+                "profileName": "lens/@vitalik",
+                "profileImage": "ipfs://QmQP1DyNH8upeBxKJYtfCDdUj3mRcZep8zhJTLe3ePXB7M",
+                "profileTokenId": "100275",
+                "profileTokenAddress": "0xdb46d1dc155634fbc732f92e853b10b288ad5a1d"
+              }
+            ],
+            "xmtp": [
+              {
+                "isXMTPEnabled": true
+              }
+            ]
+          }
+        },
+        // more tokens received by vitalik.eth on Zora
       ]
     }
   }
@@ -3378,7 +3473,7 @@ query MyQuery($user: Identity!) {
     input: {filter: {to: {_eq: $user}}, blockchain: ethereum, limit: 200}
   ) {
     TokenTransfer {
-      account: to {
+      account: from {
         addresses
         domains {
           name
@@ -3402,7 +3497,7 @@ query MyQuery($user: Identity!) {
     input: {filter: {to: {_eq: $user}}, blockchain: polygon, limit: 200}
   ) {
     TokenTransfer {
-      account: to {
+      account: from {
         addresses
         domains {
           name
@@ -3426,7 +3521,31 @@ query MyQuery($user: Identity!) {
     input: {filter: {to: {_eq: $user}}, blockchain: base, limit: 200}
   ) {
     TokenTransfer {
-      account: to {
+      account: from {
+        addresses
+        domains {
+          name
+          isPrimary
+        }
+        socials {
+          dappName
+          blockchain
+          profileName
+          profileImage
+          profileTokenId
+          profileTokenAddress
+        }
+        xmtp {
+          isXMTPEnabled
+        }
+      }
+    }
+  }
+  Zora: TokenTransfers(
+    input: {filter: {to: {_eq: $user}}, blockchain: zora, limit: 200}
+  ) {
+    TokenTransfer {
+      account: from {
         addresses
         domains {
           name
@@ -3469,8 +3588,16 @@ const fetchTokenReceived = async (address, existingUsers = []) => {
       const baseData = (data?.Base?.TokenTransfer ?? []).map(
         (transfer) => transfer.account
       );
+      const zoraData = (data?.Zora?.TokenTransfer ?? []).map(
+        (transfer) => transfer.account
+      );
 
-      const tokenTransfer = [...ethData, ...polygonData, ...baseData];
+      const tokenTransfer = [
+        ...ethData,
+        ...polygonData,
+        ...baseData,
+        ...zoraData
+      ];
       recommendedUsers = [
         ...formatTokenReceivedData(tokenTransfer, recommendedUsers),
       ];
@@ -3504,7 +3631,7 @@ query MyQuery($user: Identity!) {
     input: {filter: {to: {_eq: $user}}, blockchain: ethereum, limit: 200}
   ) {
     TokenTransfer {
-      account: to {
+      account: from {
         addresses
         domains {
           name
@@ -3528,7 +3655,7 @@ query MyQuery($user: Identity!) {
     input: {filter: {to: {_eq: $user}}, blockchain: polygon, limit: 200}
   ) {
     TokenTransfer {
-      account: to {
+      account: from {
         addresses
         domains {
           name
@@ -3552,7 +3679,31 @@ query MyQuery($user: Identity!) {
     input: {filter: {to: {_eq: $user}}, blockchain: base, limit: 200}
   ) {
     TokenTransfer {
-      account: to {
+      account: from {
+        addresses
+        domains {
+          name
+          isPrimary
+        }
+        socials {
+          dappName
+          blockchain
+          profileName
+          profileImage
+          profileTokenId
+          profileTokenAddress
+        }
+        xmtp {
+          isXMTPEnabled
+        }
+      }
+    }
+  }
+  Zora: TokenTransfers(
+    input: {filter: {to: {_eq: $user}}, blockchain: zora, limit: 200}
+  ) {
+    TokenTransfer {
+      account: from {
         addresses
         domains {
           name
@@ -3592,7 +3743,9 @@ async def fetch_token_received(address, existing_users=[]):
                 'TokenTransfer', []) if res.data and 'Polygon' in res.data and 'TokenTransfer' in res.data['Polygon'] else [])]
             base_data = [transfer['account'] for transfer in (res.data.get('Base', {}).get(
                 'TokenTransfer', []) if res.data and 'Base' in res.data and 'TokenTransfer' in res.data['Base'] else [])]
-            token_transfer = eth_data + polygon_data + base_data
+            zora_data = [transfer['account'] for transfer in (res.data.get('Zora', {}).get(
+                'TokenTransfer', []) if res.data and 'Zora' in res.data and 'TokenTransfer' in res.data['Zora'] else [])]
+            token_transfer = eth_data + polygon_data + base_data + zora_dat
             recommended_users = format_token_received_data(
                 token_transfer,
                 recommended_users
