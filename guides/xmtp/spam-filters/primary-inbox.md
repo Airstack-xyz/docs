@@ -391,7 +391,7 @@ query isFollowing(
 
 ## Check If A Given User Has Sent Tokens To Senders
 
-You can check if a given user has sent any tokens to the senders on either Ethereum, Polygon, or Base by providing an array of senders' 0x addresses to the `$senders` variable and the main user to the `$mainUser` variable using the [`TokenTransfers`](../../../api-references/api-reference/tokentransfers-api.md) API:
+You can check if a given user has sent any tokens to the senders on either Ethereum, Polygon, Base, or Zora by providing an array of senders' 0x addresses to the `$senders` variable and the main user to the `$mainUser` variable using the [`TokenTransfers`](../../../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
@@ -459,6 +459,22 @@ You can use this query to filter senders **on the fly** with a maximum of 200 wa
       }
     }
   }
+  # Check Zora token transfers
+  zora: TokenTransfers(
+    input: {
+      filter: {
+        from: {_eq: $mainUser},
+        to: {_in: $senders}
+      },
+      blockchain: zora
+    }
+  ) {
+    TokenTransfer {
+      to {
+        addresses
+      }
+    }
+  }
 }
 </code></pre>
 {% endtab %}
@@ -489,16 +505,20 @@ You can use this query to filter senders **on the fly** with a maximum of 200 wa
           }
         },
         // ...Other token transfers
-        // If other XMTP users' addresses, does not appear,
-        // then the main user never sent any tokens to those XMTP users
+        // If other senders' addresses, does not appear,
+        // then the main user never sent any tokens to those senders
       ]
     },
     "polygon": {
-      // no transfers from the main user to XMTP users on Polygon
+      // no transfers from the main user to senders on Polygon
 <strong>      "TokenTransfer": null 
 </strong>    },
     "base": {
-      // no transfers from the main user to XMTP users on Base
+      // no transfers from the main user to senders on Base
+<strong>      "TokenTransfer": null
+</strong>    },
+    "zora": {
+      // no transfers from the main user to senders on Zora
 <strong>      "TokenTransfer": null
 </strong>    }
   }
