@@ -47,7 +47,7 @@ layout:
   * We do this for all NFT, POAPs (ipfs, arweave, etc). And also for any NFTs with audio or media files.
   * We offer 5 image sizes from our CDN that are easy to integrate in any app without further treatment
   * We also index and store all the NFT metadata, traits
-  * Also all Farcaster, Lens, ENS profiles, images, bios (edited)
+  * Also all Farcaster, Lens, ENS profiles, images, bios
 
 ### Rate Limits
 
