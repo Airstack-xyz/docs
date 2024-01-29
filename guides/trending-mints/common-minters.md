@@ -27,10 +27,9 @@ The algorithm for building trending mints will be as follows:
 Currently, there is no dedicated backend API for fetching trending mints directly into your application. Therefore, the following implementation will require you to run a **backend**.
 
 \
-For the **backend**,  you will be required to run a cronjob to fetch token mints data from the Airstack API and have the data stored in a dedicated database.\
+For the **backend**, you will be required to run a cronjob to fetch token mints data from the Airstack API and have the data stored in a dedicated database.\
 \
 This turotial will walk you through the steps required to implement Trending Mints today and deliver immediate value to your users.\
-
 
 Concurrently Airstack is working on a dedicated Trending Mints API for lighter-weight integrations in the near future.
 {% endhint %}
@@ -41,9 +40,9 @@ Concurrently Airstack is working on a dedicated Trending Mints API for lighter-w
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Existing Implementation of [Onchain Graph](../onchain-graph.md)
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
+- Existing Implementation of [Onchain Graph](../onchain-graph.md)
 
 ## Get Started
 
@@ -51,27 +50,35 @@ To get started, install the [Airstack](https://airstack.xyz) SDK:
 
 {% tabs %}
 {% tab title="npm" %}
+
 ```sh
 npm install @airstack/node dayjs node-cron
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 ```sh
 yarn add @airstack/node dayjs node-cron
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 ```sh
 pnpm install @airstack/node dayjs node-cron
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack python-cron
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -83,8 +90,8 @@ First, define the following parameters to fetch the token mints data:
 
 The interval that you would like to run your cron job. Using the interval, you can then set the variables for the query that will be shown below:
 
-* `endTime` to the current unix timestamp
-* `startTime` to the current unix timestamp minus the chosen interval duration.
+- `endTime` to the current unix timestamp
+- `startTime` to the current unix timestamp minus the chosen interval duration.
 
 In this tutorial, you'll use 1 hour as the default interval.
 
@@ -98,47 +105,53 @@ If you only prefer fungible token mints, then includes only `ERC20`. If you inst
 
 Choose the chain that you would like to fetch the token mints data.
 
-Currently, Airstack supports Ethereum, Polygon, and Base. Zora will be supported very soon.
+Currently, Airstack supports Ethereum, Polygon, Base, and Zora.
 
 #### **Limit**
 
 The number of JSON object responses per API call, with a maximum allowable value of **200**.
 
-***
+---
 
 As these parameters are going to be having constant values, you can create a new file to store these as constant variables that can be imported in the next steps:
 
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="constant.ts" %}
+
 ```typescript
 export const interval = 1; // 1 hour
 export const tokenType = ["ERC20", "ERC721", "ERC1155"];
 export const chains = ["ethereum", "polygon", "base"];
 export const limit = 200;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="constant.js" %}
+
 ```javascript
 export const interval = 1; // 1 hour
 export const tokenType = ["ERC20", "ERC721", "ERC1155"];
 export const chains = ["ethereum", "polygon", "base"];
 export const limit = 200;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="constant.py" %}
+
 ```python
 interval = 1 # 1 hour
 token_type = ["ERC20", "ERC721", "ERC1155"]
 chains = ["ethereum", "polygon", "base"]
 limit = 200
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -159,23 +172,24 @@ Show me all tokens minted by user on Ethereum
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery(
-  $user: Identity!,
-  $tokenType: [TokenType!],
-  $chain: TokenBlockchain!,
-  $limit: Int,
+  $user: Identity!
+  $tokenType: [TokenType!]
+  $chain: TokenBlockchain!
+  $limit: Int
 ) {
   TokenTransfers(
     input: {
       filter: {
-        operator: {_eq: $user},
-        from: {_eq: "0x0000000000000000000000000000000000000000"},
-        to: {_eq: $user},
-        tokenType: {_in: $tokenType},
-      },
-      blockchain: $chain,
-      order: {blockTimestamp: DESC},
+        operator: { _eq: $user }
+        from: { _eq: "0x0000000000000000000000000000000000000000" }
+        to: { _eq: $user }
+        tokenType: { _in: $tokenType }
+      }
+      blockchain: $chain
+      order: { blockTimestamp: DESC }
       limit: $limit
     }
   ) {
@@ -188,9 +202,11 @@ query MyQuery(
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "user": "0xeaf55242a90bb3289dB8184772b0B98562053559",
@@ -199,9 +215,11 @@ query MyQuery(
   "limit": 200
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -224,13 +242,14 @@ query MyQuery(
           "token": {
             "name": "Hyperkiwification"
           }
-        },
+        }
         // Other tokens minted by the given user on Ethereum
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -239,6 +258,7 @@ With this result, you can then format it to form an array of addresses using `fo
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="utils/format.ts" %}
+
 ```typescript
 export interface Data {
   TokenTransfers: TokenTransfer;
@@ -273,15 +293,15 @@ export interface Token {
  * @returns An array of minted token addresses
  */
 export const formatUserMints = (data: Data) =>
-  data?.TokenTransfers?.TokenTransfer?.map(
-    ({ tokenAddress }) => tokenAddress
-  );
+  data?.TokenTransfers?.TokenTransfer?.map(({ tokenAddress }) => tokenAddress);
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="utils/format.js" %}
+
 ```javascript
 /**
  * @description Format user mints to an array of token addresses
@@ -293,14 +313,14 @@ export const formatUserMints = (data: Data) =>
  * @returns An array of minted token addresses
  */
 export const formatUserMints = (data) =>
-  data?.TokenTransfers?.TokenTransfer?.map(
-    ({ tokenAddress }) => tokenAddress
-  );
+  data?.TokenTransfers?.TokenTransfer?.map(({ tokenAddress }) => tokenAddress);
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 def format_user_mints(data):
   """
@@ -314,6 +334,7 @@ def format_user_mints(data):
   else:
     return []
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -325,7 +346,7 @@ And the output of `formatUserMints` function will look as follows:
   "0xc9b09c916e22eb7b68037275fe035eb30d3989f7",
   "0xebb15487787cbf8ae2ffe1a6cca5a50e63003786",
   "0xad08067c7d3d3dbc14a9df8d671ff2565fc5a1ae",
-  "0x9340204616750cb61e56437befc95172c6ff6606",
+  "0x9340204616750cb61e56437befc95172c6ff6606"
   // other minted token addresses
 ]
 ```
@@ -342,20 +363,17 @@ Show all minters that minted an array of given tokens on Ethereum
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
-query MyQuery(
-  $mintedToken: Address!,
-  $chain: TokenBlockchain!,
-  $limit: Int,
-) {
+query MyQuery($mintedToken: Address!, $chain: TokenBlockchain!, $limit: Int) {
   TokenTransfers(
     input: {
       filter: {
-        from: {_eq: "0x0000000000000000000000000000000000000000"},
-        tokenAddress: {_eq: $mintedToken},
-      },
-      blockchain: $chain,
-      order: {blockTimestamp: DESC},
+        from: { _eq: "0x0000000000000000000000000000000000000000" }
+        tokenAddress: { _eq: $mintedToken }
+      }
+      blockchain: $chain
+      order: { blockTimestamp: DESC }
       limit: $limit
     }
   ) {
@@ -374,9 +392,11 @@ query MyQuery(
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variable" %}
+
 ```json
 {
   // For more than 1 minted token, use loop
@@ -385,9 +405,11 @@ query MyQuery(
   "limit": 200
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "TokenTransfers": {
@@ -416,12 +438,13 @@ query MyQuery(
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
 From here, you can use the data to get all the minters by checking if the operator and receiver address is equal and further categorize the list of minters by individual minted tokens.
 
-***
+---
 
 With the defined parameters, you can use the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API again to construct an Airstack query to fetch all recent tokens minted by all the **common minters** of a given user in a certain interval period by providing the individual minter 0x addresses from `formatCommonMinters` to the `$commonMinters` variable:
 
@@ -435,6 +458,7 @@ Show me minted tokens on Polygon by a common minter at certain timestamp
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery(
   $startTime: Time,
   $endTime: Time,
@@ -469,9 +493,11 @@ Show me minted tokens on Polygon by a common minter at certain timestamp
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "startTime": "2023-11-09T13:25:00Z",
@@ -482,9 +508,11 @@ Show me minted tokens on Polygon by a common minter at certain timestamp
   "commonMinter": "0xb59aa5bb9270d44be3fa9b6d67520a2d28cf80ab"
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "TokenTransfers": {
@@ -501,6 +529,7 @@ Show me minted tokens on Polygon by a common minter at certain timestamp
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -513,6 +542,7 @@ Before defining the `main` function, create a separate function to fetch the lis
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="functions/fetchCommonMinters.ts" %}
+
 ```typescript
 import { init, fetchQueryWithPagination } from "@airstack/node";
 import { config } from "dotenv";
@@ -719,11 +749,13 @@ const fetchCommonMinters = async (user: string) => {
 
 export default fetchCommonMinters;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="functions/fetchCommonMinters.js" %}
+
 ```javascript
 import { init, fetchQueryWithPagination } from "@airstack/node";
 import { config } from "dotenv";
@@ -930,11 +962,13 @@ const fetchCommonMinters = async (user) => {
 
 export default fetchCommonMinters;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="fetch_common_minters.py" %}
+
 ```python
 from airstack.execute_query import AirstackClient
 from dotenv import load_dotenv
@@ -1084,7 +1118,7 @@ async def fetch_common_minters(user: str) -> List[Dict[str, Any]]:
                         else:
                             print(common_minters_data_response.error)
                             break
-                        
+
                 # Iterate over all paginations
                 if not minted_tokens_data_response.has_next_page:
                     break
@@ -1098,6 +1132,7 @@ async def fetch_common_minters(user: str) -> List[Dict[str, Any]]:
 
     return mints_data
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1108,20 +1143,20 @@ When the result from `fetchCommonMinters` is logged, it will looks as follows:
 [
   {
     "tokenAddress": "0x2a9ea02e4c2dcd56ba20628fe1bd46bae2c62746",
-    "token": { name: "FarCon 2023 Tickets" },
+    "token": { "name": "FarCon 2023 Tickets" },
     "chain": "ethereum",
     "minters": [
       "0xae2586e76c8a4d8dc1ff3d9ab70bec760ae143c2",
       "0x2152ad70e4b395169923e2c6e8b09cd81b50c498",
-      "0xb8786d48c23bf7e5a0eff3089ba439d8e2fa6fe0",
+      "0xb8786d48c23bf7e5a0eff3089ba439d8e2fa6fe0"
     ]
   },
   {
     "tokenAddress": "0xd3b4de0d85c44c57993b3b18d42b00de81809eea",
     "token": { "name": "Unveiling Airstack's Onchain Graph" },
     "chain": "polygon",
-    "minters": [ "0x427a1c6dcaad92f886020a61e0b85be8e1c5ead5" ]
-  },
+    "minters": ["0x427a1c6dcaad92f886020a61e0b85be8e1c5ead5"]
+  }
   // Other common minters and token details that they minted
 ]
 ```
@@ -1131,15 +1166,11 @@ Once the list of common minters is fetched and categorized by the tokens minted,
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="index.ts" %}
+
 ```typescript
 import { init, fetchQueryWithPagination } from "@airstack/node";
 import { config } from "dotenv";
-import {
-  interval,
-  tokenType,
-  chains,
-  limit
-} from "./constant";
+import { interval, tokenType, chains, limit } from "./constant";
 import fetchCommonMinters from "./functions/fetchCommonMinters";
 import dayjs, { Dayjs } from "dayjs";
 
@@ -1204,7 +1235,7 @@ const main = async (user: string, currentTime: Dayjs) => {
               commonMinter,
             });
           }
-  
+
           const { data, error, getNextPage, hasNextPage } = response ?? {};
           if (!error) {
             for (let res of data?.TokenTransfers?.TokenTransfer ?? []) {
@@ -1277,32 +1308,29 @@ const main = async (user: string, currentTime: Dayjs) => {
             break;
           }
         }
-  
+
         // Resetting the loop
         response = null;
       }
     }
   }
-  
+
   return mintsData;
-}
+};
 
 export default main;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="index.js" %}
+
 ```javascript
 import { init, fetchQueryWithPagination } from "@airstack/node";
 import { config } from "dotenv";
-import {
-  interval,
-  tokenType,
-  chains,
-  limit
-} from "./constant";
+import { interval, tokenType, chains, limit } from "./constant";
 import fetchCommonMinters from "./functions/fetchCommonMinters";
 import dayjs from "dayjs";
 
@@ -1367,7 +1395,7 @@ const main = async (user, currentTime) => {
               commonMinter,
             });
           }
-  
+
           const { data, error, getNextPage, hasNextPage } = response ?? {};
           if (!error) {
             for (let res of data?.TokenTransfers?.TokenTransfer ?? []) {
@@ -1440,23 +1468,25 @@ const main = async (user, currentTime) => {
             break;
           }
         }
-  
+
         // Resetting the loop
         response = null;
       }
     }
   }
-  
+
   return mintsData;
-}
+};
 
 export default main;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="index.py" %}
+
 ```python
 import os
 from airstack.execute_query import AirstackClient
@@ -1604,6 +1634,7 @@ async def main(user: str, current_time: datetime) -> List[Dict[str, Any]]:
 
     return mints_data
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1629,7 +1660,7 @@ If you log the `main` function, it will return a response as follows:
           "0xd50963c3f3dce3bf7449116062a6b3234240a366",
           "0xc38c8027fa54bfc3e8f093a7994c3c5f43f416fe"
         ],
-        "frequency": 5,
+        "frequency": 5
       }
     ]
   },
@@ -1651,13 +1682,13 @@ If you log the `main` function, it will return a response as follows:
           "0x9f06bbd82b7a26272d1eafa118cda2819b22d793",
           "0xeab05f8e538982516d119361d7e6c31e8fb6f7c8",
           "0x1d9a9b5e73259bbf0272c5228330ffd24bca82c0",
-          "0x8135b0dd3eb53c1c391f4b228824ea60291793c9",
+          "0x8135b0dd3eb53c1c391f4b228824ea60291793c9"
         ],
-        "frequency": 10,
-      },
+        "frequency": 10
+      }
       // Other associated token mints, if any
     ]
-  },
+  }
   // Other minted tokens data
 ]
 ```
@@ -1685,13 +1716,14 @@ You are not required to follow the scoring logic shown in this tutorial. Dependi
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="utils/scoring.ts" %}
+
 ```typescript
 import { TokenTransfer } from "./format";
 
 /**
  * @description
  * Score all recent token mint data
- * 
+ *
  * @example
  * const res = scoringFunction(data);
  *
@@ -1702,17 +1734,13 @@ const scoringFunction = (data: TokenTransfer[]) => {
   let trendingMints = [];
 
   data.forEach((val) => {
-    const {
-      tokenAddress,
-      chain,
-      associatedMints
-    } = val ?? {};
+    const { tokenAddress, chain, associatedMints } = val ?? {};
     const valIndex = trendingMints.findIndex((value) => {
       return value?.tokenAddress === tokenAddress && value?.chain === chain;
     });
     const addScore = associatedMints
       .map(({ minters, frequency }) => minters?.length * frequency)
-      .reduce((a, b) => a + b, 0)
+      .reduce((a, b) => a + b, 0);
     if (valIndex !== -1) {
       trendingMints[valIndex] = {
         ...trendingMints[valIndex],
@@ -1730,16 +1758,18 @@ const scoringFunction = (data: TokenTransfer[]) => {
 
 export default scoringFunction;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="utils/scoring.js" %}
+
 ```javascript
 /**
  * @description
  * Score all recent token mint data
- * 
+ *
  * @example
  * const res = scoringFunction(data);
  *
@@ -1770,11 +1800,13 @@ const scoringFunction = (data) => {
 
 export default scoringFunction;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/scoring.py" %}
+
 ```python
 from typing import List, Dict, Any
 
@@ -1810,6 +1842,7 @@ def scoring_function(data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return trending_mints
 
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1819,6 +1852,7 @@ Then, you can import the `scoringFunction` back to `main` to have the data from 
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="index.ts" %}
+
 ```typescript
 // same imports as above
 import scoringFunction from "./utils/scoring";
@@ -1831,11 +1865,13 @@ const main = (user: string, currentTime: Dayjs) = > {
 
 export default main;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="index.js" %}
+
 ```javascript
 // same imports as above
 import { scoringFunction } from "./utils/scoring";
@@ -1848,11 +1884,13 @@ const main = (currentTime) = > {
 
 export default main;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="index.py" %}
+
 ```python
 # same imports as above
 from utils.scoring import scoring_function
@@ -1862,6 +1900,7 @@ async def main(current_time: datetime) -> List[Dict[str, Any]]:
   scored_data = scoring_function(mints_data)
   return scored_data
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1883,7 +1922,7 @@ When the result of the newly modified `main` function is logged, it will have re
           "0xd50963c3f3dce3bf7449116062a6b3234240a366",
           "0xc38c8027fa54bfc3e8f093a7994c3c5f43f416fe"
         ],
-        "frequency": 5,
+        "frequency": 5
       }
     ],
     "score": 15 // 5 * 3 (minters?.length)
@@ -1906,14 +1945,14 @@ When the result of the newly modified `main` function is logged, it will have re
           "0x9f06bbd82b7a26272d1eafa118cda2819b22d793",
           "0xeab05f8e538982516d119361d7e6c31e8fb6f7c8",
           "0x1d9a9b5e73259bbf0272c5228330ffd24bca82c0",
-          "0x8135b0dd3eb53c1c391f4b228824ea60291793c9",
+          "0x8135b0dd3eb53c1c391f4b228824ea60291793c9"
         ],
-        "frequency": 10,
-      },
+        "frequency": 10
+      }
       // Other associated token mints, if any
     ],
     "score": 100 // 10 * 10 (minters?.length)
-  },
+  }
   // Other scored token mints data
 ]
 ```
@@ -1925,17 +1964,18 @@ Once you have the token mints data scored, you can implement a very simple sorti
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="utils/sorting.ts" %}
+
 ```typescript
 import { TokenTransfer } from "./format";
 
 export interface TokenTransferWithScore extends TokenTransfer {
-  score: number; 
+  score: number;
 }
 
 /**
  * @description
  * Sort all scored mints data by `score` field
- * 
+ *
  * @example
  * const res = sortingFunction(scoredData);
  *
@@ -1944,19 +1984,21 @@ export interface TokenTransferWithScore extends TokenTransfer {
  */
 const sortingFunction = (scoredData: TokenTransferWithScore) =>
   scoredData?.sort((a, b) => b.score - a.score);
-  
+
 export default sortingFunction;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="utils/sorting.js" %}
+
 ```javascript
 /**
  * @description
  * Sort all scored mints data by `score` field
- * 
+ *
  * @example
  * const res = sortingFunction(scoredData);
  *
@@ -1965,20 +2007,23 @@ export default sortingFunction;
  */
 const sortingFunction = (scoredData) =>
   scoredData?.sort((a, b) => b.score - a.score);
-  
+
 export default sortingFunction;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/sorting.py" %}
+
 ```python
 from typing import List, Dict, Any
 
 def sorting_function(trending_mints: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return sorted(trending_mints, key=lambda x: x['score'], reverse=True)
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1988,6 +2033,7 @@ Then, you can import the `sortingFunction` back to `main` to have the scored dat
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="index.ts" %}
+
 ```typescript
 // same imports as above
 import { sortingFunction } from "./utils/sorting";
@@ -2000,11 +2046,13 @@ const main = (user: string, currentTime: Dayjs) = > {
 
 export default main;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="index.js" %}
+
 ```javascript
 // same imports as above
 import sortingFunction from "./utils/sorting";
@@ -2017,11 +2065,13 @@ const main = () = > {
 
 export default main;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="index.py" %}
+
 ```python
 # same imports as above
 from utils.sorting import sorting_function
@@ -2031,6 +2081,7 @@ async def main(current_time: datetime) -> List[Dict[str, Any]]:
   sorted_data = sorting_function(scored_data)
   return sorted_data
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -2057,10 +2108,10 @@ When the result of the newly modified `main` function is logged, it will have re
           "0x9f06bbd82b7a26272d1eafa118cda2819b22d793",
           "0xeab05f8e538982516d119361d7e6c31e8fb6f7c8",
           "0x1d9a9b5e73259bbf0272c5228330ffd24bca82c0",
-          "0x8135b0dd3eb53c1c391f4b228824ea60291793c9",
+          "0x8135b0dd3eb53c1c391f4b228824ea60291793c9"
         ],
-        "frequency": 10,
-      },
+        "frequency": 10
+      }
       // Other associated token mints, if any
     ],
     "score": 100
@@ -2078,11 +2129,11 @@ When the result of the newly modified `main` function is logged, it will have re
           "0xd50963c3f3dce3bf7449116062a6b3234240a366",
           "0xc38c8027fa54bfc3e8f093a7994c3c5f43f416fe"
         ],
-        "frequency": 5,
+        "frequency": 5
       }
     ],
     "score": 15
-  },
+  }
   // Other scored and sorted token mints data
 ]
 ```
@@ -2096,6 +2147,7 @@ In this tutorial, you'll be using a very simple filtering function `filterFuncti
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="utils/filter.ts" %}
+
 ```typescript
 import { TokenTransferWithScore } from "./scoring";
 
@@ -2103,31 +2155,31 @@ import { TokenTransferWithScore } from "./scoring";
  * @description
  * Filter mints data by `score` field that reaches
  * certain `threshold` that would classify as trending mints
- * 
+ *
  * @example
  * const res = filterFunction(sortedData, 50);
  *
  * @param {Object} data – Scored & sorted tokens data with `score` field
  * @returns list of trending mints
  */
-const filterFunction = (
-  data: TokenTransferWithScore,
-  threshold: number
-) => data?.filter((val) => val?.score >= threshold);
+const filterFunction = (data: TokenTransferWithScore, threshold: number) =>
+  data?.filter((val) => val?.score >= threshold);
 
 export default filterFunction;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="utils/fitler.js" %}
+
 ```javascript
 /**
  * @description
  * Filter mints data by `score` field that reaches
  * certain `threshold` that would classify as trending mints
- * 
+ *
  * @example
  * const res = filterFunction(sortedData, 50);
  *
@@ -2139,11 +2191,13 @@ const filterFunction = (data, threshold) =>
 
 export default filterFunction;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/filter.py" %}
+
 ```python
 from typing import List, Dict, Any
 
@@ -2162,6 +2216,7 @@ def filter_function(data: List[Dict[str, Any]], threshold: int) -> List[Dict[str
 
   return [val for val in data if val.get('score', 0) >= threshold]
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -2170,6 +2225,7 @@ Then, you can import the `filterFunction` back to `main` to have the sorted and 
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript" data-title="index.ts"><code class="lang-typescript">// same imports as above
 import filterFunction from "./utils/filter";
 
@@ -2181,9 +2237,11 @@ const main = (user: string, currentTime: Dayjs) = > {
 
 export default main;
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 <pre class="language-javascript" data-title=""><code class="lang-javascript">// same imports as above
 import filterFunction from "./utils/filter";
 
@@ -2195,10 +2253,12 @@ const main = () = > {
 
 export default main;
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="index.py" %}
+
 ```python
 # same imports as above
 from utils.filter import filter_function
@@ -2208,6 +2268,7 @@ async def main(current_time: datetime) -> List[Dict[str, Any]]:
   filtered_data = filter_function(sorted_data, 50) # Only output result with score above 50
   return filtered_data
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -2234,10 +2295,10 @@ When the result of the newly modified `main` function is logged, it will have re
           "0x9f06bbd82b7a26272d1eafa118cda2819b22d793",
           "0xeab05f8e538982516d119361d7e6c31e8fb6f7c8",
           "0x1d9a9b5e73259bbf0272c5228330ffd24bca82c0",
-          "0x8135b0dd3eb53c1c391f4b228824ea60291793c9",
+          "0x8135b0dd3eb53c1c391f4b228824ea60291793c9"
         ],
-        "frequency": 10,
-      },
+        "frequency": 10
+      }
       // Other associated token mints, if any
     ],
     "score": 100
@@ -2258,38 +2319,43 @@ For displaying all the trending token mints to your interface, it is best practi
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="cron.ts" %}
+
 ```typescript
 import cron from "node-cron";
 import dayjs from "dayjs";
 import main from "./main";
 
-cron.schedule('0 * * * *', async () => {
+cron.schedule("0 * * * *", async () => {
   const currentTime = dayjs();
   const data = await main(user, currentTime);
   // Store `data` to your preferred DB
 });
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="cron.js" %}
+
 ```javascript
 import cron from "node-cron";
 import dayjs from "dayjs";
 import main from "./main";
 
-cron.schedule('0 * * * *', async () => {
+cron.schedule("0 * * * *", async () => {
   const currentTime = dayjs();
   const data = await main(user, currentTime);
   // Store `data` to your preferred DB
 });
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="cron.py" %}
+
 ```python
 import pycron
 from datetime import datetime
@@ -2305,6 +2371,7 @@ if __name__ == '__main__':
   print("Starting cron job...")
   pycron.start()
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -2318,13 +2385,14 @@ For push notification, you simply need to push the message to your client using 
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="cron.ts" %}
+
 ```typescript
 import cron from "node-cron";
 import dayjs from "dayjs";
 import main from "./main";
 import { interval } from "./constant";
 
-cron.schedule('0 * * * *', () => {
+cron.schedule("0 * * * *", () => {
   const currentTime = dayjs();
   const [
     trendingMint1,
@@ -2333,17 +2401,18 @@ cron.schedule('0 * * * *', () => {
   ] = await main(user, currentTime);
   const { token, associatedMints, score } = trendingMint1 ?? {};
   const { minters, token: associatedToken } = associatedMints?.[0];
-  const message = 
-    `${minters?.length} user that minted ${associatedToken?.name} before have now also minted ${token?.name} in the last ${interval} minutes`;
+  const message = `${minters?.length} user that minted ${associatedToken?.name} before have now also minted ${token?.name} in the last ${interval} minutes`;
   // Here make API call with `message` to the push service to notify
   // your app's client
 });
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="cron.js" %}
+
 ```javascript
 import cron from "node-cron";
 import dayjs from "dayjs";
@@ -2359,17 +2428,19 @@ cron.schedule('0 * * * *', () => {
   ] = await main(user, currentTime);
   const { token, associatedMints, score } = trendingMint1 ?? {};
   const { minters, token: associatedToken } = associatedMints?.[0];
-  const message = 
+  const message =
     `${minters?.length} user that minted ${associatedToken?.name} before have now also minted ${token?.name} in the last ${interval} minutes`;
   // Here make API call with `message` to the push service to notify
   // your app's client
 });
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="cron.py" %}
+
 ```python
 import pycron
 from datetime import datetime
@@ -2394,19 +2465,20 @@ if __name__ == '__main__':
   print("Starting cron job...")
   pycron.start()
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
 
 ### Developer Support
 
-🎉 :partying\_face: Congratulations you've just integrated trending mints feature based on your user's common minters into your application!
+🎉 :partying_face: Congratulations you've just integrated trending mints feature based on your user's common minters into your application!
 
 If you have any questions or need help regarding integrating or building trending mints into your application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ### More Resources
 
-* [Global Trending Mints](global.md)
-* [Trending Mints By Onchain Graph](../onchain-graph.md)
-* [Token Mints](../token-mints.md)
-* [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api.md)
+- [Global Trending Mints](global.md)
+- [Trending Mints By Onchain Graph](../onchain-graph.md)
+- [Token Mints](../token-mints.md)
+- [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api.md)

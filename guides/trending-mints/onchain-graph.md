@@ -28,10 +28,9 @@ In this tutorial, you'll learn how to build trending mints based on your user's 
 Currently, there is no dedicated backend API for fetching trending mints directly into your application. Therefore, the following implementation will require you to run a **backend**.
 
 \
-For the **backend**,  you will be required to run a cronjob to fetch token mints data from the Airstack API and have the data stored in a dedicated database.\
+For the **backend**, you will be required to run a cronjob to fetch token mints data from the Airstack API and have the data stored in a dedicated database.\
 \
 This turotial will walk you through the steps required to implement Trending Mints today and deliver immediate value to your users.\
-
 
 Concurrently Airstack is working on a dedicated Trending Mints API for lighter-weight integrations in the near future.
 {% endhint %}
@@ -42,9 +41,9 @@ Concurrently Airstack is working on a dedicated Trending Mints API for lighter-w
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Existing Implementation of [Onchain Graph](../onchain-graph.md)
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
+- Existing Implementation of [Onchain Graph](../onchain-graph.md)
 
 ## Get Started
 
@@ -52,27 +51,35 @@ To get started, install the [Airstack](https://airstack.xyz) SDK:
 
 {% tabs %}
 {% tab title="npm" %}
+
 ```sh
 npm install @airstack/node dayjs node-cron
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 ```sh
 yarn add @airstack/node dayjs node-cron
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 ```sh
 pnpm install @airstack/node dayjs node-cron
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack python-cron
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -84,8 +91,8 @@ First, define the following parameters to fetch the token mints data:
 
 The interval that you would like to run your cron job. Using the interval, you can then set the variables for the query that will be shown below:
 
-* `endTime` to the current unix timestamp
-* `startTime` to the current unix timestamp minus the chosen interval duration.
+- `endTime` to the current unix timestamp
+- `startTime` to the current unix timestamp minus the chosen interval duration.
 
 In this tutorial, we'll use 1 hour as the default interval.
 
@@ -99,47 +106,53 @@ If you only prefer fungible token mints, then includes only `ERC20`. If you inst
 
 Choose the chain that you would like to fetch the token mints data.
 
-Currently, Airstack supports Ethereum, Polygon, and Base. Zora will be supported very soon.
+Currently, Airstack supports Ethereum, Polygon, Base, and Zora.
 
 #### **Limit**
 
 The number of JSON object responses per API call, with a maximum allowable value of **200**.
 
-***
+---
 
 As these parameters are going to be having constant values, you can create a new file to store these as constant variables that can be imported in the next steps:
 
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="constant.ts" %}
+
 ```typescript
 export const interval = 1; // 1 hour
 export const tokenType = ["ERC20", "ERC721", "ERC1155"];
 export const chains = ["ethereum", "polygon", "base"];
 export const limit = 200;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="constant.js" %}
+
 ```javascript
 export const interval = 1; // 1 hour
 export const tokenType = ["ERC20", "ERC721", "ERC1155"];
 export const chains = ["ethereum", "polygon", "base"];
 export const limit = 200;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="constant.py" %}
+
 ```python
 interval = 1 # 1 hour
 token_type = ["ERC20", "ERC721", "ERC1155"]
 chains = ["ethereum", "polygon", "base"]
 limit = 200
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -162,6 +175,7 @@ Show me minted tokens on Polygon by an onchain graph user at certain timestamp
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery(
   $startTime: Time,
   $endTime: Time,
@@ -196,9 +210,11 @@ Show me minted tokens on Polygon by an onchain graph user at certain timestamp
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "startTime": "2023-11-09T13:25:00Z",
@@ -209,9 +225,11 @@ Show me minted tokens on Polygon by an onchain graph user at certain timestamp
   "onchainGraphUser": "0xb59aa5bb9270d44be3fa9b6d67520a2d28cf80ab"
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "TokenTransfers": {
@@ -228,6 +246,7 @@ Show me minted tokens on Polygon by an onchain graph user at certain timestamp
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -239,6 +258,7 @@ To fetch all the data, the query will be iterated multiple times using the [`fet
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript" data-title="index.ts"><code class="lang-typescript">import { init, fetchQueryWithPagination } from "@airstack/node";
 import { config } from "dotenv";
 import {
@@ -366,12 +386,13 @@ const main = async (user: string, currentTime: Dayjs) => {
 
 export default main;
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="index.js" %}
-```javascript
 
+```javascript
 import { init, fetchQueryWithPagination } from "@airstack/node";
 import { config } from "dotenv";
 
@@ -419,7 +440,7 @@ const main = async (user, currentTime) => {
   /**
    * You should fetch onchain graph users based on the `user` variable
    * with their onchain score from your DB here.
-   * 
+   *
    * For this tutorial, this will simply user a constant variable.
    */
   const onchainGraphUsers = [
@@ -485,17 +506,19 @@ const main = async (user, currentTime) => {
       response = null;
     }
   }
-  
+
   return mintsData;
-}
+};
 
 export default main;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="index.py" %}
+
 ```python
 import os
 from airstack.execute_query import AirstackClient
@@ -551,7 +574,7 @@ async def main(user: str, current_time: datetime) -> List[Dict[str, Any]]:
   """
   You should fetch onchain graph users based on the `user` variable
   with their onchain score from your DB here.
-  
+
   For this tutorial, this will simply user a constant variable.
   """
   onchainGraphUsers = [
@@ -599,18 +622,19 @@ async def main(user: str, current_time: datetime) -> List[Dict[str, Any]]:
                   }
                   new_mint['chain'] = chain
                   mints_data.append(new_mint)
-                        
+
             # Iterate over all paginations
             if not query_response.has_next_page:
               break
             else:
               query_response = await query_response.get_next_page
-  
+
       # Resetting the loop
       query_response = None
 
   return mints_data
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -638,6 +662,7 @@ You are not required to follow the scoring logic shown in this tutorial. Dependi
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="utils/scoring.ts" %}
+
 ```typescript
 export interface Data {
   TokenTransfers: TokenTransfer;
@@ -666,7 +691,7 @@ export interface Token {
  * @description
  * Score all recent token mint data by how much people mint the token.
  * Each minting represent a score of 1.
- * 
+ *
  * @example
  * const res = scoringFunction(data);
  *
@@ -675,7 +700,7 @@ export interface Token {
  */
 const scoringFunction = (data: TokenTransfer[]) => {
   let trendingMints = [];
-  
+
   data.forEach((val) => {
     const { tokenAddress, chain, minter } = val ?? {};
     const { address, onchainScore } = minter ?? {};
@@ -712,17 +737,19 @@ const scoringFunction = (data: TokenTransfer[]) => {
 
 export default scoringFunction;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="utils/scoring.js" %}
+
 ```javascript
 /**
  * @description
  * Score all recent token mint data by how much people mint the token.
  * Each minting represent a score of 1.
- * 
+ *
  * @example
  * const res = scoringFunction(data);
  *
@@ -768,11 +795,13 @@ const scoringFunction = (data) => {
 
 export default scoringFunction;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/scoring.py" %}
+
 ```python
 def scoring_function(data):
     """
@@ -812,6 +841,7 @@ def scoring_function(data):
     return trending_mints
 
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -821,6 +851,7 @@ Then, you can import the `scoringFunction` back to `main` to have the data from 
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="index.ts" %}
+
 ```typescript
 // same imports as above
 import scoringFunction from "./utils/scoring";
@@ -833,11 +864,13 @@ const main = (user: string, currentTime: Dayjs) = > {
 
 export default main;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="index.js" %}
+
 ```javascript
 // same imports as above
 import { scoringFunction } from "./utils/scoring";
@@ -850,11 +883,13 @@ const main = (currentTime) = > {
 
 export default main;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="index.py" %}
+
 ```python
 # same imports as above
 from utils.scoring import scoring_function
@@ -864,6 +899,7 @@ async def main(current_time: datetime) -> List[Dict[str, Any]]:
   scored_data = scoring_function(mints_data)
   return scored_data
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -895,7 +931,7 @@ When the result of the newly modified `main` function is logged, it will have re
         "onchainScore": 52
       }
     ]
-  },
+  }
   // Other scored token mints data
 ]
 ```
@@ -907,17 +943,18 @@ Once you have the token mints data scored, you can implement a very simple sorti
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="utils/sorting.ts" %}
+
 ```typescript
 import { TokenTransferDetails } from "./scoring";
 
 export interface TokenTransferWithScore extends TokenTransferDetails {
-  score: number; 
+  score: number;
 }
 
 /**
  * @description
  * Sort all scored mints data by `score` field
- * 
+ *
  * @example
  * const res = sortingFunction(scoredData);
  *
@@ -926,19 +963,21 @@ export interface TokenTransferWithScore extends TokenTransferDetails {
  */
 const sortingFunction = (scoredData: TokenTransferWithScore) =>
   scoredData?.sort((a, b) => b.score - a.score);
-  
+
 export default sortingFunction;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="utils/sorting.js" %}
+
 ```javascript
 /**
  * @description
  * Sort all scored mints data by `score` field
- * 
+ *
  * @example
  * const res = sortingFunction(scoredData);
  *
@@ -947,20 +986,23 @@ export default sortingFunction;
  */
 const sortingFunction = (scoredData) =>
   scoredData?.sort((a, b) => b.score - a.score);
-  
+
 export default sortingFunction;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/sorting.py" %}
+
 ```python
 from typing import List, Dict, Any
 
 def sorting_function(trending_mints: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return sorted(trending_mints, key=lambda x: x['score'], reverse=True)
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -970,6 +1012,7 @@ Then, you can import the `sortingFunction` back to `main` to have the scored dat
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="index.ts" %}
+
 ```typescript
 // same imports as above
 import { sortingFunction } from "./utils/sorting";
@@ -982,11 +1025,13 @@ const main = (user: string, currentTime: Dayjs) = > {
 
 export default main;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="index.js" %}
+
 ```javascript
 // same imports as above
 import sortingFunction from "./utils/sorting";
@@ -999,11 +1044,13 @@ const main = () = > {
 
 export default main;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="index.py" %}
+
 ```python
 # same imports as above
 from utils.sorting import sorting_function
@@ -1013,6 +1060,7 @@ async def main(current_time: datetime) -> List[Dict[str, Any]]:
   sorted_data = sorting_function(scored_data)
   return sorted_data
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1044,7 +1092,7 @@ When the result of the newly modified `main` function is logged, it will have re
         "onchainScore": 51
       }
     ]
-  },
+  }
   // Other scored and sorted token mints data
 ]
 ```
@@ -1058,6 +1106,7 @@ In this tutorial, you'll be using a very simple filtering function `filterFuncti
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="utils/filter.ts" %}
+
 ```typescript
 import { TokenTransferWithScore } from "./scoring";
 
@@ -1065,31 +1114,31 @@ import { TokenTransferWithScore } from "./scoring";
  * @description
  * Filter mints data by `score` field that reaches
  * certain `threshold` that would classify as trending mints
- * 
+ *
  * @example
  * const res = filterFunction(sortedData, 50);
  *
  * @param {Object} data – Scored & sorted tokens data with `score` field
  * @returns list of trending mints
  */
-const filterFunction = (
-  data: TokenTransferWithScore,
-  threshold: number
-) => data?.filter((val) => val?.score >= threshold);
+const filterFunction = (data: TokenTransferWithScore, threshold: number) =>
+  data?.filter((val) => val?.score >= threshold);
 
 export default filterFunction;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="utils/fitler.js" %}
+
 ```javascript
 /**
  * @description
  * Filter mints data by `score` field that reaches
  * certain `threshold` that would classify as trending mints
- * 
+ *
  * @example
  * const res = filterFunction(sortedData, 50);
  *
@@ -1101,11 +1150,13 @@ const filterFunction = (data, threshold) =>
 
 export default filterFunction;
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/filter.py" %}
+
 ```python
 from typing import List, Dict, Any
 
@@ -1124,6 +1175,7 @@ def filter_function(data: List[Dict[str, Any]], threshold: int) -> List[Dict[str
 
   return [val for val in data if val.get('score', 0) >= threshold]
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1132,6 +1184,7 @@ Then, you can import the `filterFunction` back to `main` to have the sorted and 
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript" data-title="index.ts"><code class="lang-typescript">// same imports as above
 import filterFunction from "./utils/filter";
 
@@ -1143,9 +1196,11 @@ const main = (user: string, currentTime: Dayjs) = > {
 
 export default main;
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 <pre class="language-javascript" data-title=""><code class="lang-javascript">// same imports as above
 import filterFunction from "./utils/filter";
 
@@ -1157,10 +1212,12 @@ const main = () = > {
 
 export default main;
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="index.py" %}
+
 ```python
 # same imports as above
 from utils.filter import filter_function
@@ -1170,6 +1227,7 @@ async def main(current_time: datetime) -> List[Dict[str, Any]]:
   filtered_data = filter_function(sorted_data, 50) # Only output result with score above 50
   return filtered_data
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1201,7 +1259,7 @@ When the result of the newly modified `main` function is logged, it will have re
         "onchainScore": 51
       }
     ]
-  },
+  }
   // Other scored, sorted, and filtered token mints data by onchain graph users
 ]
 ```
@@ -1219,38 +1277,43 @@ For displaying all the trending token mints to your interface, it is best practi
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="cron.ts" %}
+
 ```typescript
 import cron from "node-cron";
 import dayjs from "dayjs";
 import main from "./main";
 
-cron.schedule('0 * * * *', async () => {
+cron.schedule("0 * * * *", async () => {
   const currentTime = dayjs();
   const data = await main(user, currentTime);
   // Store `data` to your preferred DB
 });
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="cron.js" %}
+
 ```javascript
 import cron from "node-cron";
 import dayjs from "dayjs";
 import main from "./main";
 
-cron.schedule('0 * * * *', async () => {
+cron.schedule("0 * * * *", async () => {
   const currentTime = dayjs();
   const data = await main(user, currentTime);
   // Store `data` to your preferred DB
 });
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="cron.py" %}
+
 ```python
 import pycron
 from datetime import datetime
@@ -1266,6 +1329,7 @@ if __name__ == '__main__':
   print("Starting cron job...")
   pycron.start()
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1279,13 +1343,14 @@ For push notification, you simply need to push the message to your client using 
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="cron.ts" %}
+
 ```typescript
 import cron from "node-cron";
 import dayjs from "dayjs";
 import main from "./main";
 import { interval } from "./constant";
 
-cron.schedule('0 * * * *', () => {
+cron.schedule("0 * * * *", () => {
   const currentTime = dayjs();
   const [
     trendingMint1,
@@ -1293,17 +1358,20 @@ cron.schedule('0 * * * *', () => {
     // Other trending mints in the array
   ] = await main(user, currentTime);
   const { token, minters, score } = trendingMint1 ?? {};
-  const message = 
-    `${minters?.[0]?.address} and ${minters?.length - 2} have minted ${token?.name} in the last ${interval} minutes`;
+  const message = `${minters?.[0]?.address} and ${
+    minters?.length - 2
+  } have minted ${token?.name} in the last ${interval} minutes`;
   // Here make API call with `message` to the push service to notify
   // your app's client
 });
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="cron.js" %}
+
 ```javascript
 import cron from "node-cron";
 import dayjs from "dayjs";
@@ -1318,17 +1386,19 @@ cron.schedule('0 * * * *', () => {
     // Other trending mints in the array
   ] = await main(user, currentTime);
   const { token, score } = trendingMint1 ?? {};
-  const message = 
+  const message =
     `${minters?.[0]?.address} and ${minters?.length - 2} have minted ${token?.name} in the last ${interval} minutes`;
   // Here make API call with `message` to the push service to notify
   // your app's client
 });
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="cron.py" %}
+
 ```python
 import pycron
 from datetime import datetime
@@ -1349,19 +1419,20 @@ if __name__ == '__main__':
   print("Starting cron job...")
   pycron.start()
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
 
 ### Developer Support
 
-🎉 :partying\_face: Congratulations you've just integrated trending mints feature based on your user's onchain graph into your application!
+🎉 :partying_face: Congratulations you've just integrated trending mints feature based on your user's onchain graph into your application!
 
 If you have any questions or need help regarding integrating or building trending mints into your application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ### More Resources
 
-* [Global Trending Mints](global.md)
-* [Trending Mints With Common Minters](common-minters.md)
-* [Token Mints](../token-mints.md)
-* [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api.md)
+- [Global Trending Mints](global.md)
+- [Trending Mints With Common Minters](common-minters.md)
+- [Token Mints](../token-mints.md)
+- [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api.md)
