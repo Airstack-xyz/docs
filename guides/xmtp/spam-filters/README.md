@@ -29,9 +29,7 @@ Primary, General, and Requests. \
 
 The mock below demonstrates a 3 tab UX. However you are free to implement the UX any way you desire. Our goal is to help you get good messages in front of the user and to have spam far out of sight. We should avoid the user having to browse through spam to find potentially good messages.&#x20;
 
-
-
-<figure><img src="../../../.gitbook/assets/image.png" alt="" width="188"><figcaption><p>XMTP Split Inbox (Mock)</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/iPhone 14 &#x26; 15 Pro - 62-min.png" alt="" width="188"><figcaption><p>XMTP Split Inbox (Mock)</p></figcaption></figure>
 
 ## Tutorials
 

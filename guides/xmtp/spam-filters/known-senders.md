@@ -33,15 +33,15 @@ As demonstrated below, your app's interface can also feature user-friendly optio
 
 <div>
 
-<figure><img src="../../../.gitbook/assets/Keep in Primary 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Keep in Primary 1-min.png" alt=""><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../../.gitbook/assets/Keep in Primary 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Keep in Primary 2-min.png" alt=""><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../../.gitbook/assets/Keep in Primary 3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Keep in Primary 4-min (1).png" alt=""><figcaption></figcaption></figure>
 
 </div>
 
