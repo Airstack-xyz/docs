@@ -23,17 +23,17 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get All User's ENS Domain](wallet.md#get-all-users-ens-domain)
-* [Get All User's Lens Profiles](wallet.md#get-all-users-lens-profiles)
-* [Get All User's Farcaster Account](wallet.md#get-all-users-farcaster-account)
-* [Check If A User Have XMTP Enabled](wallet.md#check-if-a-user-have-xmtp-enabled)
-* [Get User's Token Balances](wallet.md#get-users-token-balances)
-* [Get User's Token Transfers](wallet.md#get-users-token-transfers)
+- [Get All User's ENS Domain](wallet.md#get-all-users-ens-domain)
+- [Get All User's Lens Profiles](wallet.md#get-all-users-lens-profiles)
+- [Get All User's Farcaster Account](wallet.md#get-all-users-farcaster-account)
+- [Check If A User Have XMTP Enabled](wallet.md#check-if-a-user-have-xmtp-enabled)
+- [Get User's Token Balances](wallet.md#get-users-token-balances)
+- [Get User's Token Transfers](wallet.md#get-users-token-transfers)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -54,6 +54,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -68,6 +69,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -82,12 +84,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -95,6 +100,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -118,9 +124,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -133,9 +141,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -153,6 +163,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -184,21 +195,27 @@ Show me all 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045's ENS domains
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Wallet(
-    input: {identity: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", blockchain: ethereum}
+    input: {
+      identity: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+      blockchain: ethereum
+    }
   ) {
-    domains(input: {limit: 200}) {
+    domains(input: { limit: 200 }) {
       name
       isPrimary
     }
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -215,13 +232,14 @@ query MyQuery {
         {
           "name": "vitalik.eth",
           "isPrimary": true
-        },
+        }
         // More ENS domain
-      ],
+      ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -245,20 +263,26 @@ Show me all 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045's Lens profiles
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Wallet(
-    input: {identity: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", blockchain: ethereum}
+    input: {
+      identity: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+      blockchain: ethereum
+    }
   ) {
-    socials(input: {limit: 200, filter: {dappName: {_eq: lens}}}) {
+    socials(input: { limit: 200, filter: { dappName: { _eq: lens } } }) {
       profileName
     }
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -272,6 +296,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -293,20 +318,26 @@ Show me all 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045's Farcaster accounts
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Wallet(
-    input: {identity: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", blockchain: ethereum}
+    input: {
+      identity: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+      blockchain: ethereum
+    }
   ) {
-    socials(input: {limit: 200, filter: {dappName: {_eq: farcaster}}}) {
+    socials(input: { limit: 200, filter: { dappName: { _eq: farcaster } } }) {
       profileName
     }
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -320,6 +351,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -337,10 +369,14 @@ Check if 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 have XMTP enabled
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Wallet(
-    input: {identity: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", blockchain: ethereum}
+    input: {
+      identity: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+      blockchain: ethereum
+    }
   ) {
     xmtp {
       isXMTPEnabled
@@ -348,9 +384,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -364,12 +402,13 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get User's Token Balances
 
-You can use [`Wallet`](../api-references/api-reference/wallet-api.md) API to fetch all user's token (ERC20/721/1155) balances across Ethereum, Polygon, and Base:
+You can use [`Wallet`](../api-references/api-reference/wallet-api.md) API to fetch all user's token (ERC20/721/1155) balances across Ethereum, Polygon, Base, Zora:
 
 {% hint style="info" %}
 If a user have more than **200 tokens on a chain**, then it is recommended that you use the [**TokenBalances**](../api-references/api-reference/tokenbalances-api.md) API directly instead.
@@ -387,17 +426,21 @@ Show me token balances of 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Wallet(
-    input: {identity: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", blockchain: ethereum}
+    input: {
+      identity: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+      blockchain: ethereum
+    }
   ) {
-    ethereum: tokenBalances(input: { blockchain: ethereum, limit: 200}) {
+    ethereum: tokenBalances(input: { blockchain: ethereum, limit: 200 }) {
       tokenAddress
       tokenId
       tokenType
-      token { 
-      	name
+      token {
+        name
         symbol
         logo {
           external
@@ -419,12 +462,12 @@ query MyQuery {
         }
       }
     }
-    polygon: tokenBalances(input: { blockchain: polygon, limit: 200}) {
+    polygon: tokenBalances(input: { blockchain: polygon, limit: 200 }) {
       tokenAddress
       tokenId
       tokenType
-      token { 
-      	name
+      token {
+        name
         symbol
         logo {
           external
@@ -446,12 +489,12 @@ query MyQuery {
         }
       }
     }
-    base: tokenBalances(input: { blockchain: base, limit: 200}) {
+    base: tokenBalances(input: { blockchain: base, limit: 200 }) {
       tokenAddress
       tokenId
       tokenType
-      token { 
-      	name
+      token {
+        name
         symbol
         logo {
           external
@@ -476,9 +519,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -500,7 +545,7 @@ query MyQuery {
             }
           },
           "tokenNfts": null
-        },
+        }
         // Other Ethereum tokens
       ],
       "polygon": [
@@ -530,7 +575,7 @@ query MyQuery {
               }
             }
           }
-        },
+        }
         // Other Polygon tokens
       ],
       "base": [
@@ -560,19 +605,20 @@ query MyQuery {
               }
             }
           }
-        },
+        }
         // Other Base tokens
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get User's Token Transfers
 
-You can use [`Wallet`](../api-references/api-reference/wallet-api.md) API to fetch all user's token (ERC20/721/1155) transfers across Ethereum, Polygon, and Base:
+You can use [`Wallet`](../api-references/api-reference/wallet-api.md) API to fetch all user's token (ERC20/721/1155) transfers across Ethereum, Polygon, Base, and Zora:
 
 {% hint style="info" %}
 If a user have more than **200 token transfers on a chain**, then it is recommended that you use the [**TokenTransfers**](../api-references/api-reference/tokentransfers-api.md) API directly instead.
@@ -590,13 +636,26 @@ show me all token transfers from or to 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA9604
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Wallet(
-    input: {identity: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", blockchain: ethereum}
+    input: {
+      identity: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+      blockchain: ethereum
+    }
   ) {
     ethereum: tokenTransfers(
-      input: {blockchain: ethereum, limit: 200, filter: {_nor: {from: {_eq: "0x0000000000000000000000000000000000000000"}, to: {_eq: "0x0000000000000000000000000000000000000000"}}}}
+      input: {
+        blockchain: ethereum
+        limit: 200
+        filter: {
+          _nor: {
+            from: { _eq: "0x0000000000000000000000000000000000000000" }
+            to: { _eq: "0x0000000000000000000000000000000000000000" }
+          }
+        }
+      }
     ) {
       from {
         addresses
@@ -653,7 +712,16 @@ query MyQuery {
       }
     }
     polygon: tokenTransfers(
-      input: {blockchain: polygon, limit: 200, filter: {_nor: {from: {_eq: "0x0000000000000000000000000000000000000000"}, to: {_eq: "0x0000000000000000000000000000000000000000"}}}}
+      input: {
+        blockchain: polygon
+        limit: 200
+        filter: {
+          _nor: {
+            from: { _eq: "0x0000000000000000000000000000000000000000" }
+            to: { _eq: "0x0000000000000000000000000000000000000000" }
+          }
+        }
+      }
     ) {
       from {
         addresses
@@ -710,7 +778,16 @@ query MyQuery {
       }
     }
     base: tokenTransfers(
-      input: {blockchain: base, limit: 200, filter: {_nor: {from: {_eq: "0x0000000000000000000000000000000000000000"}, to: {_eq: "0x0000000000000000000000000000000000000000"}}}}
+      input: {
+        blockchain: base
+        limit: 200
+        filter: {
+          _nor: {
+            from: { _eq: "0x0000000000000000000000000000000000000000" }
+            to: { _eq: "0x0000000000000000000000000000000000000000" }
+          }
+        }
+      }
     ) {
       from {
         addresses
@@ -769,9 +846,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -779,14 +858,12 @@ query MyQuery {
       "ethereum": [
         {
           "from": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
             "domains": [
               {
                 "name": "vitalik.eth",
                 "isPrimary": true
-              },
+              }
               // Other ENS Domain
             ],
             "socials": [
@@ -806,9 +883,7 @@ query MyQuery {
             ]
           },
           "to": {
-            "addresses": [
-              "0xd8b75eb7bd778ac0b3f5ffad69bcc2e25bccac95"
-            ],
+            "addresses": ["0xd8b75eb7bd778ac0b3f5ffad69bcc2e25bccac95"],
             "domains": [
               {
                 "name": "toastmybread.eth",
@@ -845,20 +920,18 @@ query MyQuery {
               "image": null
             }
           }
-        },
+        }
         // Other Ethereum token transfers
       ],
       "polygon": [
         {
           "from": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
             "domains": [
               {
                 "name": "vitalik.eth",
                 "isPrimary": false
-              },
+              }
               // Other ENS domains
             ],
             "socials": [
@@ -878,14 +951,12 @@ query MyQuery {
             ]
           },
           "to": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
             "domains": [
               {
                 "name": "quantumexchange.eth",
                 "isPrimary": false
-              },
+              }
               // Other ENS domains
             ],
             "socials": [
@@ -929,28 +1000,24 @@ query MyQuery {
               }
             }
           }
-        },
+        }
         // Other Polygon token transfers
       ],
       "base": [
         {
           "from": {
-            "addresses": [
-              "0x919ba4118e5b566b35b62364613bb8f6bd8e2c61"
-            ],
+            "addresses": ["0x919ba4118e5b566b35b62364613bb8f6bd8e2c61"],
             "domains": null,
             "socials": null,
             "xmtp": null
           },
           "to": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
+            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
             "domains": [
               {
                 "name": "quantumexchange.eth",
                 "isPrimary": false
-              },
+              }
               // Other ENS domains
             ],
             "socials": [
@@ -984,13 +1051,14 @@ query MyQuery {
             }
           },
           "tokenNft": null
-        },
+        }
         // Other Base token transfers
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1000,15 +1068,15 @@ If you have any questions or need help regarding fetching balance snapshots data
 
 ## More Resources
 
-* [Wallet API References](../api-references/api-reference/wallet-api.md)
-* [Domains API References](../api-references/api-reference/domains-api.md)
-* [Socials API References](../api-references/api-reference/socials-api.md)
-* [TokenBalances API References](../api-references/api-reference/tokenbalances-api.md)
-* [TokenTransfers API References](../api-references/api-reference/tokentransfers-api.md)
-* [ENS Domain Guides](ens-domains/)
-* [Lens Guides](lens/)
-* [Farcaster Guides](farcaster/)
-* [Token Balances Guides](token-balances/)
-* [Token Transfers Guides](token-transfers.md)
-* [Balance Snapshots Guides](balance-snapshots.md)
-* [Holder Snapshots Guides](holder-snapshots.md)
+- [Wallet API References](../api-references/api-reference/wallet-api.md)
+- [Domains API References](../api-references/api-reference/domains-api.md)
+- [Socials API References](../api-references/api-reference/socials-api.md)
+- [TokenBalances API References](../api-references/api-reference/tokenbalances-api.md)
+- [TokenTransfers API References](../api-references/api-reference/tokentransfers-api.md)
+- [ENS Domain Guides](ens-domains/)
+- [Lens Guides](lens/)
+- [Farcaster Guides](farcaster/)
+- [Token Balances Guides](token-balances/)
+- [Token Transfers Guides](token-transfers.md)
+- [Balance Snapshots Guides](balance-snapshots.md)
+- [Holder Snapshots Guides](holder-snapshots.md)

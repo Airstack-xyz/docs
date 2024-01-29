@@ -17,21 +17,21 @@ layout:
 
 # ⚖ ERC20 Balances
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating ERC20 token balances data from Ethereum, Polygon, and Base.
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating ERC20 token balances data from Ethereum, Polygon, Base, and Zora.
 
 ## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-* [Get Ethereum ERC20s Owned By User(s)](erc20-balances.md#get-ethereum-erc20s-owned-by-user-s)
-* [Get Polygon ERC20s Owned By User(s)](erc20-balances.md#get-polygon-erc20s-owned-by-user-s)
-* [Get Base ERC20s Owned By User(s)](erc20-balances.md#get-base-erc20s-owned-by-user-s)
-* [Get All ERC20s Owned By User(s)](erc20-balances.md#get-all-erc20s-owned-by-user-s)
+- [Get Ethereum ERC20s Owned By User(s)](erc20-balances.md#get-ethereum-erc20s-owned-by-user-s)
+- [Get Polygon ERC20s Owned By User(s)](erc20-balances.md#get-polygon-erc20s-owned-by-user-s)
+- [Get Base ERC20s Owned By User(s)](erc20-balances.md#get-base-erc20s-owned-by-user-s)
+- [Get All ERC20s Owned By User(s)](erc20-balances.md#get-all-erc20s-owned-by-user-s)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account (free)
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -52,6 +52,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -66,6 +67,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -80,12 +82,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -93,6 +98,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -116,9 +122,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -131,9 +139,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -151,6 +161,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -178,6 +189,7 @@ Show ERC20 tokens on Ethereum owned by users
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -228,9 +240,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -290,6 +304,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -307,6 +322,7 @@ Show ERC20 tokens on Polygon owned by users
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -357,9 +373,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -419,6 +437,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -436,6 +455,7 @@ Show ERC20 tokens on Base owned by users
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -486,9 +506,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -548,12 +570,13 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get All ERC20s Owned By User(s)
 
-You can fetch all ERC20 tokens on Ethereum, Polygon, and Base owned by any user(s):
+You can fetch all ERC20 tokens on Ethereum, Polygon, Base, and Zora owned by any user(s):
 
 ### Try Demo
 
@@ -565,6 +588,7 @@ Show ERC20 tokens on Ethereum, Polygon, and Base owned by users
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query ERC20OwnedByLensProfiles {
   Ethereum: TokenBalances(
@@ -707,9 +731,11 @@ query ERC20OwnedByLensProfiles {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -875,6 +901,7 @@ query ERC20OwnedByLensProfiles {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -884,10 +911,8 @@ If you have any questions or need help regarding fetching token balances of user
 
 ## More Resources
 
-* [Balance Snapshots Guides](../balance-snapshots.md)
-* [Holder Snapshots Guides](../holder-snapshots.md)
-* [ERC20 Tokens In Common](../tokens-in-common/erc20s.md)
-* [ERC20 Token Holders](erc20-holders.md)
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
-
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating ERC20 balances data from Ethereum, Polygon, and Base.
+- [Balance Snapshots Guides](../balance-snapshots.md)
+- [Holder Snapshots Guides](../holder-snapshots.md)
+- [ERC20 Tokens In Common](../tokens-in-common/erc20s.md)
+- [ERC20 Token Holders](erc20-holders.md)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)

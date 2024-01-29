@@ -24,7 +24,7 @@ Building such a contract recommendation feature based on NFTs takes two steps:
 
 [Airstack](https://www.airstack.xyz/) provides you the `TokenBalances` API to fetch the NFT held by a user(s) and the `TokenNFTs` API to fetch all the holders of a certain NFT collection.
 
-With [Airstack](https://airstack.xyz), it's possible to do [cross-chain queries](../contact-recommendation/broken-reference/) that get NFT results from **multiple chains, e.g. Ethereum, Polygon, and Base**, in a single call.
+With [Airstack](https://airstack.xyz), it's possible to do [cross-chain queries](../contact-recommendation/broken-reference/) that get NFT results from **multiple chains, e.g. Ethereum, Polygon, Base, and Zora**, in a single call.
 
 ## Get All NFTs Held By A User(s)
 
@@ -32,10 +32,18 @@ First, you will fetch all the NFTs held by a user(s) to create the contact recom
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetNFTs($Identity: [Identity!]) {
   ethereum: TokenBalances(
-    input: {filter: {owner: {_in: $Identity}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: ethereum, limit: 50}
+    input: {
+      filter: {
+        owner: { _in: $Identity }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: ethereum
+      limit: 50
+    }
   ) {
     TokenBalance {
       tokenAddress
@@ -61,7 +69,14 @@ query GetNFTs($Identity: [Identity!]) {
     }
   }
   polygon: TokenBalances(
-    input: {filter: {owner: {_in: $Identity}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: polygon, limit: 50}
+    input: {
+      filter: {
+        owner: { _in: $Identity }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: polygon
+      limit: 50
+    }
   ) {
     TokenBalance {
       tokenAddress
@@ -87,7 +102,14 @@ query GetNFTs($Identity: [Identity!]) {
     }
   }
   base: TokenBalances(
-    input: {filter: {owner: {_in: $Identity}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: base, limit: 50}
+    input: {
+      filter: {
+        owner: { _in: $Identity }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: base
+      limit: 50
+    }
   ) {
     TokenBalance {
       tokenAddress
@@ -114,14 +136,17 @@ query GetNFTs($Identity: [Identity!]) {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "Identity": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"]
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -135,6 +160,7 @@ In addition, the query will also fetch all NFT images that you can use to be dis
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetNFTHoldersAndImages($address: [Address!]) {
   ethereum: TokenNfts(
@@ -173,14 +199,17 @@ query GetNFTHoldersAndImages($address: [Address!]) {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```
 {
   "address": ["0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03"]
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -238,5 +267,5 @@ If you have any questions or need help regarding integrating or building recomme
 
 ## More Resources
 
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
-* [On-Chain Graph](../onchain-graph.md)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+- [On-Chain Graph](../onchain-graph.md)
