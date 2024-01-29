@@ -55,12 +55,12 @@ As demonstrated below, your app's interface can also feature user-friendly optio
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to build an XMTP general inbox by:
 
-* [Check If A Given User's Onchain Graph Score Above X](general-inbox.md#check-if-a-given-users-onchain-graph-score-above-x)
+* [Check If Senders' Onchain Graph Score Above X](general-inbox.md#check-if-senders-onchain-graph-score-above-x)
   * [Common POAP Events Attended](general-inbox.md#common-poap-events-attended)
   * [Common NFT Collections Minted](general-inbox.md#common-nft-collections-minted)
   * [Common NFT Collections Hold](general-inbox.md#common-nft-collections-hold)
-* [Check If The Sender Is Being Followed By One of The User's Followers on Lens](general-inbox.md#check-if-the-sender-is-being-followed-by-one-of-the-users-followers-on-lens)
-* [Check If The Sender Is Being Followed By One of The User's Followers on Farcaster](general-inbox.md#check-if-the-sender-is-being-followed-by-one-of-users-followers-on-farcaster)
+* [Check If The Senders Are Being Followed By One of The User's Followers on Lens](general-inbox.md#check-if-the-senders-are-being-followed-by-one-of-the-users-followers-on-lens)
+* [Check If The Senders Are Being Followed By One of The User's Followers on Farcaster](general-inbox.md#check-if-the-senders-are-being-followed-by-one-of-users-followers-on-farcaster)
 * [Check If Any of The User's Followers on Lens or Farcaster Sent Any Token To The Sender](general-inbox.md#check-if-any-of-the-users-followers-on-lens-or-farcaster-sent-any-token-to-the-sender)
 * [Check If XMTP Users Have Any ENS and Attended Any Non-Virtual POAPs](general-inbox.md#check-if-xmtp-users-have-any-ens-and-attended-any-non-virtual-poaps)
 
