@@ -31,23 +31,23 @@ layout:
 ### Technology
 
 * [Airstack](https://app.airstack.xyz) **indexes onchain and offchain data**. Whenever possible we default to onchain as the source of truth.
-* **Onchain** data is indexed through a blend of Substreams, RPC nodes, and Subgraphs. New transactions from the chains and projects we index appear in Airstack within seconds of onchain finalization. We use a blend of technologies depending on the use case.
+* **Onchain** data is indexed through a blend of technologies. New transactions from the chains and projects we index appear in Airstack within seconds of onchain finalization.
   * We index onchain data optimistically without waiting for block confirmation
   * If our indexing layer detects a reorg, then we will redo those blocks
 * **Offchain** data sources include Farcaster hubs, XMTP, and token/NFT Metadata.
-* **Data is currently organized and stored in Airstack’s hosted infra**, using Kafka, MongoDB, Postgres, Clickhouse, Redis, S3.
-  * This allows for blazing fast queries with responses in milliseconds
-  * We currently invest considerably to maintain and optimize this infra, so our clients don’t need to worry about it
-  * In the future we plan to decentralize this and make it permissionless to access.
-* **We download and store/resize all the images and metadata in our CDN.**
-  * We do this for all NFT, POAPs (ipfs, arweave, etc). And also for any NFTs with audio or media files.
-  * We offer 5 image sizes from our CDN that are easy to integrate in any app without further treatment
-  * We also index and store all the NFT metadata, traits
-  * Also all Farcaster, Lens, ENS profiles, images, bios (edited)
 * Airstack’s data is uniquely organized to allow for **composability**, combining data from any of the Airstack data sources and APIs in a single query/response.
 * Airstack provides **GraphQL APIs** for the data, with the unique ability to **query cross-chain, cross-project, and combine onchain and offchain data in a single query & response**
 * **Airstack AI** engine writes GraphQL queries for the user, allowing for complex natural language queries such as “show me all attendees of @ethcc6 and their Lens profiles and if they have XMTP” or “show POAPs in common for stani.lens and betashop9.lens”
 * **Abstractions.** Airstack abstractions enable devs to easily integrate use cases not just data. The GUIDES in the left menu are designed to help you easily find abstractions that match your use cases.
+* **Data is currently organized and stored in Airstack’s hosted infra**, using Kafka, MongoDB, Postgres, Clickhouse, Redis, S3.
+  * This allows for blazing fast queries with responses in milliseconds
+  * We currently invest considerably to maintain and optimize this infra, so our clients don’t need to worry about it
+  * In the future we plan to decentralize this and make it permissionless to access.
+* **We download and store/resize all images and metadata in our CDN.**
+  * We do this for all NFT, POAPs (ipfs, arweave, etc). And also for any NFTs with audio or media files.
+  * We offer 5 image sizes from our CDN that are easy to integrate in any app without further treatment
+  * We also index and store all the NFT metadata, traits
+  * Also all Farcaster, Lens, ENS profiles, images, bios (edited)
 
 ### Rate Limits
 
