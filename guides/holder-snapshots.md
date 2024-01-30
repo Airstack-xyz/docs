@@ -15,7 +15,7 @@ layout:
 
 # ⛓ Holder Snapshots
 
-[Airstack](https://airstack.xyz) provides easy-to-use [Snapshots API](../api-references/api-reference/snapshots-api.md)s for fetching token holders at a specific point in time. This feature set is currently available for the Ethereum, Base, and Zora blockchain and will be available soon for Polygon.&#x20;
+[Airstack](https://airstack.xyz) provides easy-to-use [Snapshots API](../api-references/api-reference/snapshots-api.md)s for fetching token holders at a specific point in time. This feature set is currently available for the Ethereum, Base, and Zora blockchain and will be available soon for Polygon.
 
 The [Snapshots API](../api-references/api-reference/snapshots-api.md) use timestamp, date, or block number as an input to specify the time:
 
@@ -48,15 +48,17 @@ It is important to note that **AMM LP tokens** or tokens that generate yield ove
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Get ERC20 Token Holders at a Specified Time on Ethereum](holder-snapshots.md#get-erc20-token-holders-snapshot-on-ethereum-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
-- [Get NFT Collection Holders at a Specified Time on Ethereum](holder-snapshots.md#get-nft-collection-holders-snapshot-on-ethereum-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
-- [Get ERC20 Token Holders at a Specified Time on Base](holder-snapshots.md#get-erc20-token-holders-snapshot-on-base-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
-- [Get NFT Collection Holders at a Specified Time on Base](holder-snapshots.md#get-nft-collection-holders-snapshot-on-base-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
+* [Get ERC20 Token Holders at a Specified Time on Ethereum](holder-snapshots.md#get-erc20-token-holders-snapshot-on-ethereum-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
+* [Get NFT Collection Holders at a Specified Time on Ethereum](holder-snapshots.md#get-nft-collection-holders-snapshot-on-ethereum-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
+* [Get ERC20 Token Holders at a Specified Time on Base](holder-snapshots.md#get-erc20-token-holders-snapshot-on-base-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
+* [Get NFT Collection Holders at a Specified Time on Base](holder-snapshots.md#get-nft-collection-holders-snapshot-on-base-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
+* [Get ERC20 Token Holders at a Specified Time on Zora](holder-snapshots.md#get-erc20-token-holders-snapshot-on-zora-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
+* [Get NFT Collection Holders at a Specified Time on Zora](holder-snapshots.md#get-nft-collection-holders-snapshot-on-zora-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -77,7 +79,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -92,7 +93,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -107,15 +107,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -123,7 +120,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -147,11 +143,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -164,11 +158,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -186,7 +178,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -214,7 +205,6 @@ Show me holder snapshots of ERC20 token USDC on Ethereum
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Snapshots(
@@ -256,11 +246,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Snapshots": {
@@ -325,7 +313,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -343,7 +330,6 @@ Show token holder snapshots of NFT collection BAYC on Ethereum at 2023-12-01
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Snapshots(
@@ -407,11 +393,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Snapshots": {
@@ -467,7 +451,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -485,7 +468,6 @@ Show me holder snapshots of ERC20 token 0x4158734d47fc9692176b5085e0f52ee0da5d47
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Snapshots(
@@ -527,11 +509,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Snapshots": {
@@ -594,7 +574,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -612,7 +591,6 @@ Show token holder snapshots of NFT collection 0xf0d0df7142f60f7f3847463a509fd896
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Snapshots(
@@ -676,11 +654,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -826,7 +802,270 @@ query MyQuery {
   }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
+## Get ERC20 Token Holders Snapshot On Zora at a Specified Time
+
+You can fetch all the tokens holders of an ERC20 at a specified time on Zora by using [`Snapshots`](../api-references/api-reference/snapshots-api.md) API and providing the ERC20 token address to `tokenAddress` input and time input to either `date`, `timestamp` or `blockNumber`:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/i9JhhLPB4w" %}
+Show me holder snapshots of ERC20 token 0xD838D5b87439e17B0194fd43e37300cD99Aa3DE0 on Base
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Snapshots(
+    input: {
+      filter: {
+        date: { _eq: "2023-12-01" }
+        tokenType: { _eq: ERC20 }
+        tokenAddress: { _eq: "0xD838D5b87439e17B0194fd43e37300cD99Aa3DE0" }
+      }
+      blockchain: zora
+    }
+  ) {
+    Snapshot {
+      owner {
+        addresses
+        domains {
+          name
+          isPrimary
+        }
+        socials {
+          profileName
+          dappName
+        }
+        xmtp {
+          isXMTPEnabled
+        }
+      }
+      startBlockNumber
+      startBlockTimestamp
+      endBlockNumber
+      endBlockTimestamp
+    }
+    pageInfo {
+      hasNextPage
+      hasPrevPage
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Snapshots": {
+      "Snapshot": [
+        {
+          "owner": {
+            "addresses": [
+              "0x46a5a8cce3805ee17b5247d65d05e3cc225de77c"
+            ],
+            "domains": null,
+            "socials": null,
+            "xmtp": null
+          },
+          "startBlockNumber": 6326968,
+          "startBlockTimestamp": "2023-11-07T09:02:55Z",
+<strong>          "endBlockNumber": 9370855, // this holder last held the token at block 9370855
+</strong>          "endBlockTimestamp": "2024-01-16T20:05:49Z"
+        },
+        {
+          "owner": {
+            "addresses": [
+              "0x143f05d638ee88bd865ed7ac7c512467893a04b8"
+            ],
+            "domains": null,
+            "socials": null,
+            "xmtp": null
+          },
+          "startBlockNumber": 5683054,
+          "startBlockTimestamp": "2023-10-23T11:19:07Z",
+<strong>          "endBlockNumber": -1, // -1 indicate that the user still hold the token at present
+</strong>          "endBlockTimestamp": "2024-01-02T09:31:27Z"
+        },
+        {
+          "owner": {
+            "addresses": [
+              "0x021a2d8462e12e9dc0c4887fcef4b2e29e02a2c8"
+            ],
+            "domains": [
+              {
+                "name": "arjant.eth",
+                "isPrimary": true
+              }
+            ],
+            "socials": null,
+            "xmtp": null
+          },
+          "startBlockNumber": 6612953,
+          "startBlockTimestamp": "2023-11-13T23:55:45Z",
+<strong>          "endBlockNumber": 7538115, // this holder last held the token at block 7538115
+</strong>          "endBlockTimestamp": "2023-12-05T09:54:29Z"
+        },
+        // Other token holders on 2023-12-01
+      ],
+      "pageInfo": {
+        "hasNextPage": true,
+        "hasPrevPage": false,
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjExMzgwYWRkNTFhODliNTU1MDg2MjBiNjBiY2YxNTIxIiwiRGF0YVR5cGUiOiJzdHJpbmcifX0sIlBhZ2luYXRpb25EaXJlY3Rpb24iOiJORVhUIn0=",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Get NFT Collection Holders Snapshot on Zora at a Specified Time
+
+You can fetch all the tokens holders of an NFT collection at a specified time on Zora by using [`Snapshots`](../api-references/api-reference/snapshots-api.md) API and providing the NFT collection address to `tokenAddress` input and time input to either `date`, `timestamp` or `blockNumber`:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/5PSyxPBUos" %}
+Show token holder snapshots of NFT collection 0xa15Bb830aCD9Ab46164e6840E3ef2dBBF9c5E2B3 at 2024-01-30
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Snapshots(
+    input: {
+      filter: {
+        date: { _eq: "2024-01-30" }
+        tokenType: { _in: [ERC721, ERC1155] }
+        tokenAddress: { _eq: "0xa15Bb830aCD9Ab46164e6840E3ef2dBBF9c5E2B3" }
+      }
+      blockchain: zora
+    }
+  ) {
+    Snapshot {
+      owner {
+        addresses
+        domains {
+          name
+          isPrimary
+        }
+        socials {
+          profileName
+          dappName
+        }
+        xmtp {
+          isXMTPEnabled
+        }
+      }
+      tokenId
+      tokenNft {
+        contentValue {
+          image {
+            extraSmall
+            large
+            medium
+            original
+            small
+          }
+        }
+        metaData {
+          name
+          description
+          attributes {
+            value
+            trait_type
+            maxValue
+            displayType
+          }
+        }
+      }
+      startBlockNumber
+      startBlockTimestamp
+      endBlockNumber
+      endBlockTimestamp
+    }
+    pageInfo {
+      hasNextPage
+      hasPrevPage
+      nextCursor
+      prevCursor
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Snapshots": {
+      "Snapshot": [
+        {
+          "owner": {
+            "addresses": [
+              "0xa2a1587e7a6640b218322bb58b10333da43cdd8b"
+            ],
+            "domains": [
+              {
+                "name": "suiproject.eth",
+                "isPrimary": true
+              }
+            ],
+            "socials": [
+              {
+                "profileName": "yunzzuize",
+                "dappName": "farcaster"
+              }
+            ],
+            "xmtp": null
+          },
+          "tokenId": "973",
+          "tokenNft": {
+            "contentValue": {
+              "image": {
+                "extraSmall": null,
+                "large": null,
+                "medium": null,
+                "original": "",
+                "small": null
+              }
+            },
+            "metaData": {
+              "name": "Airstack launches Zora composability",
+              "description": "Zora is now easily composable with Farcaster, Base, Ethereum, Polygon, ENS, XMTP, POAP, Lens, and more!",
+              "attributes": null
+            }
+          },
+          "startBlockNumber": 9947273,
+          "startBlockTimestamp": "2024-01-30T04:19:45Z",
+<strong>          "endBlockNumber": -1, // -1 indicates that the user is no longer holding the NFT at present
+</strong>          "endBlockTimestamp": "2024-01-30T18:22:48Z"
+        },
+        // other NFT holders at 2024-01-30
+      ],
+      "pageInfo": {
+        "hasNextPage": true,
+        "hasPrevPage": false,
+        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjQ1OTFhMTcwYmIwMzU2ZjMwNWQyMDg2NTMxZjFiNjkyIiwiRGF0YVR5cGUiOiJzdHJpbmcifX0sIlBhZ2luYXRpb25EaXJlY3Rpb24iOiJORVhUIn0=",
+        "prevCursor": ""
+      }
+    }
+  }
+}
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
@@ -836,9 +1075,9 @@ If you have any questions or need help regarding fetching holder snapshots data,
 
 ## More Resources
 
-- [Balance Snapshots Guides](balance-snapshots.md)
-- [Token Balances Guides](token-balances/)
-- [Token Holders Guides](token-holders/)
-- [Combinations Guides](combinations/)
-- [Tokens In Common Guides](tokens-in-common/)
-- [Snapshots API](../api-references/api-reference/snapshots-api.md)
+* [Balance Snapshots Guides](balance-snapshots.md)
+* [Token Balances Guides](token-balances/)
+* [Token Holders Guides](token-holders/)
+* [Combinations Guides](combinations/)
+* [Tokens In Common Guides](tokens-in-common/)
+* [Snapshots API](../api-references/api-reference/snapshots-api.md)
