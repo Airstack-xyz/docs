@@ -53,9 +53,10 @@ You just need to specify the input for the query to work.
 
 | Name                             | Description                                                                                                                  |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `profileCreatedAtBlockTimestamp` | Sort by Lens/Farcaster profile creation block timestamp in ascending or descending order.                                    |
 | `followerCount`                  | Sort by the number of users following the Lens/Farcaster profile on Lens/Farcaster in ascending or descending order.         |
 | `followingCount`                 | Sort by the number of users being followed by the Lens/Farcaster profile on Lens/Farcaster in ascending or descending order. |
+| `profileCreatedAtBlockTimestamp` | Sort by Lens/Farcaster profile creation block timestamp in ascending or descending order.                                    |
+| `updatedAt`                      | Sort by Lens/Farcaster profile last update timestamp in ascending or descending order.                                       |
 
 ## Outputs
 
