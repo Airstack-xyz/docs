@@ -31,7 +31,7 @@ Currently, there is no dedicated backend API for fetching trending mints directl
 \
 For the **backend**, you will be required to run a cronjob to fetch token mints data from the Airstack API and have the data stored in a dedicated database.\
 \
-This turotial will walk you through the steps required to implement Trending Mints today and deliver immediate value to your users.\
+This turotial will walk you through the steps required to implement Trending Mints today and deliver immediate value to your users.\\
 
 Concurrently Airstack is working on a dedicated Trending Mints API for lighter-weight integrations in the near future.
 {% endhint %}
@@ -44,8 +44,8 @@ The algorithm for building trending mints will be as follows:
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account (free)
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -53,35 +53,27 @@ To get started, install the Airstack SDK and other necessary 3rd party packages:
 
 {% tabs %}
 {% tab title="npm" %}
-
 ```sh
 npm install @airstack/node dayjs node-cron
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
 ```sh
 yarn add @airstack/node dayjs node-cron
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
 ```sh
 pnpm install @airstack/node dayjs node-cron
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack python-cron
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -93,8 +85,8 @@ First, define the following parameters to fetch the token mints data:
 
 The interval that you would like to run your cron job. Using the interval, you can then set the variables for the query that will be shown below:
 
-- `endTime` to the current unix timestamp
-- `startTime` to the current unix timestamp minus the chosen interval duration.
+* `endTime` to the current unix timestamp
+* `startTime` to the current unix timestamp minus the chosen interval duration.
 
 In this tutorial, we'll use 1 hour as the default interval.
 
@@ -114,47 +106,41 @@ Currently, Airstack supports Ethereum, Polygon, Base, and Zora.
 
 The number of JSON object returned in responses per API call, with a maximum allowable value of **200**.
 
----
+***
 
 As these parameters are going to be having constant values, you can create a new file to store these as constant variables that can be imported in the next steps:
 
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="constant.ts" %}
-
 ```typescript
 export const interval = 1; // Every 1 hour
 export const tokenType = ["ERC20", "ERC721", "ERC1155"];
 export const chains = ["ethereum", "polygon", "base", "zora"];
 export const limit = 200;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="constant.js" %}
-
 ```javascript
 export const interval = 1; // Every 1 hour
 export const tokenType = ["ERC20", "ERC721", "ERC1155"];
-export const chains = ["ethereum", "polygon", "base"];
+export const chains = ["ethereum", "polygon", "base", "zora"];
 export const limit = 200;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="constant.py" %}
-
 ```python
 interval = 1 # Every 1 hr
 token_type = ["ERC20", "ERC721", "ERC1155"]
-chains = ["ethereum", "polygon", "base"]
+chains = ["ethereum", "polygon", "base", "zora"]
 limit = 200
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -173,7 +159,6 @@ Show me all recently minted tokens on Ethereum from Jan 1 to 7
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery(
   $startTime: Time,
   $endTime: Time,
@@ -187,10 +172,8 @@ Show me all recently minted tokens on Ethereum from Jan 1 to 7
         # Only get token transfers that are mints
 <strong>        from: {_eq: "0x0000000000000000000000000000000000000000"},
 </strong>        blockTimestamp: {_gte: $startTime, _lte: $endTime},
-        tokenType: {_in: $tokenType},
-        # Ensuring that all token mints amount are non-zero
-<strong>        formattedAmount: {_gt: 0}
-</strong>      }
+        tokenType: {_in: $tokenType}
+      }
       blockchain: $chain,
       order: {blockTimestamp: DESC},
       limit: $limit
@@ -211,11 +194,9 @@ Show me all recently minted tokens on Ethereum from Jan 1 to 7
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "startTime": "2024-01-01T00:00:00Z",
@@ -225,11 +206,9 @@ Show me all recently minted tokens on Ethereum from Jan 1 to 7
   "limit": 200
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "TokenTransfers": {
@@ -272,7 +251,6 @@ Show me all recently minted tokens on Ethereum from Jan 1 to 7
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -285,7 +263,6 @@ Those are mints that have different `operator.addresses` (executor of the transa
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="utils/format.ts" %}
-
 ```typescript
 export interface Data {
   TokenTransfers: TokenTransfer[];
@@ -331,13 +308,11 @@ const formatFunction = (data: Data) =>
 
 export default formatFunction;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="utils/format.js" %}
-
 ```javascript
 /**
  * @description Remove all airdrop minted tokens from the API result
@@ -360,12 +335,10 @@ const formatFunction = (data) =>
 
 export default formatFunction;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 from typing import List, Optional
 
@@ -417,7 +390,6 @@ def format_function(data: Data) -> List[Optional[TokenTransfer]]:
 
     return result
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -430,7 +402,6 @@ To fetch all the data, the query will be iterated multiple times using the [`fet
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="index.ts" %}
-
 ```typescript
 import { init, fetchQueryWithPagination } from "@airstack/node";
 import { config } from "dotenv";
@@ -526,13 +497,11 @@ const main = async (currentTime: Dayjs) => {
 
 export default main;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="index.js" %}
-
 ```javascript
 import { init, fetchQueryWithPagination } from "@airstack/node";
 import { config } from "dotenv";
@@ -628,13 +597,11 @@ const main = async (currentTime) => {
 
 export default main;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="index.py" %}
-
 ```python
 import os
 from airstack.execute_query import AirstackClient
@@ -719,7 +686,6 @@ async def main(current_time: datetime) -> List[Dict[str, Any]]:
 
   return mints_data
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -747,7 +713,6 @@ You are not required to follow the scoring logic shown in this tutorial. Dependi
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="utils/scoring.ts" %}
-
 ```typescript
 import { TokenTransferDetails } from "./format";
 
@@ -787,13 +752,11 @@ const scoringFunction = (data: TokenTransferDetails[]) => {
 
 export default scoringFunction;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="utils/scoring.js" %}
-
 ```javascript
 /**
  * @description
@@ -830,13 +793,11 @@ const scoringFunction = (data) => {
 
 export default scoringFunction;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/scoring.py" %}
-
 ```python
 from typing import List, Dict, Any
 
@@ -860,7 +821,6 @@ def scoring_function(data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
     return trending_mints
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -870,7 +830,6 @@ Then, you can import the `scoringFunction` back to `main` to have the data from 
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="index.ts" %}
-
 ```typescript
 // same imports as above
 import scoringFunction from "./utils/scoring";
@@ -883,13 +842,11 @@ const main = (currentTime: Dayjs) = > {
 
 export default main;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="index.js" %}
-
 ```javascript
 // same imports as above
 import { scoringFunction } from "./utils/scoring";
@@ -902,13 +859,11 @@ const main = (currentTime) = > {
 
 export default main;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="index.py" %}
-
 ```python
 # same imports as above
 from utils.scoring import scoring_function
@@ -918,7 +873,6 @@ async def main(current_time: datetime) -> List[Dict[str, Any]]:
   scored_data = scoring_function(mints_data)
   return scored_data
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -950,7 +904,6 @@ Once you have the token mints data scored, you can implement a very simple sorti
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="utils/sorting.ts" %}
-
 ```typescript
 import { TokenTransferDetails } from "./format";
 
@@ -973,13 +926,11 @@ const sortingFunction = (scoredData: TokenTransferWithScore) =>
 
 export default sortingFunction;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="utils/sorting.js" %}
-
 ```javascript
 /**
  * @description
@@ -996,20 +947,17 @@ const sortingFunction = (scoredData) =>
 
 export default sortingFunction;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/sorting.py" %}
-
 ```python
 from typing import List, Dict, Any
 
 def sorting_function(trending_mints: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return sorted(trending_mints, key=lambda x: x['score'], reverse=True)
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1019,7 +967,6 @@ Then, you can import the `sortingFunction` back to `main` to have the scored dat
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="index.ts" %}
-
 ```typescript
 // same imports as above
 import { sortingFunction } from "./utils/sorting";
@@ -1032,13 +979,11 @@ const main = (currentTime: Dayjs) = > {
 
 export default main;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="index.js" %}
-
 ```javascript
 // same imports as above
 import sortingFunction from "./utils/sorting";
@@ -1051,13 +996,11 @@ const main = () = > {
 
 export default main;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="index.py" %}
-
 ```python
 # same imports as above
 from utils.sorting import sorting_function
@@ -1067,7 +1010,6 @@ async def main(current_time: datetime) -> List[Dict[str, Any]]:
   sorted_data = sorting_function(scored_data)
   return sorted_data
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1101,7 +1043,6 @@ In this tutorial, you'll be using a very simple filtering function `filterFuncti
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="utils/filter.ts" %}
-
 ```typescript
 import { TokenTransferWithScore } from "./scoring";
 
@@ -1121,13 +1062,11 @@ const filterFunction = (data: TokenTransferWithScore, threshold: number) =>
 
 export default filterFunction;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="utils/fitler.js" %}
-
 ```javascript
 /**
  * @description
@@ -1145,13 +1084,11 @@ const filterFunction = (data, threshold) =>
 
 export default filterFunction;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/filter.py" %}
-
 ```python
 from typing import List, Dict, Any
 
@@ -1170,7 +1107,6 @@ def filter_function(data: List[Dict[str, Any]], threshold: int) -> List[Dict[str
 
   return [val for val in data if val.get('score', 0) >= threshold]
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1179,7 +1115,6 @@ Then, you can import the `filterFunction` back to `main` to have the sorted and 
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 <pre class="language-typescript" data-title="index.ts"><code class="lang-typescript">// same imports as above
 import filterFunction from "./utils/filter";
 
@@ -1191,11 +1126,9 @@ const main = (currentTime: Dayjs) = > {
 
 export default main;
 </code></pre>
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript" data-title=""><code class="lang-javascript">// same imports as above
 import filterFunction from "./utils/filter";
 
@@ -1207,12 +1140,10 @@ const main = () = > {
 
 export default main;
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="index.py" %}
-
 ```python
 # same imports as above
 from utils.filter import filter_function
@@ -1222,7 +1153,6 @@ async def main(current_time: datetime) -> List[Dict[str, Any]]:
   filtered_data = filter_function(sorted_data, 50) # Only output result with score above 50
   return filtered_data
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1253,7 +1183,6 @@ For displaying all the trending token mints to your interface, it is best practi
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="cron.ts" %}
-
 ```typescript
 import cron from "node-cron";
 import dayjs from "dayjs";
@@ -1265,13 +1194,11 @@ cron.schedule("0 * * * *", async () => {
   // Store `data` to your preferred DB
 });
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="cron.js" %}
-
 ```javascript
 import cron from "node-cron";
 import dayjs from "dayjs";
@@ -1283,13 +1210,11 @@ cron.schedule("0 * * * *", async () => {
   // Store `data` to your preferred DB
 });
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="cron.py" %}
-
 ```python
 import pycron
 from datetime import datetime
@@ -1305,7 +1230,6 @@ if __name__ == '__main__':
   print("Starting cron job...")
   pycron.start()
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1319,7 +1243,6 @@ For push notification, you simply need to push the message to your client using 
 {% tabs %}
 {% tab title="TypeScript" %}
 {% code title="cron.ts" %}
-
 ```typescript
 import cron from "node-cron";
 import dayjs from "dayjs";
@@ -1339,13 +1262,11 @@ cron.schedule("0 * * * *", () => {
   // your app's client
 });
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
 {% code title="cron.js" %}
-
 ```javascript
 import cron from "node-cron";
 import dayjs from "dayjs";
@@ -1366,13 +1287,11 @@ cron.schedule('0 * * * *', () => {
   // your app's client
 });
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="cron.py" %}
-
 ```python
 import pycron
 from datetime import datetime
@@ -1393,20 +1312,19 @@ if __name__ == '__main__':
   print("Starting cron job...")
   pycron.start()
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
 
 ### Developer Support
 
-🎉 :partying_face: Congratulations you've just integrated trending mints feature into your application!
+🎉 :partying\_face: Congratulations you've just integrated trending mints feature into your application!
 
 If you have any questions or need help regarding integrating or building trending mints into your application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ### More Resources
 
-- [Trending Mints With Onchain Graph](onchain-graph.md)
-- [Trending Mints With Common Minters](common-minters.md)
-- [Token Mints Guides](../token-mints.md)
-- [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api.md)
+* [Trending Mints With Onchain Graph](onchain-graph.md)
+* [Trending Mints With Common Minters](common-minters.md)
+* [Token Mints Guides](../token-mints.md)
+* [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api.md)
