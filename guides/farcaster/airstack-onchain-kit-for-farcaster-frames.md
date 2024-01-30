@@ -1,7 +1,7 @@
 ---
 description: >-
   Airstack Onchain Kit enables you to enrich Farcaster Frames with additional
-  onchain data
+  onchain data.
 layout:
   title:
     visible: true
@@ -35,6 +35,7 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Get Historical NFT Balance of Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-historical-nft-balance-of-farcaster-user) on Ethereum, Base, Zora, and Polygon
 * [Get Historical ERC20 Token Balance of Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-historical-erc20-token-balance-of-farcaster-user) on Ethereum, Base, Zora, and Polygon
 * [Get NFT Mints By A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-nft-mints-by-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
+* [Get Recommended Mints for Farcaster Users](airstack-onchain-kit-for-farcaster-frames.md#get-recommended-mints-for-farcaster-users)
 * [Get ERC20 Token Mints By A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-erc20-token-mints-by-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
 * [Get Token Transfers Sent From A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-token-transfers-sent-from-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
 * [Get Token Transfers Received From A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-token-transfers-received-by-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
@@ -1252,6 +1253,14 @@ Show me all NFTs minted by a Farcaster user with address 0xeaf55242a90bb3289dB81
 ```
 {% endtab %}
 {% endtabs %}
+
+## Get Recommended Mints for Farcaster Users
+
+You can recommend trending mints for Farcaster users for your Farcaster Frames by following this tutorial linked below:
+
+{% content-ref url="../trending-mints/" %}
+[trending-mints](../trending-mints/)
+{% endcontent-ref %}
 
 ## Get ERC20 Token Mints By A Farcaster User
 
