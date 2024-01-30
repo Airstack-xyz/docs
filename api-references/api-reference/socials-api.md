@@ -33,6 +33,7 @@ The Socials APIs deliver on-chain and off-chain user-level data pertaining to us
 | `identity`                       | `Identity_Comparator_Exp`       | Identity: blockchain address, domain name, social identity                                                     |
 | `isDefault`                      | `Boolean_Comparator_Exp`        | True/false if the profile is set to default on the corresponding dApp                                          |
 | `profileName`                    | `String_Comparator_Exp`         | Profile name on the social app (prefix not required)                                                           |
+| `updatedAt`                      | `Time_Comparator_Exp`           | Last timestamp when Lens/Farcaster profile was updated                                                         |
 | `userAssociatedAddresses`        | `Address_Comparator_Exp`        | Any associated Wallet address                                                                                  |
 | `userId`                         | `String_Comparator_Exp`         | user ID on the social app (prefix not required)                                                                |
 | `profileCreatedAtBlockTimestamp` | `Time_Comparator_Exp`           | block timestamp when Lens/Farcaster profile was created                                                        |
@@ -79,7 +80,7 @@ type Social {
   profileCreatedAtBlockNumber: Int
   profileCreatedAtBlockTimestamp: Time
   profileLastUpdatedAtBlockNumber: Int
-  profileLastUpdatedAtBlockTimestamp: Time
+  profileLastUpdatedAtBlockTimestamp: Time # Last updated timestamp for Lens. For Farcaster, this value will be equal to `profileCreatedAtBlockTimestamp`. To get last updated timestamp for Farcaster, use `updatedAt`.
   profileBio: String
   profileDisplayName: String
   profileImage: String
@@ -90,6 +91,7 @@ type Social {
   profileTokenIdHex: String
   profileTokenUri: String
   tokenNft: TokenNft # Nested Query: Profile NFT details, this is particularly for Lens Profile NFT, Farcaster will return `null`
+  updatedAt: Time # Last updated timestamp for Lens or Farcaster profile. This will change whenever profile image is changed, bio is changed, or followers/followings number increase/decrease, etc.
   userAddressDetails: Wallet # Nested Query: Details of the user's primary address – domains, socials, XMTP, token balances
   userAssociatedAddressDetails: [Wallet] # Nested Query: Details of the user's associated addresses to the social profile – domains, socials, XMTP, token balances
   userAddress: Address # user's primary address
