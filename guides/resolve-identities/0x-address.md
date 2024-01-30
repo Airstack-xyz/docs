@@ -24,8 +24,7 @@ In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 
 * [Get All Web3 Social Accounts (Lens, Farcaster) and ENS Domains Resolved From An Array of 0x Addresses](0x-address.md#get-all-web3-social-accounts-lens-farcaster-and-ens-domains-resolved-from-an-array-of-0x-addresses)
 * [Get All The 0x addresses from a given ENS name(s)](0x-address.md#get-all-the-0x-addresses-from-a-given-ens-name-s)
-* [Get All The 0x addresses from a given cb.id (Offchain)](0x-address.md#get-all-the-0x-addresses-from-a-given-cb.id-offchain)
-* [Get All The 0x addresses from a given Namestone Subdomain (Offchain)](0x-address.md#get-all-the-0x-addresses-from-a-given-namestone-subdomain-offchain)
+* [Get All The 0x addresses from a given Namestone Subdomain or cb.id (Offchain)](0x-address.md#get-all-the-0x-addresses-from-a-given-namestone-subdomain-or-cb.id-offchain)
 * [Get All 0x addresses of Lens profile(s)](0x-address.md#get-all-0x-addresses-of-lens-profile-s)
 * [Get All 0x addresses of Farcaster user(s)](0x-address.md#get-all-0x-addresses-of-farcaster-user-s)
 
@@ -314,9 +313,9 @@ show me all the 0x addresses of vitalik.eth
 {% endtab %}
 {% endtabs %}
 
-## Get All The 0x addresses from a given cb.id (Offchain)
+## Get All The 0x addresses from a given Namestone Subdomain or cb.id (Offchain)
 
-You can get the 0x addresses of cb.ids by using the [`Domains`](../../api-references/api-reference/domains-api.md) API:
+You can get the 0x addresses of offchain domains (Namestone/cb.id) by using the [`Domains`](../../api-references/api-reference/domains-api.md) API:
 
 ### Try Demo
 
@@ -333,7 +332,7 @@ Show me all the 0x addresses of yosephks.cb.id
     input: {
       filter: {
         name: {
-          # Add more cb.ids into the array
+          # Add more namestone subdomains/cb.ids into the array
 <strong>          _in: ["yosephks.cb.id"]
 </strong>        }
       },
@@ -358,59 +357,6 @@ Show me all the 0x addresses of yosephks.cb.id
         {
           "resolvedAddress": "0xc7486219881c780b676499868716b27095317416",
           "name": "yosephks.cb.id"
-        }
-      ]
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## Get All The 0x addresses from a given Namestone Subdomain (Offchain)
-
-You can get the 0x addresses of [Namestone](https://namestone.xyz/) subdomains by using the [`Domains`](../../api-references/api-reference/domains-api.md) API:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/YdYH8nQS4l" %}
-Show me all the 0x addresses of namestone.testbrand.eth
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query GetNamestone {
-  Domains(
-    input: {
-      filter: {
-        name: {
-          # Add more Namestone subdomains into the array
-<strong>          _in: ["namestone.testbrand.eth"]
-</strong>        }
-      },
-      blockchain: ethereum
-    }
-  ) {
-    Domain {
-      resolvedAddress
-      name
-    }
-  }
-}
-</code></pre>
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-{
-  "data": {
-    "Domains": {
-      "Domain": [
-        {
-          "resolvedAddress": "0x57632ba9a844af0ab7d5cdf98b0056c8d87e3a85",
-          "name": "namestone.testbrand.eth"
         }
       ]
     }
