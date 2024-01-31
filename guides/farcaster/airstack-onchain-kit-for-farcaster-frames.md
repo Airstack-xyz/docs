@@ -28,7 +28,8 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Get Farcaster User's Followers and Following Counts](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-users-followers-and-following-counts)
 * [Get all of the Farcaster User's Followers](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-users-followers)
 * [Get all of the Farcaster User's Followings](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-users-followings)
-* [Get Followers of Followers ](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-users-being-followed-by-users-followers)(everyone the user's followers follow)
+* [Get Followings of Farcaster User's Followers](airstack-onchain-kit-for-farcaster-frames.md#get-followings-of-farcaster-users-followers) (everyone the user's followers follow)
+* [Get Followers of Farcaster User's Followers](airstack-onchain-kit-for-farcaster-frames.md#get-followers-of-farcaster-users-followers)
 * [Get All POAPs Attended By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-poaps-attended-by-farcaster-user)
 * [Get All NFTs Held By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-nfts-hold-by-farcaster-user) on Ethereum, Base, Zora, and Polygon
 * [Get All ERC20 Tokens Hold By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-erc20-tokens-hold-by-farcaster-user) on Ethereum, Base, Zora, and Polygon
@@ -516,7 +517,7 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## Get Farcaster Users Being Followed By User's Followers
+## Get Followings of Farcaster User's Followers&#x20;
 
 First, fetch all the Farcaster followers of a user by providing the user's Farcaster user's 0x address to the `identity` variable using the [`SocialFollowers`](../../api-references/api-reference/socialfollowers-api.md) API:
 
@@ -659,6 +660,162 @@ Show me Farcaster users that is being followed by the 0xD7029BDEa1c17493893AAfE2
               {
                 "profileName": "mateuszwielgo",
                 "userId": "199026"
+              }
+            ]
+          }
+        },
+        // Followers of user's followers on Farcaster
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Followers of Farcaster User's Followers
+
+First, fetch all the Farcaster followers of a user by providing the user's Farcaster user's 0x address to the `identity` variable using the [`SocialFollowers`](../../api-references/api-reference/socialfollowers-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/Rp4a6SResj" %}
+Get all Farcaster followers of 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  # Get all the user's followers
+<strong>  SocialFollowers(
+</strong>    input: {
+      filter: {
+        identity: {_eq: "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2"},
+        # Only get followers on Farcaster
+<strong>        dappName: {_eq: farcaster}
+</strong>      },
+      blockchain: ALL
+    }
+  ) {
+    Follower {
+      followerAddress {
+        addresses
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "SocialFollowers": {
+      "Follower": [
+        {
+          "followerAddress": {
+            "addresses": [
+              "0xbfcf8facf17e1ae112bff95fea8405fb69563501",
+              "0x3d5ed9d644d30776b55645812a31d8b9950d923f"
+            ]
+          }
+        },
+        {
+          "followerAddress": {
+            "addresses": [
+              "0xac973be076a9d48b74109641e104b45bce009b66",
+              "0x82a72e22cc27a34427fbf949866d5b64857974e6"
+            ]
+          }
+        },
+        {
+          "followerAddress": {
+            "addresses": [
+              "0xe48ae12adf04877d374e992f8f57f643be2f62a3"
+            ]
+          }
+        },
+        // Other user's Farcaster followers
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+Then, compile the list of users followers' addresses and provide it as a variable input to `$userFollowers` by using the [`SocialFollowers`](../../api-references/api-reference/socialfollowers-api.md) API to fetch all the followers of the user's followers:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/A1qyXfHYPu" %}
+Show me Farcaster users that is following the 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2's followers on Farcaster
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery($userFollowers: [Identity!]) {
+  # Get all the Farcaster followings of the user's followers
+<strong>  SocialFollowers(
+</strong>    input: {
+      filter: {
+        identity: {_in: $userFollowers},
+        # Only check on Farcaster
+        dappName: {_eq: farcaster}
+      },
+      blockchain: ALL
+    }
+  ) {
+    Follower {
+      followingAddress {
+        addresses
+        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
+          profileName
+          userId
+        }
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "userFollowers": [
+    "0xbfcf8facf17e1ae112bff95fea8405fb69563501",
+    "0x3d5ed9d644d30776b55645812a31d8b9950d923f",
+    "0xac973be076a9d48b74109641e104b45bce009b66",
+    "0x82a72e22cc27a34427fbf949866d5b64857974e6",
+    "0xe48ae12adf04877d374e992f8f57f643be2f62a3",
+    // Other user's followers
+  ]
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "SocialFollowers": {
+      "Follower": [
+        {
+          "followingAddress": {
+            "addresses": [
+              "0xac973be076a9d48b74109641e104b45bce009b66",
+              "0x82a72e22cc27a34427fbf949866d5b64857974e6"
+            ],
+            "socials": [
+              {
+                "profileName": "binancedaily",
+                "userId": "218522"
               }
             ]
           }
