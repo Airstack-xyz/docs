@@ -59,8 +59,8 @@ In this guide, you will learn how to use [Airstack](https://airstack.xyz) to bui
   * [Common POAP Events Attended](general-inbox.md#common-poap-events-attended)
   * [Common NFT Collections Minted](general-inbox.md#common-nft-collections-minted)
   * [Common NFT Collections Hold](general-inbox.md#common-nft-collections-hold)
-* [Check If The Senders Are Being Followed By One of The User's Followers on Lens](general-inbox.md#check-if-the-senders-are-being-followed-by-one-of-the-users-followers-on-lens)
-* [Check If The Senders Are Being Followed By One of The User's Followers on Farcaster](general-inbox.md#check-if-the-senders-are-being-followed-by-one-of-users-followers-on-farcaster)
+* [Check If The Senders Followed By Those Followed by The User on Lens](general-inbox.md#check-if-the-senders-followed-by-those-followed-by-the-user-on-lens)
+* [Check If The Senders Followed By Those Followed by The User  on Farcaster](general-inbox.md#check-if-the-senders-followed-by-those-followed-by-the-user-on-farcaster)
 * [Check If Any of The User's Followers on Lens or Farcaster Sent Any Token To The Sender](general-inbox.md#check-if-any-of-the-users-followers-on-lens-or-farcaster-sent-any-token-to-the-sender)
 * [Check If XMTP Users Have Any ENS and Attended Any Non-Virtual POAPs](general-inbox.md#check-if-xmtp-users-have-any-ens-and-attended-any-non-virtual-poaps)
 
@@ -731,25 +731,25 @@ query MyQuery($mainUser: Identity!, $senders: [Identity!]) {
 {% endtab %}
 {% endtabs %}
 
-## Check If The Senders Are Being Followed By One of The User's Followers on Lens
+## Check If The Senders Followed By Those Followed by The User on Lens
 
 {% hint style="info" %}
 For this check, you will need a backend to store the data fetched:
 
-* the user's followers on Lens
-* the addresses that is being followed by the user's followers on Lens
+* the user's followings on Lens
+* the addresses that is being followed by the user's followings on Lens
 
 You can update the data on your end periodically to get the data most up to date.
 {% endhint %}
 
-You can check if the senders are is being followed by one of the user's followers on Lens by fetching data from Airstack twice.
+You can check if the senders are is being followed by one of the Lens user followed by the given user on Lens by fetching data from Airstack twice.
 
-First, fetch all the Lens followers of a user by providing the main user to the `$mainUser` variable using the [`SocialFollowers`](../../../api-references/api-reference/socialfollowers-api.md) API:
+First, fetch all the Lens followings of a user by providing the main user to the `$mainUser` variable using the [`SocialFollowers`](../../../api-references/api-reference/socialfollowers-api.md) API:
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/hcPIPm0XSE" %}
-Get all Lens followers of a given user
+Get all Lens followings of a given user
 {% endembed %}
 
 ### Code
@@ -758,7 +758,7 @@ Get all Lens followers of a given user
 {% tab title="Query" %}
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery($mainUser: Identity!) {
   # Get all the user's followers
-<strong>  SocialFollowers(
+<strong>  SocialFollowings(
 </strong>    input: {
       filter: {
         identity: {_eq: $mainUser},
@@ -768,8 +768,8 @@ Get all Lens followers of a given user
       blockchain: ALL
     }
   ) {
-    Follower {
-      followerAddress {
+    Following {
+      followingAddress {
         addresses
       }
     }
@@ -790,30 +790,30 @@ Get all Lens followers of a given user
 ```json
 {
   "data": {
-    "SocialFollowers": {
-      "Follower": [
+    "SocialFollowings": {
+      "Following": [
         {
-          "followerAddress": {
+          "followingAddress": {
             "addresses": [
               "0xe5b38d69b10b0a5d990c000fb5bdfce04e6a4071"
             ]
           }
         },
         {
-          "followerAddress": {
+          "followingAddress": {
             "addresses": [
               "0x714b831eb02fe854283219b2b9f1c6951f46dcb9"
             ]
           }
         },
         {
-          "followerAddress": {
+          "followingAddress": {
             "addresses": [
               "0xb366d5b211f90625ac9ce9af3325e9e6fa627777"
             ]
           }
         },
-        // Other followers on Farcaster
+        // Other followings on Farcaster
       ]
     }
   }
@@ -822,16 +822,16 @@ Get all Lens followers of a given user
 {% endtab %}
 {% endtabs %}
 
-Then, compile the list of users followers and provide it as a variable input to `$userFollowers` by using the [`SocialFollowings`](../../../api-references/api-reference/socialfollowings-api.md) API:
+Then, compile the list of users followings and provide it as a variable input to `$userFollowings` by using the [`SocialFollowings`](../../../api-references/api-reference/socialfollowings-api.md) API:
 
 {% hint style="info" %}
-This query accepts a maximum of 200 wallet inputs to the `$userFollowers` variable per API call.
+This query accepts a maximum of 200 wallet inputs to the `$userFollowings` variable per API call.
 {% endhint %}
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/hM5ujvfOrR" %}
-Show me all addresses that is being followed by the user's followers on Lens
+Show me all addresses that is being followed by the user's followings on Lens
 {% endembed %}
 
 ### Code
@@ -839,11 +839,11 @@ Show me all addresses that is being followed by the user's followers on Lens
 {% tabs %}
 {% tab title="Query" %}
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery($userFollowers: [Identity!]) {
-  # Get all the Lens followings of the user's followers
+  # Get all the Lens followings of the user's followings
 <strong>  SocialFollowings(
 </strong>    input: {
       filter: {
-        identity: {_in: $userFollowers},
+        identity: {_in: $userFollowings},
         # Only check on Lens
         dappName: {_eq: lens}
       },
@@ -863,7 +863,7 @@ Show me all addresses that is being followed by the user's followers on Lens
 {% tab title="Variables" %}
 ```json
 {
-  "userFollowers": [
+  "userFollowings": [
     "0xe5b38d69b10b0a5d990c000fb5bdfce04e6a4071",
     "0x714b831eb02fe854283219b2b9f1c6951f46dcb9",
     "0xb366d5b211f90625ac9ce9af3325e9e6fa627777"
@@ -899,7 +899,7 @@ Show me all addresses that is being followed by the user's followers on Lens
             ]
           }
         },
-        // Other addresses being followed by user's followers on Farcaster
+        // Other addresses being followed by user's followings on Lens
       ]
     }
   }
@@ -908,27 +908,27 @@ Show me all addresses that is being followed by the user's followers on Lens
 {% endtab %}
 {% endtabs %}
 
-Once you have all these data stored in your backend, you can use it to check whether the sender is one of the addresses that is being followed by the user's followers on Lens.
+Once you have all these data stored in your backend, you can use it to check whether the sender is one of the addresses that is being followed by the user's followings on Lens.
 
-## Check If The Senders Are Being Followed By One of User's Followers on Farcaster
+## Check If The Senders Followed By Those Followed by The User on Farcaster
 
 {% hint style="info" %}
 For this check, you will need a backend to store the data fetched:
 
-* the user's followers on Farcaster
-* the addresses that is being followed by the user's followers on Farcaster
+* the user's followings on Farcaster
+* the addresses that is being followed by the user's followings on Farcaster
 
 You can update the data on your end periodically to get the data most up to date.
 {% endhint %}
 
-You can check if the senders are is being followed by one of the user's followers on Farcaster by fetching data from Airstack twice.
+You can check if the senders are is being followed by one of the user's followings on Farcaster by fetching data from Airstack twice.
 
-First, fetch all the Farcaster followers of a user by providing the main user to the `$mainUser` variable using the [`SocialFollowers`](../../../api-references/api-reference/socialfollowers-api.md) API:
+First, fetch all the Farcaster followings of a user by providing the main user to the `$mainUser` variable using the [`SocialFollowers`](../../../api-references/api-reference/socialfollowers-api.md) API:
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/I05ZH0bp0A" %}
-Get all Farcaster followers of a given user
+Get all Farcaster followings of a given user
 {% endembed %}
 
 ### Code
@@ -936,19 +936,19 @@ Get all Farcaster followers of a given user
 {% tabs %}
 {% tab title="Query" %}
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery($mainUser: Identity!) {
-  # Get all the user's followers
-<strong>  SocialFollowers(
+  # Get all the user's followings
+<strong>  SocialFollowings(
 </strong>    input: {
       filter: {
         identity: {_eq: $mainUser},
-        # Only get followers on Farcaster
+        # Only get followings on Farcaster
 <strong>        dappName: {_eq: farcaster}
 </strong>      },
       blockchain: ALL
     }
   ) {
-    Follower {
-      followerAddress {
+    Following {
+      followingAddress {
         addresses
       }
     }
@@ -969,30 +969,30 @@ Get all Farcaster followers of a given user
 ```json
 {
   "data": {
-    "SocialFollowers": {
-      "Follower": [
+    "SocialFollowings": {
+      "Following": [
         {
-          "followerAddress": {
+          "followingAddress": {
             "addresses": [
               "0x2fd0e9793f691b097e782c871ac300cf35d0c315"
             ]
           }
         },
         {
-          "followerAddress": {
+          "followingAddress": {
             "addresses": [
               "0xff77c6d3392202c84a347d17f8499c580df8ec78"
             ]
           }
         },
         {
-          "followerAddress": {
+          "followingAddress": {
             "addresses": [
               "0x52d543a222d3a499a0e88d05b3d9739b9936f66c"
             ]
           }
         },
-        // Other followers on Farcaster
+        // Other followings on Farcaster
       ]
     }
   }
@@ -1001,28 +1001,28 @@ Get all Farcaster followers of a given user
 {% endtab %}
 {% endtabs %}
 
-Then, compile the list of users followers and provide it as a variable input to `$userFollowers` by using the [`SocialFollowings`](../../../api-references/api-reference/socialfollowings-api.md) API:
+Then, compile the list of users followings and provide it as a variable input to `$userFollowings` by using the [`SocialFollowings`](../../../api-references/api-reference/socialfollowings-api.md) API:
 
 {% hint style="info" %}
-This query accepts a maximum of 200 wallet inputs to the `$userFollowers` variable per API call.
+This query accepts a maximum of 200 wallet inputs to the `$userFollowings` variable per API call.
 {% endhint %}
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/ZqGUj9NcwQ" %}
-Show me all addresses that is being followed by the user's followers on Farcaster
+{% embed url="https://app.airstack.xyz/query/YT60m6Qywk" %}
+Show me all addresses that is being followed by the user's followings on Farcaster
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query MyQuery($userFollowers: [Identity!]) {
-  # Get all the Farcaster followings of the user's followers
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery($userFollowings: [Identity!]) {
+  # Get all the Farcaster followings of the user's followings
 <strong>  SocialFollowings(
 </strong>    input: {
       filter: {
-        identity: {_in: $userFollowers},
+        identity: {_in: $userFollowings},
         # Only check on Farcaster
         dappName: {_eq: farcaster}
       },
@@ -1042,7 +1042,7 @@ Show me all addresses that is being followed by the user's followers on Farcaste
 {% tab title="Variables" %}
 ```json
 {
-  "userFollowers": [
+  "userFollowings": [
     "0x2fd0e9793f691b097e782c871ac300cf35d0c315",
     "0xff77c6d3392202c84a347d17f8499c580df8ec78",
     "0x52d543a222d3a499a0e88d05b3d9739b9936f66c"
@@ -1082,7 +1082,7 @@ Show me all addresses that is being followed by the user's followers on Farcaste
 {% endtab %}
 {% endtabs %}
 
-Once you have all these data stored in your backend, you can use it to check whether the sender is one of the addresses that is being followed by the user's followers on Farcaster.
+Once you have all these data stored in your backend, you can use it to check whether the sender is one of the addresses that is being followed by the user's followings on Farcaster.
 
 ## Check If Any of The User's Followers on Lens or Farcaster Sent Any Token To The Sender
 
