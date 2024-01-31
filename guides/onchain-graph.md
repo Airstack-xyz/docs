@@ -57,7 +57,7 @@ The algorithm for building onchain graph will be as follows:
    * [Fetch Lens Followings Data](onchain-graph.md#step-1.3-fetch-lens-followings-data)
    * [Fetch Farcaster Followers Data](onchain-graph.md#step-1.4-fetch-farcaster-followers-data)
    * [Fetch Lens Followers Data](onchain-graph.md#step-1.5-fetch-lens-followers-data)
-   * [Fetch Token Transfers Sent Data](onchain-graph.md#step-1.7-fetch-token-transfers-received-data)
+   * [Fetch Token Transfers Sent Data](onchain-graph.md#step-1.6-fetch-token-transfers-sent-data)
    * [Fetch Token Transfers Received Data](onchain-graph.md#step-1.7-fetch-token-transfers-received-data)
    * [Fetch Common Ethereum Token Holders Data](onchain-graph.md#step-1.8-fetch-common-ethereum-nft-holders-data)
    * [Fetch Common Polygon Token Holders Data](onchain-graph.md#step-1.9-fetch-common-polygon-nft-holders-data)
