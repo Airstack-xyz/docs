@@ -59,6 +59,8 @@ redirects:
   guides/recommendation-engine/nfts: guides/recommend-users/nfts.md
   guides/recommendation-engine/social-follows: guides/recommend-users/social-follows.md
   guides/recommendation-engine: guides/recommend-users/README.md
+  guides/lens/recommendation-engines: guides/lens/recommend-users.md
+  guides/farcaster/recommendation-engines: guides/farcaster/recommend-users.md
   readme: README.md
   readme-1: README.md
   get-started/pricing: pricing.md
