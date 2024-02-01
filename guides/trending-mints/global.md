@@ -151,7 +151,7 @@ Using the defined parameters, construct an Airstack query to fetch all recent to
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/84msEupmWo" %}
+{% embed url="https://app.airstack.xyz/query/gbX5nISWvB" %}
 Show me all recently minted tokens on Ethereum from Jan 1 to 7
 {% endembed %}
 

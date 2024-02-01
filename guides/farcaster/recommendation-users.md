@@ -15,7 +15,7 @@ layout:
     visible: true
 ---
 
-# 📞 Recommendation Engines
+# 📞 Recommendation Users
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and for integrating onchain and offchain data with Farcaster.
 
@@ -23,12 +23,12 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-* [Get Recommendation Follows For Farcaster User(s) Based on Token Transfers](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-token-transfers)
-* [Get Recommendation Follows For Farcaster User(s) Based on POAPs](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-poaps)
-* [Get Recommendation Follows For Farcaster User(s) Based on NFTs](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts)
-* [Get Recommendation Follows For Farcaster User(s) Based on NFTs and POAPs Commonly Held](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts-and-poaps-commonly-held)
-* [Get Recommendation Follows For Farcaster User(s) Based on Farcaster Followers](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-farcaster-followers)
-* [Get Recommendation Follows For Farcaster User(s) Based on Lens Following](recommendation-engines.md#get-recommendation-follows-for-farcaster-user-s-based-on-lens-following)
+* [Get Recommendation Follows For Farcaster User(s) Based on Token Transfers](recommendation-users.md#get-recommendation-follows-for-farcaster-user-s-based-on-token-transfers)
+* [Get Recommendation Follows For Farcaster User(s) Based on POAPs](recommendation-users.md#get-recommendation-follows-for-farcaster-user-s-based-on-poaps)
+* [Get Recommendation Follows For Farcaster User(s) Based on NFTs](recommendation-users.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts)
+* [Get Recommendation Follows For Farcaster User(s) Based on NFTs and POAPs Commonly Held](recommendation-users.md#get-recommendation-follows-for-farcaster-user-s-based-on-nfts-and-poaps-commonly-held)
+* [Get Recommendation Follows For Farcaster User(s) Based on Farcaster Followers](recommendation-users.md#get-recommendation-follows-for-farcaster-user-s-based-on-farcaster-followers)
+* [Get Recommendation Follows For Farcaster User(s) Based on Lens Following](recommendation-users.md#get-recommendation-follows-for-farcaster-user-s-based-on-lens-following)
 
 ### Pre-requisites
 
@@ -1316,10 +1316,10 @@ If you have any questions or need help regarding building a recommendation engin
 
 ### More Resources
 
-* [Recommendation Engine](../recommendation-engine/)
-  * [Token Transfers](../recommendation-engine/token-transfers.md)
-  * [POAPs](../recommendation-engine/poaps.md)
-  * [NFTs](../recommendation-engine/nfts.md)
+* [Recommendation Engine](../recommend-users/)
+  * [Token Transfers](../recommend-users/token-transfers.md)
+  * [POAPs](../recommend-users/poaps.md)
+  * [NFTs](../recommend-users/nfts.md)
 * [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api.md)
 * [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
 * [TokenNft API Reference](../../api-references/api-reference/tokennfts-api.md)

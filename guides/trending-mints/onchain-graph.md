@@ -153,7 +153,7 @@ Along with the defined parameters, you can use [`TokenTransfers`](../../api-refe
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/Rg8XFNEPS2" %}
+{% embed url="https://app.airstack.xyz/query/xyP1PFg9F2" %}
 Show me minted tokens on Polygon by an onchain graph user at certain timestamp
 {% endembed %}
 

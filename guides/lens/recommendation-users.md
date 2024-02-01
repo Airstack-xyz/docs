@@ -16,7 +16,7 @@ layout:
     visible: true
 ---
 
-# 📞 Recommendation Engines
+# 📞 Recommendation Users
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Lens](https://lens.xyz) applications and integrating on-chain and off-chain data with [Lens](https://lens.xyz).
 
@@ -24,13 +24,13 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-* [Get Recommendation Follows For Lens Profile(s) Based on Token Transfers](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-token-transfers)
-* [Get Recommendation Follows For Lens Profile(s) Based on POAPs](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-poaps)
-* [Get Recommendation Follows For Lens Profile(s) Based on NFTs](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-nfts)
-* [Get Recommendation Follows For Lens Profile(s) Based on NFTs and POAPs Commonly Held](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-nfts-and-poaps-commonly-held)
-* [Get Recommendation Follows For Lens Profile(s) Based on Lens Followers](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-lens-followers)
-* [Get Recommendation Follows For Lens Profile(s) Based on Farcaster Followers](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-farcaster-followers)
-* [Get Recommendation Follows For Lens Profile(s) Based on Farcaster Following](recommendation-engines.md#get-recommendation-follows-for-lens-profile-s-based-on-farcaster-following)
+* [Get Recommendation Follows For Lens Profile(s) Based on Token Transfers](recommendation-users.md#get-recommendation-follows-for-lens-profile-s-based-on-token-transfers)
+* [Get Recommendation Follows For Lens Profile(s) Based on POAPs](recommendation-users.md#get-recommendation-follows-for-lens-profile-s-based-on-poaps)
+* [Get Recommendation Follows For Lens Profile(s) Based on NFTs](recommendation-users.md#get-recommendation-follows-for-lens-profile-s-based-on-nfts)
+* [Get Recommendation Follows For Lens Profile(s) Based on NFTs and POAPs Commonly Held](recommendation-users.md#get-recommendation-follows-for-lens-profile-s-based-on-nfts-and-poaps-commonly-held)
+* [Get Recommendation Follows For Lens Profile(s) Based on Lens Followers](recommendation-users.md#get-recommendation-follows-for-lens-profile-s-based-on-lens-followers)
+* [Get Recommendation Follows For Lens Profile(s) Based on Farcaster Followers](recommendation-users.md#get-recommendation-follows-for-lens-profile-s-based-on-farcaster-followers)
+* [Get Recommendation Follows For Lens Profile(s) Based on Farcaster Following](recommendation-users.md#get-recommendation-follows-for-lens-profile-s-based-on-farcaster-following)
 
 ### Pre-requisites
 
@@ -1350,10 +1350,10 @@ If you have any questions or need help regarding building a recommendation engin
 
 ### More Resources
 
-* [Recommendation Engine](../recommendation-engine/)
-  * [Token Transfers](../recommendation-engine/token-transfers.md)
-  * [POAPs](../recommendation-engine/poaps.md)
-  * [NFTs](../recommendation-engine/nfts.md)
+* [Recommendation Engine](../recommend-users/)
+  * [Token Transfers](../recommend-users/token-transfers.md)
+  * [POAPs](../recommend-users/poaps.md)
+  * [NFTs](../recommend-users/nfts.md)
 * [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api.md)
 * [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
 * [TokenNft API Reference](../../api-references/api-reference/tokennfts-api.md)

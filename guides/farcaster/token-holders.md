@@ -1049,7 +1049,7 @@ If you have any questions or need help regarding fetching holders or attendees o
 
 ### More Resources
 
-* [Combinations](../lens/recommendation-engines.md)
+* [Combinations](../lens/recommendation-users.md)
   * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
   * [Mutliple POAPs](../combinations/multiple-poaps.md)
   * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
