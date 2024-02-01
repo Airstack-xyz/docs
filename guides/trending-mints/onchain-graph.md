@@ -18,7 +18,7 @@ layout:
 
 # 🕸 Onchain Graph
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Trending Mints By Onchain Graph Mock Up</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Trending Mints By Onchain Graph Mock Up</p></figcaption></figure>
 
 ## Table Of Contents
 

@@ -44,11 +44,11 @@ You have several options to login:
 
 ### Step 2.1: Setup Billing
 
-After account creation, you'll be directed to setup your billing to claim **5 million free Airstack credit** valued at $100.
+After account creation, you'll be directed to setup your billing to claim **2.5 million free Airstack credit** valued at $50.
 
 To claim it, simply connect a wallet with ENS, Farcaster, or Lens:
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-12-04 at 11.59.40.png" alt=""><figcaption><p>Airstack Claim $100 Free Credits</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Airstack Claim $50 Free Credits</p></figcaption></figure>
 
 Otherwise, you can continue without any free trial and directly add your card to be charged for any of your API usage.
 
@@ -66,12 +66,12 @@ Once everything is set up, go to the settings page by hovering your mouse to the
 
 Then, simply click the 3rd entry on the sidebar, [**View API Keys**](https://app.airstack.xyz/profile-settings/api-keys), and copy your **Prod API key**.
 
-## Step 4: Get Test API Key (Optional)
+## Step 4: Get The Test API Key (Optional)
 
 Test API key will provide you with an API key that is free of usage charge. This is perfect if you need to use Airstack in your development.
 
 {% hint style="info" %}
-Test API key is **NOT** suitable for production purpose because it is by designed have a very low rate limit of **20 requests/min** and bursts of **5 requests/sec**, which is only suitable for testing purpose.
+The test API key is **NOT** suitable for production purposes because it is by designed to have a very low rate limit of **20 requests/min** and bursts of **5 requests/sec**, which is only suitable for testing purposes.
 {% endhint %}
 
 To get your test API key, you'll need to **Add Card** on the banner in the [**View API Keys**](https://app.airstack.xyz/profile-settings/api-keys) **page:**
