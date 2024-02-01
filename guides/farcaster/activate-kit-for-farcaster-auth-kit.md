@@ -1332,7 +1332,7 @@ Show me token transfers sent from Farcaster usre with address 0xeaf55242a90bb328
 
 ## Get Token Transfers Received By A Farcaster User
 
-You can fetch all token transfers received by a given Farcaster user across multiple chains, such as Ethereum, Polygon, and Base, by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all token transfers received by a given Farcaster user across multiple chains, such as Ethereum, Polygon, Base, and Zora, by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
 
 {% hint style="info" %}
 For fetching token transfers data received by a Farcaster user from multiple chains, check out [Cross-Chain Queries](../basics/cross-chain-queries.md).
