@@ -50,7 +50,6 @@ If you are deploying ERC6551 using a custom registry contract, please reach out 
 | `ethereum` | Ethereum mainnet |
 | `polygon`  | Polygon mainnet  |
 | `base`     | Base mainnet     |
-| `zora`     | Zora mainnet     |
 
 ### Order
 
