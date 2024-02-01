@@ -18,7 +18,7 @@ layout:
 
 # PoapEvents API
 
-PoapEvents event API allows users to retrieve information about a particular POAP event, including the event token holders, metadata, and resized image.
+PoapEvents event API allows users to retrieve information about a particular POAP event, including the event token holders, metadata, and resized images.
 
 In addition, PoapEvents API allows in-depth filtering of the PAOPs based on the date the event took place or the location.
 
@@ -53,26 +53,25 @@ You just need to specify the input to `ALL` for the query to work.
 
 ## Outputs
 
-```graphql
-type PoapEvent {
-  id: # Airstack unique element identifier
-  chainId: # Blockchain ID 
-  blockchain: # Blockchain name
-  dappName: 
-  dappSlug: 
-  dappVersion: 
-  eventId: # POAP Event ID
-  metadata: # POAP Event metadata
-  contentType: # POAP Event token content (e.g. image/audio)
-  contentValue: # POAP Event resized images
-  eventName: # POAP Event name
-  description: # POAP Event description
-  country: # POAP Event country
-  city: # POAP Event city
-  startDate:
-  endDate: 
-  isVirtualEvent: 
-  eventURL: # POAP Event website
-  poaps: # **Nested query** fetch information about the e
-}
-```
+| Name             | Type                    | Description                                                                                            |
+| ---------------- | ----------------------- | ------------------------------------------------------------------------------------------------------ |
+| `id`             | `ID`                    | Airstack unique identifier for the data point.                                                         |
+| `chainId`        | `String`                | Unique identifier for the blockchain.                                                                  |
+| `blockchain`     | `EveryBlockchain`       | Blockchain where the marketplace data is calculated from.                                              |
+| `dappName`       | `PoapDappName`          | This will return `poap` value.                                                                         |
+| `dappSlug`       | `PoapDappSlug!`         | Indicate if the POAP is deployed on Ethereum mainnet (`poap_mainnet`) or Gnosis chain (`poap_gnosis`). |
+| `dappVersion`    | `String`                | Indicate if the POAP is deployed on Ethereum mainnet (`mainnet`) or Gnosis chain (`gnosis`).           |
+| `eventId`        | `String`                | POAP event ID.                                                                                         |
+| `tokenMints`     | `Int`                   | Number of POAPs minted for this event ID.                                                              |
+| `metadata`       | `Map`                   | POAP event metadata.                                                                                   |
+| `contentType`    | `String`                | POAP Event token content (e.g. image/audio).                                                           |
+| `contentValue`   | `String`                | POAP Event resized images.                                                                             |
+| `eventName`      | `String`                | POAP event name.                                                                                       |
+| `description`    | `String`                | POAP event description.                                                                                |
+| `country`        | `String`                | The country where a POAP event took place, if any.                                                     |
+| `city`           | `String`                | The city where a POAP event took place, if any.                                                        |
+| `startDate`      | `Time`                  | The date when the POAP event started.                                                                  |
+| `endDate`        | `Time`                  | The date when the POAP even ended.                                                                     |
+| `isVirtualEvent` | `Boolean`               | Indicate if the POAP event is Virtual (Online) or not.                                                 |
+| `eventURL`       | `String`                | The Event URL.                                                                                         |
+| `poaps`          | [`Poaps`](poaps-api.md) | \*\*Nested query\*\* fetch information about the POAP's holders.                                       |
