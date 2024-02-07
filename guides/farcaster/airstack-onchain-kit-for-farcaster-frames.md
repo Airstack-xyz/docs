@@ -30,6 +30,7 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Get all of the Farcaster User's Followings](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-users-followings)
 * [Get All Users Followed by Those Followed by A Certain User](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-followed-by-those-followed-by-a-certain-user) (2nd-degree contact)
 * [Get All Users Following the Followers of a Specific User](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-following-the-followers-of-a-specific-user)
+* [Get All Users Commonly Followed By Two Users](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-commonly-followed-by-two-users)
 * [Get All POAPs Attended By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-poaps-attended-by-farcaster-user)
 * [Get All NFTs Held By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-nfts-hold-by-farcaster-user) on Ethereum, Base, Zora, and Polygon
 * [Get All ERC20 Tokens Hold By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-erc20-tokens-hold-by-farcaster-user) on Ethereum, Base, Zora, and Polygon
@@ -817,6 +818,100 @@ Show me Farcaster users that is following the 0xD7029BDEa1c17493893AAfE29AAD69EF
   }
 }
 ```
+{% endtab %}
+{% endtabs %}
+
+## Get All Users Commonly Followed By Two Users
+
+{% embed url="https://drive.google.com/file/d/1XG9SIuRUDIlsJHQ45upSJrilsXXfF9y4/view?usp=sharing" %}
+Video Demo
+{% endembed %}
+
+You can fetch all the users commonly followed by two given Farcaster users using the [`SocialFollowings`](../../api-references/api-reference/socialfollowings-api.md) API and providing the two users into `$userA` and `$userB` variables:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/COCYRqc6vd" %}
+show me all Farcaster users that both user A and B follow
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery($userA: Identity!, $userB: Identity!) {
+  SocialFollowings(
+    input: {filter: {dappName: {_eq: farcaster}, identity: {_eq: $userA}}, blockchain: ALL}
+  ) {
+    Following {
+      followingAddress {
+        socialFollowings(
+          input: {filter: {dappName: {_eq: farcaster}, identity: {_eq: $userB}}}
+        ) {
+          Following {
+            followingAddress {
+              addresses
+              socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+                profileName
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "userA": "fc_fname:vitalik.eth",
+  "userB": "fc_fname:jessepollak"
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "SocialFollowings": {
+      "Following": [
+        {
+          "followingAddress": {
+            "socialFollowings": {
+              "Following": [
+                {
+                  "followingAddress": {
+                    "addresses": [
+                      "0x9b170c5e56422a49ba38034de04d6b9c9151a801",
+                      "0x01b7baa7baa864fef3cd1c7bc118cc97cedcb33f"
+                    ],
+                    "socials": [
+                      {
+<strong>                        "profileName": "gaby" // This user is followed by both vitalik and jesse
+</strong>                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "followingAddress": {
+            "socialFollowings": {
+<strong>              "Following": null // This user is followed by vitalik, but not followed by jesse
+</strong>            }
+          }
+        },
+      ]
+    }
+  }
+}
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
