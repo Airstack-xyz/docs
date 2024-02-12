@@ -33,6 +33,7 @@
 * [💜 Farcaster](guides/farcaster/README.md)
   * [💡 Activate Kit for Farcaster Auth Kit](guides/farcaster/activate-kit-for-farcaster-auth-kit.md)
   * [🖼 Airstack Onchain Kit for Farcaster Frames](guides/farcaster/airstack-onchain-kit-for-farcaster-frames.md)
+  * [🎭 Proof of Personhood for Farcaster Frames](guides/farcaster/proof-of-personhood-for-farcaster-frames.md)
   * [💰 Get Token Balances](guides/farcaster/get-token-balances.md)
   * [🆔 Resolve Farcaster Users](guides/farcaster/resolve-farcaster-users.md)
   * [🔎 Search Farcaster Users](guides/farcaster/search-farcaster-users.md)

@@ -58,42 +58,18 @@ If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-**React**
-
-```sh
-npm install @airstack/airstack-react
-```
-
-**Node**
-
 ```sh
 npm install @airstack/node
 ```
 {% endtab %}
 
 {% tab title="yarn" %}
-**React**
-
-```sh
-yarn add @airstack/airstack-react
-```
-
-**Node**
-
 ```sh
 yarn add @airstack/node
 ```
 {% endtab %}
 
 {% tab title="pnpm" %}
-**React**
-
-```sh
-pnpm install @airstack/airstack-react
-```
-
-**Node**
-
 ```sh
 pnpm install @airstack/node
 ```
@@ -109,32 +85,6 @@ pip install airstack
 Then, add the following snippets to your code:
 
 {% tabs %}
-{% tab title="React" %}
-```jsx
-import { init, useQuery } from "@airstack/airstack-react";
-
-init("YOUR_AIRSTACK_API_KEY");
-
-const query = `YOUR_QUERY`; // Replace with GraphQL Query
-
-const Component = () => {
-  const { data, loading, error } = useQuery(query);
-
-  if (data) {
-    return <p>Data: {JSON.stringify(data)}</p>;
-  }
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error.message}</p>;
-  }
-};
-```
-{% endtab %}
-
 {% tab title="Node" %}
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
