@@ -29,7 +29,7 @@ Some criteria that you can check on each Farcaster user for proof of personhood 
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
 * [Check If Farcaster User Has Any Non-Virtual POAPs](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-has-any-non-virtual-poaps)
-* [Check If Farcaster User Has X or More Followers on Farcaster](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-has-any-token-transfers)
+* [Check If Farcaster User Has X or More Followers on Farcaster](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-has-x-or-more-followers-on-farcaster)
 
 ### Pre-requisites
 
