@@ -22,6 +22,7 @@ You can embed proof of personhood checks to deter any bot attacks or spam on you
 Some criteria that you can check on each Farcaster user for proof of personhood are:
 
 * Attended IRL POAP events
+* Attended Certain POAP event(s)
 * More than X Farcaster Followers
 
 ## Table Of Contents
@@ -29,6 +30,7 @@ Some criteria that you can check on each Farcaster user for proof of personhood 
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
 * [Check If Farcaster User Has Any Non-Virtual POAPs](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-has-any-non-virtual-poaps)
+* [Check If Farcaster User Has Certain POAP(s)](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-has-certain-poap-s)
 * [Check If Farcaster User Has X or More Followers on Farcaster](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-has-x-or-more-followers-on-farcaster)
 
 ### Pre-requisites
@@ -184,6 +186,82 @@ query POAPsOwned($farcasterUser: Identity!) {
 </strong>          }
         },
         // more POAPs held by specified Farcaster user
+      ]
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Check If Farcaster User Has Certain POAP(s)
+
+You can check if the Farcaster user has attended certain POAP event(s) by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable and an array of POAP event IDs to the `$eventIds` variable using the [`Poaps`](../../api-references/api-reference/poaps-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/XlGfLfbhCy" %}
+Check If Farcaster user attended certain POAP events
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery(
+  $eventIds: [String!],
+  $farcasterUser: Identity
+) {
+  Poaps(
+    input: {
+      filter: {
+        owner: {_eq: $farcasterUser},
+        eventId: {_in: $eventIds}
+      },
+      blockchain: ALL
+    }
+  ) {
+    Poap {
+      mintOrder
+      mintHash
+      poapEvent {
+        eventId
+        eventName
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Variables" %}
+<pre class="language-json"><code class="lang-json">{
+<strong>  "eventIds": [ // List of POAP event IDs to check if user attended
+</strong>    "6584",
+    "14190"
+  ],
+<strong>  "farcasterUser": "fc_fid:3" // Farcaster user fid
+</strong>}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Poaps": {
+      "Poap": [
+        {
+          "mintOrder": 740,
+          "mintHash": "0xdf9e6af3bab24eaac6e35a0474f97b4373eeff7bfff8fb4c964956860b4975e6",
+          "poapEvent": {
+<strong>            "eventId": "6584", // User attended POAP with this event ID
+</strong>            "eventName": "Pudgy Penguin owner as of August 2021"
+          }
+        }
+        // If the POAP does not appear in the array, that implies
+        // that the Farcaster user did not attend those unmentioned
+        // POAP events, e.g. POAP event ID 14190
       ]
     }
   }
