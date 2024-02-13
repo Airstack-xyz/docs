@@ -291,7 +291,7 @@ def format_function(data):
 {% endtab %}
 {% endtabs %}
 
-The final result will the the list of all common holders in an array:
+The final result will be the list of all common holders in an array:
 
 ```json
 [
@@ -475,7 +475,7 @@ def format_function(data):
 {% endtab %}
 {% endtabs %}
 
-The final result will the the list of all common holders in an array:
+The final result will be the list of all common holders in an array:
 
 ```json
 [
