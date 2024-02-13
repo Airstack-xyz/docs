@@ -338,5 +338,6 @@ If you have any questions or need help regarding adding proof of personhood to y
 ## More Resources
 
 * [Airstack Onchain Kit for Farcaster Frames](airstack-onchain-kit-for-farcaster-frames.md)
+* [Math Captcha For Farcaster Frames](https://github.com/limone-eth/farcaster-horizon-airstack/blob/main/app/api/captcha/validate/route.ts)
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)
 * [Poaps API Reference](../../api-references/api-reference/poaps-api.md)

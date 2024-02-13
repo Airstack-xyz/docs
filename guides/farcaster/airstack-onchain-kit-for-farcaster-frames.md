@@ -1862,3 +1862,4 @@ If you have any questions or need help regarding the activate kit for [Farcaster
 * [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
 * [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
 * [Snapshots API Reference](../../api-references/api-reference/snapshots-api.md)
+* [Math Captcha For Farcaster Frames](https://github.com/limone-eth/farcaster-horizon-airstack/blob/main/app/api/captcha/validate/route.ts)
