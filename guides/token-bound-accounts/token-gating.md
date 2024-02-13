@@ -311,9 +311,9 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-From this example, you can see the there are 3 TBA on the 1st level owned by the given address `0x6da658f5840fecc688a4bd007ef6b314d9138135`.
+From this example, you can see there are 3 TBA on the 1st level owned by the given address `0x6da658f5840fecc688a4bd007ef6b314d9138135`.
 
-By formatting the the output with the following format function:
+By formatting the output with the following format function:
 
 {% tabs %}
 {% tab title="JavaScript" %}
