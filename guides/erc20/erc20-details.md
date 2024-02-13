@@ -287,7 +287,7 @@ You can fetch all ERC20 token logo images by using the [`Tokens`](../../api-refe
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/xnkNqfV6Pt" %}
-Show me the the logo image of @Wrapped Ether
+Show me the logo image of @Wrapped Ether
 {% endembed %}
 
 ### Code
