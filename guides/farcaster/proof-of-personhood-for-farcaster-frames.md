@@ -24,6 +24,8 @@ Some criteria that you can check on each Farcaster user for proof of personhood 
 * Attended IRL POAP events
 * Attended Certain POAP event(s)
 * More than X Farcaster Followers
+* Followed By High Profile Users (e.g. Vitalik, Jesse Pollak, etc.)
+* Hold High Value NFTs (e.g. BAYC)
 
 ## Table Of Contents
 
@@ -32,6 +34,8 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Check If Farcaster User Has Any Non-Virtual POAPs](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-has-any-non-virtual-poaps)
 * [Check If Farcaster User Has Certain POAP(s)](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-has-certain-poap-s)
 * [Check If Farcaster User Has X or More Followers on Farcaster](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-has-x-or-more-followers-on-farcaster)
+* [Check If Farcaster User Is Followed By Certain High Profile Users](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-is-followed-by-certain-high-profile-users)
+* [Check If Farcaster User Hold Any High Value NFTs](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-hold-any-high-value-nfts)
 
 ### Pre-requisites
 
@@ -331,6 +335,160 @@ query MyQuery($farcasterUser: Identity!) {
 {% endtab %}
 {% endtabs %}
 
+## Check If Farcaster User Is Followed By Certain High Profile Users
+
+You can check if the Farcaster user is followed by certain high profile users, e.g. [vitalik.eth](https://explorer.airstack.xyz/token-balances?address=fc\_fname%3Avitalik.eth\&rawInput=%23%E2%8E%B1fc\_fname%3Avitalik.eth%E2%8E%B1%28fc\_fname%3Avitalik.eth++ethereum+null%29\&inputType=ADDRESS), [jessepollak](https://explorer.airstack.xyz/token-balances?address=fc\_fname%3Ajessepollak\&rawInput=%23%E2%8E%B1fc\_fname%3Ajessepollak%E2%8E%B1%28fc\_fname%3Ajessepollak++ethereum+null%29\&inputType=ADDRESS), etc., by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable and the high profile farcaster users in an array to the `$followedBy` variable using the [`Wallet`](../../api-references/api-reference/wallet-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/ixbvlro17u" %}
+Check if Farcaster user is being followed by high profile users
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery($farcasterUser: Identity!, $followedBy: [Identity!]) {
+  Wallet(input: {identity: $farcasterUser, blockchain: ethereum}) {
+    socialFollowings(input: {filter: {identity: {_in: $followedBy}}}) {
+      Following {
+        followerAddress {
+          socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+            userId
+          }
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "farcasterUser": "fc_fid:3",
+  "followedBy": [
+    "fc_fid:99", // jessepollak
+    "fc_fid:5650" // vitalik.eth
+  ]
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Wallet": {
+      "socialFollowings": {
+        "Following": [
+          {
+            "followerAddress": {
+              "socials": [
+                {
+                  // This show that jessepollak followed the specified FC user
+<strong>                  "userId": "99" 
+</strong>                }
+              ]
+            }
+          },
+          {
+            "followerAddress": {
+              "socials": [
+                {
+                  // This show that vitalik.eth followed the specified FC user
+                  "userId": "5650"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Check If Farcaster User Hold Any High Value NFTs
+
+You can check if the Farcaster user has any high value NFTs, e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D\&tokenType=\&rawInput=%23%E2%8E%B10xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&activeTokenInfo=\&activeSnapshotInfo=\&tokenFilters=farcaster\&activeViewToken=Bored+Ape+Yacht+Club\&activeViewCount=83\&blockchainType=\&sortOrder=\&spamFilter=\&mintFilter=\&resolve6551=\&activeSocialInfo=), by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable and the high profile NFT address to the `$nft` variable using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/FLNXZIeT4S" %}
+Check if Farcaster user has any high value NFT (e.g. BAYC)
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery(
+  $farcasterUser: Identity!,
+  $nft: Address!
+) {
+  TokenBalances(
+    input: {
+      filter: {
+        tokenAddress: {_eq: $nft},
+        owner: {_eq: $farcasterUser}
+      },
+      blockchain: ethereum
+    }
+  ) {
+    TokenBalance {
+      tokenId
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "farcasterUser": "fc_fid:21018",
+  "nft": "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "TokenBalances": {
+      // If the array is not null, it indicates that the Farcaster
+      // user hold some NFT from the specified high value collection
+      "TokenBalance": [
+        {
+          "tokenId": "648"
+        },
+        {
+          "tokenId": "8343"
+        },
+        {
+          "tokenId": "4707"
+        },
+        {
+          "tokenId": "3553"
+        },
+        {
+          "tokenId": "2190"
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ## Developer Support
 
 If you have any questions or need help regarding adding proof of personhood to your Farcaster Frame, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
@@ -341,3 +499,5 @@ If you have any questions or need help regarding adding proof of personhood to y
 * [Math Captcha For Farcaster Frames](https://github.com/limone-eth/farcaster-horizon-airstack/blob/main/app/api/captcha/validate/route.ts)
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)
 * [Poaps API Reference](../../api-references/api-reference/poaps-api.md)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+* [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
