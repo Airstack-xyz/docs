@@ -125,6 +125,10 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Check If Farcaster User Has Any Non-Virtual POAPs
 
+{% embed url="https://drive.google.com/file/d/1DnNTCN_F6gnR7lCCH8C5eMOv_Vp3zhjt/view?usp=sharing" %}
+Video Demo
+{% endembed %}
+
 You can check if the Farcaster user has attended any non-virtual or in-real-life (IRL) POAP events by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable using the [`Poaps`](../../api-references/api-reference/poaps-api.md) API:
 
 ### Try Demo
@@ -199,6 +203,10 @@ query POAPsOwned($farcasterUser: Identity!) {
 {% endtabs %}
 
 ## Check If Farcaster User Has Certain POAP(s)
+
+{% embed url="https://drive.google.com/file/d/1xd_ACmV5x7UQyRNwABOntTQzIp-NSXN0/view?usp=sharing" %}
+Video Demo
+{% endembed %}
 
 You can check if the Farcaster user has attended certain POAP event(s) by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable and an array of POAP event IDs to the `$eventIds` variable using the [`Poaps`](../../api-references/api-reference/poaps-api.md) API:
 
@@ -276,6 +284,10 @@ query MyQuery(
 
 ## Check If Farcaster User Has X or More Followers on Farcaster
 
+{% embed url="https://drive.google.com/file/d/1wOZ7b_XI9nv0OLkFVpI3w2_FAKaNbYLQ/view?usp=sharing" %}
+Video Demo
+{% endembed %}
+
 You can check if the Farcaster user has X or more Farcaster followers by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable using the [`Socials`](../../api-references/api-reference/socials-api.md) API:
 
 ### Try Demo
@@ -336,6 +348,10 @@ query MyQuery($farcasterUser: Identity!) {
 {% endtabs %}
 
 ## Check If Farcaster User Is Followed By Certain High Profile Users
+
+{% embed url="https://drive.google.com/file/d/1-vbdoC4bnuQY8nW7b5mtXIlcVWs0cS_Y/view?usp=sharing" %}
+Video Demo
+{% endembed %}
 
 You can check if the Farcaster user is followed by certain high profile users, e.g. [vitalik.eth](https://explorer.airstack.xyz/token-balances?address=fc\_fname%3Avitalik.eth\&rawInput=%23%E2%8E%B1fc\_fname%3Avitalik.eth%E2%8E%B1%28fc\_fname%3Avitalik.eth++ethereum+null%29\&inputType=ADDRESS), [jessepollak](https://explorer.airstack.xyz/token-balances?address=fc\_fname%3Ajessepollak\&rawInput=%23%E2%8E%B1fc\_fname%3Ajessepollak%E2%8E%B1%28fc\_fname%3Ajessepollak++ethereum+null%29\&inputType=ADDRESS), etc., by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable and the high profile farcaster users in an array to the `$followedBy` variable using the [`Wallet`](../../api-references/api-reference/wallet-api.md) API:
 
@@ -414,6 +430,10 @@ query MyQuery($farcasterUser: Identity!, $followedBy: [Identity!]) {
 {% endtabs %}
 
 ## Check If Farcaster User Hold Any High Value NFTs
+
+{% embed url="https://drive.google.com/file/d/1TUdV8URLFj6tUhMa94-jNkEteTLkKe2q/view?usp=sharing" %}
+Video Demo
+{% endembed %}
 
 You can check if the Farcaster user has any high value NFTs, e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D\&tokenType=\&rawInput=%23%E2%8E%B10xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&activeTokenInfo=\&activeSnapshotInfo=\&tokenFilters=farcaster\&activeViewToken=Bored+Ape+Yacht+Club\&activeViewCount=83\&blockchainType=\&sortOrder=\&spamFilter=\&mintFilter=\&resolve6551=\&activeSocialInfo=), by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable and the high profile NFT address to the `$nft` variable using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API:
 
