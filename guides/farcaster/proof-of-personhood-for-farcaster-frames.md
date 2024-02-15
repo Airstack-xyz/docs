@@ -26,6 +26,8 @@ Some criteria that you can check on each Farcaster user for your allow lists are
 * More than X Farcaster Followers
 * Followed By High Profile Users (e.g. Vitalik, Jesse Pollak, etc.)
 * Hold High Value NFTs (e.g. BAYC)
+* Follow The Creator Of The Frames
+* Transacted on Blockchain Before Certain Date
 
 ## Table Of Contents
 
@@ -36,6 +38,8 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Check If Farcaster User Has X or More Followers on Farcaster](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-has-x-or-more-followers-on-farcaster)
 * [Check If Farcaster User Is Followed By Certain High Profile Users](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-is-followed-by-certain-high-profile-users)
 * [Check If Farcaster User Hold Any High Value NFTs](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-hold-any-high-value-nfts)
+* [Check If Farcaster User Follows The Creator Of The Frames](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-follows-the-creator-of-the-frames)
+* [Check If Farcaster User Transacted On Certain Blockchain Before Certain Date](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-transacted-on-certain-blockchain-before-certain-date)
 
 ### Pre-requisites
 
@@ -506,6 +510,147 @@ query MyQuery(
   }
 }
 ```
+{% endtab %}
+{% endtabs %}
+
+## Check If Farcaster User Follows The Creator Of The Frames
+
+{% embed url="https://drive.google.com/file/d/1QY3hASXxApudCaGFJADIgNmadVx-UgB9/view?usp=sharing" %}
+Video Demo
+{% endembed %}
+
+You can check if the Farcaster user follows the Frames' creator by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable and the creator's `fid` to the `$creator` variable using the [`Wallet`](../../api-references/api-reference/wallet-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/FwDQ7NALCt" %}
+Check if Farcaster user followed the Frames Creator
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery($creator: Identity!, $farcasterUser: Identity!) {
+  Wallet(input: {identity: $creator, blockchain: ethereum}) {
+    socialFollowings(input: {filter: {identity: {_eq: $farcasterUser}}}) {
+      Following {
+        followerAddress {
+          socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+            userId
+          }
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "creator": "fc_fid:3",
+  "farcasterUser": "fc_fid:99"
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Wallet": {
+      "socialFollowings": {
+        "Following": [
+          {
+            "followerAddress": {
+              "socials": [
+                {
+                  // This show that this user followed the specified Frames creator
+                  "userId": "99" 
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Check If Farcaster User Transacted On Certain Blockchain Before Certain Date
+
+{% embed url="https://drive.google.com/file/d/1s9uwn6yqLid0-xft00wBux4-H2CAHuJP/view?usp=sharing" %}
+Video Demo
+{% endembed %}
+
+You can check if the Farcaster user transacted on certain blockchain, e.g. Ethereum, Polygon, Base, Zora, by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable and the before date to check to the `$beforeDate` variable using the [`Wallet`](../../api-references/api-reference/wallet-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/5nxW2njR9A" %}
+Check If Farcaster user transacted on Ethereum before February 1st, 2024
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery(
+  $farcasterUser: Identity!,
+  $beforeDate: Time!
+) {
+  TokenTransfers(
+    input: {filter: {from: {_eq: $farcasterUser}, blockTimestamp: {_lt: $beforeDate}}, blockchain: ethereum}
+  ) {
+    TokenTransfer {
+      transactionHash
+      blockTimestamp
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "farcasterUser": "fc_fid:3",
+  "beforeDate": "2024-02-01T00:00:00Z"
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "TokenTransfers": {
+      // If this array is non-empty, then you can allow user to interact w/ Frames
+      // Otherwise, do not allow them
+<strong>      "TokenTransfer": [
+</strong>        {
+          "transactionHash": "0xd14592edcacdcf81c06aa9588abcb38c1b553e066c175bbb9aa794a321608ad7",
+          "blockTimestamp": "2023-08-08T06:35:35Z"
+        },
+        {
+          "transactionHash": "0x2c40ac77d54a15cb9b766d1bdb036ca2fad11f8bd0f69c9c21d96a2fc4f3116f",
+          "blockTimestamp": "2023-08-27T19:39:23Z"
+        },
+        {
+          "transactionHash": "0xb92628bc8769f60b472f4989b81be9a22e4ce606fad5a39292a5c4ced1d8ee6d",
+          "blockTimestamp": "2021-04-09T18:01:18Z"
+        },
+      ]
+    }
+  }
+}
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
