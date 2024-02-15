@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to build an allow lists to allow only authentic users and deter any
-  bot attacks on your Farcaster Frames.
+  Learn how to build allow lists to allow only authentic users and deter any bot
+  attacks on your Farcaster Frames.
 layout:
   title:
     visible: true
@@ -15,7 +15,7 @@ layout:
     visible: true
 ---
 
-# 🎭 Allow Lists for Farcaster Frames
+# 🎭 Allow Lists
 
 You can build an allow lists to deter any bot attacks or spam on your  [Farcaster Frames](https://warpcast.notion.site/Farcaster-Frames-4bd47fe97dc74a42a48d3a234636d8c5).
 
@@ -31,11 +31,11 @@ Some criteria that you can check on each Farcaster user for your allow lists are
 
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
-* [Check If Farcaster User Has Any Non-Virtual POAPs](allow-lists-for-farcaster-frames.md#check-if-farcaster-user-has-any-non-virtual-poaps)
-* [Check If Farcaster User Has Certain POAP(s)](allow-lists-for-farcaster-frames.md#check-if-farcaster-user-has-certain-poap-s)
-* [Check If Farcaster User Has X or More Followers on Farcaster](allow-lists-for-farcaster-frames.md#check-if-farcaster-user-has-x-or-more-followers-on-farcaster)
-* [Check If Farcaster User Is Followed By Certain High Profile Users](allow-lists-for-farcaster-frames.md#check-if-farcaster-user-is-followed-by-certain-high-profile-users)
-* [Check If Farcaster User Hold Any High Value NFTs](allow-lists-for-farcaster-frames.md#check-if-farcaster-user-hold-any-high-value-nfts)
+* [Check If Farcaster User Has Any Non-Virtual POAPs](allow-lists.md#check-if-farcaster-user-has-any-non-virtual-poaps)
+* [Check If Farcaster User Has Certain POAP(s)](allow-lists.md#check-if-farcaster-user-has-certain-poap-s)
+* [Check If Farcaster User Has X or More Followers on Farcaster](allow-lists.md#check-if-farcaster-user-has-x-or-more-followers-on-farcaster)
+* [Check If Farcaster User Is Followed By Certain High Profile Users](allow-lists.md#check-if-farcaster-user-is-followed-by-certain-high-profile-users)
+* [Check If Farcaster User Hold Any High Value NFTs](allow-lists.md#check-if-farcaster-user-hold-any-high-value-nfts)
 
 ### Pre-requisites
 
@@ -491,11 +491,11 @@ query MyQuery(
 
 ## Developer Support
 
-If you have any questions or need help regarding building and integrating allow lists to your Farcaster Frame, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding adding proof of personhood to your Farcaster Frame, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
-* [Airstack Onchain Kit for Farcaster Frames](airstack-onchain-kit-for-farcaster-frames.md)
+* [Airstack Onchain Kit for Farcaster Frames](../farcaster/airstack-onchain-kit-for-farcaster-frames.md)
 * [Math Captcha For Farcaster Frames](https://github.com/limone-eth/farcaster-horizon-airstack/blob/main/app/api/captcha/validate/route.ts)
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)
 * [Poaps API Reference](../../api-references/api-reference/poaps-api.md)
