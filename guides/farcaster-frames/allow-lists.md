@@ -17,11 +17,7 @@ layout:
 
 # 🎭 Allow Lists
 
-Airstack makes it easy to create dynamic allow lists that check in real-time if a user qualifies to use your Frame based on your preferred criteria.&#x20;
-
-Some of the criteria you can use include:&#x20;
-
-
+Airstack makes it easy to create dynamic allow lists that check in real-time if a user qualifies to use your Frame based on your preferred criteria. Some of the criteria you can use include:&#x20;
 
 * Has the user Attended IRL POAP events
 * Attended Specific POAP event(s)
