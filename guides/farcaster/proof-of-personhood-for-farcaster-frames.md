@@ -35,7 +35,7 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Check If Farcaster User Has Certain POAP(s)](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-has-certain-poap-s)
 * [Check If Farcaster User Has X or More Followers on Farcaster](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-has-x-or-more-followers-on-farcaster)
 * [Check If Farcaster User Is Followed By Certain High Profile Users](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-is-followed-by-certain-high-profile-users)
-* [Check If Farcaster User Hold Any High Value NFTs](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-hold-any-high-value-nfts)
+* [Check If Farcaster User Holds Specific/ or High Value NFTs](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-hold-any-high-value-nfts)
 * [Check If Farcaster User Follows The Creator Of The Frames](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-follows-the-creator-of-the-frames)
 * [Check If Farcaster User Transacted On Certain Blockchain Before Certain Date](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-transacted-on-certain-blockchain-before-certain-date)
 
