@@ -35,7 +35,7 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Check If Farcaster User Has Certain POAP(s)](allow-lists.md#check-if-farcaster-user-has-certain-poap-s)
 * [Check If Farcaster User Has X or More Followers on Farcaster](allow-lists.md#check-if-farcaster-user-has-x-or-more-followers-on-farcaster)
 * [Check If Farcaster User Is Followed By Certain High Profile Users](allow-lists.md#check-if-farcaster-user-is-followed-by-certain-high-profile-users)
-* [Check If Farcaster User Hold Any High Value NFTs](allow-lists.md#check-if-farcaster-user-hold-any-high-value-nfts)
+* [Check If Farcaster User Hold Any Specific / or High Value NFTs](allow-lists.md#check-if-farcaster-user-hold-any-high-value-nfts)
 * [Check If Farcaster User Follows The Creator Of The Frames](allow-lists.md#check-if-farcaster-user-follows-the-creator-of-the-frames)
 * [Check If Farcaster User Transacted On Certain Blockchain Before Certain Date](allow-lists.md#check-if-farcaster-user-transacted-on-certain-blockchain-before-certain-date)
 
@@ -349,7 +349,7 @@ query MyQuery($farcasterUser: Identity!) {
 {% endtab %}
 {% endtabs %}
 
-## Check If Farcaster User Is Followed By Certain High Profile Users
+## Check If Farcaster User Is Followed By Certain Users
 
 {% embed url="https://drive.google.com/file/d/1-vbdoC4bnuQY8nW7b5mtXIlcVWs0cS_Y/view?usp=sharing" %}
 Video Demo
@@ -431,13 +431,13 @@ query MyQuery($farcasterUser: Identity!, $followedBy: [Identity!]) {
 {% endtab %}
 {% endtabs %}
 
-## Check If Farcaster User Hold Any High Value NFTs
+## Check If Farcaster User Hold Any Specific or High Value NFTs
 
 {% embed url="https://drive.google.com/file/d/1TUdV8URLFj6tUhMa94-jNkEteTLkKe2q/view?usp=sharing" %}
 Video Demo
 {% endembed %}
 
-You can check if the Farcaster user has any high value NFTs, e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D\&tokenType=\&rawInput=%23%E2%8E%B10xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&activeTokenInfo=\&activeSnapshotInfo=\&tokenFilters=farcaster\&activeViewToken=Bored+Ape+Yacht+Club\&activeViewCount=83\&blockchainType=\&sortOrder=\&spamFilter=\&mintFilter=\&resolve6551=\&activeSocialInfo=), by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable and the high profile NFT address to the `$nft` variable using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API:
+You can check if the Farcaster user has any specific  NFTs, e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D\&tokenType=\&rawInput=%23%E2%8E%B10xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&activeTokenInfo=\&activeSnapshotInfo=\&tokenFilters=farcaster\&activeViewToken=Bored+Ape+Yacht+Club\&activeViewCount=83\&blockchainType=\&sortOrder=\&spamFilter=\&mintFilter=\&resolve6551=\&activeSocialInfo=), by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable and the NFT address to the `$nft` variable using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API:
 
 ### Try Demo
 
