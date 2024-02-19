@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to build allow lists to allow only authentic users and deter any bot
-  attacks on your Farcaster Frames.
+  Learn how to build Allow Lists to allow certain users to interact with your
+  Farcaster Frames.
 layout:
   title:
     visible: true
@@ -17,16 +17,18 @@ layout:
 
 # 🎭 Allow Lists
 
-You can build an allow lists to deter any bot attacks or spam on your  [Farcaster Frames](https://warpcast.notion.site/Farcaster-Frames-4bd47fe97dc74a42a48d3a234636d8c5).
+Airstack makes it easy to create dynamic allow lists that check in real-time if a user qualifies to use your Frame based on your preferred criteria.&#x20;
 
-Some criteria that you can check on each Farcaster user for your allow lists are:
+Some of the criteria you can use include:&#x20;
 
-* Attended IRL POAP events
-* Attended Certain POAP event(s)
-* More than X Farcaster Followers
-* Followed By High Profile Users (e.g. Vitalik, Jesse Pollak, etc.)
-* Hold High Value NFTs (e.g. BAYC)
-* Follow The Creator Of The Frames
+
+
+* Has the user Attended IRL POAP events
+* Attended Specific POAP event(s)
+* Does the user have More than X Farcaster Followers
+* Followed By Specific or High Profile Users (e.g. Vitalik, Jesse Pollak, etc.)
+* Hold Specific or High Value NFTs (e.g. BAYC)
+* Follow The Creator Of The Frame
 * Transacted on Blockchain Before Certain Date
 
 ## Table Of Contents
