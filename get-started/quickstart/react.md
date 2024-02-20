@@ -1,5 +1,7 @@
 ---
-description: Learn how to use Airstack in your React application.
+description: >-
+  Learn how to integrate Airstack APIs to your React-based application,
+  including both React Web and React Native, using the Airstack Web SDK.
 layout:
   title:
     visible: true

@@ -1,5 +1,7 @@
 ---
-description: Learn how to use Airstack in your frontend TypeScript/JavaScript application.
+description: >-
+  Learn how to integrate Airstack APIs to your frontend TypeScript/JavaScript
+  application using the Airstack Web SDK.
 layout:
   title:
     visible: true
@@ -14,8 +16,6 @@ layout:
 ---
 
 # 🌐 JavaScript (Browser)
-
-## 🌐 JavaScript (Browser)
 
 In this tutorial, you will learn how to start integrating [Airstack](https://airstack.xyz) API into your frontend TypeScript/JavaScript application.
 

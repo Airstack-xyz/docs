@@ -1,5 +1,7 @@
 ---
-description: Learn how to use Airstack in your Python application.
+description: >-
+  Learn how to integrate Airstack APIs to your Python-based application using
+  the Airstack Python SDK.
 layout:
   title:
     visible: true

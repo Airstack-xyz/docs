@@ -1,5 +1,7 @@
 ---
-description: Learn how to use Airstack in your Node.js application.
+description: >-
+  Learn how to integrate Airstack APIs to your Node.js application using the
+  Airstack Node SDK.
 layout:
   title:
     visible: true

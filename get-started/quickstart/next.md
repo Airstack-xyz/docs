@@ -1,5 +1,7 @@
 ---
-description: Learn how to use Airstack in your Next.js client-side (browser) application.
+description: >-
+  Learn how to integrate Airstack APIs to your Next.js client-side (browser)
+  application, using the Airstack Web SDK.
 layout:
   title:
     visible: true
