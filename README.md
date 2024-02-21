@@ -15,7 +15,7 @@ layout:
 
 # ℹ Introduction
 
-<figure><img src=".gitbook/assets/composability network-min 2.png" alt=""><figcaption><p>Airstack Web3 Integration</p></figcaption></figure>
+<figure><img src=".gitbook/assets/Welcome to The Composability Network-min.png" alt=""><figcaption><p>Airstack Web3 Integration</p></figcaption></figure>
 
 [Airstack](https://airstack.xyz) is the **easiest way to build composable blockchain applications**. Our GraphQL APIs uniquely enable integrating cross-chain, cross-protocol/dapp, onchain, and off-chain data into any application.&#x20;
 

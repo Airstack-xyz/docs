@@ -59,7 +59,7 @@ We currently offer rate limit of 3000/min and burst of 300/second.
 
 Please consults the tables below and the developer guides for granular details.&#x20;
 
-<figure><img src="../.gitbook/assets/composability network-min.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Welcome to The Composability Network-min.png" alt=""><figcaption><p>Airstack Web3 Integration</p></figcaption></figure>
 
 
 
