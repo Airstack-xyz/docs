@@ -1,7 +1,5 @@
 ---
-description: >-
-  Airstack Onchain Kit enables you to enrich Farcaster Frames with additional
-  onchain data.
+description: Airstack Onchain Kit enables you to build Farcaster Frames with onchain data.
 layout:
   title:
     visible: true
@@ -17,15 +15,21 @@ layout:
 
 # 🖼 Airstack Onchain Kit for Farcaster Frames
 
-[Farcaster Frames](https://warpcast.notion.site/Farcaster-Frames-4bd47fe97dc74a42a48d3a234636d8c5) enables any cast on Farcaster to be an interactive app. Airstack Onchain Kit helps you enrich your Frame with user's onchain data.
+[Farcaster Frames](https://warpcast.notion.site/Farcaster-Frames-4bd47fe97dc74a42a48d3a234636d8c5) enables any cast on Farcaster to be an interactive app. Airstack Onchain Kit helps you enrich your Frame with onchain data.
+
+You can access the majority of use cases in Airstack Onchain Kit through the newly released [**Airstack Frames SDK**](https://github.com/Airstack-xyz/airstack-frames-sdk)**.**  Some other use cases will require either the [Node](../../nodejs-sdk-reference/overview.md) or [Python SDK](https://github.com/Airstack-xyz/airstack-python-sdk) to call the GraphQL queries.
+
+The [**Airstack Frames SDK**](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main) empowers developers to seamlessly integrate onchain data, including token balances, token mints, Farcaster followers and followings, POAPs, and more, into their Frames using just a few lines of code.
+
+Additionally, developers can leverage the SDK to create an **allow list** , enabling checks for token ownership, token mints, following status, and more.
+
+Designed with TypeScript, the SDK offers full type support for those building Frames with TypeScript. For SDK reference, check out the official GitHub repository [here](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main). In the guides below the Frames SDK is also highlighted throughout.&#x20;
 
 ## Table Of Contents
 
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
 * [Get Farcaster User Details](airstack-onchain-kit-for-farcaster-frames.md#get-started)
-* [Get Farcaster User's Connected Addresses](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-users-connected-addresses)
-* [Get Farcaster User's Followers and Following Counts](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-users-followers-and-following-counts)
 * [Get all of the Farcaster User's Followers](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-users-followers)
 * [Get all of the Farcaster User's Followings](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-users-followings)
 * [Get All Users Followed by Those Followed by A Certain User](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-followed-by-those-followed-by-a-certain-user) (2nd-degree contact)
@@ -52,9 +56,55 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
 ### Get Started
 
-**JavaScript/TypeScript/Python**
+#### Airstack Frames SDK
 
-If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
+To integrate Airstack into your frames, simply install the Airstack Frames SDK:
+
+{% tabs %}
+{% tab title="npm" %}
+```sh
+npm install @airstack/frames
+```
+{% endtab %}
+
+{% tab title="yarn" %}
+```sh
+yarn add @airstack/frames
+```
+{% endtab %}
+
+{% tab title="pnpm" %}
+```sh
+pnpm install @airstack/frames
+```
+{% endtab %}
+{% endtabs %}
+
+Then, add the following snippets to your code and provide your [Airstack API key](../../get-started/get-api-key.md):
+
+{% tabs %}
+{% tab title="TypeScript" %}
+```typescript
+import { init } from "@airstack/frames";
+
+init("YOUR_AIRSTACK_API_KEY");
+```
+{% endtab %}
+
+{% tab title="JavaScript (Node)" %}
+```javascript
+import { init } from "@airstack/frames";
+
+init("YOUR_AIRSTACK_API_KEY");
+```
+{% endtab %}
+{% endtabs %}
+
+Once you have the SDK initialized with the `init` function, you can call any available functions within the SDKs. For the list of all available functions, click [here](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#table-of-contents).
+
+#### Others
+
+Otherwise, for GraphQL queries you'll need to either install the Airstack Node or Python SDK:
 
 {% tabs %}
 {% tab title="npm" %}
@@ -121,10 +171,6 @@ asyncio.run(main())
 {% endtab %}
 {% endtabs %}
 
-**Other Programming Languages**
-
-To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
-
 ### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
@@ -133,176 +179,62 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get Farcaster User Details
 
-You can fetch the Farcaster user details of a 0x address by using the [`Socials`](../../api-references/api-reference/socials-api.md) API and provide the 0x address to the `identity` filter input:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/qnp0VuwM2K" %}
-Show me Farcaster user details of Farcaster profile owned by 0x182327170fC284cAaA5b1bC3e3878233f529D741
-{% endembed %}
-
-### Code
+You can fetch the Farcaster user details, including profile name, fnames, profile image, user connected addresses, follower count, and following count by using the [`getFarcasterUserDetails`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#getfarcasteruserdetails) function:
 
 {% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  Socials(
-    input: {
-      filter: {
-        identity: { _eq: "0x182327170fC284cAaA5b1bC3e3878233f529D741" }
-        dappName: { _eq: farcaster }
-      }
-      blockchain: ethereum
-      limit: 200
-    }
-  ) {
-    Social {
-      profileName
-      fnames
-      userId
-      profileImage
-      profileImageContentValue {
-        image {
-          medium
-        }
-      }
-    }
-  }
-}
+{% tab title="TypeScript" %}
+```typescript
+import {
+  getFarcasterUserDetails,
+  FarcasterUserDetailsInput,
+  FarcasterUserDetailsOutput,
+} from "@airstack/frames";
+
+const input: FarcasterUserDetailsInput = {
+  fid: 602,
+};
+const { data, error }: FarcasterUserDetailsOutput =
+  await getFarcasterUserDetails(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
 ```
 {% endtab %}
 
-{% tab title="Response" %}
+{% tab title="JavaScript" %}
+```javascript
+const { getFarcasterUserDetails } = require("@airstack/frames");
+
+const input = {
+  fid: 602,
+};
+const { data, error } = await getFarcasterUserDetails(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="Result" %}
 ```json
 {
-  "data": {
-    "Socials": {
-      "Social": [
-        {
-          "profileName": "v",
-          "fnames": ["v", "varunsrin.eth"],
-          "userId": "2",
-          "profileImage": "https://i.seadn.io/gae/sYAr036bd0bRpj7OX6B-F-MqLGznVkK3--DSneL_BT5GX4NZJ3Zu91PgjpD9-xuVJtHq0qirJfPZeMKrahz8Us2Tj_X8qdNPYC-imqs?w=500&auto=format",
-          "profileImageContentValue": {
-            "image": {
-              "medium": "https://assets.airstack.xyz/image/social/XCPJH5EP49qftYc7+wAFfv5jzo3ddBWc9FMEERWezG8=/medium.png"
-            }
-          }
-        }
-      ]
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## Get Farcaster User's Connected Addresses
-
-You can fetch the Farcaster profile's connected addresses of a 0x address by using the [`Socials`](../../api-references/api-reference/socials-api.md) API and provide the 0x address to the `identity` filter input and all the connected addresses will be returned in the `userAssociatedAddresses` field:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/qnp0VuwM2K" %}
-Show me all the connected addresses of Farcaster profile owned by 0x182327170fC284cAaA5b1bC3e3878233f529D741
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  Socials(
-    input: {
-      filter: {
-        identity: { _eq: "0x182327170fC284cAaA5b1bC3e3878233f529D741" }
-        dappName: { _eq: farcaster }
-      }
-      blockchain: ethereum
-      limit: 200
-    }
-  ) {
-    Social {
-      userAssociatedAddresses
-    }
-  }
-}
-```
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-{
-  "data": {
-    "Socials": {
-      "Social": [
-        {
-          "userAssociatedAddresses": [
-            "0x4114e33eb831858649ea3702e1c9a2db3f626446",
-            "0x91031dcfdea024b4d51e775486111d2b2a715871",
-            "0x182327170fc284caaa5b1bc3e3878233f529d741"
-          ]
-        }
-      ]
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## Get Farcaster User's Followers and Following Counts
-
-You can fetch the Farcaster profile's connected addresses of a 0x address by using the [`Socials`](../../api-references/api-reference/socials-api.md) API and provide the 0x address to the `identity` filter input.
-
-The number of people following and people followed by the given Farcaster profile will be returned in the `followerCount` and `followingCount`, respectively:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/A12oKUzoWM" %}
-Show me the number of followers and followings of 0x182327170fC284cAaA5b1bC3e3878233f529D741 on Farcaster
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  Socials(
-    input: {
-      filter: {
-        identity: { _eq: "0x182327170fC284cAaA5b1bC3e3878233f529D741" }
-        dappName: { _eq: farcaster }
-      }
-      blockchain: ethereum
-      limit: 200
-    }
-  ) {
-    Social {
-      followerCount
-      followingCount
-    }
-  }
-}
-```
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-{
-  "data": {
-    "Socials": {
-      "Social": [
-        {
-          "followerCount": 37149,
-          "followingCount": 1000
-        }
-      ]
-    }
-  }
+  "profileName": "betashop.eth",
+  "fnames": ["betashop", "betashop.eth", "jasongoldberg.eth"],
+  "profileImage": {
+    "extraSmall": "https://assets.airstack.xyz/image/social/TQjjhuaajVkwqgzZVvgFQYU1qxNfVHQgSmZjTcXRrzQ=/extra_small.png",
+    "small": "https://assets.airstack.xyz/image/social/TQjjhuaajVkwqgzZVvgFQYU1qxNfVHQgSmZjTcXRrzQ=/small.png",
+    "medium": "https://assets.airstack.xyz/image/social/TQjjhuaajVkwqgzZVvgFQYU1qxNfVHQgSmZjTcXRrzQ=/medium.png",
+    "large": "https://assets.airstack.xyz/image/social/TQjjhuaajVkwqgzZVvgFQYU1qxNfVHQgSmZjTcXRrzQ=/large.png",
+    "original": "https://assets.airstack.xyz/image/social/TQjjhuaajVkwqgzZVvgFQYU1qxNfVHQgSmZjTcXRrzQ=/original_image.png"
+  },
+  "userAssociatedAddresses": [
+    "0x66bd69c7064d35d146ca78e6b186e57679fba249",
+    "0xeaf55242a90bb3289db8184772b0b98562053559"
+  ],
+  "followerCount": 56141,
+  "followingCount": 2270
 }
 ```
 {% endtab %}
@@ -310,160 +242,158 @@ query MyQuery {
 
 ## Get Farcaster User's Followers
 
-You can fetch all the users following 0x address on Farcaster by using the [`SocialFollowers`](../../api-references/api-reference/socialfollowers-api.md) API and provide the 0x address to the `identity` filter input:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/phCfEbdh7x" %}
-Show me Farcaster followers of 0x182327170fC284cAaA5b1bC3e3878233f529D741
-{% endembed %}
-
-### Code
+You can fetch all the users following 0x address on Farcaster by using the [`getFarcasterFollowers`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#getfarcasterfollowers) function:
 
 {% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  SocialFollowers(
-    input: {
-      filter: {
-        dappName: { _eq: farcaster }
-        identity: { _eq: "0x182327170fC284cAaA5b1bC3e3878233f529D741" }
-      }
-      blockchain: ALL
-      limit: 200
-    }
-  ) {
-    Follower {
-      followerAddress {
-        addresses
-        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
-          profileName
-          userId
-        }
-      }
-    }
-  }
-}
+{% tab title="TypeScript" %}
+```typescript
+import {
+  getFarcasterFollowers,
+  FarcasterFollowersInput,
+  FarcasterFollowersOutput,
+} from "@airstack/frames";
+
+const input: FarcasterFollowersInput = {
+  fid: 602,
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+}: FarcasterFollowersOutput = await getFarcasterFollowers(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
 ```
 {% endtab %}
 
-{% tab title="Response" %}
+{% tab title="JavaScript" %}
+```javascript
+const { getFarcasterFollowers } = require("@airstack/frames");
+
+const input = {
+  fid: 602,
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+} = await getFarcasterFollowers(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="Result" %}
 ```json
-{
-  "data": {
-    "SocialFollowers": {
-      "Follower": [
-        {
-          "followerAddress": {
-            "addresses": ["0xf86365d15b374a28c453396af7e10af24fae1b04"],
-            "socials": [
-              {
-                "profileName": "aresangel",
-                "userId": "214577"
-              }
-            ]
-          }
-        },
-        {
-          "followerAddress": {
-            "addresses": ["0x9ad6bf4108b79057c0ccc70521c86feca540f24f"],
-            "socials": [
-              {
-                "profileName": "tortula",
-                "userId": "193061"
-              }
-            ]
-          }
-        }
-        // More users following 0x182327170fC284cAaA5b1bC3e3878233f529D741 on Farcaster
-      ]
-    }
-  }
-}
+[
+  {
+    "profileName": "allison985",
+    "fnames": ["allison985"],
+    "fid": "220757",
+    "profileImage": {
+      "extraSmall": "https://assets.airstack.xyz/image/social/RS9r7sdCb5orXeB0+tLLRPxtnJo80la3zRRVAYc9gPR+ne8TitCLgEJ41Gp1LV6g/extra_small.jpg",
+      "small": "https://assets.airstack.xyz/image/social/RS9r7sdCb5orXeB0+tLLRPxtnJo80la3zRRVAYc9gPR+ne8TitCLgEJ41Gp1LV6g/small.jpg",
+      "medium": "https://assets.airstack.xyz/image/social/RS9r7sdCb5orXeB0+tLLRPxtnJo80la3zRRVAYc9gPR+ne8TitCLgEJ41Gp1LV6g/medium.jpg",
+      "large": "https://assets.airstack.xyz/image/social/RS9r7sdCb5orXeB0+tLLRPxtnJo80la3zRRVAYc9gPR+ne8TitCLgEJ41Gp1LV6g/large.jpg",
+      "original": "https://assets.airstack.xyz/image/social/RS9r7sdCb5orXeB0+tLLRPxtnJo80la3zRRVAYc9gPR+ne8TitCLgEJ41Gp1LV6g/original_image.jpg"
+    },
+    "userAssociatedAddresses": ["0x42fae5a53f0194f6f9587926e206a852c5c726bf"],
+    "followerCount": 1,
+    "followingCount": 74
+  },
+  // More followers
+]
 ```
 {% endtab %}
 {% endtabs %}
 
 ## Get Farcaster User's Followings
 
-You can fetch all the users being followed by 0x address on Farcaster by using the [`SocialFollowings`](../../api-references/api-reference/socialfollowings-api.md) API and provide the 0x address to the `identity` filter input:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/LI6HVgZGLT" %}
-Show me Farcaster following of 0x182327170fC284cAaA5b1bC3e3878233f529D741
-{% endembed %}
-
-### Code
+You can fetch all the users being followed by 0x address on Farcaster by using the [`getFarcasterFollowings`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#getfarcasterfollowings) function:
 
 {% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  SocialFollowings(
-    input: {
-      filter: {
-        dappName: { _eq: farcaster }
-        identity: { _eq: "0x182327170fC284cAaA5b1bC3e3878233f529D741" }
-      }
-      blockchain: ALL
-      limit: 200
-    }
-  ) {
-    Following {
-      followingAddress {
-        addresses
-        socials(input: { filter: { dappName: { _eq: farcaster } } }) {
-          profileName
-          userId
-        }
-      }
-    }
-  }
-}
+{% tab title="TypeScript" %}
+```typescript
+import {
+  getFarcasterFollowings,
+  FarcasterFollowingsInput,
+  FarcasterFollowingsOutput,
+} from "@airstack/frames";
+
+const input: FarcasterFollowingsInput = {
+  fid: 602,
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+}: FarcasterFollowingsOutput = await getFarcasterFollowings(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const { getFarcasterFollowings } = require("@airstack/frames");
+
+const input = {
+  fid: 602,
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+} = await getFarcasterFollowings(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
 ```
 {% endtab %}
 
 {% tab title="Response" %}
 ```json
-{
-  "data": {
-    "SocialFollowings": {
-      "Following": [
-        {
-          "followingAddress": {
-            "addresses": [
-              "0x7244b3a5726f5f11d6fb9414ea98d8ce9f10c88a",
-              "0x6ca011aae6d551a3efa533c40c24a810321c0384"
-            ],
-            "socials": [
-              {
-                "profileName": "adeets-22",
-                "userId": "323"
-              }
-            ]
-          }
-        },
-        {
-          "followingAddress": {
-            "addresses": [
-              "0x66bd69c7064d35d146ca78e6b186e57679fba249",
-              "0xeaf55242a90bb3289db8184772b0b98562053559"
-            ],
-            "socials": [
-              {
-                "profileName": "betashop.eth",
-                "userId": "602"
-              }
-            ]
-          }
-        }
-        // More users followed on Farcaster by 0x182327170fC284cAaA5b1bC3e3878233f529D741
-      ]
-    }
-  }
-}
+[
+  {
+    "profileName": "jayhuq",
+    "fnames": ["jayhuq"],
+    "fid": "1775",
+    "profileImage": {
+      "extraSmall": "https://assets.airstack.xyz/image/social/HmDDiN8HQWR/6f6nrPI8+P6fwctlKaEu/dM8+QnZz/Y=/extra_small.png",
+      "small": "https://assets.airstack.xyz/image/social/HmDDiN8HQWR/6f6nrPI8+P6fwctlKaEu/dM8+QnZz/Y=/small.png",
+      "medium": "https://assets.airstack.xyz/image/social/HmDDiN8HQWR/6f6nrPI8+P6fwctlKaEu/dM8+QnZz/Y=/medium.png",
+      "large": "https://assets.airstack.xyz/image/social/HmDDiN8HQWR/6f6nrPI8+P6fwctlKaEu/dM8+QnZz/Y=/large.png",
+      "original": "https://assets.airstack.xyz/image/social/HmDDiN8HQWR/6f6nrPI8+P6fwctlKaEu/dM8+QnZz/Y=/original_image.png"
+    },
+    "userAssociatedAddresses": ["0xda52abca28fadeab9771ba45a2ff346c4db97d7f"],
+    "followerCount": 58,
+    "followingCount": 0
+  },
+  // More followings
+]
 ```
 {% endtab %}
 {% endtabs %}
@@ -481,7 +411,7 @@ Get all Farcaster followings of 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2
 ### Code
 
 {% tabs %}
-{% tab title="Query" %}
+{% tab title="TypeScript" %}
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   # Get all the user's followings
 <strong>  SocialFollowings(
@@ -867,305 +797,281 @@ query MyQuery($userA: Identity!, $userB: Identity!) {
 
 ## Get All POAPs Attended By Farcaster User
 
-You can fetch all POAPs owned by a Farcaster user using the [`Poaps`](../../api-references/api-reference/poaps-api.md) API and providing the Farcaster user's address to the `owner` filter:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/mjcReZEXZi" %}
-Show POAPs owned by Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2
-{% endembed %}
-
-### Code
+You can fetch all POAPs owned by a Farcaster user using the [`getFarcasterUserPoaps`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#getfarcasteruserpoaps) function:
 
 {% tabs %}
-{% tab title="Query" %}
-```graphql
-query POAPsOwnedByFarcasterUser {
-  Poaps(
-    input: {
-      filter: { owner: { _eq: "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2" } }
-      blockchain: ALL
-      limit: 200
-    }
-  ) {
-    Poap {
-      eventId
-      poapEvent {
-        eventName
-        eventURL
-        startDate
-        endDate
-        country
-        city
-        contentValue {
-          image {
-            extraSmall
-            large
-            medium
-            original
-            small
-          }
-        }
-      }
-    }
-  }
-}
+{% tab title="TypeScript" %}
+```typescript
+import {
+  getFarcasterUserPoaps,
+  FarcasterUserPoapsInput,
+  FarcasterUserPoapsOutput,
+} from "@airstack/frames";
+
+const input: FarcasterUserPoapsInput = {
+  fid: 602,
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+}: FarcasterUserPoapsOutput = await getFarcasterUserPoaps(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
 ```
 {% endtab %}
 
-{% tab title="Response" %}
+{% tab title="JavaScript" %}
+```javascript
+import { getFarcasterUserPoaps } from "@airstack/frames";
+
+const input = {
+  fid: 602,
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+} = await getFarcasterUserPoaps(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="Result" %}
 ```json
-{
-  "data": {
-    "Poaps": {
-      "Poap": [
-        {
-          "eventId": "6584",
-          "poapEvent": {
-            "eventName": "Pudgy Penguin owner as of August 2021",
-            "eventURL": "https://www.stonercats.com/",
-            "startDate": "2021-08-30T00:00:00Z",
-            "endDate": "2021-09-30T00:00:00Z",
-            "country": "United States",
-            "city": "Ethereum",
-            "contentValue": {
-              "image": {
-                "extraSmall": "https://assets.airstack.xyz/image/poap/100/6584/extra_small.png",
-                "large": "https://assets.airstack.xyz/image/poap/100/6584/large.png",
-                "medium": "https://assets.airstack.xyz/image/poap/100/6584/medium.png",
-                "original": "https://assets.airstack.xyz/image/poap/100/6584/original_image.png",
-                "small": "https://assets.airstack.xyz/image/poap/100/6584/small.png"
-              }
-            }
-          }
-        },
-        {
-          "eventId": "14498",
-          "poapEvent": {
-            "eventName": "ConstitutionDAO Contributor",
-            "eventURL": "https://www.constitutiondao.com/",
-            "startDate": "2021-11-18T00:00:00Z",
-            "endDate": "2021-11-18T00:00:00Z",
-            "country": "",
-            "city": "",
-            "contentValue": {
-              "image": {
-                "extraSmall": "https://assets.airstack.xyz/image/poap/1/14498/extra_small.png",
-                "large": "https://assets.airstack.xyz/image/poap/1/14498/large.png",
-                "medium": "https://assets.airstack.xyz/image/poap/1/14498/medium.png",
-                "original": "https://assets.airstack.xyz/image/poap/1/14498/original_image.png",
-                "small": "https://assets.airstack.xyz/image/poap/1/14498/small.png"
-              }
-            }
-          }
-        },
-        {
-          "eventId": "6481",
-          "poapEvent": {
-            "eventName": "Fractional Early Adopter",
-            "eventURL": "https://fractional.art/",
-            "startDate": "2021-08-27T00:00:00Z",
-            "endDate": "2021-08-27T00:00:00Z",
-            "country": "",
-            "city": "",
-            "contentValue": {
-              "image": {
-                "extraSmall": "https://assets.airstack.xyz/image/poap/1/6481/extra_small.png",
-                "large": "https://assets.airstack.xyz/image/poap/1/6481/large.png",
-                "medium": "https://assets.airstack.xyz/image/poap/1/6481/medium.png",
-                "original": "https://assets.airstack.xyz/image/poap/1/6481/original_image.png",
-                "small": "https://assets.airstack.xyz/image/poap/1/6481/small.png"
-              }
-            }
-          }
-        }
-        // Other POAPs owned by 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2
-      ]
-    }
-  }
-}
+[
+  {
+    "eventName": "ETHGlobal New York 2023 Speaker",
+    "eventId": "151055",
+    "eventURL": "https://ethglobal.com/events/newyork2023",
+    "isVirtualEvent": false,
+    "startDate": "2023-09-22T00:00:00Z",
+    "endDate": "2023-09-25T00:00:00Z",
+    "city": "New York City"
+  },
+  // More POAPs
+]
 ```
 {% endtab %}
 {% endtabs %}
 
 ## Get All NFTs Hold By Farcaster User
 
-You can fetch all NFTs owned by a Farcaster user using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing the Farcaster user's address to the `owner` filter:
-
-{% hint style="info" %}
-For fetching NFT balances data from multiple chains, check out [Cross-Chain Queries](../basics/cross-chain-queries.md).
-{% endhint %}
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/9vPeZ9hcob" %}
-Show NFT on Ethereum owned by farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2
-{% endembed %}
-
-### Code
+You can fetch all NFTs owned by a Farcaster user using the [`getFarcasterUserNFTBalances`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#getfarcasterusernftbalances) function:
 
 {% tabs %}
-{% tab title="Query" %}
-```graphql
-query NFTsOwnedByFarcasterUser {
-  TokenBalances(
-    input: {
-      filter: {
-        owner: { _eq: "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2" }
-        tokenType: { _in: [ERC1155, ERC721] }
-      }
-      blockchain: ethereum
-      limit: 200
-    }
-  ) {
-    TokenBalance {
-      amount
-      tokenAddress
-      tokenId
-      tokenType
-      tokenNfts {
-        contentValue {
-          image {
-            extraSmall
-            small
-            medium
-            large
-          }
-        }
-      }
-    }
-  }
-}
+{% tab title="TypeScript" %}
+```typescript
+import {
+  getFarcasterUserNFTBalances,
+  FarcasterUserNFTBalancesInput,
+  FarcasterUserNFTBalancesOutput,
+  TokenBlockchain,
+  NFTType,
+} from "@airstack/frames";
+
+const variables: FarcasterUserNFTBalancesInput = {
+  fid: 602,
+  tokenType: [NFTType.ERC721, NFTType.ERC1155],
+  chains: [
+    TokenBlockchain.Ethereum,
+    TokenBlockchain.Polygon,
+    TokenBlockchain.Base,
+    TokenBlockchain.Zora,
+  ],
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+}: FarcasterUserNFTBalancesOutput = await getFarcasterUserNFTBalances(
+  variables
+);
+
+if (error) throw new Error(error);
+
+console.log(data);
 ```
 {% endtab %}
 
-{% tab title="Response" %}
+{% tab title="JavaScript" %}
+```javascript
+const {
+  getFarcasterUserNFTBalances,
+  TokenBlockchain,
+  NFTType,
+} = require("@airstack/frames");
+
+const variables = {
+  fid: 602,
+  tokenType: [NFTType.ERC721, NFTType.ERC1155],
+  chains: [
+    TokenBlockchain.Ethereum,
+    TokenBlockchain.Polygon,
+    TokenBlockchain.Base,
+    TokenBlockchain.Zora,
+  ],
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+} = await getFarcasterUserNFTBalances(
+  variables
+);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="Result" %}
 ```json
-{
-  "data": {
-    "TokenBalances": {
-      "TokenBalance": [
-        {
-          "owner": {
-            "socials": [
-              {
-                "profileName": "dwr.eth",
-                "userId": "3",
-                "userAssociatedAddresses": [
-                  "0x74232bf61e994655592747e20bdf6fa9b9476f79",
-                  "0xb877f7bb52d28f06e60f557c00a56225124b357f",
-                  "0xa14b4c95b5247199d74c5578531b4887ca5e4909",
-                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
-                ]
-              }
-            ]
-          },
-          "amount": "1",
-          "tokenAddress": "0x1538c5ddbb073638b7cd1ae41ec2d9f9a4c24a7e",
-          "tokenId": "1",
-          "tokenType": "ERC721",
-          "tokenNfts": {
-            "contentValue": {
-              "image": {
-                "extraSmall": "https://assets.airstack.xyz/image/nft/1/0x1538c5ddbb073638b7cd1ae41ec2d9f9a4c24a7e/1/extra_small.jpg",
-                "small": "https://assets.airstack.xyz/image/nft/1/0x1538c5ddbb073638b7cd1ae41ec2d9f9a4c24a7e/1/small.jpg",
-                "medium": "https://assets.airstack.xyz/image/nft/1/0x1538c5ddbb073638b7cd1ae41ec2d9f9a4c24a7e/1/medium.jpg",
-                "large": "https://assets.airstack.xyz/image/nft/1/0x1538c5ddbb073638b7cd1ae41ec2d9f9a4c24a7e/1/large.jpg"
-              }
-            }
-          }
-        }
-        // Other Ethereum NFTs
-      ],
-      "pageInfo": {
-        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweGJkODI0MGMyM2VjOThiMjFmMzhjNWQzZTFlZWE5NTdhYjgwZGE5Y2EweGQ3MDI5YmRlYTFjMTc0OTM4OTNhYWZlMjlhYWQ2OWVmODkyYjhmZjIiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2NDc1MjIyNDYiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
-        "prevCursor": ""
-      }
-    }
-  }
-}
+[
+  {
+    "blockchain": "zora",
+    "tokenAddress": "0xe03ef4b9db1a47464de84fb476f9baf493b3e886",
+    "tokenId": "110",
+    "amount": 1,
+    "amountInWei": "1",
+    "name": "Farcaster OG",
+    "symbol": "$FCOG",
+    "image": {
+      "extraSmall": "https://assets.airstack.xyz/image/nft/7777777/PtYr9f5cHxXadiklS+Xzp805o/lFKCmd1jvpLmU58tO5UgOEdm56cjqIt1Gf/UK052NE4yYf2xmpwwrzjcDl+w==/extra_small.png",
+      "small": "https://assets.airstack.xyz/image/nft/7777777/PtYr9f5cHxXadiklS+Xzp805o/lFKCmd1jvpLmU58tO5UgOEdm56cjqIt1Gf/UK052NE4yYf2xmpwwrzjcDl+w==/small.png",
+      "medium": "https://assets.airstack.xyz/image/nft/7777777/PtYr9f5cHxXadiklS+Xzp805o/lFKCmd1jvpLmU58tO5UgOEdm56cjqIt1Gf/UK052NE4yYf2xmpwwrzjcDl+w==/medium.png",
+      "large": "https://assets.airstack.xyz/image/nft/7777777/PtYr9f5cHxXadiklS+Xzp805o/lFKCmd1jvpLmU58tO5UgOEdm56cjqIt1Gf/UK052NE4yYf2xmpwwrzjcDl+w==/large.png",
+      "original": "https://assets.airstack.xyz/image/nft/7777777/PtYr9f5cHxXadiklS+Xzp805o/lFKCmd1jvpLmU58tO5UgOEdm56cjqIt1Gf/UK052NE4yYf2xmpwwrzjcDl+w==/original_image.png"
+    },
+    "metaData": {
+      "name": "Farcaster OG 43",
+      "description": "Celebrating Farcaster at permissionless.",
+      "image": "ipfs://bafybeihbx6nx4h2wblf6nlsy6nkotzqynzsrgimgqzwqgw6gf7d27ewfqu",
+      "imageData": "",
+      "externalUrl": "",
+      "animationUrl": "",
+      "youtubeUrl": "",
+      "backgroundColor": "",
+      "attributes": null
+    },
+    "tokenType": "ERC721"
+  },
+  // Other NFTs
+]
 ```
 {% endtab %}
 {% endtabs %}
 
 ## Get All ERC20 Tokens Hold By Farcaster User
 
-You can fetch all ERC20 tokens owned by a Farcaster user using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing the Farcaster user's address to the `owner` filter:
-
-{% hint style="info" %}
-For fetching ERC20 token balances data from multiple chains, check out [Cross-Chain Queries](../basics/cross-chain-queries.md).
-{% endhint %}
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/NeOR8HPm8a" %}
-Show ERC20 tokens on Ethereum owned by Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2
-{% endembed %}
-
-### Code
+You can fetch all ERC20 tokens owned by a Farcaster user using the [`getFarcasterUserERC20Balances`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#getfarcasterusererc20balances) function:
 
 {% tabs %}
-{% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query ERC20sOwnedByFarcasterUser {
-  TokenBalances(
-    input: {
-      filter: {
-        # Farcaster user's address
-<strong>        owner: { _eq: "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2" }
-</strong>        tokenType: { _eq: ERC20 }
-      }
-      blockchain: ethereum
-      limit: 200
-    }
-  ) {
-    TokenBalance {
-      amount
-      tokenAddress
-      token {
-        name
-        symbol
-      }
-    }
-  }
-}
-</code></pre>
+{% tab title="TypeScript" %}
+```typescript
+import {
+  getFarcasterUserERC20Balances,
+  FarcasterUserERC20BalancesInput,
+  FarcasterUserERC20BalancesOutput,
+  TokenBlockchain,
+} from "@airstack/frames";
+
+const input: FarcasterUserERC20BalancesInput = {
+  fid: 602,
+  chains: [
+    TokenBlockchain.Ethereum,
+    TokenBlockchain.Polygon,
+    TokenBlockchain.Base,
+    TokenBlockchain.Zora,
+  ],
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+}: FarcasterUserERC20BalancesOutput = await getFarcasterUserERC20Balances(
+  input
+);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
 {% endtab %}
 
-{% tab title="Response" %}
+{% tab title="JavaScript" %}
+```javascript
+const {
+  getFarcasterUserERC20Balances,
+  TokenBlockchain,
+} = require("@airstack/frames");
+
+const input = {
+  fid: 602,
+  chains: [
+    TokenBlockchain.Ethereum,
+    TokenBlockchain.Polygon,
+    TokenBlockchain.Base,
+    TokenBlockchain.Zora,
+  ],
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+} = await getFarcasterUserERC20Balances(
+  input
+);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="Result" %}
 ```json
-{
-  "data": {
-    "TokenBalances": {
-      "TokenBalance": [
-        {
-          "amount": "1180000000000000000000",
-          "tokenAddress": "0xd7c1eb0fe4a30d3b2a846c04aa6300888f087a5f",
-          "token": {
-            "name": "POINTS",
-            "symbol": "POINTS"
-          }
-        },
-        {
-          "amount": "1700000",
-          "tokenAddress": "0x86c65d382e8980bcd9ef529add67e1f70efe6a47",
-          "token": {
-            "name": "$ LiquidEther.net",
-            "symbol": "Visit LiquidEther.net to claim rewards"
-          }
-        },
-        {
-          "amount": "151869896",
-          "tokenAddress": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "token": {
-            "name": "USD Coin",
-            "symbol": "USDC"
-          }
-        }
-        // Other Ethereum ERC20s owned by 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2
-      ]
-    }
-  }
-}
+[
+  {
+    "blockchain": "ethereum",
+    "tokenAddress": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "amount": 125,
+    "amountInWei": "125000000",
+    "name": "USD Coin",
+    "symbol": "USDC"
+  },
+  // Other ERC20 tokens
+]
 ```
 {% endtab %}
 {% endtabs %}
@@ -1360,89 +1266,113 @@ Show me Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2 h
 
 ## Get NFT Mints By A Farcaster User
 
-You can fetch all NFTs minted by a Farcaster user across multiple chains, such as Ethereum, Polygon, Base, and Zora, by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
-
-{% hint style="info" %}
-For fetching NFT mints data from multiple chains, check out [Cross-Chain Queries](../basics/cross-chain-queries.md).
-{% endhint %}
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/LWJqwFdkMi" %}
-Show me all NFTs minted by a Farcaster user with address 0xeaf55242a90bb3289dB8184772b0B98562053559 on Ethereum
-{% endembed %}
-
-### Code
+You can fetch all NFTs minted by a Farcaster user across multiple chains, such as Ethereum, Polygon, Base, and Zora, by using the [`getFarcasterUserNFTMints`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#getfarcasterusernftmints) function:
 
 {% tabs %}
-{% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
-  TokenTransfers(
-    input: {
-      filter: {
-        # Only get mints that are executed by the same Farcaster user
-<strong>        operator: {_eq: "0xeaf55242a90bb3289dB8184772b0B98562053559"},
-</strong>        # Mints are token transfers that has null address as `from`
-<strong>        from: {_eq: "0x0000000000000000000000000000000000000000"},
-</strong>        # Set this to the Farcaster user that receive the token mints
-<strong>        to: {_eq: "0xeaf55242a90bb3289dB8184772b0B98562053559"},
-</strong>        # Get only NFTs (ERC721/1155)
-<strong>        tokenType: {_in: [ERC721, ERC1155]},
-</strong>      },
-      blockchain: ethereum,
-      order: {blockTimestamp: DESC}
-    }
-  ) {
-    TokenTransfer {
-      blockchain
-      formattedAmount
-      tokenAddress
-      tokenId
-      tokenNft {
-        metaData {
-          name
-        }
-        contentValue {
-          image {
-            medium
-          }
-        }
-      }
-      tokenType
-    }
-  }
-}
-</code></pre>
+{% tab title="TypeScript" %}
+```typescript
+import {
+  getFarcasterUserNFTMints,
+  FarcasterUserNFTMintsInput,
+  FarcasterUserNFTMintsOutput,
+  TokenBlockchain,
+  NFTType,
+} from "@airstack/frames";
+
+const input: FarcasterUserNFTMintsInput = {
+  fid: 602,
+  chains: [
+    TokenBlockchain.Ethereum,
+    TokenBlockchain.Polygon,
+    TokenBlockchain.Base,
+    TokenBlockchain.Zora,
+  ],
+  tokenType: [NFTType.ERC721, NFTType.ERC1155],
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+}: FarcasterUserNFTMintsOutput = await getFarcasterUserNFTMints(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
 {% endtab %}
 
-{% tab title="Response" %}
+{% tab title="JavaScript" %}
+```javascript
+const {
+  getFarcasterUserNFTMints,
+  TokenBlockchain,
+  NFTType,
+} = require("@airstack/frames");
+
+const input = {
+  fid: 602,
+  chains: [
+    TokenBlockchain.Ethereum,
+    TokenBlockchain.Polygon,
+    TokenBlockchain.Base,
+    TokenBlockchain.Zora,
+  ],
+  tokenType: [NFTType.ERC721, NFTType.ERC1155],
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+} = await getFarcasterUserNFTMints(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="Result" %}
 ```json
-{
-  "data": {
-    "TokenTransfers": {
-      "TokenTransfer": [
-        {
-          "blockchain": "ethereum",
-          "formattedAmount": 1,
-          "tokenAddress": "0x0f92612c5f539c89dc379e8aa42e3ba862a34b7e",
-          "tokenId": "8",
-          "tokenNft": {
-            "metaData": {
-              "name": "Venture Club Alpha Membership NFT"
-            },
-            "contentValue": {
-              "image": {
-                "medium": "https://assets.uat.airstack.xyz/image/nft/li5d4XIGDPxtahI+EMjNmOiSymdFmCR0OsRC2p13nDaZQijmEYVpYlbV0t57GD8K/medium.jpg"
-              }
-            }
-          },
-          "tokenType": "ERC721"
-        }
-        // Other Ethereum NFTs minted by 0xeaf55242a90bb3289dB8184772b0B98562053559
-      ]
+[
+  {
+    "blockchain": "base",
+    "tokenAddress": "0x7d5861cfe1c74aaa0999b7e2651bf2ebd2a62d89",
+    "tokenId": "94613",
+    "tokenType": "ERC721",
+    "amount": 1,
+    "amountInWei": "1",
+    "name": "Base Day One",
+    "symbol": "$BASEDAYONE",
+    "blockTimestamp": "2023-08-11T08:23:43Z",
+    "blockNumber": 2476438,
+    "image": {
+      "extraSmall": "https://assets.airstack.xyz/image/nft/8453/VsImj/jHMngFqJSF7KWaDce4NeMMkjjE6vKrM78PzD+4gKMh74NjmrMUXl9+slIronvYbTNTE8aDkB1TuYwHPA==/extra_small.gif",
+      "small": "https://assets.airstack.xyz/image/nft/8453/VsImj/jHMngFqJSF7KWaDce4NeMMkjjE6vKrM78PzD+4gKMh74NjmrMUXl9+slIronvYbTNTE8aDkB1TuYwHPA==/small.gif",
+      "medium": "https://assets.airstack.xyz/image/nft/8453/VsImj/jHMngFqJSF7KWaDce4NeMMkjjE6vKrM78PzD+4gKMh74NjmrMUXl9+slIronvYbTNTE8aDkB1TuYwHPA==/medium.gif",
+      "large": "https://assets.airstack.xyz/image/nft/8453/VsImj/jHMngFqJSF7KWaDce4NeMMkjjE6vKrM78PzD+4gKMh74NjmrMUXl9+slIronvYbTNTE8aDkB1TuYwHPA==/large.gif",
+      "original": "https://assets.airstack.xyz/image/nft/8453/VsImj/jHMngFqJSF7KWaDce4NeMMkjjE6vKrM78PzD+4gKMh74NjmrMUXl9+slIronvYbTNTE8aDkB1TuYwHPA==/original_image.gif"
+    },
+    "metaData": {
+      "name": "Base Day One 94613",
+      "description": "Base Day One commemorates the first day of Base. Watch it evolve as more people come onchain and collectively create our story. All proceeds will support the next generation of builders on Base; this does not confer any other rights. GET ONCHAIN at onchainsummer.xyz and mint to join us.",
+      "image": "ipfs://bafybeidkxtd2qck3omiccqhi2iebklr5yfsm33vivmgyfarlh62l462zka",
+      "imageData": "",
+      "externalUrl": "",
+      "animationUrl": "",
+      "youtubeUrl": "",
+      "backgroundColor": "",
+      "attributes": null
     }
   }
-}
+]
 ```
 {% endtab %}
 {% endtabs %}
@@ -1457,247 +1387,314 @@ You can recommend trending mints for Farcaster users for your Farcaster Frames b
 
 ## Get ERC20 Token Mints By A Farcaster User
 
-You can fetch all ERC20 tokens minted by a Farcaster user across multiple chains, such as Ethereum, Polygon, Base, and Zora, by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
-
-{% hint style="info" %}
-For fetching ERC20 mints data from multiple chains, check out [Cross-Chain Queries](../basics/cross-chain-queries.md).
-{% endhint %}
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/uXcVzpsdSw" %}
-Show me all ERC20 tokens minted by Farcaster user with address 0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB on Polygon
-{% endembed %}
-
-### Code
+You can fetch all ERC20 tokens minted by a Farcaster user across multiple chains, such as Ethereum, Polygon, Base, and Zora, by using the [`getFarcasterUserERC20Mints`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#getfarcasterusererc20mints) function:
 
 {% tabs %}
-{% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
-  TokenTransfers(
-    input: {
-      filter: {
-        # Only get mints that are executed by the same Farcaster user
-<strong>        operator: {_eq: "0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB"},
-</strong>        # Mints are token transfers that has null address as `from`
-<strong>        from: {_eq: "0x0000000000000000000000000000000000000000"},
-</strong>        # Set this to the Farcaster user that receive the token mints
-<strong>        to: {_eq: "0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB"},
-</strong>        # Get only ERC20 tokens
-<strong>        tokenType: {_eq: ERC20},
-</strong>      },
-      blockchain: polygon,
-      order: {blockTimestamp: DESC}
-    }
-  ) {
-    TokenTransfer {
-      blockchain
-      formattedAmount
-      tokenAddress
-      token {
-        name
-      }
-    }
-  }
-}
-</code></pre>
+{% tab title="TypeScript" %}
+```typescript
+import {
+  getFarcasterUserERC20Mints,
+  FarcasterUserERC20MintsInput,
+  FarcasterUserERC20MintsOutput,
+  TokenBlockchain,
+} from "@airstack/frames";
+
+const input: FarcasterUserERC20MintsInput = {
+  fid: 602,
+  chains: [
+    TokenBlockchain.Ethereum,
+    TokenBlockchain.Polygon,
+    TokenBlockchain.Base,
+    TokenBlockchain.Zora,
+  ],
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+}: FarcasterUserERC20MintsOutput = await getFarcasterUserERC20Mints(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const {
+  getFarcasterUserERC20Mints,
+  TokenBlockchain,
+} = require("@airstack/frames");
+
+const input = {
+  fid: 602,
+  chains: [
+    TokenBlockchain.Ethereum,
+    TokenBlockchain.Polygon,
+    TokenBlockchain.Base,
+    TokenBlockchain.Zora,
+  ],
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+} = await getFarcasterUserERC20Mints(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
 {% endtab %}
 
 {% tab title="Response" %}
 ```json
-{
-  "data": {
-    "TokenTransfers": {
-      "TokenTransfer": [
-        {
-          "blockchain": "polygon",
-          "formattedAmount": 0.01697896348647009,
-          "tokenAddress": "0xadbf1854e5883eb8aa7baf50705338739e558e5b",
-          "token": {
-            "name": "Uniswap V2"
-          }
-        }
-        // Other ERC20 tokens minted by ipeciura.eth on Polygon
-      ]
-    }
+[
+  {
+    "blockchain": "polygon",
+    "tokenAddress": "0x058d96baa6f9d16853970b333ed993acc0c35add",
+    "amount": 50,
+    "amountInWei": "50000000000000000000",
+    "name": "Staked SPORK",
+    "symbol": "sSPORK",
+    "blockTimestamp": "2024-01-03T18:43:02Z",
+    "blockNumber": 51901326
   }
-}
+]
 ```
 {% endtab %}
 {% endtabs %}
 
 ## Get Token Transfers Sent From A Farcaster User
 
-You can fetch all token transfers sent by a given Farcaster user across multiple chains, such as Ethereum, Polygon, Base, and Zora, by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
-
-{% hint style="info" %}
-For fetching token transfers data sent from a Farcaster user from multiple chains, check out [Cross-Chain Queries](../basics/cross-chain-queries.md).
-{% endhint %}
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/9nqR1Cslir" %}
-Show me token transfers sent from Farcaster usre with address 0xeaf55242a90bb3289dB8184772b0B98562053559 on Ethereum
-{% endembed %}
-
-### Code
+You can fetch all token transfers sent by a given Farcaster user across multiple chains, such as Ethereum, Polygon, Base, and Zora, by using the [`getFarcasterUserTokenSentFrom`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#getfarcasterusertokensentfrom) functions:
 
 {% tabs %}
-{% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
-  TokenTransfers(
-    input: {
-      filter: {
-        # Only get token transfers from 0xeaf55242a90bb3289dB8184772b0B98562053559
-<strong>        from: {_eq: "0xeaf55242a90bb3289dB8184772b0B98562053559"},
-</strong>        # Only get token transfers with non-zero amount
-<strong>        formattedAmount: {_gt: 0},
-</strong>        # Remove all minting/burning + self-transfer
-<strong>        _nor: {
-</strong>          from: {
-            _in: [
-              "0x0000000000000000000000000000000000000000",
-              "0x000000000000000000000000000000000000dEaD"
-            ]
-          },
-          to: {
-            _in: [
-              "0x0000000000000000000000000000000000000000",
-              "0x000000000000000000000000000000000000dEaD",
-              "0xeaf55242a90bb3289dB8184772b0B98562053559"
-            ]
-          }
-        }
-      },
-      blockchain: ethereum,
-      limit: 50
-    }
-  ) {
-    TokenTransfer {
-      formattedAmount
-      tokenType
-      token {
-        name
-      }
-    }
-  }
-}
-</code></pre>
+{% tab title="TypeScript" %}
+```typescript
+import {
+  getFarcasterUserTokenSentFrom,
+  FarcasterUserTokenSentFromInput,
+  FarcasterUserTokenSentFromOutput,
+  TokenBlockchain,
+  TokenType,
+} from "@airstack/frames";
+
+const input: FarcasterUserTokenSentFromInput = {
+  fid: 602,
+  chains: [
+    TokenBlockchain.Ethereum,
+    TokenBlockchain.Polygon,
+    TokenBlockchain.Base,
+    TokenBlockchain.Zora,
+  ],
+  tokenType: [TokenType.ERC20, TokenType.ERC721, TokenType.ERC1155],
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+}: FarcasterUserTokenSentFromOutput = await getFarcasterUserTokenSentFrom(
+  input
+);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const {
+  getFarcasterUserTokenSentFrom,
+  TokenBlockchain,
+  TokenType,
+} = require("@airstack/frames");
+
+const input = {
+  fid: 602,
+  chains: [
+    TokenBlockchain.Ethereum,
+    TokenBlockchain.Polygon,
+    TokenBlockchain.Base,
+    TokenBlockchain.Zora,
+  ],
+  tokenType: [TokenType.ERC20, TokenType.ERC721, TokenType.ERC1155],
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+} = await getFarcasterUserTokenSentFrom(
+  input
+);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
 {% endtab %}
 
 {% tab title="Response" %}
 ```json
-{
-  "data": {
-    "TokenTransfers": {
-      "TokenTransfer": [
-        {
-          "formattedAmount": 25,
-          "tokenType": "ERC20",
-          "token": {
-            "name": "USD Coin"
-          }
-        },
-        {
-          "formattedAmount": 25,
-          "tokenType": "ERC20",
-          "token": {
-            "name": "USD Coin"
-          }
-        }
-        // Other token transfers from 0xeaf55242a90bb3289dB8184772b0B98562053559 on Ethereum
-      ]
+[
+  {
+    "blockchain": "base",
+    "tokenAddress": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "amount": 100,
+    "amountInWei": "100000000",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "blockTimestamp": "2023-12-18T15:15:35Z",
+    "blockNumber": 8061594,
+    "tokenType": "ERC20",
+    "txHash": "0xf30a550eece968e1abdcae4de3bdb5f7b84f3d0b2335150149a7398b351567f5",
+    "receiver": {
+      "addresses": ["0x3a23f943181408eac424116af7b7790c94cb97a5"],
+      "socials": null
     }
   }
-}
+]
 ```
 {% endtab %}
 {% endtabs %}
 
 ## Get Token Transfers Received By A Farcaster User
 
-You can fetch all token transfers received by a given Farcaster user across multiple chains, such as Ethereum, Polygon, Base, and Zora by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
-
-{% hint style="info" %}
-For fetching token transfers data received by a Farcaster user from multiple chains, check out [Cross-Chain Queries](../basics/cross-chain-queries.md).
-{% endhint %}
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/P3zrCwiN2e" %}
-Show me all token transfers received by 0xeaf55242a90bb3289dB8184772b0B98562053559 on Ethereum
-{% endembed %}
-
-### Code
+You can fetch all token transfers received by a given Farcaster user across multiple chains, such as Ethereum, Polygon, Base, and Zora by using the [`getFarcasterUserTokenReceivedBy`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#getfarcasterusertokenreceivedby) function:
 
 {% tabs %}
-{% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
-  TokenTransfers(
-    input: {
-      filter: {
-        # Only get token transfers to 0xeaf55242a90bb3289dB8184772b0B98562053559
-<strong>        to: {_eq: "0xeaf55242a90bb3289dB8184772b0B98562053559"},
-</strong>        # Only get token transfers with non-zero amount
-<strong>        formattedAmount: {_gt: 0},
-</strong>        # Remove all minting/burning + self-transfer
-<strong>        _nor: {
-</strong>          from: {
-            _in: [
-              "0x0000000000000000000000000000000000000000",
-              "0x000000000000000000000000000000000000dEaD",
-              "0xeaf55242a90bb3289dB8184772b0B98562053559"
-            ]
-          },
-          to: {
-            _in: [
-              "0x0000000000000000000000000000000000000000",
-              "0x000000000000000000000000000000000000dEaD"
-            ]
-          }
-        }
-      },
-      blockchain: ethereum,
-      limit: 50
-    }
-  ) {
-    TokenTransfer {
-      formattedAmount
-      tokenType
-      token {
-        name
-      }
-    }
-  }
-}
-</code></pre>
+{% tab title="TypeScript" %}
+```typescript
+import {
+  getFarcasterUserTokenReceivedBy,
+  FarcasterUserTokenReceivedByInput,
+  FarcasterUserTokenReceivedByOutput,
+  TokenBlockchain,
+  TokenType,
+} from "@airstack/frames";
+
+const input: FarcasterUserTokenReceivedByInput = {
+  fid: 602,
+  chains: [
+    TokenBlockchain.Ethereum,
+    TokenBlockchain.Polygon,
+    TokenBlockchain.Base,
+    TokenBlockchain.Zora,
+  ],
+  tokenType: [TokenType.ERC20, TokenType.ERC721, TokenType.ERC1155],
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+}: FarcasterUserTokenReceivedByOutput = await getFarcasterUserTokenReceivedBy(
+  input
+);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
 {% endtab %}
 
-{% tab title="Response" %}
+{% tab title="JavaScript" %}
+```javascript
+const {
+  getFarcasterUserTokenReceivedBy,
+  TokenBlockchain,
+  TokenType,
+} = require("@airstack/frames");
+
+const input = {
+  fid: 602,
+  chains: [
+    TokenBlockchain.Ethereum,
+    TokenBlockchain.Polygon,
+    TokenBlockchain.Base,
+    TokenBlockchain.Zora,
+  ],
+  tokenType: [TokenType.ERC20, TokenType.ERC721, TokenType.ERC1155],
+  limit: 100,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+} = await getFarcasterUserTokenReceivedBy(
+  input
+);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="Result" %}
 ```json
-{
-  "data": {
-    "TokenTransfers": {
-      "TokenTransfer": [
-        {
-          "formattedAmount": 1,
-          "tokenType": "ERC721",
-          "token": {
-            "name": "ETHGlobal Pragma Lisbon"
-          }
-        },
-        {
-          "formattedAmount": 0.00005,
-          "tokenType": "ERC20",
-          "token": {
-            "name": "Wrapped Ether"
-          }
-        }
-        // Other Token Transfers received by 0xeaf55242a90bb3289dB8184772b0B98562053559 on Ethereum
-      ]
-    }
+[
+  {
+    "blockchain": "zora",
+    "tokenAddress": "0xe03ef4b9db1a47464de84fb476f9baf493b3e886",
+    "amount": 1,
+    "amountInWei": "1",
+    "name": "Farcaster OG",
+    "symbol": "$FCOG",
+    "blockTimestamp": "2023-10-11T21:02:39Z",
+    "blockNumber": 5182160,
+    "tokenType": "ERC721",
+    "txHash": "0x116d7d7d2f6e8adb7b6991348ff1869742dae538f0b68f36624ed2496bc2091e",
+    "sender": {
+      "addresses": ["0x3a23f943181408eac424116af7b7790c94cb97a5"],
+      "socials": null
+    },
+    "metaData": {
+      "name": "Farcaster OG 43",
+      "description": "Celebrating Farcaster at permissionless.",
+      "image": "ipfs://bafybeihbx6nx4h2wblf6nlsy6nkotzqynzsrgimgqzwqgw6gf7d27ewfqu",
+      "imageData": "",
+      "externalUrl": "",
+      "animationUrl": "",
+      "youtubeUrl": "",
+      "backgroundColor": "",
+      "attributes": null
+    },
+    "image": {
+      "extraSmall": "https://assets.airstack.xyz/image/nft/7777777/PtYr9f5cHxXadiklS+Xzp805o/lFKCmd1jvpLmU58tO5UgOEdm56cjqIt1Gf/UK052NE4yYf2xmpwwrzjcDl+w==/extra_small.png",
+      "small": "https://assets.airstack.xyz/image/nft/7777777/PtYr9f5cHxXadiklS+Xzp805o/lFKCmd1jvpLmU58tO5UgOEdm56cjqIt1Gf/UK052NE4yYf2xmpwwrzjcDl+w==/small.png",
+      "medium": "https://assets.airstack.xyz/image/nft/7777777/PtYr9f5cHxXadiklS+Xzp805o/lFKCmd1jvpLmU58tO5UgOEdm56cjqIt1Gf/UK052NE4yYf2xmpwwrzjcDl+w==/medium.png",
+      "large": "https://assets.airstack.xyz/image/nft/7777777/PtYr9f5cHxXadiklS+Xzp805o/lFKCmd1jvpLmU58tO5UgOEdm56cjqIt1Gf/UK052NE4yYf2xmpwwrzjcDl+w==/large.png",
+      "original": "https://assets.airstack.xyz/image/nft/7777777/PtYr9f5cHxXadiklS+Xzp805o/lFKCmd1jvpLmU58tO5UgOEdm56cjqIt1Gf/UK052NE4yYf2xmpwwrzjcDl+w==/original_image.png"
+    },
+    "tokenId": "110"
   }
-}
+]
 ```
 {% endtab %}
 {% endtabs %}
@@ -1766,62 +1763,81 @@ show me all Farcaster users starting with "a"
 
 ## Get All Farcaster Users Whose Names Contain Certain Terms (auto-complete)
 
-You can fetch all Farcaster users that contains given words by providing `"<given-words>"` directly to the <mark style="color:red;">**`_regex`**</mark> operator in [`Socials`](../../api-references/api-reference/socials-api.md) API:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/yuolzNgcAR" %}
-show me all Farcaster users containing with "abc"
-{% endembed %}
-
-### Code
+You can fetch all Farcaster users that contains given words by using the [`searchFarcasterUsers`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#searchfarcasterusers) function:
 
 {% tabs %}
-{% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
-  Socials(
-    input: {
-      filter: {
-        # This regex pattern will search all Farcaster users
-        # containing "abc"
-<strong>        profileName: {_regex: "abc"},
-</strong>        dappName: {_eq: farcaster}
-      },
-      blockchain: ethereum
-    }
-  ) {
-    Social {
-      dappName
-      profileName
-    }
-  }
-}
-</code></pre>
+{% tab title="TypeScript" %}
+```typescript
+import {
+  searchFarcasteUsers,
+  SearchFarcasterUsersInput,
+  SearchFarcastersOutput,
+} from "@airstack/frames";
+
+const input: SearchFarcasterUsersInput = {
+  profileName: "a",
+  limit: 10,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+}: SearchFarcastersOutput = await searchFarcasterUsers(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
 {% endtab %}
 
-{% tab title="Response" %}
+{% tab title="JavaScript" %}
+```javascript
+const { searchFarcasteUsers } = require("@airstack/frames");
+
+const input = {
+  profileName: "a",
+  limit: 10,
+};
+const {
+  data,
+  error,
+  hasNextPage,
+  hasPrevPage,
+  getNextPage,
+  getPrevPage,
+} = await searchFarcasterUsers(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="Result" %}
 ```json
-{
-  "data": {
-    "Socials": {
-      "Social": [
-        {
-          "dappName": "farcaster",
-          "profileName": "abcabc"
-        },
-        {
-          "dappName": "farcaster",
-          "profileName": "krabchinski"
-        },
-        {
-          "dappName": "farcaster",
-          "profileName": "861213abcc"
-        }
-        // Other Farcaster users containing with "abc"
-      ]
+[
+  {
+    "profileName": "zachterrell",
+    "fnames": ["zachterrell.eth", "zachterrell"],
+    "userAssociatedAddresses": [
+      "0xbce5a0d16dc2031dc53da79c34ddb366e76dc482",
+      "0x5a492d1e15f2ae4b418e424ba9a1d112d6e9706a"
+    ],
+    "followerCount": 112210,
+    "followingCount": 430,
+    "fid": "457",
+    "profileImage": {
+      "extraSmall": "https://assets.airstack.xyz/image/social/u/+rRF4VjBM2b96BzHIZBcRKdFQ3MzIbCkEp6TV3KlQ=/extra_small.jpg",
+      "small": "https://assets.airstack.xyz/image/social/u/+rRF4VjBM2b96BzHIZBcRKdFQ3MzIbCkEp6TV3KlQ=/small.jpg",
+      "medium": "https://assets.airstack.xyz/image/social/u/+rRF4VjBM2b96BzHIZBcRKdFQ3MzIbCkEp6TV3KlQ=/medium.jpg",
+      "large": "https://assets.airstack.xyz/image/social/u/+rRF4VjBM2b96BzHIZBcRKdFQ3MzIbCkEp6TV3KlQ=/large.jpg",
+      "original": "https://assets.airstack.xyz/image/social/u/+rRF4VjBM2b96BzHIZBcRKdFQ3MzIbCkEp6TV3KlQ=/original_image.jpg"
     }
   }
-}
+]
 ```
 {% endtab %}
 {% endtabs %}
@@ -1863,3 +1879,4 @@ If you have any questions or need help regarding the activate kit for [Farcaster
 * [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
 * [Snapshots API Reference](../../api-references/api-reference/snapshots-api.md)
 * [Math Captcha For Farcaster Frames](https://github.com/limone-eth/farcaster-horizon-airstack/blob/main/app/api/captcha/validate/route.ts)
+* [Airstack Frames SDK Reference](https://github.com/Airstack-xyz/airstack-frames-sdk)

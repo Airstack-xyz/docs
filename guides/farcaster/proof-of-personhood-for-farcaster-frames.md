@@ -27,6 +27,14 @@ Airstack makes it easy to create dynamic allow lists that check in real-time if 
 * Follow The Creator Of The Frame
 * Transacted on Blockchain Before Certain Date
 
+Currently, you can access the most of the criteria can be added by using the newly released [Airstack Frames SDK](https://github.com/Airstack-xyz/airstack-frames-sdk).  While some others will require either the [Node](../../nodejs-sdk-reference/overview.md) or [Python SDK](https://github.com/Airstack-xyz/airstack-python-sdk) to call the GraphQL queries.
+
+The [Airstack Frames SDK](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main) empowers developers to seamlessly integrate onchain data, including token balances, token mints, Farcaster followers and followings, POAPs, and more, into their Frames using just a few lines of code.
+
+Additionally, developers can leverage the SDK to create an allow list feature, enabling checks for token ownership, token mints, following status, and more.
+
+Designed with TypeScript, the SDK offers full type support for those building Frames with TypeScript. For SDK reference, check out the official GitHub repository [here](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main).
+
 ## Table Of Contents
 
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
@@ -46,9 +54,55 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
 ### Get Started
 
-**JavaScript/TypeScript/Python**
+#### Airstack Frames SDK
 
-If you are using JavaScript/TypeScript or Python, Install the Airstack SDK:
+To integrate Airstack into your frames, simply install the Airstack Frames SDK:
+
+{% tabs %}
+{% tab title="npm" %}
+```sh
+npm install @airstack/frames
+```
+{% endtab %}
+
+{% tab title="yarn" %}
+```sh
+yarn add @airstack/frames
+```
+{% endtab %}
+
+{% tab title="pnpm" %}
+```sh
+pnpm install @airstack/frames
+```
+{% endtab %}
+{% endtabs %}
+
+Then, add the following snippets to your code and provide your [Airstack API key](../../get-started/get-api-key.md):
+
+{% tabs %}
+{% tab title="TypeScript" %}
+```typescript
+import { init } from "@airstack/frames";
+
+init("YOUR_AIRSTACK_API_KEY");
+```
+{% endtab %}
+
+{% tab title="JavaScript (Node)" %}
+```javascript
+import { init } from "@airstack/frames";
+
+init("YOUR_AIRSTACK_API_KEY");
+```
+{% endtab %}
+{% endtabs %}
+
+Once you have the SDK initialized with the `init` function, you can call any available functions within the SDKs. For the list of all available functions, click [here](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#table-of-contents).
+
+#### Others
+
+Otherwise, for GraphQL queries you'll need to either install the Airstack Node or Python SDK:
 
 {% tabs %}
 {% tab title="npm" %}
@@ -114,10 +168,6 @@ asyncio.run(main())
 ```
 {% endtab %}
 {% endtabs %}
-
-**Other Programming Languages**
-
-To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
 ### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
 
@@ -206,81 +256,55 @@ query POAPsOwned($farcasterUser: Identity!) {
 
 ## Check If Farcaster User Has Certain POAP(s)
 
-{% embed url="https://drive.google.com/file/d/1xd_ACmV5x7UQyRNwABOntTQzIp-NSXN0/view?usp=sharing" %}
-Video Demo
-{% endembed %}
-
-You can check if the Farcaster user has attended certain POAP event(s) by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable and an array of POAP event IDs to the `$eventIds` variable using the [`Poaps`](../../api-references/api-reference/poaps-api.md) API:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/XlGfLfbhCy" %}
-Check If Farcaster user attended certain POAP events
-{% endembed %}
-
-### Code
+You can check if the Farcaster user has attended certain POAP event(s) by using the [`checkPoapAttendedByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#searchfarcasterusers) function:
 
 {% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery(
-  $eventIds: [String!],
-  $farcasterUser: Identity
-) {
-  Poaps(
-    input: {
-      filter: {
-        owner: {_eq: $farcasterUser},
-        eventId: {_in: $eventIds}
-      },
-      blockchain: ALL
-    }
-  ) {
-    Poap {
-      mintOrder
-      mintHash
-      poapEvent {
-        eventId
-        eventName
-      }
-    }
-  }
-}
+{% tab title="TypeScript" %}
+```typescript
+import {
+  checkPoapAttendedByFarcasterUser,
+  CheckPoapAttendedByFarcasterUserInput,
+  CheckPoapAttendedByFarcasterUserOutput,
+} from "@airstack/frames";
+
+const input: CheckPoapAttendedByFarcasterUserInput = {
+  fid: 15971,
+  eventId: [160005, 159993, 13242],
+};
+const { data, error }: CheckPoapAttendedByFarcasterUserOutput =
+  await checkPoapAttendedByFarcasterUser(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
 ```
 {% endtab %}
 
-{% tab title="Variables" %}
-<pre class="language-json"><code class="lang-json">{
-<strong>  "eventIds": [ // List of POAP event IDs to check if user attended
-</strong>    "6584",
-    "14190"
-  ],
-<strong>  "farcasterUser": "fc_fid:3" // Farcaster user fid
-</strong>}
-</code></pre>
+{% tab title="JavaScript" %}
+```javascript
+const { checkPoapAttendedByFarcasterUser } = require("@airstack/frames");
+
+const input = {
+  fid: 15971,
+  eventId: [160005, 159993, 13242],
+};
+const { data, error } =
+  await checkPoapAttendedByFarcasterUser(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
 {% endtab %}
 
-{% tab title="Response" %}
-<pre class="language-json"><code class="lang-json">{
-  "data": {
-    "Poaps": {
-      "Poap": [
-        {
-          "mintOrder": 740,
-          "mintHash": "0xdf9e6af3bab24eaac6e35a0474f97b4373eeff7bfff8fb4c964956860b4975e6",
-          "poapEvent": {
-<strong>            "eventId": "6584", // User attended POAP with this event ID
-</strong>            "eventName": "Pudgy Penguin owner as of August 2021"
-          }
-        }
-        // If the POAP does not appear in the array, that implies
-        // that the Farcaster user did not attend those unmentioned
-        // POAP events, e.g. POAP event ID 14190
-      ]
-    }
-  }
-}
-</code></pre>
+{% tab title="Result" %}
+```json
+[
+  { "eventId": 160005, "isAttended": true },
+  { "eventId": 159993, "isAttended": true },
+  { "eventId": 13242, "isAttended": false }
+]
+```
 {% endtab %}
 {% endtabs %}
 
@@ -351,232 +375,187 @@ query MyQuery($farcasterUser: Identity!) {
 
 ## Check If Farcaster User Is Followed By Certain High Profile Users
 
-{% embed url="https://drive.google.com/file/d/1-vbdoC4bnuQY8nW7b5mtXIlcVWs0cS_Y/view?usp=sharing" %}
-Video Demo
-{% endembed %}
-
-You can check if the Farcaster user is followed by certain high profile users, e.g. [vitalik.eth](https://explorer.airstack.xyz/token-balances?address=fc\_fname%3Avitalik.eth\&rawInput=%23%E2%8E%B1fc\_fname%3Avitalik.eth%E2%8E%B1%28fc\_fname%3Avitalik.eth++ethereum+null%29\&inputType=ADDRESS), [jessepollak](https://explorer.airstack.xyz/token-balances?address=fc\_fname%3Ajessepollak\&rawInput=%23%E2%8E%B1fc\_fname%3Ajessepollak%E2%8E%B1%28fc\_fname%3Ajessepollak++ethereum+null%29\&inputType=ADDRESS), etc., by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable and the high profile farcaster users in an array to the `$followedBy` variable using the [`Wallet`](../../api-references/api-reference/wallet-api.md) API:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/ixbvlro17u" %}
-Check if Farcaster user is being followed by high profile users
-{% endembed %}
-
-### Code
+You can check if the Farcaster user is followed by certain high profile users, e.g. [vitalik.eth](https://explorer.airstack.xyz/token-balances?address=fc\_fname%3Avitalik.eth\&rawInput=%23%E2%8E%B1fc\_fname%3Avitalik.eth%E2%8E%B1%28fc\_fname%3Avitalik.eth++ethereum+null%29\&inputType=ADDRESS), [jessepollak](https://explorer.airstack.xyz/token-balances?address=fc\_fname%3Ajessepollak\&rawInput=%23%E2%8E%B1fc\_fname%3Ajessepollak%E2%8E%B1%28fc\_fname%3Ajessepollak++ethereum+null%29\&inputType=ADDRESS), etc., by using the [`checkIsFollowedByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#searchfarcasterusers) function:
 
 {% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery($farcasterUser: Identity!, $followedBy: [Identity!]) {
-  Wallet(input: {identity: $farcasterUser, blockchain: ethereum}) {
-    socialFollowings(input: {filter: {identity: {_in: $followedBy}}}) {
-      Following {
-        followerAddress {
-          socials(input: {filter: {dappName: {_eq: farcaster}}}) {
-            userId
-          }
-        }
-      }
-    }
-  }
-}
+{% tab title="TypeScript" %}
+```typescript
+import {
+  checkIsFollowedByFarcasterUser,
+  CheckIsFollowedByFarcasterUserInput,
+  CheckIsFollowedByFarcasterUserOutput,
+} from "@airstack/frames";
+
+const input: CheckIsFollowedByFarcasterUserInput = {
+  fid: 602,
+  isFollowedBy: [
+    99,   // jessepollak
+    5650  // vitalik.eth
+  ],
+};
+const { data, error }: CheckIsFollowedByFarcasterUserOutput =
+  await checkIsFollowedByFarcasterUser(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
 ```
 {% endtab %}
 
-{% tab title="Variables" %}
+{% tab title="JavaScript" %}
+```javascript
+const {
+  checkIsFollowedByFarcasterUser,
+} = require("@airstack/frames");
+
+const input = {
+  fid: 602,
+  isFollowedBy: [
+    99,   // jessepollak
+    5650  // vitalik.eth
+  ],
+};
+const { data, error } =
+  await checkIsFollowedByFarcasterUser(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="Result" %}
 ```json
-{
-  "farcasterUser": "fc_fid:3",
-  "followedBy": [
-    "fc_fid:99", // jessepollak
-    "fc_fid:5650" // vitalik.eth
-  ]
-}
+[
+  { "fid": 99, "isFollowedBy": true },
+  { "fid": 5650, "isFollowedBy": false }
+]
 ```
-{% endtab %}
-
-{% tab title="Response" %}
-<pre class="language-json"><code class="lang-json">{
-  "data": {
-    "Wallet": {
-      "socialFollowings": {
-        "Following": [
-          {
-            "followerAddress": {
-              "socials": [
-                {
-                  // This show that jessepollak followed the specified FC user
-<strong>                  "userId": "99" 
-</strong>                }
-              ]
-            }
-          },
-          {
-            "followerAddress": {
-              "socials": [
-                {
-                  // This show that vitalik.eth followed the specified FC user
-                  "userId": "5650"
-                }
-              ]
-            }
-          }
-        ]
-      }
-    }
-  }
-}
-</code></pre>
 {% endtab %}
 {% endtabs %}
 
 ## Check If Farcaster User Hold Any High Value NFTs
 
-{% embed url="https://drive.google.com/file/d/1TUdV8URLFj6tUhMa94-jNkEteTLkKe2q/view?usp=sharing" %}
-Video Demo
-{% endembed %}
-
-You can check if the Farcaster user has any high value NFTs, e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D\&tokenType=\&rawInput=%23%E2%8E%B10xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&activeTokenInfo=\&activeSnapshotInfo=\&tokenFilters=farcaster\&activeViewToken=Bored+Ape+Yacht+Club\&activeViewCount=83\&blockchainType=\&sortOrder=\&spamFilter=\&mintFilter=\&resolve6551=\&activeSocialInfo=), by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable and the high profile NFT address to the `$nft` variable using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/FLNXZIeT4S" %}
-Check if Farcaster user has any high value NFT (e.g. BAYC)
-{% endembed %}
-
-### Code
+You can check if the Farcaster user has any high value NFTs, e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D\&tokenType=\&rawInput=%23%E2%8E%B10xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&activeTokenInfo=\&activeSnapshotInfo=\&tokenFilters=farcaster\&activeViewToken=Bored+Ape+Yacht+Club\&activeViewCount=83\&blockchainType=\&sortOrder=\&spamFilter=\&mintFilter=\&resolve6551=\&activeSocialInfo=), by using the [`checkTokenHoldByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#checktokenholdbyfarcasteruser) function:
 
 {% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery(
-  $farcasterUser: Identity!,
-  $nft: Address!
-) {
-  TokenBalances(
-    input: {
-      filter: {
-        tokenAddress: {_eq: $nft},
-        owner: {_eq: $farcasterUser}
-      },
-      blockchain: ethereum
-    }
-  ) {
-    TokenBalance {
-      tokenId
-    }
-  }
-}
+{% tab title="TypeScript" %}
+```typescript
+import {
+  checkTokenHoldByFarcasterUser,
+  CheckTokenHoldByFarcasterUserInput,
+  CheckTokenHoldByFarcasterUserOutput,
+  TokenBlockchain,
+} from "@airstack/frames";
+
+const input: CheckTokenHoldByFarcasterUserInput = {
+  fid: 21018,
+  token: [
+    {
+      chain: TokenBlockchain.Ethereum,
+      tokenAddress: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+    },
+  ],
+};
+const { data, error }: CheckTokenHoldByFarcasterUserOutput =
+  await checkTokenHoldByFarcasterUser(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
 ```
 {% endtab %}
 
-{% tab title="Variables" %}
-```json
-{
-  "farcasterUser": "fc_fid:21018",
-  "nft": "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"
-}
+{% tab title="JavaScript" %}
+```javascript
+const {
+  checkTokenHoldByFarcasterUser,
+  TokenBlockchain,
+} = require("@airstack/frames");
+
+const input = {
+  fid: 21018,
+  token: [
+    {
+      chain: TokenBlockchain.Ethereum,
+      tokenAddress: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+    },
+  ],
+};
+const { data, error } =
+  await checkTokenHoldByFarcasterUser(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
 ```
 {% endtab %}
 
-{% tab title="Response" %}
+{% tab title="Result" %}
 ```json
-{
-  "data": {
-    "TokenBalances": {
-      // If the array is not null, it indicates that the Farcaster
-      // user hold some NFT from the specified high value collection
-      "TokenBalance": [
-        {
-          "tokenId": "648"
-        },
-        {
-          "tokenId": "8343"
-        },
-        {
-          "tokenId": "4707"
-        },
-        {
-          "tokenId": "3553"
-        },
-        {
-          "tokenId": "2190"
-        }
-      ]
-    }
+[
+  {
+    "chain": "ethereum",
+    "tokenAddress": "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+    "isHold": true
   }
-}
+]
 ```
 {% endtab %}
 {% endtabs %}
 
 ## Check If Farcaster User Follows The Creator Of The Frames
 
-{% embed url="https://drive.google.com/file/d/1QY3hASXxApudCaGFJADIgNmadVx-UgB9/view?usp=sharing" %}
-Video Demo
-{% endembed %}
-
-You can check if the Farcaster user follows the Frames' creator by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable and the creator's `fid` to the `$creator` variable using the [`Wallet`](../../api-references/api-reference/wallet-api.md) API:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/FwDQ7NALCt" %}
-Check if Farcaster user followed the Frames Creator
-{% endembed %}
-
-### Code
+You can check if the Farcaster user follows the Frames' creator by using the [`checkIsFollowingFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#checkisfollowingfarcasteruser) function:
 
 {% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery($creator: Identity!, $farcasterUser: Identity!) {
-  Wallet(input: {identity: $creator, blockchain: ethereum}) {
-    socialFollowings(input: {filter: {identity: {_eq: $farcasterUser}}}) {
-      Following {
-        followerAddress {
-          socials(input: {filter: {dappName: {_eq: farcaster}}}) {
-            userId
-          }
-        }
-      }
-    }
-  }
-}
+{% tab title="TypeScript" %}
+```typescript
+import {
+  checkIsFollowingFarcasterUser,
+  CheckIsFollowingFarcasterUserInput,
+  CheckIsFollowingFarcasterUserOutput,
+} from "@airstack/frames";
+
+const input: CheckIsFollowingFarcasterUserInput = {
+  fid: 3,
+  isFollowing: [99],
+};
+const { data, error }: CheckIsFollowingFarcasterUserOutput =
+  await checkIsFollowingFarcasterUser(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
 ```
 {% endtab %}
 
-{% tab title="Variables" %}
-```json
-{
-  "creator": "fc_fid:3",
-  "farcasterUser": "fc_fid:99"
-}
+{% tab title="JavaScript" %}
+```javascript
+import {
+  checkIsFollowingFarcasterUser,
+  CheckIsFollowingFarcasterUserInput,
+  CheckIsFollowingFarcasterUserOutput,
+} from "@airstack/frames";
+
+const input: CheckIsFollowingFarcasterUserInput = {
+  fid: 3, // The creator of frame
+  isFollowing: [99], // The fid of user interacting with your frames
+};
+const { data, error }: CheckIsFollowingFarcasterUserOutput =
+  await checkIsFollowingFarcasterUser(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
 ```
 {% endtab %}
 
-{% tab title="Response" %}
+{% tab title="Result" %}
 ```json
-{
-  "data": {
-    "Wallet": {
-      "socialFollowings": {
-        "Following": [
-          {
-            "followerAddress": {
-              "socials": [
-                {
-                  // This show that this user followed the specified Frames creator
-                  "userId": "99" 
-                }
-              ]
-            }
-          }
-        ]
-      }
-    }
-  }
-}
+[
+  { "fid": 99, "isFollowing": true }
+]
 ```
 {% endtab %}
 {% endtabs %}
@@ -664,3 +643,4 @@ If you have any questions or need help regarding building and integrating allow 
 * [Poaps API Reference](../../api-references/api-reference/poaps-api.md)
 * [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
 * [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
+* [Airstack Frames SDK Reference](https://github.com/Airstack-xyz/airstack-frames-sdk)
