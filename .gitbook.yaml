@@ -82,3 +82,4 @@ redirects:
   guides/xmtp/spam-filters/known-senders: guides/xmtp/spam-filters/primary-inbox.md
   guides/xmtp/spam-filters/high-probability-of-connection: guides/xmtp/spam-filters/general-inbox.md
   guides/xmtp/spam-filters/proof-of-personhood: guides/xmtp/spam-filters/request-inbox.md
+  guides/farcaster/onchain-kit-for-farcaster-frames: guides/farcaster/airstack-onchain-kit-for-farcaster-frames.md
