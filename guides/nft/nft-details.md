@@ -553,7 +553,7 @@ You can fetch an NFT's image (both original and resized version) by using the [`
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/lTC6ELEi3D" %}
-Show me the the original NFT image of @BoredApeYachtClub token ID 0 with all their resized versions
+Show me the original NFT image of @BoredApeYachtClub token ID 0 with all their resized versions
 {% endembed %}
 
 {% hint style="info" %}
@@ -632,7 +632,7 @@ You can fetch all NFTs' images (both original and resized version) in an NFT col
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/c423sskw2o" %}
-Show me the the original NFT image of @BoredApeYachtClub with all their resized versions
+Show me the original NFT image of @BoredApeYachtClub with all their resized versions
 {% endembed %}
 
 {% hint style="info" %}

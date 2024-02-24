@@ -42,7 +42,7 @@ You can get deep insights into the holders of a specific token or POAP, includin
 
 ## No-Code Solutions
 
-The explorer provide no-code solutions that helps you fetch any data you want from the dashboard, e.g. Token Balances, POAPs, Socials, Domains & XMTP.
+The explorer provides no-code solutions that help you fetch any data you want from the dashboard, e.g. Token Balances, POAPs, Socials, Domains & XMTP.
 
 <div data-full-width="true">
 
