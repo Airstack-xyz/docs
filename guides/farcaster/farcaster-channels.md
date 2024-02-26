@@ -1,8 +1,8 @@
 ---
 description: >-
-  Learn how to fetch data from Farcaster channels, including their original host
-  and participants who have interacted (either by casting or replying) within
-  the channels.
+  Learn how to fetch data on Farcaster channels, including host and
+  participants, channel details, and compose it with other onchain data provided
+  by Airstack.
 layout:
   title:
     visible: true
@@ -25,7 +25,7 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Get Channel Details](farcaster-channels.md#get-channel-details)
 * [Get Participants Of A Channel](farcaster-channels.md#get-participants-of-a-channel)
 * [Get The Original Host Of A Channel](farcaster-channels.md#get-the-original-host-of-a-channel)
-* [Get All The Channels Of A Farcaster User Participated In](farcaster-channels.md#get-all-the-channels-of-a-farcaster-user-participated-in)
+* [Get All The Channels A Farcaster User Participates In](farcaster-channels.md#get-all-the-channels-of-a-farcaster-user-participated-in)
 * [Get All Farcaster Users Who Casted In Certain Channel](farcaster-channels.md#get-all-farcaster-users-who-casted-in-certain-channel)
 * [Check If Farcaster User Has Casted In A Given Channel](farcaster-channels.md#check-if-farcaster-user-has-casted-in-a-given-channel)
 * [Search All Farcaster Channels Whose Names Start With Certain Terms (auto-complete)](farcaster-channels.md#search-all-farcaster-channels-whose-names-start-with-certain-terms-auto-complete)
