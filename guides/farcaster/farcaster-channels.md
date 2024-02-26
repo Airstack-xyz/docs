@@ -1,8 +1,8 @@
 ---
 description: >-
-  Learn how to fetch data on Farcaster channels, including host and
-  participants, channel details, and compose it with other onchain data provided
-  by Airstack.
+  Learn how to fetch data from Farcaster channels, including their original host
+  and participants who have interacted (either by casting or replying) within
+  the channels.
 layout:
   title:
     visible: true
@@ -25,8 +25,9 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Get Channel Details](farcaster-channels.md#get-channel-details)
 * [Get Participants Of A Channel](farcaster-channels.md#get-participants-of-a-channel)
 * [Get The Original Host Of A Channel](farcaster-channels.md#get-the-original-host-of-a-channel)
-* [Get All The Channels A Farcaster User Participates In](farcaster-channels.md#get-all-the-channels-of-a-farcaster-user-participated-in)
+* [Get All The Channels Of A Farcaster User Participates In](farcaster-channels.md#get-all-the-channels-of-a-farcaster-user-participates-in)
 * [Get All Farcaster Users Who Casted In Certain Channel](farcaster-channels.md#get-all-farcaster-users-who-casted-in-certain-channel)
+* [Get All Farcaster Users Who Casted In Certain Channel Since Certain Timestamp](farcaster-channels.md#get-all-farcaster-users-who-casted-in-certain-channel-since-certain-timestamp)
 * [Check If Farcaster User Has Casted In A Given Channel](farcaster-channels.md#check-if-farcaster-user-has-casted-in-a-given-channel)
 * [Search All Farcaster Channels Whose Names Start With Certain Terms (auto-complete)](farcaster-channels.md#search-all-farcaster-channels-whose-names-start-with-certain-terms-auto-complete)
 * [Search All Farcaster Channels Whose Names Contain With Certain Terms (auto-complete)](farcaster-channels.md#search-all-farcaster-channels-whose-names-contain-certain-terms-auto-complete)
@@ -261,6 +262,9 @@ Show me all participants of the /farcaster channel on Farcaster
           userAddress
           profileName
           fid: userId
+          userAssociatedAddresses
+          followerCount
+          followingCount
         }
       }
     }
@@ -281,21 +285,12 @@ Show me all participants of the /farcaster channel on Farcaster
               "participant": {
                 "userAddress": "0x01a7cd990253915391454a111d704c22a62a1e4d",
                 "profileName": "voor03",
-                "fid": "250359"
-              }
-            },
-            {
-              "participant": {
-                "userAddress": "0x11c12d38a24390c1f9a4ea017f75bdf561f0b2f6",
-                "profileName": "0xsld",
-                "fid": "8245"
-              }
-            },
-            {
-              "participant": {
-                "userAddress": "0xc8a9508f96504d617c7d618ca226ab9770a4fc6f",
-                "profileName": "shiwu",
-                "fid": "23619"
+                "fid": "250359",
+                "userAssociatedAddresses": [
+                  "0x01a7cd990253915391454a111d704c22a62a1e4d"
+                ],
+                "followerCount": 434,
+                "followingCount": 617
               }
             },
             // Other /warpcast channel participants
@@ -337,6 +332,9 @@ Get the host of /warpcast Farcaster channel
         userAddress
         profileName
         fid: userId
+        userAssociatedAddresses
+        followerCount
+        followingCount
       }
     }
   }
@@ -355,7 +353,15 @@ Get the host of /warpcast Farcaster channel
             {
               "userAddress": "0x4114e33eb831858649ea3702e1c9a2db3f626446",
               "profileName": "v",
-              "fid": "2"
+              "fid": "2",
+              "userAssociatedAddresses": [
+                "0x4114e33eb831858649ea3702e1c9a2db3f626446",
+                "0x91031dcfdea024b4d51e775486111d2b2a715871",
+                "0x182327170fc284caaa5b1bc3e3878233f529d741",
+                "0xf86a7a5b7c703b1fd8d93c500ac4cc75b67477f0"
+              ],
+              "followerCount": 141368,
+              "followingCount": 1122
             }
           ]
         }
@@ -367,9 +373,9 @@ Get the host of /warpcast Farcaster channel
 {% endtab %}
 {% endtabs %}
 
-## Get All The Channels Of A Farcaster User Participated In
+## Get All The Channels Of A Farcaster User Participates In
 
-You can fetch all the channel a given Farcaster user participated in (either casted or replied) by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) and providing the participant's FID to `$participant` variable:
+You can fetch all the channel a given Farcaster user participates in (either have casted or replied to a cast) by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) and providing the participant's FID to `$participant` variable:
 
 ### Try Demo
 
@@ -441,7 +447,7 @@ Show me all the Farcaster user who casted on /warpcast channel
     input: {
       filter: {
 <strong>        channelActions: {_eq: cast}, # Filter only for those who casted
-</strong><strong>        channelId: {_eq: "warpcast"} # Search in /warpcast channel
+</strong><strong>        channelId: {_eq: "warpcast"}, # Search in /warpcast channel
 </strong>      },
       blockchain: ALL
     }
@@ -494,9 +500,250 @@ Show me all the Farcaster user who casted on /warpcast channel
 {% endtab %}
 {% endtabs %}
 
+## Get All Farcaster Users Who Casted In Certain Channel Since Certain Timestamp
+
+You can fetch all Farcaster users who casted in a given channel since a certain time by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) and providing:
+
+* the "cast" value to the `$channelActions` variable,
+* the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable, and
+* the timestamp to the `$lastActionTimestamp` variable, e.g. 2024-02-01T00:00:00Z for Feb 1, 2024 at 00:00.
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/gJ6Yc5atYy" %}
+Show me all the Farcaster user who casted on /warpcast channel since Feb 1, 2024
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  FarcasterChannelParticipants(
+    input: {
+      filter: {
+<strong>        channelActions: {_eq: cast}, # Filter only for those who casted
+</strong><strong>        channelId: {_eq: "warpcast"}, # Search in /warpcast channel
+</strong>        # Filter last timestamp to be "greater than or equal to" Feb 1st, 2024
+<strong>        lastActionTimestamp: {_gte: "2024-02-01T00:00:00Z"}
+</strong>      },
+      blockchain: ALL
+    }
+  ) {
+    FarcasterChannelParticipant {
+      participant {
+        userAddress
+        profileName
+        fid: userId
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterChannelParticipants": {
+      "FarcasterChannelParticipant": [
+        {
+          "participant": {
+            "userAddress": "0xff9715817e8b4011ca564f6dcca74a051aaa15a7",
+            "profileName": "cepi21",
+            "fid": "250243"
+          }
+        },
+        {
+          "participant": {
+            "userAddress": "0x36ab2c5251b3282f023c2718e78f7e75924eb781",
+            "profileName": "itsmwamad",
+            "fid": "341677"
+          }
+        },
+        {
+          "participant": {
+            "userAddress": "0x6b75881c4319c25af8ab843dc071aa5f24557098",
+            "profileName": "sh68sana",
+            "fid": "320271"
+          }
+        },
+        // Other users casted in /warpcast channel since Feb 1, 2024
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All Farcaster Users Who Participates In A Channel And Following The Host
+
+To fetch all Farcaster users who participates in a channel and following the host, you'll first need to fetch the original host of the channel:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/IjXdzaJLOa" %}
+Show the original host of /airstack channel
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterChannels(
+    input: {
+      blockchain: ALL,
+      filter: {
+        channelId: {_eq: "airstack"}
+      }
+    }
+  ) {
+    FarcasterChannel {
+      leadIds
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterChannels": {
+      "FarcasterChannel": [
+        {
+          "leadIds": [
+            "602"
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+Once you have the original host's FID, you can then use it as an input variable to check on each participant if they're following the original host or not:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/sP3U4VNq4S" %}
+Show all the participants of /airstack channel and if they are following the original host
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery($originalHost: Identity!) {
+  FarcasterChannelParticipants(
+    input: {filter: {channelId: {_eq: "airstack"}}, blockchain: ALL}
+  ) {
+    FarcasterChannelParticipant {
+      participant {
+        userAddressDetails {
+          socialFollowers(input: {filter: {identity: {_eq: $originalHost}}}) {
+            Follower {
+              followerAddress {
+                addresses
+                socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+                  profileName
+                  fid: userId
+                  userAssociatedAddresses
+                  followerCount
+                  followingCount
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Variables" %}
+```json
+{
+  "originalHost": "fc_fid:602" // The original host's FID
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "FarcasterChannelParticipants": {
+      "FarcasterChannelParticipant": [
+        {
+          "participant": {
+            "userAddressDetails": {
+              "socialFollowers": {
+                "Follower": [
+                  {
+                    "followerAddress": {
+                      "addresses": [
+                        "0x44e2c9d7a7fc841b9929f0f980acfe784bac82e0",
+                        "0x0cf68416279c2a9bcdd0fa6cc4e0347ac3d55d7d"
+                      ],
+                      "socials": [
+                        {
+                          // This user participates in /airstack channel
+                          // and follows the original host
+<strong>                          "profileName": "chuckstock",
+</strong>                          "fid": "16405",
+                          "userAssociatedAddresses": [
+                            "0x44e2c9d7a7fc841b9929f0f980acfe784bac82e0",
+                            "0x0cf68416279c2a9bcdd0fa6cc4e0347ac3d55d7d"
+                          ],
+                          "followerCount": 1957,
+                          "followingCount": 136
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "participant": {
+            "userAddressDetails": {
+              "socialFollowers": {
+                // This user does not follow the original host and can be filtered out
+<strong>                "Follower": null
+</strong>              }
+            }
+          }
+        },
+        // Other /airstack channel participants
+      ]
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+Here, you can simply filter out those who return `null` as they are a participant of the /airstack channel, but does not follow the original host.
+
 ## Check If Farcaster User Has Casted In A Given Channel
 
-You can check if Farcaster user has casted in a given channel by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) API and providing the FID to the `$participant` variable and the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable
+You can check if Farcaster user has casted in a given channel by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) API and providing:
+
+* the "cast" value to the `$channelActions` variable,
+* the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable, and
+* the FID to the `$participant` variable
 
 ### Try Demo
 
@@ -514,7 +761,8 @@ query MyQuery {
     input: {
       filter: {
         participant: {_eq: "fc_fid:602"},
-        channelId: {_eq: "airstack"}
+        channelId: {_eq: "airstack"},
+        channelActions: {_eq: cast}
       },
       blockchain: ALL
     }

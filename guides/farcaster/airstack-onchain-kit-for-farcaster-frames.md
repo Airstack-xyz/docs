@@ -893,6 +893,9 @@ Show me all participants of the /farcaster channel on Farcaster
           userAddress
           profileName
           fid: userId
+          userAssociatedAddresses
+          followerCount
+          followingCount
         }
       }
     }
@@ -913,21 +916,12 @@ Show me all participants of the /farcaster channel on Farcaster
               "participant": {
                 "userAddress": "0x01a7cd990253915391454a111d704c22a62a1e4d",
                 "profileName": "voor03",
-                "fid": "250359"
-              }
-            },
-            {
-              "participant": {
-                "userAddress": "0x11c12d38a24390c1f9a4ea017f75bdf561f0b2f6",
-                "profileName": "0xsld",
-                "fid": "8245"
-              }
-            },
-            {
-              "participant": {
-                "userAddress": "0xc8a9508f96504d617c7d618ca226ab9770a4fc6f",
-                "profileName": "shiwu",
-                "fid": "23619"
+                "fid": "250359",
+                "userAssociatedAddresses": [
+                  "0x01a7cd990253915391454a111d704c22a62a1e4d"
+                ],
+                "followerCount": 434,
+                "followingCount": 617
               }
             },
             // Other /warpcast channel participants

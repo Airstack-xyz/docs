@@ -635,7 +635,11 @@ query MyQuery(
 
 ## Check If Farcaster User Has Casted In A Given Channel
 
-You can check if Farcaster user has casted in a given channel by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) API and providing the FID to the `$participant` variable and the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable
+You can check if Farcaster user has casted in a given channel by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) API and providing:
+
+* the "cast" value to the `$channelActions` variable,
+* the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable, and
+* the FID to the `$participant` variable
 
 ### Try Demo
 
@@ -653,7 +657,8 @@ query MyQuery {
     input: {
       filter: {
         participant: {_eq: "fc_fid:602"},
-        channelId: {_eq: "airstack"}
+        channelId: {_eq: "airstack"},
+        channelActions: {_eq: cast}
       },
       blockchain: ALL
     }
