@@ -26,6 +26,7 @@ Airstack makes it easy to create dynamic allow lists that check in real-time if 
 * Hold Specific or High Value NFTs (e.g. BAYC)
 * Follow The Creator Of The Frame
 * Transacted on Blockchain Before Certain Date
+* Casted in a Channel
 
 Currently, you can access the most of the criteria can be added by using the newly released [Airstack Frames SDK](https://github.com/Airstack-xyz/airstack-frames-sdk).  While some others will require either the [Node](../../nodejs-sdk-reference/overview.md) or [Python SDK](https://github.com/Airstack-xyz/airstack-python-sdk) to call the GraphQL queries.
 
@@ -46,6 +47,7 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Check If Farcaster User Holds Specific/ or High Value NFTs](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-hold-any-high-value-nfts)
 * [Check If Farcaster User Follows The Creator Of The Frames](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-follows-the-creator-of-the-frames)
 * [Check If Farcaster User Transacted On Certain Blockchain Before Certain Date](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-transacted-on-certain-blockchain-before-certain-date)
+* [Check If Farcaster User Has Casted In A Given Channel](proof-of-personhood-for-farcaster-frames.md#check-if-farcaster-user-has-casted-in-a-given-channel)
 
 ### Pre-requisites
 
@@ -628,6 +630,56 @@ query MyQuery(
   }
 }
 </code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Check If Farcaster User Has Casted In A Given Channel
+
+You can check if Farcaster user has casted in a given channel by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) API and providing the FID to the `$participant` variable and the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/PkFu8vdw9o" %}
+Check if Farcaster user FID 602 is participating in airstack channel
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterChannelParticipants(
+    input: {
+      filter: {
+        participant: {_eq: "fc_fid:602"},
+        channelId: {_eq: "airstack"}
+      },
+      blockchain: ALL
+    }
+  ) {
+    FarcasterChannelParticipant {
+      lastActionTimestamp
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterChannelParticipants": {
+      "FarcasterChannelParticipant": [
+        {
+          "lastActionTimestamp": "2024-02-23T17:12:13Z"
+        }
+      ]
+    }
+  }
+}
+```
 {% endtab %}
 {% endtabs %}
 

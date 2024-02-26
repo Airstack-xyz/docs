@@ -13,13 +13,13 @@ layout:
     visible: true
 ---
 
-# 🖼 Airstack Onchain Kit for Farcaster Frames
+# 🖼️ Airstack Onchain Kit for Farcaster Frames
 
 [Farcaster Frames](https://warpcast.notion.site/Farcaster-Frames-4bd47fe97dc74a42a48d3a234636d8c5) enables any cast on Farcaster to be an interactive app. Airstack Onchain Kit helps you enrich your Frame with onchain data.
 
 You can access the majority of use cases in Airstack Onchain Kit through the newly released [**Airstack Frames SDK**](https://github.com/Airstack-xyz/airstack-frames-sdk)**.**  Some other use cases will require either the [Node](../../nodejs-sdk-reference/overview.md) or [Python SDK](https://github.com/Airstack-xyz/airstack-python-sdk) to call the GraphQL queries.
 
-The [**Airstack Frames SDK**](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main) empowers developers to seamlessly integrate onchain data, including token balances, token mints, Farcaster followers and followings, POAPs, and more, into their Frames using just a few lines of code.
+The [**Airstack Frames SDK**](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main) empowers developers to seamlessly integrate onchain data, including channels, token balances, token mints, Farcaster followers and followings, POAPs, and more, into their Frames using just a few lines of code.
 
 Additionally, developers can leverage the SDK to create an **allow list** , enabling checks for token ownership, token mints, following status, and more.
 
@@ -35,6 +35,8 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Get All Users Followed by Those Followed by A Certain User](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-followed-by-those-followed-by-a-certain-user) (2nd-degree contact)
 * [Get All Users Following the Followers of a Specific User](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-following-the-followers-of-a-specific-user)
 * [Get All Users Commonly Followed By Two Users](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-commonly-followed-by-two-users)
+* [Get Channel Details](airstack-onchain-kit-for-farcaster-frames.md#get-channel-details)
+* [Get Participants Of A Channel](airstack-onchain-kit-for-farcaster-frames.md#get-participants-of-a-channel)
 * [Get All POAPs Attended By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-poaps-attended-by-farcaster-user)
 * [Get All NFTs Held By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-nfts-hold-by-farcaster-user) on Ethereum, Base, Zora, and Polygon
 * [Get All ERC20 Tokens Hold By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-erc20-tokens-hold-by-farcaster-user) on Ethereum, Base, Zora, and Polygon
@@ -47,6 +49,8 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Get Token Transfers Received From A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-token-transfers-received-by-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
 * [Get All Farcaster Users Whose Names Start With Certain Terms (auto-complete regex in API)](airstack-onchain-kit-for-farcaster-frames.md#get-all-farcaster-users-whose-names-start-with-certain-terms-auto-complete)
 * [Get All Farcaster Users Whose Names Contain Certain Terms (auto-complete regex in API)](airstack-onchain-kit-for-farcaster-frames.md#get-all-farcaster-users-whose-names-contain-certain-terms-auto-complete)
+* [Search All Farcaster Channels Whose Names Start With Certain Terms (auto-complete)](airstack-onchain-kit-for-farcaster-frames.md#search-all-farcaster-channels-whose-names-start-with-certain-terms-auto-complete)
+* [Search All Farcaster Channels Whose Names Contain Certain Terms (auto-complete)](airstack-onchain-kit-for-farcaster-frames.md#search-all-farcaster-channels-whose-names-contain-certain-terms-auto-complete)
 * [Get Onchain Graph of Farcaster user](../onchain-graph.md) (all users on/off farcaster who have the most onchain overlaps with the user)
 
 ### Pre-requisites
@@ -792,6 +796,148 @@ query MyQuery($userA: Identity!, $userB: Identity!) {
   }
 }
 </code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Get Channel Details
+
+You can fetch a certain channel details by using the [`FarcasterChannels`](../../api-references/api-reference/farcasterchannels-api.md) and providing the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/rVa7S9sPmm" %}
+Get /farcaster Farcaster channel details
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  FarcasterChannels(
+    input: {
+      blockchain: ALL,
+      filter: {
+<strong>        channelId: {_eq: "farcaster"} # input 'farcaster' for /farcaster channel
+</strong>      }
+    }
+  ) {
+    FarcasterChannel {
+      channelId
+      dappName
+      createdAtTimestamp
+      dappSlug
+      description
+      name
+      url
+      imageUrl
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Demo" %}
+```json
+{
+  "data": {
+    "FarcasterChannels": {
+      "FarcasterChannel": [
+        {
+          "channelId": "farcaster",
+          "dappName": "Farcaster",
+          "createdAtTimestamp": "2023-08-02T22:33:26Z",
+          "dappSlug": "farcaster_v2_optimism",
+          "description": "Discussions about Farcaster on Farcaster (meta!)",
+          "name": "Farcaster",
+          "url": "chain://eip155:7777777/erc721:0x4f86113fc3e9783cf3ec9a552cbb566716a57628",
+          "imageUrl": "https://ipfs.decentralized-content.com/ipfs/bafkreialf5usxssf2eu3e5ct37zzdd553d7lg7oywvdszmrg5p2zpkta7u",
+          "leadIds": [
+            "2"
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Participants Of A Channel
+
+You can fetch all the participants of a channel by using the [`FarcasterChannels`](../../api-references/api-reference/farcasterchannels-api.md) and providing the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/qPY13mDKpQ" %}
+Show me all participants of the /farcaster channel on Farcaster
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  FarcasterChannels(
+    input: {
+      blockchain: ALL,
+      filter: {
+<strong>        channelId: {_eq: "farcaster"} # input 'farcaster' for /farcaster channel
+</strong>      }
+    }
+  ) {
+    FarcasterChannel {
+      participants {
+        participant {
+          userAddress
+          profileName
+          fid: userId
+        }
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterChannels": {
+      "FarcasterChannel": [
+        {
+          "participants": [
+            {
+              "participant": {
+                "userAddress": "0x01a7cd990253915391454a111d704c22a62a1e4d",
+                "profileName": "voor03",
+                "fid": "250359"
+              }
+            },
+            {
+              "participant": {
+                "userAddress": "0x11c12d38a24390c1f9a4ea017f75bdf561f0b2f6",
+                "profileName": "0xsld",
+                "fid": "8245"
+              }
+            },
+            {
+              "participant": {
+                "userAddress": "0xc8a9508f96504d617c7d618ca226ab9770a4fc6f",
+                "profileName": "shiwu",
+                "fid": "23619"
+              }
+            },
+            // Other /warpcast channel participants
+          ]
+        }
+      ]
+    }
+  }
+}
+```
 {% endtab %}
 {% endtabs %}
 
@@ -1838,6 +1984,118 @@ console.log(data);
     }
   }
 ]
+```
+{% endtab %}
+{% endtabs %}
+
+## Search All Farcaster Channels Whose Names Start With Certain Terms (auto-complete)
+
+You can fetch all Farcaster channels that starts given words by providing `"<given-words>"` directly to the <mark style="color:red;">**`_regex`**</mark> operator in [`FarcasterChannels`](../../api-references/api-reference/farcasterchannels-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/OYXxn7sAP6" %}
+Show me all Farcaster channels name that starts with "air"
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterChannels(
+    input: {
+      blockchain: ALL,
+      filter: {
+        name: {_regex: "^air"}
+      }
+    }
+  ) {
+    FarcasterChannel {
+      name
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterChannels": {
+      "FarcasterChannel": [
+        {
+          "name": "airdrop-dao"
+        },
+        {
+          "name": "airdropkazet"
+        },
+        {
+          "name": "airdrop1-deutsch"
+        },
+        // Other channels starting with "air"
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Search All Farcaster Channels Whose Names Contain Certain Terms (auto-complete)
+
+You can fetch all Farcaster channels that contains given words by providing `"<given-words>"` directly to the <mark style="color:red;">**`_regex`**</mark> operator in [`FarcasterChannels`](../../api-references/api-reference/farcasterchannels-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/Fv5fIwtAH8" %}
+Show me all Farcaster channels name that contains with "air"
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterChannels(
+    input: {
+      blockchain: ALL,
+      filter: {
+        name: {_regex: "^air"}
+      }
+    }
+  ) {
+    FarcasterChannel {
+      name
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterChannels": {
+      "FarcasterChannel": [
+        {
+          "name": "airdrop-dao"
+        },
+        {
+          "name": "kazetairdrop"
+        },
+        {
+          "name": "airdropkazet"
+        },
+        // Other Farcaster channel name containing "air"
+      ]
+    }
+  }
+}
 ```
 {% endtab %}
 {% endtabs %}
