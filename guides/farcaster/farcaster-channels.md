@@ -28,6 +28,7 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Get All The Channels Of A Farcaster User Participates In](farcaster-channels.md#get-all-the-channels-of-a-farcaster-user-participates-in)
 * [Get All Farcaster Users Who Casted In Certain Channel](farcaster-channels.md#get-all-farcaster-users-who-casted-in-certain-channel)
 * [Get All Farcaster Users Who Casted In Certain Channel Since Certain Timestamp](farcaster-channels.md#get-all-farcaster-users-who-casted-in-certain-channel-since-certain-timestamp)
+* [Get All Farcaster Users Who Participates In A Channel And Following The Host](farcaster-channels.md#get-all-farcaster-users-who-participates-in-a-channel-and-following-the-host)
 * [Check If Farcaster User Has Casted In A Given Channel](farcaster-channels.md#check-if-farcaster-user-has-casted-in-a-given-channel)
 * [Search All Farcaster Channels Whose Names Start With Certain Terms (auto-complete)](farcaster-channels.md#search-all-farcaster-channels-whose-names-start-with-certain-terms-auto-complete)
 * [Search All Farcaster Channels Whose Names Contain With Certain Terms (auto-complete)](farcaster-channels.md#search-all-farcaster-channels-whose-names-contain-certain-terms-auto-complete)
