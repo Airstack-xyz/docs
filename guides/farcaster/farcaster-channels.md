@@ -207,7 +207,7 @@ Get /farcaster Farcaster channel details
 </code></pre>
 {% endtab %}
 
-{% tab title="Demo" %}
+{% tab title="Response" %}
 ```json
 {
   "data": {
@@ -221,10 +221,7 @@ Get /farcaster Farcaster channel details
           "description": "Discussions about Farcaster on Farcaster (meta!)",
           "name": "Farcaster",
           "url": "chain://eip155:7777777/erc721:0x4f86113fc3e9783cf3ec9a552cbb566716a57628",
-          "imageUrl": "https://ipfs.decentralized-content.com/ipfs/bafkreialf5usxssf2eu3e5ct37zzdd553d7lg7oywvdszmrg5p2zpkta7u",
-          "leadIds": [
-            "2"
-          ]
+          "imageUrl": "https://ipfs.decentralized-content.com/ipfs/bafkreialf5usxssf2eu3e5ct37zzdd553d7lg7oywvdszmrg5p2zpkta7u"
         }
       ]
     }
@@ -795,7 +792,7 @@ query MyQuery {
 
 ## Search All Farcaster Channels Whose Names Start With Certain Terms (auto-complete)
 
-You can fetch all Farcaster channels that starts given words by providing `"<given-words>"` directly to the <mark style="color:red;">**`_regex`**</mark> operator in [`FarcasterChannels`](../../api-references/api-reference/farcasterchannels-api.md) API:
+You can fetch all Farcaster channels that starts given words by providing `"^<given-words>"` directly to the <mark style="color:red;">**`_regex`**</mark> operator in [`FarcasterChannels`](../../api-references/api-reference/farcasterchannels-api.md) API:
 
 ### Try Demo
 
@@ -869,7 +866,7 @@ query MyQuery {
     input: {
       blockchain: ALL,
       filter: {
-        name: {_regex: "^air"}
+        name: {_regex: "air"}
       }
     }
   ) {
