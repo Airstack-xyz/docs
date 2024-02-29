@@ -56,3 +56,9 @@ Once you have the options configured, the No-Code Frames Builder will automatica
 and share the URL to any Farcaster client that supports Frames:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-03-01 at 01.05.52.png" alt=""><figcaption><p>No-Code Frames on Warpcast</p></figcaption></figure>
+
+## More Resources
+
+* [Onchain Kit for Farcaster Frames](../farcaster/airstack-onchain-kit-for-farcaster-frames.md)
+* [Allow List for Farcaster Frames](../farcaster/proof-of-personhood-for-farcaster-frames.md)
+* [Farcaster Guides](../farcaster/)

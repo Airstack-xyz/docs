@@ -56,3 +56,8 @@ and share the URL to any Farcaster client that supports Frames:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-03-01 at 00.31.44.png" alt=""><figcaption><p>No-Code Frames in Warpcast</p></figcaption></figure>
 
+## More Resources
+
+* [Onchain Kit for Farcaster Frames](../farcaster/airstack-onchain-kit-for-farcaster-frames.md)
+* [Allow List for Farcaster Frames](../farcaster/proof-of-personhood-for-farcaster-frames.md)
+* [Farcaster Guides](../farcaster/)

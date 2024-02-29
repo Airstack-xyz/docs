@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to create Frames using Airstack No-Code Frames Builder in just a few
-  minutes
+  minutes.
 layout:
   title:
     visible: true
