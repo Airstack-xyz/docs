@@ -1,4 +1,8 @@
 ---
+description: >-
+  Learn how to use Airstack to universally resolve and reverse resolve Lens
+  handles to other web3 identities (Farcaster, ENS, Ethereum address, Solana
+  address).
 layout:
   title:
     visible: true
@@ -14,14 +18,16 @@ layout:
 
 # 🌿 Lens
 
-Learn how to use Airstack to universally resolve and reverse resolve Lens handles to other web3 identities (Farcaster, ENS, Ethereum address). Airstack supports both Lens v1, and Lens v2 profile names in the API inputs, you can freely use stani.lens or lens/@stani.
+Learn how to use Airstack to universally resolve and reverse resolve Lens handles to other web3 identities (Farcaster, ENS, Ethereum address, Solana addresses). Airstack supports both Lens v1, and Lens v2 profile names in the API inputs, you can freely use stani.lens or lens/@stani.
 
 ## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-* [Get ENS from a given user(s)](lens.md#get-ens-from-a-given-user-s)
-* [Get the 0x address, Lens, and Farcaster from a given ENS name(s)](lens.md#get-the-0x-address-lens-and-farcaster-from-a-given-ens-name-s)
+* [Get Lens Profiles from a given user(s)](lens.md#get-lens-profiles-from-a-given-user-s)
+* [Get the Ethereum address, Farcaster, and ENS from a given Lens profile(s)](lens.md#get-the-ethereum-address-farcaster-and-ens-from-a-given-lens-profile-s)
+* [Get Lens Profiles of a given Solana address](lens.md#get-lens-profiles-of-a-given-solana-address)
+* [Get All Solana addresses of Lens profile](lens.md#get-all-solana-addresses-of-lens-profile)
 
 ## Pre-requisites
 
@@ -159,7 +165,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
-## Get Lens Handles from a given user(s)
+## Get Lens Profiles from a given user(s)
 
 ### Try Demo
 
@@ -174,7 +180,19 @@ Show me the Lens handles of 0x4b70d04124c2996de29e0caa050a49822faec6cc, betashop
 ```graphql
 query GetLens {
   Socials(
-    input: {filter: {identity: {_in: ["0x4b70d04124c2996de29e0caa050a49822faec6cc", "betashop.eth", "fc_fname:vbuterin"]}, dappName: {_eq: lens}}, blockchain: ethereum}
+    input: {
+      filter: {
+        identity: {
+          _in: [
+            "0x4b70d04124c2996de29e0caa050a49822faec6cc",
+            "betashop.eth",
+            "fc_fname:vbuterin"
+          ]
+        },
+        dappName: {_eq: lens}
+      },
+      blockchain: ethereum
+    }
   ) {
     Social {
       dappName
@@ -356,6 +374,132 @@ query GetAddressOfLens {
               }
             ]
           }
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Lens Profiles of a given Solana address
+
+You can fetch the Lens profiles of a given solana address by using the [`Socials`](../../api-references/api-reference/socials-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/J5r3KI4VCQ" %}
+Show me the Lens profiles owned by Solana address GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        identity: {_eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV"},
+        dappName: {_eq: lens}
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Social {
+      profileName
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "profileName": "lens/@alexj"
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All Solana addresses of Lens profile
+
+You can resolve a profile to their 0x addresses by using [`Socials`](../../api-references/api-reference/socials-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/4ccsLCKW7I" %}
+Show me all the Solana addresses of Lens profile alexj
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Wallet(
+    input: {identity: "lens/@alexj", blockchain: ethereum}
+  ) {
+    farcaster: socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+      connectedAddresses {
+        address
+        chainId
+        blockchain
+        timestamp
+      }
+    }
+    domains {
+      multiChainAddresses {
+        address
+        symbol
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Wallet": {
+      "farcaster": [
+        {
+          "connectedAddresses": [
+            {
+              "address": "0xe0235804378c31948e81441f656d826ee5998bc6",
+              "chainId": "1",
+              "blockchain": "ethereum",
+              "timestamp": "2023-07-04T18:54:04Z"
+            }
+          ]
+        }
+      ],
+      "domains": [
+        {
+          "multiChainAddresses": [
+            {
+              "address": "0xe0235804378c31948E81441f656D826eE5998Bc6",
+              "symbol": "ETH"
+            },
+            {
+              "address": "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV",
+              "symbol": "SOL"
+            }
+          ]
         }
       ]
     }

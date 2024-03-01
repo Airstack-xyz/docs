@@ -1,7 +1,8 @@
 ---
 description: >-
   Learn how to use Airstack to universally resolve and reverse resolve Farcaster
-  name or ID to other web3 identities (Lens, ENS, Ethereum address).
+  name or ID to other web3 identities (Lens, ENS, Ethereum address, Solana
+  address).
 layout:
   title:
     visible: true
@@ -23,6 +24,8 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
+* [Get Farcaster profiles of a given Solana address](farcaster.md#get-farcaster-profiles-of-a-given-solana-address)
+* [Get Solana addresses of Farcaster user](farcaster.md#get-all-solana-addresses-of-farcaster-user)
 * [Get Farcaster from a given user(s)](farcaster.md#get-farcaster-from-a-given-user-s)
 * [Get the Ethereum address, Lens, and ENS from a given Farcaster(s)](farcaster.md#get-the-ethereum-address-lens-and-ens-from-a-given-farcaster-s)
 
@@ -161,6 +164,140 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
+
+## Get Farcaster profiles of a given Solana address
+
+You can resolve Solana address to get all the Farcaster profiles owned by the given Solana address by using the [`Socials`](../../api-references/api-reference/socials-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/ewk0zjfkll" %}
+Show me the Farcaster profile of solana address 9t92xZy9q5SyfKBH4rZwEDFXjaZKgzj5PgviPhKtBjyy
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        identity: {_eq: "9t92xZy9q5SyfKBH4rZwEDFXjaZKgzj5PgviPhKtBjyy"},
+        dappName: {_eq: farcaster}
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Social {
+      profileName
+      fid: userId
+      userAssociatedAddresses
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "profileName": "v",
+          "fid": "2",
+          "userAssociatedAddresses": [
+            "0x4114e33eb831858649ea3702e1c9a2db3f626446",
+            "0x91031dcfdea024b4d51e775486111d2b2a715871",
+            "0x182327170fc284caaa5b1bc3e3878233f529d741",
+            "0xf86a7a5b7c703b1fd8d93c500ac4cc75b67477f0",
+            "9t92xZy9q5SyfKBH4rZwEDFXjaZKgzj5PgviPhKtBjyy"
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All Solana addresses of Farcaster user
+
+You can resolve a Farcaster user to their Solana addresses by using [`Socials`](../../api-references/api-reference/socials-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/4oizUq1TtG" %}
+Show me the Solana connected address of Farcaster user v
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        dappName: {_eq: farcaster},
+        profileName: {_eq: "v"}
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Social {
+      connectedAddresses {
+        address
+        blockchain
+        chainId
+        timestamp
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "connectedAddresses": [
+            {
+              "address": "9t92xZy9q5SyfKBH4rZwEDFXjaZKgzj5PgviPhKtBjyy",
+              "blockchain": "solana",
+              "chainId": "900",
+              "timestamp": "2024-02-16T22:13:14Z"
+            },
+            {
+              "address": "0x91031dcfdea024b4d51e775486111d2b2a715871",
+              "blockchain": "ethereum",
+              "chainId": "1",
+              "timestamp": "2023-04-28T17:42:20Z"
+            },
+            {
+              "address": "0x182327170fc284caaa5b1bc3e3878233f529d741",
+              "blockchain": "ethereum",
+              "chainId": "1",
+              "timestamp": "2023-07-26T20:46:33Z"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Get Farcaster name from any other identity
 

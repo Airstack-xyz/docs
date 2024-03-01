@@ -16,11 +16,19 @@ layout:
 
 Airstack Identity API has been integrated throughout all of the GraphQL queries!
 
-You can filter your queries using the identity inputs by passing the following values instead of a blockchain address:
+You can filter your queries using the identity inputs by passing the following values instead of an EVM 0x address:
+
+## **Solana Address**
+
+You can enter the Solana addresses of a user directly in the `owner`, `address`, or `identity` field:
+
+| Sample Input                                                                   | Description                    |
+| ------------------------------------------------------------------------------ | ------------------------------ |
+| <mark style="color:red;">`GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV`</mark> | Valid base58 Solana addresses  |
 
 ## **ENS** Domains
 
-You can enter the [ENS domains](https://ens.domains), both on-chain or off-chain (e.g. [cb.id](https://cb.id) or [Namestone](https://namestone.xyz)), directly in the `owner` or `address` field:
+You can enter the [ENS domains](https://ens.domains), both on-chain or off-chain (e.g. [cb.id](https://cb.id) or [Namestone](https://namestone.xyz)), directly in the `owner`, `address`, or `identity` field:
 
 | Sample Input                                                | Description                            |
 | ----------------------------------------------------------- | -------------------------------------- |
@@ -31,7 +39,7 @@ You can enter the [ENS domains](https://ens.domains), both on-chain or off-chain
 
 ## **Farcaster** ID and Name
 
-You can enter Farcaster ID or name directly in the `owner` or `address` field:
+You can enter Farcaster ID or name directly in the `owner`, `address`, or `identity` field:
 
 | Sample Input                                        | Description                                                      |
 | --------------------------------------------------- | ---------------------------------------------------------------- |
@@ -59,7 +67,6 @@ Show me all NFTs and their images currently being held by Farcaster user name dw
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query ID1 {
   TokenBalances(
@@ -88,11 +95,9 @@ query ID1 {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -143,13 +148,12 @@ query ID1 {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Lens Profile Name and ID
 
-You can enter Lens name directly in the `owner` or `address` field:
+You can enter Lens name directly in the `owner`, `address`, or `identity` field:
 
 | Sample Input                                        | Description                                                          |
 | --------------------------------------------------- | -------------------------------------------------------------------- |
@@ -171,7 +175,6 @@ Show me all lens/@stani token transfers
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query tokenTransfers {
   TokenTransfers(
@@ -191,11 +194,9 @@ query tokenTransfers {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -224,6 +225,5 @@ query tokenTransfers {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}

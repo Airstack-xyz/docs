@@ -1,7 +1,8 @@
 ---
 description: >-
   Learn how to use Airstack to universally resolve and reverse resolve ENS,
-  Namestone, and cb.id to other web3 identities (Farcaster, Lens, 0x address).
+  Namestone, and cb.id to other web3 identities (Farcaster, Lens, 0x address,
+  Solana address).
 layout:
   title:
     visible: true
@@ -27,6 +28,8 @@ In this guide you will learn how to use Airstack to:
 * [Get the 0x address, Lens, and Farcaster from a given ENS name(s)](ens.md#get-the-0x-address-lens-and-farcaster-from-a-given-ens-name-s)
 * [Get the 0x address, Lens, and Farcaster from a given cb.id (Offchain)](ens.md#get-the-0x-address-lens-and-farcaster-from-a-given-cb.id-offchain)
 * [Get the 0x address, Lens, and Farcaster from a given Namestone Subdomain (Offchain)](ens.md#get-the-0x-address-lens-and-farcaster-from-a-given-namestone-subdomain-offchain)
+* [Get All The Solana addresses from a given ENS name](ens.md#get-all-the-solana-addresses-from-a-given-ens-name)
+* [Get All The Solana addresses from a given Namestone Subdomain or cb.id (Offchain)](ens.md#get-all-the-solana-addresses-from-a-given-namestone-subdomain-or-cb.id-offchain)
 
 ## Pre-requisites
 
@@ -166,12 +169,12 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get ENS from a given user(s)
 
-You can get all the ENS names and offchain domains (Namestone & cb.id) of a given user, both primary and non-primary names, by providing either 0x addresses, Lens profile, or Farcaster:
+You can get all the ENS names and offchain domains (Namestone & cb.id) of a given user, both primary and non-primary names, by providing either 0x addresses, Solana addresses, Farcaster or Lens profile:
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/SkTlH3Lh3I" %}
-Show me the ENS of 0x4b70d04124c2996de29e0caa050a49822faec6cc, lens/@stani, fc\_fname:vbuterin
+Show me the ENS of 0x4b70d04124c2996de29e0caa050a49822faec6cc, GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV, lens/@stani, fc\_fname:vbuterin
 {% endembed %}
 
 ### Code
@@ -185,8 +188,9 @@ query GetENS {
       filter: {
         owner: {
           _in: [
-            "0x4b70d04124c2996de29e0caa050a49822faec6cc"
-            "lens/@stani"
+            "0x4b70d04124c2996de29e0caa050a49822faec6cc",
+            "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV",
+            "lens/@stani",
             "fc_fname:vbuterin"
           ]
         }
@@ -225,175 +229,7 @@ query GetENS {
           "isPrimary": false,
           "resolvedAddress": ""
         },
-        {
-          "name": "brianshaw.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-        },
-        {
-          "name": "vbuterin.eth",
-          "isPrimary": false,
-          "resolvedAddress": ""
-        },
-        {
-          "name": "klock.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0xdb5802f5579b97be83bd48acad271187f7813148"
-        },
-        {
-          "name": "quantumsmartcontracts.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-        },
-        {
-          "name": "legendgames.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0xdb5802f5579b97be83bd48acad271187f7813148"
-        },
-        {
-          "name": "vitalik.ethid.eth",
-          "isPrimary": false,
-          "resolvedAddress": ""
-        },
-        {
-          "name": "elddem.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0xdb5802f5579b97be83bd48acad271187f7813148"
-        },
-        {
-          "name": "v‍i‍t‍a‍l‍i‍k‍.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0xc341683d1ee57b13ab90a1fc00f38dc6f7afdd14"
-        },
-        {
-          "name": "happybirthdayvitalik.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0x000001f568875f378bf6d170b790967fe429c81a"
-        },
-        {
-          "name": "openegp.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-        },
-        {
-          "name": "satoshichained.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0xdb5802f5579b97be83bd48acad271187f7813148"
-        },
-        {
-          "name": "[96ac36fc321a672a62d6674124081d3998301fd403505f4eae1f0a1f824391f1].addr.reverse",
-          "isPrimary": false,
-          "resolvedAddress": ""
-        },
-        {
-          "name": "quantumdapps.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-        },
-        {
-          "name": "slasha.vitalik.eth",
-          "isPrimary": false,
-          "resolvedAddress": ""
-        },
-        {
-          "name": "v-buterin.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0x2b3a83b27139d0501ed2345716121189e7994964"
-        },
-        {
-          "name": "vitalik-b.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0x2b3a83b27139d0501ed2345716121189e7994964"
-        },
-        {
-          "name": "ethereumgoodprivacy.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0x6b0c50a96e8ff1e740b4518253078ec79c3a139c"
-        },
-        {
-          "name": "prxshant.eth",
-          "isPrimary": true,
-          "resolvedAddress": "0x4b70d04124c2996de29e0caa050a49822faec6cc"
-        },
-        {
-          "name": "denarii.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0x8a8b5318d3a59fa6d1d0a83a1b0506f2796b5670"
-        },
-        {
-          "name": "@LudwigEth #ens.eth",
-          "isPrimary": false,
-          "resolvedAddress": ""
-        },
-        {
-          "name": "prashantbagga.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0x4b70d04124c2996de29e0caa050a49822faec6cc"
-        },
-        {
-          "name": "vitalik.rpl.eth",
-          "isPrimary": false,
-          "resolvedAddress": ""
-        },
-        {
-          "name": "vitalik.xeenon.eth",
-          "isPrimary": false,
-          "resolvedAddress": ""
-        },
-        {
-          "name": "vitalik.eth",
-          "isPrimary": true,
-          "resolvedAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-        },
-        {
-          "name": "vitalik-buterin.eth",
-          "isPrimary": false,
-          "resolvedAddress": ""
-        },
-        {
-          "name": "pool.denarii.eth",
-          "isPrimary": false,
-          "resolvedAddress": ""
-        },
-        {
-          "name": "quantum-ethereum.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0x6b0c50a96e8ff1e740b4518253078ec79c3a139c"
-        },
-        {
-          "name": "qthereum.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0x6b0c50a96e8ff1e740b4518253078ec79c3a139c"
-        },
-        {
-          "name": "denarius.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0xdb5802f5579b97be83bd48acad271187f7813148"
-        },
-        {
-          "name": "tfw_cheese_under_my_toe_nails_and_it_stanks_but_in_a_good_way_in_fact_so_good_i_wanna_smear_it_on_a_toast_and_eat_it.eth",
-          "isPrimary": false,
-          "resolvedAddress": ""
-        },
-        {
-          "name": "list.denarii.eth",
-          "isPrimary": false,
-          "resolvedAddress": ""
-        },
-        {
-          "name": "ephemeralgoodprivacy.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0x6b0c50a96e8ff1e740b4518253078ec79c3a139c"
-        },
-        {
-          "name": "vitalik.takoyaki.eth",
-          "isPrimary": false,
-          "resolvedAddress": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-        },
-        {
-          "name": "@LudwigEth.eth",
-          "isPrimary": false,
-          "resolvedAddress": ""
+        // Other ENS domains
         }
       ]
     }
@@ -582,6 +418,140 @@ query GetNamestone {
   }
 }
 ```
+{% endtab %}
+{% endtabs %}
+
+## Get All The Solana addresses from a given ENS name
+
+You can get the Solana addresses of ENS names by using the [`Domains`](../../api-references/api-reference/domains-api.md) API and checking through the registered `multichainAddresses` field that has `symbol` equal to **SOL**:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/UHJdGOCe1r" %}
+Show me alexjcomeau.eth's multichain SOL address
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query GetUserDetailsFromENS {
+  Domains(
+    input: {
+      filter: {
+        name: {_eq: "alexjcomeau.eth"}
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Domain {
+      multiChainAddresses {
+        address
+        symbol
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Domains": {
+      "Domain": [
+        {
+          "multiChainAddresses": [
+            {
+              "address": "0xe0235804378c31948E81441f656D826eE5998Bc6",
+              "symbol": "ETH"
+            },
+            {
+              // This is the SOL address registered by user in ENS
+<strong>              "address": "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV",
+</strong>              "symbol": "SOL"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Get All The Solana addresses from a given Namestone Subdomain or cb.id (Offchain)
+
+You can get the 0x addresses of offchain domains (Namestone/cb.id) by using the [`Domains`](../../api-references/api-reference/domains-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/E2MMhhm4ql" %}
+Show me yosephks.cb.id's multichain SOL address
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Domains(
+    input: {
+      filter: {
+        name: {_eq: "yosephks.cb.id"}
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Domain {
+      multiChainAddresses {
+        address
+        symbol
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Domains": {
+      "Domain": [
+        {
+          "multiChainAddresses": [
+            {
+              "address": "bc1qetgl5rx3uuhxek7erfc3wh97m3xkshx8pkdpr5",
+              "symbol": "BTC"
+            },
+            {
+              "address": "DETcngVSTXVbetWmRo9kdQe7xD9F19uqWk",
+              "symbol": "DOGE"
+            },
+            {
+              "address": "0xc7486219881C780B676499868716B27095317416",
+              "symbol": "ETH"
+            },
+            {
+              "address": "ltc1qwsqc8y09w59yqvlwy9c4fkqxu5md33vsr2uak6",
+              "symbol": "LTC"
+            },
+            {
+              // This is the SOL address connected to yosephks.cb.id (offchain)
+<strong>              "address": "HyrNmmmce9W3rDdTQcZHyYvhuxPN6AaY3mVJcS9f4AZw",
+</strong>              "symbol": "SOL"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
