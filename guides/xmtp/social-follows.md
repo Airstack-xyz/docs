@@ -17,8 +17,6 @@ layout:
 
 # 🎉 Social Follows
 
-## 🎉 Social Follows
-
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [XMTP](https://xmtp.org) applications and integrating on-chain and off-chain data with [XMTP](https://xmtp.org).
 
 ## Table Of Contents

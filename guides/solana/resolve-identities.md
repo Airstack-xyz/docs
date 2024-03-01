@@ -15,19 +15,19 @@ layout:
     visible: true
 ---
 
-# 🌅 Solana Address
+# 🆔 Resolve Identities
 
 ## Table Of Contents
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get All 0x Addresses Connected To Solana Address](solana-address.md#get-all-0x-addresses-connected-to-solana-address)
-* [Get All Solana Addresses Connected To 0x Address](solana-address.md#get-all-solana-addresses-connected-to-0x-address)
-* [Get All Web3 Social Accounts (Farcaster, Lens) and ENS Domains Resolved From Solana Address](solana-address.md#get-all-web3-social-accounts-farcaster-lens-and-ens-domains-resolved-from-solana-address)
-* [Get All The Solana addresses from a given ENS name](solana-address.md#get-all-the-solana-addresses-from-a-given-ens-name)
-* [Get All The Solana addresses from a given Namestone Subdomain or cb.id (Offchain)](solana-address.md#get-all-the-solana-addresses-from-a-given-namestone-subdomain-or-cb.id-offchain)
-* [Get All Solana addresses of Farcaster user](solana-address.md#get-all-solana-addresses-of-farcaster-user)
-* [Get All Solana addresses of Lens profile](solana-address.md#get-all-solana-addresses-of-lens-profile)
+* [Get All 0x Addresses Connected To Solana Address](resolve-identities.md#get-all-0x-addresses-connected-to-solana-address)
+* [Get All Solana Addresses Connected To 0x Address](resolve-identities.md#get-all-solana-addresses-connected-to-0x-address)
+* [Get All Web3 Social Accounts (Farcaster, Lens) and ENS Domains Resolved From Solana Address](resolve-identities.md#get-all-web3-social-accounts-farcaster-lens-and-ens-domains-resolved-from-solana-address)
+* [Get All The Solana addresses from a given ENS name](resolve-identities.md#get-all-the-solana-addresses-from-a-given-ens-name)
+* [Get All The Solana addresses from a given Namestone Subdomain or cb.id (Offchain)](resolve-identities.md#get-all-the-solana-addresses-from-a-given-namestone-subdomain-or-cb.id-offchain)
+* [Get All Solana addresses of Farcaster user](resolve-identities.md#get-all-solana-addresses-of-farcaster-user)
+* [Get All Solana addresses of Lens profile](resolve-identities.md#get-all-solana-addresses-of-lens-profile)
 
 ## Pre-requisites
 
