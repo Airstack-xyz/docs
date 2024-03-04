@@ -1,4 +1,8 @@
 ---
+description: >-
+  As of March 4, 2024 Airstack has resolved about 1M Solana addresses to
+  Ethereum addresses from verified sources including Farcaster and Coinbase
+  Wallet.
 layout:
   title:
     visible: true
