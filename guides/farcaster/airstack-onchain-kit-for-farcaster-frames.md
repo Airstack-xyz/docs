@@ -29,6 +29,7 @@ Designed with TypeScript, the SDK offers full type support for those building Fr
 
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
+* [Validate Frames Signature Packet](airstack-onchain-kit-for-farcaster-frames.md#validate-frames-signature-packet)
 * [Get Farcaster User Details](airstack-onchain-kit-for-farcaster-frames.md#get-started)
 * [Get all of the Farcaster User's Followers](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-users-followers)
 * [Get all of the Farcaster User's Followings](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-users-followings)
@@ -37,6 +38,8 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Get All Users Commonly Followed By Two Users](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-commonly-followed-by-two-users)
 * [Get Channel Details](airstack-onchain-kit-for-farcaster-frames.md#get-channel-details)
 * [Get Participants Of A Channel](airstack-onchain-kit-for-farcaster-frames.md#get-participants-of-a-channel)
+* [Get Farcaster Channels By Participant](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-channels-by-participant)
+* [Get Farcaster Channels By Host](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-channels-by-host)
 * [Get All POAPs Attended By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-poaps-attended-by-farcaster-user)
 * [Get All NFTs Held By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-nfts-hold-by-farcaster-user) on Ethereum, Base, Zora, and Polygon
 * [Get All ERC20 Tokens Hold By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-erc20-tokens-hold-by-farcaster-user) on Ethereum, Base, Zora, and Polygon
@@ -180,6 +183,111 @@ asyncio.run(main())
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
+
+## Validate Frames Signature Packet
+
+You can validate [Frames Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) for your Farcaster Frames by using the [`validateFramesMessage`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#validateframesmessage) function
+
+{% tabs %}
+{% tab title="TypeScript" %}
+```typescript
+import {
+  validateFramesMessage,
+  ValidateFramesMessageInput,
+  ValidateFramesMessageOutput,
+} from "@airstack/frames";
+
+try {
+  // Your Frames Signature Packet from the request body
+  const body: ValidateFramesMessageInput = {
+    untrustedData: {
+      fid: 289309,
+      url: "https://sample.frames",
+      messageHash: "0xabc",
+      timestamp: 1709198011100,
+      network: 1,
+      buttonIndex: 1,
+      castId: {
+        fid: 289309,
+        hash: "0x0000000000000000000000000000000000000001",
+      },
+    },
+    trustedData: {
+      messageBytes:
+        "0a61080d109dd41118d0c9c72f20018201510a3168747470733a2f2f70656c6963616e2d666f6e642d64697374696e63746c792e6e67726f6b2d667265652e6170702f6f6710011a1a089dd4111214000000000000000000000000000000000000000112146357261fa893e4be85f78178babaca876f9a1fac18012240d1ed649964018377641a78638f0c19d3c346c1eb1a47e856c0fcd87d3fc72ff98172f939fc18ffdd16af746144279e6debb3f4913f491c69d22f6703e554510a280132200295183aaa021cad737db7ddbc075964496ece1c0bcc1009bdae6d1799c83cd4",
+    },
+  };
+  const res: ValidateFramesMessageOutput =
+    await validateFramesMessage(body);
+} catch (error) {
+  console.error(error);
+}
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const { validateFramesMessage } = require("@airstack/frames");
+
+try {
+  // Your Frames Signature Packet from the request body
+  const body = {
+    untrustedData: {
+      fid: 289309,
+      url: "https://sample.frames",
+      messageHash: "0xabc",
+      timestamp: 1709198011100,
+      network: 1,
+      buttonIndex: 1,
+      castId: {
+        fid: 289309,
+        hash: "0x0000000000000000000000000000000000000001",
+      },
+    },
+    trustedData: {
+      messageBytes:
+        "0a61080d109dd41118d0c9c72f20018201510a3168747470733a2f2f70656c6963616e2d666f6e642d64697374696e63746c792e6e67726f6b2d667265652e6170702f6f6710011a1a089dd4111214000000000000000000000000000000000000000112146357261fa893e4be85f78178babaca876f9a1fac18012240d1ed649964018377641a78638f0c19d3c346c1eb1a47e856c0fcd87d3fc72ff98172f939fc18ffdd16af746144279e6debb3f4913f491c69d22f6703e554510a280132200295183aaa021cad737db7ddbc075964496ece1c0bcc1009bdae6d1799c83cd4",
+    },
+  };
+  const res = await validateFramesMessage(body);
+} catch (error) {
+  console.error(error);
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "isValid": true,
+  "message": {
+    "data": {
+      "type": "MESSAGE_TYPE_FRAME_ACTION",
+      "fid": 289309,
+      "timestamp": 99738832,
+      "network": "FARCASTER_NETWORK_MAINNET",
+      "frameActionBody": {
+        "url": "aHR0cHM6Ly9wZWxpY2FuLWZvbmQtZGlzdGluY3RseS5uZ3Jvay1mcmVlLmFwcC9vZw==",
+        "buttonIndex": 1,
+        "castId": {
+          "fid": 289309,
+          "hash": "0x0000000000000000000000000000000000000001"
+        },
+        "inputText": "",
+        "state": "",
+        "transactionId": ""
+      }
+    },
+    "hash": "0xabc",
+    "hashScheme": "HASH_SCHEME_BLAKE3",
+    "signature": "0e1kmWQBg3dkGnhjjwwZ08NGwesaR+hWwPzYfT/HL/mBcvk5/Bj/3RavdGFEJ55t67P0kT9JHGnSL2cD5VRRCg==",
+    "signatureScheme": "SIGNATURE_SCHEME_ED25519",
+    "signer": "0x0295183aaa021cad737db7ddbc075964496ece1c0bcc1009bdae6d1799c83cd4"
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Get Farcaster User Details
 
@@ -801,64 +909,75 @@ query MyQuery($userA: Identity!, $userB: Identity!) {
 
 ## Get Channel Details
 
-You can fetch a certain channel details by using the [`FarcasterChannels`](../../api-references/api-reference/farcasterchannels-api.md) and providing the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/rVa7S9sPmm" %}
-Get /farcaster Farcaster channel details
-{% endembed %}
-
-### Code
+You can fetch a certain channel details by using the [`getFarcasterChannelDetails`](https://github.com/Airstack-xyz/airstack-frames-sdk#getfarcasterchanneldetails) function:
 
 {% tabs %}
-{% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
-  FarcasterChannels(
-    input: {
-      blockchain: ALL,
-      filter: {
-<strong>        channelId: {_eq: "farcaster"} # input 'farcaster' for /farcaster channel
-</strong>      }
-    }
-  ) {
-    FarcasterChannel {
-      channelId
-      dappName
-      createdAtTimestamp
-      dappSlug
-      description
-      name
-      url
-      imageUrl
-    }
-  }
-}
-</code></pre>
+{% tab title="TypeScript" %}
+```typescript
+import {
+  getFarcasterChannelDetails,
+  FarcasterChannelDetailsInput,
+  FarcasterChannelDetailsOutput,
+} from "@airstack/frames";
+
+const input: FarcasterChannelDetailsInput = {
+  channel: "farcaster",
+};
+const { data, error }: FarcasterChannelDetailsOutput =
+  await getFarcasterChannelDetails(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
 {% endtab %}
 
-{% tab title="Demo" %}
+{% tab title="JavaScript" %}
+```javascript
+const { getFarcasterChannelDetails } = require("@airstack/frames");
+
+const input = {
+  channel: "farcaster",
+};
+const { data, error } =
+  await getFarcasterChannelDetails(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="Response" %}
 ```json
 {
-  "data": {
-    "FarcasterChannels": {
-      "FarcasterChannel": [
-        {
-          "channelId": "farcaster",
-          "dappName": "Farcaster",
-          "createdAtTimestamp": "2023-08-02T22:33:26Z",
-          "dappSlug": "farcaster_v2_optimism",
-          "description": "Discussions about Farcaster on Farcaster (meta!)",
-          "name": "Farcaster",
-          "url": "chain://eip155:7777777/erc721:0x4f86113fc3e9783cf3ec9a552cbb566716a57628",
-          "imageUrl": "https://ipfs.decentralized-content.com/ipfs/bafkreialf5usxssf2eu3e5ct37zzdd553d7lg7oywvdszmrg5p2zpkta7u",
-          "leadIds": [
-            "2"
-          ]
-        }
-      ]
+  "name": "Farcaster",
+  "description": "Discussions about Farcaster on Farcaster (meta!)",
+  "imageUrl": "https://ipfs.decentralized-content.com/ipfs/bafkreialf5usxssf2eu3e5ct37zzdd553d7lg7oywvdszmrg5p2zpkta7u",
+  "createdAtTimestamp": "2023-08-02T22:33:26Z",
+  "hosts": [
+    {
+      "profileName": "v",
+      "fnames": ["v", "varunsrin.eth"],
+      "fid": "2",
+      "profileImage": {
+        "extraSmall": "https://assets.airstack.xyz/image/social/XCPJH5EP49qftYc7+wAFfv5jzo3ddBWc9FMEERWezG8=/extra_small.png",
+        "small": "https://assets.airstack.xyz/image/social/XCPJH5EP49qftYc7+wAFfv5jzo3ddBWc9FMEERWezG8=/small.png",
+        "medium": "https://assets.airstack.xyz/image/social/XCPJH5EP49qftYc7+wAFfv5jzo3ddBWc9FMEERWezG8=/medium.png",
+        "large": "https://assets.airstack.xyz/image/social/XCPJH5EP49qftYc7+wAFfv5jzo3ddBWc9FMEERWezG8=/large.png",
+        "original": "https://assets.airstack.xyz/image/social/XCPJH5EP49qftYc7+wAFfv5jzo3ddBWc9FMEERWezG8=/original_image.png"
+      },
+      "userAssociatedAddresses": [
+        "0x4114e33eb831858649ea3702e1c9a2db3f626446",
+        "0x91031dcfdea024b4d51e775486111d2b2a715871",
+        "0x182327170fc284caaa5b1bc3e3878233f529d741",
+        "0xf86a7a5b7c703b1fd8d93c500ac4cc75b67477f0"
+      ],
+      "followerCount": 142424,
+      "followingCount": 1127
     }
-  }
+  ],
+  "warpcastUrl": "https://warpcast.com/~/channel/farcaster"
 }
 ```
 {% endtab %}
@@ -866,71 +985,250 @@ Get /farcaster Farcaster channel details
 
 ## Get Participants Of A Channel
 
-You can fetch all the participants of a channel by using the [`FarcasterChannels`](../../api-references/api-reference/farcasterchannels-api.md) and providing the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/qPY13mDKpQ" %}
-Show me all participants of the /farcaster channel on Farcaster
-{% endembed %}
-
-### Code
+You can fetch all the participants of a channel by using the [`getFarcasterChannelParticipants`](https://github.com/Airstack-xyz/airstack-frames-sdk#getfarcasterchannelparticipants) function:
 
 {% tabs %}
-{% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
-  FarcasterChannels(
-    input: {
-      blockchain: ALL,
-      filter: {
-<strong>        channelId: {_eq: "farcaster"} # input 'farcaster' for /farcaster channel
-</strong>      }
-    }
-  ) {
-    FarcasterChannel {
-      participants {
-        participant {
-          userAddress
-          profileName
-          fid: userId
-          userAssociatedAddresses
-          followerCount
-          followingCount
-        }
-      }
-    }
-  }
-}
-</code></pre>
+{% tab title="TypeScript" %}
+```typescript
+import {
+  getFarcasterChannelParticipants,
+  FarcasterChannelParticipantsInput,
+  FarcasterChannelParticipantsOutput,
+  FarcasterChannelActionType,
+} from "@airstack/frames";
+
+const input: FarcasterChannelParticipantsInput = {
+  channel: "farcaster",
+  actionType: [
+    FarcasterChannelActionType.Cast,
+    FarcasterChannelActionType.Reply,
+  ],
+  lastActionTimestamp: {
+    after: "2024-02-01T00:00:00Z",
+    before: "2024-02-28T00:00:00Z",
+  },
+  limit: 100,
+};
+const { data, error }: FarcasterChannelParticipantsOutput =
+  await getFarcasterChannelParticipants(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const {
+  getFarcasterChannelParticipants,
+  FarcasterChannelActionType,
+} = require("@airstack/frames");
+
+const input = {
+  channel: "farcaster",
+  actionType: [
+    FarcasterChannelActionType.Cast,
+    FarcasterChannelActionType.Reply,
+  ],
+  lastActionTimestamp: {
+    after: "2024-02-01T00:00:00Z",
+    before: "2024-02-28T00:00:00Z",
+  },
+  limit: 100,
+};
+const { data, error } = await getFarcasterChannelParticipants(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
 {% endtab %}
 
 {% tab title="Response" %}
 ```json
-{
-  "data": {
-    "FarcasterChannels": {
-      "FarcasterChannel": [
-        {
-          "participants": [
-            {
-              "participant": {
-                "userAddress": "0x01a7cd990253915391454a111d704c22a62a1e4d",
-                "profileName": "voor03",
-                "fid": "250359",
-                "userAssociatedAddresses": [
-                  "0x01a7cd990253915391454a111d704c22a62a1e4d"
-                ],
-                "followerCount": 434,
-                "followingCount": 617
-              }
-            },
-            // Other /warpcast channel participants
-          ]
-        }
-      ]
-    }
+[
+  {
+    "profileName": "dawufi",
+    "fnames": ["dawufi"],
+    "fid": "6806",
+    "profileImage": {
+      "extraSmall": "https://assets.airstack.xyz/image/social/94uonfbLlRHZf6qh2LpPC6Fg4DNg3uCUrXkwlo+jA/I=/extra_small.gif",
+      "small": "https://assets.airstack.xyz/image/social/94uonfbLlRHZf6qh2LpPC6Fg4DNg3uCUrXkwlo+jA/I=/small.gif",
+      "medium": "https://assets.airstack.xyz/image/social/94uonfbLlRHZf6qh2LpPC6Fg4DNg3uCUrXkwlo+jA/I=/medium.gif",
+      "large": "https://assets.airstack.xyz/image/social/94uonfbLlRHZf6qh2LpPC6Fg4DNg3uCUrXkwlo+jA/I=/large.gif",
+      "original": "https://assets.airstack.xyz/image/social/94uonfbLlRHZf6qh2LpPC6Fg4DNg3uCUrXkwlo+jA/I=/original_image.gif"
+    },
+    "userAssociatedAddresses": [
+      "0xe1b1e3bbf4f29bd7253d6fc1e2ddc9cacb0a546a",
+      "0x0964256674e42d61f0ff84097e28f65311786ccb"
+    ],
+    "followerCount": 14813,
+    "followingCount": 1551
   }
-}
+]
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Farcaster Channels By Participant
+
+You can fetch all the Farcaster channels of a given participants by using the [`getFarcasterChannelsByParticipant`](https://github.com/Airstack-xyz/airstack-frames-sdk#getfarcasterchannelsbyparticipant) function:
+
+{% tabs %}
+{% tab title="TypeScript" %}
+```typescript
+import {
+  getFarcasterChannelsByParticipant,
+  FarcasterChannelActionType,
+  FarcasterChannelsByParticipantInput,
+  FarcasterChannelsByParticipantOutput,
+} from "@airstack/frames";
+
+const input: FarcasterChannelsByParticipantInput = {
+  fid: 602,
+  actionType: [
+    FarcasterChannelActionType.Cast,
+    FarcasterChannelActionType.Reply,
+  ],
+  lastActionTimestamp: {
+    after: "2024-02-01T00:00:00Z",
+    before: "2024-02-28T00:00:00Z",
+  },
+  limit: 100,
+};
+const { data, error }: FarcasterChannelsByParticipantOutput =
+  await getFarcasterChannelsByParticipant(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const {
+  getFarcasterChannelsByParticipant,
+  FarcasterChannelActionType,
+} = require("@airstack/frames");
+
+const input = {
+  fid: 602,
+  actionType: [
+    FarcasterChannelActionType.Cast,
+    FarcasterChannelActionType.Reply,
+  ],
+  lastActionTimestamp: {
+    after: "2024-02-01T00:00:00Z",
+    before: "2024-02-28T00:00:00Z",
+  },
+  limit: 100,
+};
+const { data, error } = await getFarcasterChannelsByParticipant(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+[
+  {
+    "name": "Based Management",
+    "description": "Things worth doing onchain.",
+    "imageUrl": "https://i.imgur.com/f0BFBfH.png",
+    "createdAtTimestamp": "2023-11-06T19:23:10Z",
+    "hosts": [
+      {
+        "profileName": "lght.eth",
+        "fnames": ["0xlght", "lght.eth"],
+        "fid": "13121",
+        "profileImage": {
+          "extraSmall": "https://assets.airstack.xyz/image/social/sxSmw/OjqyuT+uMDpHiSTmqOH5F76hwnx6Q35elGlUkt5nWRe8xrgnJemShOmjeN/extra_small.jpg",
+          "small": "https://assets.airstack.xyz/image/social/sxSmw/OjqyuT+uMDpHiSTmqOH5F76hwnx6Q35elGlUkt5nWRe8xrgnJemShOmjeN/small.jpg",
+          "medium": "https://assets.airstack.xyz/image/social/sxSmw/OjqyuT+uMDpHiSTmqOH5F76hwnx6Q35elGlUkt5nWRe8xrgnJemShOmjeN/medium.jpg",
+          "large": "https://assets.airstack.xyz/image/social/sxSmw/OjqyuT+uMDpHiSTmqOH5F76hwnx6Q35elGlUkt5nWRe8xrgnJemShOmjeN/large.jpg",
+          "original": "https://assets.airstack.xyz/image/social/sxSmw/OjqyuT+uMDpHiSTmqOH5F76hwnx6Q35elGlUkt5nWRe8xrgnJemShOmjeN/original_image.jpg"
+        },
+        "userAssociatedAddresses": [
+          "0x53667ed77b56d5a94d6df994ab4fd142b7585e68",
+          "0x547a2e8d97dc99be21e509fa93c4fa5dd76b8ed0"
+        ],
+        "followerCount": 16127,
+        "followingCount": 345
+      }
+    ],
+    "warpcastUrl": "https://warpcast.com/~/channel/based-management"
+  }
+]
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Farcaster Channels By Host
+
+You can fetch all the Farcaster channels of a given hosts by using the [`getFarcasterChannelsByHost`](https://github.com/Airstack-xyz/airstack-frames-sdk#getfarcasterchannelsbyhost) function:
+
+{% tabs %}
+{% tab title="TypeScript" %}
+```typescript
+import {
+  getFarcasterChannelsByHost,
+  FarcasterChannelsByHostInput,
+  FarcasterChannelsByHostOutput,
+} from "@airstack/frames";
+
+const input: FarcasterChannelsByHostInput = {
+  fid: 602,
+  createdAtTimestamp: {
+    after: "2024-02-01T00:00:00Z",
+    before: "2024-02-28T00:00:00Z",
+  },
+  limit: 1,
+};
+const { data, error }: FarcasterChannelsByHostOutput =
+  await getFarcasterChannelsByHost(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const { getFarcasterChannelsByHost } = require("@airstack/frames");
+
+const input = {
+  fid: 602,
+  createdAtTimestamp: {
+    after: "2024-02-01T00:00:00Z",
+    before: "2024-02-28T00:00:00Z",
+  },
+  limit: 1,
+};
+const { data, error } = await getFarcasterChannelsByHost(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+[
+  {
+    "name": "airstack",
+    "description": "a place for updates about new airstack functionality, user requests, questions, and more!",
+    "imageUrl": "https://i.imgur.com/13jY9D4.png",
+    "createdAtTimestamp": "2023-12-21T17:30:38Z",
+    "warpcastUrl": "https://warpcast.com/~/channel/airstack"
+  }
+]
 ```
 {% endtab %}
 {% endtabs %}
@@ -969,7 +1267,7 @@ console.log(data);
 
 {% tab title="JavaScript" %}
 ```javascript
-import { getFarcasterUserPoaps } from "@airstack/frames";
+const { getFarcasterUserPoaps } = require("@airstack/frames");
 
 const input = {
   fid: 602,
@@ -2040,56 +2338,85 @@ query MyQuery {
 
 ## Search All Farcaster Channels Whose Names Contain Certain Terms (auto-complete)
 
-You can fetch all Farcaster channels that contains given words by providing `"<given-words>"` directly to the <mark style="color:red;">**`_regex`**</mark> operator in [`FarcasterChannels`](../../api-references/api-reference/farcasterchannels-api.md) API:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/Fv5fIwtAH8" %}
-Show me all Farcaster channels name that contains with "air"
-{% endembed %}
-
-### Code
+You can fetch search Farcaster channels by name by using the [`searchFarcasterChannels`](https://github.com/Airstack-xyz/airstack-frames-sdk#searchfarcasterchannels) function:
 
 {% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  FarcasterChannels(
-    input: {
-      blockchain: ALL,
-      filter: {
-        name: {_regex: "^air"}
-      }
-    }
-  ) {
-    FarcasterChannel {
-      name
-    }
-  }
-}
+{% tab title="TypeScript" %}
+```typescript
+import {
+  searchFarcasterChannels,
+  SearchFarcasterChannelsInput,
+  SearchFarcasterChannelsOutput,
+} from "@airstack/frames";
+
+const input: SearchFarcasterChannelsInput = {
+  channel: "airstack",
+  createdAtTimestamp: {
+    after: "2024-02-01T00:00:00Z",
+    before: "2024-02-28T00:00:00Z",
+  },
+  limit: 2,
+};
+const { data, error }: SearchFarcasterChannelsOutput =
+  await searchFarcasterChannels(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const { searchFarcasterChannels } = require("@airstack/frames");
+
+const input = {
+  channel: "airstack",
+  createdAtTimestamp: {
+    after: "2024-02-01T00:00:00Z",
+    before: "2024-02-28T00:00:00Z",
+  },
+  limit: 2,
+};
+const { data, error } = await searchFarcasterChannels(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
 ```
 {% endtab %}
 
 {% tab title="Response" %}
 ```json
-{
-  "data": {
-    "FarcasterChannels": {
-      "FarcasterChannel": [
-        {
-          "name": "airdrop-dao"
+[
+  {
+    "name": "airstack",
+    "description": "a place for updates about new airstack functionality, user requests, questions, and more!",
+    "imageUrl": "https://i.imgur.com/13jY9D4.png",
+    "createdAtTimestamp": "2023-12-21T17:30:38Z",
+    "hosts": [
+      {
+        "profileName": "betashop.eth",
+        "fnames": ["betashop", "betashop.eth", "jasongoldberg.eth"],
+        "fid": "602",
+        "profileImage": {
+          "extraSmall": "https://assets.airstack.xyz/image/social/TQjjhuaajVkwqgzZVvgFQYU1qxNfVHQgSmZjTcXRrzQ=/extra_small.png",
+          "small": "https://assets.airstack.xyz/image/social/TQjjhuaajVkwqgzZVvgFQYU1qxNfVHQgSmZjTcXRrzQ=/small.png",
+          "medium": "https://assets.airstack.xyz/image/social/TQjjhuaajVkwqgzZVvgFQYU1qxNfVHQgSmZjTcXRrzQ=/medium.png",
+          "large": "https://assets.airstack.xyz/image/social/TQjjhuaajVkwqgzZVvgFQYU1qxNfVHQgSmZjTcXRrzQ=/large.png",
+          "original": "https://assets.airstack.xyz/image/social/TQjjhuaajVkwqgzZVvgFQYU1qxNfVHQgSmZjTcXRrzQ=/original_image.png"
         },
-        {
-          "name": "kazetairdrop"
-        },
-        {
-          "name": "airdropkazet"
-        },
-        // Other Farcaster channel name containing "air"
-      ]
-    }
+        "userAssociatedAddresses": [
+          "0x66bd69c7064d35d146ca78e6b186e57679fba249",
+          "0xeaf55242a90bb3289db8184772b0b98562053559"
+        ],
+        "followerCount": 59421,
+        "followingCount": 2290
+      }
+    ],
+    "warpcastUrl": "https://warpcast.com/~/channel/airstack"
   }
-}
+]
 ```
 {% endtab %}
 {% endtabs %}
