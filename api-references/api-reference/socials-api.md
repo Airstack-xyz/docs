@@ -65,6 +65,7 @@ You just need to specify the input for the query to work.
 type Social {
   blockchain: Blockchain # Blockchain associated with the social identity
   chainId: String # Unique blockchain identifier
+  connectedAddresses: [ConnectedAddress!] # Provide info on connected addresses, including address and blockchain
   dappName: # Social DApp name
   dappSlug: # Social DApp slug (contract version)
   dappVersion: String # Airstack unique dapp version number

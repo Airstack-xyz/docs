@@ -21,7 +21,7 @@ You can access the majority of use cases in Airstack Onchain Kit through the new
 
 The [**Airstack Frames SDK**](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main) empowers developers to seamlessly integrate onchain data, including channels, token balances, token mints, Farcaster followers and followings, POAPs, and more, into their Frames using just a few lines of code.
 
-Additionally, developers can leverage the SDK to create an **allow list** , enabling checks for token ownership, token mints, following status, and more.
+Additionally, developers can leverage the SDK to validate [Frames Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) and create an **allow list**, enabling checks for token ownership, token mints, following status, and more.
 
 Designed with TypeScript, the SDK offers full type support for those building Frames with TypeScript. For SDK reference, check out the official GitHub repository [here](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main). In the guides below the Frames SDK is also highlighted throughout.&#x20;
 
