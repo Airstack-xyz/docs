@@ -25,7 +25,7 @@ Another solid option is [Frames.js](https://framesjs.org/) which provides variou
 
 Once you have set up your Frame server with the right meta tags, you will want to know which users interacted with your Frame so that you can take the next appropriate action.
 
-1. **Use** [**Airstack Validation API**](https://docs.airstack.xyz/airstack-docs-and-faqs/guides/farcaster/frames-validator) **to validate** the incoming user interaction and get details about the interacting user, cast author, and cast itself. For tutorial on how to implement this, click [here](farcaster/frames-validator.md).
+1. **Use** [**Airstack Validation API**](farcaster/frames-validator.md) **to validate** the incoming user interaction and get details about the interacting user, cast author, and cast itself. For tutorial on how to implement this, click [here](farcaster/frames-validator.md).
 2. To test Frames on your local machine, set up [ngrok](https://ngrok.com/download) and use ngrok as your Frame's POST URL.
 
 Now 🪄 **build some magic into your Frames** with Airstack [**Onchain Kit for Farcaster Frames**](https://docs.airstack.xyz/airstack-docs-and-faqs/guides/farcaster/airstack-onchain-kit-for-farcaster-frames) which contains dozens of simple guides for working with Frames, integrating Farcaster and onchain data. For easy integration, Airstack provides you with [Airstack Frames SDK](https://github.com/Airstack-xyz/airstack-frames-sdk) to integrate onchain data to your Farcaster Frames within just a few lines of code. Here are just some of the things you can do with Onchain Kit:
