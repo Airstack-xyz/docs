@@ -28,6 +28,7 @@
 * [💜 Farcaster](guides/farcaster/README.md)
   * [🖼️ Airstack Onchain Kit for Farcaster Frames](guides/farcaster/airstack-onchain-kit-for-farcaster-frames.md)
   * [🎭 Allow Lists for Farcaster Frames](guides/farcaster/proof-of-personhood-for-farcaster-frames.md)
+  * [✅ Frames Validator](guides/farcaster/frames-validator.md)
   * [💡 Activate Kit for Farcaster Auth Kit](guides/farcaster/activate-kit-for-farcaster-auth-kit.md)
   * [📺 Farcaster Channels](guides/farcaster/farcaster-channels.md)
   * [💰 Get Token Balances](guides/farcaster/get-token-balances.md)

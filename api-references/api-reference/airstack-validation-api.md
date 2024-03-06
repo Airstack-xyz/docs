@@ -2,6 +2,17 @@
 description: >-
   Learn all the detailed reference of validation API to validate Frames
   Signature Packet.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # Airstack Validation API
