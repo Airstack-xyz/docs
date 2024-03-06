@@ -33,6 +33,7 @@
 * [🔗 No-Code Frames](guides/no-code-frames/README.md)
   * [⚖️ Token Balances](guides/no-code-frames/token-balances.md)
   * [🗝️ Token Holders](guides/no-code-frames/token-holders.md)
+* [🖼️ Farcaster Frames](guides/farcaster-frames.md)
 * [💜 Farcaster](guides/farcaster/README.md)
   * [🖼️ Airstack Onchain Kit for Farcaster Frames](guides/farcaster/airstack-onchain-kit-for-farcaster-frames.md)
   * [🎭 Allow Lists for Farcaster Frames](guides/farcaster/proof-of-personhood-for-farcaster-frames.md)
