@@ -36,6 +36,7 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Get All Users Followed by Those Followed by A Certain User](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-followed-by-those-followed-by-a-certain-user) (2nd-degree contact)
 * [Get All Users Following the Followers of a Specific User](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-following-the-followers-of-a-specific-user)
 * [Get All Users Commonly Followed By Two Users](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-commonly-followed-by-two-users)
+* [Resolve Solana Address](airstack-onchain-kit-for-farcaster-frames.md#resolve-solana-address)
 * [Get Channel Details](airstack-onchain-kit-for-farcaster-frames.md#get-channel-details)
 * [Get Participants Of A Channel](airstack-onchain-kit-for-farcaster-frames.md#get-participants-of-a-channel)
 * [Get Farcaster Channels By Participant](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-channels-by-participant)
@@ -799,6 +800,67 @@ query MyQuery($userA: Identity!, $userB: Identity!) {
   }
 }
 </code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Resolve Solana Address
+
+You can resolve any solana address to their 0x address, Farcaster, and ENS domains by using the [`Wallet`](../../api-references/api-reference/wallet-api.md) API and providing the solana address to the `identity` input:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/NLsyR0fYZL" %}
+Resolve Solana address GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV to 0x address, Farcaster, and ENS
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Wallet(
+    input: {
+      identity: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV",
+      blockchain: ethereum
+    }
+  ) {
+    addresses
+    farcsater: socials(input: {filter:{dappName: {_eq: farcaster}}}){
+      profileName
+      userId
+    }
+    domains {
+      name
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Wallet": {
+      "addresses": [
+        "0xe0235804378c31948e81441f656d826ee5998bc6"
+      ],
+      "farcsater": [
+        {
+          "profileName": "alexcomeau",
+          "userId": "11161"
+        }
+      ],
+      "domains": [
+        {
+          "name": "alexjcomeau.eth"
+        }
+      ]
+    }
+  }
+}
+```
 {% endtab %}
 {% endtabs %}
 
