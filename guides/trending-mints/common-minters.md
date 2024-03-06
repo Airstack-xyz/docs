@@ -17,7 +17,7 @@ layout:
 
 # 👛 Common Minters
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>Trending Mints By Common Minters Mock Up</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>Trending Mints By Common Minters Mock Up</p></figcaption></figure>
 
 ## Table Of Contents
 

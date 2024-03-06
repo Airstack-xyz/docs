@@ -183,6 +183,7 @@
   * [Wallet API](api-references/api-reference/wallet-api.md)
   * [XMTPs API](api-references/api-reference/xmtps-api.md)
   * [Airstack Identity API](api-references/api-reference/airstack-identity-api.md)
+  * [Airstack Validation API](api-references/api-reference/airstack-validation-api.md)
 
 ## Web SDK Reference
 

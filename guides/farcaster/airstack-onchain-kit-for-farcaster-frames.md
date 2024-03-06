@@ -324,6 +324,83 @@ try {
 {% endtab %}
 {% endtabs %}
 
+If you are using the [Frog](https://frog.fm/) Framework, validation logic is embedded so you can instead set the hubs config to validate with the [Airstack Validation API](../../api-references/api-reference/airstack-validation-api.md) by providing the Hub API URL and the [Airstack API key](../../get-started/get-api-key.md):
+
+{% tabs %}
+{% tab title="TypeScript" %}
+```typescript
+import { Frog } from "frog";
+ 
+const app = new Frog({
+  hub: {
+    apiUrl: "https://hubs.airstack.xyz",
+    headers: {
+      "x-airstack-hubs": "YOUR_AIRSTACK_API_KEY",
+    }
+  }
+});
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+// Some code
+```
+{% endtab %}
+{% endtabs %}
+
+Alternatively, you can also call the [validation API](../../api-references/api-reference/airstack-validation-api.md) by making a **POST** request directly to the `https://hubs.airstack.xyz` and adding the [Airstack API key](../../get-started/get-api-key.md) to the `x-airstack-hubs` field in the header.
+
+{% tabs %}
+{% tab title="TypeScript" %}
+```typescript
+import fetch from "node-fetch";
+
+const validateMessageResponse = await fetch(
+  "https://hubs.airstack.xyz/v1/validateMessage",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/octet-stream",
+      "x-airstack-hubs": "YOUR_AIRSTACK_API_KEY",
+    },
+    body: new Uint8Array(
+      body.trustedData.messageBytes.match(/.{1,2}/g)!.map(
+        (byte: string) => parseInt(byte, 16)
+      )
+    ),
+  }
+);
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const fetch = require("node-fetch");
+
+const validateMessageResponse = await fetch(
+  "https://hubs.airstack.xyz/v1/validateMessage",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/octet-stream",
+      "x-airstack-hubs": "YOUR_AIRSTACK_API_KEY",
+    },
+    body: new Uint8Array(
+      body.trustedData.messageBytes.match(/.{1,2}/g)!.map(
+        (byte: string) => parseInt(byte, 16)
+      )
+    ),
+  }
+);
+```
+{% endtab %}
+{% endtabs %}
+
+We also ran some tests on the [Validation API](../../api-references/api-reference/airstack-validation-api.md) with results shown below:
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Airstack Validation API Testing Result</p></figcaption></figure>
+
 ## Get Farcaster User Details
 
 You can fetch the Farcaster user details, including profile name, fnames, profile image, user connected addresses, follower count, and following count by using the [`getFarcasterUserDetails`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#getfarcasteruserdetails) function:
