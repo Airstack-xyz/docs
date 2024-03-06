@@ -1,6 +1,6 @@
 ---
 description: >-
-  Airstack provides easy-to-use APIs for building Farcaster applications and
+  Airstack provides easy-to-use APIs for building Farcaster Frames & Apps and
   integrating onchain and off-chain data with Farcaster.
 layout:
   title:
