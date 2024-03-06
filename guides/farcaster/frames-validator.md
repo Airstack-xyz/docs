@@ -253,7 +253,7 @@ const validateMessageResponse = await fetch(
 {% endtab %}
 {% endtabs %}
 
-## Testing on AIrstack Validation API
+## Testing on Airstack Validation API
 
 We also ran some tests on the [Validation API](../../api-references/api-reference/airstack-validation-api.md) with results shown below:
 
