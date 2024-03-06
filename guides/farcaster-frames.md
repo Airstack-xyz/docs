@@ -1,5 +1,16 @@
 ---
 description: Learn how to build Farcaster Frames with Airstack.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🖼️ Farcaster Frames
