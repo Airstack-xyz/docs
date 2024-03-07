@@ -21,7 +21,9 @@ Airstack provides two methods for generating trending mints:
 
 ## 1. Airstack Abstractions (no backend db required)
 
-Airstack Abstractions require no backend database. You simply input a couple of criteria and Airstack returns the calculated results. For example: Trending Mints > Farcaster Users > On Base > Last 24 Hours Abstractions are currently available for:
+Airstack Abstractions require no backend database. You simply input a couple of criteria and Airstack returns the calculated results. For example: Trending Mints > Farcaster Users > On Base > Last 24 Hours&#x20;
+
+Trending Mints Abstractions are currently available for:
 
 * Mints on Base Blockchain
 * All Base Users or Filtered to Farcaster Accounts
@@ -31,7 +33,9 @@ Airstack Abstractions require no backend database. You simply input a couple of 
 
 ## 2. Data Transpositions (backend db required)
 
-Data Transpositions require you to synthesize data in your backend to recommend Mints based on various criteria such as tokens in common, onchain graph, social follows, and moreData Transposition method is currently available for:
+Data Transpositions require you to synthesize data in your backend to recommend Mints based on various criteria such as tokens in common, onchain graph, social follows, and more
+
+Data Transposition method is currently available for:
 
 * Base, Zora, Ethereum, Polygon
 * Various criteria that you can program with Airstack APIs
