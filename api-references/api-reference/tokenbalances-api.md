@@ -11,7 +11,7 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
@@ -22,7 +22,7 @@ The TokenBalances API covers the owners and balances of ERC20, ERC721, and ERC11
 
 ## Inputs
 
-### Filters
+### filter
 
 | Name                   | Type                       | Description                                                                           |
 | ---------------------- | -------------------------- | ------------------------------------------------------------------------------------- |
@@ -33,7 +33,7 @@ The TokenBalances API covers the owners and balances of ERC20, ERC721, and ERC11
 | `tokenId`              | `String_Comparator_Exp`    | Unique NFT token ID                                                                   |
 | `tokenType`            | `TokenType_Comparator_Exp` | ERC20, ERC721, ERC1155                                                                |
 
-### Blockchain
+### blockchain
 
 | Enum       | Description      |
 | ---------- | ---------------- |

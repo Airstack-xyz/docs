@@ -11,7 +11,7 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
@@ -22,7 +22,7 @@ The TokenNFTs API provides detailed data about a specific NFT token within an NF
 
 ## Inputs
 
-### Filters
+### filter
 
 | Name       | Type                     | Description                                                        |
 | ---------- | ------------------------ | ------------------------------------------------------------------ |
@@ -30,7 +30,7 @@ The TokenNFTs API provides detailed data about a specific NFT token within an NF
 | `metaData` | `NftMetadataFilter`      | allows querying by NFT Token Name, or specific trait or attribute. |
 | `tokenId`  | `String_Comparator_Exp`  | Unique NFT token ID                                                |
 
-### Blockchain
+### blockchain
 
 | Enum       | Description      |
 | ---------- | ---------------- |

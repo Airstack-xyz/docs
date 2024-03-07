@@ -11,7 +11,7 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
@@ -22,7 +22,7 @@ The Tokens API retrieves high-level information on ERC20 tokens, ERC721 tokens (
 
 ## Inputs
 
-### Filters
+### filter
 
 | Name      | Type                       | Description                                                                                                 |
 | --------- | -------------------------- | ----------------------------------------------------------------------------------------------------------- |
@@ -37,7 +37,7 @@ The Tokens API retrieves high-level information on ERC20 tokens, ERC721 tokens (
 Querying by name or symbol returns all contracts with matching data. These fields are not unique.
 {% endhint %}
 
-### Blockchain
+### blockchain
 
 | Enum       | Description      |
 | ---------- | ---------------- |
@@ -46,7 +46,7 @@ Querying by name or symbol returns all contracts with matching data. These field
 | `base`     | Base mainnet     |
 | `zora`     | Zora mainnet     |
 
-### Order
+### order
 
 | Name     | Description                                                                                                                                           |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |

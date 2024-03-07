@@ -10,7 +10,7 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
@@ -28,7 +28,7 @@ From the Wallet API it’s possible to create complex queries using nested queri
 | `blockchain` | `TokenBlockchain!` | Blockchain where the token is deployed                     |
 | `identity`   | `Identity!`        | Identity: blockchain address, domain name, social identity |
 
-### Blockchain
+### blockchain
 
 | Enum       | Description      |
 | ---------- | ---------------- |

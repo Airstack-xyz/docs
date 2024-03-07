@@ -11,7 +11,7 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
@@ -22,7 +22,7 @@ The Poaps API allows users to query POAPs held by a particular wallet, all POAP 
 
 ## Inputs
 
-### Filters
+### filter
 
 | Name                   | Type                          | Description                                                                                                       |
 | ---------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -33,7 +33,7 @@ The Poaps API allows users to query POAPs held by a particular wallet, all POAP 
 | `owner`                | `Identity_Comparator_Exp`     | Identity: blockchain address, domain name, social identity                                                        |
 | `tokenId`              | `String_Comparator_Exp`       | POAP Token ID                                                                                                     |
 
-### Blockchain
+### blockchain
 
 {% hint style="info" %}
 For **PoapEvents** API, it will return POAPs data from both Ethereum and Gnosis mainnet.

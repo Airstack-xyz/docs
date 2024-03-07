@@ -10,7 +10,7 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
@@ -23,7 +23,7 @@ The Snapshots API works by returning token balances/holders on a given time, fol
 
 ## Inputs
 
-### Filters
+### filter
 
 | Name           | Type                        | Description                                                                                     |
 | -------------- | --------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -35,7 +35,7 @@ The Snapshots API works by returning token balances/holders on a given time, fol
 | `tokenId`      | `String_Comparator_Exp`     | Token ID of specified NFT (only for ERC721 and ERC1155)                                         |
 | `tokenType`    | `TokenType_Comparator_Exp`  | `ERC20`, `ERC721`, or `ERC1155`                                                                 |
 
-### Blockchain
+### blockchain
 
 | Name       | Description      |
 | ---------- | ---------------- |

@@ -11,7 +11,7 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
@@ -24,7 +24,7 @@ This API can also resolve a domain name into a wallet/contract address.
 
 ## Inputs
 
-### Filters
+### filter
 
 | Name              | Type                      | Description                                                                      |
 | ----------------- | ------------------------- | -------------------------------------------------------------------------------- |
@@ -33,7 +33,7 @@ This API can also resolve a domain name into a wallet/contract address.
 | `owner`           | `Identity_Comparator_Exp` | Identity: blockchain address, domain name, social identity                       |
 | `resolvedAddress` | `Address_Comparator_Exp`  | Blockchain address to which the domain resolves to                               |
 
-### Blockchain
+### blockchain
 
 {% hint style="info" %}
 For **Domains** API, the `blockchain` input will fetch all ENS either onchain (Ethereum) or offchain (Namestone & cb.id).
@@ -43,7 +43,7 @@ For **Domains** API, the `blockchain` input will fetch all ENS either onchain (E
 | ---------- | ---------------- |
 | `ethereum` | Ethereum mainnet |
 
-### Order
+### order
 
 | Name                        | Description                                                                                                                         |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |

@@ -11,7 +11,7 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
@@ -22,7 +22,7 @@ The SocialFollowings APIs deliver on-chain and off-chain user-level data pertain
 
 ## Inputs
 
-### Filters
+### filter
 
 | Name                 | Type                            | Description                                                                                                    |
 | -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -34,7 +34,7 @@ The SocialFollowings APIs deliver on-chain and off-chain user-level data pertain
 | `followingSince`     | `Time_Comparator_Exp`           | Time the follows was started                                                                                   |
 | `identity`           | `Identity_Comparator_Exp`       | Identity: blockchain address, domain name, social identity                                                     |
 
-### Blockchain
+### blockchain
 
 {% hint style="info" %}
 For **SocialFollowings** API, it will return Lens & Farcaster followers data from all onchain and offchain sources.

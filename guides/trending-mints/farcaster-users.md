@@ -1,5 +1,5 @@
 ---
-description: Learn how to recommend mints that are trending among all Base users.
+description: Learn how to recommend mints that are trending among Farcaster users.
 layout:
   title:
     visible: true
@@ -13,12 +13,12 @@ layout:
     visible: true
 ---
 
-# 🔵 All Base Users
+# 💜 Farcaster Users
 
-In this guide, you will learn how to use [Airstack](https://airstack.xyz) to recommend all trending tokens that are minted by all Base users within a given time frame.
+In this guide, you will learn how to use [Airstack](https://airstack.xyz) to recommend all trending tokens that are minted by Farcaster users within a given time frame.
 
-{% embed url="https://drive.google.com/file/d/1owyn8vniB9sMiooiLQmahGzTd7QTpRIf/view?usp=sharing" %}
-Trending Mints Among All Base Users
+{% embed url="https://drive.google.com/file/d/1MsiUE0q2gG6uh361Un44DihW9YRcnrtw/view?usp=sharing" %}
+Trending Mints on Base Among Farcaster Users
 {% endembed %}
 
 ## Pre-requisites
@@ -151,7 +151,7 @@ asyncio.run(main())
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## Fetch Trending Mints Globally
+## Fetch Trending Mints Among Farcaster Users
 
 First, define the following parameters to fetch the trending mints data:
 
@@ -161,8 +161,8 @@ Once you have the parameters prepared, simply use the query below and add the pa
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/qdabcIltWy" %}
-Show me all trending mints globally in the last hour and sort by the number of unique wallets
+{% embed url="https://app.airstack.xyz/query/hwKj9H6kvi" %}
+Show me all trending mints among Farcaster user in the last hour and sort by the number of unique wallets
 {% endembed %}
 
 ### Code
@@ -177,7 +177,7 @@ query MyQuery(
   TrendingMints(
     input: {
       timeFrame: $timeFrame,
-      audience: all,
+      audience: farcaster,
       blockchain: base,
       criteria: $criteria
     }
@@ -235,16 +235,15 @@ query MyQuery(
 {% endtab %}
 {% endtabs %}
 
-🎉 :partying\_face: Congratulations you've just fetched all the trending tokens minted among all Base users and integrate it into your application!
+🎉 :partying\_face: Congratulations you've just fetched all the trending tokens minted by Farcaster users and integrate it into your application!
 
-## **D**eveloper Support
+## Developer Support
 
-If you have any questions or need help regarding integrating or building trending mints into your application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding integrating or building trending mints by Farcaster users into your application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
-* [Trending Mints With Farcaster Users](farcaster-users.md)
+* [Trending Mints With All Base Users](global.md)
 * [Trending Mints With Onchain Graph](onchain-graph.md)
 * [Trending Mints With Common Minters](common-minters.md)
-* [Token Mints Guides](../token-mints.md)
 * [TrendingMints API Reference](../../api-references/api-reference/trendingmints-api.md)

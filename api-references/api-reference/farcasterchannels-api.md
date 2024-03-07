@@ -11,7 +11,7 @@ The FarcasaterChannels API fetches the details of Farcaster channels, which incl
 
 ## Inputs
 
-### Filters
+### filter
 
 | Name                 | Type                          | Description                                                                                                                                                                                                                                    |
 | -------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -21,7 +21,7 @@ The FarcasaterChannels API fetches the details of Farcaster channels, which incl
 | `leadIdentity`       | `Identity_Comparator_Exp`     | <p>The channel original host's web3 identities, either 0x address, Farcaster, ENS, or Lens.<br><br>For more details, check out <a href="airstack-identity-api.md">Airstack Identity API</a>.</p>                                               |
 | `name`               | `Regex_String_Comparator_Exp` | <p>The name of the channel, not necessarily the same as the channel ID.<br><br>It is the title that you see in the channel page, e.g. for <a href="https://warpcast.com/~/channel/warpcast">/warpcast</a> channel, the name is "Warpcast".</p> |
 
-### Blockchain
+### blockchain
 
 {% hint style="info" %}
 For **FarcasterChannelParticipants** API, it will return all Farcaster channels.
@@ -33,7 +33,7 @@ You just need to specify the input to `ALL` for the query to work.
 | ----- | ----------- |
 | `ALL` | -           |
 
-### Order
+### order
 
 | Name                 | Description                                        |
 | -------------------- | -------------------------------------------------- |

@@ -11,7 +11,7 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
@@ -22,13 +22,13 @@ The XMTPs API indicate whether a user has XMTP.
 
 ## Inputs
 
-### Filters
+### filter
 
 | Name    | Type                      | Description                                                |
 | ------- | ------------------------- | ---------------------------------------------------------- |
 | `owner` | `Identity_Comparator_Exp` | Identity: blockchain address, domain name, social identity |
 
-### Blockchain
+### blockchain
 
 {% hint style="info" %}
 For **XMTPs** API, it will return XMTP data from offchain (XMTP network) sources.

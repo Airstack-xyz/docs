@@ -11,7 +11,7 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
@@ -30,7 +30,7 @@ If you are deploying ERC6551 using a custom registry contract, please reach out 
 
 ## Inputs
 
-### Filter
+### filter
 
 | Name                      | Type                             | Description                                                                                                                                                                                                                                                                                                                     |
 | ------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -43,7 +43,7 @@ If you are deploying ERC6551 using a custom registry contract, please reach out 
 | `implementation`          | `Address_Comparator_Exp`         | <p>The implementation address of the ERC6551 account.<br><br>For non-deployed (optimistic) accounts in <a href="tokennfts-api.md"><code>tokenNfts</code></a> nested queries, this defaults to the official standard ERC6551 implementation address.</p>                                                                         |
 | `salt`                    | `String_Eq_Comparator_Exp`       | <p>The salt of ERC6551 account.<br><br>For non-deployed (optimistic) accounts in <a href="tokennfts-api.md"><code>tokenNfts</code></a> nested queries, this defaults to 0.</p>                                                                                                                                                  |
 
-### Blockchain
+### blockchain
 
 | Enum       | Description      |
 | ---------- | ---------------- |
@@ -51,7 +51,7 @@ If you are deploying ERC6551 using a custom registry contract, please reach out 
 | `polygon`  | Polygon mainnet  |
 | `base`     | Base mainnet     |
 
-### Order
+### order
 
 | Name                      | Description                                                                                                                           |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |

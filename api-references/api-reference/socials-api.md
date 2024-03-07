@@ -11,7 +11,7 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
@@ -22,7 +22,7 @@ The Socials APIs deliver on-chain and off-chain user-level data pertaining to us
 
 ## Inputs
 
-### Filters
+### filter
 
 | Name                             | Type                            | Description                                                                                                    |
 | -------------------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -38,7 +38,7 @@ The Socials APIs deliver on-chain and off-chain user-level data pertaining to us
 | `userId`                         | `String_Comparator_Exp`         | user ID on the social app (prefix not required)                                                                |
 | `profileCreatedAtBlockTimestamp` | `Time_Comparator_Exp`           | block timestamp when Lens/Farcaster profile was created                                                        |
 
-### Blockchain
+### blockchain
 
 {% hint style="info" %}
 For **Socials** API, it will return Lens & Farcaster data from all onchain and offchain sources, not specifically Ethereum.
@@ -50,7 +50,7 @@ You just need to specify the input for the query to work.
 | ---------- | ---------------- |
 | `ethereum` | Ethereum mainnet |
 
-### Sorts
+### order
 
 | Name                             | Description                                                                                                                  |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |

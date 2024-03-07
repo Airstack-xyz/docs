@@ -11,7 +11,7 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
@@ -24,7 +24,7 @@ In addition, PoapEvents API allows in-depth filtering of the PAOPs based on the 
 
 ## Inputs
 
-### Filters
+### filter
 
 | Name             | Type                          | Description                                                                                                       |
 | ---------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -39,7 +39,7 @@ In addition, PoapEvents API allows in-depth filtering of the PAOPs based on the 
 | `endDate`        | `String_Comparator_Exp`       | POAP event end date YYYY-MM-DD                                                                                    |
 | `isVirtualEvent` | `Boolean_Comparator_Exp`      | Boolean - yes or no                                                                                               |
 
-### Blockchain
+### blockchain
 
 {% hint style="info" %}
 For **PoapEvents** API, it will return POAPs data from both Ethereum and Gnosis mainnet.

@@ -26,7 +26,7 @@ The TokenTransfers API only covers transfers of the "transfer" type and excludes
 
 ## Inputs
 
-### Filters
+### filter
 
 | Name              | Type                       | Description                                                                              |
 | ----------------- | -------------------------- | ---------------------------------------------------------------------------------------- |
@@ -40,7 +40,7 @@ The TokenTransfers API only covers transfers of the "transfer" type and excludes
 | `tokenType`       | `TokenType_Comparator_Exp` | ERC20, ERC721, ERC1155                                                                   |
 | `transactionHash` | `String_Comparator_Exp`    | Transaction hash of the Token Transfers                                                  |
 
-### Blockchain
+### blockchain
 
 | Name       | Description      |
 | ---------- | ---------------- |
@@ -49,7 +49,7 @@ The TokenTransfers API only covers transfers of the "transfer" type and excludes
 | `base`     | Base mainnet     |
 | `zora`     | Zora mainnet     |
 
-### Order
+### order
 
 | Name             | Description                                                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------ |

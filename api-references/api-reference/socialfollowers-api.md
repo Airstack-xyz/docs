@@ -11,7 +11,7 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
@@ -22,7 +22,7 @@ The SocialFollowers APIs deliver on-chain and off-chain user-level data pertaini
 
 ## Inputs
 
-### Filters
+### filter
 
 | Name                 | Type                            | Description                                                                                                    |
 | -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -34,7 +34,7 @@ The SocialFollowers APIs deliver on-chain and off-chain user-level data pertaini
 | `followerSince`      | `Time_Comparator_Exp`           | Time the follows was started                                                                                   |
 | `identity`           | `Identity_Comparator_Exp`       | Identity: blockchain address, domain name, social identity                                                     |
 
-### Blockchain
+### blockchain
 
 {% hint style="info" %}
 For **SocialFollowers** API, it will return Lens & Farcaster followers data from all onchain and offchain sources.
@@ -45,8 +45,6 @@ You just need to specify the input to `ALL` for the query to work.
 | Enum  | Description |
 | ----- | ----------- |
 | `ALL` | -           |
-
-### Sorts
 
 ## Outputs
 
