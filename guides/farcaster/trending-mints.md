@@ -15,16 +15,15 @@ layout:
 
 # 📈 Trending Mints
 
-## Table Of Contents
+In this guide, you will learn how to use [Airstack](https://airstack.xyz) to recommend all trending tokens that are minted by Farcaster users within a given time frame.
 
-In this guide, you will learn how to use [Airstack](https://airstack.xyz) to recommend all trending tokens that are minted by Farcaster users within a given time frame. To accomplish this, it will require 2 steps:
-
-1. [Prepare All Required Variables](trending-mints.md#step-1-prepare-all-required-variables)
-2. [Fetch Trending Mints Among Farcaster Users](trending-mints.md#step-2-fetch-trending-mints-among-farcaster-users)
+{% embed url="https://drive.google.com/file/d/1MsiUE0q2gG6uh361Un44DihW9YRcnrtw/view?usp=sharing" %}
+Trending Mints on Base Among Farcaster Users
+{% endembed %}
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
+* An [Airstack](https://airstack.xyz/) account
 * Basic knowledge of GraphQL
 
 ## Get Started
@@ -152,21 +151,13 @@ asyncio.run(main())
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
-
-[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
-
-<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
-
-## Step 1: Prepare All Required Variables
+## Fetch Trending Mints Among Farcaster Users
 
 First, define the following parameters to fetch the trending mints data:
 
 <table><thead><tr><th width="149">Name</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>timeFrame</code></td><td><code>one_hour</code> | <code>two_hours</code> | <code>eight_hours</code> | <code>one_day</code> | <code>two_days</code> | <code>seven_days</code></td><td>Only fetch trending mints within the chosen time frame, e.g. <code>one_hour</code> will fetch trending mints for the last 1 hour.</td></tr><tr><td><code>criteria</code></td><td><code>unique_wallets</code> | <code>total_mints</code></td><td>This will calculate and sort the tokens based on the chosen criteria:<br>- <code>unique_wallets</code>: Calculate the number of unique wallets minting the trending tokens<br>- <code>total_mints</code>: Calculate the number of times minting occurred on the trending token</td></tr></tbody></table>
 
-## Step 2: Fetch Trending Mints Among Farcaster Users
-
-Once you have the variables prepared, simply use the query below and add the variables defined in [Step 1](trending-mints.md#step-1-prepare-all-required-variables):&#x20;
+Once you have the parameters prepared, simply use the query below and add the parameters to the variables:
 
 ### Try Demo
 
@@ -244,7 +235,7 @@ query MyQuery(
 {% endtab %}
 {% endtabs %}
 
-🎉 :partying\_face: Congratulations you've just integrated fetched all the trending tokens minted by Farcaster users and integrate it into your application!
+🎉 :partying\_face: Congratulations you've just fetched all the trending tokens minted by Farcaster users and integrate it into your application!
 
 ## Developer Support
 
@@ -253,7 +244,7 @@ If you have any questions or need help regarding integrating or building trendin
 ## More Resources
 
 * [Airstack Onchain Kit for Farcaster Frames](airstack-onchain-kit-for-farcaster-frames.md)
-* [Global Trending Mints](../trending-mints/global.md)
+* [Trending Mints With All Base Users](../trending-mints/global.md)
 * [Trending Mints With Onchain Graph](../trending-mints/onchain-graph.md)
 * [Trending Mints With Common Minters](../trending-mints/common-minters.md)
 * [TrendingMints API Reference](../../api-references/api-reference/trendingmints-api.md)
