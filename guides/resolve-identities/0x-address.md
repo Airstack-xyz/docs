@@ -22,18 +22,18 @@ layout:
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get All Solana Addresses Connected To 0x Address](0x-address.md#get-all-solana-addresses-connected-to-0x-address)
-* [Get All 0x Addresses Connected To Solana Address](0x-address.md#get-all-0x-addresses-connected-to-solana-address)
-* [Get All Web3 Social Accounts (Lens, Farcaster) and ENS Domains Resolved From An Array of 0x Addresses](0x-address.md#get-all-web3-social-accounts-lens-farcaster-and-ens-domains-resolved-from-an-array-of-0x-addresses)
-* [Get All The 0x addresses from a given ENS name(s)](0x-address.md#get-all-the-0x-addresses-from-a-given-ens-name-s)
-* [Get All The 0x addresses from a given Namestone Subdomain or cb.id (Offchain)](0x-address.md#get-all-the-0x-addresses-from-a-given-namestone-subdomain-or-cb.id-offchain)
-* [Get All 0x addresses of Farcaster user(s)](0x-address.md#get-all-0x-addresses-of-farcaster-user-s)
-* [Get All 0x addresses of Lens profile(s)](0x-address.md#get-all-0x-addresses-of-lens-profile-s)
+- [Get All Solana Addresses Connected To 0x Address](0x-address.md#get-all-solana-addresses-connected-to-0x-address)
+- [Get All 0x Addresses Connected To Solana Address](0x-address.md#get-all-0x-addresses-connected-to-solana-address)
+- [Get All Web3 Social Accounts (Lens, Farcaster) and ENS Domains Resolved From An Array of 0x Addresses](0x-address.md#get-all-web3-social-accounts-lens-farcaster-and-ens-domains-resolved-from-an-array-of-0x-addresses)
+- [Get All The 0x addresses from a given ENS name(s)](0x-address.md#get-all-the-0x-addresses-from-a-given-ens-name-s)
+- [Get All The 0x addresses from a given Namestone Subdomain or cb.id (Offchain)](0x-address.md#get-all-the-0x-addresses-from-a-given-namestone-subdomain-or-cb.id-offchain)
+- [Get All 0x addresses of Farcaster user(s)](0x-address.md#get-all-0x-addresses-of-farcaster-user-s)
+- [Get All 0x addresses of Lens profile(s)](0x-address.md#get-all-0x-addresses-of-lens-profile-s)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -54,6 +54,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -68,6 +69,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -82,12 +84,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -95,6 +100,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -118,9 +124,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -133,9 +141,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -153,6 +163,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -180,6 +191,7 @@ Show me all the Solana address connected to 0xe0235804378c31948e81441f656d826ee5
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Wallet(
     input: {identity: "0xe0235804378c31948e81441f656d826ee5998bc6", blockchain: ethereum}
@@ -201,9 +213,11 @@ Show me all the Solana address connected to 0xe0235804378c31948e81441f656d826ee5
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Wallet": {
@@ -238,6 +252,7 @@ Show me all the Solana address connected to 0xe0235804378c31948e81441f656d826ee5
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -255,11 +270,12 @@ Show the 0x addresses of solana address GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDM
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Wallet(
     input: {
-      identity: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV",
+      identity: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV"
       blockchain: ethereum
     }
   ) {
@@ -267,26 +283,27 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
     "Wallet": {
-      "addresses": [
-        "0xe0235804378c31948e81441f656d826ee5998bc6"
-      ]
+      "addresses": ["0xe0235804378c31948e81441f656d826ee5998bc6"]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get All Web3 Social Accounts (Lens, Farcaster) and ENS Domains Resolved From An Array of 0x addresses
 
-You can resolve an array of 0x addresses to their web3 socials and ENS Domains (including offchain domains, e.g. Namestone  & cb.id) using the [`Socials`](../../api-references/api-reference/socials-api.md) and [`Domains`](../../api-references/api-reference/domains-api.md) API:
+You can resolve an array of 0x addresses to their web3 socials and ENS Domains (including offchain domains, e.g. Namestone & cb.id) using the [`Socials`](../../api-references/api-reference/socials-api.md) and [`Domains`](../../api-references/api-reference/domains-api.md) API:
 
 ### Try Demo
 
@@ -298,6 +315,7 @@ Show web3 socials (Lens, Farcaster) and ENS resolved from 0xd8dA6BF26964aF9D7eEd
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   # Get All Web3 socials (Lens/Farcaster)
 <strong>  Socials(
@@ -335,9 +353,11 @@ Show web3 socials (Lens, Farcaster) and ENS resolved from 0xd8dA6BF26964aF9D7eEd
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Socials": {
@@ -377,6 +397,7 @@ Show web3 socials (Lens, Farcaster) and ENS resolved from 0xd8dA6BF26964aF9D7eEd
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -394,6 +415,7 @@ show me all the 0x addresses of vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetUserDetailsFromENS {
   Domains(
     input: {
@@ -413,9 +435,11 @@ show me all the 0x addresses of vitalik.eth
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -430,6 +454,7 @@ show me all the 0x addresses of vitalik.eth
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -447,6 +472,7 @@ Show me all the 0x addresses of yosephks.cb.id
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetCbDotID {
   Domains(
     input: {
@@ -466,9 +492,11 @@ Show me all the 0x addresses of yosephks.cb.id
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -483,6 +511,7 @@ Show me all the 0x addresses of yosephks.cb.id
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -500,6 +529,7 @@ Show 0x addresses of lens/@nader and Lens profile id 0x0187b3
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetAddressesOfLens {
   Socials(
@@ -520,9 +550,11 @@ query GetAddressesOfLens {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -549,6 +581,7 @@ query GetAddressesOfLens {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -566,6 +599,7 @@ Show 0x addresses of Farcaster user name dwr.eth and user ID 1
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetAddressesOfFarcasters {
   Socials(
     input: {
@@ -584,9 +618,11 @@ Show 0x addresses of Farcaster user name dwr.eth and user ID 1
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -616,6 +652,7 @@ Show 0x addresses of Farcaster user name dwr.eth and user ID 1
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -625,7 +662,7 @@ If you have any questions or need help regarding resolving 0x address(es), pleas
 
 ## More Resources
 
-* [ENS Domains Guide](../ens-domains/)
-* [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
-* [Domains API Reference](../../api-references/api-reference/domains-api.md)
-* [Socials API Reference](../../api-references/api-reference/socials-api.md)
+- [ENS Domains Guide](../ens-domains/)
+- [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
+- [Domains API Reference](../../api-references/api-reference/domains-api.md)
+- [Socials API Reference](../../api-references/api-reference/socials-api.md)

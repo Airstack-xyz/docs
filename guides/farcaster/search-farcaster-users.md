@@ -21,14 +21,14 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get All Farcaster Users Starting With Given Words](search-farcaster-users.md#get-all-farcaster-users-starting-with-given-words)
-* [Get All Farcaster Users Containing Given Words](search-farcaster-users.md#get-all-farcaster-users-containing-given-words)
-* [Get All Farcaster Users That Has Certain Number of Letters](search-farcaster-users.md#get-all-farcaster-users-that-has-certain-number-of-letters)
+- [Get All Farcaster Users Starting With Given Words](search-farcaster-users.md#get-all-farcaster-users-starting-with-given-words)
+- [Get All Farcaster Users Containing Given Words](search-farcaster-users.md#get-all-farcaster-users-containing-given-words)
+- [Get All Farcaster Users That Has Certain Number of Letters](search-farcaster-users.md#get-all-farcaster-users-that-has-certain-number-of-letters)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -49,6 +49,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -63,6 +64,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -77,12 +79,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -90,6 +95,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -113,9 +119,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -128,9 +136,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -148,6 +158,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -175,6 +186,7 @@ show me all Farcaster users starting with "a"
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -194,9 +206,11 @@ show me all Farcaster users starting with "a"
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -213,13 +227,14 @@ show me all Farcaster users starting with "a"
         {
           "dappName": "farcaster",
           "profileName": "amarraghu"
-        },
+        }
         // Other Farcaster users starting with "a"
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -237,6 +252,7 @@ show me all Farcaster users containing with "abc"
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -256,9 +272,11 @@ show me all Farcaster users containing with "abc"
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -275,13 +293,14 @@ show me all Farcaster users containing with "abc"
         {
           "dappName": "farcaster",
           "profileName": "861213abcc"
-        },
+        }
         // Other Farcaster users containing with "abc"
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -299,6 +318,7 @@ show me all Farcaster users that has 3 letters or less
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -318,9 +338,11 @@ show me all Farcaster users that has 3 letters or less
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -337,13 +359,14 @@ show me all Farcaster users that has 3 letters or less
         {
           "dappName": "farcaster",
           "profileName": "vw"
-        },
+        }
         // Other Farcaster users with less than 3 letters
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -353,8 +376,8 @@ If you have any questions or need help regarding searching for Farcaster users, 
 
 ## More Resources
 
-* [Socials API Reference](../../api-references/api-reference/socials-api.md)
-* [Resolve Farcaster Users](resolve-farcaster-users.md)
-* [Farcaster Users Details](farcaster-users-details.md)
-* [Farcaster Followers](farcaster-followers.md)
-* [Farcaster Following](farcaster-following.md)
+- [Socials API Reference](../../api-references/api-reference/socials-api.md)
+- [Resolve Farcaster Users](resolve-farcaster-users.md)
+- [Farcaster Users Details](farcaster-users-details.md)
+- [Farcaster Followers](farcaster-followers.md)
+- [Farcaster Following](farcaster-following.md)

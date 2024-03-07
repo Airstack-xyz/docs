@@ -22,8 +22,6 @@ layout:
 
 <figure><img src="../../../.gitbook/assets/iPhone 14 &#x26; 15 Pro - 64-min.png" alt=""><figcaption></figcaption></figure>
 
- 
-
 <figure><img src="../../../.gitbook/assets/iPhone 14 &#x26; 15 Pro - 65-min.png" alt=""><figcaption></figcaption></figure>
 
 </div>
@@ -32,34 +30,34 @@ The request inbox is for users unknown to the main user and without any connecti
 
 There could also occasionally be real users with no connections who might want to contact the main user. To manage this, we recommend dividing the request inbox even further into two parts:
 
-* **Top Requests**: This includes likely real users from the request inbox.
-* **All Requests**: This contains all users in the request inbox, without filtering.
+- **Top Requests**: This includes likely real users from the request inbox.
+- **All Requests**: This contains all users in the request inbox, without filtering.
 
 Use the Airstack API to check if senders in the request inbox are genuine and place them in the **Top Requests Inbox**.
 
 Some criteria that can be checked for splitting the request inbox:
 
-* Senders Have Non-Virtual POAPs (IRL POAPs can only be minted in person, so this is a strong positive signal)
-* Senders have X number of followers on Farcaster (e.g. if the user has >1000 followers you may have some confidence they are a real user)
-* Senders have X number of followers on Lens
-* Senders have/have not sent tokens/NFTs previously (If the user has no wallet history it's a strong negative signal)
-* Senders hold some tokens/NFTs (If the user has no wallet history it's a strong negative signal)
+- Senders Have Non-Virtual POAPs (IRL POAPs can only be minted in person, so this is a strong positive signal)
+- Senders have X number of followers on Farcaster (e.g. if the user has >1000 followers you may have some confidence they are a real user)
+- Senders have X number of followers on Lens
+- Senders have/have not sent tokens/NFTs previously (If the user has no wallet history it's a strong negative signal)
+- Senders hold some tokens/NFTs (If the user has no wallet history it's a strong negative signal)
 
 ## Table Of Contents
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to create a request inbox by:
 
-* [Check If Senders Have Non-Virtual POAPs](request-inbox.md#check-if-senders-have-any-non-virtual-poaps)
-* [Check If Senders Have X or More Followers on Lens](request-inbox.md#check-if-senders-have-x-or-more-followers-on-lens)
-* [Check If Senders Have X or More Followers on Farcaster](request-inbox.md#check-if-senders-have-x-or-more-followers-on-farcaster)
-* [Check If Senders Have Any Token Transfers](request-inbox.md#check-if-senders-have-any-token-transfers)
-* [Check If Senders Have Any Token Balances](request-inbox.md#check-if-senders-have-any-token-balances)
+- [Check If Senders Have Non-Virtual POAPs](request-inbox.md#check-if-senders-have-any-non-virtual-poaps)
+- [Check If Senders Have X or More Followers on Lens](request-inbox.md#check-if-senders-have-x-or-more-followers-on-lens)
+- [Check If Senders Have X or More Followers on Farcaster](request-inbox.md#check-if-senders-have-x-or-more-followers-on-farcaster)
+- [Check If Senders Have Any Token Transfers](request-inbox.md#check-if-senders-have-any-token-transfers)
+- [Check If Senders Have Any Token Balances](request-inbox.md#check-if-senders-have-any-token-balances)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Basic knowledge of [XMTP](https://xmtp.org)
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
+- Basic knowledge of [XMTP](https://xmtp.org)
 
 ## Get Started
 
@@ -80,6 +78,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -94,6 +93,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -108,12 +108,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -121,6 +124,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -144,9 +148,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -159,9 +165,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -179,6 +187,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -216,10 +225,15 @@ Show me token transfers by senders on Ethereum, Polygon, Base, and Zora
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetTokenTransfers($senders: [Identity!]) {
   ethereum: TokenTransfers(
-    input: {filter: {from: {_in: $senders}}, blockchain: ethereum, order: {blockTimestamp: DESC}}
+    input: {
+      filter: { from: { _in: $senders } }
+      blockchain: ethereum
+      order: { blockTimestamp: DESC }
+    }
   ) {
     TokenTransfer {
       transactionHash
@@ -229,7 +243,11 @@ query GetTokenTransfers($senders: [Identity!]) {
     }
   }
   polygon: TokenTransfers(
-    input: {filter: {from: {_in: $senders}}, blockchain: polygon, order: {blockTimestamp: DESC}}
+    input: {
+      filter: { from: { _in: $senders } }
+      blockchain: polygon
+      order: { blockTimestamp: DESC }
+    }
   ) {
     TokenTransfer {
       transactionHash
@@ -238,7 +256,13 @@ query GetTokenTransfers($senders: [Identity!]) {
       }
     }
   }
-  base: TokenTransfers(input: {filter: {from: {_in: $senders}}, blockchain: base, order: {blockTimestamp: DESC}}) {
+  base: TokenTransfers(
+    input: {
+      filter: { from: { _in: $senders } }
+      blockchain: base
+      order: { blockTimestamp: DESC }
+    }
+  ) {
     TokenTransfer {
       transactionHash
       from {
@@ -246,7 +270,13 @@ query GetTokenTransfers($senders: [Identity!]) {
       }
     }
   }
-  zora: TokenTransfers(input: {filter: {from: {_in: $senders}}, blockchain: zora, order: {blockTimestamp: DESC}}) {
+  zora: TokenTransfers(
+    input: {
+      filter: { from: { _in: $senders } }
+      blockchain: zora
+      order: { blockTimestamp: DESC }
+    }
+  ) {
     TokenTransfer {
       transactionHash
       from {
@@ -256,9 +286,11 @@ query GetTokenTransfers($senders: [Identity!]) {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "senders": [
@@ -268,9 +300,11 @@ query GetTokenTransfers($senders: [Identity!]) {
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "ethereum": {
@@ -322,6 +356,7 @@ query GetTokenTransfers($senders: [Identity!]) {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -343,6 +378,7 @@ show me senders' token balances on Ethereum, Polygon, Base, and Zora
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery($senders: [Identity!]) {
   # Ethereum token balances
 <strong>  Ethereum: TokenBalances(
@@ -406,9 +442,11 @@ show me senders' token balances on Ethereum, Polygon, Base, and Zora
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "senders": [
@@ -418,9 +456,11 @@ show me senders' token balances on Ethereum, Polygon, Base, and Zora
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
@@ -482,6 +522,7 @@ show me senders' token balances on Ethereum, Polygon, Base, and Zora
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -503,14 +544,11 @@ show me all POAPs owned by senders and see if they are virtual or not
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query POAPsOwned($senders: [Identity!]) {
   Poaps(
-    input: {
-      filter: { owner: { _in: $senders } }
-      blockchain: ALL
-      limit: 50
-    }
+    input: { filter: { owner: { _in: $senders } }, blockchain: ALL, limit: 50 }
   ) {
     Poap {
       mintOrder
@@ -529,9 +567,11 @@ query POAPsOwned($senders: [Identity!]) {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "senders": [
@@ -541,9 +581,11 @@ query POAPsOwned($senders: [Identity!]) {
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Poaps": {
@@ -579,6 +621,7 @@ query POAPsOwned($senders: [Identity!]) {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -600,16 +643,17 @@ Check if senders' Lens profile have more than or equal to 100 followers on Lens
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery($xmtpUsers: Identity!) {
   Socials(
     input: {
       filter: {
-        followerCount: {_gt: 100},
-        dappName: {_eq: lens},
-        identity: {_in: $senders}
-      },
-      blockchain: ethereum,
+        followerCount: { _gt: 100 }
+        dappName: { _eq: lens }
+        identity: { _in: $senders }
+      }
+      blockchain: ethereum
       limit: 200
     }
   ) {
@@ -619,9 +663,11 @@ query MyQuery($xmtpUsers: Identity!) {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "senders": [
@@ -631,9 +677,11 @@ query MyQuery($xmtpUsers: Identity!) {
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -652,6 +700,7 @@ query MyQuery($xmtpUsers: Identity!) {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -673,16 +722,17 @@ Check if senders' Farcaster profile have more than or equal to 100 followers on 
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery($senders: [Identity!]) {
   Socials(
     input: {
       filter: {
-        followerCount: {_gt: 100},
-        dappName: {_eq: farcaster},
-        identity: {_in: $senders}
-      },
-      blockchain: ethereum,
+        followerCount: { _gt: 100 }
+        dappName: { _eq: farcaster }
+        identity: { _in: $senders }
+      }
+      blockchain: ethereum
       limit: 200
     }
   ) {
@@ -693,9 +743,11 @@ query MyQuery($senders: [Identity!]) {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "senders": [
@@ -705,9 +757,11 @@ query MyQuery($senders: [Identity!]) {
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -730,6 +784,7 @@ query MyQuery($senders: [Identity!]) {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -739,10 +794,10 @@ If you have any questions or need help regarding creating a request inbox on you
 
 ## More Resources
 
-* [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api.md)
-* [TokenBalances API Reference](../../../api-references/api-reference/tokenbalances-api.md)
-* [Poaps API Reference](../../../api-references/api-reference/poaps-api.md)
-* [Domains API Reference](../../../api-references/api-reference/domains-api.md)
-* [Socials API Reference](../../../api-references/api-reference/socials-api.md)
-* [Primary Inbox](primary-inbox.md)
-* [General Inbox](general-inbox.md)
+- [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api.md)
+- [TokenBalances API Reference](../../../api-references/api-reference/tokenbalances-api.md)
+- [Poaps API Reference](../../../api-references/api-reference/poaps-api.md)
+- [Domains API Reference](../../../api-references/api-reference/domains-api.md)
+- [Socials API Reference](../../../api-references/api-reference/socials-api.md)
+- [Primary Inbox](primary-inbox.md)
+- [General Inbox](general-inbox.md)

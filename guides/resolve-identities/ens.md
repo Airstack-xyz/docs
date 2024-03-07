@@ -24,17 +24,17 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-* [Get ENS from a given user(s)](ens.md#get-ens-from-a-given-user-s)
-* [Get the 0x address, Lens, and Farcaster from a given ENS name(s)](ens.md#get-the-0x-address-lens-and-farcaster-from-a-given-ens-name-s)
-* [Get the 0x address, Lens, and Farcaster from a given cb.id (Offchain)](ens.md#get-the-0x-address-lens-and-farcaster-from-a-given-cb.id-offchain)
-* [Get the 0x address, Lens, and Farcaster from a given Namestone Subdomain (Offchain)](ens.md#get-the-0x-address-lens-and-farcaster-from-a-given-namestone-subdomain-offchain)
-* [Get All The Solana addresses from a given ENS name](ens.md#get-all-the-solana-addresses-from-a-given-ens-name)
-* [Get All The Solana addresses from a given Namestone Subdomain or cb.id (Offchain)](ens.md#get-all-the-solana-addresses-from-a-given-namestone-subdomain-or-cb.id-offchain)
+- [Get ENS from a given user(s)](ens.md#get-ens-from-a-given-user-s)
+- [Get the 0x address, Lens, and Farcaster from a given ENS name(s)](ens.md#get-the-0x-address-lens-and-farcaster-from-a-given-ens-name-s)
+- [Get the 0x address, Lens, and Farcaster from a given cb.id (Offchain)](ens.md#get-the-0x-address-lens-and-farcaster-from-a-given-cb.id-offchain)
+- [Get the 0x address, Lens, and Farcaster from a given Namestone Subdomain (Offchain)](ens.md#get-the-0x-address-lens-and-farcaster-from-a-given-namestone-subdomain-offchain)
+- [Get All The Solana addresses from a given ENS name](ens.md#get-all-the-solana-addresses-from-a-given-ens-name)
+- [Get All The Solana addresses from a given Namestone Subdomain or cb.id (Offchain)](ens.md#get-all-the-solana-addresses-from-a-given-namestone-subdomain-or-cb.id-offchain)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -55,6 +55,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -69,6 +70,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -83,12 +85,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -96,6 +101,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -119,9 +125,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -134,9 +142,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -154,6 +164,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -174,13 +185,14 @@ You can get all the ENS names and offchain domains (Namestone & cb.id) of a give
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/SkTlH3Lh3I" %}
-Show me the ENS of 0x4b70d04124c2996de29e0caa050a49822faec6cc, GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV, lens/@stani, fc\_fname:vbuterin
+Show me the ENS of 0x4b70d04124c2996de29e0caa050a49822faec6cc, GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV, lens/@stani, fc_fname:vbuterin
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetENS {
   Domains(
@@ -188,9 +200,9 @@ query GetENS {
       filter: {
         owner: {
           _in: [
-            "0x4b70d04124c2996de29e0caa050a49822faec6cc",
-            "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV",
-            "lens/@stani",
+            "0x4b70d04124c2996de29e0caa050a49822faec6cc"
+            "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV"
+            "lens/@stani"
             "fc_fname:vbuterin"
           ]
         }
@@ -206,9 +218,11 @@ query GetENS {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -236,6 +250,7 @@ query GetENS {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -253,10 +268,11 @@ show me the 0x address, Lens, Farcaster of vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetUserDetailsFromENS {
   Domains(
-    input: {filter: {name: {_in: ["vitalik.eth"]}}, blockchain: ethereum}
+    input: { filter: { name: { _in: ["vitalik.eth"] } }, blockchain: ethereum }
   ) {
     Domain {
       resolvedAddress
@@ -270,9 +286,11 @@ query GetUserDetailsFromENS {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -298,6 +316,7 @@ query GetUserDetailsFromENS {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -315,10 +334,14 @@ Show me the 0x address, Lens, and Farcaster of yosephks.cb.id
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetCbDotID {
   Domains(
-    input: {filter: {name: {_in: ["yosephks.cb.id"]}}, blockchain: ethereum}
+    input: {
+      filter: { name: { _in: ["yosephks.cb.id"] } }
+      blockchain: ethereum
+    }
   ) {
     Domain {
       resolvedAddress
@@ -332,9 +355,11 @@ query GetCbDotID {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -360,6 +385,7 @@ query GetCbDotID {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -377,10 +403,14 @@ Show me the 0x address, Lens, and Farcaster of namestone.testbrand.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetNamestone {
   Domains(
-    input: {filter: {name: {_in: ["namestone.testbrand.eth"]}}, blockchain: ethereum}
+    input: {
+      filter: { name: { _in: ["namestone.testbrand.eth"] } }
+      blockchain: ethereum
+    }
   ) {
     Domain {
       resolvedAddress
@@ -394,9 +424,11 @@ query GetNamestone {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -418,6 +450,7 @@ query GetNamestone {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -435,13 +468,12 @@ Show me alexjcomeau.eth's multichain SOL address
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetUserDetailsFromENS {
   Domains(
     input: {
-      filter: {
-        name: {_eq: "alexjcomeau.eth"}
-      },
+      filter: { name: { _eq: "alexjcomeau.eth" } }
       blockchain: ethereum
     }
   ) {
@@ -454,9 +486,11 @@ query GetUserDetailsFromENS {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Domains": {
@@ -479,6 +513,7 @@ query GetUserDetailsFromENS {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -496,15 +531,11 @@ Show me yosephks.cb.id's multichain SOL address
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Domains(
-    input: {
-      filter: {
-        name: {_eq: "yosephks.cb.id"}
-      },
-      blockchain: ethereum
-    }
+    input: { filter: { name: { _eq: "yosephks.cb.id" } }, blockchain: ethereum }
   ) {
     Domain {
       multiChainAddresses {
@@ -515,9 +546,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Domains": {
@@ -552,6 +585,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -561,6 +595,6 @@ If you have any questions or need help regarding resolving ENS name(s), please j
 
 ## More Resources
 
-* [ENS Domains Guide](../ens-domains/)
-* [Domains API Reference](../../api-references/api-reference/domains-api.md)
-* [Socials API Reference](../../api-references/api-reference/socials-api.md)
+- [ENS Domains Guide](../ens-domains/)
+- [Domains API Reference](../../api-references/api-reference/domains-api.md)
+- [Socials API Reference](../../api-references/api-reference/socials-api.md)

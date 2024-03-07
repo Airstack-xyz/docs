@@ -35,7 +35,7 @@ In this guide you will learn how to use Airstack to:
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account (free)
+- An [Airstack](https://airstack.xyz/) account
 - Basic knowledge of GraphQL
 
 ## Get Started

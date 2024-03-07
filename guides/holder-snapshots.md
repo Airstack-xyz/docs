@@ -48,17 +48,17 @@ It is important to note that **AMM LP tokens** or tokens that generate yield ove
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get ERC20 Token Holders at a Specified Time on Ethereum](holder-snapshots.md#get-erc20-token-holders-snapshot-on-ethereum-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
-* [Get NFT Collection Holders at a Specified Time on Ethereum](holder-snapshots.md#get-nft-collection-holders-snapshot-on-ethereum-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
-* [Get ERC20 Token Holders at a Specified Time on Base](holder-snapshots.md#get-erc20-token-holders-snapshot-on-base-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
-* [Get NFT Collection Holders at a Specified Time on Base](holder-snapshots.md#get-nft-collection-holders-snapshot-on-base-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
-* [Get ERC20 Token Holders at a Specified Time on Zora](holder-snapshots.md#get-erc20-token-holders-snapshot-on-zora-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
-* [Get NFT Collection Holders at a Specified Time on Zora](holder-snapshots.md#get-nft-collection-holders-snapshot-on-zora-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
+- [Get ERC20 Token Holders at a Specified Time on Ethereum](holder-snapshots.md#get-erc20-token-holders-snapshot-on-ethereum-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
+- [Get NFT Collection Holders at a Specified Time on Ethereum](holder-snapshots.md#get-nft-collection-holders-snapshot-on-ethereum-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
+- [Get ERC20 Token Holders at a Specified Time on Base](holder-snapshots.md#get-erc20-token-holders-snapshot-on-base-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
+- [Get NFT Collection Holders at a Specified Time on Base](holder-snapshots.md#get-nft-collection-holders-snapshot-on-base-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
+- [Get ERC20 Token Holders at a Specified Time on Zora](holder-snapshots.md#get-erc20-token-holders-snapshot-on-zora-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
+- [Get NFT Collection Holders at a Specified Time on Zora](holder-snapshots.md#get-nft-collection-holders-snapshot-on-zora-at-a-specified-time) (`date`, `timestamp` or `blockNumber`)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -79,6 +79,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -93,6 +94,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -107,12 +109,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -120,6 +125,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -143,9 +149,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -158,9 +166,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -178,6 +188,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -205,6 +216,7 @@ Show me holder snapshots of ERC20 token USDC on Ethereum
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Snapshots(
@@ -246,9 +258,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Snapshots": {
@@ -313,6 +327,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -330,6 +345,7 @@ Show token holder snapshots of NFT collection BAYC on Ethereum at 2023-12-01
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Snapshots(
@@ -393,9 +409,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Snapshots": {
@@ -451,6 +469,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -468,6 +487,7 @@ Show me holder snapshots of ERC20 token 0x4158734d47fc9692176b5085e0f52ee0da5d47
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Snapshots(
@@ -509,9 +529,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Snapshots": {
@@ -574,6 +596,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -591,6 +614,7 @@ Show token holder snapshots of NFT collection 0xf0d0df7142f60f7f3847463a509fd896
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Snapshots(
@@ -654,9 +678,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -802,6 +828,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -819,6 +846,7 @@ Show me holder snapshots of ERC20 token 0xD838D5b87439e17B0194fd43e37300cD99Aa3D
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Snapshots(
@@ -860,9 +888,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Snapshots": {
@@ -926,6 +956,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -943,6 +974,7 @@ Show token holder snapshots of NFT collection 0xa15Bb830aCD9Ab46164e6840E3ef2dBB
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Snapshots(
@@ -1006,9 +1038,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Snapshots": {
@@ -1066,6 +1100,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -1075,9 +1110,9 @@ If you have any questions or need help regarding fetching holder snapshots data,
 
 ## More Resources
 
-* [Balance Snapshots Guides](balance-snapshots.md)
-* [Token Balances Guides](token-balances/)
-* [Token Holders Guides](token-holders/)
-* [Combinations Guides](combinations/)
-* [Tokens In Common Guides](tokens-in-common/)
-* [Snapshots API](../api-references/api-reference/snapshots-api.md)
+- [Balance Snapshots Guides](balance-snapshots.md)
+- [Token Balances Guides](token-balances/)
+- [Token Holders Guides](token-holders/)
+- [Combinations Guides](combinations/)
+- [Tokens In Common Guides](tokens-in-common/)
+- [Snapshots API](../api-references/api-reference/snapshots-api.md)

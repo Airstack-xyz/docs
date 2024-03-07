@@ -21,17 +21,17 @@ layout:
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get ENS and Offchain Domains (Namestone & cb.id) of user(s)](resolve-ens-domains.md#get-ens-and-offchain-domains-namestone-and-cb.id-of-user-s)
-* [Get All 0x addresses of ENS Domain(s)](resolve-ens-domains.md#get-all-0x-addresses-of-ens-domain-s)
-* [Get All Web3 Social Accounts (Lens, Farcaster) owned by 0x address or ENS](resolve-ens-domains.md#get-all-web3-social-accounts-lens-farcaster-owned-by-0x-address-or-ens)
-* [Check If XMTP is Enabled for ENS Domain(s)](resolve-ens-domains.md#check-if-xmtp-is-enabled-for-ens-domain-s)
-* [Get the 0x address, Lens, and Farcaster from a given cb.id (Offchain)](resolve-ens-domains.md#get-the-0x-address-lens-and-farcaster-from-a-given-cb.id-offchain)
-* [Get the 0x address, Lens, and Farcaster from a given Namestone Subdomain (Offchain)](resolve-ens-domains.md#get-the-0x-address-lens-and-farcaster-from-a-given-namestone-subdomain-offchain)
+- [Get ENS and Offchain Domains (Namestone & cb.id) of user(s)](resolve-ens-domains.md#get-ens-and-offchain-domains-namestone-and-cb.id-of-user-s)
+- [Get All 0x addresses of ENS Domain(s)](resolve-ens-domains.md#get-all-0x-addresses-of-ens-domain-s)
+- [Get All Web3 Social Accounts (Lens, Farcaster) owned by 0x address or ENS](resolve-ens-domains.md#get-all-web3-social-accounts-lens-farcaster-owned-by-0x-address-or-ens)
+- [Check If XMTP is Enabled for ENS Domain(s)](resolve-ens-domains.md#check-if-xmtp-is-enabled-for-ens-domain-s)
+- [Get the 0x address, Lens, and Farcaster from a given cb.id (Offchain)](resolve-ens-domains.md#get-the-0x-address-lens-and-farcaster-from-a-given-cb.id-offchain)
+- [Get the 0x address, Lens, and Farcaster from a given Namestone Subdomain (Offchain)](resolve-ens-domains.md#get-the-0x-address-lens-and-farcaster-from-a-given-namestone-subdomain-offchain)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -52,6 +52,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -66,6 +67,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -80,12 +82,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -93,6 +98,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -116,9 +122,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -131,9 +139,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -151,6 +161,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -178,6 +189,7 @@ Show me the ENS and offchain domains (Namestone & cb.id) of users
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetENSNameStoneCBID {
   Domains(
@@ -185,12 +197,12 @@ query GetENSNameStoneCBID {
       filter: {
         resolvedAddress: {
           _in: [
-            "0xc7486219881C780B676499868716B27095317416",
-            "lens/@yosephks",
+            "0xc7486219881C780B676499868716B27095317416"
+            "lens/@yosephks"
             "fc_fname:yosephks.eth"
           ]
         }
-      },
+      }
       blockchain: ethereum
     }
   ) {
@@ -200,9 +212,11 @@ query GetENSNameStoneCBID {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -219,6 +233,7 @@ query GetENSNameStoneCBID {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -236,9 +251,15 @@ Show 0x addresses of vitalik.eth and naderdabit.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
-  Domains(input: {filter: {name: {_in: ["vitalik.eth", "naderdabit.eth"]}}, blockchain: ethereum}) {
+  Domains(
+    input: {
+      filter: { name: { _in: ["vitalik.eth", "naderdabit.eth"] } }
+      blockchain: ethereum
+    }
+  ) {
     Domain {
       resolvedAddress
       name
@@ -246,9 +267,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -267,6 +290,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -284,17 +308,12 @@ Show web3 socials (Lens, Farcaster) owned by vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetWeb3SocialsOfLens {
   Socials(
     input: {
-      filter: {
-        identity: {
-          _in: [
-            "vitalik.eth"
-          ]
-        }
-      }
+      filter: { identity: { _in: ["vitalik.eth"] } }
       blockchain: ethereum
     }
   ) {
@@ -309,9 +328,11 @@ query GetWeb3SocialsOfLens {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -343,6 +364,7 @@ query GetWeb3SocialsOfLens {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -360,13 +382,11 @@ Show if XMTP is enabled for vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetLensOfFarcasters {
   XMTPs(
-    input: {
-      blockchain: ALL
-      filter: { owner: { _in: ["vitalik.eth"] } }
-    }
+    input: { blockchain: ALL, filter: { owner: { _in: ["vitalik.eth"] } } }
   ) {
     XMTP {
       isXMTPEnabled
@@ -379,9 +399,11 @@ query GetLensOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "XMTPs": {
@@ -402,6 +424,7 @@ query GetLensOfFarcasters {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -419,10 +442,14 @@ Show me the 0x address, Lens, and Farcaster of yosephks.cb.id
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetCbDotID {
   Domains(
-    input: {filter: {name: {_in: ["yosephks.cb.id"]}}, blockchain: ethereum}
+    input: {
+      filter: { name: { _in: ["yosephks.cb.id"] } }
+      blockchain: ethereum
+    }
   ) {
     Domain {
       resolvedAddress
@@ -436,9 +463,11 @@ query GetCbDotID {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -464,6 +493,7 @@ query GetCbDotID {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -481,10 +511,14 @@ Show me the 0x address, Lens, and Farcaster of namestone.testbrand.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetNamestone {
   Domains(
-    input: {filter: {name: {_in: ["namestone.testbrand.eth"]}}, blockchain: ethereum}
+    input: {
+      filter: { name: { _in: ["namestone.testbrand.eth"] } }
+      blockchain: ethereum
+    }
   ) {
     Domain {
       resolvedAddress
@@ -498,9 +532,11 @@ query GetNamestone {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -522,6 +558,7 @@ query GetNamestone {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -531,11 +568,11 @@ If you have any questions or need help regarding resolving identities for ENS do
 
 ### More Resources
 
-* [Resolve Identities](../resolve-identities/)
-  * [ENS](../resolve-identities/ens.md)
-  * [Lens](../resolve-identities/lens.md)
-  * [Farcaster](../resolve-identities/farcaster.md)
-* [XMTP Guides](../xmtp/)
-* [Domains API Reference](../../api-references/api-reference/domains-api.md)
-* [Socials API Reference](../../api-references/api-reference/socials-api.md)
-* [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)
+- [Resolve Identities](../resolve-identities/)
+  - [ENS](../resolve-identities/ens.md)
+  - [Lens](../resolve-identities/lens.md)
+  - [Farcaster](../resolve-identities/farcaster.md)
+- [XMTP Guides](../xmtp/)
+- [Domains API Reference](../../api-references/api-reference/domains-api.md)
+- [Socials API Reference](../../api-references/api-reference/socials-api.md)
+- [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)

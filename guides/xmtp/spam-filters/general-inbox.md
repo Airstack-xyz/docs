@@ -22,14 +22,14 @@ The General inbox should contain all the users that a given user is likely to kn
 
 Some criteria that can be checked for a user to be included in the general inbox are:
 
-* \>X match score on **Onchain Graph, which includes**:
-  * Sender has non-virtual POAPs in common with the user
-  * Sender has minted >X NFTs in common with the user
-  * Sender has several NFTs in common with the user
-* People the User follows are following the Sender on Farcaster&#x20;
-* People the User follows are following the Sender on Lens
-* People the User follows have sent the Sender tokens&#x20;
-* Senders have ENS and other factors (e.g. ENS + attended non-virtual POAPs)
+- \>X match score on **Onchain Graph, which includes**:
+  - Sender has non-virtual POAPs in common with the user
+  - Sender has minted >X NFTs in common with the user
+  - Sender has several NFTs in common with the user
+- People the User follows are following the Sender on Farcaster&#x20;
+- People the User follows are following the Sender on Lens
+- People the User follows have sent the Sender tokens&#x20;
+- Senders have ENS and other factors (e.g. ENS + attended non-virtual POAPs)
 
 If the sender doesn't meet the criteria, they should be removed from the main inbox and then placed into the [**Request Inbox**](request-inbox.md).
 
@@ -41,11 +41,7 @@ As demonstrated below, your app's interface can also feature user-friendly optio
 
 <figure><img src="../../../.gitbook/assets/Move to Primary 1-min.png" alt=""><figcaption></figcaption></figure>
 
- 
-
 <figure><img src="../../../.gitbook/assets/Move to Primary 2-min.png" alt=""><figcaption></figcaption></figure>
-
- 
 
 <figure><img src="../../../.gitbook/assets/Move to Primary 4-min.png" alt=""><figcaption></figcaption></figure>
 
@@ -55,20 +51,20 @@ As demonstrated below, your app's interface can also feature user-friendly optio
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to build an XMTP general inbox by:
 
-* [Check If Senders' Onchain Graph Score Above X](general-inbox.md#check-if-senders-onchain-graph-score-above-x)
-  * [Common POAP Events Attended](general-inbox.md#common-poap-events-attended)
-  * [Common NFT Collections Minted](general-inbox.md#common-nft-collections-minted)
-  * [Common NFT Collections Hold](general-inbox.md#common-nft-collections-hold)
-* [Check If The Senders Followed By Those Followed by The User on Lens](general-inbox.md#check-if-the-senders-followed-by-those-followed-by-the-user-on-lens)
-* [Check If The Senders Followed By Those Followed by The User  on Farcaster](general-inbox.md#check-if-the-senders-followed-by-those-followed-by-the-user-on-farcaster)
-* [Check If Any of The User's Followers on Lens or Farcaster Sent Any Token To The Sender](general-inbox.md#check-if-any-of-the-users-followers-on-lens-or-farcaster-sent-any-token-to-the-sender)
-* [Check If XMTP Users Have Any ENS and Attended Any Non-Virtual POAPs](general-inbox.md#check-if-xmtp-users-have-any-ens-and-attended-any-non-virtual-poaps)
+- [Check If Senders' Onchain Graph Score Above X](general-inbox.md#check-if-senders-onchain-graph-score-above-x)
+  - [Common POAP Events Attended](general-inbox.md#common-poap-events-attended)
+  - [Common NFT Collections Minted](general-inbox.md#common-nft-collections-minted)
+  - [Common NFT Collections Hold](general-inbox.md#common-nft-collections-hold)
+- [Check If The Senders Followed By Those Followed by The User on Lens](general-inbox.md#check-if-the-senders-followed-by-those-followed-by-the-user-on-lens)
+- [Check If The Senders Followed By Those Followed by The User on Farcaster](general-inbox.md#check-if-the-senders-followed-by-those-followed-by-the-user-on-farcaster)
+- [Check If Any of The User's Followers on Lens or Farcaster Sent Any Token To The Sender](general-inbox.md#check-if-any-of-the-users-followers-on-lens-or-farcaster-sent-any-token-to-the-sender)
+- [Check If XMTP Users Have Any ENS and Attended Any Non-Virtual POAPs](general-inbox.md#check-if-xmtp-users-have-any-ens-and-attended-any-non-virtual-poaps)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Basic knowledge of [XMTP](https://xmtp.org)
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
+- Basic knowledge of [XMTP](https://xmtp.org)
 
 ## Get Started
 
@@ -89,6 +85,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -103,6 +100,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -117,12 +115,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -130,6 +131,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -153,9 +155,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -168,9 +172,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -188,6 +194,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -241,24 +248,16 @@ show me the common POAPs attended by the user and the senders
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
-query CommonPOAPs(
-  $mainUser: Identity!,
-  $senders: [Identity!]
-) {
+query CommonPOAPs($mainUser: Identity!, $senders: [Identity!]) {
   Poaps(
-    input: {
-      filter: {
-        owner: {_eq: $mainUser}
-      },
-      blockchain: ALL,
-      limit: 50
-    }
+    input: { filter: { owner: { _eq: $mainUser } }, blockchain: ALL, limit: 50 }
   ) {
     Poap {
       eventId
       poapEvent {
-        poaps(input: {filter: {owner: {_in: $senders}}}) {
+        poaps(input: { filter: { owner: { _in: $senders } } }) {
           owner {
             addresses
           }
@@ -268,9 +267,11 @@ query CommonPOAPs(
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559",
@@ -281,9 +282,11 @@ query CommonPOAPs(
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Poaps": {
@@ -315,6 +318,7 @@ query CommonPOAPs(
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -340,17 +344,18 @@ Show me all NFTs minted by user
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery($mainUser: Identity!) {
   Ethereum: TokenTransfers(
     input: {
       filter: {
-        to: {_eq: $mainUser},
-        operator: {_eq: $mainUser},
-        from: {_eq: "0x0000000000000000000000000000000000000000"},
-        tokenType: {_in: [ERC721, ERC1155]}
-      },
-      blockchain: ethereum,
+        to: { _eq: $mainUser }
+        operator: { _eq: $mainUser }
+        from: { _eq: "0x0000000000000000000000000000000000000000" }
+        tokenType: { _in: [ERC721, ERC1155] }
+      }
+      blockchain: ethereum
       limit: 50
     }
   ) {
@@ -361,12 +366,12 @@ query MyQuery($mainUser: Identity!) {
   Polygon: TokenTransfers(
     input: {
       filter: {
-        to: {_eq: $mainUser},
-        operator: {_eq: $mainUser},
-        from: {_eq: "0x0000000000000000000000000000000000000000"},
-        tokenType: {_in: [ERC721, ERC1155]}
-      },
-      blockchain: polygon,
+        to: { _eq: $mainUser }
+        operator: { _eq: $mainUser }
+        from: { _eq: "0x0000000000000000000000000000000000000000" }
+        tokenType: { _in: [ERC721, ERC1155] }
+      }
+      blockchain: polygon
       limit: 50
     }
   ) {
@@ -377,12 +382,12 @@ query MyQuery($mainUser: Identity!) {
   Base: TokenTransfers(
     input: {
       filter: {
-        to: {_eq: $mainUser},
-        operator: {_eq: $mainUser},
-        from: {_eq: "0x0000000000000000000000000000000000000000"},
-        tokenType: {_in: [ERC721, ERC1155]}
-      },
-      blockchain: base,
+        to: { _eq: $mainUser }
+        operator: { _eq: $mainUser }
+        from: { _eq: "0x0000000000000000000000000000000000000000" }
+        tokenType: { _in: [ERC721, ERC1155] }
+      }
+      blockchain: base
       limit: 50
     }
   ) {
@@ -393,12 +398,12 @@ query MyQuery($mainUser: Identity!) {
   Zora: TokenTransfers(
     input: {
       filter: {
-        to: {_eq: $mainUser},
-        operator: {_eq: $mainUser},
-        from: {_eq: "0x0000000000000000000000000000000000000000"},
-        tokenType: {_in: [ERC721, ERC1155]}
-      },
-      blockchain: zora,
+        to: { _eq: $mainUser }
+        operator: { _eq: $mainUser }
+        from: { _eq: "0x0000000000000000000000000000000000000000" }
+        tokenType: { _in: [ERC721, ERC1155] }
+      }
+      blockchain: zora
       limit: 50
     }
   ) {
@@ -408,17 +413,21 @@ query MyQuery($mainUser: Identity!) {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559"
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -432,7 +441,7 @@ query MyQuery($mainUser: Identity!) {
         },
         {
           "tokenAddress": "0x9d90669665607f08005cae4a7098143f554c59ef"
-        },
+        }
         // Other Ethereum NFTs minted by user
       ]
     },
@@ -442,6 +451,7 @@ query MyQuery($mainUser: Identity!) {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -461,6 +471,7 @@ Show me all common NFTs minted by senders across Ethereum, Polygon, and Base
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery(
   $senders: [Identity!],
   $ethereumNfts: [Address!],
@@ -524,9 +535,11 @@ Show me all common NFTs minted by senders across Ethereum, Polygon, and Base
   # No Zora as no Zora NFT is minted by user
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 <pre class="language-json"><code class="lang-json">{
   // All Ethereum NFTs minted
 <strong>  "ethereumNfts": [
@@ -557,9 +570,11 @@ Show me all common NFTs minted by senders across Ethereum, Polygon, and Base
   ]
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
@@ -595,6 +610,7 @@ Show me all common NFTs minted by senders across Ethereum, Polygon, and Base
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -616,14 +632,22 @@ Show me all common NFTs hold between user and sender
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery($mainUser: Identity!, $senders: [Identity!]) {
   Ethereum: TokenBalances(
-    input: {filter: {owner: {_eq: $mainUser}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: ethereum, limit: 50}
+    input: {
+      filter: {
+        owner: { _eq: $mainUser }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: ethereum
+      limit: 50
+    }
   ) {
     TokenBalance {
       token {
-        tokenBalances(input: {filter: {owner: {_in: $senders}}}) {
+        tokenBalances(input: { filter: { owner: { _in: $senders } } }) {
           tokenAddress
           owner {
             addresses
@@ -633,11 +657,18 @@ query MyQuery($mainUser: Identity!, $senders: [Identity!]) {
     }
   }
   Polygon: TokenBalances(
-    input: {filter: {owner: {_eq: $mainUser}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: polygon, limit: 50}
+    input: {
+      filter: {
+        owner: { _eq: $mainUser }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: polygon
+      limit: 50
+    }
   ) {
     TokenBalance {
       token {
-        tokenBalances(input: {filter: {owner: {_in: $senders}}}) {
+        tokenBalances(input: { filter: { owner: { _in: $senders } } }) {
           tokenAddress
           owner {
             addresses
@@ -647,11 +678,18 @@ query MyQuery($mainUser: Identity!, $senders: [Identity!]) {
     }
   }
   Base: TokenBalances(
-    input: {filter: {owner: {_eq: $mainUser}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: base, limit: 50}
+    input: {
+      filter: {
+        owner: { _eq: $mainUser }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: base
+      limit: 50
+    }
   ) {
     TokenBalance {
       token {
-        tokenBalances(input: {filter: {owner: {_in: $senders}}}) {
+        tokenBalances(input: { filter: { owner: { _in: $senders } } }) {
           tokenAddress
           owner {
             addresses
@@ -661,11 +699,18 @@ query MyQuery($mainUser: Identity!, $senders: [Identity!]) {
     }
   }
   Zora: TokenBalances(
-    input: {filter: {owner: {_eq: $mainUser}, tokenType: {_in: [ERC1155, ERC721]}}, blockchain: zora, limit: 50}
+    input: {
+      filter: {
+        owner: { _eq: $mainUser }
+        tokenType: { _in: [ERC1155, ERC721] }
+      }
+      blockchain: zora
+      limit: 50
+    }
   ) {
     TokenBalance {
       token {
-        tokenBalances(input: {filter: {owner: {_in: $senders}}}) {
+        tokenBalances(input: { filter: { owner: { _in: $senders } } }) {
           tokenAddress
           owner {
             addresses
@@ -676,9 +721,11 @@ query MyQuery($mainUser: Identity!, $senders: [Identity!]) {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559",
@@ -689,9 +736,11 @@ query MyQuery($mainUser: Identity!, $senders: [Identity!]) {
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
@@ -728,6 +777,7 @@ query MyQuery($mainUser: Identity!, $senders: [Identity!]) {
 </strong>  }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -736,8 +786,8 @@ query MyQuery($mainUser: Identity!, $senders: [Identity!]) {
 {% hint style="info" %}
 For this check, you will need a backend to store the data fetched:
 
-* the user's followings on Lens
-* the addresses that is being followed by the user's followings on Lens
+- the user's followings on Lens
+- the addresses that is being followed by the user's followings on Lens
 
 You can update the data on your end periodically to get the data most up to date.
 {% endhint %}
@@ -756,6 +806,7 @@ Get all Lens followings of a given user
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery($mainUser: Identity!) {
   # Get all the user's followers
 <strong>  SocialFollowings(
@@ -776,17 +827,21 @@ Get all Lens followings of a given user
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
-  "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559",
+  "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559"
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -794,31 +849,26 @@ Get all Lens followings of a given user
       "Following": [
         {
           "followingAddress": {
-            "addresses": [
-              "0xe5b38d69b10b0a5d990c000fb5bdfce04e6a4071"
-            ]
+            "addresses": ["0xe5b38d69b10b0a5d990c000fb5bdfce04e6a4071"]
           }
         },
         {
           "followingAddress": {
-            "addresses": [
-              "0x714b831eb02fe854283219b2b9f1c6951f46dcb9"
-            ]
+            "addresses": ["0x714b831eb02fe854283219b2b9f1c6951f46dcb9"]
           }
         },
         {
           "followingAddress": {
-            "addresses": [
-              "0xb366d5b211f90625ac9ce9af3325e9e6fa627777"
-            ]
+            "addresses": ["0xb366d5b211f90625ac9ce9af3325e9e6fa627777"]
           }
-        },
+        }
         // Other followings on Farcaster
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -838,6 +888,7 @@ Show me all addresses that is being followed by the user's followings on Lens
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery($userFollowers: [Identity!]) {
   # Get all the Lens followings of the user's followings
 <strong>  SocialFollowings(
@@ -858,9 +909,11 @@ Show me all addresses that is being followed by the user's followings on Lens
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "userFollowings": [
@@ -870,9 +923,11 @@ Show me all addresses that is being followed by the user's followings on Lens
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -880,31 +935,26 @@ Show me all addresses that is being followed by the user's followings on Lens
       "Following": [
         {
           "followingAddress": {
-            "addresses": [
-              "0x2ee5baf1fbaf679b5611fa2b93ae4c752ff62693"
-            ]
+            "addresses": ["0x2ee5baf1fbaf679b5611fa2b93ae4c752ff62693"]
           }
         },
         {
           "followingAddress": {
-            "addresses": [
-              "0x960fd829fbec155f616102f6e654bfab9b9b3ae4"
-            ]
+            "addresses": ["0x960fd829fbec155f616102f6e654bfab9b9b3ae4"]
           }
         },
         {
           "followingAddress": {
-            "addresses": [
-              "0xeaf55242a90bb3289db8184772b0b98562053559"
-            ]
+            "addresses": ["0xeaf55242a90bb3289db8184772b0b98562053559"]
           }
-        },
+        }
         // Other addresses being followed by user's followings on Lens
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -915,8 +965,8 @@ Once you have all these data stored in your backend, you can use it to check whe
 {% hint style="info" %}
 For this check, you will need a backend to store the data fetched:
 
-* the user's followings on Farcaster
-* the addresses that is being followed by the user's followings on Farcaster
+- the user's followings on Farcaster
+- the addresses that is being followed by the user's followings on Farcaster
 
 You can update the data on your end periodically to get the data most up to date.
 {% endhint %}
@@ -935,6 +985,7 @@ Get all Farcaster followings of a given user
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery($mainUser: Identity!) {
   # Get all the user's followings
 <strong>  SocialFollowings(
@@ -955,17 +1006,21 @@ Get all Farcaster followings of a given user
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
-  "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559",
+  "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559"
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -973,31 +1028,26 @@ Get all Farcaster followings of a given user
       "Following": [
         {
           "followingAddress": {
-            "addresses": [
-              "0x2fd0e9793f691b097e782c871ac300cf35d0c315"
-            ]
+            "addresses": ["0x2fd0e9793f691b097e782c871ac300cf35d0c315"]
           }
         },
         {
           "followingAddress": {
-            "addresses": [
-              "0xff77c6d3392202c84a347d17f8499c580df8ec78"
-            ]
+            "addresses": ["0xff77c6d3392202c84a347d17f8499c580df8ec78"]
           }
         },
         {
           "followingAddress": {
-            "addresses": [
-              "0x52d543a222d3a499a0e88d05b3d9739b9936f66c"
-            ]
+            "addresses": ["0x52d543a222d3a499a0e88d05b3d9739b9936f66c"]
           }
-        },
+        }
         // Other followings on Farcaster
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1017,6 +1067,7 @@ Show me all addresses that is being followed by the user's followings on Farcast
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery($userFollowings: [Identity!]) {
   # Get all the Farcaster followings of the user's followings
 <strong>  SocialFollowings(
@@ -1037,9 +1088,11 @@ Show me all addresses that is being followed by the user's followings on Farcast
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "userFollowings": [
@@ -1049,9 +1102,11 @@ Show me all addresses that is being followed by the user's followings on Farcast
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1072,13 +1127,14 @@ Show me all addresses that is being followed by the user's followings on Farcast
               "0xeaf55242a90bb3289db8184772b0b98562053559"
             ]
           }
-        },
+        }
         // Other addresses being followed by user's followers on Farcaster
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1106,6 +1162,7 @@ Get all Lens and Farcaster followers of a given user
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery($mainUser: Identity!) {
   # Get all the user's followers
 <strong>  SocialFollowers(
@@ -1124,17 +1181,21 @@ Get all Lens and Farcaster followers of a given user
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
-  "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559",
+  "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559"
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1143,33 +1204,28 @@ Get all Lens and Farcaster followers of a given user
         {
           "dappName": "farcaster",
           "followerAddress": {
-            "addresses": [
-              "0x2fd0e9793f691b097e782c871ac300cf35d0c315"
-            ]
+            "addresses": ["0x2fd0e9793f691b097e782c871ac300cf35d0c315"]
           }
         },
         {
           "dappName": "farcaster",
           "followerAddress": {
-            "addresses": [
-              "0xff77c6d3392202c84a347d17f8499c580df8ec78"
-            ]
+            "addresses": ["0xff77c6d3392202c84a347d17f8499c580df8ec78"]
           }
         },
         {
           "dappName": "farcaster",
           "followerAddress": {
-            "addresses": [
-              "0x52d543a222d3a499a0e88d05b3d9739b9936f66c"
-            ]
+            "addresses": ["0x52d543a222d3a499a0e88d05b3d9739b9936f66c"]
           }
-        },
+        }
         // Other followers on Lens & Farcaster
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1189,6 +1245,7 @@ Show all token transfers from user's followers on Lens or Farcaster sent to send
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery(
   $userFollowers: [Identity!],
   $senders: [Identity!]
@@ -1259,9 +1316,11 @@ Show all token transfers from user's followers on Lens or Farcaster sent to send
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "userFollowers": [
@@ -1276,9 +1335,11 @@ Show all token transfers from user's followers on Lens or Farcaster sent to send
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
@@ -1307,6 +1368,7 @@ Show all token transfers from user's followers on Lens or Farcaster sent to send
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -1328,9 +1390,12 @@ Show me senders' ENS domain and non-virtual POAPs attended
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery($senders: [Identity!]) {
-  Domains(input: {filter: {owner: {_in: $senders}}, blockchain: ethereum}) {
+  Domains(
+    input: { filter: { owner: { _in: $senders } }, blockchain: ethereum }
+  ) {
     Domain {
       name
       owner
@@ -1347,9 +1412,11 @@ query MyQuery($senders: [Identity!]) {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "senders": [
@@ -1359,9 +1426,11 @@ query MyQuery($senders: [Identity!]) {
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Domains": {
@@ -1388,6 +1457,7 @@ query MyQuery($senders: [Identity!]) {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -1397,7 +1467,7 @@ If you have any questions or need help regarding building your general inbox on 
 
 ## More Resources
 
-* [Poaps API Reference](../../../api-references/api-reference/poaps-api.md)
-* [SocialFollowers API Reference](../../../api-references/api-reference/socialfollowers-api.md)
-* [Primary Inbox](primary-inbox.md)
-* [Request Inbox](request-inbox.md)
+- [Poaps API Reference](../../../api-references/api-reference/poaps-api.md)
+- [SocialFollowers API Reference](../../../api-references/api-reference/socialfollowers-api.md)
+- [Primary Inbox](primary-inbox.md)
+- [Request Inbox](request-inbox.md)

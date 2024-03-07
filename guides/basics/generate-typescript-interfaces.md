@@ -21,16 +21,16 @@ layout:
 
 In this guide you will learn how to:
 
-* [Step 1: Install Packages](generate-typescript-interfaces.md#step-1-install-packages)
-* [Step 2: Create `codegen.ts`](generate-typescript-interfaces.md#step-2-create-codegen.ts)
-* [Step 3: Modify `package.json` Scripts](generate-typescript-interfaces.md#step-3-modify-package.json-scripts)
-* [Step 4: Mark All GraphQL Queries](generate-typescript-interfaces.md#step-4-mark-all-graphql-queries)
-* [Step 5: Generate TypeScript Interfaces](generate-typescript-interfaces.md#step-5-generate-typescript-interfaces)
+- [Step 1: Install Packages](generate-typescript-interfaces.md#step-1-install-packages)
+- [Step 2: Create `codegen.ts`](generate-typescript-interfaces.md#step-2-create-codegen.ts)
+- [Step 3: Modify `package.json` Scripts](generate-typescript-interfaces.md#step-3-modify-package.json-scripts)
+- [Step 4: Mark All GraphQL Queries](generate-typescript-interfaces.md#step-4-mark-all-graphql-queries)
+- [Step 5: Generate TypeScript Interfaces](generate-typescript-interfaces.md#step-5-generate-typescript-interfaces)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Step 1: Install Packages
 
@@ -39,25 +39,31 @@ First, you need to install the required packages using your favorite package man
 {% tabs %}
 {% tab title="npm" %}
 {% code overflow="wrap" %}
+
 ```bash
 npm install --save-dev @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/typescript-operations @parcel/watcher
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="yarn" %}
 {% code overflow="wrap" %}
+
 ```bash
 yarn add --dev @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/typescript-operations @parcel/watcher
 ```
+
 {% endcode %}
 {% endtab %}
 
 {% tab title="pnpm" %}
 {% code overflow="wrap" %}
+
 ```bash
 pnpm install --dev @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/typescript-operations @parcel/watcher
 ```
+
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -97,17 +103,19 @@ Here, the types will be compiled and outputted in a single file `src/graphql/typ
 Once you have the `codegen.ts` file ready, add the following scripts to your project's `package.json`:
 
 {% code title="package.json" %}
+
 ```json
 {
   "scripts": {
     "generate": "npx graphql-codegen",
     "prestart": "yarn generate",
-    "predev": "yarn generate",
+    "predev": "yarn generate"
     // Other scripts
-  },
+  }
   // ...
 }
 ```
+
 {% endcode %}
 
 Here, you'll have 3 new scripts:
@@ -123,7 +131,7 @@ Optionally, you can also run the `generate` script concurrently in **watch mode*
   "scripts": {
     "dev": "concurrently \"vite\" \"yarn generate --watch\""
     // Other scripts
-  },
+  }
   // ...
 }
 ```
@@ -139,9 +147,9 @@ Keep in mind to have the name of each query **UNIQUE** to each other as TypeScri
 
 For example, the query below has name `FetchWeb3Identity`. Therefore, the types generated will be:
 
-* `FetchWeb3IdentityQuery`: response data type interface
-* `FetchWeb3IdentityVariables`:  variable type interface
-{% endhint %}
+- `FetchWeb3IdentityQuery`: response data type interface
+- `FetchWeb3IdentityVariables`: variable type interface
+  {% endhint %}
 
 ```typescript
 const query = /* GraphQL */ `
@@ -163,21 +171,27 @@ Finally, you can run the `generate` scripts to generate the necessary typescript
 
 {% tabs %}
 {% tab title="npm" %}
+
 ```bash
 npm run generate
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 ```bash
 yarn generate
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 ```bash
 pnpm run generate
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -187,6 +201,7 @@ From `src/graphql/types.ts`, you can import all the necessary types for your Air
 
 {% tabs %}
 {% tab title="Vanilla (TS)" %}
+
 ```typescript
 import { fetchQuery } from "@airstack/airstack-react";
 import { FetchWeb3IdentityQuery } from "./src/graphql/types";
@@ -197,21 +212,28 @@ const { data, loading, error } = fetchQuery<FetchWeb3IdentityQuery>(
   { cache: false }
 );
 ```
+
 {% endtab %}
 
 {% tab title="React (TS)" %}
+
 ```tsx
 import { useQuery } from "@airstack/airstack-react";
-import { FetchWeb3IdentityQuery, FetchWeb3IdentityVariables } from "./src/graphql/types";
+import {
+  FetchWeb3IdentityQuery,
+  FetchWeb3IdentityVariables,
+} from "./src/graphql/types";
 
 const { data, loading, error } = useQuery<
   FetchWeb3IdentityQuery,
   FetchWeb3IdentityVariables
 >(query, {}, { cache: false });
 ```
+
 {% endtab %}
 
 {% tab title="Node (TS)" %}
+
 ```typescript
 import { fetchQuery } from "@airstack/node";
 import { FetchWeb3IdentityQuery } from "./src/graphql/types";
@@ -225,12 +247,9 @@ interface Error {
   message: string;
 }
 
-const { data, error }: QueryResponse = fetchQuery(
-  query,
-  {},
-  { cache: false }
-);
+const { data, error }: QueryResponse = fetchQuery(query, {}, { cache: false });
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -238,6 +257,7 @@ Alternatively, if you added **watch** mode to run concurrently with your develop
 
 {% tabs %}
 {% tab title="npm" %}
+
 ```bash
 # For development
 npm run dev
@@ -245,9 +265,11 @@ npm run dev
 # For production build
 npm run build
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 ```bash
 # For development
 yarn dev
@@ -255,9 +277,11 @@ yarn dev
 # For production build
 yarn build
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 ```bash
 # For development
 pnpm run dev
@@ -265,6 +289,7 @@ pnpm run dev
 # For production build
 pnpm run build
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -274,10 +299,10 @@ If you have any questions or need help regarding generating TypeScript interface
 
 ### More Resources
 
-* [API Overview](../../api-references/overview/)
-* [API References](../../api-references/api-reference/)
-* [Variables](../../web-sdk-reference/objects/variables.md)
-* [Pagination](pagination-in-airstack-sdk.md)
-* [Direct API Call](../../get-started/quickstart/direct-api-call.md)
-* [Multiple Queries Execution](multiple-queries-execution.md)
-* [Cross Chain Queries](cross-chain-queries.md)
+- [API Overview](../../api-references/overview/)
+- [API References](../../api-references/api-reference/)
+- [Variables](../../web-sdk-reference/objects/variables.md)
+- [Pagination](pagination-in-airstack-sdk.md)
+- [Direct API Call](../../get-started/quickstart/direct-api-call.md)
+- [Multiple Queries Execution](multiple-queries-execution.md)
+- [Cross Chain Queries](cross-chain-queries.md)

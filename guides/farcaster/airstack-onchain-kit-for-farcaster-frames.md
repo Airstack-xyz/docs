@@ -17,7 +17,7 @@ layout:
 
 [Farcaster Frames](https://warpcast.notion.site/Farcaster-Frames-4bd47fe97dc74a42a48d3a234636d8c5) enables any cast on Farcaster to be an interactive app. Airstack Onchain Kit helps you enrich your Frame with onchain data.
 
-You can access the majority of use cases in Airstack Onchain Kit through the newly released [**Airstack Frames SDK**](https://github.com/Airstack-xyz/airstack-frames-sdk)**.**  Some other use cases will require either the [Node](../../nodejs-sdk-reference/overview.md) or [Python SDK](https://github.com/Airstack-xyz/airstack-python-sdk) to call the GraphQL queries.
+You can access the majority of use cases in Airstack Onchain Kit through the newly released [**Airstack Frames SDK**](https://github.com/Airstack-xyz/airstack-frames-sdk)**.** Some other use cases will require either the [Node](../../nodejs-sdk-reference/overview.md) or [Python SDK](https://github.com/Airstack-xyz/airstack-python-sdk) to call the GraphQL queries.
 
 The [**Airstack Frames SDK**](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main) empowers developers to seamlessly integrate onchain data, including channels, token balances, token mints, Farcaster followers and followings, POAPs, and more, into their Frames using just a few lines of code.
 
@@ -29,38 +29,38 @@ Designed with TypeScript, the SDK offers full type support for those building Fr
 
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
-* [Validate Frames](frames-validator.md)
-* [Get Farcaster User Details](airstack-onchain-kit-for-farcaster-frames.md#get-started)
-* [Get all of the Farcaster User's Followers](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-users-followers)
-* [Get all of the Farcaster User's Followings](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-users-followings)
-* [Get All Users Followed by Those Followed by A Certain User](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-followed-by-those-followed-by-a-certain-user) (2nd-degree contact)
-* [Get All Users Following the Followers of a Specific User](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-following-the-followers-of-a-specific-user)
-* [Get All Users Commonly Followed By Two Users](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-commonly-followed-by-two-users)
-* [Resolve Solana Address](airstack-onchain-kit-for-farcaster-frames.md#resolve-solana-address)
-* [Get Channel Details](airstack-onchain-kit-for-farcaster-frames.md#get-channel-details)
-* [Get Participants Of A Channel](airstack-onchain-kit-for-farcaster-frames.md#get-participants-of-a-channel)
-* [Get Farcaster Channels By Participant](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-channels-by-participant)
-* [Get Farcaster Channels By Host](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-channels-by-host)
-* [Get All POAPs Attended By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-poaps-attended-by-farcaster-user)
-* [Get All NFTs Held By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-nfts-hold-by-farcaster-user) on Ethereum, Base, Zora, and Polygon
-* [Get All ERC20 Tokens Hold By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-erc20-tokens-hold-by-farcaster-user) on Ethereum, Base, Zora, and Polygon
-* [Get Historical NFT Balance of Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-historical-nft-balance-of-farcaster-user) on Ethereum, Base, Zora, and Polygon
-* [Get Historical ERC20 Token Balance of Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-historical-erc20-token-balance-of-farcaster-user) on Ethereum, Base, Zora, and Polygon
-* [Get NFT Mints By A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-nft-mints-by-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
-* [Get Recommended Mints for Farcaster Users](airstack-onchain-kit-for-farcaster-frames.md#get-recommended-mints-for-farcaster-users) on Ethereum, Base, Zora, and Polygon
-* [Get ERC20 Token Mints By A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-erc20-token-mints-by-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
-* [Get Token Transfers Sent From A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-token-transfers-sent-from-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
-* [Get Token Transfers Received From A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-token-transfers-received-by-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
-* [Get All Farcaster Users Whose Names Start With Certain Terms (auto-complete regex in API)](airstack-onchain-kit-for-farcaster-frames.md#get-all-farcaster-users-whose-names-start-with-certain-terms-auto-complete)
-* [Get All Farcaster Users Whose Names Contain Certain Terms (auto-complete regex in API)](airstack-onchain-kit-for-farcaster-frames.md#get-all-farcaster-users-whose-names-contain-certain-terms-auto-complete)
-* [Search All Farcaster Channels Whose Names Start With Certain Terms (auto-complete)](airstack-onchain-kit-for-farcaster-frames.md#search-all-farcaster-channels-whose-names-start-with-certain-terms-auto-complete)
-* [Search All Farcaster Channels Whose Names Contain Certain Terms (auto-complete)](airstack-onchain-kit-for-farcaster-frames.md#search-all-farcaster-channels-whose-names-contain-certain-terms-auto-complete)
-* [Get Onchain Graph of Farcaster user](../onchain-graph.md) (all users on/off farcaster who have the most onchain overlaps with the user)
+- [Validate Frames](frames-validator.md)
+- [Get Farcaster User Details](airstack-onchain-kit-for-farcaster-frames.md#get-started)
+- [Get all of the Farcaster User's Followers](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-users-followers)
+- [Get all of the Farcaster User's Followings](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-users-followings)
+- [Get All Users Followed by Those Followed by A Certain User](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-followed-by-those-followed-by-a-certain-user) (2nd-degree contact)
+- [Get All Users Following the Followers of a Specific User](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-following-the-followers-of-a-specific-user)
+- [Get All Users Commonly Followed By Two Users](airstack-onchain-kit-for-farcaster-frames.md#get-all-users-commonly-followed-by-two-users)
+- [Resolve Solana Address](airstack-onchain-kit-for-farcaster-frames.md#resolve-solana-address)
+- [Get Channel Details](airstack-onchain-kit-for-farcaster-frames.md#get-channel-details)
+- [Get Participants Of A Channel](airstack-onchain-kit-for-farcaster-frames.md#get-participants-of-a-channel)
+- [Get Farcaster Channels By Participant](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-channels-by-participant)
+- [Get Farcaster Channels By Host](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-channels-by-host)
+- [Get All POAPs Attended By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-poaps-attended-by-farcaster-user)
+- [Get All NFTs Held By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-nfts-hold-by-farcaster-user) on Ethereum, Base, Zora, and Polygon
+- [Get All ERC20 Tokens Hold By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-erc20-tokens-hold-by-farcaster-user) on Ethereum, Base, Zora, and Polygon
+- [Get Historical NFT Balance of Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-historical-nft-balance-of-farcaster-user) on Ethereum, Base, Zora, and Polygon
+- [Get Historical ERC20 Token Balance of Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-historical-erc20-token-balance-of-farcaster-user) on Ethereum, Base, Zora, and Polygon
+- [Get NFT Mints By A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-nft-mints-by-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
+- [Get Recommended Mints for Farcaster Users](airstack-onchain-kit-for-farcaster-frames.md#get-recommended-mints-for-farcaster-users) on Ethereum, Base, Zora, and Polygon
+- [Get ERC20 Token Mints By A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-erc20-token-mints-by-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
+- [Get Token Transfers Sent From A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-token-transfers-sent-from-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
+- [Get Token Transfers Received From A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-token-transfers-received-by-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
+- [Get All Farcaster Users Whose Names Start With Certain Terms (auto-complete regex in API)](airstack-onchain-kit-for-farcaster-frames.md#get-all-farcaster-users-whose-names-start-with-certain-terms-auto-complete)
+- [Get All Farcaster Users Whose Names Contain Certain Terms (auto-complete regex in API)](airstack-onchain-kit-for-farcaster-frames.md#get-all-farcaster-users-whose-names-contain-certain-terms-auto-complete)
+- [Search All Farcaster Channels Whose Names Start With Certain Terms (auto-complete)](airstack-onchain-kit-for-farcaster-frames.md#search-all-farcaster-channels-whose-names-start-with-certain-terms-auto-complete)
+- [Search All Farcaster Channels Whose Names Contain Certain Terms (auto-complete)](airstack-onchain-kit-for-farcaster-frames.md#search-all-farcaster-channels-whose-names-contain-certain-terms-auto-complete)
+- [Get Onchain Graph of Farcaster user](../onchain-graph.md) (all users on/off farcaster who have the most onchain overlaps with the user)
 
 ### Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ### Get Started
 
@@ -70,21 +70,27 @@ To integrate Airstack into your frames, simply install the Airstack Frames SDK:
 
 {% tabs %}
 {% tab title="npm" %}
+
 ```sh
 npm install @airstack/frames
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 ```sh
 yarn add @airstack/frames
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 ```sh
 pnpm install @airstack/frames
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -92,19 +98,23 @@ Then, add the following snippets to your code and provide your [Airstack API key
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import { init } from "@airstack/frames";
 
 init("YOUR_AIRSTACK_API_KEY");
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript (Node)" %}
+
 ```javascript
 import { init } from "@airstack/frames";
 
 init("YOUR_AIRSTACK_API_KEY");
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -116,27 +126,35 @@ Otherwise, for GraphQL queries you'll need to either install the Airstack Node o
 
 {% tabs %}
 {% tab title="npm" %}
+
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -144,6 +162,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -156,9 +175,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -176,6 +197,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -191,6 +213,7 @@ You can fetch the Farcaster user details, including profile name, fnames, profil
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import {
   getFarcasterUserDetails,
@@ -208,9 +231,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const { getFarcasterUserDetails } = require("@airstack/frames");
 
@@ -223,9 +248,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="Result" %}
+
 ```json
 {
   "profileName": "betashop.eth",
@@ -245,6 +272,7 @@ console.log(data);
   "followingCount": 2270
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -254,6 +282,7 @@ You can fetch all the users following 0x address on Farcaster by using the [`get
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import {
   getFarcasterFollowers,
@@ -278,9 +307,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const { getFarcasterFollowers } = require("@airstack/frames");
 
@@ -288,22 +319,18 @@ const input = {
   fid: 602,
   limit: 100,
 };
-const {
-  data,
-  error,
-  hasNextPage,
-  hasPrevPage,
-  getNextPage,
-  getPrevPage,
-} = await getFarcasterFollowers(input);
+const { data, error, hasNextPage, hasPrevPage, getNextPage, getPrevPage } =
+  await getFarcasterFollowers(input);
 
 if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="Result" %}
+
 ```json
 [
   {
@@ -320,10 +347,11 @@ console.log(data);
     "userAssociatedAddresses": ["0x42fae5a53f0194f6f9587926e206a852c5c726bf"],
     "followerCount": 1,
     "followingCount": 74
-  },
+  }
   // More followers
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -333,6 +361,7 @@ You can fetch all the users being followed by 0x address on Farcaster by using t
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import {
   getFarcasterFollowings,
@@ -357,9 +386,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const { getFarcasterFollowings } = require("@airstack/frames");
 
@@ -367,22 +398,18 @@ const input = {
   fid: 602,
   limit: 100,
 };
-const {
-  data,
-  error,
-  hasNextPage,
-  hasPrevPage,
-  getNextPage,
-  getPrevPage,
-} = await getFarcasterFollowings(input);
+const { data, error, hasNextPage, hasPrevPage, getNextPage, getPrevPage } =
+  await getFarcasterFollowings(input);
 
 if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 [
   {
@@ -399,10 +426,11 @@ console.log(data);
     "userAssociatedAddresses": ["0xda52abca28fadeab9771ba45a2ff346c4db97d7f"],
     "followerCount": 58,
     "followingCount": 0
-  },
+  }
   // More followings
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -420,6 +448,7 @@ Get all Farcaster followings of 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   # Get all the user's followings
 <strong>  SocialFollowings(
@@ -440,9 +469,11 @@ Get all Farcaster followings of 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -472,6 +503,7 @@ Get all Farcaster followings of 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -487,6 +519,7 @@ Show me Farcaster users that is being followed by the 0xD7029BDEa1c17493893AAfE2
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery($userFollowings: [Identity!]) {
   # Get all the Farcaster followings of the user's followings
 <strong>  SocialFollowings(
@@ -511,9 +544,11 @@ Show me Farcaster users that is being followed by the 0xD7029BDEa1c17493893AAfE2
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "userFollowings": [
@@ -525,9 +560,11 @@ Show me Farcaster users that is being followed by the 0xD7029BDEa1c17493893AAfE2
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -552,6 +589,7 @@ Show me Farcaster users that is being followed by the 0xD7029BDEa1c17493893AAfE2
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -569,6 +607,7 @@ Get all Farcaster followers of 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   # Get all the user's followers
 <strong>  SocialFollowers(
@@ -589,9 +628,11 @@ Get all Farcaster followers of 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -624,6 +665,7 @@ Get all Farcaster followers of 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -639,6 +681,7 @@ Show me Farcaster users that is following the 0xD7029BDEa1c17493893AAfE29AAD69EF
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery($userFollowers: [Identity!]) {
   # Get all the Farcaster followings of the user's followers
 <strong>  SocialFollowers(
@@ -663,9 +706,11 @@ Show me Farcaster users that is following the 0xD7029BDEa1c17493893AAfE29AAD69EF
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "userFollowers": [
@@ -678,9 +723,11 @@ Show me Farcaster users that is following the 0xD7029BDEa1c17493893AAfE29AAD69EF
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -706,6 +753,7 @@ Show me Farcaster users that is following the 0xD7029BDEa1c17493893AAfE29AAD69EF
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -727,20 +775,26 @@ show me all Farcaster users that both user A and B follow
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery($userA: Identity!, $userB: Identity!) {
   SocialFollowings(
-    input: {filter: {dappName: {_eq: farcaster}, identity: {_eq: $userA}}, blockchain: ALL}
+    input: {
+      filter: { dappName: { _eq: farcaster }, identity: { _eq: $userA } }
+      blockchain: ALL
+    }
   ) {
     Following {
       followingAddress {
         socialFollowings(
-          input: {filter: {dappName: {_eq: farcaster}, identity: {_eq: $userB}}}
+          input: {
+            filter: { dappName: { _eq: farcaster }, identity: { _eq: $userB } }
+          }
         ) {
           Following {
             followingAddress {
               addresses
-              socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+              socials(input: { filter: { dappName: { _eq: farcaster } } }) {
                 profileName
               }
             }
@@ -751,18 +805,22 @@ query MyQuery($userA: Identity!, $userB: Identity!) {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "userA": "fc_fname:vitalik.eth",
   "userB": "fc_fname:jessepollak"
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowings": {
@@ -800,6 +858,7 @@ query MyQuery($userA: Identity!, $userB: Identity!) {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -817,16 +876,17 @@ Resolve Solana address GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV to 0x addres
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Wallet(
     input: {
-      identity: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV",
+      identity: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV"
       blockchain: ethereum
     }
   ) {
     addresses
-    farcsater: socials(input: {filter:{dappName: {_eq: farcaster}}}){
+    farcsater: socials(input: { filter: { dappName: { _eq: farcaster } } }) {
       profileName
       userId
     }
@@ -836,16 +896,16 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
     "Wallet": {
-      "addresses": [
-        "0xe0235804378c31948e81441f656d826ee5998bc6"
-      ],
+      "addresses": ["0xe0235804378c31948e81441f656d826ee5998bc6"],
       "farcsater": [
         {
           "profileName": "alexcomeau",
@@ -861,6 +921,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -870,6 +931,7 @@ You can fetch a certain channel details by using the [`getFarcasterChannelDetail
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import {
   getFarcasterChannelDetails,
@@ -887,25 +949,28 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const { getFarcasterChannelDetails } = require("@airstack/frames");
 
 const input = {
   channel: "farcaster",
 };
-const { data, error } =
-  await getFarcasterChannelDetails(input);
+const { data, error } = await getFarcasterChannelDetails(input);
 
 if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "name": "Farcaster",
@@ -937,6 +1002,7 @@ console.log(data);
   "warpcastUrl": "https://warpcast.com/~/channel/farcaster"
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -946,6 +1012,7 @@ You can fetch all the participants of a channel by using the [`getFarcasterChann
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import {
   getFarcasterChannelParticipants,
@@ -973,9 +1040,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const {
   getFarcasterChannelParticipants,
@@ -1000,9 +1069,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 [
   {
@@ -1025,6 +1096,7 @@ console.log(data);
   }
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1034,6 +1106,7 @@ You can fetch all the Farcaster channels of a given participants by using the [`
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import {
   getFarcasterChannelsByParticipant,
@@ -1061,9 +1134,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const {
   getFarcasterChannelsByParticipant,
@@ -1088,9 +1163,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 [
   {
@@ -1122,6 +1199,7 @@ console.log(data);
   }
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1131,6 +1209,7 @@ You can fetch all the Farcaster channels of a given hosts by using the [`getFarc
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import {
   getFarcasterChannelsByHost,
@@ -1153,9 +1232,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const { getFarcasterChannelsByHost } = require("@airstack/frames");
 
@@ -1173,9 +1254,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 [
   {
@@ -1187,6 +1270,7 @@ console.log(data);
   }
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1196,6 +1280,7 @@ You can fetch all POAPs owned by a Farcaster user using the [`getFarcasterUserPo
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import {
   getFarcasterUserPoaps,
@@ -1220,9 +1305,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const { getFarcasterUserPoaps } = require("@airstack/frames");
 
@@ -1230,22 +1317,18 @@ const input = {
   fid: 602,
   limit: 100,
 };
-const {
-  data,
-  error,
-  hasNextPage,
-  hasPrevPage,
-  getNextPage,
-  getPrevPage,
-} = await getFarcasterUserPoaps(input);
+const { data, error, hasNextPage, hasPrevPage, getNextPage, getPrevPage } =
+  await getFarcasterUserPoaps(input);
 
 if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="Result" %}
+
 ```json
 [
   {
@@ -1256,10 +1339,11 @@ console.log(data);
     "startDate": "2023-09-22T00:00:00Z",
     "endDate": "2023-09-25T00:00:00Z",
     "city": "New York City"
-  },
+  }
   // More POAPs
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1269,6 +1353,7 @@ You can fetch all NFTs owned by a Farcaster user using the [`getFarcasterUserNFT
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import {
   getFarcasterUserNFTBalances,
@@ -1304,9 +1389,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const {
   getFarcasterUserNFTBalances,
@@ -1325,24 +1412,18 @@ const variables = {
   ],
   limit: 100,
 };
-const {
-  data,
-  error,
-  hasNextPage,
-  hasPrevPage,
-  getNextPage,
-  getPrevPage,
-} = await getFarcasterUserNFTBalances(
-  variables
-);
+const { data, error, hasNextPage, hasPrevPage, getNextPage, getPrevPage } =
+  await getFarcasterUserNFTBalances(variables);
 
 if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="Result" %}
+
 ```json
 [
   {
@@ -1372,10 +1453,11 @@ console.log(data);
       "attributes": null
     },
     "tokenType": "ERC721"
-  },
+  }
   // Other NFTs
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1385,6 +1467,7 @@ You can fetch all ERC20 tokens owned by a Farcaster user using the [`getFarcaste
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import {
   getFarcasterUserERC20Balances,
@@ -1418,9 +1501,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const {
   getFarcasterUserERC20Balances,
@@ -1437,24 +1522,18 @@ const input = {
   ],
   limit: 100,
 };
-const {
-  data,
-  error,
-  hasNextPage,
-  hasPrevPage,
-  getNextPage,
-  getPrevPage,
-} = await getFarcasterUserERC20Balances(
-  input
-);
+const { data, error, hasNextPage, hasPrevPage, getNextPage, getPrevPage } =
+  await getFarcasterUserERC20Balances(input);
 
 if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="Result" %}
+
 ```json
 [
   {
@@ -1464,10 +1543,11 @@ console.log(data);
     "amountInWei": "125000000",
     "name": "USD Coin",
     "symbol": "USDC"
-  },
+  }
   // Other ERC20 tokens
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1489,6 +1569,7 @@ Show me Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2 h
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Snapshots(
     input: {
@@ -1531,9 +1612,11 @@ Show me Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2 h
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Snapshots": {
@@ -1569,6 +1652,7 @@ Show me Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2 h
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -1590,6 +1674,7 @@ Show me Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2 h
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Snapshots(
     input: {
@@ -1619,9 +1704,11 @@ Show me Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2 h
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Snapshots": {
@@ -1656,6 +1743,7 @@ Show me Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2 h
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -1665,6 +1753,7 @@ You can fetch all NFTs minted by a Farcaster user across multiple chains, such a
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import {
   getFarcasterUserNFTMints,
@@ -1698,9 +1787,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const {
   getFarcasterUserNFTMints,
@@ -1719,22 +1810,18 @@ const input = {
   tokenType: [NFTType.ERC721, NFTType.ERC1155],
   limit: 100,
 };
-const {
-  data,
-  error,
-  hasNextPage,
-  hasPrevPage,
-  getNextPage,
-  getPrevPage,
-} = await getFarcasterUserNFTMints(input);
+const { data, error, hasNextPage, hasPrevPage, getNextPage, getPrevPage } =
+  await getFarcasterUserNFTMints(input);
 
 if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="Result" %}
+
 ```json
 [
   {
@@ -1769,6 +1856,7 @@ console.log(data);
   }
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1786,6 +1874,7 @@ You can fetch all ERC20 tokens minted by a Farcaster user across multiple chains
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import {
   getFarcasterUserERC20Mints,
@@ -1817,9 +1906,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const {
   getFarcasterUserERC20Mints,
@@ -1836,22 +1927,18 @@ const input = {
   ],
   limit: 100,
 };
-const {
-  data,
-  error,
-  hasNextPage,
-  hasPrevPage,
-  getNextPage,
-  getPrevPage,
-} = await getFarcasterUserERC20Mints(input);
+const { data, error, hasNextPage, hasPrevPage, getNextPage, getPrevPage } =
+  await getFarcasterUserERC20Mints(input);
 
 if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 [
   {
@@ -1866,6 +1953,7 @@ console.log(data);
   }
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1875,6 +1963,7 @@ You can fetch all token transfers sent by a given Farcaster user across multiple
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import {
   getFarcasterUserTokenSentFrom,
@@ -1910,9 +1999,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const {
   getFarcasterUserTokenSentFrom,
@@ -1931,24 +2022,18 @@ const input = {
   tokenType: [TokenType.ERC20, TokenType.ERC721, TokenType.ERC1155],
   limit: 100,
 };
-const {
-  data,
-  error,
-  hasNextPage,
-  hasPrevPage,
-  getNextPage,
-  getPrevPage,
-} = await getFarcasterUserTokenSentFrom(
-  input
-);
+const { data, error, hasNextPage, hasPrevPage, getNextPage, getPrevPage } =
+  await getFarcasterUserTokenSentFrom(input);
 
 if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 [
   {
@@ -1969,6 +2054,7 @@ console.log(data);
   }
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1978,6 +2064,7 @@ You can fetch all token transfers received by a given Farcaster user across mult
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import {
   getFarcasterUserTokenReceivedBy,
@@ -2013,9 +2100,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const {
   getFarcasterUserTokenReceivedBy,
@@ -2034,24 +2123,18 @@ const input = {
   tokenType: [TokenType.ERC20, TokenType.ERC721, TokenType.ERC1155],
   limit: 100,
 };
-const {
-  data,
-  error,
-  hasNextPage,
-  hasPrevPage,
-  getNextPage,
-  getPrevPage,
-} = await getFarcasterUserTokenReceivedBy(
-  input
-);
+const { data, error, hasNextPage, hasPrevPage, getNextPage, getPrevPage } =
+  await getFarcasterUserTokenReceivedBy(input);
 
 if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="Result" %}
+
 ```json
 [
   {
@@ -2091,6 +2174,7 @@ console.log(data);
   }
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -2108,6 +2192,7 @@ show me all Farcaster users starting with "a"
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -2127,9 +2212,11 @@ show me all Farcaster users starting with "a"
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -2153,6 +2240,7 @@ show me all Farcaster users starting with "a"
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -2162,6 +2250,7 @@ You can fetch all Farcaster users that contains given words by using the [`searc
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import {
   searchFarcasteUsers,
@@ -2186,9 +2275,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const { searchFarcasteUsers } = require("@airstack/frames");
 
@@ -2196,22 +2287,18 @@ const input = {
   profileName: "a",
   limit: 10,
 };
-const {
-  data,
-  error,
-  hasNextPage,
-  hasPrevPage,
-  getNextPage,
-  getPrevPage,
-} = await searchFarcasterUsers(input);
+const { data, error, hasNextPage, hasPrevPage, getNextPage, getPrevPage } =
+  await searchFarcasterUsers(input);
 
 if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="Result" %}
+
 ```json
 [
   {
@@ -2234,6 +2321,7 @@ console.log(data);
   }
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -2251,15 +2339,11 @@ Show me all Farcaster channels name that starts with "air"
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   FarcasterChannels(
-    input: {
-      blockchain: ALL,
-      filter: {
-        name: {_regex: "^air"}
-      }
-    }
+    input: { blockchain: ALL, filter: { name: { _regex: "^air" } } }
   ) {
     FarcasterChannel {
       name
@@ -2267,9 +2351,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -2283,13 +2369,14 @@ query MyQuery {
         },
         {
           "name": "airdrop1-deutsch"
-        },
+        }
         // Other channels starting with "air"
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -2299,6 +2386,7 @@ You can fetch search Farcaster channels by name by using the [`searchFarcasterCh
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import {
   searchFarcasterChannels,
@@ -2321,9 +2409,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const { searchFarcasterChannels } = require("@airstack/frames");
 
@@ -2341,9 +2431,11 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 [
   {
@@ -2375,6 +2467,7 @@ console.log(data);
   }
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -2385,8 +2478,6 @@ To further enrich and improve the user experience for your Farcaster Frames, you
 <div align="center">
 
 <figure><img src="../../.gitbook/assets/image (7).png" alt="" width="375"><figcaption><p>Builder.fi's Onchain Contacts</p></figcaption></figure>
-
- 
 
 <figure><img src="../../.gitbook/assets/converse.png" alt="" width="375"><figcaption><p>Converse's Onchain Contacts</p></figcaption></figure>
 
@@ -2400,20 +2491,20 @@ If you have any questions or need help regarding the activate kit for [Farcaster
 
 ## More Resources
 
-* [Onchain Graph Guides](../onchain-graph.md)
-* [Onchain Contact Guides](../onchain-contacts.md)
-* [Search Farcaster Users](search-farcaster-users.md)
-* [Farcaster Followers](farcaster-followers.md)
-* [Farcaster Following](farcaster-following.md)
-* [Get Token Balances](../lens/get-token-balances.md)
-* [Token Mints](../token-mints.md)
-* [Token Transfers](../recommend-users/token-transfers.md)
-* [Balance Snapshots](../balance-snapshots.md)
-* [Socials API Reference](../../api-references/api-reference/socials-api.md)
-* [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
-* [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
-* [Snapshots API Reference](../../api-references/api-reference/snapshots-api.md)
-* [Math Captcha For Farcaster Frames](https://github.com/limone-eth/farcaster-horizon-airstack/blob/main/app/api/captcha/validate/route.ts)
-* [Airstack Frames SDK Reference](https://github.com/Airstack-xyz/airstack-frames-sdk)
-* [Airstack No-Code Frames](../no-code-frames/)
+- [Onchain Graph Guides](../onchain-graph.md)
+- [Onchain Contact Guides](../onchain-contacts.md)
+- [Search Farcaster Users](search-farcaster-users.md)
+- [Farcaster Followers](farcaster-followers.md)
+- [Farcaster Following](farcaster-following.md)
+- [Get Token Balances](../lens/get-token-balances.md)
+- [Token Mints](../token-mints.md)
+- [Token Transfers](../recommend-users/token-transfers.md)
+- [Balance Snapshots](../balance-snapshots.md)
+- [Socials API Reference](../../api-references/api-reference/socials-api.md)
+- [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
+- [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+- [Snapshots API Reference](../../api-references/api-reference/snapshots-api.md)
+- [Math Captcha For Farcaster Frames](https://github.com/limone-eth/farcaster-horizon-airstack/blob/main/app/api/captcha/validate/route.ts)
+- [Airstack Frames SDK Reference](https://github.com/Airstack-xyz/airstack-frames-sdk)
+- [Airstack No-Code Frames](../no-code-frames/)

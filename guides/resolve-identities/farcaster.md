@@ -24,15 +24,15 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get Farcaster profiles of a given Solana address](farcaster.md#get-farcaster-profiles-of-a-given-solana-address)
-* [Get Solana addresses of Farcaster user](farcaster.md#get-all-solana-addresses-of-farcaster-user)
-* [Get Farcaster from a given user(s)](farcaster.md#get-farcaster-from-a-given-user-s)
-* [Get the Ethereum address, Lens, and ENS from a given Farcaster(s)](farcaster.md#get-the-ethereum-address-lens-and-ens-from-a-given-farcaster-s)
+- [Get Farcaster profiles of a given Solana address](farcaster.md#get-farcaster-profiles-of-a-given-solana-address)
+- [Get Solana addresses of Farcaster user](farcaster.md#get-all-solana-addresses-of-farcaster-user)
+- [Get Farcaster from a given user(s)](farcaster.md#get-farcaster-from-a-given-user-s)
+- [Get the Ethereum address, Lens, and ENS from a given Farcaster(s)](farcaster.md#get-the-ethereum-address-lens-and-ens-from-a-given-farcaster-s)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -53,6 +53,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -67,6 +68,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -81,12 +83,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -94,6 +99,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -117,9 +123,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -132,9 +140,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -152,6 +162,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -179,14 +190,15 @@ Show me the Farcaster profile of solana address 9t92xZy9q5SyfKBH4rZwEDFXjaZKgzj5
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
     input: {
       filter: {
-        identity: {_eq: "9t92xZy9q5SyfKBH4rZwEDFXjaZKgzj5PgviPhKtBjyy"},
-        dappName: {_eq: farcaster}
-      },
+        identity: { _eq: "9t92xZy9q5SyfKBH4rZwEDFXjaZKgzj5PgviPhKtBjyy" }
+        dappName: { _eq: farcaster }
+      }
       blockchain: ethereum
     }
   ) {
@@ -198,9 +210,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -222,6 +236,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -239,14 +254,12 @@ Show me the Solana connected address of Farcaster user v
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
     input: {
-      filter: {
-        dappName: {_eq: farcaster},
-        profileName: {_eq: "v"}
-      },
+      filter: { dappName: { _eq: farcaster }, profileName: { _eq: "v" } }
       blockchain: ethereum
     }
   ) {
@@ -261,9 +274,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -296,6 +311,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -311,6 +327,7 @@ Show Farcaster name of prxshant.eth and lens/@vitalik
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetFarcaster {
   Socials(
@@ -330,9 +347,11 @@ query GetFarcaster {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -353,6 +372,7 @@ query GetFarcaster {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -361,18 +381,24 @@ query GetFarcaster {
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/W43n5Ow33G" %}
-Show the 0x addresses, ENS, and Lens of fc\_fname:vitalik.eth
+Show the 0x addresses, ENS, and Lens of fc_fname:vitalik.eth
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetFarcaster {
   Socials(
-    input: {filter: {dappName: {_eq: farcaster}, 
-    profileName: {_in: ["betashop.eth", "dwr.eth"]}}, blockchain: ethereum}
+    input: {
+      filter: {
+        dappName: { _eq: farcaster }
+        profileName: { _in: ["betashop.eth", "dwr.eth"] }
+      }
+      blockchain: ethereum
+    }
   ) {
     Social {
       profileName
@@ -390,9 +416,11 @@ query GetFarcaster {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -492,6 +520,7 @@ query GetFarcaster {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -501,5 +530,5 @@ If you have any questions or need help regarding resolving Farcaster user(s), pl
 
 ## More Resources
 
-* [Domains API Reference](../../api-references/api-reference/domains-api.md)
-* [Socials API Reference](../../api-references/api-reference/socials-api.md)
+- [Domains API Reference](../../api-references/api-reference/domains-api.md)
+- [Socials API Reference](../../api-references/api-reference/socials-api.md)

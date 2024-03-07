@@ -25,16 +25,16 @@ Using the `_regex` operator in [`PoapEvents`](../../api-references/api-reference
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Search All POAPs Starting With Given Words](search-poaps.md#search-all-poaps-starting-with-given-words)
-* [Search All POAPs In Case Insensitive Manner](search-poaps.md#search-all-poaps-in-case-insensitive-manner)
-* [Search All POAPs That Does Not Contain Given Words](search-poaps.md#search-all-poaps-that-does-not-contain-given-words)
+- [Search All POAPs Starting With Given Words](search-poaps.md#search-all-poaps-starting-with-given-words)
+- [Search All POAPs In Case Insensitive Manner](search-poaps.md#search-all-poaps-in-case-insensitive-manner)
+- [Search All POAPs That Does Not Contain Given Words](search-poaps.md#search-all-poaps-that-does-not-contain-given-words)
 
 Keep in mind that you can combine the regex from each of these use cases into your query to build more complex search feature that suits your app use cases.
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -55,6 +55,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -69,6 +70,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -83,12 +85,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -96,6 +101,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -119,9 +125,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -134,9 +142,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -154,6 +164,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -195,6 +206,7 @@ Search all POAPs that starts with ETHGlobal
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   PoapEvents(
     input: {
@@ -211,9 +223,11 @@ Search all POAPs that starts with ETHGlobal
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -230,13 +244,14 @@ Search all POAPs that starts with ETHGlobal
         {
           "eventName": "ETHGlobal Paris 2023 Volunteer",
           "eventId": "146354"
-        },
+        }
         // Other POAP events that starts with "ETHGlobal"
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -258,6 +273,7 @@ Search all POAPs that contain devcon (case insensitive)
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   PoapEvents(
     input: {
@@ -275,9 +291,11 @@ Search all POAPs that contain devcon (case insensitive)
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -294,13 +312,14 @@ Search all POAPs that contain devcon (case insensitive)
         {
           "eventName": "I met 0xmono.eth at Devcon 6",
           "eventId": "75713"
-        },
+        }
         // Other POAP events that contain devcon (case insensitive)
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -318,6 +337,7 @@ Search all POAPs that does not contain "Devconnect"
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   PoapEvents(
     input: {
@@ -335,9 +355,11 @@ Search all POAPs that does not contain "Devconnect"
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -354,13 +376,14 @@ Search all POAPs that does not contain "Devconnect"
         {
           "eventName": "Reunión BIAS / IAS Comms",
           "eventId": "21524"
-        },
+        }
         // Other POAP events that does not contain "Devconnect"
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -370,8 +393,8 @@ If you have any questions or need help regarding search POAP events using RegEx,
 
 ## More Resources
 
-* [POAP Balances](poap-balances.md)
-* [POAP Holders](poap-holders.md)
-* [POAP Events](poap-events.md)
-* [POAP Token Gating](token-gating.md)
-* [PoapEvents API Reference](../../api-references/api-reference/poapevents-api.md)
+- [POAP Balances](poap-balances.md)
+- [POAP Holders](poap-holders.md)
+- [POAP Events](poap-events.md)
+- [POAP Token Gating](token-gating.md)
+- [PoapEvents API Reference](../../api-references/api-reference/poapevents-api.md)

@@ -23,22 +23,22 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-* [Get All Lens Profiles](search-lens-profiles.md#get-all-lens-profiles)
-* [Get All Lens Profiles Starting With Given Words](search-lens-profiles.md#get-all-lens-profiles-starting-with-given-words)
-* [Get All Lens Profiles Containing Given Words](search-lens-profiles.md#get-all-lens-profiles-containing-given-words)
-* [Get All Lens Profiles That Has Certain Number of Letters](search-lens-profiles.md#get-all-lens-profiles-that-has-certain-number-of-letters)
-* [Get All Lens Profiles Created In Specified Time](search-lens-profiles.md#get-all-lens-profiles-created-in-specified-time)
-* [Get The Latest Lens Profiles Created](search-lens-profiles.md#get-the-latest-lens-profiles-created)
-* [Get The Earliest Lens Profiles Created](search-lens-profiles.md#get-the-earliest-lens-profiles-created)
-* [Get The Most Followed Lens Profiles](search-lens-profiles.md#get-the-most-followed-lens-profiles)
-* [Get The Least Followed Lens Profiles](search-lens-profiles.md#get-the-least-followed-lens-profiles)
-* [Get Lens Profiles That Is Following Others The Most](search-lens-profiles.md#get-lens-profiles-that-is-following-others-the-most)
-* [Get Lens Profiles That Is Following Others The Least](search-lens-profiles.md#get-lens-profiles-that-is-following-others-the-least)
+- [Get All Lens Profiles](search-lens-profiles.md#get-all-lens-profiles)
+- [Get All Lens Profiles Starting With Given Words](search-lens-profiles.md#get-all-lens-profiles-starting-with-given-words)
+- [Get All Lens Profiles Containing Given Words](search-lens-profiles.md#get-all-lens-profiles-containing-given-words)
+- [Get All Lens Profiles That Has Certain Number of Letters](search-lens-profiles.md#get-all-lens-profiles-that-has-certain-number-of-letters)
+- [Get All Lens Profiles Created In Specified Time](search-lens-profiles.md#get-all-lens-profiles-created-in-specified-time)
+- [Get The Latest Lens Profiles Created](search-lens-profiles.md#get-the-latest-lens-profiles-created)
+- [Get The Earliest Lens Profiles Created](search-lens-profiles.md#get-the-earliest-lens-profiles-created)
+- [Get The Most Followed Lens Profiles](search-lens-profiles.md#get-the-most-followed-lens-profiles)
+- [Get The Least Followed Lens Profiles](search-lens-profiles.md#get-the-least-followed-lens-profiles)
+- [Get Lens Profiles That Is Following Others The Most](search-lens-profiles.md#get-lens-profiles-that-is-following-others-the-most)
+- [Get Lens Profiles That Is Following Others The Least](search-lens-profiles.md#get-lens-profiles-that-is-following-others-the-least)
 
 ### Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ### Get Started
 
@@ -59,6 +59,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -73,6 +74,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -87,12 +89,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -100,6 +105,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -123,9 +129,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -138,9 +146,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -158,6 +168,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -185,6 +196,7 @@ Show me all Lens profiles
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -207,9 +219,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -245,6 +259,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -262,6 +277,7 @@ show me all Lens profiles starting with "a"
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -281,9 +297,11 @@ show me all Lens profiles starting with "a"
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -300,13 +318,14 @@ show me all Lens profiles starting with "a"
         {
           "dappName": "lens",
           "profileName": "lens/@alexdark"
-        },
+        }
         // Other Lens profiles starting with "a"
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -324,6 +343,7 @@ show me all Lens profiles containing with "abc"
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -343,9 +363,11 @@ show me all Lens profiles containing with "abc"
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -362,13 +384,14 @@ show me all Lens profiles containing with "abc"
         {
           "dappName": "lens",
           "profileName": "lens/@abc888"
-        },
+        }
         // Other Lens profiles containing with "abc"
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -386,6 +409,7 @@ show me all Lens profiles that has 3 letters or less
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -405,9 +429,11 @@ show me all Lens profiles that has 3 letters or less
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -424,13 +450,14 @@ show me all Lens profiles that has 3 letters or less
         {
           "dappName": "lens",
           "profileName": "lens/@bak"
-        },
+        }
         // Other lens profiles with less than 3 letters
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -448,6 +475,7 @@ Show me all Lens profiles created between November 12 to 19, 2023 UTC
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -477,9 +505,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -518,6 +548,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -535,6 +566,7 @@ Show me all the latest Lens profiles created
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -559,9 +591,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -600,6 +634,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -617,6 +652,7 @@ Show me all the earliest Lens profiles created
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -641,9 +677,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -682,6 +720,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -699,6 +738,7 @@ Show me the most followed Lens profiles
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -723,9 +763,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -764,6 +806,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -781,6 +824,7 @@ Show me the least followed Lens profiles
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -805,9 +849,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -846,6 +892,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -863,6 +910,7 @@ Show me Lens Profiles that is following others the most
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -887,9 +935,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -928,6 +978,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -945,6 +996,7 @@ Show me Lens Profiles that is following others the least
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -969,9 +1021,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1010,6 +1064,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1019,8 +1074,8 @@ If you have any questions or need help regarding searching for Lens profiles, pl
 
 ## More Resources
 
-* [Socials API Reference](../../api-references/api-reference/socials-api.md)
-* [Resolve Lens Profiles](resolve-lens-profiles.md)
-* [Lens Profile Details](lens-profile-details.md)
-* [Lens Followers](lens-followers.md)
-* [Lens Following](lens-following.md)
+- [Socials API Reference](../../api-references/api-reference/socials-api.md)
+- [Resolve Lens Profiles](resolve-lens-profiles.md)
+- [Lens Profile Details](lens-profile-details.md)
+- [Lens Followers](lens-followers.md)
+- [Lens Following](lens-following.md)

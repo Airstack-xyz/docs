@@ -21,18 +21,18 @@ layout:
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get All 0x Addresses Connected To Solana Address](solana-address.md#get-all-0x-addresses-connected-to-solana-address)
-* [Get All Solana Addresses Connected To 0x Address](solana-address.md#get-all-solana-addresses-connected-to-0x-address)
-* [Get All Web3 Social Accounts (Farcaster, Lens) and ENS Domains Resolved From Solana Address](solana-address.md#get-all-web3-social-accounts-farcaster-lens-and-ens-domains-resolved-from-solana-address)
-* [Get All The Solana addresses from a given ENS name](solana-address.md#get-all-the-solana-addresses-from-a-given-ens-name)
-* [Get All The Solana addresses from a given Namestone Subdomain or cb.id (Offchain)](solana-address.md#get-all-the-solana-addresses-from-a-given-namestone-subdomain-or-cb.id-offchain)
-* [Get All Solana addresses of Farcaster user](solana-address.md#get-all-solana-addresses-of-farcaster-user)
-* [Get All Solana addresses of Lens profile](solana-address.md#get-all-solana-addresses-of-lens-profile)
+- [Get All 0x Addresses Connected To Solana Address](solana-address.md#get-all-0x-addresses-connected-to-solana-address)
+- [Get All Solana Addresses Connected To 0x Address](solana-address.md#get-all-solana-addresses-connected-to-0x-address)
+- [Get All Web3 Social Accounts (Farcaster, Lens) and ENS Domains Resolved From Solana Address](solana-address.md#get-all-web3-social-accounts-farcaster-lens-and-ens-domains-resolved-from-solana-address)
+- [Get All The Solana addresses from a given ENS name](solana-address.md#get-all-the-solana-addresses-from-a-given-ens-name)
+- [Get All The Solana addresses from a given Namestone Subdomain or cb.id (Offchain)](solana-address.md#get-all-the-solana-addresses-from-a-given-namestone-subdomain-or-cb.id-offchain)
+- [Get All Solana addresses of Farcaster user](solana-address.md#get-all-solana-addresses-of-farcaster-user)
+- [Get All Solana addresses of Lens profile](solana-address.md#get-all-solana-addresses-of-lens-profile)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -53,6 +53,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -67,6 +68,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -81,12 +83,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -94,6 +99,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -117,9 +123,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -132,9 +140,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -152,6 +162,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -179,11 +190,12 @@ Show the 0x addresses of solana address GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDM
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Wallet(
     input: {
-      identity: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV",
+      identity: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV"
       blockchain: ethereum
     }
   ) {
@@ -191,20 +203,21 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
     "Wallet": {
-      "addresses": [
-        "0xe0235804378c31948e81441f656d826ee5998bc6"
-      ]
+      "addresses": ["0xe0235804378c31948e81441f656d826ee5998bc6"]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -222,6 +235,7 @@ Show me all the Solana address connected to 0xe0235804378c31948e81441f656d826ee5
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Wallet(
     input: {identity: "0xe0235804378c31948e81441f656d826ee5998bc6", blockchain: ethereum}
@@ -243,9 +257,11 @@ Show me all the Solana address connected to 0xe0235804378c31948e81441f656d826ee5
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Wallet": {
@@ -280,12 +296,13 @@ Show me all the Solana address connected to 0xe0235804378c31948e81441f656d826ee5
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
 ## Get All Web3 Social Accounts (Farcaster, Lens) and ENS Domains Resolved From Solana Address
 
-You can resolve a Solana addresses to their web3 socials and ENS Domains (including offchain domains, e.g. Namestone  & cb.id) using the [`Wallet`](../wallet.md) API:
+You can resolve a Solana addresses to their web3 socials and ENS Domains (including offchain domains, e.g. Namestone & cb.id) using the [`Wallet`](../wallet.md) API:
 
 ### Try Demo
 
@@ -297,15 +314,19 @@ Show the Farcaster, Lens, and ENS of solana address GJQUFnCu7ZJHxtxeaeskjnqyx8QF
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Wallet(
-    input: {identity: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV", blockchain: ethereum}
+    input: {
+      identity: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV"
+      blockchain: ethereum
+    }
   ) {
-    farcaster: socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+    farcaster: socials(input: { filter: { dappName: { _eq: farcaster } } }) {
       profileName
     }
-    lens: socials(input: {filter: {dappName: {_eq: lens}}}) {
+    lens: socials(input: { filter: { dappName: { _eq: lens } } }) {
       profileName
     }
     domains {
@@ -314,9 +335,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -340,6 +363,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -357,13 +381,12 @@ Show me alexjcomeau.eth's multichain SOL address
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetUserDetailsFromENS {
   Domains(
     input: {
-      filter: {
-        name: {_eq: "alexjcomeau.eth"}
-      },
+      filter: { name: { _eq: "alexjcomeau.eth" } }
       blockchain: ethereum
     }
   ) {
@@ -376,9 +399,11 @@ query GetUserDetailsFromENS {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Domains": {
@@ -401,6 +426,7 @@ query GetUserDetailsFromENS {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -418,15 +444,11 @@ Show me yosephks.cb.id's multichain SOL address
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Domains(
-    input: {
-      filter: {
-        name: {_eq: "yosephks.cb.id"}
-      },
-      blockchain: ethereum
-    }
+    input: { filter: { name: { _eq: "yosephks.cb.id" } }, blockchain: ethereum }
   ) {
     Domain {
       multiChainAddresses {
@@ -437,9 +459,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Domains": {
@@ -474,6 +498,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -491,14 +516,12 @@ Show me the Solana connected address of Farcaster user v
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
     input: {
-      filter: {
-        dappName: {_eq: farcaster},
-        profileName: {_eq: "v"}
-      },
+      filter: { dappName: { _eq: farcaster }, profileName: { _eq: "v" } }
       blockchain: ethereum
     }
   ) {
@@ -513,9 +536,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -548,6 +573,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -565,12 +591,11 @@ Show me all the Solana addresses of Lens profile alexj
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
-  Wallet(
-    input: {identity: "lens/@alexj", blockchain: ethereum}
-  ) {
-    farcaster: socials(input: {filter: {dappName: {_eq: farcaster}}}) {
+  Wallet(input: { identity: "lens/@alexj", blockchain: ethereum }) {
+    farcaster: socials(input: { filter: { dappName: { _eq: farcaster } } }) {
       connectedAddresses {
         address
         chainId
@@ -587,9 +612,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -624,6 +651,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -633,7 +661,7 @@ If you have any questions or need help regarding resolving Solana address(es), p
 
 ## More Resources
 
-* [ENS Domains Guide](../ens-domains/)
-* [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
-* [Domains API Reference](../../api-references/api-reference/domains-api.md)
-* [Socials API Reference](../../api-references/api-reference/socials-api.md)
+- [ENS Domains Guide](../ens-domains/)
+- [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
+- [Domains API Reference](../../api-references/api-reference/domains-api.md)
+- [Socials API Reference](../../api-references/api-reference/socials-api.md)

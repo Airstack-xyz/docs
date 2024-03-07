@@ -21,9 +21,9 @@ The Primary Inbox should contain all the users that a given user certainly knows
 
 Some criteria that can be checked for a user to be included in the primary inbox are:
 
-* Senders is followed by the user on Lens
-* Senders is followed by the user on Farcaster
-* The user has sent tokens to the Sender&#x20;
+- Senders is followed by the user on Lens
+- Senders is followed by the user on Farcaster
+- The user has sent tokens to the Sender&#x20;
 
 If the sender meets none of the listed criteria, they should be removed from the primary inbox and then checked to see if they belong in the [**General Inbox**](general-inbox.md).
 
@@ -35,11 +35,7 @@ As demonstrated below, your app's interface can also feature user-friendly optio
 
 <figure><img src="../../../.gitbook/assets/Keep in Primary 1-min.png" alt=""><figcaption></figcaption></figure>
 
- 
-
 <figure><img src="../../../.gitbook/assets/Keep in Primary 2-min.png" alt=""><figcaption></figcaption></figure>
-
- 
 
 <figure><img src="../../../.gitbook/assets/Keep in Primary 4-min (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -49,15 +45,15 @@ As demonstrated below, your app's interface can also feature user-friendly optio
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to build an XMTP primary inbox by:
 
-* [Check If A Given User Is Following The Senders on Lens](primary-inbox.md#check-if-a-given-user-is-following-senders-on-lens)
-* [Check If A Given User Is Following The Senders on Farcaster](primary-inbox.md#check-if-a-given-user-is-following-senders-on-farcaster)
-* [Check If A Given User Has Sent Tokens To The Senders](primary-inbox.md#check-if-a-given-user-has-sent-tokens-to-senders)
+- [Check If A Given User Is Following The Senders on Lens](primary-inbox.md#check-if-a-given-user-is-following-senders-on-lens)
+- [Check If A Given User Is Following The Senders on Farcaster](primary-inbox.md#check-if-a-given-user-is-following-senders-on-farcaster)
+- [Check If A Given User Has Sent Tokens To The Senders](primary-inbox.md#check-if-a-given-user-has-sent-tokens-to-senders)
 
 ### Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Basic knowledge of [XMTP](https://xmtp.org)
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
+- Basic knowledge of [XMTP](https://xmtp.org)
 
 ### Get Started
 
@@ -78,6 +74,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -92,6 +89,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -106,12 +104,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -119,6 +120,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -142,9 +144,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -157,9 +161,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -177,6 +183,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -214,18 +221,13 @@ Show me if a given user is following senders on Lens
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
-query isFollowing(
-  $mainUser: Identity!,
-  $senders: [Identity!]
-) {
-  Wallet(input: {identity: $mainUser, blockchain: ethereum}) {
+query isFollowing($mainUser: Identity!, $senders: [Identity!]) {
+  Wallet(input: { identity: $mainUser, blockchain: ethereum }) {
     socialFollowers(
       input: {
-        filter: {
-          dappName: {_eq: lens},
-          identity: {_in: $senders}
-        }
+        filter: { dappName: { _eq: lens }, identity: { _in: $senders } }
       }
     ) {
       Follower {
@@ -238,9 +240,11 @@ query isFollowing(
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559",
@@ -251,9 +255,11 @@ query isFollowing(
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Wallet": {
@@ -283,6 +289,7 @@ query isFollowing(
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -304,18 +311,13 @@ Show me if a given user is following senders on Farcaster
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
-query isFollowing(
-  $mainUser: Identity!,
-  $senders: [Identity!]
-) {
-  Wallet(input: {identity: $mainUser, blockchain: ethereum}) {
+query isFollowing($mainUser: Identity!, $senders: [Identity!]) {
+  Wallet(input: { identity: $mainUser, blockchain: ethereum }) {
     socialFollowers(
       input: {
-        filter: {
-          dappName: {_eq: farcaster},
-          identity: {_in: $senders}
-        }
+        filter: { dappName: { _eq: farcaster }, identity: { _in: $senders } }
       }
     ) {
       Follower {
@@ -328,9 +330,11 @@ query isFollowing(
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559",
@@ -341,9 +345,11 @@ query isFollowing(
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Wallet": {
@@ -386,6 +392,7 @@ query isFollowing(
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -407,6 +414,7 @@ You can use this query to filter senders **on the fly** with a maximum of 200 wa
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers(
   $mainUser: Identity!,
   $senders: [Identity!]
@@ -477,9 +485,11 @@ You can use this query to filter senders **on the fly** with a maximum of 200 wa
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "mainUser": "0xeaf55242a90bb3289dB8184772b0B98562053559",
@@ -490,9 +500,11 @@ You can use this query to filter senders **on the fly** with a maximum of 200 wa
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "ethereum": {
@@ -524,6 +536,7 @@ You can use this query to filter senders **on the fly** with a maximum of 200 wa
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -533,7 +546,7 @@ If you have any questions or need help regarding creating a primary inbox for yo
 
 ## More Resources
 
-* [Wallet API Reference](../../../api-references/api-reference/wallet-api.md)
-* [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api.md)
-* [General Inbox](general-inbox.md)
-* [Request Inbox](request-inbox.md)
+- [Wallet API Reference](../../../api-references/api-reference/wallet-api.md)
+- [TokenTransfers API Reference](../../../api-references/api-reference/tokentransfers-api.md)
+- [General Inbox](general-inbox.md)
+- [Request Inbox](request-inbox.md)

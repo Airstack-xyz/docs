@@ -21,14 +21,14 @@ layout:
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get All ERC20s Owned By Solana Address](token-balances.md#get-all-erc20s-owned-by-solana-address)
-* [Get All NFTs Owned By Solana Address](token-balances.md#get-all-nfts-owned-by-solana-address)
-* [Get All POAPs Owned By Solana Address](token-balances.md#get-all-poaps-attended-by-solana-address)
+- [Get All ERC20s Owned By Solana Address](token-balances.md#get-all-erc20s-owned-by-solana-address)
+- [Get All NFTs Owned By Solana Address](token-balances.md#get-all-nfts-owned-by-solana-address)
+- [Get All POAPs Owned By Solana Address](token-balances.md#get-all-poaps-attended-by-solana-address)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -49,6 +49,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -63,6 +64,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -77,12 +79,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -90,6 +95,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -113,9 +119,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -128,9 +136,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -148,6 +158,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -175,14 +186,13 @@ Show me the ERC20 balances of Solana address GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiG
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Ethereum: TokenBalances(
     input: {
       filter: {
-        owner: {
-          _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV"
-        }
+        owner: { _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV" }
         tokenType: { _eq: ERC20 }
       }
       blockchain: ethereum
@@ -201,9 +211,7 @@ query MyQuery {
   Polygon: TokenBalances(
     input: {
       filter: {
-        owner: {
-          _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV"
-        }
+        owner: { _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV" }
         tokenType: { _eq: ERC20 }
       }
       blockchain: polygon
@@ -222,9 +230,7 @@ query MyQuery {
   Base: TokenBalances(
     input: {
       filter: {
-        owner: {
-          _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV"
-        }
+        owner: { _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV" }
         tokenType: { _eq: ERC20 }
       }
       blockchain: base
@@ -243,9 +249,7 @@ query MyQuery {
   Zora: TokenBalances(
     input: {
       filter: {
-        owner: {
-          _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV"
-        }
+        owner: { _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV" }
         tokenType: { _eq: ERC20 }
       }
       blockchain: zora
@@ -263,9 +267,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -278,7 +284,7 @@ query MyQuery {
             "name": "Matic Token",
             "symbol": "MATIC"
           }
-        },
+        }
         // Other Ethereum ERC20 tokens
       ]
     },
@@ -291,7 +297,7 @@ query MyQuery {
             "name": "EREMITA",
             "symbol": "EREMITA"
           }
-        },
+        }
         // Other Polygon ERC20 tokens
       ]
     },
@@ -304,7 +310,7 @@ query MyQuery {
             "name": "Wrapped Ether",
             "symbol": "WETH"
           }
-        },
+        }
         // Other Base ERC20 tokens
       ]
     },
@@ -323,6 +329,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -340,14 +347,13 @@ Show me all the NFTs owned by GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV acros
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Ethereum: TokenBalances(
     input: {
       filter: {
-        owner: {
-          _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV"
-        }
+        owner: { _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV" }
         tokenType: { _in: [ERC721, ERC1155] }
       }
       blockchain: ethereum
@@ -373,9 +379,7 @@ query MyQuery {
   Polygon: TokenBalances(
     input: {
       filter: {
-        owner: {
-          _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV"
-        }
+        owner: { _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV" }
         tokenType: { _in: [ERC721, ERC1155] }
       }
       blockchain: polygon
@@ -401,9 +405,7 @@ query MyQuery {
   Base: TokenBalances(
     input: {
       filter: {
-        owner: {
-          _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV"
-        }
+        owner: { _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV" }
         tokenType: { _in: [ERC721, ERC1155] }
       }
       blockchain: base
@@ -429,9 +431,7 @@ query MyQuery {
   Zora: TokenBalances(
     input: {
       filter: {
-        owner: {
-          _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV"
-        }
+        owner: { _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV" }
         tokenType: { _in: [ERC721, ERC1155] }
       }
       blockchain: zora
@@ -456,9 +456,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -478,7 +480,7 @@ query MyQuery {
               }
             }
           }
-        },
+        }
         // Other Ethereum NFTs
       ]
     },
@@ -496,7 +498,7 @@ query MyQuery {
               "image": null
             }
           }
-        },
+        }
         // Other Polygon NFTs
       ]
     },
@@ -516,7 +518,7 @@ query MyQuery {
               }
             }
           }
-        },
+        }
         // Other Base NFTs
       ]
     },
@@ -536,13 +538,14 @@ query MyQuery {
               }
             }
           }
-        },
+        }
         // Other Zora NFTs
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -560,15 +563,12 @@ Show me all the POAPs attended by GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Poaps(
     input: {
-      filter: {
-        owner: {
-          _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV"
-        }
-      }
+      filter: { owner: { _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV" } }
       blockchain: ALL
     }
   ) {
@@ -583,9 +583,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -614,13 +616,14 @@ query MyQuery {
             "eventName": "Firefly at ETHGlobal New York 2023",
             "description": "This POAP commemorates meeting with Firefly at ETHGlobal New York 2023."
           }
-        },
+        }
         // Other POAPs
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -630,10 +633,10 @@ If you have any questions or need help regarding fetching token balances of a so
 
 ## More Resources
 
-* [Token Balances Guides](../token-balances/)
-* [Resolving Solana Addresses](resolve-identities.md)
-* [Social Followers Of Solana Addresses](social-followers.md)
-* [Social Followings Of Solana Addresses](social-followings.md)
-* [Check XMTP For Solana Addresses](../xmtp/check-multiple-users.md)
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
-* [Poaps API Reference](../../api-references/api-reference/poaps-api.md)
+- [Token Balances Guides](../token-balances/)
+- [Resolving Solana Addresses](resolve-identities.md)
+- [Social Followers Of Solana Addresses](social-followers.md)
+- [Social Followings Of Solana Addresses](social-followings.md)
+- [Check XMTP For Solana Addresses](../xmtp/check-multiple-users.md)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+- [Poaps API Reference](../../api-references/api-reference/poaps-api.md)

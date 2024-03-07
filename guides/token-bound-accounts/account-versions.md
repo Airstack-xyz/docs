@@ -27,21 +27,21 @@ If you are deploying ERC6551 using a custom registry contract, please reach out 
 
 By default, ERC721 NFTs can have multiple versions of ERC6551 accounts controlled by it.
 
-Using the `registry` filter that is provided in the [`Accounts`](../../api-references/api-reference/accounts-api.md) API,  you can fetch only certain versions of ERC6551 accounts that your dapp supports.
+Using the `registry` filter that is provided in the [`Accounts`](../../api-references/api-reference/accounts-api.md) API, you can fetch only certain versions of ERC6551 accounts that your dapp supports.
 
 ## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get A Certain Version of ERC6551 Accounts](account-versions.md#get-a-certain-version-of-erc6551-accounts)
-* [Get A Certain Version of ERC6551 Accounts By NFT Collection](account-versions.md#get-a-certain-version-of-erc6551-accounts-by-nft-collection)
-* [Get A Certain Version of ERC6551 Accounts Owned By A User](account-versions.md#get-a-certain-version-of-erc6551-accounts-owned-by-a-user)
+- [Get A Certain Version of ERC6551 Accounts](account-versions.md#get-a-certain-version-of-erc6551-accounts)
+- [Get A Certain Version of ERC6551 Accounts By NFT Collection](account-versions.md#get-a-certain-version-of-erc6551-accounts-by-nft-collection)
+- [Get A Certain Version of ERC6551 Accounts Owned By A User](account-versions.md#get-a-certain-version-of-erc6551-accounts-owned-by-a-user)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
-* Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
+- Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
 
 ## Get Started
 
@@ -62,6 +62,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -76,6 +77,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -90,12 +92,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -103,6 +108,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -126,9 +132,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -141,9 +149,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -161,6 +171,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -188,6 +199,7 @@ Show me all ERC6551 with registry version 0.3.1 on Ethereum
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Accounts(
     input: {
@@ -220,9 +232,11 @@ Show me all ERC6551 with registry version 0.3.1 on Ethereum
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Accounts": {
@@ -254,12 +268,13 @@ Show me all ERC6551 with registry version 0.3.1 on Ethereum
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
 ## Get A Certain Version of ERC6551 Accounts By NFT Collection
 
-You can use the [`Accounts`](../../api-references/api-reference/accounts-api.md) API to fetch certain version of the ERC6551 accounts of an NFT Collection, e.g. all v.0.3.1 ERC6551 accounts of [Sapienz NFT](https://explorer.airstack.xyz/token-holders?activeView=\&address=0x26727ed4f5ba61d3772d1575bca011ae3aef5d36\&tokenType=\&rawInput=%23%E2%8E%B1Sapienz%E2%8E%B1%280x26727ed4f5ba61d3772d1575bca011ae3aef5d36+NFT\_COLLECTION+ethereum+null%29\&inputType=NFT\_COLLECTION\&activeTokenInfo=\&activeSnapshotInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=\&sortOrder=\&spamFilter=\&mintFilter=\&activeSocialInfo=):
+You can use the [`Accounts`](../../api-references/api-reference/accounts-api.md) API to fetch certain version of the ERC6551 accounts of an NFT Collection, e.g. all v.0.3.1 ERC6551 accounts of [Sapienz NFT](https://explorer.airstack.xyz/token-holders?activeView=&address=0x26727ed4f5ba61d3772d1575bca011ae3aef5d36&tokenType=&rawInput=%23%E2%8E%B1Sapienz%E2%8E%B1%280x26727ed4f5ba61d3772d1575bca011ae3aef5d36+NFT_COLLECTION+ethereum+null%29&inputType=NFT_COLLECTION&activeTokenInfo=&activeSnapshotInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=&spamFilter=&mintFilter=&activeSocialInfo=):
 
 ### Try Demo
 
@@ -271,6 +286,7 @@ Show me all v0.3.1 ERC6551 accounts on @Sapienz NFT
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Accounts(
     input: {
@@ -301,9 +317,11 @@ Show me all v0.3.1 ERC6551 accounts on @Sapienz NFT
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Accounts": {
@@ -331,12 +349,13 @@ Show me all v0.3.1 ERC6551 accounts on @Sapienz NFT
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
 ## Get A Certain Version of ERC6551 Accounts Owned By A User
 
-You can use the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API to fetch certain version of the ERC6551 accounts owned by a user, e.g. all v.0.3.1 ERC6551 accounts owned by [`0xjw.eth`](https://explorer.airstack.xyz/token-balances?address=0xjw.eth\&rawInput=%23%E2%8E%B10xjw.eth%E2%8E%B1%280xjw.eth+ADDRESS+ethereum+null%29\&inputType=ADDRESS):
+You can use the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API to fetch certain version of the ERC6551 accounts owned by a user, e.g. all v.0.3.1 ERC6551 accounts owned by [`0xjw.eth`](https://explorer.airstack.xyz/token-balances?address=0xjw.eth&rawInput=%23%E2%8E%B10xjw.eth%E2%8E%B1%280xjw.eth+ADDRESS+ethereum+null%29&inputType=ADDRESS):
 
 ### Try Demo
 
@@ -348,6 +367,7 @@ Show all v0.3.1 ERC6551 accounts owned by 0xjw.eth on Ethereum
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   TokenBalances(
     input: {
@@ -392,9 +412,11 @@ Show all v0.3.1 ERC6551 accounts owned by 0xjw.eth on Ethereum
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "TokenBalances": {
@@ -436,6 +458,7 @@ Show all v0.3.1 ERC6551 accounts owned by 0xjw.eth on Ethereum
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -445,5 +468,5 @@ If you have any questions or need help regarding fetching certain versions of ER
 
 ## More Resources
 
-* [Accounts API Reference](../../api-references/api-reference/accounts-api.md)
-* [TokenBalances API References](../../api-references/api-reference/tokenbalances-api.md)
+- [Accounts API Reference](../../api-references/api-reference/accounts-api.md)
+- [TokenBalances API References](../../api-references/api-reference/tokenbalances-api.md)

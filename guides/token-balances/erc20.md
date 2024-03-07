@@ -25,8 +25,8 @@ In this guide, you will learn how to use [Airstack](https://airstack.xyz) to [ge
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account (free)
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -47,6 +47,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -61,6 +62,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -75,12 +77,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -88,6 +93,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -111,9 +117,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -126,9 +134,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -146,6 +156,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -177,6 +188,7 @@ Show ERC20 tokens on Ethereum owned by users
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   TokenBalances(
     input: {
@@ -226,9 +238,11 @@ Show ERC20 tokens on Ethereum owned by users
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -288,6 +302,7 @@ Show ERC20 tokens on Ethereum owned by users
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -297,8 +312,8 @@ If you have any questions or need help regarding fetching token balances of user
 
 ## More Resources
 
-* [Balance Snapshots Guides](../balance-snapshots.md)
-* [Holder Snapshots Guides](../holder-snapshots.md)
-* [ERC20 Tokens In Common](../tokens-in-common/erc20s.md)
-* [ERC20 Token Holders](../token-holders/erc20.md)
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+- [Balance Snapshots Guides](../balance-snapshots.md)
+- [Holder Snapshots Guides](../holder-snapshots.md)
+- [ERC20 Tokens In Common](../tokens-in-common/erc20s.md)
+- [ERC20 Token Holders](../token-holders/erc20.md)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
