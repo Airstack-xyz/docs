@@ -17,7 +17,7 @@ layout:
 
 # ✅ Frames Validator
 
-Airstack provides an easy-to-use [Validation API](../../api-references/api-reference/airstack-validation-api.md) to validate your Frames signature packet in your Farcaster Frames.
+Airstack provides an easy-to-use [Validation API](../../api-references/api-reference/airstack-validation-api.md) to validate your Frames signature packet in your Farcaster Frames.&#x20;
 
 You can access the [Validation API](../../api-references/api-reference/airstack-validation-api.md) in various ways, depending on the stacks that you are using:
 
@@ -25,7 +25,9 @@ You can access the [Validation API](../../api-references/api-reference/airstack-
 * [Frog Framework](frames-validator.md#frog-framework): suitable for those using Frog to build their Frames
 * [Direct API Call](frames-validator.md#direct-api-call): suitable for those building Frames with other tech stacks than JS/TS.
 
-On the bottom, you can also find the test results on the performance of our API [here](frames-validator.md#testing-on-airstack-validation-api).
+On the bottom, you can also find the test results on the performance of our API [here](frames-validator.md#testing-on-airstack-validation-api).\
+\
+🆓 The Airstack Frames Validator is entirely free to use. No credits will be charged. 🆓
 
 ## Airstack Frames SDK
 
