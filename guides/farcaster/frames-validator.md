@@ -195,8 +195,10 @@ const { Frog } = require("frog");
 const app = new Frog({
   hub: {
     apiUrl: "https://hubs.airstack.xyz",
-    headers: {
-      "x-airstack-hubs": "YOUR_AIRSTACK_API_KEY",
+    fetchOptions: {
+      headers: {
+        "x-airstack-hubs": "YOUR_AIRSTACK_API_KEY",
+      }
     }
   }
 });
