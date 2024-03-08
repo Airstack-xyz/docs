@@ -17,7 +17,7 @@ layout:
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to recommend all trending tokens that are minted by all Base users within a given time frame.
 
-{% embed url="https://drive.google.com/file/d/1owyn8vniB9sMiooiLQmahGzTd7QTpRIf/view?usp=sharing" %}
+{% embed url="https://drive.google.com/file/d/1mk1UJTj8thobJbJxwCNhoGpTfa2cXw-_/view?usp=sharing" %}
 Trending Mints Among All Base Users
 {% endembed %}
 
