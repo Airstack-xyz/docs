@@ -47,7 +47,7 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Get Historical NFT Balance of Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-historical-nft-balance-of-farcaster-user) on Ethereum, Base, Zora, and Polygon
 * [Get Historical ERC20 Token Balance of Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-historical-erc20-token-balance-of-farcaster-user) on Ethereum, Base, Zora, and Polygon
 * [Get NFT Mints By A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-nft-mints-by-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
-* [Get Trending Mints for Farcaster Users on Base](trending-mints.md)
+* [Get Trending Mints for Farcaster Users on Base](airstack-onchain-kit-for-farcaster-frames.md#get-trending-mints-for-farcaster-user-on-base)
 * [Get ERC20 Token Mints By A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-erc20-token-mints-by-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
 * [Get Token Transfers Sent From A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-token-transfers-sent-from-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
 * [Get Token Transfers Received From A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-token-transfers-received-by-a-farcaster-user) on Ethereum, Base, Zora, and Polygon
@@ -1728,6 +1728,78 @@ console.log(data);
       "backgroundColor": "",
       "attributes": null
     }
+  }
+]
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Trending Mints For Farcaster User On Base
+
+You can easily fetch trending mints for Farcaster user on Base by using the [`getTrendingMints`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#gettrendingmints) function, which abstract away all the complexity for you:
+
+{% tabs %}
+{% tab title="TypeScript" %}
+```typescript
+import {
+  getTrendingMints,
+  GetTrendingMintsInput,
+  GetTrendingMintsOutput,
+  Audience,
+  Criteria,
+  TimeFrame,
+} from "@airstack/frames";
+
+const input: GetTrendingMintsInput = {
+  audience: Audience.All,
+  criteria: Criteria.UniqueWallets,
+  timeFrame: TimeFrame.OneDay,
+  limit: 100,
+};
+const { data, error }: GetTrendingMintsOutput =
+  await getTrendingMints(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const {
+  getTrendingMints,
+  Audience,
+  Criteria,
+  TimeFrame,
+} = require("@airstack/frames");
+
+const input = {
+  audience: Audience.All,
+  criteria: Criteria.UniqueWallets,
+  timeFrame: TimeFrame.OneDay,
+  limit: 100,
+};
+const { data, error } = await getTrendingMints(input);
+
+if (error) throw new Error(error);
+
+console.log(data);
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+[
+  {
+    "address": "0x9d70ccd59b3124e5227a9148413892f947697afd",
+    "erc1155TokenID": "",
+    "criteriaCount": 1880,
+    "timeFrom": "2024-03-07T15:17:00Z",
+    "timeTo": "2024-03-08T14:52:00Z",
+    "name": "Base's 2024 Mission, Strategy and Roadmap",
+    "symbol": "BASES2024MISSIONSTRATEGYANDROADMAP",
+    "type": "ERC721"
   }
 ]
 ```
