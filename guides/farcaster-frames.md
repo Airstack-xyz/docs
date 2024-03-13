@@ -19,7 +19,7 @@ layout:
 
 Building a Farcaster Frame? Read the official Farcaster Frames specs [here](https://docs.farcaster.xyz/learn/what-is-farcaster/frames) to get started.
 
-The easiest way to get started building and deploying a Frame is with [FROG](https://www.paradigm.xyz/2024/02/frames) (Framework for Farcaster Frames). The benefit of using FROG is that it deploys a Frame server for you and also provides very simple routing, components, and a built-in debugger. Start by using the Frog [documentation](https://frog.fm/getting-started).
+The easiest way to get started building and deploying a Frame is with [FROG](https://www.paradigm.xyz/2024/02/frames) (Framework for Farcaster Frames). The benefit of using Frog is that it deploys a Frame server for you and also provides very simple routing, components, and a built-in debugger. [Airstack Frog Recipes](airstack-frog-recipes/) enable you to quickly build Frames with Frog and Airstack, composing onchain data, configuring hubs, and launching a Frame in just a few minutes.
 
 Another solid option is [Frames.js](https://framesjs.org/) which provides various components for building Frames.
 
