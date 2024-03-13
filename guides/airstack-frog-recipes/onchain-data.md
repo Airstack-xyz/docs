@@ -18,6 +18,8 @@ Here are some onchain data that you can integrate into your Frames:
 * Get Farcaster User's Followers and Followings
 * Get Farcaster Channels Participated and Hosted By Farcaster Users
 
+{% embed url="https://drive.google.com/file/d/1Y-jOgOKTP7XYh6bFyzD-evKeoVwsprfh/view?usp=sharing" %}
+
 ## Get Started
 
 First, install the Airstack Frog Recipes:

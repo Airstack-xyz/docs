@@ -6,6 +6,10 @@ description: >-
 
 # 🚀 Quickstart
 
+{% embed url="https://drive.google.com/file/d/1kSCk3Y7KtpPXHD7E_xjJbVn2YVKjplDz/view?usp=sharing" %}
+Quickstart Demo
+{% endembed %}
+
 ## Step 1: Install Dependencies
 
 To get started, simply install all the necessary dependencies:
