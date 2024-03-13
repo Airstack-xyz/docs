@@ -56,16 +56,7 @@ In that case, create a new file under `src` folder and add the following code:
 {% tab title="TypeScript" %}
 {% code title="src/index.tsx" %}
 ```typescript
-import {
-  Button,
-  Frog,
-  Audience,
-  Criteria,
-  TimeFrame,
-  createAllowList,
-  TokenBlockchain,
-  getTrendingMints,
-} from "@airstack/frog";
+import { Button, Frog } from "@airstack/frog";
 import { config } from "dotenv";
 
 config();
@@ -76,37 +67,20 @@ export const app = new Frog({
 });
 
 app.frame("/", async (c) => {
-  let trendingMints;
-  const { status, frameData } = c;
-  const { fid } = frameData ?? {};
-  if (status === "response") {
-    // Only fetch trending mints in response frame
-    const { data } = await getTrendingMints({
-      audience: Audience.All,
-      criteria: Criteria.UniqueWallets,
-      timeFrame: TimeFrame.OneDay,
-      limit: 1,
-    });
-    trendingMints = data?.[0];
-  }
+  const { status } = c;
   return c.res({
     image: (
-      <div style={{ color: 'white', display: 'flex', fontSize: 40 }}>
-        {status === "initial"
-          ? "Get Trending Mints!"
-          : `Most Trending on Base: \n${trendingMints?.address}`}
+      <div
+        style={{
+          color: "white",
+          display: "flex",
+          fontSize: 40,
+        }}
+      >
+        {status === "initial" ? "Initial Frame" : "Response Frame"}
       </div>
     ),
-    intents: [
-      status === "response" ? (
-        // Display mint button to mint trending mints
-        <Button.Mint target={`eip155:8453:${trendingMints?.address}`}>
-          Mint
-        </Button.Mint>
-      ) : (
-        <Button>Click Here</Button>
-      ),
-    ],
+    intents: [status === "initial" && <Button>Click Here</Button>],
   });
 });
 ```
@@ -116,16 +90,7 @@ app.frame("/", async (c) => {
 {% tab title="JavaScript" %}
 {% code title="src/index.jsx" %}
 ```javascript
-const {
-  Button,
-  Frog,
-  Audience,
-  Criteria,
-  TimeFrame,
-  createAllowList,
-  TokenBlockchain,
-  getTrendingMints,
-} = require("@airstack/frog");
+const { Button, Frog } = require("@airstack/frog");
 const { config } = require("dotenv");
 
 config();
@@ -136,37 +101,20 @@ export const app = new Frog({
 });
 
 app.frame("/", async (c) => {
-  let trendingMints;
-  const { status, frameData } = c;
-  const { fid } = frameData ?? {};
-  if (status === "response") {
-    // Only fetch trending mints in response frame
-    const { data } = await getTrendingMints({
-      audience: Audience.All,
-      criteria: Criteria.UniqueWallets,
-      timeFrame: TimeFrame.OneDay,
-      limit: 1,
-    });
-    trendingMints = data?.[0];
-  }
+  const { status } = c;
   return c.res({
     image: (
-      <div style={{ color: 'white', display: 'flex', fontSize: 40 }}>
-        {status === "initial"
-          ? "Get Trending Mints!"
-          : `Most Trending on Base: \n${trendingMints?.address}`}
+      <div
+        style={{
+          color: "white",
+          display: "flex",
+          fontSize: 40,
+        }}
+      >
+        {status === "initial" ? "Initial Frame" : "Response Frame"}
       </div>
     ),
-    intents: [
-      status === "response" ? (
-        // Display mint button to mint trending mints
-        <Button.Mint target={`eip155:8453:${trendingMints?.address}`}>
-          Mint
-        </Button.Mint>
-      ) : (
-        <Button>Click Here</Button>
-      ),
-    ],
+    intents: [status === "initial" && <Button>Click Here</Button>],
   });
 });
 ```
