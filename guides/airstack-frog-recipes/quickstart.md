@@ -8,30 +8,30 @@ description: >-
 
 ## Step 1: Install Dependencies
 
-To get started, simply install `@airstack/frog` and `hono` as dependencies:
+To get started, simply install all the necessary dependencies:
 
 {% tabs %}
 {% tab title="npm" %}
 ```bash
-npm install @airstack/frog hono
+npm install @airstack/frog hono dotenv
 ```
 {% endtab %}
 
 {% tab title="yarn" %}
 ```bash
-yarn add @airstack/frog hono
+yarn add @airstack/frog hono dotenv
 ```
 {% endtab %}
 
 {% tab title="pnpm" %}
 ```bash
-pnpm install @airstack/frog hono
+pnpm install @airstack/frog hono dotenv
 ```
 {% endtab %}
 
 {% tab title="bun" %}
 ```bash
-bun install @airstack/frog hono
+bun install @airstack/frog hono dotenv
 ```
 {% endtab %}
 {% endtabs %}
@@ -48,23 +48,129 @@ AIRSTACK_API_KEY=YOUR_API_KEY
 
 ## Step 3: Build Your 1st Frame
 
+For example, you would like to build a trending mints Frame, where you can recommend Farcaster users which token to mint and enable them to mint it directly from your Farcaster Frame.
+
+In that case, create a new file under `src` folder and add the following code:
+
 {% tabs %}
 {% tab title="TypeScript" %}
+{% code title="src/index.tsx" %}
 ```typescript
+import {
+  Button,
+  Frog,
+  Audience,
+  Criteria,
+  TimeFrame,
+  createAllowList,
+  TokenBlockchain,
+  getTrendingMints,
+} from "@airstack/frog";
 import { config } from "dotenv";
 
 config();
 
+// Instantiate new Frog instance with Airstack API key
 export const app = new Frog({
   apiKey: process.env.AIRSTACK_API_KEY as string,
 });
+
+app.frame("/", async (c) => {
+  let trendingMints;
+  const { status, frameData } = c;
+  const { fid } = frameData ?? {};
+  if (status === "response") {
+    // Only fetch trending mints in response frame
+    const { data } = await getTrendingMints({
+      audience: Audience.All,
+      criteria: Criteria.UniqueWallets,
+      timeFrame: TimeFrame.OneDay,
+      limit: 1,
+    });
+    trendingMints = data?.[0];
+  }
+  return c.res({
+    image: (
+      <div style={{ color: 'white', display: 'flex', fontSize: 40 }}>
+        {status === "initial"
+          ? "Get Trending Mints!"
+          : `Most Trending on Base: \n${trendingMints?.address}`}
+      </div>
+    ),
+    intents: [
+      status === "response" ? (
+        // Display mint button to mint trending mints
+        <Button.Mint target={`eip155:8453:${trendingMints?.address}`}>
+          Mint
+        </Button.Mint>
+      ) : (
+        <Button>Click Here</Button>
+      ),
+    ],
+  });
+});
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="JavaScript" %}
+{% code title="src/index.jsx" %}
 ```javascript
-// Some code
+const {
+  Button,
+  Frog,
+  Audience,
+  Criteria,
+  TimeFrame,
+  createAllowList,
+  TokenBlockchain,
+  getTrendingMints,
+} = require("@airstack/frog");
+const { config } = require("dotenv");
+
+config();
+
+// Instantiate new Frog instance with Airstack API key
+export const app = new Frog({
+  apiKey: process.env.AIRSTACK_API_KEY,
+});
+
+app.frame("/", async (c) => {
+  let trendingMints;
+  const { status, frameData } = c;
+  const { fid } = frameData ?? {};
+  if (status === "response") {
+    // Only fetch trending mints in response frame
+    const { data } = await getTrendingMints({
+      audience: Audience.All,
+      criteria: Criteria.UniqueWallets,
+      timeFrame: TimeFrame.OneDay,
+      limit: 1,
+    });
+    trendingMints = data?.[0];
+  }
+  return c.res({
+    image: (
+      <div style={{ color: 'white', display: 'flex', fontSize: 40 }}>
+        {status === "initial"
+          ? "Get Trending Mints!"
+          : `Most Trending on Base: \n${trendingMints?.address}`}
+      </div>
+    ),
+    intents: [
+      status === "response" ? (
+        // Display mint button to mint trending mints
+        <Button.Mint target={`eip155:8453:${trendingMints?.address}`}>
+          Mint
+        </Button.Mint>
+      ) : (
+        <Button>Click Here</Button>
+      ),
+    ],
+  });
+});
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -110,6 +216,14 @@ bun run dev
 {% endtabs %}
 
 ## Next Steps
+
+Now that you have your 1st Farcaster Frame running, learn more about how Frog works in [here](https://frog.fm/concepts/overview).
+
+In addition, you can also check out all the Airstack features available in Airstack Frog Recipes to enrich your Farcaster Frames with various onchain data offered:
+
+* [Onchain Data](onchain-data.md)
+* [Farcaster Hubs](farcaster-hubs.md)
+* [Allow List](allow-list.md)
 
 ## Developer Support
 
