@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to use Airstack to recommend trending tokens to your users based on
-  various conditions.
+  Learn how to use Airstack to recommend trending ERC-20 tokens to your users
+  based on various conditions.
 ---
 
 # 💹 Trending Tokens
