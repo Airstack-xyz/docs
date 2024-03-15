@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn all the detailed references of TrendingMints API that provide trending
-  ERC20/721/1155 token mints in a certain period of t ime, including the input
+  ERC20/721/1155 token mints in a certain period of time, including the input
   filters, supported chains, and output fields.
 ---
 
