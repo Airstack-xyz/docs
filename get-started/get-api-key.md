@@ -48,7 +48,7 @@ After account creation, you'll be directed to setup your billing to claim **2.5 
 
 To claim it, simply connect a wallet with ENS, Farcaster, or Lens:
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Airstack Claim $50 Free Credits</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>Airstack Claim $50 Free Credits</p></figcaption></figure>
 
 Otherwise, you can continue without any free trial and directly add your card to be charged for any of your API usage.
 

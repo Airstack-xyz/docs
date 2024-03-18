@@ -262,7 +262,7 @@ const validateMessageResponse = await fetch(
 
 We also ran some tests on the [Validation API](../../api-references/api-reference/airstack-validation-api.md) with results shown below:
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Airstack Validation API Testing Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Airstack Validation API Testing Result</p></figcaption></figure>
 
 ## Developer Support
 
