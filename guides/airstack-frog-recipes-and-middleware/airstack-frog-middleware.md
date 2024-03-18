@@ -10,7 +10,7 @@ description: >-
 Airstack Frog Middleware Demo
 {% endembed %}
 
-The Airstack Frog Middleware is available as a community-built middleware and can be easily incorporated into any Frog app by installing the [Airstack Frames SDK](https://www.npmjs.com/package/@airstack/frames). (The Airstack Frog Middleware can also be accessed via the Airstack Frog Recipes)
+The Airstack Frog Middleware is available as a community-built middleware and can be easily incorporated into any Frog app by installing the [Airstack Frames SDK](https://www.npmjs.com/package/@airstack/frames). (The Airstack Frog Middleware can also be accessed via the [Airstack Frog Recipes](https://www.npmjs.com/package/@airstack/frog))
 
 <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Airstack Frog Middleware Code Snippets</p></figcaption></figure>
 
