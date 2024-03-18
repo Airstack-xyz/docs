@@ -6,7 +6,7 @@ description: >-
 
 # 🥪 Airstack Frog Middleware
 
-The Airstack Frog Middleware is available as a community-built middleware and can be easily incorporated into any Frog app by installing the Airstack Frames SDK. (The Airstack Frog Middleware can also be accessed via the Airstack Frog Recipes)
+The Airstack Frog Middleware is available as a community-built middleware and can be easily incorporated into any Frog app by installing the [Airstack Frames SDK](https://www.npmjs.com/package/@airstack/frames). (The Airstack Frog Middleware can also be accessed via the Airstack Frog Recipes)
 
 ## Onchain Data Middleware
 
@@ -15,6 +15,8 @@ You can use the [`onchainData`](https://www.npmjs.com/package/@airstack/frames#f
 {% tabs %}
 {% tab title="TypeScript" %}
 ```typescript
+// Use `@airstack/frog/middlewares` for Airstack Frog Recipes
+// Otherwise, `@airstack/frames` for Frames SDK
 import { onchainData } from "@airstack/frog/middlewares";
 
 const onchainDataMiddleware = onchainData({
@@ -59,7 +61,9 @@ app.frame(
 
 {% tab title="JavaScript" %}
 ```javascript
-cibst { onchainData } = require("@airstack/frog/middlewares");
+// Use `@airstack/frog/middlewares` for Airstack Frog Recipes
+// Otherwise, `@airstack/frames` for Frames SDK
+const { onchainData } = require("@airstack/frog/middlewares");
 
 const onchainDataMiddleware = onchainData({
   apiKey: process.env.AIRSTACK_API_KEY,
@@ -191,6 +195,8 @@ Enhance your Farcaster Frames with user's onchain data using the [`allowList`](h
 {% tabs %}
 {% tab title="TypeScript" %}
 ```typescript
+// Use `@airstack/frog/middlewares` for Airstack Frog Recipes
+// Otherwise, `@airstack/frames` for Frames SDK
 import { allowList } from "@airstack/frog/middlewares";
 
 const allowListMiddleware = allowList({
@@ -215,6 +221,8 @@ app.frame("/", allowListMiddleware, async function (c) {
 
 {% tab title="JavaScript" %}
 ```javascript
+// Use `@airstack/frog/middlewares` for Airstack Frog Recipes
+// Otherwise, `@airstack/frames` for Frames SDK
 const { allowList } = require("@airstack/frog/middlewares");
 
 const allowListMiddleware = allowList({
