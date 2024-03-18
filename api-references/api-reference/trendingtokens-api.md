@@ -17,12 +17,12 @@ The TrendingTokens API provides you with a list of trending tokens frequently tr
 | --------- | ------------------------- | ------------------------------------- |
 | `address` | `Trending_Comparator_Exp` | Token address of the trending tokens. |
 
-### airdrops
+### transferType
 
-| Name                 | Description                                                              |
-| -------------------- | ------------------------------------------------------------------------ |
-| `include_in_count`   | Configure to include airdropped tokens in the calculation & analysis.    |
-| `exclude_from_count` |  Configure to exclude airdropped tokens from the calculation & analysis. |
+| Name             | Description                                                                                   |
+| ---------------- | --------------------------------------------------------------------------------------------- |
+| `all`            | Configure to include airdropped & self-transferred tokens in the calculation & analysis.      |
+| `self_initiated` |  Configure to exclude airdropped and self-transferred tokens from the calculation & analysis. |
 
 ### audience
 

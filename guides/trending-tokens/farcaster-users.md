@@ -153,7 +153,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 First, define the following parameters to fetch the trending tokens data:
 
-<table><thead><tr><th width="149">Name</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>airdrops</code></td><td><code>include_in_count</code> | <code>exclude_from_count</code></td><td>This will either include or exclude airdrop/self-token transfers to the calculation &#x26; analysis of the <code>criteria</code> metric chosen.</td></tr><tr><td><code>timeFrame</code></td><td><code>one_hour</code> | <code>two_hours</code> | <code>eight_hours</code> | <code>one_day</code> | <code>two_days</code> | <code>seven_days</code></td><td>Only fetch trending tokens within the chosen time frame, e.g. <code>one_hour</code> will fetch trending mints for the last 1 hour.</td></tr><tr><td><code>criteria</code></td><td><code>unique_wallets</code> | <code>total_transfers</code></td><td>This will calculate and sort the tokens based on the chosen criteria:<br>- <code>unique_wallets</code>: Calculate the number of unique wallets transfer the trending tokens<br>- <code>total_transfers</code>: Calculate the number of times transfers occurred on the trending token</td></tr></tbody></table>
+<table><thead><tr><th width="149">Name</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>transferType</code></td><td><code>all</code> | <code>self_initiated</code></td><td>This will either include all types of transactions (including airdrops &#x26; self-transfers) or only self-initiated transactions.</td></tr><tr><td><code>timeFrame</code></td><td><code>one_hour</code> | <code>two_hours</code> | <code>eight_hours</code> | <code>one_day</code> | <code>two_days</code> | <code>seven_days</code></td><td>Only fetch trending tokens within the chosen time frame, e.g. <code>one_hour</code> will fetch trending mints for the last 1 hour.</td></tr><tr><td><code>criteria</code></td><td><code>unique_wallets</code> | <code>total_transfers</code></td><td>This will calculate and sort the tokens based on the chosen criteria:<br>- <code>unique_wallets</code>: Calculate the number of unique wallets transfer the trending tokens<br>- <code>total_transfers</code>: Calculate the number of times transfers occurred on the trending token</td></tr></tbody></table>
 
 Once you have the parameters prepared, simply use the query below and add the parameters as variables:&#x20;
 
@@ -169,13 +169,13 @@ Show all trending tokens among Farcaster users by the number of unique wallets i
 {% tab title="Query" %}
 ```graphql
 query MyQuery(
-  $airdrops: Airdrops!,
+  $transferType: TrendingTokensTransferType!,
   $timeFrame: TimeFrame!,
   $criteria: TrendingTokensCriteria!
 ) {
   TrendingTokens(
     input: {
-      airdrops: $airdrops,
+      transferType: $transferType,
       timeFrame: $timeFrame,
       audience: farcaster,
       blockchain: base,
@@ -201,7 +201,7 @@ query MyQuery(
 {% tab title="Variables" %}
 ```json
 {
-  "airdrops": "exclude_from_count",
+  "transferType": "self_initiated",
   "timeFrame": "one_hour",
   "criteria": "unique_wallets"
 }
