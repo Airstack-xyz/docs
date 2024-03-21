@@ -36,6 +36,7 @@ From the Wallet API it’s possible to create complex queries using nested queri
 | `polygon`  | Polygon mainnet  |
 | `base`     | Base mainnet     |
 | `zora`     | Zora mainnet     |
+| `gold`     | Gold Chain L3    |
 
 ## Outputs
 

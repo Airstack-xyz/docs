@@ -38,6 +38,7 @@ The TokenNFTs API provides detailed data about a specific NFT token within an NF
 | `polygon`  | Polygon mainnet  |
 | `base`     | Base mainnet     |
 | `zora`     | Zora mainnet     |
+| `gold`     | Gold Chain L3    |
 
 ## Outputs
 
