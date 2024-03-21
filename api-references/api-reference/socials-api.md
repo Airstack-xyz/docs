@@ -95,8 +95,8 @@ type Social {
   updatedAt: Time # Last updated timestamp for Lens or Farcaster profile. This will change whenever profile image is changed, bio is changed, or followers/followings number increase/decrease, etc.
   userAddressDetails: Wallet # Nested Query: Details of the user's primary address – domains, socials, XMTP, token balances
   userAssociatedAddressDetails: [Wallet] # Nested Query: Details of the user's associated addresses to the social profile – domains, socials, XMTP, token balances
-  userAddress: Address # user's primary address
-  userAssociatedAddresses: # blockchain addresses associated with the social profile
+  userAddress: Address # user's custody address
+  userAssociatedAddresses: # blockchain addresses associated with the social profile (inclduding custody address + connected addresses)
   userCreatedAtBlockNumber: Int
   userCreatedAtBlockTimestamp: Time
   userHomeURL: String
