@@ -61,60 +61,57 @@ You just need to specify the input for the query to work.
 
 ## Outputs
 
-```graphql
-type Social {
-  blockchain: Blockchain # Blockchain associated with the social identity
-  chainId: String # Unique blockchain identifier
-  connectedAddresses: [ConnectedAddress!] # Provide info on connected addresses, including address and blockchain
-  dappName: # Social DApp name
-  dappSlug: # Social DApp slug (contract version)
-  dappVersion: String # Airstack unique dapp version number
-  fnames: # Farcaster names of a user, there could be more than one
-  followerCount: # Total number of followers
-  followerTokenAddresses:
-  followers: # Nested query - list of all followers
-  followingCount: # Total number of followings
-  followings: # Nested query - list of all followings
-  id: ID # Airstack unique identifier for this particular element
-  identity: # Identity used in the filter is returned here
-  isDefault: # Returns true/false if the profile is set to default on the corresponding dApp
-  profileCreatedAtBlockNumber: Int
-  profileCreatedAtBlockTimestamp: Time
-  profileLastUpdatedAtBlockNumber: Int
-  profileLastUpdatedAtBlockTimestamp: Time # Last updated timestamp for Lens. For Farcaster, this value will be equal to `profileCreatedAtBlockTimestamp`. To get last updated timestamp for Farcaster, use `updatedAt`.
-  profileBio: String
-  profileDisplayName: String
-  profileImage: String
-  profileUrl: String
-  profileName: String
-  profileTokenAddress: String
-  profileTokenId: String
-  profileTokenIdHex: String
-  profileTokenUri: String
-  tokenNft: TokenNft # Nested Query: Profile NFT details, this is particularly for Lens Profile NFT, Farcaster will return `null`
-  updatedAt: Time # Last updated timestamp for Lens or Farcaster profile. This will change whenever profile image is changed, bio is changed, or followers/followings number increase/decrease, etc.
-  userAddressDetails: Wallet # Nested Query: Details of the user's primary address – domains, socials, XMTP, token balances
-  userAssociatedAddressDetails: [Wallet] # Nested Query: Details of the user's associated addresses to the social profile – domains, socials, XMTP, token balances
-  userAddress: Address # user's custody address
-  userAssociatedAddresses: # blockchain addresses associated with the social profile (inclduding custody address + connected addresses)
-  userCreatedAtBlockNumber: Int
-  userCreatedAtBlockTimestamp: Time
-  userHomeURL: String
-  userId: String
-  userLastUpdatedAtBlockNumber: Int
-  userLastUpdatedAtBlockTimestamp: Time
-  userRecoveryAddress: Address
-  handleTokenAddress: Address
-  handleTokenId: String
-  metadataURI: String
-  profileMetadata: Map
-  coverImageURI: String
-  twitterUserName: String
-  website: String
-  location: String
-  profileImageContentValue: Media
-  coverImageContentValue: Media
-  profileHandle: String
-  profileHandleNft: TokenNft
-}
-```
+| Name                                 | Type                                          | Description                                                                                                                                                                                                                                                                         |
+| ------------------------------------ | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `blockchain`                         | `Blockchain`                                  | Blockchain associated with the social identity                                                                                                                                                                                                                                      |
+| `chainId`                            | `String`                                      | Unique identifier for the blockchain                                                                                                                                                                                                                                                |
+| `dappName`                           | `SocialDappName`                              | Either `farcaster` or `lens`                                                                                                                                                                                                                                                        |
+| `dappSlug`                           | `SocialDappSlug`                              | Social DApp slug (contract version) with these values: `farcaster_optimism`, `farcaster_goerli`,  `lens_polygon`, `farcaster_v2_optimism`, `lens_v2_polygon`                                                                                                                        |
+| `dappVersion`                        | `String`                                      | Airstack unique dapp version number                                                                                                                                                                                                                                                 |
+| `fnames`                             | `[String]`                                    | Farcaster names of a user, there could be more than one                                                                                                                                                                                                                             |
+| `followerCount`                      | `Int`                                         | Total number of followers                                                                                                                                                                                                                                                           |
+| `followerTokenAddress`               | `Address`                                     |                                                                                                                                                                                                                                                                                     |
+| `followers`                          | [`SocialFollowers`](socialfollowers-api.md)   | **Nested query** - list of all followers on Farcaster or Lens                                                                                                                                                                                                                       |
+| `followingCount`                     | `Int`                                         | Total number of followings                                                                                                                                                                                                                                                          |
+| `followings`                         | [`SocialFollowings`](socialfollowings-api.md) | **Nested query** – list of all followings on Farcaster or Lens                                                                                                                                                                                                                      |
+| `id`                                 | `ID`                                          | Airstack unique identifier for the data point                                                                                                                                                                                                                                       |
+| `identity`                           | `Identity`                                    | Blockchain address, ENS domain name, social identity such as Farcaster (for Farcaster use 'fc\_fid:' prefix followed by the Farcaster user ID like fc\_fid:5650, or use 'fc\_fname:' prefix followed by the Farcaster user ID like 'fc\_fname:vbuterin') or Lens (e.g. 'stani.lens) |
+| `isDefault`                          | `Boolean`                                     | Whether a social profile is default/primary or not, only apply to Lens, Farcaster always `false`.                                                                                                                                                                                   |
+| `profileCreatedAtBlockNumber`        | `Int`                                         | Block number when the social profile was created.                                                                                                                                                                                                                                   |
+| `profileCreatedAtBlockTimestamp`     | `Time`                                        | Timestamp when the social profile was created.                                                                                                                                                                                                                                      |
+| `profileLastUpdatedAtBlockNumber`    | `Int`                                         | Block number when the social profile was last updated.                                                                                                                                                                                                                              |
+| `profileLastUpdatedAtBlockTimestamp` | `Time`                                        | Timestamp when the social profile was last updated.                                                                                                                                                                                                                                 |
+| `profileBio`                         | `String`                                      | Social profile bio on Farcaster or Lens.                                                                                                                                                                                                                                            |
+| `profileDisplayName`                 | `String`                                      | Social profile display name on Farcaster or Lens.                                                                                                                                                                                                                                   |
+| `profileImage`                       | `String`                                      | Link to Social profile image.                                                                                                                                                                                                                                                       |
+| `profileUrl`                         | `String`                                      | Social profile URL.                                                                                                                                                                                                                                                                 |
+| `profileName`                        | `String`                                      | Farcaster profile name (fname primarily used) or Lens profile name (e.g. `lens/@betashop9`)                                                                                                                                                                                         |
+| `profileTokenAddress`                | `Address`                                     | <p>For Farcaster, it is going to return the IdRegistry contract address on Optimism.<br><br>For Lens, it will return Lens profile NFT contract address on Polygon.</p>                                                                                                              |
+| `profileTokenId`                     | `String`                                      | <p>For Farcaster, it's the user's FID.<br><br>For Lens, it's the user's profile NFT's token ID.</p>                                                                                                                                                                                 |
+| `profileTokenIdHex`                  | `String`                                      | Return the hex value of `profileTokenId`                                                                                                                                                                                                                                            |
+| `profileTokenUri`                    | `String`                                      | <p>Token URI of Lens Profile NFT.<br><br>For Farcaster, this will return empty string.</p>                                                                                                                                                                                          |
+| `tokenNft`                           | [`TokenNfts`](tokennfts-api.md)               | **Nested Queries** – Lens profile NFT details. For Farcaster, it will return `null`                                                                                                                                                                                                 |
+| `updatedAt`                          | `Time`                                        | Timestamp when the social profile was last updated.                                                                                                                                                                                                                                 |
+| `userAddressDetails`                 | [`Wallet`](wallet-api.md)                     | **Nested Queries** – Wallet details of custody address from `userAddress` field.                                                                                                                                                                                                    |
+| `userAssociatedAddressDetails`       | [`[Wallet!]`](wallet-api.md)                  | **Nested Queries** – Wallet details of all associated addresses from `userAssociatedAddresses` field.                                                                                                                                                                               |
+| `userAddress`                        | `Address`                                     | User's custody address.                                                                                                                                                                                                                                                             |
+| `userAssociatedAddresses`            | `[Address!]`                                  | <p>All addresses associated with the social profiles.<br><br>For Farcaster, it will return both the custody and connected addresses.<br><br>If you are only fetching connected addresses, use <code>connectedAddresses</code> field instead.</p>                                    |
+| `userCreatedAtBlockNumber`           | `Int`                                         | Block number when the social profile was created.                                                                                                                                                                                                                                   |
+| `userCreatedAtBlockTimestamp`        | `Number`                                      | Timestamp when the social profile was created.                                                                                                                                                                                                                                      |
+| `userHomeURL`                        | `String`                                      | Social Profile Home URL.                                                                                                                                                                                                                                                            |
+| `userId`                             | `String`                                      | <p>For Farcaster, it's the user's FID.<br><br>For Lens, it's the user's profile NFT's token ID.</p>                                                                                                                                                                                 |
+| `userLastUpdatedAtBlockNumber`       | `Int`                                         | Block number when the social profile was last updated.                                                                                                                                                                                                                              |
+| `userLastUpdatedAtBlockTimestamp`    | `Number`                                      | Timestamp when the social profile was last updated.                                                                                                                                                                                                                                 |
+| `userRecoveryAddress`                | `Address`                                     | Farcaster user's recovery address. For Lens, it will return empty string.                                                                                                                                                                                                           |
+| `handleTokenAddress`                 | `Address`                                     | Lens Handle NFT contract address. For Farcaster, this will return an empty string.                                                                                                                                                                                                  |
+| `handleTokenId`                      | `String`                                      | Lens Handle NFT token ID associated with the profile. For Farcaster, this will return an empty string.                                                                                                                                                                              |
+| `metadataURI`                        | `String`                                      | Lens profile NFT metadata URI. This will return `null` for Farcaster profiles.                                                                                                                                                                                                      |
+| `profileMetadata`                    | `Map`                                         | Lens profile NFT metadata. This will return `null` for Farcaster profiles.                                                                                                                                                                                                          |
+| `coverImageURI`                      | `String`                                      | URI to the cover image of a social profile.                                                                                                                                                                                                                                         |
+| `twitterUserName`                    | `String`                                      | Social profile's twitter (from Lens).                                                                                                                                                                                                                                               |
+| `website`                            | `String`                                      | Social profile's website.                                                                                                                                                                                                                                                           |
+| `location`                           | `String`                                      | Social profile's location.                                                                                                                                                                                                                                                          |
+| `profileImageContentValue`           | `Media`                                       | **Nested Query** – resized profile images.                                                                                                                                                                                                                                          |
+| `coverImageContentValue`             | `Media`                                       | **Nested Query** – resized cover images.                                                                                                                                                                                                                                            |
+| `profileHandle`                      | `String`                                      | <p>For Farcaster, this is equivalent to <code>profileName</code>.<br><br>For Lens, it just display the Lens handle (e.g. <code>@betashop9</code>)</p>                                                                                                                               |
+| `profileHandleNft`                   | [`TokenNft`](tokennfts-api.md)                | **Nested Query** – NFT details of Lens Handle NFT. For Farcaster, it will return `null`                                                                                                                                                                                             |

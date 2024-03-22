@@ -37,6 +37,7 @@ The TrendingTokens API provides you with a list of trending tokens frequently tr
 | ----------------- | --------------------------------------------------------------------------- |
 | `unique_wallets`  | Sort the trending tokens by the number of unique wallets minting the token. |
 | `total_transfers` | Sort the trending tokens by the number of total tokens minted.              |
+| `unique_holders`  | Sort the trending tokens by the number of unique holders.                   |
 
 ### blockchain
 
