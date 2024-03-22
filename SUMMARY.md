@@ -30,6 +30,7 @@
   * [⛓️ Onchain Data](guides/airstack-frog-recipes/onchain-data.md)
   * [🛜 Farcaster Hubs](guides/airstack-frog-recipes/farcaster-hubs.md)
   * [🎭 Allow List](guides/airstack-frog-recipes/allow-list.md)
+  * [🤖 Captcha Verification](guides/airstack-frog-recipes-and-middleware/captcha-verification.md)
   * [🥪 Airstack Frog Middleware](guides/airstack-frog-recipes-and-middleware/airstack-frog-middleware.md)
   * [🐸 Integrate to Existing Frog Project](guides/airstack-frog-recipes/integrate-to-existing-frog-project.md)
 * [💜 Farcaster](guides/farcaster/README.md)
