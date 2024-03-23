@@ -159,6 +159,8 @@ app.frame("/verify-captcha", async (c) => {
 {% endtab %}
 {% endtabs %}
 
+🥳 Congratulations, you've just integrated Captcha into your Farcaster Frames using Airstack Frog Recipes!
+
 ## Developer Support
 
 If you have any questions or need help integrating Captcha into your Farcaster Frames using the Airstack Frog Recipe, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.

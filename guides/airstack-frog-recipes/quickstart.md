@@ -10,6 +10,14 @@ description: >-
 Quickstart Demo
 {% endembed %}
 
+## Starter Code
+
+You can find the Airstack Frames Starter Code using Airstack Frog Recipes in our GitHub [here](https://github.com/Airstack-xyz/airstack-frames-starter/tree/main).
+
+### Pre-requisites
+
+* An [Airstack](https://airstack.xyz/) account
+
 ## Step 1: Install Dependencies
 
 To get started, simply install all the necessary dependencies:
@@ -94,47 +102,29 @@ devtools(app, { serveStatic });
 ```
 {% endcode %}
 {% endtab %}
-
-{% tab title="JavaScript" %}
-{% code title="src/index.jsx" %}
-```javascript
-const { Button, Frog } = require("@airstack/frog");
-const { devtools } = require("@airstack/frog/dev");
-const { serveStatic } = require("@hono/node-server/serve-static");
-const { config } = require("dotenv");
-
-config();
-
-// Instantiate new Frog instance with Airstack API key
-export const app = new Frog({
-  apiKey: process.env.AIRSTACK_API_KEY,
-});
-
-app.frame("/", async (c) => {
-  const { status } = c;
-  return c.res({
-    image: (
-      <div
-        style={{
-          color: "white",
-          display: "flex",
-          fontSize: 40,
-        }}
-      >
-        {status === "initial" ? "Initial Frame" : "Response Frame"}
-      </div>
-    ),
-    intents: [status === "initial" && <Button>Click Here</Button>],
-  });
-});
-
-devtools(app, { serveStatic });
-```
-{% endcode %}
-{% endtab %}
 {% endtabs %}
 
-## Step 4: Add Scripts to `package.json`
+## Step 4: Configure TSConfig
+
+Add the following fields into your `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    // Other configurations
+    "jsx": "react-jsx",
+    "jsxImportSource": "@airstack/frog/jsx",
+  }
+}
+```
+
+If you don't have `tsconfig.json` in your project, then run the following command first:
+
+```bash
+npx tsc --init
+```
+
+## Step 5: Run `dev`
 
 Add `dev` script to your `package.json` as shown below:
 
@@ -144,8 +134,6 @@ Add `dev` script to your `package.json` as shown below:
 </strong>  },
 }
 </code></pre>
-
-## Step 5: Run `dev`
 
 To start the development server, simply run one of the following command to run the `dev` script:&#x20;
 
@@ -174,6 +162,12 @@ bun run dev
 ```
 {% endtab %}
 {% endtabs %}
+
+Then, go to `http://localhost:5173/dev` and you will be redirected to the Frog devtools as shown below:
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-03-23 at 15.05.15.png" alt=""><figcaption><p>Airstack Frog Devtools</p></figcaption></figure>
+
+🥳 Congratulations, you've just built your 1st Farcaster Frames using Airstack Frog Recipes!
 
 ## Next Steps
 
