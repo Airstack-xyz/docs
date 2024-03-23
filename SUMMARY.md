@@ -191,6 +191,7 @@
   * [SocialFollowings API](api-references/api-reference/socialfollowings-api.md)
   * [Socials API](api-references/api-reference/socials-api.md)
   * [Tokens API](api-references/api-reference/tokens-api.md)
+  * [FarcasterValidateFrameMessage API](api-references/api-reference/farcastervalidateframemessage-api.md)
   * [TokenBalances API](api-references/api-reference/tokenbalances-api.md)
   * [TokenNfts API](api-references/api-reference/tokennfts-api.md)
   * [TokenTransfers API](api-references/api-reference/tokentransfers-api.md)
