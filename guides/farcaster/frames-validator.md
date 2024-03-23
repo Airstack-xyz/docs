@@ -10,7 +10,7 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
@@ -23,7 +23,7 @@ You can access the [Validation API](../../api-references/api-reference/airstack-
 
 * [Airstack Frames SDK](frames-validator.md#airstack-frames-sdk): suitable for those using JS/TS in their tech stacks, e.g. Frames.js, Next.js, etc.
 * [Frog Framework](frames-validator.md#frog-framework): suitable for those using Frog to build their Frames
-* [Direct API Call](frames-validator.md#direct-api-call): suitable for those building Frames with other tech stacks than JS/TS.
+* [Airstack `FarcasterValidateFramesMessage` API](frames-validator.md#airstack-farcastervalidateframesmessage-api): suitable for those building Frames that either require fetching Farcaster details on the interactors or casters or building with other tech stacks than JS/TS.
 
 On the bottom, you can also find the test results on the performance of our API [here](frames-validator.md#testing-on-airstack-validation-api).\
 \
@@ -208,52 +208,94 @@ const app = new Frog({
 {% endtab %}
 {% endtabs %}
 
-## Direct API Call
+## Airstack `FarcasterValidateFramesMessage` API
 
-Alternatively, you can also call the [validation API](../../api-references/api-reference/airstack-validation-api.md) by making a **POST** request directly to the `https://hubs.airstack.xyz` and adding the [Airstack API key](../../get-started/get-api-key.md) to the `x-airstack-hubs` field in the header.
+Alternatively, you can also easily use the [`FarcasterValidateFramesMessage`](../../api-references/api-reference/farcastervalidateframemessage-api.md) API to not only validate Frames Signature packet, but additionally fetch all Farcaster details of the interactors and casters in one single API call:
+
+**Try Demo**
+
+{% embed url="https://app.airstack.xyz/query/A8jvLznU9P" %}
+Validate Frames Signature Packet and get Farcaster details of the interactor and caster
+{% endembed %}
+
+**Code**
 
 {% tabs %}
-{% tab title="TypeScript" %}
-```typescript
-import fetch from "node-fetch";
-
-const validateMessageResponse = await fetch(
-  "https://hubs.airstack.xyz/v1/validateMessage",
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/octet-stream",
-      "x-airstack-hubs": "YOUR_AIRSTACK_API_KEY",
-    },
-    body: new Uint8Array(
-      body.trustedData.messageBytes.match(/.{1,2}/g)!.map(
-        (byte: string) => parseInt(byte, 16)
-      )
-    ),
+{% tab title="Query" %}
+```graphql
+query MyQuery(
+  $messageBytes: String!
+) {
+  FarcasterValidateFrameMessage(
+    input: {filter: {messageBytes: $messageBytes}}
+  ) {
+    isValid
+    message {
+      data {
+        fid
+        frameActionBody {
+          buttonIndex
+          castId {
+            fid
+            hash
+          }
+          inputText
+          state
+        }
+      }
+    }
+    interactedByFid
+    interactedBy {
+      profileName
+    }
+    castedByFid
+    castedBy {
+      profileName
+    }
   }
-);
+}
 ```
 {% endtab %}
 
-{% tab title="JavaScript" %}
-```javascript
-const fetch = require("node-fetch");
+{% tab title="Variables" %}
+```json
+{
+  "messageBytes": "0a61080d109dd41118d0c9c72f20018201510a3168747470733a2f2f70656c6963616e2d666f6e642d64697374696e63746c792e6e67726f6b2d667265652e6170702f6f6710011a1a089dd4111214000000000000000000000000000000000000000112146357261fa893e4be85f78178babaca876f9a1fac18012240d1ed649964018377641a78638f0c19d3c346c1eb1a47e856c0fcd87d3fc72ff98172f939fc18ffdd16af746144279e6debb3f4913f491c69d22f6703e554510a280132200295183aaa021cad737db7ddbc075964496ece1c0bcc1009bdae6d1799c83cd4"
+}
+```
+{% endtab %}
 
-const validateMessageResponse = await fetch(
-  "https://hubs.airstack.xyz/v1/validateMessage",
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/octet-stream",
-      "x-airstack-hubs": "YOUR_AIRSTACK_API_KEY",
-    },
-    body: new Uint8Array(
-      body.trustedData.messageBytes.match(/.{1,2}/g)!.map(
-        (byte: string) => parseInt(byte, 16)
-      )
-    ),
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterValidateFrameMessage": {
+      "isValid": true,
+      "message": {
+        "data": {
+          "fid": 289309,
+          "frameActionBody": {
+            "buttonIndex": 1,
+            "castId": {
+              "fid": 289309,
+              "hash": "0x0000000000000000000000000000000000000001"
+            },
+            "inputText": "",
+            "state": ""
+          }
+        }
+      },
+      "interactedByFid": 289309,
+      "interactedBy": {
+        "profileName": "kaushal"
+      },
+      "castedByFid": 289309,
+      "castedBy": {
+        "profileName": "kaushal"
+      }
+    }
   }
-);
+}
 ```
 {% endtab %}
 {% endtabs %}
