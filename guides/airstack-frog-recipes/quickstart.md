@@ -61,6 +61,8 @@ In that case, create a new file under `src` folder and add the following code:
 {% code title="src/index.tsx" %}
 ```typescript
 import { Button, Frog } from "@airstack/frog";
+import { devtools } from "@airstack/frog/dev";
+import { serveStatic } from "@hono/node-server/serve-static";
 import { config } from "dotenv";
 
 config();
@@ -87,6 +89,8 @@ app.frame("/", async (c) => {
     intents: [status === "initial" && <Button>Click Here</Button>],
   });
 });
+
+devtools(app, { serveStatic });
 ```
 {% endcode %}
 {% endtab %}
@@ -95,6 +99,8 @@ app.frame("/", async (c) => {
 {% code title="src/index.jsx" %}
 ```javascript
 const { Button, Frog } = require("@airstack/frog");
+const { devtools } = require("@airstack/frog/dev");
+const { serveStatic } = require("@hono/node-server/serve-static");
 const { config } = require("dotenv");
 
 config();
@@ -121,6 +127,8 @@ app.frame("/", async (c) => {
     intents: [status === "initial" && <Button>Click Here</Button>],
   });
 });
+
+devtools(app, { serveStatic });
 ```
 {% endcode %}
 {% endtab %}
