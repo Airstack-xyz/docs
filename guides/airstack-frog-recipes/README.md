@@ -17,7 +17,7 @@ layout:
 
 ## Get Started
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f680">🚀</span> <strong>Quickstart</strong></td><td>Learn how to quickly build your first Farcaster Frame using Airstack Frog Recipes.</td><td></td><td><a href="quickstart.md">quickstart.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f680">🚀</span> <strong>Quickstart</strong></td><td>Learn how to quickly build your first Farcaster Frame using Airstack Frog Recipes.</td><td></td><td><a href="../airstack-frog-recipes-and-middleware/quickstart/node.js.md">node.js.md</a></td></tr></tbody></table>
 
 ## Airstack Features
 

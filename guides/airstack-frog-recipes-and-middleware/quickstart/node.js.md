@@ -1,10 +1,10 @@
 ---
 description: >-
   Learn how to quickly build your first Farcaster Frame using Airstack Frog
-  Recipes.
+  Recipes in Node.js.
 ---
 
-# 🚀 Quickstart
+# 🗼 Node.js
 
 {% embed url="https://drive.google.com/file/d/1kSCk3Y7KtpPXHD7E_xjJbVn2YVKjplDz/view?usp=sharing" %}
 Quickstart Demo
@@ -14,7 +14,29 @@ Quickstart Demo
 
 You can find the Airstack Frames Starter Code using Airstack Frog Recipes in our GitHub [here](https://github.com/Airstack-xyz/airstack-frames-starter/tree/main).
 
-### Pre-requisites
+To clone the repository, run the following command:
+
+{% tabs %}
+{% tab title="Git (HTTPS)" %}
+```bash
+git clone https://github.com/Airstack-xyz/airstack-frames-starter.git
+```
+{% endtab %}
+
+{% tab title="Git (SSH)" %}
+```bash
+git clone git@github.com:Airstack-xyz/airstack-frames-starter.git
+```
+{% endtab %}
+
+{% tab title="GitHub CLI" %}
+```bash
+gh repo clone Airstack-xyz/airstack-frames-starter
+```
+{% endtab %}
+{% endtabs %}
+
+## Pre-requisites
 
 * An [Airstack](https://airstack.xyz/) account
 
@@ -50,7 +72,7 @@ bun install @airstack/frog hono dotenv
 
 ## Step 2: Add Airstack API Key
 
-Get your [Airstack API key](../../get-started/get-api-key.md) and add it as an environment variable:
+Get your [Airstack API key](../../../get-started/get-api-key.md) and add it as an environment variable:
 
 {% code title=".env" %}
 ```
@@ -169,7 +191,7 @@ bun run dev
 
 Then, go to `http://localhost:5173/dev` and you will be redirected to the Frog devtools as shown below:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-03-23 at 15.05.15.png" alt=""><figcaption><p>Airstack Frog Devtools</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-03-23 at 15.05.15.png" alt=""><figcaption><p>Airstack Frog Devtools</p></figcaption></figure>
 
 🥳 Congratulations, you've just built your 1st Farcaster Frames using Airstack Frog Recipes!
 
@@ -191,9 +213,31 @@ To deploy, first add some of the following additional scripts to your `package.j
 
 Then, compile the poject by running the following command:
 
+{% tabs %}
+{% tab title="npm" %}
 ```bash
 npm run build
 ```
+{% endtab %}
+
+{% tab title="yarn" %}
+```bash
+yarn build
+```
+{% endtab %}
+
+{% tab title="pnpm" %}
+```bash
+pnpm build
+```
+{% endtab %}
+
+{% tab title="bun" %}
+```bash
+bun run build
+```
+{% endtab %}
+{% endtabs %}
 
 If run successfully, you should have a new `.vercel` folder generated. With this you can deploy the compiled build into Vercel by running:&#x20;
 
@@ -201,19 +245,27 @@ If run successfully, you should have a new `.vercel` folder generated. With this
 Before running the command, make sure that you have `vercel` CLI within your machine and have it connected to your account by running `vercel auth`.
 {% endhint %}
 
+{% tabs %}
+{% tab title="npm" %}
 ```bash
 npm run deploy
 ```
+{% endtab %}
 
-Once deployed successfully, you can go to the Vercel Dashboard to have your [Airstack API key](../../get-started/get-api-key.md) added to your environment variables.
+{% tab title="Second Tab" %}
 
-| Key                | Value                                                     |
-| ------------------ | --------------------------------------------------------- |
-| `AIRSTACK_API_KEY` | [Your Airstack API key](../../get-started/get-api-key.md) |
+{% endtab %}
+{% endtabs %}
+
+Once deployed successfully, you can go to the Vercel Dashboard to have your [Airstack API key](../../../get-started/get-api-key.md) added to your environment variables.
+
+| Key                | Value                                                        |
+| ------------------ | ------------------------------------------------------------ |
+| `AIRSTACK_API_KEY` | [Your Airstack API key](../../../get-started/get-api-key.md) |
 
 Then, access the live Farcaster Frame from a custom vercel link  with the following format `https://<FRAME_VERCEL_PROJECT>.vercel.app/api`, which you can use to test with the Farcaster official validator.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-03-26 at 16.33.03.png" alt=""><figcaption><p>Testing Frames in Farcaster's Official Frames Validator</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-03-26 at 16.33.03.png" alt=""><figcaption><p>Testing Frames in Farcaster's Official Frames Validator</p></figcaption></figure>
 
 🥳 Congratulations, you've just deployed your 1st Farcaster Frames built usng Airstack Frog Recipes into Vercel!
 
@@ -223,9 +275,9 @@ Now that you have your 1st Farcaster Frame running, learn more about how Frog wo
 
 In addition, you can also check out all the Airstack features available in Airstack Frog Recipes to enrich your Farcaster Frames with various onchain data offered:
 
-* [Onchain Data](onchain-data.md)
-* [Farcaster Hubs](farcaster-hubs.md)
-* [Allow List](allow-list.md)
+* [Onchain Data](../../airstack-frog-recipes/onchain-data.md)
+* [Farcaster Hubs](../../airstack-frog-recipes/farcaster-hubs.md)
+* [Allow List](../../airstack-frog-recipes/allow-list.md)
 
 ## Developer Support
 
@@ -233,9 +285,9 @@ If you have any questions or need help regarding integrating onchain data to you
 
 ## More Resources
 
-* [Onchain Data](onchain-data.md)
-* [Farcaster Hubs](farcaster-hubs.md)
-* [Allow List](allow-list.md)
-* [Captcha Verification](../airstack-frog-recipes-and-middleware/captcha-verification.md)
-* [Airstack Frog Middleware](../airstack-frog-recipes-and-middleware/airstack-frog-middleware.md)
-* [Integrate to Existing Frog Project](integrate-to-existing-frog-project.md)
+* [Onchain Data](../../airstack-frog-recipes/onchain-data.md)
+* [Farcaster Hubs](../../airstack-frog-recipes/farcaster-hubs.md)
+* [Allow List](../../airstack-frog-recipes/allow-list.md)
+* [Captcha Verification](../captcha-verification.md)
+* [Airstack Frog Middleware](../airstack-frog-middleware.md)
+* [Integrate to Existing Frog Project](../../airstack-frog-recipes/integrate-to-existing-frog-project.md)
