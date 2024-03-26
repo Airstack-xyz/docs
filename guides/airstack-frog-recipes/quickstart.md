@@ -62,11 +62,11 @@ AIRSTACK_API_KEY=YOUR_API_KEY
 
 For example, you would like to build a trending mints Frame, where you can recommend Farcaster users which token to mint and enable them to mint it directly from your Farcaster Frame.
 
-In that case, create a new file under `src` folder and add the following code:
+In that case, create a new file under `api` folder and add the following code:
 
 {% tabs %}
 {% tab title="TypeScript" %}
-{% code title="src/index.tsx" %}
+{% code title="api/index.tsx" %}
 ```typescript
 import { Button, Frog } from "@airstack/frog";
 import { devtools } from "@airstack/frog/dev";
@@ -78,6 +78,8 @@ config();
 // Instantiate new Frog instance with Airstack API key
 export const app = new Frog({
   apiKey: process.env.AIRSTACK_API_KEY as string,
+  assetsPath: "/",
+  basePath: "/api",
 });
 
 app.frame("/", async (c) => {
@@ -99,6 +101,8 @@ app.frame("/", async (c) => {
 });
 
 devtools(app, { serveStatic });
+export const GET = handle(app);
+export const POST = handle(app);
 ```
 {% endcode %}
 {% endtab %}
@@ -169,6 +173,50 @@ Then, go to `http://localhost:5173/dev` and you will be redirected to the Frog d
 
 🥳 Congratulations, you've just built your 1st Farcaster Frames using Airstack Frog Recipes!
 
+## Bonus: Deployment
+
+To deploy, first add some of the following additional scripts to your `package.json`:
+
+{% code title="package.json" %}
+```json
+{
+  "scripts": { 
+    "build": "npx @airstack/frog vercel-build",
+    "deploy": "vercel --prod",
+    "deploy:preview": "vercel",
+  },
+}
+```
+{% endcode %}
+
+Then, compile the poject by running the following command:
+
+```bash
+npm run build
+```
+
+If run successfully, you should have a new `.vercel` folder generated. With this you can deploy the compiled build into Vercel by running:&#x20;
+
+{% hint style="info" %}
+Before running the command, make sure that you have `vercel` CLI within your machine and have it connected to your account by running `vercel auth`.
+{% endhint %}
+
+```bash
+npm run deploy
+```
+
+Once deployed successfully, you can go to the Vercel Dashboard to have your [Airstack API key](../../get-started/get-api-key.md) added to your environment variables.
+
+| Key                | Value                                                     |
+| ------------------ | --------------------------------------------------------- |
+| `AIRSTACK_API_KEY` | [Your Airstack API key](../../get-started/get-api-key.md) |
+
+Then, access the live Farcaster Frame from a custom vercel link  with the following format `https://<FRAME_VERCEL_PROJECT>.vercel.app/api`, which you can use to test with the Farcaster official validator.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-03-26 at 16.33.03.png" alt=""><figcaption><p>Testing Frames in Farcaster's Official Frames Validator</p></figcaption></figure>
+
+🥳 Congratulations, you've just deployed your 1st Farcaster Frames built usng Airstack Frog Recipes into Vercel!
+
 ## Next Steps
 
 Now that you have your 1st Farcaster Frame running, learn more about how Frog works in [here](https://frog.fm/concepts/overview).
@@ -188,4 +236,6 @@ If you have any questions or need help regarding integrating onchain data to you
 * [Onchain Data](onchain-data.md)
 * [Farcaster Hubs](farcaster-hubs.md)
 * [Allow List](allow-list.md)
+* [Captcha Verification](../airstack-frog-recipes-and-middleware/captcha-verification.md)
+* [Airstack Frog Middleware](../airstack-frog-recipes-and-middleware/airstack-frog-middleware.md)
 * [Integrate to Existing Frog Project](integrate-to-existing-frog-project.md)
