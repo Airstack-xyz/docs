@@ -15,7 +15,7 @@ layout:
     visible: true
 ---
 
-# ✍ Farcaster Users Details
+# ✍️ Farcaster Users Details
 
 [Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching [Farcaster](https://farcaster.xyz) applications and integrating on-chain and off-chain data with Farcaster.
 
@@ -23,19 +23,19 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Get Farcaster Profile Details By Farcaster ID](farcaster-users-details.md#get-farcaster-profile-details-by-farcaster-id)
-- [Get Farcaster Profile Details By Farcaster Name](farcaster-users-details.md#get-farcaster-profile-details-by-farcaster-name)
-- [Get Farcaster Profile Details By 0x address](farcaster-users-details.md#get-farcaster-profile-details-by-0x-address)
-- [Get Farcaster Profile Details By ENS Domain](farcaster-users-details.md#get-farcaster-profile-details-by-ens-domain)
-- [Get Farcaster Profile Details By Lens Profile Name](farcaster-users-details.md#get-farcaster-profile-details-by-lens-profile-name)
-- [Get Farcaster Profile Details By Lens Profile ID](farcaster-users-details.md#get-farcaster-profile-details-by-lens-profile-id)
-- [Bulk Query Farcaster Profile Details](farcaster-users-details.md#bulk-query-farcaster-profile-details)
-- [Bulk Query All Farcaster Users Profile Details](farcaster-users-details.md#bulk-query-all-farcaster-users-profile-details)
+* [Get Farcaster Profile Details By Farcaster ID](farcaster-users-details.md#get-farcaster-profile-details-by-farcaster-id)
+* [Get Farcaster Profile Details By Farcaster Name](farcaster-users-details.md#get-farcaster-profile-details-by-farcaster-name)
+* [Get Farcaster Profile Details By 0x address](farcaster-users-details.md#get-farcaster-profile-details-by-0x-address)
+* [Get Farcaster Profile Details By ENS Domain](farcaster-users-details.md#get-farcaster-profile-details-by-ens-domain)
+* [Get Farcaster Profile Details By Lens Profile Name](farcaster-users-details.md#get-farcaster-profile-details-by-lens-profile-name)
+* [Get Farcaster Profile Details By Lens Profile ID](farcaster-users-details.md#get-farcaster-profile-details-by-lens-profile-id)
+* [Bulk Query Farcaster Profile Details](farcaster-users-details.md#bulk-query-farcaster-profile-details)
+* [Bulk Query All Farcaster Users Profile Details](farcaster-users-details.md#bulk-query-all-farcaster-users-profile-details)
 
 ### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ### Get Started
 
@@ -56,7 +56,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -71,7 +70,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -86,15 +84,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -102,7 +97,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -126,11 +120,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -143,11 +135,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -165,7 +155,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -186,14 +175,13 @@ You can get the Farcaster user profile details by their Farcaster ID:
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/zHwW2c2wnJ" %}
-Show all farcaster profile details and registration info for farcaster user fc_fid:3
+Show all farcaster profile details and registration info for farcaster user fc\_fid:3
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -233,15 +221,14 @@ query MyQuery {
       isDefault
       identity
       fnames
+      isFarcasterPowerUser
     }
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -282,14 +269,14 @@ query MyQuery {
           "profileTokenUri": "",
           "isDefault": false,
           "identity": "fc_fid:3",
-          "fnames": ["dwr.eth", "danromero.eth", "dwr"]
+          "fnames": ["dwr.eth", "danromero.eth", "dwr"],
+          "isFarcasterPowerUser": true
         }
       ]
     }
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -300,14 +287,13 @@ You can get the Farcaster user profile details by their Farcaster Name:
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/KbIaoE7JjM" %}
-Show all farcaster profile details and registration info for farcaster user fc_fname:dwr.eth
+Show all farcaster profile details and registration info for farcaster user fc\_fname:dwr.eth
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -350,15 +336,14 @@ query MyQuery {
       isDefault
       identity
       fnames
+      isFarcasterPowerUser
     }
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -399,14 +384,14 @@ query MyQuery {
           "profileTokenUri": "",
           "isDefault": false,
           "identity": "fc_fname:dwr.eth",
-          "fnames": ["dwr.eth", "danromero.eth", "dwr"]
+          "fnames": ["dwr.eth", "danromero.eth", "dwr"],
+          "isFarcasterPowerUser": true
         }
       ]
     }
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -424,7 +409,6 @@ Show all farcaster profile details and registration info for 0x74232bf61e9946555
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -467,15 +451,14 @@ query MyQuery {
       isDefault
       identity
       fnames
+      isFarcasterPowerUser
     }
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -516,14 +499,14 @@ query MyQuery {
           "profileTokenUri": "",
           "isDefault": false,
           "identity": "0x74232bf61e994655592747e20bdf6fa9b9476f79",
-          "fnames": ["dwr.eth", "danromero.eth", "dwr"]
+          "fnames": ["dwr.eth", "danromero.eth", "dwr"],
+          "isFarcasterPowerUser": true
         }
       ]
     }
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -541,7 +524,6 @@ Show all farcaster profile details and registration info for dwr.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -581,15 +563,14 @@ query MyQuery {
       isDefault
       identity
       fnames
+      isFarcasterPowerUser
     }
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -630,14 +611,14 @@ query MyQuery {
           "profileTokenUri": "",
           "isDefault": false,
           "identity": "dwr.eth",
-          "fnames": ["dwr.eth", "danromero.eth", "dwr"]
+          "fnames": ["dwr.eth", "danromero.eth", "dwr"],
+          "isFarcasterPowerUser": true
         }
       ]
     }
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -655,7 +636,6 @@ Show all farcaster profile details and registration info for lens/@danromero
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -698,15 +678,14 @@ query MyQuery {
       isDefault
       identity
       fnames
+      isFarcasterPowerUser
     }
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -747,14 +726,14 @@ query MyQuery {
           "profileTokenUri": "",
           "isDefault": false,
           "identity": "lens/@danromero",
-          "fnames": ["dwr.eth", "danromero.eth", "dwr"]
+          "fnames": ["dwr.eth", "danromero.eth", "dwr"],
+          "isFarcasterPowerUser": true
         }
       ]
     }
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -765,14 +744,13 @@ You can get the Farcaster user profile details by their Lens profile ID:
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/YxNJMrJE5R" %}
-Show all farcaster profile details and registration info for lens_id:0x0b46d
+Show all farcaster profile details and registration info for lens\_id:0x0b46d
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -815,15 +793,14 @@ query MyQuery {
       isDefault
       identity
       fnames
+      isFarcasterPowerUser
     }
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -864,14 +841,14 @@ query MyQuery {
           "profileTokenUri": "",
           "isDefault": false,
           "identity": "lens_id:0x0b46d",
-          "fnames": ["dwr.eth", "danromero.eth", "dwr"]
+          "fnames": ["dwr.eth", "danromero.eth", "dwr"],
+          "isFarcasterPowerUser": true
         }
       ]
     }
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -882,14 +859,13 @@ You can bulk query the profile details of multiple Farcaster users by their vari
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/4AI9nPEwjs" %}
-Show all farcaster profile details and registration info for fc_fname:dwr.eth and vitalik.eth
+Show all farcaster profile details and registration info for fc\_fname:dwr.eth and vitalik.eth
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -932,15 +908,14 @@ query MyQuery {
       isDefault
       identity
       fnames
+      isFarcasterPowerUser
     }
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -979,7 +954,8 @@ query MyQuery {
           "profileTokenUri": "",
           "isDefault": false,
           "identity": "",
-          "fnames": ["vitalik.eth", "vbuterin"]
+          "fnames": ["vitalik.eth", "vbuterin"],
+          "isFarcasterPowerUser": true
         },
         {
           "id": "c3f6ffbb20532bf50d158f4099336d50d5ba9f327159712972c94d51aa4730ee",
@@ -1016,14 +992,14 @@ query MyQuery {
           "profileTokenUri": "",
           "isDefault": false,
           "identity": "",
-          "fnames": ["dwr.eth", "danromero.eth", "dwr"]
+          "fnames": ["dwr.eth", "danromero.eth", "dwr"],
+          "isFarcasterPowerUser": true
         }
       ]
     }
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1039,7 +1015,6 @@ Show all Farcaster user with fid 1, 2, 3 profile details and registration info
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -1079,15 +1054,14 @@ query MyQuery {
       isDefault
       identity
       fnames
+      isFarcasterPowerUser
     }
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1127,7 +1101,8 @@ query MyQuery {
           "profileTokenUri": "",
           "isDefault": false,
           "identity": "",
-          "fnames": ["varunsrin.eth", "v"]
+          "fnames": ["varunsrin.eth", "v"],
+          "isFarcasterPowerUser": true
         },
         {
           "id": "c3f6ffbb20532bf50d158f4099336d50d5ba9f327159712972c94d51aa4730ee",
@@ -1164,7 +1139,8 @@ query MyQuery {
           "profileTokenUri": "",
           "isDefault": false,
           "identity": "",
-          "fnames": ["dwr.eth", "danromero.eth", "dwr"]
+          "fnames": ["dwr.eth", "danromero.eth", "dwr"],
+          "isFarcasterPowerUser": true
         },
         {
           "id": "df59444a0a4e5799c08cdc4d52b05832757d97ee4f44b9e023807bc2255d5218",
@@ -1199,14 +1175,14 @@ query MyQuery {
           "profileTokenUri": "",
           "isDefault": false,
           "identity": "",
-          "fnames": ["warpcast.eth", "farcaster.eth", "farcaster"]
+          "fnames": ["warpcast.eth", "farcaster.eth", "farcaster"],
+          "isFarcasterPowerUser": true
         }
       ]
     }
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1230,7 +1206,6 @@ Show all farcaster users profile details and registration info
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -1267,15 +1242,14 @@ query MyQuery {
       isDefault
       identity
       fnames
+      isFarcasterPowerUser
     }
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1314,7 +1288,8 @@ query MyQuery {
           "profileTokenUri": "",
           "isDefault": false,
           "identity": "",
-          "fnames": ["manekineko"]
+          "fnames": ["manekineko"],
+          "isFarcasterPowerUser": true
         }
         // Other farcaster users
       ]
@@ -1322,7 +1297,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1332,6 +1306,6 @@ If you have any questions or need help regarding fetching Farcaster user(s) prof
 
 ## More Resources
 
-- [Resolve Identities](../resolve-identities/)
-  - [Farcaster](../resolve-identities/farcaster.md)
-- [Socials API Reference](../../api-references/api-reference/socials-api.md)
+* [Resolve Identities](../resolve-identities/)
+  * [Farcaster](../resolve-identities/farcaster.md)
+* [Socials API Reference](../../api-references/api-reference/socials-api.md)

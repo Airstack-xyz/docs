@@ -27,6 +27,7 @@ Airstack makes it easy to create dynamic allow lists that check in real-time if 
 * Follow The Creator Of The Frame
 * Transacted on Blockchain Before Certain Date
 * Casted in a Channel
+* Has a Power Badge
 
 Currently, you can access the most of the criteria can be added by using the newly released [Airstack Frames SDK](https://github.com/Airstack-xyz/airstack-frames-sdk). While some others will require either the [Node](../../nodejs-sdk-reference/overview.md) or [Python SDK](https://github.com/Airstack-xyz/airstack-python-sdk) to call the GraphQL queries.
 
@@ -675,6 +676,56 @@ query MyQuery {
       "FarcasterChannelParticipant": [
         {
           "lastActionTimestamp": "2024-02-23T17:12:13Z"
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Check If Farcaster User Has A Power Badge
+
+You can check if Farcaster user has a power badge by using the [`Socials`](../../api-references/api-reference/socials-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/VyYgdkCrPi" %}
+Check if FID 602 is a power user or not
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        profileName: {_eq: "fc_fid:602"},
+        dappName: {_eq: farcaster}
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Social {
+      isFarcasterPowerUser
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "isFarcasterPowerUser": true
         }
       ]
     }
