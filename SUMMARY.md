@@ -49,6 +49,7 @@
   * [🫂 Farcaster Followers](guides/farcaster/farcaster-followers.md)
   * [💐 Farcaster Following](guides/farcaster/farcaster-following.md)
   * [👭 Follows In Common](guides/farcaster/follows-in-common.md)
+  * [🎖️ Farcaster Power Badge](guides/farcaster/farcaster-power-badge.md)
   * [📬 Has XMTP](guides/farcaster/has-xmtp.md)
   * [🥇 Token Holders](guides/farcaster/token-holders.md)
   * [🪆 Tokenbound ERC6551 Accounts](guides/farcaster/tokenbound-erc6551-accounts.md)

@@ -29,6 +29,7 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Get All Farcaster Users Who Casted In Certain Channel](farcaster-channels.md#get-all-farcaster-users-who-casted-in-certain-channel)
 * [Get All Farcaster Users Who Casted In Certain Channel Since Certain Timestamp](farcaster-channels.md#get-all-farcaster-users-who-casted-in-certain-channel-since-certain-timestamp)
 * [Get All Farcaster Users Who Participates In A Channel And Following The Host](farcaster-channels.md#get-all-farcaster-users-who-participates-in-a-channel-and-following-the-host)
+* [Get All Farcaster Channel Participants That Also Have A Power Badge](farcaster-channels.md#get-all-farcaster-channel-participants-that-also-have-a-power-badge)
 * [Check If Farcaster User Has Casted In A Given Channel](farcaster-channels.md#check-if-farcaster-user-has-casted-in-a-given-channel)
 * [Search All Farcaster Channels Whose Names Start With Certain Terms (auto-complete)](farcaster-channels.md#search-all-farcaster-channels-whose-names-start-with-certain-terms-auto-complete)
 * [Search All Farcaster Channels Whose Names Contain With Certain Terms (auto-complete)](farcaster-channels.md#search-all-farcaster-channels-whose-names-contain-certain-terms-auto-complete)
@@ -729,6 +730,69 @@ query MyQuery($originalHost: Identity!) {
 {% endtabs %}
 
 Here, you can simply filter out those who return `null` as they are a participant of the /airstack channel, but does not follow the original host.
+
+## Get All Farcaster Channel Participants That Also Have A Power Badge
+
+You can fetch all the channel participants of a Farcaster channel and check if they have a power badge by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/JfdKvxqd8w" %}
+Show me all participants of /airstack channel that also have power badge
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterChannelParticipants(
+    input: {
+      filter: {
+        channelId: {_eq: "airstack"}
+      },
+      blockchain: ALL
+    }
+  ) {
+    FarcasterChannelParticipant {
+      participantId
+      participant {
+        profileName
+        isFarcasterPowerUser
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "FarcasterChannelParticipants": {
+      "FarcasterChannelParticipant": [
+        {
+          "participantId": "247143",
+          "participant": {
+            "profileName": "kylepatrick",
+<strong>            "isFarcasterPowerUser": true // This user have power badge
+</strong>          }
+        },
+        {
+          "participantId": "5701",
+          "participant": {
+            "profileName": "chriscocreated",
+<strong>            "isFarcasterPowerUser": false // This user have no power badge
+</strong>          }
+        },
+      ]
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
 
 ## Check If Farcaster User Has Casted In A Given Channel
 
