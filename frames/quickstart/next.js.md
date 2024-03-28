@@ -1,78 +1,77 @@
 ---
 description: >-
   Learn how to quickly build your first Farcaster Frame using Airstack Frog
-  Recipes in Node.js.
+  Recipes in Next.js.
 ---
 
-# 🗼 Node.js
+# ⏩ Next.js
 
-{% embed url="https://drive.google.com/file/d/1kSCk3Y7KtpPXHD7E_xjJbVn2YVKjplDz/view?usp=sharing" %}
-Quickstart Demo
-{% endembed %}
+## Automatic Installation
 
-## Starter Code
-
-You can find the Airstack Frames Starter Code using Airstack Frog Recipes in our GitHub [here](https://github.com/Airstack-xyz/airstack-frames-starter/tree/main).
+You can find the Airstack Frames Starter Code using Airstack Frog Recipes in our GitHub [here](https://github.com/Airstack-xyz/airstack-frames-nextjs-starter).
 
 To clone the repository, run the following command:
 
 {% tabs %}
 {% tab title="Git (HTTPS)" %}
 ```bash
-git clone https://github.com/Airstack-xyz/airstack-frames-starter.git
+git clone https://github.com/Airstack-xyz/airstack-frames-nextjs-starter.git
 ```
 {% endtab %}
 
 {% tab title="Git (SSH)" %}
 ```bash
-git clone git@github.com:Airstack-xyz/airstack-frames-starter.git
+git clone git@github.com:Airstack-xyz/airstack-frames-nextjs-starter.git
 ```
 {% endtab %}
 
 {% tab title="GitHub CLI" %}
 ```bash
-gh repo clone Airstack-xyz/airstack-frames-starter
+gh repo clone Airstack-xyz/airstack-frames-nextjs-starter
 ```
 {% endtab %}
 {% endtabs %}
 
-## Pre-requisites
+If you would like to start from scratch, then follow the tutorials below.
+
+## Manual Installation
+
+### Pre-requisites
 
 * An [Airstack](https://airstack.xyz/) account
+* An existing Next.js project
 
-## Step 1: Install Dependencies
+### Step 1: Install Dependencies
 
 To get started, simply install all the necessary dependencies:
 
 {% tabs %}
 {% tab title="npm" %}
 ```bash
-npm install @airstack/frog hono dotenv
+npm install @airstack/frog
 ```
 {% endtab %}
 
 {% tab title="yarn" %}
 ```bash
-yarn add @airstack/frog hono dotenv
+yarn add @airstack/frog
 ```
 {% endtab %}
 
 {% tab title="pnpm" %}
 ```bash
-pnpm install @airstack/frog hono dotenv
+pnpm install @airstack/frog
 ```
 {% endtab %}
 
 {% tab title="bun" %}
 ```bash
-bun install @airstack/frog hono dotenv
+bun install @airstack/frog
 ```
 {% endtab %}
 {% endtabs %}
 
-## Step 2: Add Airstack API Key
-
-Get your [Airstack API key](../../../get-started/get-api-key.md) and add it as an environment variable:
+Then, get your [Airstack API key](../../get-started/get-api-key.md) and add it as an environment variable:
 
 {% code title=".env" %}
 ```
@@ -80,22 +79,18 @@ AIRSTACK_API_KEY=YOUR_API_KEY
 ```
 {% endcode %}
 
-## Step 3: Build Your 1st Frame
+### Step 2: Build Your 1st Frame
 
-For example, you would like to build a trending mints Frame, where you can recommend Farcaster users which token to mint and enable them to mint it directly from your Farcaster Frame.
-
-In that case, create a new file under `api` folder and add the following code:
+To create your 1st Farcaster Frame, create a new file under `api` folder and add the following code with a new `Frog` instance from `@airstack/frog` instantiated:
 
 {% tabs %}
 {% tab title="TypeScript" %}
-{% code title="api/index.tsx" %}
+{% code title="app/api/[[...routes]]/routes.tsx" %}
 ```typescript
+/** @jsxImportSource @airstack/frog/jsx */
 import { Button, Frog } from "@airstack/frog";
 import { devtools } from "@airstack/frog/dev";
-import { serveStatic } from "@hono/node-server/serve-static";
-import { config } from "dotenv";
-
-config();
+import { serveStatic } from "@airstack/frog/serve-static";
 
 // Instantiate new Frog instance with Airstack API key
 export const app = new Frog({
@@ -130,27 +125,7 @@ export const POST = handle(app);
 {% endtab %}
 {% endtabs %}
 
-## Step 4: Configure TSConfig
-
-Add the following fields into your `tsconfig.json`:
-
-```json
-{
-  "compilerOptions": {
-    // Other configurations
-    "jsx": "react-jsx",
-    "jsxImportSource": "@airstack/frog/jsx",
-  }
-}
-```
-
-If you don't have `tsconfig.json` in your project, then run the following command first:
-
-```bash
-npx tsc --init
-```
-
-## Step 5: Run `dev`
+## Run Development Server
 
 Add `dev` script to your `package.json` as shown below:
 
@@ -191,7 +166,7 @@ bun run dev
 
 Then, go to `http://localhost:5173/dev` and you will be redirected to the Frog devtools as shown below:
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2024-03-23 at 15.05.15.png" alt=""><figcaption><p>Airstack Frog Devtools</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2024-03-23 at 15.05.15.png" alt=""><figcaption><p>Airstack Frog Devtools</p></figcaption></figure>
 
 🥳 Congratulations, you've just built your 1st Farcaster Frames using Airstack Frog Recipes!
 
@@ -257,15 +232,15 @@ npm run deploy
 {% endtab %}
 {% endtabs %}
 
-Once deployed successfully, you can go to the Vercel Dashboard to have your [Airstack API key](../../../get-started/get-api-key.md) added to your environment variables.
+Once deployed successfully, you can go to the Vercel Dashboard to have your [Airstack API key](../../get-started/get-api-key.md) added to your environment variables.
 
-| Key                | Value                                                        |
-| ------------------ | ------------------------------------------------------------ |
-| `AIRSTACK_API_KEY` | [Your Airstack API key](../../../get-started/get-api-key.md) |
+| Key                | Value                                                     |
+| ------------------ | --------------------------------------------------------- |
+| `AIRSTACK_API_KEY` | [Your Airstack API key](../../get-started/get-api-key.md) |
 
 Then, access the live Farcaster Frame from a custom vercel link  with the following format `https://<FRAME_VERCEL_PROJECT>.vercel.app/api`, which you can use to test with the Farcaster official validator.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2024-03-26 at 16.33.03.png" alt=""><figcaption><p>Testing Frames in Farcaster's Official Frames Validator</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2024-03-26 at 16.33.03.png" alt=""><figcaption><p>Testing Frames in Farcaster's Official Frames Validator</p></figcaption></figure>
 
 🥳 Congratulations, you've just deployed your 1st Farcaster Frames built usng Airstack Frog Recipes into Vercel!
 
@@ -275,19 +250,19 @@ Now that you have your 1st Farcaster Frame running, learn more about how Frog wo
 
 In addition, you can also check out all the Airstack features available in Airstack Frog Recipes to enrich your Farcaster Frames with various onchain data offered:
 
-* [Onchain Data](../../airstack-frog-recipes/onchain-data.md)
-* [Farcaster Hubs](../../airstack-frog-recipes/farcaster-hubs.md)
-* [Allow List](../../airstack-frog-recipes/allow-list.md)
+* [Onchain Data](../airstack-frog-recipes-and-middleware/onchain-data.md)
+* [Farcaster Hubs](../airstack-frog-recipes-and-middleware/farcaster-hubs.md)
+* [Allow List](../airstack-frog-recipes-and-middleware/allow-list.md)
 
 ## Developer Support
 
-If you have any questions or need help regarding integrating onchain data to your Farcaster Frames using the Airstack Frog Recipe, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding integrating onchain data to your Farcaster Frames using the Airstack Frog Recipe in Next.js, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
-* [Onchain Data](../../airstack-frog-recipes/onchain-data.md)
-* [Farcaster Hubs](../../airstack-frog-recipes/farcaster-hubs.md)
-* [Allow List](../../airstack-frog-recipes/allow-list.md)
-* [Captcha Verification](../captcha-verification.md)
-* [Airstack Frog Middleware](../airstack-frog-middleware.md)
-* [Integrate to Existing Frog Project](../../airstack-frog-recipes/integrate-to-existing-frog-project.md)
+* [Onchain Data](../airstack-frog-recipes-and-middleware/onchain-data.md)
+* [Farcaster Hubs](../airstack-frog-recipes-and-middleware/farcaster-hubs.md)
+* [Allow List](../airstack-frog-recipes-and-middleware/allow-list.md)
+* [Captcha Verification](../airstack-frog-recipes-and-middleware/captcha-verification.md)
+* [Airstack Frog Middleware](../airstack-frog-recipes-and-middleware/airstack-frog-middleware.md)
+* [Integrate to Existing Frog Project](../integrations/frog.md)

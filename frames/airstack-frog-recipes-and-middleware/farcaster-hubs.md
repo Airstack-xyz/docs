@@ -93,4 +93,4 @@ If you have any questions or need help regarding Farcaster Hubs configuration fo
 
 * [Onchain Data](onchain-data.md)
 * [Allow List](allow-list.md)
-* [Integrate to Existing Frog Project](integrate-to-existing-frog-project.md)
+* [Integrate to Existing Frog Project](../integrations/frog.md)

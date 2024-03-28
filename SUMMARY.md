@@ -15,7 +15,27 @@
   * [⛰️ Airstack Explorer (No Code)](get-started/airstack-explorer.md)
 * [🔋 Pricing](https://app.airstack.xyz/pricing)
 
-## Guides
+## Frames
+
+* [ℹ️ Overview](frames/farcaster-frames.md)
+* [🚀 Quickstart](frames/quickstart/README.md)
+  * [🗼 Node.js](frames/quickstart/node.js.md)
+  * [⏩ Next.js](frames/quickstart/next.js.md)
+* [🐸 Airstack Frog Recipes & Middleware](frames/airstack-frog-recipes-and-middleware/README.md)
+  * [⛓️ Onchain Data](frames/airstack-frog-recipes-and-middleware/onchain-data.md)
+  * [🛜 Farcaster Hubs](frames/airstack-frog-recipes-and-middleware/farcaster-hubs.md)
+  * [🎭 Allow List](frames/airstack-frog-recipes-and-middleware/allow-list.md)
+  * [🤖 Captcha Verification](frames/airstack-frog-recipes-and-middleware/captcha-verification.md)
+  * [🥪 Airstack Frog Middleware](frames/airstack-frog-recipes-and-middleware/airstack-frog-middleware.md)
+* [🖼️ Airstack Frames SDK](frames/airstack-frames-sdk/README.md)
+  * [⛓️ Onchain Kit](frames/airstack-frames-sdk/onchain-kit.md)
+  * [🎭 Allow List](frames/airstack-frames-sdk/allow-list.md)
+  * [🤖 Captcha Verification](frames/airstack-frames-sdk/captcha-verification.md)
+  * [🥪 Airstack Frog Middleware](frames/airstack-frames-sdk/airstack-frog-middleware.md)
+* [🧩 Integrations](frames/integrations/README.md)
+  * [🐸 Frog](frames/integrations/frog.md)
+
+## Onchain Data <a href="#guides" id="guides"></a>
 
 * [✈️ Basics](guides/basics/README.md)
   * [🌪️ Variables](guides/basics/variables.md)
@@ -24,16 +44,6 @@
   * [🎆 Multiple Queries Execution](guides/basics/multiple-queries-execution.md)
   * [♋ Cross Chain Queries](guides/basics/cross-chain-queries.md)
   * [💡 Generate TypeScript Interfaces](guides/basics/generate-typescript-interfaces.md)
-* [🖼️ Farcaster Frames](guides/farcaster-frames.md)
-* [🐸 Airstack Frog Recipes & Middleware](guides/airstack-frog-recipes/README.md)
-  * [🚀 Quickstart](guides/airstack-frog-recipes-and-middleware/quickstart/README.md)
-    * [🗼 Node.js](guides/airstack-frog-recipes-and-middleware/quickstart/node.js.md)
-  * [⛓️ Onchain Data](guides/airstack-frog-recipes/onchain-data.md)
-  * [🛜 Farcaster Hubs](guides/airstack-frog-recipes/farcaster-hubs.md)
-  * [🎭 Allow List](guides/airstack-frog-recipes/allow-list.md)
-  * [🤖 Captcha Verification](guides/airstack-frog-recipes-and-middleware/captcha-verification.md)
-  * [🥪 Airstack Frog Middleware](guides/airstack-frog-recipes-and-middleware/airstack-frog-middleware.md)
-  * [🐸 Integrate to Existing Frog Project](guides/airstack-frog-recipes/integrate-to-existing-frog-project.md)
 * [💜 Farcaster](guides/farcaster/README.md)
   * [🖼️ Airstack Onchain Kit for Farcaster Frames](guides/farcaster/airstack-onchain-kit-for-farcaster-frames.md)
   * [🎭 Allow Lists for Farcaster Frames](guides/farcaster/allow-lists-for-farcaster-frames.md)

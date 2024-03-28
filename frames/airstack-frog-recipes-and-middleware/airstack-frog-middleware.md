@@ -21,9 +21,7 @@ You can use the [`onchainData`](https://www.npmjs.com/package/@airstack/frames#f
 {% tabs %}
 {% tab title="TypeScript" %}
 ```typescript
-// Use `@airstack/frog/middlewares` for Airstack Frog Recipes
-// Otherwise, `@airstack/frames` for Frames SDK
-import { onchainData } from "@airstack/frames";
+import { onchainData } from "@airstack/frog";
 
 const onchainDataMiddleware = onchainData({
   features: {
@@ -67,9 +65,7 @@ app.frame(
 
 {% tab title="JavaScript" %}
 ```javascript
-// Use `@airstack/frog/middlewares` for Airstack Frog Recipes
-// Otherwise, `@airstack/frames` for Frames SDK
-const { onchainData } = require("@airstack/frames");
+const { onchainData } = require("@airstack/frog");
 
 const onchainDataMiddleware = onchainData({
   apiKey: process.env.AIRSTACK_API_KEY,
@@ -201,9 +197,7 @@ Enhance your Farcaster Frames with user's onchain data using the [`allowList`](h
 {% tabs %}
 {% tab title="TypeScript" %}
 ```typescript
-// Use `@airstack/frog/middlewares` for Airstack Frog Recipes
-// Otherwise, `@airstack/frames` for Frames SDK
-import { allowList } from "@airstack/frames";
+import { allowList } from "@airstack/frog";
 
 const allowListMiddleware = allowList({
   allowListCriteria: {
@@ -227,9 +221,7 @@ app.frame("/", allowListMiddleware, async function (c) {
 
 {% tab title="JavaScript" %}
 ```javascript
-// Use `@airstack/frog/middlewares` for Airstack Frog Recipes
-// Otherwise, `@airstack/frames` for Frames SDK
-const { allowList } = require("@airstack/frames");
+const { allowList } = require("@airstack/frog");
 
 const allowListMiddleware = allowList({
   allowListCriteria: {

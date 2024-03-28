@@ -15,7 +15,7 @@ layout:
     visible: true
 ---
 
-# 🐸 Integrate to Existing Frog Project
+# 🐸 Frog
 
 Integrating the Airstack Frog Recipes into your existing Frog project is very simple and takes less than 5 minutes.&#x20;
 
@@ -128,6 +128,6 @@ If you have any questions or need help regarding integrating Airstack Frog Recip
 
 ## More Resources
 
-* [Onchain Data](onchain-data.md)
-* [Farcaster Hubs](farcaster-hubs.md)
-* [Allow List](allow-list.md)
+* [Onchain Data](../airstack-frog-recipes-and-middleware/onchain-data.md)
+* [Farcaster Hubs](../airstack-frog-recipes-and-middleware/farcaster-hubs.md)
+* [Allow List](../airstack-frog-recipes-and-middleware/allow-list.md)

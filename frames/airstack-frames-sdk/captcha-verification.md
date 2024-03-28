@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to integrate Captcha functionality into your Farcaster Frames using
-  the Airstack Frog Recipes.
+  the Airstack Frames SDK and Frog.
 ---
 
 # 🤖 Captcha Verification
@@ -18,7 +18,7 @@ Additionally, add two new fields `captchaId` and `valueHash` in the initial stat
 {% tabs %}
 {% tab title="TypeScript" %}
 ```typescript
-import { Frog } from "@airstack/frog";
+import { Frog } from "frog";
 
 export const app = new Frog({
   // Initialize the Frames state
@@ -64,7 +64,7 @@ In addition to the two integers, a template Frame image will be given along with
 {% tabs %}
 {% tab title="TypeScript" %}
 ```typescript
-import { generateCaptchaChallenge } from "@airstack/frog";
+import { generateCaptchaChallenge } from "@airstack/frames";
 
 app.frame("/generate-captcha", async (c) => {
   const { deriveState } = c ?? {};
@@ -126,7 +126,7 @@ Similarly, you can use the `image` field for the Farcaster Frame image, which wi
 {% tabs %}
 {% tab title="TypeScript" %}
 ```typescript
-import { validateCaptchaChallenge } from "@airstack/frog";
+import { validateCaptchaChallenge } from "@airstack/frames";
 
 app.frame("/verify-captcha", async (c) => {
   const { inputText, deriveState } = c ?? {};
@@ -163,12 +163,12 @@ app.frame("/verify-captcha", async (c) => {
 
 ## Developer Support
 
-If you have any questions or need help integrating Captcha into your Farcaster Frames using the Airstack Frog Recipe, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help integrating Captcha into your Farcaster Frames using the Airstack Frames SDK with Frog, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
 * [Airstack Frames SDK Refrence](https://www.npmjs.com/package/@airstack/frames)
-* [Onchain Data](../airstack-frog-recipes/onchain-data.md)
-* [Farcaster Hubs](../airstack-frog-recipes/farcaster-hubs.md)
-* [Allow List](../airstack-frog-recipes/allow-list.md)
-* [Integrate to Existing Frog Project](../airstack-frog-recipes/integrate-to-existing-frog-project.md)
+* [Onchain Data](../airstack-frog-recipes-and-middleware/onchain-data.md)
+* [Farcaster Hubs](../airstack-frog-recipes-and-middleware/farcaster-hubs.md)
+* [Allow List](../airstack-frog-recipes-and-middleware/allow-list.md)
+* [Integrate to Existing Frog Project](../integrations/frog.md)

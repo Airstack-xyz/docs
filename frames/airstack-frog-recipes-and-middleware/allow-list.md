@@ -177,7 +177,7 @@ import {
   checkPoapAttendedByFarcasterUser,
   CheckPoapAttendedByFarcasterUserInput,
   CheckPoapAttendedByFarcasterUserOutput,
-} from "@airstack/frames";
+} from "@airstack/frog";
 
 const input: CheckPoapAttendedByFarcasterUserInput = {
   fid: 15971,
@@ -194,7 +194,7 @@ console.log(data);
 
 {% tab title="JavaScript" %}
 ```javascript
-const { checkPoapAttendedByFarcasterUser } = require("@airstack/frames");
+const { checkPoapAttendedByFarcasterUser } = require("@airstack/frog");
 
 const input = {
   fid: 15971,
@@ -532,4 +532,4 @@ If you have any questions or need help building an allow list for your Farcaster
 
 * [Onchain Data](onchain-data.md)
 * [Farcaster Hubs](farcaster-hubs.md)
-* [Integrate to Existing Frog Project](integrate-to-existing-frog-project.md)
+* [Integrate to Existing Frog Project](../integrations/frog.md)

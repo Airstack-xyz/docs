@@ -316,4 +316,4 @@ If you have any questions or need help regarding validating your Farcaster Frame
 * [Math Captcha For Farcaster Frames](https://github.com/limone-eth/farcaster-horizon-airstack/blob/main/app/api/captcha/validate/route.ts)
 * [Airstack Validation API Reference](../../api-references/api-reference/airstack-validation-api.md)
 * [Airstack Frames SDK Reference](https://github.com/Airstack-xyz/airstack-frames-sdk)
-* [Farcaster Frames Guides](../farcaster-frames.md)
+* [Farcaster Frames Guides](../../frames/farcaster-frames.md)
