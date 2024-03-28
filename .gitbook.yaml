@@ -83,3 +83,13 @@ redirects:
   guides/xmtp/spam-filters/high-probability-of-connection: guides/xmtp/spam-filters/general-inbox.md
   guides/xmtp/spam-filters/proof-of-personhood: guides/xmtp/spam-filters/request-inbox.md
   guides/farcaster/onchain-kit-for-farcaster-frames: guides/farcaster/airstack-onchain-kit-for-farcaster-frames.md
+  guides/airstack-frog-recipes-and-middleware: frames/airstack-frog-recipes-and-middleware/README.md
+  guides/airstack-frog-recipes-and-middleware/onchain-data: frames/airstack-frog-recipes-and-middleware/onchain-data.md
+  guides/airstack-frog-recipes-and-middleware/farcaster-hubs: frames/airstack-frog-recipes-and-middleware/farcaster-hubs.md
+  guides/airstack-frog-recipes-and-middleware/allow-list: frames/airstack-frog-recipes-and-middleware/allow-list.md
+  guides/airstack-frog-recipes-and-middleware/captcha-verification: frames/airstack-frog-recipes-and-middleware/captcha-verification.md
+  guides/airstack-frog-recipes-and-middleware/airstack-frog-middleware: frames/airstack-frog-recipes-and-middleware/airstack-frog-middleware.md
+  guides/farcaster-frames: frames/farcaster-frames.md
+  guides/airstack-frog-recipes-and-middleware/integrate-to-existing-frog-project: frames/integrations/frog.md
+  guides/airstack-frog-recipes-and-middleware/quickstart: frames/quickstart/README.md
+  guides/airstack-frog-recipes-and-middleware/quickstart/node.js: frames/quickstart/node.js.md
