@@ -17,7 +17,7 @@ layout:
 
 # 🧹 Spam NFT
 
-[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Polygon, Base, and Zora.
+[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Base, and Zora.
 
 When indexing any new token, Airstack takes into consideration contract deployer address history, and other factors to determine if the token might be spam.
 
@@ -27,14 +27,14 @@ Those contracts are the marked spam and can be filtered out. If you think that a
 
 In this guide you will learn how to use Airstack to:
 
-- [Get Non-Spam NFT Balances Of Users](spam-nft.md#get-non-spam-nft-balances-of-user-s)
-- [Check If NFT Collection(s) Are Spam Or Not](spam-nft.md#check-if-nft-collection-s-are-spam-or-not)
-- [Show All Non-Spam NFTs](spam-nft.md#show-all-non-spam-nfts)
+* [Get Non-Spam NFT Balances Of Users](spam-nft.md#get-non-spam-nft-balances-of-user-s)
+* [Check If NFT Collection(s) Are Spam Or Not](spam-nft.md#check-if-nft-collection-s-are-spam-or-not)
+* [Show All Non-Spam NFTs](spam-nft.md#show-all-non-spam-nfts)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -55,7 +55,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -70,7 +69,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -85,15 +83,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -101,7 +96,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -125,11 +119,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -142,11 +134,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -164,7 +154,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -196,7 +185,6 @@ Show users' NFT balances and check if each NFT is a spam or not
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Ethereum: TokenBalances(
@@ -213,33 +201,6 @@ query MyQuery {
         tokenType: { _in: [ERC1155, ERC721] }
       }
       blockchain: ethereum
-    }
-  ) {
-    TokenBalance {
-      tokenAddress
-      tokenId
-      tokenType
-      token {
-        isSpam
-        name
-        symbol
-      }
-    }
-  }
-  Polygon: TokenBalances(
-    input: {
-      filter: {
-        owner: {
-          _in: [
-            "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-            "vitalik.eth"
-            "lens/@vitalik"
-            "fc_fname:vitalik.eth"
-          ]
-        }
-        tokenType: { _in: [ERC1155, ERC721] }
-      }
-      blockchain: polygon
     }
   ) {
     TokenBalance {
@@ -282,11 +243,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
@@ -314,31 +273,6 @@ query MyQuery {
         // Other Ethereum NFTs
       ]
     },
-    "Polygon": {
-      "TokenBalance": [
-        {
-          "tokenAddress": "0xe7e7ead361f3aacd73a61a9bd6c10ca17f38e945",
-          "tokenId": "79233663829379634837589865448569342784712482819484549289560981379859480642508",
-          "tokenType": "ERC721",
-          "token": {
-<strong>            "isSpam": false, // Not a spam NFT
-</strong>            "name": "lens Handles",
-            "symbol": "lens"
-          }
-        },
-        {
-          "tokenAddress": "0x2f2071dfb236adfdde65dd07c78d86645b8abc97",
-          "tokenId": "0",
-          "tokenType": "ERC1155",
-          "token": {
-<strong>            "isSpam": true, // A spam NFT
-</strong>            "name": "$1,000 USDT Rewards",
-            "symbol": "Voucher"
-          }
-        },
-        // Other Polygon NFTs
-      ]
-    },
     "Base": {
       "TokenBalance": [
         {
@@ -357,17 +291,15 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
 ### Formatting
 
-Using the GraphQL response, you can filter out and aggregate the NFTs across Ethereum, Polygon, and Base by providing the response to the `data` input of the `filterSpamNFTs` function:
+Using the GraphQL response, you can filter out and aggregate the NFTs across Ethereum and Base by providing the response to the `data` input of the `filterSpamNFTs` function:
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 interface NFT {
   tokenAddress: string;
@@ -381,14 +313,11 @@ interface NFT {
 }
 
 interface NFTWithBlockchain extends NFT {
-  blockchain: "ethereum" | "polygon" | "base";
+  blockchain: "ethereum" | "base";
 }
 
 interface TokenBalancesResponse {
   Ethereum: {
-    TokenBalance?: NFT[];
-  };
-  Polygon: {
     TokenBalance?: NFT[];
   };
   Base: {
@@ -400,7 +329,7 @@ const filterSpamNFTs = (
   data: TokenBalancesResponse
 ): NFTWithBlockchain[] | undefined => {
   try {
-    const { Ethereum, Polygon, Base } = data ?? {};
+    const { Ethereum, Base } = data ?? {};
     const ethNfts =
       Ethereum?.TokenBalance?.map((nft: NFT) =>
         nft?.token?.isSpam
@@ -408,15 +337,6 @@ const filterSpamNFTs = (
           : {
               ...nft,
               blockchain: "ethereum",
-            }
-      ) ?? [];
-    const polygonNfts =
-      Polygon?.TokenBalance?.map((nft: NFT) =>
-        nft?.token?.isSpam
-          ? null
-          : {
-              ...nft,
-              blockchain: "polygon",
             }
       ) ?? [];
     const baseNfts =
@@ -428,7 +348,7 @@ const filterSpamNFTs = (
               blockchain: "base",
             }
       ) ?? [];
-    return [...ethNfts, ...polygonNfts, ...baseNfts]?.filter(
+    return [...ethNfts, ...baseNfts]?.filter(
       Boolean
     ) as NFTWithBlockchain[];
   } catch (e) {
@@ -436,15 +356,13 @@ const filterSpamNFTs = (
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const filterSpamNFTs = (data) => {
   try {
-    const { Ethereum, Polygon, Base } = data ?? {};
+    const { Ethereum, Base } = data ?? {};
     const ethNfts =
       Ethereum?.TokenBalance?.map((nft) =>
         nft?.token?.isSpam
@@ -452,15 +370,6 @@ const filterSpamNFTs = (data) => {
           : {
               ...nft,
               blockchain: "ethereum",
-            }
-      ) ?? [];
-    const polygonNfts =
-      Polygon?.TokenBalance?.map((nft) =>
-        nft?.token?.isSpam
-          ? null
-          : {
-              ...nft,
-              blockchain: "polygon",
             }
       ) ?? [];
     const baseNfts =
@@ -472,17 +381,15 @@ const filterSpamNFTs = (data) => {
               blockchain: "base",
             }
       ) ?? [];
-    return [...ethNfts, ...polygonNfts, ...baseNfts]?.filter(Boolean);
+    return [...ethNfts, ...baseNfts]?.filter(Boolean);
   } catch (e) {
     console.error(e);
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 from typing import List, Dict, Any, Optional
 import traceback
@@ -513,7 +420,6 @@ def filter_spam_nfts(data: Optional[Dict[str, Any]]) -> List[Dict[str, Any]]:
         error = traceback.print_exc()
         raise Exception(error)
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -529,14 +435,6 @@ The formatted data will combine Ethereum, Polygon, Base, and Zora NFTs hold by t
     "blockchain": "ethereum"
   },
   // Other Ethereum non-spam NFTs
-  {
-    "tokenAddress": "0xe7e7ead361f3aacd73a61a9bd6c10ca17f38e945",
-    "tokenId": "79233663829379634837589865448569342784712482819484549289560981379859480642508",
-    "tokenType": "ERC721",
-    "token": { "isSpam": false, "name": "lens Handles", "symbol": "lens" },
-    "blockchain": "polygon"
-  },
-  // Other Polygon non-spam NFTs
   {
     "tokenAddress": "0x7f9f222d2c492bf3c876ecb03a148884b90020f8",
     "tokenId": "748",
@@ -566,7 +464,6 @@ Check if @BoredApeYachtClub, @Ethereum Name Service, and @Pudgy Penguins are spa
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Tokens(
@@ -594,11 +491,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Tokens": {
@@ -629,51 +524,29 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
 ## Show All Non-Spam NFTs
 
-You can use [Airstack](https://airstack.xyz) to fetch all existing non-spam NFTs across Ethereum, Polygon, and Base:
+You can use [Airstack](https://airstack.xyz) to fetch all existing non-spam NFTs across Ethereum, Base, and Zora:
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/FBBLVTTfTD" %}
-Show all non-spam NFTs on Ethereum, Polygon, and Base
+Show all non-spam NFTs on Ethereum and Base
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Ethereum: Tokens(
     input: {
       filter: { isSpam: { _eq: false }, type: { _in: [ERC1155, ERC721] } }
       blockchain: ethereum
-    }
-  ) {
-    Token {
-      isSpam
-      address
-      name
-      symbol
-      type
-    }
-    pageInfo {
-      hasNextPage
-      hasPrevPage
-      nextCursor
-      prevCursor
-    }
-  }
-  Polygon: Tokens(
-    input: {
-      filter: { isSpam: { _eq: false }, type: { _in: [ERC1155, ERC721] } }
-      blockchain: polygon
     }
   ) {
     Token {
@@ -712,11 +585,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -729,58 +600,12 @@ query MyQuery {
           "symbol": "eBEATS",
           "type": "ERC1155"
         },
-        {
-          "isSpam": false,
-          "address": "0x0000000000000138bd6bd34cf4a3905576f58e25",
-          "name": "OpenAvatar",
-          "symbol": "AVATR",
-          "type": "ERC721"
-        },
-        {
-          "isSpam": false,
-          "address": "0x00000000000009ca62911fdd88c8cf50565ab183",
-          "name": "Frensville Treasury Token",
-          "symbol": "FTTKN",
-          "type": "ERC721"
-        }
         // Other non-spam Ethereum NFTs
       ],
       "pageInfo": {
         "hasNextPage": true,
         "hasPrevPage": false,
         "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEweDAwMDExOTZmMzM5NjNiMWUzYTkzODM2ODg3YTgwODBkZjM4ODg4ODgiLCJEYXRhVHlwZSI6InN0cmluZyJ9fSwiUGFnaW5hdGlvbkRpcmVjdGlvbiI6Ik5FWFQifQ==",
-        "prevCursor": ""
-      }
-    },
-    "Polygon": {
-      "Token": [
-        {
-          "isSpam": false,
-          "address": "0x000000000437b3cce2530936156388bff5578fc3",
-          "name": "My NFT",
-          "symbol": "NFT",
-          "type": "ERC721"
-        },
-        {
-          "isSpam": false,
-          "address": "0x0000000009bba016bf81a230372961866ae7e6be",
-          "name": "Biteye Course Ticket: Lens",
-          "symbol": "BLENS",
-          "type": "ERC721"
-        },
-        {
-          "isSpam": false,
-          "address": "0x000000009eab12592db703bfe50db40f3144aa91",
-          "name": "LuckySea.gg",
-          "symbol": "luckysea_nft",
-          "type": "ERC721"
-        }
-        // Other non-spam Polygon NFTs
-      ],
-      "pageInfo": {
-        "hasNextPage": true,
-        "hasPrevPage": false,
-        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6IjEzNzB4MDAwMTc0YTQzOWMyYzdkYjZmNWExMzEyNWE3NmE3NjdlMDJkOTgyZiIsIkRhdGFUeXBlIjoic3RyaW5nIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
         "prevCursor": ""
       }
     },
@@ -793,20 +618,6 @@ query MyQuery {
           "symbol": "FUNFINALE",
           "type": "ERC721"
         },
-        {
-          "isSpam": false,
-          "address": "0x0000000000771a79d0fc7f3b7fe270eb4498f20b",
-          "name": "MCT-XENFT",
-          "symbol": "MCT-XENFT",
-          "type": "ERC721"
-        },
-        {
-          "isSpam": false,
-          "address": "0x00000000d1329c5cd5386091066d49112e590969",
-          "name": "Curta",
-          "symbol": "CTF",
-          "type": "ERC721"
-        }
         // Other non-spam Base NFTs
       ],
       "pageInfo": {
@@ -819,7 +630,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -829,15 +639,15 @@ If you have any questions or need help regarding fetching NFT details data, plea
 
 ## More Resources
 
-- [Balance Snapshots Guides](../balance-snapshots.md)
-- [Holder Snapshots Guides](../holder-snapshots.md)
-- [NFT Details](nft-details.md)
-- [NFT Balances](nft-balances.md)
-- [NFT Holders](nft-holders.md)
-- [Combinations (Common Holders)](../combinations/)
-  - [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
-  - [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
-- [Tokens In Common](../tokens-in-common/)
-  - [NFTs](../tokens-in-common/nfts.md)
-- [Tokens API Reference](../../api-references/api-reference/tokens-api.md)
-- [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api.md)
+* [Balance Snapshots Guides](../balance-snapshots.md)
+* [Holder Snapshots Guides](../holder-snapshots.md)
+* [NFT Details](nft-details.md)
+* [NFT Balances](nft-balances.md)
+* [NFT Holders](nft-holders.md)
+* [Combinations (Common Holders)](../combinations/)
+  * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
+  * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
+* [Tokens In Common](../tokens-in-common/)
+  * [NFTs](../tokens-in-common/nfts.md)
+* [Tokens API Reference](../../api-references/api-reference/tokens-api.md)
+* [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api.md)

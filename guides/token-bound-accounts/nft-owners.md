@@ -17,7 +17,7 @@ layout:
 
 # 📭 NFT Owners
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs that index both deployed and non-deployed (optimistic) ERC6551 accounts across Ethereum, Polygon, Base, and Zora to enrich ERC6551 dapps with on-chain and off-chain data.
+[Airstack](https://airstack.xyz) provides easy-to-use APIs that index both deployed and non-deployed (optimistic) ERC6551 accounts across Ethereum and Base to enrich ERC6551 dapps with on-chain and off-chain data.
 
 For non-deployed (optimistic) ERC6551 accounts, it will be available in the [`tokenNfts`](../../api-references/api-reference/tokennfts-api.md) nested queries and the value will be calculated through a hashing function that depends on 3 input variables:
 
@@ -31,14 +31,14 @@ For non-deployed (optimistic) ERC6551 accounts, it will be available in the [`to
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Get Token Bound Accounts By NFT Owner Address](nft-owners.md#get-token-bound-accounts-by-nft-owner-address)
-- [Get The Owner Of NFT That Owns A Given Token Bound Accounts Address](nft-owners.md#get-the-owner-of-nft-that-owns-a-given-token-bound-accounts-address)
+* [Get Token Bound Accounts By NFT Owner Address](nft-owners.md#get-token-bound-accounts-by-nft-owner-address)
+* [Get The Owner Of NFT That Owns A Given Token Bound Accounts Address](nft-owners.md#get-the-owner-of-nft-that-owns-a-given-token-bound-accounts-address)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
-- Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
+* Basic knowledge of [ERC6551](https://eips.ethereum.org/EIPS/eip-6551)
 
 ## Get Started
 
@@ -59,7 +59,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -74,7 +73,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -89,15 +87,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -105,7 +100,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -129,11 +123,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -146,11 +138,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -168,7 +158,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -189,10 +178,10 @@ You can fetch all the token bound accounts owned by a given [NFT owner](#user-co
 {% hint style="info" %}
 For non-deployed (optimistic) TBAs, it can be checked through some of the fields' value:
 
-- `createdAtBlockNumber`: -1
-- `createdAtBlockTimestamp`: `null`
-- `creationTransactionHash`: `null`
-  {% endhint %}
+* `createdAtBlockNumber`: -1
+* `createdAtBlockTimestamp`: `null`
+* `creationTransactionHash`: `null`
+{% endhint %}
 
 ### Try Demo
 
@@ -204,7 +193,6 @@ Get Token Bound Accounts By NFT Owner Address (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -233,11 +221,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "TokenBalances": {
@@ -293,7 +279,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -311,7 +296,6 @@ Get The Owner Of NFT That Owns A Given Token Bound Accounts Address
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Accounts(
@@ -332,11 +316,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -358,7 +340,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -368,7 +349,7 @@ If you have any questions or need help regarding fetching ERC6551 token bound ac
 
 ## More Resources
 
-- [Accounts API Reference](../../api-references/api-reference/accounts-api.md)
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+* [Accounts API Reference](../../api-references/api-reference/accounts-api.md)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
 
 [^1]: owner of NFT that owns the ERC6551 accounts

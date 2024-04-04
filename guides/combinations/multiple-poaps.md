@@ -21,13 +21,13 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Common Holders of 2 POAPs](multiple-poaps.md#common-holders-of-2-poaps)
-- [Common Holders of More Than 2 POAPs](multiple-poaps.md#common-holders-of-more-than-2-poaps)
+* [Common Holders of 2 POAPs](multiple-poaps.md#common-holders-of-2-poaps)
+* [Common Holders of More Than 2 POAPs](multiple-poaps.md#common-holders-of-more-than-2-poaps)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -48,7 +48,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -63,7 +62,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -78,15 +76,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -94,7 +89,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -114,11 +108,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/airstack-react";
 
@@ -131,11 +123,9 @@ const { data, error } = fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -153,19 +143,12 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
 #### Other Programming Languages
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
-
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
-
-[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
-
-<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
 ## Best Practices
 
@@ -181,8 +164,8 @@ Since the number of objects returned in the responses will be dependent on the n
 {% hint style="info" %}
 Suppose there are two POAPs:
 
-- POAP A: 100,000 holders
-- POAP B: 1,000 holders.
+* POAP A: 100,000 holders
+* POAP B: 1,000 holders.
 
 If POAP A is the input on the 1st outermost query, then the end result will be **100,000 objects** in the response array.
 
@@ -195,7 +178,7 @@ The latter approach will be more efficient and easier for further formatting.
 
 ### Fetching
 
-You can fetch the common holders of two given POAP event IDs, e.g. [EthGlobal Lisbon 2023 Partner Attendee POAP](https://explorer.airstack.xyz/token-holders?address=127462&blockchain=&rawInput=%23%E2%8E%B1127462%E2%8E%B1%28127462++++ID_POAP%29&inputType=POAP) & [EthCC\[6\] Attendee POAP](https://explorer.airstack.xyz/token-holders?address=141910&blockchain=gnosis&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29+&inputType=POAP):
+You can fetch the common holders of two given POAP event IDs, e.g. [EthGlobal Lisbon 2023 Partner Attendee POAP](https://explorer.airstack.xyz/token-holders?address=127462\&blockchain=\&rawInput=%23%E2%8E%B1127462%E2%8E%B1%28127462++++ID\_POAP%29\&inputType=POAP) & [EthCC\[6\] Attendee POAP](https://explorer.airstack.xyz/token-holders?address=141910\&blockchain=gnosis\&rawInput=%23%E2%8E%B1EthCC%5B6%5D+-+Attendee%E2%8E%B1%280x22c1f6050e56d2876009903609a2cc3fef83b415+POAP+gnosis+141910%29+\&inputType=POAP):
 
 #### Try Demo
 
@@ -207,7 +190,6 @@ Show common holders of EthGlobal Lisbon and EthCC \[6] POAPs
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetCommonHoldersOfEthGlobalLisbonAndEthCC {
   Poaps(
@@ -231,11 +213,9 @@ query GetCommonHoldersOfEthGlobalLisbonAndEthCC {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -262,7 +242,6 @@ query GetCommonHoldersOfEthGlobalLisbonAndEthCC {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -274,7 +253,6 @@ To get the list of all holders in a flat array, use the following format functio
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 ```javascript
 const formatFunction = (data) =>
   data?.Poaps?.Poap?.map(({ owner }) =>
@@ -284,11 +262,9 @@ const formatFunction = (data) =>
     .flat(2)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 def format_function(data):
     result = []
@@ -305,7 +281,6 @@ def format_function(data):
 
     return result
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -339,7 +314,6 @@ Show common holders of more than 2 POAPs
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query GetCommonHoldersOfMoreThanTwoPOAPs {
   Poaps(input: {filter: {eventId: {_eq: "80393"}}, blockchain: ALL, limit: 200}) {
     Poap {
@@ -358,11 +332,9 @@ Show common holders of more than 2 POAPs
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -397,7 +369,6 @@ Show common holders of more than 2 POAPs
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -407,7 +378,6 @@ All the common holders' addresses will be returned inside the innermost `owner.a
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 ```javascript
 const formatFunction = (data) =>
   data?.Poaps?.Poap?.map(({ owner }) =>
@@ -419,11 +389,9 @@ const formatFunction = (data) =>
     .flat(3)
     .filter((address, index, array) => array.indexOf(address) === index) ?? [];
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 def format_function(data):
     result = []
@@ -443,7 +411,6 @@ def format_function(data):
 
     return result
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -453,6 +420,6 @@ If you have any questions or need help regarding fetching holders or attendees o
 
 ## More Resources
 
-- [Nested Queries](../../api-references/overview/nested-queries.md)
-- [Token Holders Tutorial for Lens Devs](../lens/token-holders.md)
-- [Token Holders Tutorial for Farcaster Devs](../farcaster/token-holders.md)
+* [Nested Queries](../../api-references/overview/nested-queries.md)
+* [Token Holders Tutorial for Lens Devs](../lens/token-holders.md)
+* [Token Holders Tutorial for Farcaster Devs](../farcaster/token-holders.md)

@@ -25,6 +25,8 @@ To do so, the onchain graph analyzes all of a user/wallet's onchain interactions
 
 <figure><img src="../.gitbook/assets/image (7).png" alt="" width="375"><figcaption><p>Builder.fi's Onchain Contacts</p></figcaption></figure>
 
+ 
+
 <figure><img src="../.gitbook/assets/converse.png" alt="" width="375"><figcaption><p>Converse's Onchain Contacts</p></figcaption></figure>
 
 </div>
@@ -49,32 +51,31 @@ In the future, we shall provide webhooks and a dedicated Onchain Graph API for l
 
 Here are quick links to get useful follows in common data between users of web3 social:
 
-- Mutual followers: [https://app.airstack.xyz/query/e4OBTMgeQD](https://app.airstack.xyz/query/e4OBTMgeQD)
-- Mutual Following - both identities are following: [https://app.airstack.xyz/query/WAJ2U2AJyx](https://app.airstack.xyz/query/WAJ2U2AJyx)
-- Users followed by user 1, who are following user 2 [https://app.airstack.xyz/query/1zMbo6mvsD](https://app.airstack.xyz/query/1zMbo6mvsD)
-- Users with mutual follows (they follow identity, identity is following them back) [https://app.airstack.xyz/query/GYUEgS3p2P](https://app.airstack.xyz/query/GYUEgS3p2P)
+* Mutual followers: [https://app.airstack.xyz/query/e4OBTMgeQD](https://app.airstack.xyz/query/e4OBTMgeQD)
+* Mutual Following - both identities are following: [https://app.airstack.xyz/query/WAJ2U2AJyx](https://app.airstack.xyz/query/WAJ2U2AJyx)
+* Users followed by user 1, who are following user 2 [https://app.airstack.xyz/query/1zMbo6mvsD](https://app.airstack.xyz/query/1zMbo6mvsD)
+* Users with mutual follows (they follow identity, identity is following them back) [https://app.airstack.xyz/query/GYUEgS3p2P](https://app.airstack.xyz/query/GYUEgS3p2P)
 
 The algorithm for building a user's web3 address book will be as follows:
 
 1. [Fetch All Onchain Graph Data](onchain-contacts.md#step-1-fetch-all-onchain-graph-data)
-   - [Fetch Common POAP Holders Data](onchain-contacts.md#step-1.1-fetch-common-poap-holders-data)
-   - [Fetch Farcaster Followings Data](onchain-contacts.md#step-1.2-fetch-farcaster-followings-data)
-   - [Fetch Lens Followings Data](onchain-contacts.md#step-1.3-fetch-lens-followings-data)
-   - [Fetch Farcaster Followers Data](onchain-contacts.md#step-1.4-fetch-farcaster-followers-data)
-   - [Fetch Lens Followers Data](onchain-contacts.md#step-1.5-fetch-lens-followers-data)
-   - [Fetch Token Transfers Sent Data](onchain-contacts.md#step-1.6-fetch-token-transfers-sent-data)
-   - [Fetch Token Transfers Received Data](onchain-contacts.md#step-1.7-fetch-token-transfers-received-data)
-   - [Fetch Common Ethereum Token Holders Data](onchain-contacts.md#step-1.8-fetch-common-ethereum-nft-holders-data)
-   - [Fetch Common Polygon Token Holders Data](onchain-contacts.md#step-1.9-fetch-common-polygon-nft-holders-data)
-   - [Fetch Common Base Token Holders Data](onchain-contacts.md#step-1.10-fetch-common-base-nft-holders-data)
-   - [Fetch Common Zora Token Holders Data](onchain-contacts.md#step-1.11-fetch-common-zora-token-holders-data)
+   * [Fetch Common POAP Holders Data](onchain-contacts.md#step-1.1-fetch-common-poap-holders-data)
+   * [Fetch Farcaster Followings Data](onchain-contacts.md#step-1.2-fetch-farcaster-followings-data)
+   * [Fetch Lens Followings Data](onchain-contacts.md#step-1.3-fetch-lens-followings-data)
+   * [Fetch Farcaster Followers Data](onchain-contacts.md#step-1.4-fetch-farcaster-followers-data)
+   * [Fetch Lens Followers Data](onchain-contacts.md#step-1.5-fetch-lens-followers-data)
+   * [Fetch Token Transfers Sent Data](onchain-contacts.md#step-1.6-fetch-token-transfers-sent-data)
+   * [Fetch Token Transfers Received Data](onchain-contacts.md#step-1.7-fetch-token-transfers-received-data)
+   * [Fetch Common Ethereum Token Holders Data](onchain-contacts.md#step-1.8-fetch-common-ethereum-nft-holders-data)
+   * [Fetch Common Base Token Holders Data](onchain-contacts.md#step-1.10-fetch-common-base-nft-holders-data)
+   * [Fetch Common Zora Token Holders Data](onchain-contacts.md#step-1.11-fetch-common-zora-token-holders-data)
 2. [Aggregate All Data By User Identities](onchain-contacts.md#step-2-aggregate-all-data-by-user-identities)
 3. [Scoring & Sorting](onchain-contacts.md#step-3-scoring-and-sorting)
 
 ### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ### Get Started
 
@@ -93,7 +94,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -108,7 +108,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -123,15 +122,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -139,10 +135,10 @@ pip install airstack
 
 In order to build a comprehensive onchain graph of a user, it'll require various kinds of data to analyze. Those data comprises of:
 
-- **common POAP holders** that are also attended by the user
-- Lens and Farcaster **social followers and following** of the given user
-- Token transfers **senders and receivers**
-- **common Ethereum, Polygon, Base, and Zora NFT holders** that are also held by the user
+* **common POAP holders** that are also attended by the user
+* Lens and Farcaster **social followers and following** of the given user
+* Token transfers **senders and receivers**
+* **common Ethereum, Polygon, Base, and Zora NFT holders** that are also held by the user
 
 In this step, you'll learn to fetch all the data that you need to build the onchain graph of a user.
 
@@ -155,7 +151,7 @@ In order to fetch the common POAP holders that hold the POAPs attended by a give
 
 **Fetch all non-virtual POAPs' event IDs owned by a user**
 
-You can use Airstack to fetch all the POAPs that are hold by a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS), and check if the events are non-virtual or not:
+You can use Airstack to fetch all the POAPs that are hold by a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), and check if the events are non-virtual or not:
 
 **Demo**
 
@@ -167,7 +163,6 @@ Show me all POAPs owned by vitalik.eth with their event IDs and whether they are
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery($user: Identity!) {
   Poaps(input: { filter: { owner: { _eq: $user } }, blockchain: ALL }) {
@@ -180,21 +175,17 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "user": "vitalik.eth"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -224,7 +215,6 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -232,18 +222,15 @@ Then, the response can be filtered to only non-virtual POAPs and be formatted in
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 ```javascript
 const eventIds =
   data?.Poaps.Poap?.filter((poap) => !poap?.poapEvent?.isVirtualEvent).map(
     (poap) => poap?.eventId
   ) ?? [];
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 event_ids = [
   poap.get('eventId')
@@ -251,11 +238,10 @@ event_ids = [
   if not poap.get('poapEvent', {}).get('isVirtualEvent')
 ] if data and 'Poaps' in data and 'Poap' in data['Poaps'] else []
 ```
-
 {% endtab %}
 {% endtabs %}
 
-where `data` is the response from the API. The formatted result, will be an array of event IDs of the non-virtual POAPs owned by [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS):
+where `data` is the response from the API. The formatted result, will be an array of event IDs of the non-virtual POAPs owned by [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS):
 
 ```json
 [
@@ -270,7 +256,7 @@ where `data` is the response from the API. The formatted result, will be an arra
 
 **Fetch all POAP holders of an array of POAP event IDs**
 
-Using the array of event IDs from the first step, you can fetch all POAP holders that hold any of the POAPs that the given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS), owned/attended:
+Using the array of event IDs from the first step, you can fetch all POAP holders that hold any of the POAPs that the given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), owned/attended:
 
 **Try Demo**
 
@@ -282,7 +268,6 @@ show me POAP holders of an array of POAP event IDs
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery($eventIds: [String!]) {
   Poaps(input: { filter: { eventId: { _in: $eventIds } }, blockchain: ALL }) {
@@ -320,11 +305,9 @@ query MyQuery($eventIds: [String!]) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "eventIds": [
@@ -370,11 +353,9 @@ query MyQuery($eventIds: [String!]) {
   ]
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -414,7 +395,6 @@ query MyQuery($eventIds: [String!]) {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -423,7 +403,6 @@ The response then can be formatted further with the following formatting functio
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="utils/formatPoapsData.js" %}
-
 ```javascript
 function formatPoapsData(poaps, exitingUser = []) {
   const recommendedUsers = [...exitingUser];
@@ -460,13 +439,11 @@ function formatPoapsData(poaps, exitingUser = []) {
 
 export default formatPoapsData;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/poaps.py" %}
-
 ```python
 def format_poaps_data(poaps, existing_user=None):
     if existing_user is None:
@@ -515,7 +492,6 @@ def format_poaps_data(poaps, existing_user=None):
 
     return recommended_users
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -557,7 +533,6 @@ In order to paginate through all the data, you can utilize `fetchQueryWithPagina
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript" data-title="functions/fetchPoapsData.js"><code class="lang-javascript">import { init, fetchQueryWithPagination } from "@airstack/node"; // or @airstack/airstack-react for frontend javascript
 import formatPoapsData from "../utils/formatPoapsData";
 
@@ -686,11 +661,9 @@ const fetchPoapsData = async (address, existingUsers = []) => {
 
 export default fetchPoapsData;
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 <pre class="language-python" data-title="functions/poaps.py"><code class="lang-python">from airstack.execute_query import AirstackClient
 from utils.poaps import format_poaps_data
 
@@ -797,13 +770,12 @@ async def fetch_poaps_data(address, existing_users=[]):
 
     return recommended_users
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
 #### Step 1.2: Fetch Farcaster Followings Data
 
-You can use [Airstack](https://airstack.xyz) to easily fetch all the users that is being followed on Farcaster by a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS), and get their 0x addresses, ENS domains, Lens, Farcaster, and XMTP:
+You can use [Airstack](https://airstack.xyz) to easily fetch all the users that is being followed on Farcaster by a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), and get their 0x addresses, ENS domains, Lens, Farcaster, and XMTP:
 
 **Try Demo**
 
@@ -815,7 +787,6 @@ Show all Farcaster followings of vitalik.eth and check if they're mutual followi
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery($user: Identity!) {
   SocialFollowings(
@@ -861,25 +832,20 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "user": "vitalik.eth"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```
 // Some code
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -888,7 +854,6 @@ The response then can be formatted further with the following formatting functio
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="utils/formatFarcasterFollowingsData.js" %}
-
 ```javascript
 function formatFarcasterFollowingsData(followings, existingUser = []) {
   const recommendedUsers = [...existingUser];
@@ -927,13 +892,11 @@ function formatFarcasterFollowingsData(followings, existingUser = []) {
 
 export default formatFarcasterFollowingsData;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/farcaster_followings.py" %}
-
 ```python
 def format_farcaster_followings_data(followings, existing_user=None):
     if existing_user is None:
@@ -975,7 +938,6 @@ def format_farcaster_followings_data(followings, existing_user=None):
 
     return recommended_users
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1024,7 +986,6 @@ In order to paginate through all the data, you can utilize `fetchQueryWithPagina
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript" data-title="functions/fetchFarcasterFollowings.js"><code class="lang-javascript">import { init, fetchQueryWithPagination } from "@airstack/node"; // or @airstack/airstack-react for frontend javascript
 import formatFarcasterFollowingsData from "../utils/formatFarcasterFollowingsData";
 
@@ -1112,11 +1073,9 @@ const fetchFarcasterFollowings = async (address, existingUsers = []) => {
 
 export default fetchFarcasterFollowings;
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 <pre class="language-python" data-title="functions/farcaster_followings.py"><code class="lang-python">from airstack.execute_query import AirstackClient
 from utils.farcaster_followings import format_farcaster_followings_data
 
@@ -1191,13 +1150,12 @@ async def fetch_farcaster_followings(address, existing_users=[]):
 
     return recommended_users
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
 #### Step 1.3: Fetch Lens Followings Data
 
-You can use [Airstack](https://airstack.xyz) to easily fetch all the users that is being followed on Lens by a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS), and get their 0x addresses, ENS domains, Lens, Farcaster, and XMTP:
+You can use [Airstack](https://airstack.xyz) to easily fetch all the users that is being followed on Lens by a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), and get their 0x addresses, ENS domains, Lens, Farcaster, and XMTP:
 
 **Try Demo**
 
@@ -1209,7 +1167,6 @@ Show all Lens followings of vitalik.eth and check if they're mutual followings
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery($user: Identity!) {
   SocialFollowings(
@@ -1255,21 +1212,17 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "user": "vitalik.eth"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1358,7 +1311,6 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1367,7 +1319,6 @@ The response then can be formatted further with the following formatting functio
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="utils/formatLensFollowingsData.js" overflow="wrap" %}
-
 ```javascript
 function formatLensFollowingsData(followings, existingUser = []) {
   const recommendedUsers = [...existingUser];
@@ -1406,13 +1357,11 @@ function formatLensFollowingsData(followings, existingUser = []) {
 
 export default formatLensFollowingsData;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/lens_followings.py" %}
-
 ```python
 def format_lens_followings_data(followings, existing_user=None):
     if existing_user is None:
@@ -1452,7 +1401,6 @@ def format_lens_followings_data(followings, existing_user=None):
 
     return recommended_users
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1529,7 +1477,6 @@ In order to paginate through all the data, you can utilize [`fetchQueryWithPagin
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="functions/fetchLensFollowings.js" %}
-
 ```javascript
 import { init, fetchQueryWithPagination } from "@airstack/node"; // or @airstack/airstack-react for frontend javascript
 import formatLensFollowingsData from "../utils/formatLensFollowingsData";
@@ -1610,12 +1557,10 @@ const fetchLensFollowings = async (address, existingUsers = []) => {
 
 export default fetchLensFollowings;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
-
 <pre class="language-python" data-title="functions/lens_followings.py"><code class="lang-python">from airstack.execute_query import AirstackClient
 from utils.lens_followings import format_lens_followings_data
 
@@ -1690,13 +1635,12 @@ async def fetch_lens_followings(address, existing_users=[]):
 
     return recommended_users
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
 #### Step 1.4: Fetch Farcaster Followers Data
 
-You can use [Airstack](https://airstack.xyz) to easily fetch all the users that is following a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS), on Farcaster and get their 0x addresses, ENS domains, Lens, Farcaster, and XMTP:
+You can use [Airstack](https://airstack.xyz) to easily fetch all the users that is following a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), on Farcaster and get their 0x addresses, ENS domains, Lens, Farcaster, and XMTP:
 
 **Try Demo**
 
@@ -1708,7 +1652,6 @@ Show all Farcaster followers of vitalik.eth and check if they're mutual follower
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery($user: Identity!) {
   SocialFollowers(
@@ -1754,21 +1697,17 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "user": "vitalik.eth"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1816,7 +1755,6 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1825,7 +1763,6 @@ The response then can be formatted further with the following formatting functio
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="utils/formatFarcasterFollowersData.js" %}
-
 ```javascript
 function formatFarcasterFollowersData(followers, existingUser = []) {
   const recommendedUsers = [...existingUser];
@@ -1866,13 +1803,11 @@ function formatFarcasterFollowersData(followers, existingUser = []) {
 
 export default formatFarcasterFollowersData;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/farcaster_followers.py" %}
-
 ```python
 def format_farcaster_followers_data(followers, existing_user=None):
     if existing_user is None:
@@ -1912,7 +1847,6 @@ def format_farcaster_followers_data(followers, existing_user=None):
 
     return recommended_users
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -1950,7 +1884,6 @@ In order to paginate through all the data, you can utilize [`fetchQueryWithPagin
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript" data-title="functions/fetchFarcasterFollowers.js"><code class="lang-javascript">import { init, fetchQueryWithPagination } from "@airstack/node"; // or @airstack/airstack-react for frontend javascript
 import formatFarcasterFollowersData from "./utils/formatFarcasterFollowersData";
 
@@ -2030,11 +1963,9 @@ const fetchFarcasterFollowers = async (address, existingUsers = []) => {
 
 export default fetchFarcasterFollowers;
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 <pre class="language-python" data-title="functions/farcaster_followers.py"><code class="lang-python">from airstack.execute_query import AirstackClient
 from utils.farcaster_followers import format_farcaster_followers_data
 
@@ -2109,13 +2040,12 @@ async def fetch_farcaster_followers(address, existing_users=[]):
 
     return recommended_users
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
 #### Step 1.5: Fetch Lens Followers Data
 
-You can use [Airstack](https://airstack.xyz) to easily fetch all the users that is following a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS), on Lens and get their 0x addresses, ENS domains, Lens, Farcaster, and XMTP:
+You can use [Airstack](https://airstack.xyz) to easily fetch all the users that is following a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), on Lens and get their 0x addresses, ENS domains, Lens, Farcaster, and XMTP:
 
 **Try Demo**
 
@@ -2127,7 +2057,6 @@ Show all Lens followers of vitalik.eth and check if they're mutual followers
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery($user: Identity!) {
   SocialFollowers(
@@ -2173,17 +2102,14 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "user": "vitalik.eth"
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -2192,7 +2118,6 @@ The response then can be formatted further with the following formatting functio
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="utils/formatLensFollowersData.js" %}
-
 ```javascript
 function formatLensFollowersData(followers, existingUser = []) {
   const recommendedUsers = [...existingUser];
@@ -2233,13 +2158,11 @@ function formatLensFollowersData(followers, existingUser = []) {
 
 export default formatLensFollowersData;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/lens_followers.py" %}
-
 ```python
 def format_lens_followers_data(followers, existing_user=None):
     if existing_user is None:
@@ -2279,7 +2202,6 @@ def format_lens_followers_data(followers, existing_user=None):
 
     return recommended_users
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -2317,7 +2239,6 @@ In order to paginate through all the data, you can utilize [`fetchQueryWithPagin
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript" data-title="function/fetchLensFollowers.js"><code class="lang-javascript">import { init, fetchQueryWithPagination } from "@airstack/node"; // or @airstack/airstack-react for frontend javascript
 import formatLensFollowersData from "./utils/formatLensFollowersData";
 
@@ -2397,11 +2318,9 @@ const fetchLensFollowers = async (address, existingUsers = []) => {
 
 export default fetchLensFollowers;
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 <pre class="language-python" data-title="functions/lens_followers.py"><code class="lang-python">from airstack.execute_query import AirstackClient
 from utils.lens_followings import format_lens_followings_data
 
@@ -2476,13 +2395,12 @@ async def fetch_lens_followers(address, existing_users=[]):
 
     return recommended_users
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
 #### Step 1.6: Fetch Token Transfers Sent Data
 
-You can use [Airstack](https://airstack.xyz) to easily fetch all the users that received token transfers **sent from a given user,** e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS), and get their 0x addresses, ENS domains, Lens, Farcaster, and XMTP:
+You can use [Airstack](https://airstack.xyz) to easily fetch all the users that received token transfers **sent from a given user,** e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), and get their 0x addresses, ENS domains, Lens, Farcaster, and XMTP:
 
 **Try Demo**
 
@@ -2494,7 +2412,6 @@ Show me token transfers from vitalik.eth on Ethereum, Polygon, Base, and Zora
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery($user: Identity!) {
   Ethereum: TokenTransfers(
@@ -2602,21 +2519,17 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "user": "vitalik.eth"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
@@ -2712,7 +2625,6 @@ query MyQuery($user: Identity!) {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -2721,7 +2633,6 @@ The response then can be formatted further with the following formatting functio
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="utils/formatTokenSentData.js" %}
-
 ```javascript
 const formatTokenSentData = (data, _recommendedUsers = []) => {
   const recommendedUsers = [..._recommendedUsers];
@@ -2762,13 +2673,11 @@ const formatTokenSentData = (data, _recommendedUsers = []) => {
 
 export default formatTokenSentData;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/token_sent.py" %}
-
 ```python
 def format_token_sent_data(data, recommended_users=None):
     if recommended_users is None:
@@ -2796,7 +2705,6 @@ def format_token_sent_data(data, recommended_users=None):
 
     return recommended_users
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -2825,7 +2733,6 @@ In order to paginate through all the data, you can utilize `fetchQueryWithPagina
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript" data-title="functions/fetchTokenSent.js"><code class="lang-javascript">import { init, fetchQueryWithPagination } from "@airstack/node"; // or @airstack/airstack-react for frontend javascript
 import formatTokenSentData from "./utils/formatTokenSentData";
 
@@ -2992,11 +2899,9 @@ const fetchTokenSent = async (address, existingUsers = []) => {
 
 export default fetchTokenSent;
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 <pre class="language-python" data-title="functions/token_sent.py"><code class="lang-python">from airstack.execute_query import AirstackClient
 from utils.token_sent import format_token_sent_data
 
@@ -3145,13 +3050,12 @@ async def fetch_token_sent(address, existing_users=[]):
 
     return recommended_users
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
 #### Step 1.7: Fetch Token Transfers Received Data
 
-You can use [Airstack](https://airstack.xyz) to easily fetch all the users that sent token transfers to and **received by a given user**, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS), and get their 0x addresses, ENS domains, Lens, Farcaster, and XMTP:
+You can use [Airstack](https://airstack.xyz) to easily fetch all the users that sent token transfers to and **received by a given user**, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), and get their 0x addresses, ENS domains, Lens, Farcaster, and XMTP:
 
 **Try Demo**
 
@@ -3163,7 +3067,6 @@ Show me token transfers received by vitalik.eth on Ethereum, Polygon, Base, and 
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery($user: Identity!) {
   Ethereum: TokenTransfers(
@@ -3264,21 +3167,17 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "user": "vitalik.eth"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -3407,7 +3306,6 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -3416,7 +3314,6 @@ The response then can be formatted further with the following formatting functio
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="utils/formatTokenReceivedData.js" %}
-
 ```javascript
 const formatTokenReceivedData = (data, _recommendedUsers = []) => {
   const recommendedUsers = [..._recommendedUsers];
@@ -3457,13 +3354,11 @@ const formatTokenReceivedData = (data, _recommendedUsers = []) => {
 
 export default formatTokenReceivedData;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/token_received.py" %}
-
 ```python
 def format_token_received_data(data, _recommended_users=None):
     if _recommended_users is None:
@@ -3499,7 +3394,6 @@ def format_token_received_data(data, _recommended_users=None):
 
     return recommended_users
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -3555,7 +3449,6 @@ In order to paginate through all the data, you can utilize `fetchQueryWithPagina
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript" data-title="functions/fetchTokenReceived.js"><code class="lang-javascript">import { init, fetchQueryWithPagination } from "@airstack/node"; // or @airstack/airstack-react for frontend javascript
 import formatTokenReceivedData from "./utils/formatTokenReceivedData";
 
@@ -3711,11 +3604,9 @@ const fetchTokenReceived = async (address, existingUsers = []) => {
 
 export default fetchTokenReceived;
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 <pre class="language-python" data-title="functions/token_received.py"><code class="lang-python">from airstack.execute_query import AirstackClient
 from utils.token_received import format_token_received_data
 
@@ -3858,7 +3749,6 @@ async def fetch_token_received(address, existing_users=[]):
 
     return recommended_users
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -3871,7 +3761,7 @@ In order to fetch the common Ethereum holders that hold the Ethereum NFTs hold b
 
 **Fetch all Ethereum NFTs owned by a user**
 
-You can use Airstack to fetch all the NFTs that are hold by a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS), on Ethereum:
+You can use Airstack to fetch all the NFTs that are hold by a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), on Ethereum:
 
 **Try Demo**
 
@@ -3883,7 +3773,6 @@ Show me all Ethereum NFT address owned by vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery($user: Identity!) {
   TokenBalances(
@@ -3899,21 +3788,17 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "user": "vitalik.eth"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -3934,7 +3819,6 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -3942,20 +3826,16 @@ Then, the response can be filtered to only Ethereum NFTs and be formatted into a
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 ```javascript
 const tokenAddresses =
   data?.TokenBalances?.TokenBalance?.map((token) => token.tokenAddress) ?? [];
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 token_addresses = [token['tokenAddress'] for token in data.get('TokenBalances', {}).get('TokenBalance', [])] if data and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances'] else []
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -3994,7 +3874,7 @@ where `data` is the response from the API. The formatted result will have a form
 
 **Fetch all Ethereum NFT owners**
 
-Using the array of token addresses from the first step, you can fetch all Ethereum NFT holders that hold any of the NFTs that the given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS), owned on Ethereum:
+Using the array of token addresses from the first step, you can fetch all Ethereum NFT holders that hold any of the NFTs that the given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), owned on Ethereum:
 
 **Try Demo**
 
@@ -4006,7 +3886,6 @@ Show me Ethereum NFT holders of an array of Ethereum NFT addresses
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery($tokenAddresses: [Address!]) {
   TokenBalances(
@@ -4053,11 +3932,9 @@ query MyQuery($tokenAddresses: [Address!]) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "tokenAddresses": [
@@ -4090,11 +3967,9 @@ query MyQuery($tokenAddresses: [Address!]) {
   ]
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -4156,7 +4031,6 @@ query MyQuery($tokenAddresses: [Address!]) {
   }
 }Try
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -4165,7 +4039,6 @@ The response then can be formatted further with the following formatting functio
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="utils/formatEthNftData.js" %}
-
 ```javascript
 const formatEthNftData = (data, _recommendedUsers = []) => {
   const recommendedUsers = [..._recommendedUsers];
@@ -4221,13 +4094,11 @@ const formatEthNftData = (data, _recommendedUsers = []) => {
 
 export default formatEthNftData;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/ethereum_nft.py" %}
-
 ```python
 def format_eth_nft_data(data, _recommended_users=None):
     if _recommended_users is None:
@@ -4284,7 +4155,6 @@ def format_eth_nft_data(data, _recommended_users=None):
 
     return recommended_users
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -4325,7 +4195,6 @@ In order to paginate through all the data, you can utilize [`fetchQueryWithPagin
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript" data-title="functions/fetchEthNft.js"><code class="lang-javascript">import { init, fetchQueryWithPagination } from "@airstack/node"; // or @airstack/airstack-react for frontend javascript
 import formatEthNftData from "./utils/formatEthNftData";
 
@@ -4450,11 +4319,9 @@ const fetchEthNft = async (address, existingUsers = []) => {
 
 export default fetchEthNft;
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 <pre class="language-python" data-title="functions/ethereum_nfts.py"><code class="lang-python">from airstack.execute_query import AirstackClient
 from utils.ethereum_nft import format_eth_nft_data
 
@@ -4558,667 +4425,12 @@ async def fetch_eth_nft(address, existing_users=[]):
 
     return recommended_users
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
-#### Step 1.9: Fetch Common Polygon NFT Holders Data
+#### Step 1.9: Fetch Common Base NFT Holders Data
 
-You can use Airstack to fetch all the NFTs that are hold by a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS), on Polygon:
-
-**Try Demo**
-
-{% embed url="https://app.airstack.xyz/query/G6o3Bo8lgM" %}
-Show me all Polygon NFT address owned by vitalik.eth
-{% endembed %}
-
-**Code**
-
-{% tabs %}
-{% tab title="Query" %}
-
-```graphql
-query MyQuery($user: Identity!) {
-  TokenBalances(
-    input: {
-      filter: { tokenType: { _in: [ERC721] }, owner: { _eq: $user } }
-      blockchain: polygon
-      limit: 200
-    }
-  ) {
-    TokenBalance {
-      tokenAddress
-    }
-  }
-}
-```
-
-{% endtab %}
-
-{% tab title="Variables" %}
-
-```json
-{
-  "user": "vitalik.eth"
-}
-```
-
-{% endtab %}
-
-{% tab title="Response" %}
-
-```json
-{
-  "data": {
-    "TokenBalances": {
-      "TokenBalance": [
-        {
-          "tokenAddress": "0x6f4394d3a3f3e6a264bfbeef4ef73458d3a71cb7"
-        },
-        {
-          "tokenAddress": "0x55909bb8cd8276887aae35118d60b19755201c68"
-        },
-        {
-          "tokenAddress": "0x01647f5eb4e469843bcfa7b43f1f26300f2a0f1d"
-        }
-        // other Polygon NFTs hold by vitalik.eth
-      ]
-    }
-  }
-}
-```
-
-{% endtab %}
-{% endtabs %}
-
-Then, the response can be filtered to only Polygon NFTs and be formatted into an array of token addresses to be used in the next step:
-
-{% tabs %}
-{% tab title="JavaScript" %}
-
-```javascript
-const tokenAddresses =
-  data?.TokenBalances?.TokenBalance?.map((token) => token.tokenAddress) ?? [];
-```
-
-{% endtab %}
-
-{% tab title="Python" %}
-
-```python
-token_addresses = [token['tokenAddress'] for token in data.get('TokenBalances', {}).get('TokenBalance', [])] if data and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances'] else []
-```
-
-{% endtab %}
-{% endtabs %}
-
-where `data` is the response from the API. The formatted result will have a format as follows:
-
-```json
-[
-  "0x6f4394d3a3f3e6a264bfbeef4ef73458d3a71cb7",
-  "0x55909bb8cd8276887aae35118d60b19755201c68",
-  "0x01647f5eb4e469843bcfa7b43f1f26300f2a0f1d",
-  "0x898534c01d3533d43433392f51be07bdacb9a3d7",
-  "0x772087591891f6d55f9943f36d2583e11717f692",
-  "0x18da13a311d9b1c1dc993bc02bb64dec48686a60",
-  "0xc690dd5f1b29b91b8e25a6eba9b45d5efefeb6d8",
-  "0x5d666f215a85b87cb042d59662a7ecd2c8cc44e6",
-  "0xfabb1b73f27a2e5d8c8cde58572cfb485d9b01e4",
-  "0xb2af63208ac7173474b92200dd9f2b623e2e6171",
-  "0x3aec78547f92357238851e615ac7cc7614d87584",
-  "0xa6511c9c07ea84955530f52cd8be009557478261",
-  "0x95728feaf3e9ec79651822b1ae5df30cd075e09e",
-  "0x9494879fca4a69afdc230f00907d1f83779408ea",
-  "0x7c6ab04b66a47d65b469dc12286401a188b2fd8e",
-  "0x7c6ab04b66a47d65b469dc12286401a188b2fd8e",
-  "0x56d49c7e00945ecb2ee7747d7e56936651c6bd6a",
-  "0xdf230dc0d5e4c6bba9f1570a58be8120a33dc50f",
-  "0x43bcad6eff1fa2e75a66b975668a9a5edc077cba",
-  "0xd6739ecf05c00d1041e6426e234dda2df49a6a10",
-  "0xbe032a91c511621458836760b23b0ba008d523d4",
-  "0xbbb9a43df595b502be75d09345460098538d2870"
-  // other Polygon NFT addresses
-]
-```
-
-**Fetch all Polygon NFT owners**
-
-Using the array of token addresses from the first step, you can fetch all Polygon NFT holders that hold any of the NFTs that the given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS), owned on Polygon:
-
-**Try Demo**
-
-{% embed url="https://app.airstack.xyz/query/vgOlSFjQhH" %}
-Show me Polygon NFT holders of an array of Polygon NFT addresses
-{% endembed %}
-
-**Code**
-
-{% tabs %}
-{% tab title="Query" %}
-
-```graphql
-query MyQuery($tokenAddresses: [Address!]) {
-  TokenBalances(
-    input: {
-      filter: {
-        tokenAddress: { _in: $tokenAddresses }
-        tokenType: { _in: [ERC721] }
-      }
-      blockchain: polygon
-      limit: 200
-    }
-  ) {
-    TokenBalance {
-      token {
-        name
-        address
-        tokenNfts {
-          tokenId
-        }
-        blockchain
-        logo {
-          small
-        }
-      }
-      owner {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          dappName
-          blockchain
-          profileName
-          profileImage
-          profileTokenId
-          profileTokenAddress
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
-}
-```
-
-{% endtab %}
-
-{% tab title="Variables" %}
-
-```json
-{
-  "tokenAddresses": [
-    "0x6f4394d3a3f3e6a264bfbeef4ef73458d3a71cb7",
-    "0x55909bb8cd8276887aae35118d60b19755201c68",
-    "0x01647f5eb4e469843bcfa7b43f1f26300f2a0f1d",
-    "0x898534c01d3533d43433392f51be07bdacb9a3d7",
-    "0x772087591891f6d55f9943f36d2583e11717f692",
-    "0x18da13a311d9b1c1dc993bc02bb64dec48686a60",
-    "0xc690dd5f1b29b91b8e25a6eba9b45d5efefeb6d8",
-    "0x5d666f215a85b87cb042d59662a7ecd2c8cc44e6",
-    "0xfabb1b73f27a2e5d8c8cde58572cfb485d9b01e4",
-    "0xb2af63208ac7173474b92200dd9f2b623e2e6171",
-    "0x3aec78547f92357238851e615ac7cc7614d87584",
-    "0xa6511c9c07ea84955530f52cd8be009557478261",
-    "0x95728feaf3e9ec79651822b1ae5df30cd075e09e",
-    "0x9494879fca4a69afdc230f00907d1f83779408ea",
-    "0x7c6ab04b66a47d65b469dc12286401a188b2fd8e",
-    "0x7c6ab04b66a47d65b469dc12286401a188b2fd8e",
-    "0x56d49c7e00945ecb2ee7747d7e56936651c6bd6a",
-    "0xdf230dc0d5e4c6bba9f1570a58be8120a33dc50f",
-    "0x43bcad6eff1fa2e75a66b975668a9a5edc077cba",
-    "0xd6739ecf05c00d1041e6426e234dda2df49a6a10",
-    "0xbe032a91c511621458836760b23b0ba008d523d4",
-    "0xbbb9a43df595b502be75d09345460098538d2870"
-    // other Polygon NFT addresses
-  ]
-}
-```
-
-{% endtab %}
-
-{% tab title="Response" %}
-
-```json
-{
-  "data": {
-    "TokenBalances": {
-      "TokenBalance": null
-    }
-  }
-}
-```
-
-{% endtab %}
-{% endtabs %}
-
-The response then can be formatted further with the following formatting function to extract all the recommended users that has common Polygon NFTs with a given user:
-
-{% tabs %}
-{% tab title="JavaScript" %}
-{% code title="utils/formatPolygonNftData.js" %}
-
-```javascript
-const formatPolygonNftData = (data, _recommendedUsers = []) => {
-  const recommendedUsers = [..._recommendedUsers];
-
-  for (const nft of data) {
-    const { owner, token } = nft ?? {};
-    const { name, logo, address, tokenNfts = [] } = token ?? {};
-    const { addresses } = owner ?? {};
-    const tokenNft = tokenNfts?.[0];
-
-    const existingUserIndex = recommendedUsers.findIndex(
-      ({ addresses: recommendedUsersAddresses }) =>
-        recommendedUsersAddresses?.some?.((address) =>
-          addresses?.includes?.(address)
-        )
-    );
-
-    if (existingUserIndex !== -1) {
-      const _addresses = recommendedUsers?.[existingUserIndex]?.addresses || [];
-      recommendedUsers[existingUserIndex].addresses = [
-        ..._addresses,
-        ...addresses,
-      ]?.filter((address, index, array) => array.indexOf(address) === index);
-      const _nfts = recommendedUsers?.[existingUserIndex]?.nfts || [];
-      const nftExists = _nfts.some((nft) => nft.address === address);
-      if (!nftExists) {
-        _nfts?.push({
-          name,
-          image: logo?.small,
-          blockchain: "polygon",
-          address,
-          tokenNfts: tokenNft,
-        });
-      }
-      recommendedUsers[existingUserIndex].nfts = [..._nfts];
-    } else {
-      recommendedUsers.push({
-        ...owner,
-        nfts: [
-          {
-            name,
-            image: logo?.small,
-            blockchain: "polygon",
-            address,
-            tokenNfts: tokenNft,
-          },
-        ],
-      });
-    }
-  }
-  return recommendedUsers;
-};
-
-export default formatPolygonNftData;
-```
-
-{% endcode %}
-{% endtab %}
-
-{% tab title="Python" %}
-{% code title="utils/polygon_nft.py" %}
-
-```python
-def format_polygon_nft_data(data, _recommended_users=None):
-    if _recommended_users is None:
-        _recommended_users = []
-
-    recommended_users = _recommended_users.copy()
-
-    for nft in data or []:
-        owner = nft.get('owner', {})
-        token = nft.get('token', {})
-
-        name = token.get('name')
-        logo = token.get('logo', {})
-        address = token.get('address')
-        token_nfts = token.get('tokenNfts', [])
-        addresses = owner.get('addresses', [])
-        token_nft = token_nfts[0] if len(token_nfts) > 0 else None
-
-        existing_user_index = -1
-        for index, recommended_user in enumerate(recommended_users):
-            recommended_user_addresses = recommended_user.get('addresses', [])
-            if any(addr in recommended_user_addresses for addr in addresses):
-                existing_user_index = index
-                break
-
-        if existing_user_index != -1:
-            _addresses = recommended_users[existing_user_index].get('addresses', [])
-            _addresses.extend(addresses)
-            _addresses = list(set(_addresses))  # Remove duplicates
-            recommended_users[existing_user_index]['addresses'] = _addresses
-
-            _nfts = recommended_users[existing_user_index].get('nfts', [])
-            nft_exists = any(nft['address'] == address for nft in _nfts)
-            if not nft_exists:
-                _nfts.append({
-                    'name': name,
-                    'image': logo.get('small'),
-                    'blockchain': 'polygon',
-                    'address': address,
-                    'tokenNfts': token_nfts
-                })
-            recommended_users[existing_user_index]['nfts'] = _nfts
-        else:
-            recommended_users.append({
-                **owner,
-                'nfts': [{
-                    'name': name,
-                    'image': logo.get('small'),
-                    'blockchain': 'polygon',
-                    'address': address,
-                    'tokenNfts': token_nfts
-                }]
-            })
-
-    return recommended_users
-```
-
-{% endcode %}
-{% endtab %}
-{% endtabs %}
-
-The formatted result will have a format as follows:
-
-<pre class="language-json"><code class="lang-json">[
-  {
-    "addresses": ["0x0000000000000000000000000000000000000000"],
-    "domains": [
-      { "name": "rake.eth", "isPrimary": false },
-      { "name": "21505.eth", "isPrimary": false },
-      { "name": "👑420👑.eth", "isPrimary": false },
-      // other domains
-    ],
-    "socials": [
-      {
-        "dappName": "lens",
-        "blockchain": "polygon",
-        "profileName": "lens/@alebaffa",
-        "profileImage": "",
-        "profileTokenId": "81453",
-        "profileTokenAddress": "0xdb46d1dc155634fbc732f92e853b10b288ad5a1d"
-      },
-      // other web3 socials
-    ],
-    "xmtp": null,
-    // show all common Polygon NFTs that is also owned by vitalik.eth
-<strong>    "nfts": [
-</strong>      {
-        "name": "Constant Inflow NFT",
-        "image": null,
-        "blockchain": "polygon",
-        "address": "0x55909bb8cd8276887aae35118d60b19755201c68",
-        "tokenNfts": {
-          "tokenId": "69405188863775283014867442726397310916844721196293623142708245765342049376515"
-        }
-      }
-    ]
-  },
-  // other onchain graph users
-]
-</code></pre>
-
-**Iterate to fetch all common Polygon NFT holders**
-
-With the queries for fetching all the common Polygon NFT holders that holds the same Polygon NFTs as the given user established, it will be essential to fetch all the data using paginations.
-
-In order to paginate through all the data, you can utilize `fetchQueryWithPagination` and `execute_paginated_query` from the JavaScript (React & Node) and Python SDKs, respectively. The full code implementation for this will be as follows:
-
-{% tabs %}
-{% tab title="JavaScript" %}
-
-<pre class="language-javascript" data-title="functions/formatPolygonNftData.js"><code class="lang-javascript">import { init, fetchQueryWithPagination } from "@airstack/node"; // or @airstack/airstack-react for frontend javascript
-import formatPolygonNftData from "./utils/formatPolygonNftData";
-
-// get your API key at https://app.airstack.xyz/profile-settings/api-keys
-init("YOUR_AIRSTACK_API_KEY");
-
-const nftAddressesQuery = `
-query MyQuery($user: Identity!) {
-  TokenBalances(input: {filter: {tokenType: {_in: [ERC721]}, owner: {_eq: $user}}, blockchain: polygon, limit: 200}) {
-    TokenBalance {
-      tokenAddress
-    }
-  }
-}
-`;
-
-const nftQuery = `
-query MyQuery($tokenAddresses: [Address!]) {
-  TokenBalances(
-    input: {filter: {tokenAddress: {_in: $tokenAddresses}, tokenType: {_in: [ERC721]}}, blockchain: polygon, limit: 200}
-  ) {
-    TokenBalance {
-      token {
-        name
-        address
-        tokenNfts {
-          tokenId
-        }
-        blockchain
-        logo {
-          small
-        }
-      }
-      owner {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          dappName
-          blockchain
-          profileName
-          profileImage
-          profileTokenId
-          profileTokenAddress
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
-}
-`;
-
-const formatPolygonNftData = async (address, existingUsers = []) => {
-  let polygonNftDataResponse;
-  let recommendedUsers = [...existingUsers];
-  while (true) {
-    if (!polygonNftDataResponse) {
-      // Pagination #1: Fetch Polygon NFTs
-<strong>      polygonNftDataResponse = await fetchQueryWithPagination(
-</strong>        nftAddressesQuery,
-        {
-          user: address,
-        }
-      );
-    }
-    const {
-      data: polygonNftData,
-      error: polygonNftError,
-      hasNextPage: polygonNftHasNextPage,
-      getNextPage: polygonNftGetNextPage,
-    } = polygonNftDataResponse ?? {};
-    if (!polygonNftError) {
-      const tokenAddresses =
-        polygonNftData?.TokenBalances?.TokenBalance?.map(
-          (token) => token.tokenAddress
-        ) ?? [];
-      let polygonNftHoldersDataResponse;
-      while (true) {
-        if (tokenAddresses.length === 0) break;
-        if (!polygonNftHoldersDataResponse) {
-          // Pagination #2: Fetch Polygon NFT Holders
-<strong>          polygonNftHoldersDataResponse = await fetchQueryWithPagination(
-</strong>            nftQuery,
-            {
-              tokenAddresses,
-            }
-          );
-        }
-        const {
-          data: polygonNftHoldersData,
-          error: polygonNftHoldersError,
-          hasNextPage: polygonNftHoldersHasNextPage,
-          getNextPage: polygonNftHoldersGetNextPage,
-        } = polygonNftHoldersDataResponse;
-        if (!polygonNftHoldersError) {
-          recommendedUsers = [
-            ...formatPolygonNftData(
-              polygonNftHoldersData?.TokenBalances?.TokenBalance,
-              recommendedUsers
-            ),
-          ];
-          if (!polygonNftHoldersHasNextPage) {
-            break;
-          } else {
-            polygonNftHoldersDataResponse =
-              await polygonNftHoldersGetNextPage();
-          }
-        } else {
-          console.error("Error: ", polygonNftHoldersError);
-          break;
-        }
-      }
-      if (!polygonNftHasNextPage) {
-        break;
-      } else {
-        polygonNftDataResponse = await polygonNftGetNextPage();
-      }
-    } else {
-      console.error("Error: ", polygonNftError);
-      break;
-    }
-  }
-  return recommendedUsers;
-};
-
-export default fetchPolygonNft;
-</code></pre>
-
-{% endtab %}
-
-{% tab title="Python" %}
-
-<pre class="language-python" data-title="functions/polygon_nft.py"><code class="lang-python">from airstack.execute_query import AirstackClient
-from utils.polygon_nft import format_polygon_nft_data
-
-# get your API key at https://app.airstack.xyz/profile-settings/api-keys
-api_client = AirstackClient(api_key="YOUR_AIRSTACK_API_KEY")
-
-nft_addresses_query = """
-query MyQuery($user: Identity!) {
-  TokenBalances(input: {filter: {tokenType: {_in: [ERC721]}, owner: {_eq: $user}}, blockchain: polygon, limit: 200}) {
-    TokenBalance {
-      tokenAddress
-    }
-  }
-}
-"""
-
-nft_query = """
-query MyQuery($tokenAddresses: [Address!]) {
-  TokenBalances(
-    input: {filter: {tokenAddress: {_in: $tokenAddresses}, tokenType: {_in: [ERC721]}}, blockchain: polygon, limit: 200}
-  ) {
-    TokenBalance {
-      token {
-        name
-        address
-        tokenNfts {
-          tokenId
-        }
-        blockchain
-        logo {
-          small
-        }
-      }
-      owner {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          dappName
-          blockchain
-          profileName
-          profileImage
-          profileTokenId
-          profileTokenAddress
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
-}
-"""
-
-
-async def fetch_polygon_nft(address, existing_users=[]):
-    polygon_nft_response = None
-    recommended_users = existing_users.copy()
-    while True:
-        if polygon_nft_response is None:
-            execute_query_client = api_client.create_execute_query_object(
-                query=nft_addresses_query, variables={'user': address})
-            # Pagination #1: Fetch Polygon NFTs
-<strong>            polygon_nft_response = await execute_query_client.execute_paginated_query()
-</strong>
-        if polygon_nft_response.error is None:
-            token_addresses = [token['tokenAddress'] for token in polygon_nft_response.data.get('TokenBalances', {}).get(
-                'TokenBalance', [])] if polygon_nft_response.data and 'TokenBalances' in polygon_nft_response.data and 'TokenBalance' in polygon_nft_response.data['TokenBalances'] else []
-            polygon_nft_holders_response = None
-            while True:
-                if polygon_nft_holders_response is None:
-                    execute_query_client = api_client.create_execute_query_object(
-                        query=nft_query, variables={'tokenAddresses': token_addresses})
-                    # Pagination #2: Fetch Polygon NFT Holders
-<strong>                    polygon_nft_holders_response = await execute_query_client.execute_paginated_query()
-</strong>
-                if polygon_nft_holders_response.error is None:
-                    recommended_users = format_polygon_nft_data(
-                        polygon_nft_holders_response.data.get(
-                            'TokenBalances', {}).get('TokenBalance', []),
-                        recommended_users
-                    )
-
-                    if not polygon_nft_holders_response.has_next_page:
-                        break
-                    else:
-                        polygon_nft_holders_response = await polygon_nft_holders_response.get_next_page
-                else:
-                    print("Error: ", polygon_nft_holders_response.error)
-                    break
-
-            if not polygon_nft_response.has_next_page:
-                break
-            else:
-                polygon_nft_response = await polygon_nft_response.get_next_page
-        else:
-            print("Error: ", polygon_nft_response.error)
-            break
-
-    return recommended_users
-</code></pre>
-
-{% endtab %}
-{% endtabs %}
-
-#### Step 1.10: Fetch Common Base NFT Holders Data
-
-You can use Airstack to fetch all the NFTs that are hold by a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS), on Base:
+You can use Airstack to fetch all the NFTs that are hold by a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), on Base:
 
 **Try Demo**
 
@@ -5230,7 +4442,6 @@ Show me all Base NFT address owned by vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery($user: Identity!) {
   TokenBalances(
@@ -5246,21 +4457,17 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "user": "vitalik.eth"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -5281,7 +4488,6 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -5289,20 +4495,16 @@ Then, the response can be filtered to only Base NFTs and be formatted into an ar
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 ```javascript
 const tokenAddresses =
   data?.TokenBalances?.TokenBalance?.map((token) => token.tokenAddress) ?? [];
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 token_addresses = [token['tokenAddress'] for token in data.get('TokenBalances', {}).get('TokenBalance', [])] if data and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances'] else []
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -5327,7 +4529,7 @@ where `data` is the response from the API. The formatted result will have a form
 
 **Fetch all Base NFT owners**
 
-Using the array of token addresses from the first step, you can fetch all Base NFT holders that hold any of the NFTs that the given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS), owned on Base:
+Using the array of token addresses from the first step, you can fetch all Base NFT holders that hold any of the NFTs that the given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), owned on Base:
 
 **Try Demo**
 
@@ -5339,7 +4541,6 @@ Show me Base NFT holders of an array of Base NFT addresses
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery($tokenAddresses: [Address!]) {
   TokenBalances(
@@ -5386,11 +4587,9 @@ query MyQuery($tokenAddresses: [Address!]) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "tokenAddresses": [
@@ -5409,11 +4608,9 @@ query MyQuery($tokenAddresses: [Address!]) {
   ]
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -5473,7 +4670,6 @@ query MyQuery($tokenAddresses: [Address!]) {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -5482,7 +4678,6 @@ The response then can be formatted further with the following formatting functio
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="utils/formatBaseNftData.js" %}
-
 ```javascript
 const formatBaseNftData = (data, _recommendedUsers = []) => {
   const recommendedUsers = [..._recommendedUsers];
@@ -5538,13 +4733,11 @@ const formatBaseNftData = (data, _recommendedUsers = []) => {
 
 export default formatBaseNftData;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/base_nft.py" %}
-
 ```python
 def format_base_nft_data(data, _recommended_users=None):
     if _recommended_users is None:
@@ -5601,7 +4794,6 @@ def format_base_nft_data(data, _recommended_users=None):
 
     return recommended_users
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -5639,7 +4831,6 @@ In order to paginate through all the data, you can utilize `fetchQueryWithPagina
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript" data-title="functions/formatBaseNftData.js"><code class="lang-javascript">import { init, fetchQueryWithPagination } from "@airstack/node"; // or @airstack/airstack-react for frontend javascript
 import formatBaseNftData from "./utils/formatBaseNftData";
 
@@ -5771,12 +4962,10 @@ const fetchBaseNft = async (address, existingUsers = []) => {
 
 export default fetchBaseNft;
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="functions/base_nft.py" %}
-
 ```python
 from airstack.execute_query import AirstackClient
 from utils.base_nft import format_base_nft_data
@@ -5881,14 +5070,13 @@ async def fetch_base_nft(address, existing_users=[]):
 
     return recommended_users
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
 
-#### Step 1.11: Fetch Common Zora Token Holders Data
+#### Step 1.10: Fetch Common Zora Token Holders Data
 
-You can use Airstack to fetch all the NFTs that are hold by a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS), on Zora:
+You can use Airstack to fetch all the NFTs that are hold by a given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), on Zora:
 
 **Try Demo**
 
@@ -5900,7 +5088,6 @@ Show me all Zora NFT address owned by vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery($user: Identity!) {
   TokenBalances(
@@ -5916,21 +5103,17 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "user": "vitalik.eth"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -5951,7 +5134,6 @@ query MyQuery($user: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -5959,20 +5141,16 @@ Then, the response can be filtered to only Zora NFTs and be formatted into an ar
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 ```javascript
 const tokenAddresses =
   data?.TokenBalances?.TokenBalance?.map((token) => token.tokenAddress) ?? [];
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 token_addresses = [token['tokenAddress'] for token in data.get('TokenBalances', {}).get('TokenBalance', [])] if data and 'TokenBalances' in data and 'TokenBalance' in data['TokenBalances'] else []
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -5997,7 +5175,7 @@ where `data` is the response from the API. The formatted result will have a form
 
 **Fetch all Zora NFT owners**
 
-Using the array of token addresses from the first step, you can fetch all Zora NFT holders that hold any of the NFTs that the given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29&inputType=ADDRESS), owned on Zora:
+Using the array of token addresses from the first step, you can fetch all Zora NFT holders that hold any of the NFTs that the given user, e.g. [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS), owned on Zora:
 
 **Try Demo**
 
@@ -6009,7 +5187,6 @@ Show me Zora NFT holders of an array of Zora NFT addresses
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery($tokenAddresses: [Address!]) {
   TokenBalances(
@@ -6056,11 +5233,9 @@ query MyQuery($tokenAddresses: [Address!]) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "tokenAddresses": [
@@ -6079,11 +5254,9 @@ query MyQuery($tokenAddresses: [Address!]) {
   ]
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -6143,7 +5316,6 @@ query MyQuery($tokenAddresses: [Address!]) {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -6152,7 +5324,6 @@ The response then can be formatted further with the following formatting functio
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="utils/formatZoraNftData.js" %}
-
 ```javascript
 const formatZoraNftData = (data, _recommendedUsers = []) => {
   const recommendedUsers = [..._recommendedUsers];
@@ -6208,13 +5379,11 @@ const formatZoraNftData = (data, _recommendedUsers = []) => {
 
 export default formatZoraNftData;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="utils/zora_nft.py" %}
-
 ```python
 def format_zora_nft_data(data, _recommended_users=None):
     if _recommended_users is None:
@@ -6271,7 +5440,6 @@ def format_zora_nft_data(data, _recommended_users=None):
 
     return recommended_users
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -6309,7 +5477,6 @@ In order to paginate through all the data, you can utilize `fetchQueryWithPagina
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript" data-title="functions/fetchZoraNftData.js"><code class="lang-javascript">import { init, fetchQueryWithPagination } from "@airstack/node"; // or @airstack/airstack-react for frontend javascript
 import formatZoraNftData from "./utils/formatZoraNftData";
 
@@ -6441,12 +5608,10 @@ const fetchZoraNft = async (address, existingUsers = []) => {
 
 export default fetchZoraNft;
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="" %}
-
 ```python
 from airstack.execute_query import AirstackClient
 from utils.zora_nft import format_zora_nft_data
@@ -6551,7 +5716,6 @@ async def fetch_zora_nft(address, existing_users=[]):
 
     return recommended_users
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -6567,7 +5731,6 @@ Utilizing the data fetching functions that we have defined, we can easily import
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="index.js" %}
-
 ```javascript
 import fetchPoapsData from "./functions/fetchPoapsData";
 import fetchFarcasterFollowings from "./functions/fetchFarcasterFollowings";
@@ -6604,13 +5767,11 @@ const fetchOnChainGraphData = async (address) => {
 
 const onChainGraphUsers = await fetchOnChainGraphData("vitalik.eth");
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="index.py" %}
-
 ```python
 import asyncio
 from functions.poaps import fetch_poaps_data
@@ -6647,7 +5808,6 @@ async def fetch_on_chain_graph_data(address):
 if __name__ == "__main__":
     onchain_graph_results = asyncio.run(fetch_on_chain_graph_data("vitalik.eth"))
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -6687,7 +5847,6 @@ Thus, translating this into code, the score calculation function will look as fo
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="score.js" %}
-
 ```javascript
 const defaultScoreMap = {
   tokenSent: 10,
@@ -6791,13 +5950,11 @@ const calculatingScore = (user, scoreMap = defaultScoreMap) => {
 
 export default calculatingScore;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="score.py" %}
-
 ```python
 default_score_map = {
     'tokenSent': 10,
@@ -6883,7 +6040,6 @@ def calculating_score(user, score_map=None):
     user['_score'] = score
     return user
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -6892,18 +6048,15 @@ To assign score to each user, you can simply use the following code:
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript" data-title="index.js"><code class="lang-javascript">import calculatingScore from "score";
 
 const onChainGraphUsers = await fetchOnChainGraphData("vitalik.eth");
 <strong>const onChainGraphUsersWithScore = recommendUsers.map(user => calculatingScore(user));
 </strong>console.log(onChainGraphUsersWithScore);
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 <pre class="language-python" data-title="index.py"><code class="lang-python">from score import calculating_score
 
 if __name__ == "__main__":
@@ -6911,7 +6064,6 @@ if __name__ == "__main__":
 <strong>    on_chain_graph_users_with_score = [calculating_score(user) for user in on_chain_graph_users]
 </strong>    print(on_chain_graph_users_with_score)
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -6979,7 +6131,6 @@ Lastly, once you have all the recommended users' score calculated, you can use t
 {% tabs %}
 {% tab title="JavaScript" %}
 {% code title="sort.js" %}
-
 ```javascript
 const sortByScore = (recommendations) => {
   return recommendations.sort((a, b) => {
@@ -6989,18 +6140,15 @@ const sortByScore = (recommendations) => {
 
 export default sortByScore;
 ```
-
 {% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 {% code title="sort.py" %}
-
 ```python
 def sort_by_score(recommendations):
     return sorted(recommendations, key=lambda x: x.get('_score', 0), reverse=True)
 ```
-
 {% endcode %}
 {% endtab %}
 {% endtabs %}
@@ -7009,7 +6157,6 @@ Import it to the index file as follows:
 
 {% tabs %}
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript" data-title="index.js"><code class="lang-javascript">import sortByScore from "sort";
 
 const onChainGraphUsers = await fetchOnChainGraphData("vitalik.eth");
@@ -7018,11 +6165,9 @@ const onChainGraphUsersWithScore = recommendUsers.map(user => calculatingScore(u
 <strong>const finalOnChainGraphUsers = sortByScore(onChainGraphUsersWithScore);
 </strong>console.log(finalOnChainGraphUsers);
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 <pre class="language-python" data-title="index.py"><code class="lang-python">from score import calculating_score
 
 if __name__ == "__main__":
@@ -7032,7 +6177,6 @@ if __name__ == "__main__":
 <strong>    final_on_chain_graph_users = sort_by_score(on_chain_graph_users_with_score)
 </strong>    print(final_on_chain_graph_users)
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -7137,7 +6281,7 @@ And done!
 
 The user's sorted & formatted onchain graph can then be served to the frontend and be shown to the given user can use to search for relevant people within their network, that is an onchain contacts.
 
-🎉 :partying_face: Congratulations you've just built onchain contacts into your app!
+🎉 :partying\_face: Congratulations you've just built onchain contacts into your app!
 
 ### Developer Support
 
@@ -7145,10 +6289,10 @@ If you have any questions or need help regarding integrating or building web3 ad
 
 ### More Resources
 
-- [Poaps API Reference](../api-references/api-reference/poaps-api.md)
-- [SocialFollowers API Reference](../api-references/api-reference/socialfollowers-api.md)
-- [SocialFollowings API Reference](../api-references/api-reference/socialfollowings-api.md)
-- [TokenTransfers API Reference](../api-references/api-reference/tokentransfers-api.md)
-- [TokenBalances API Reference](../api-references/api-reference/tokenbalances-api.md)
-- [Onchain Graph Guides](onchain-graph.md)
-- [Recommendation Engine Tutorial](recommend-users/)
+* [Poaps API Reference](../api-references/api-reference/poaps-api.md)
+* [SocialFollowers API Reference](../api-references/api-reference/socialfollowers-api.md)
+* [SocialFollowings API Reference](../api-references/api-reference/socialfollowings-api.md)
+* [TokenTransfers API Reference](../api-references/api-reference/tokentransfers-api.md)
+* [TokenBalances API Reference](../api-references/api-reference/tokenbalances-api.md)
+* [Onchain Graph Guides](onchain-graph.md)
+* [Recommendation Engine Tutorial](recommend-users/)

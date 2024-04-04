@@ -21,14 +21,14 @@ layout:
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Get All ERC20s Owned By Solana Address](token-balances.md#get-all-erc20s-owned-by-solana-address)
-- [Get All NFTs Owned By Solana Address](token-balances.md#get-all-nfts-owned-by-solana-address)
-- [Get All POAPs Owned By Solana Address](token-balances.md#get-all-poaps-attended-by-solana-address)
+* [Get All ERC20s Owned By Solana Address](token-balances.md#get-all-erc20s-owned-by-solana-address)
+* [Get All NFTs Owned By Solana Address](token-balances.md#get-all-nfts-owned-by-solana-address)
+* [Get All POAPs Owned By Solana Address](token-balances.md#get-all-poaps-attended-by-solana-address)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -49,7 +49,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -64,7 +63,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -79,15 +77,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -95,7 +90,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -119,11 +113,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -136,11 +128,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -158,7 +148,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -174,19 +163,18 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get All ERC20s Owned By Solana Address
 
-You can fetch all ERC20 tokens on Ethereum, Polygon, Base, and Zora owned by any Solana address:
+You can fetch all ERC20 tokens on Ethereum, Base, and Zora owned by any Solana address:
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/29dvo4VnBa" %}
-Show me the ERC20 balances of Solana address GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV across Ethereum, Polygon, Base, and Zora
+Show me the ERC20 balances of Solana address GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV across Ethereum, Base, and Zora
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Ethereum: TokenBalances(
@@ -196,25 +184,6 @@ query MyQuery {
         tokenType: { _eq: ERC20 }
       }
       blockchain: ethereum
-      limit: 50
-    }
-  ) {
-    TokenBalance {
-      formattedAmount
-      tokenAddress
-      token {
-        name
-        symbol
-      }
-    }
-  }
-  Polygon: TokenBalances(
-    input: {
-      filter: {
-        owner: { _eq: "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV" }
-        tokenType: { _eq: ERC20 }
-      }
-      blockchain: polygon
       limit: 50
     }
   ) {
@@ -267,11 +236,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -286,19 +253,6 @@ query MyQuery {
           }
         }
         // Other Ethereum ERC20 tokens
-      ]
-    },
-    "Polygon": {
-      "TokenBalance": [
-        {
-          "formattedAmount": 110,
-          "tokenAddress": "0x4ad7d60c94a91cd16edc948902d0b2006e420d56",
-          "token": {
-            "name": "EREMITA",
-            "symbol": "EREMITA"
-          }
-        }
-        // Other Polygon ERC20 tokens
       ]
     },
     "Base": {
@@ -329,7 +283,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -347,7 +300,6 @@ Show me all the NFTs owned by GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV acros
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Ethereum: TokenBalances(
@@ -456,11 +408,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -545,7 +495,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -563,7 +512,6 @@ Show me all the POAPs attended by GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Poaps(
@@ -583,11 +531,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -623,7 +569,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -633,10 +578,10 @@ If you have any questions or need help regarding fetching token balances of a so
 
 ## More Resources
 
-- [Token Balances Guides](../token-balances/)
-- [Resolving Solana Addresses](resolve-identities.md)
-- [Social Followers Of Solana Addresses](social-followers.md)
-- [Social Followings Of Solana Addresses](social-followings.md)
-- [Check XMTP For Solana Addresses](../xmtp/check-multiple-users.md)
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
-- [Poaps API Reference](../../api-references/api-reference/poaps-api.md)
+* [Token Balances Guides](../token-balances/)
+* [Resolving Solana Addresses](resolve-identities.md)
+* [Social Followers Of Solana Addresses](social-followers.md)
+* [Social Followings Of Solana Addresses](social-followings.md)
+* [Check XMTP For Solana Addresses](../xmtp/check-multiple-users.md)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+* [Poaps API Reference](../../api-references/api-reference/poaps-api.md)

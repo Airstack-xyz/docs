@@ -23,8 +23,8 @@ As [Airstack](https://airstack.xyz) is a GraphQL API, it inherits this feature t
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/Mf7KH1MM0o" %}
-Show ERC20 tokens on Ethereum, Polygon, Base, and Zora owned by users
+{% embed url="https://app.airstack.xyz/query/3eBk5PMyBM" %}
+Show ERC20 tokens on Ethereum, Base, and Zora own by users
 {% endembed %}
 
 ### Code
@@ -46,32 +46,6 @@ Show ERC20 tokens on Ethereum, Polygon, Base, and Zora owned by users
         tokenType: { _eq: ERC20 }
       }
       blockchain: ethereum
-      limit: 50
-    }
-  ) {
-    TokenBalance {
-      formattedAmount
-      tokenAddress
-      token {
-        name
-        symbol
-      }
-    }
-  }
-<strong>  Polygon: TokenBalances( # second query fetch Polygon ERC20 balance
-</strong>    input: {
-      filter: {
-        owner: {
-          _in: [
-            "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-            "vitalik.eth"
-            "lens/@vitalik"
-            "fc_fname:vitalik"
-          ]
-        }
-        tokenType: { _eq: ERC20 }
-      }
-      blockchain: polygon
       limit: 50
     }
   ) {
@@ -155,19 +129,6 @@ Show ERC20 tokens on Ethereum, Polygon, Base, and Zora owned by users
           }
         },
         // Other Ethereum ERC20s
-      ]
-    },
-    "Polygon": {
-      "TokenBalance": [
-        {
-          "formattedAmount": 1,
-          "tokenAddress": "0xff99afd7dd09988d76c4aaab5798216617335b96",
-          "token": {
-            "name": "Acces Liquid-ether.com",
-            "symbol": "Acces Liquid-ether.com to claim rewards"
-          }
-        },
-        // Other Polygon ERC20s
       ]
     },
     "Base": {

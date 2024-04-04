@@ -138,8 +138,8 @@ This is particularly useful for building cross-chain queries:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/gla6KJCgqy" %}
-Show ERC20 tokens on Ethereum, Polygon, and Base owned by users
+{% embed url="https://app.airstack.xyz/query/h03awJVjFM" %}
+Show ERC20 tokens on Ethereum and Base owned by users
 {% endembed %}
 
 ### Code
@@ -161,52 +161,6 @@ Show ERC20 tokens on Ethereum, Polygon, and Base owned by users
         tokenType: { _eq: ERC20 }
       }
       blockchain: ethereum
-      limit: 50
-    }
-  ) {
-    TokenBalance {
-      owner {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          profileName
-          profileTokenId
-          profileTokenIdHex
-          userAssociatedAddresses
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-      amount
-      tokenAddress
-      token {
-        name
-        symbol
-      }
-    }
-    pageInfo {
-      nextCursor
-      prevCursor
-    }
-  }
-<strong>  Polygon: TokenBalances( # second query fetch Polygon ERC20 balance
-</strong>    input: {
-      filter: {
-        owner: {
-          _in: [
-            "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-            "vitalik.eth"
-            "lens/@vitalik"
-            "fc_fname:vitalik"
-          ]
-        }
-        tokenType: { _eq: ERC20 }
-      }
-      blockchain: polygon
       limit: 50
     }
   ) {
@@ -340,59 +294,6 @@ Show ERC20 tokens on Ethereum, Polygon, and Base owned by users
           }
         }
         // Other Ethereum ERC20s
-      ],
-      "pageInfo": {
-        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
-        "prevCursor": ""
-      }
-    },
-    "Polygon": {
-      "TokenBalance": [
-        {
-          "owner": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
-            "domains": [
-              {
-                "name": "quantumexchange.eth",
-                "isPrimary": false
-              },
-              // Other ENS domains
-            ]
-            "socials": [
-              {
-                "profileName": "vitalik.eth",
-                "profileTokenId": "5650",
-                "profileTokenIdHex": "0x1612",
-                "userAssociatedAddresses": [
-                  "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
-                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-                ]
-              },
-              {
-                "profileName": "lens/@vitalik",
-                "profileTokenId": "100275",
-                "profileTokenIdHex": "0x0187b3",
-                "userAssociatedAddresses": [
-                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-                ]
-              }
-            ],
-            "xmtp": [
-              {
-                "isXMTPEnabled": true
-              }
-            ]
-          },
-          "amount": "457218374987121000000",
-          "tokenAddress": "0x086373fad3447f7f86252fb59d56107e9e0faafa",
-          "token": {
-            "name": "Yup",
-            "symbol": "YUP"
-          }
-        }
-        // Other Polygon ERC20s
       ],
       "pageInfo": {
         "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",

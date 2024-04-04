@@ -48,7 +48,6 @@ If you are deploying ERC6551 using a custom registry contract, please reach out 
 | Enum       | Description      |
 | ---------- | ---------------- |
 | `ethereum` | Ethereum mainnet |
-| `polygon`  | Polygon mainnet  |
 | `base`     | Base mainnet     |
 | `zora`     | Zora mainnet     |
 | `gold`     | Gold chain L3    |
