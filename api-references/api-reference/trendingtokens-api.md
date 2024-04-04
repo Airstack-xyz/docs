@@ -1,49 +1,42 @@
 ---
 description: >-
-  Learn all the detailed references of TrendingTokens API that provide trending
+  Learn all the detailed references of TrendingSwaps API that provide trending
   ERC20 tokens in a certain period of time, including the input filters,
   supported chains, and output fields.
 ---
 
-# TrendingTokens API
+# TrendingSwaps API
 
-The TrendingTokens API provides you with a list of trending tokens frequently transferred within a given time frame.
+The TrendingSwaps API provides you with a list of trending swaps that are frequently swapped within a given time frame.
 
 ## Inputs
 
 ### filter
 
-| Name      | Type                      | Description                           |
-| --------- | ------------------------- | ------------------------------------- |
-| `address` | `Trending_Comparator_Exp` | Token address of the trending tokens. |
-
-### transferType
-
-| Name             | Description                                                                                   |
-| ---------------- | --------------------------------------------------------------------------------------------- |
-| `all`            | Configure to include airdropped & self-transferred tokens in the calculation & analysis.      |
-| `self_initiated` |  Configure to exclude airdropped and self-transferred tokens from the calculation & analysis. |
-
-### audience
-
-| Name        | Description                                                               |
-| ----------- | ------------------------------------------------------------------------- |
-| `farcaster` | Get all trending tokens for **Farcaster user**s.                          |
-| `all`       | Get all trending tokens for all users in the Ethereum ecosystem globally. |
+| Name      | Type                      | Description                          |
+| --------- | ------------------------- | ------------------------------------ |
+| `address` | `Trending_Comparator_Exp` | Token address of the trending swaps. |
 
 ### criteria
 
-| Name              | Description                                                                 |
-| ----------------- | --------------------------------------------------------------------------- |
-| `unique_wallets`  | Sort the trending tokens by the number of unique wallets minting the token. |
-| `total_transfers` | Sort the trending tokens by the number of total tokens minted.              |
-| `unique_holders`  | Sort the trending tokens by the number of unique holders.                   |
+| Name                      | Description                                                                   |
+| ------------------------- | ----------------------------------------------------------------------------- |
+| `buy_transaction_count`   | Sort the trending swaps by the number of buy transactions.                    |
+| `sell_transaction_count`  | Sort the trending swaps by the number of sell transactions.                   |
+| `total_transaction_count` | Sort the trending swaps by the number of total buy & sell transactions.       |
+| `buy_volume`              | Sort the trending swaps by the number of buy volume.                          |
+| `sell_volume`             | Sort the trending swaps by the number of sell volume.                         |
+| `total_volume`            | Sort the trending swaps by the number of total buy & sell volume.             |
+| `unique_buy_wallets`      | Sort the trending swaps by the number of unique buyer wallets.                |
+| `unique_sell_wallets`     | Sort the trending swaps by the number of unique seller wallets.               |
+| `total_unique_wallets`    | Sort the trending swaps by the number of total unique buyer & seller wallets. |
 
 ### blockchain
 
-| Name   | Description  |
-| ------ | ------------ |
-| `base` | Base mainnet |
+| Name       | Description      |
+| ---------- | ---------------- |
+| `ethereum` | Ethereum mainnet |
+| `base`     | Base mainnet     |
 
 ### timeFrame
 
@@ -56,23 +49,24 @@ The TrendingTokens API provides you with a list of trending tokens frequently tr
 | `two_days`    | Get trending mints from the last 2 days.  |
 | `seven_days`  | Get trending mints from the last 7 days.  |
 
-### swappable
-
-| Name  | Description                                                                                                |
-| ----- | ---------------------------------------------------------------------------------------------------------- |
-| `_eq` | Equal operator, assign `true` or `false` to indicate whether you want to only get swappable tokens or not. |
-
 ## Outputs
 
-| Name            | Type                     | Description                                                                         |
-| --------------- | ------------------------ | ----------------------------------------------------------------------------------- |
-| `address`       | `String`                 | Trending token address.                                                             |
-| `audience`      | `String`                 | Trending tokens based on given audience, either `farcaster` or `all`.               |
-| `blockchain`    | `Blockchain`             | Blockchain where the trending token exist.                                          |
-| `chainId`       | `String`                 | Chain ID of the blockchain.                                                         |
-| `criteria`      | `String`                 | Criteria to evaluate trending tokens, either `unique_wallets` or `total_transfers`. |
-| `criteriaCount` | `Int`                    | The total number for the criteria metric chosen.                                    |
-| `id`            | `ID`                     | Airstack unique identifier for the token transfer                                   |
-| `timeFrom`      | `Time`                   | The time when the first transfer within the time frame begins from.                 |
-| `timeTo`        | `Time`                   | The time when the first transfer within the time frame ends.                        |
-| `token`         | [`Token`](tokens-api.md) | \*\*Nested query\*\* - token contract level information                             |
+| Name                    | Type                     | Description                                                                                               |
+| ----------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------- |
+| `address`               | `String`                 | Trending swaps token address.                                                                             |
+| `blockchain`            | `Blockchain`             | Blockchain where the trending token exist.                                                                |
+| `buyTransactionCount`   | `Int`                    | The number of buy transactions for the trending swaps token during the specified time frame.              |
+| `buyVolume`             | `Float`                  | The buying volume of the trending swaps token.                                                            |
+| `chainId`               | `String`                 | Chain ID of the blockchain.                                                                               |
+| `criteria`              | `String`                 | Criteria that is chosen to evaluate trending swaps.                                                       |
+| `id`                    | `ID`                     | Airstack unique identifier for the token transfer                                                         |
+| `sellTransactionCount`  | `Int`                    | The number of sell transactions for the trending swaps token during the specified time frame.             |
+| `sellVolume`            | `Float`                  | The selling volume of the trending swaps token.                                                           |
+| `timeFrom`              | `Time`                   | The time when the first swaps within the time frame begins from.                                          |
+| `timeTo`                | `Time`                   | The time when the first swaps within the time frame ends.                                                 |
+| `token`                 | [`Token`](tokens-api.md) | **Nested query** - token contract level information                                                       |
+| `totalTransactionCount` | `Int`                    | The number of total buy & sell transactions for the trending swaps token during the specified time frame. |
+| `totalUniqueWallets`    | `Int`                    | The number of unique wallets buying and selling the trending swaps token.                                 |
+| `totalVolume`           | `Float`                  | The buying & selling volume of the trending swaps token.                                                  |
+| `uniqueBuyWallets`      | `Int`                    | The number of unique wallets buying the trending swaps token.                                             |
+| `uniqueSellWallets`     | `Int`                    | The number of unique wallets selling the trending swaps token.                                            |

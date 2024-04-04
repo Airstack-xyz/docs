@@ -241,4 +241,4 @@ If you have any questions or need help regarding integrating or building trendin
 ## More Resources
 
 * [Trending Tokens By Farcaster Users](farcaster-users.md)
-* [TrendingTokens API Reference](../../api-references/api-reference/trendingtokens-api.md)
+* [TrendingTokens API Reference](../../api-references/api-reference/trendingtokens-api-1.md)
