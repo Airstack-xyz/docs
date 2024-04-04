@@ -28,17 +28,20 @@ The TokenTransfers API only covers transfers of the "transfer" type and excludes
 
 ### filter
 
-| Name              | Type                       | Description                                                                              |
-| ----------------- | -------------------------- | ---------------------------------------------------------------------------------------- |
-| `blockTimestamp`  | `Time_Comparator_Exp`      | Allows entering blockTimestamp to filter transactions which happened in specific periods |
-| `formattedAmount` | `Float_Comparator_Exp`     | Allows filtering based on Balance amount in decimals, e.g. show me Balances above 200    |
-| `from`            | `Identity_Comparator_Exp`  | Identity: blockchain address, domain name, social identity                               |
-| `operator`        | `Identity_Comparator_Exp`  | Executor of the transaction.                                                             |
-| `to`              | `Identity_Comparator_Exp`  | Identity: blockchain address, domain name, social identity                               |
-| `tokenAddress`    | `Address_Comparator_Exp`   | Token contract address (ERC20, ERC721, ERC1155)                                          |
-| `tokenId`         | `String_Comparator_Exp`    | Unique NFT token ID                                                                      |
-| `tokenType`       | `TokenType_Comparator_Exp` | ERC20, ERC721, ERC1155                                                                   |
-| `transactionHash` | `String_Comparator_Exp`    | Transaction hash of the Token Transfers                                                  |
+| Name              | Type                                                     | Description                                                                                                                                                                                     |
+| ----------------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `_and`            | [`[TokenTransferFilter!]`](tokentransfers-api.md#filter) | Combines multiple filtering conditions, and only returns the data that meets all the specified conditions. Note: the relationship between multiple selected filters is always `AND` by default. |
+| `_nor`            | [`[TokenTransferFilter!]`](tokentransfers-api.md#filter) | Combines multiple filtering conditions, and only returns the data that does not meet any of the specified conditions.                                                                           |
+| `_or`             | [`[TokenTransferFilter!]`](tokentransfers-api.md#filter) | Combines multiple filtering conditions, and returns the data that meets at least one of the specified conditions.                                                                               |
+| `blockTimestamp`  | `Time_Comparator_Exp`                                    | Allows entering blockTimestamp to filter transactions which happened in specific periods                                                                                                        |
+| `formattedAmount` | `Float_Comparator_Exp`                                   | Allows filtering based on Balance amount in decimals, e.g. show me Balances above 200                                                                                                           |
+| `from`            | `Identity_Comparator_Exp`                                | Identity: blockchain address, domain name, social identity                                                                                                                                      |
+| `operator`        | `Identity_Comparator_Exp`                                | Executor of the transaction.                                                                                                                                                                    |
+| `to`              | `Identity_Comparator_Exp`                                | Identity: blockchain address, domain name, social identity                                                                                                                                      |
+| `tokenAddress`    | `Address_Comparator_Exp`                                 | Token contract address (ERC20, ERC721, ERC1155)                                                                                                                                                 |
+| `tokenId`         | `String_Comparator_Exp`                                  | Unique NFT token ID                                                                                                                                                                             |
+| `tokenType`       | `TokenType_Comparator_Exp`                               | ERC20, ERC721, ERC1155                                                                                                                                                                          |
+| `transactionHash` | `String_Comparator_Exp`                                  | Transaction hash of the Token Transfers                                                                                                                                                         |
 
 ### blockchain
 
