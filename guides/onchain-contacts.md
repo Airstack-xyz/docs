@@ -138,7 +138,7 @@ In order to build a comprehensive onchain graph of a user, it'll require various
 * **common POAP holders** that are also attended by the user
 * Lens and Farcaster **social followers and following** of the given user
 * Token transfers **senders and receivers**
-* **common Ethereum, Polygon, Base, and Zora NFT holders** that are also held by the user
+* **common Ethereum, Base, and Zora NFT holders** that are also held by the user
 
 In this step, you'll learn to fetch all the data that you need to build the onchain graph of a user.
 
@@ -2405,7 +2405,7 @@ You can use [Airstack](https://airstack.xyz) to easily fetch all the users that 
 **Try Demo**
 
 {% embed url="https://app.airstack.xyz/query/5h8u6JCSGx" %}
-Show me token transfers from vitalik.eth on Ethereum, Polygon, Base, and Zora
+Show me token transfers from vitalik.eth on Ethereum, Base, and Zora
 {% endembed %}
 
 **Code**
@@ -2420,30 +2420,6 @@ query MyQuery($user: Identity!) {
       blockchain: ethereum
       limit: 200
     }
-  ) {
-    TokenTransfer {
-      account: to {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          dappName
-          blockchain
-          profileName
-          profileImage
-          profileTokenId
-          profileTokenAddress
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
-  Polygon: TokenTransfers(
-    input: { filter: { from: { _eq: $user } }, blockchain: polygon, limit: 200 }
   ) {
     TokenTransfer {
       account: to {
@@ -2554,28 +2530,6 @@ query MyQuery($user: Identity!) {
         // more Ethereum token transfers from vitalik.eth
       ]
     },
-    "Polygon": {
-      "TokenTransfer": [
-        {
-          "account": {
-            "addresses": ["0xd8b75eb7bd778ac0b3f5ffad69bcc2e25bccac95"],
-            "domains": [
-              {
-                "name": "toastmybread.eth",
-                "isPrimary": true
-              },
-              {
-                "name": "daerbymtsaot.eth",
-                "isPrimary": false
-              }
-            ],
-            "socials": null,
-            "xmtp": null
-          }
-        }
-        // more Polygon token transfers from vitalik.eth
-      ],
-    }
     "Base": {
       "TokenTransfer": [
         {
@@ -2768,33 +2722,6 @@ query TokenSent($user: Identity!) {
         }
       }
     }
-    Polygon: TokenTransfers(
-      input: {filter: {from: {_eq: $user}}, blockchain: polygon, limit: 200}
-    ) {
-      TokenTransfer {
-        account: to {
-          addresses
-          primaryDomain {
-            name
-          }
-          domains {
-            name
-            isPrimary
-          }
-          socials {
-            dappName
-            blockchain
-            profileName
-            profileImage
-            profileTokenId
-            profileTokenAddress
-          }
-          xmtp {
-            isXMTPEnabled
-          }
-        }
-      }
-    }
     Base: TokenTransfers(
       input: {filter: {from: {_eq: $user}}, blockchain: base, limit: 200}
     ) {
@@ -2866,9 +2793,6 @@ const fetchTokenSent = async (address, existingUsers = []) => {
       const ethData = (data?.Ethereum?.TokenTransfer ?? []).map(
         (transfer) => transfer.account
       );
-      const polygonData = (data?.Polygon?.TokenTransfer ?? []).map(
-        (transfer) => transfer.account
-      );
       const baseData = (data?.Base?.TokenTransfer ?? []).map(
         (transfer) => transfer.account
       );
@@ -2877,7 +2801,6 @@ const fetchTokenSent = async (address, existingUsers = []) => {
       );
       const tokenTransfer = [
         ...ethData,
-        ...polygonData,
         ...baseData,
         ...zoraData,
       ];
@@ -2911,30 +2834,6 @@ api_client = AirstackClient(api_key="YOUR_AIRSTACK_API_KEY")
 token_sent_query = """
 query MyQuery($user: Identity!) {
   Ethereum: TokenTransfers(
-    input: {filter: {from: {_eq: $user}}, blockchain: ethereum, limit: 200}
-  ) {
-    TokenTransfer {
-      account: to {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          dappName
-          blockchain
-          profileName
-          profileImage
-          profileTokenId
-          profileTokenAddress
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
-  Polygon: TokenTransfers(
     input: {filter: {from: {_eq: $user}}, blockchain: ethereum, limit: 200}
   ) {
     TokenTransfer {
@@ -3028,13 +2927,11 @@ async def fetch_token_sent(address, existing_users=[]):
         if res.error is None:
             eth_data = [transfer['account'] for transfer in (res.data.get('Ethereum', {}).get(
                 'TokenTransfer', []) if res.data and 'Ethereum' in res.data and 'TokenTransfer' in res.data['Ethereum'] else [])]
-            polygon_data = [transfer['account'] for transfer in (res.data.get('Polygon', {}).get(
-                'TokenTransfer', []) if res.data and 'Polygon' in res.data and 'TokenTransfer' in res.data['Polygon'] else [])]
             base_data = [transfer['account'] for transfer in (res.data.get('Base', {}).get(
                 'TokenTransfer', []) if res.data and 'Base' in res.data and 'TokenTransfer' in res.data['Base'] else [])]
             zora_data = [transfer['account'] for transfer in (res.data.get('Zora', {}).get(
                 'TokenTransfer', []) if res.data and 'Zora' in res.data and 'TokenTransfer' in res.data['Zora'] else [])]
-            token_transfer = eth_data + polygon_data + base_data + zora_data
+            token_transfer = eth_data + base_data + zora_data
             recommended_users = format_token_sent_data(
                 token_transfer,
                 recommended_users
@@ -3060,7 +2957,7 @@ You can use [Airstack](https://airstack.xyz) to easily fetch all the users that 
 **Try Demo**
 
 {% embed url="https://app.airstack.xyz/query/N2AuaaKBI7" %}
-Show me token transfers received by vitalik.eth on Ethereum, Polygon, Base, and Zora
+Show me token transfers received by vitalik.eth on Ethereum, Base, and Zora
 {% endembed %}
 
 **Code**
@@ -3071,30 +2968,6 @@ Show me token transfers received by vitalik.eth on Ethereum, Polygon, Base, and 
 query MyQuery($user: Identity!) {
   Ethereum: TokenTransfers(
     input: { filter: { to: { _eq: $user } }, blockchain: ethereum, limit: 200 }
-  ) {
-    TokenTransfer {
-      account: from {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          dappName
-          blockchain
-          profileName
-          profileImage
-          profileTokenId
-          profileTokenAddress
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
-  Polygon: TokenTransfers(
-    input: { filter: { to: { _eq: $user } }, blockchain: polygon, limit: 200 }
   ) {
     TokenTransfer {
       account: from {
@@ -3198,30 +3071,6 @@ query MyQuery($user: Identity!) {
         }
         // more tokens received by vitalik.eth on Ethereum
       ],
-      "Polygon": [
-        {
-          "account": {
-            "addresses": ["0x0aa843796ff888f06f5d609c9d6339364d138752"],
-            "domains": [
-              {
-                "name": "abc-d.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "orent.eth",
-                "isPrimary": false
-              },
-              {
-                "name": "0xstranger.eth",
-                "isPrimary": true
-              }
-            ],
-            "socials": null,
-            "xmtp": null
-          }
-        }
-        // more tokens received by vitalik.eth on Polygon
-      ]
     },
     "Base": {
       "TokenTransfer": [
@@ -3481,30 +3330,6 @@ query MyQuery($user: Identity!) {
       }
     }
   }
-  Polygon: TokenTransfers(
-    input: {filter: {to: {_eq: $user}}, blockchain: polygon, limit: 200}
-  ) {
-    TokenTransfer {
-      account: from {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          dappName
-          blockchain
-          profileName
-          profileImage
-          profileTokenId
-          profileTokenAddress
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
   Base: TokenTransfers(
     input: {filter: {to: {_eq: $user}}, blockchain: base, limit: 200}
   ) {
@@ -3570,9 +3395,6 @@ const fetchTokenReceived = async (address, existingUsers = []) => {
       const ethData = (data?.Ethereum?.TokenTransfer ?? []).map(
         (transfer) => transfer.account
       );
-      const polygonData = (data?.Polygon?.TokenTransfer ?? []).map(
-        (transfer) => transfer.account
-      );
       const baseData = (data?.Base?.TokenTransfer ?? []).map(
         (transfer) => transfer.account
       );
@@ -3582,7 +3404,6 @@ const fetchTokenReceived = async (address, existingUsers = []) => {
 
       const tokenTransfer = [
         ...ethData,
-        ...polygonData,
         ...baseData,
         ...zoraData
       ];
@@ -3617,30 +3438,6 @@ token_received_query = """
 query MyQuery($user: Identity!) {
   Ethereum: TokenTransfers(
     input: {filter: {to: {_eq: $user}}, blockchain: ethereum, limit: 200}
-  ) {
-    TokenTransfer {
-      account: from {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          dappName
-          blockchain
-          profileName
-          profileImage
-          profileTokenId
-          profileTokenAddress
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
-  Polygon: TokenTransfers(
-    input: {filter: {to: {_eq: $user}}, blockchain: polygon, limit: 200}
   ) {
     TokenTransfer {
       account: from {
@@ -3727,13 +3524,11 @@ async def fetch_token_received(address, existing_users=[]):
         if res.error is None:
             eth_data = [transfer['account'] for transfer in (res.data.get('Ethereum', {}).get(
                 'TokenTransfer', []) if res.data and 'Ethereum' in res.data and 'TokenTransfer' in res.data['Ethereum'] else [])]
-            polygon_data = [transfer['account'] for transfer in (res.data.get('Polygon', {}).get(
-                'TokenTransfer', []) if res.data and 'Polygon' in res.data and 'TokenTransfer' in res.data['Polygon'] else [])]
             base_data = [transfer['account'] for transfer in (res.data.get('Base', {}).get(
                 'TokenTransfer', []) if res.data and 'Base' in res.data and 'TokenTransfer' in res.data['Base'] else [])]
             zora_data = [transfer['account'] for transfer in (res.data.get('Zora', {}).get(
                 'TokenTransfer', []) if res.data and 'Zora' in res.data and 'TokenTransfer' in res.data['Zora'] else [])]
-            token_transfer = eth_data + polygon_data + base_data + zora_dat
+            token_transfer = eth_data + base_data + zora_dat
             recommended_users = format_token_received_data(
                 token_transfer,
                 recommended_users
@@ -5740,7 +5535,6 @@ import fetchLensFollowers from "./functions/fetchLensFollowers";
 import fetchTokenSent from "./functions/fetchTokenSent";
 import fetchTokenReceived from "./functions/fetchTokenReceived";
 import fetchEthNft from "./functions/fetchEthNft";
-import fetchPolygonNft from "./functions/fetchPolygonNft";
 import fetchBaseNft from "./functions/fetchBaseNft";
 import fetchZoraNft from "./functions/fetchZoraNft";
 
@@ -5755,7 +5549,6 @@ const fetchOnChainGraphData = async (address) => {
     fetchTokenSent,
     fetchTokenReceived,
     fetchEthNft,
-    fetchPolygonNft,
     fetchBaseNft,
     fetchZoraNft,
   ];
@@ -5782,7 +5575,6 @@ from functions.lens_followers import fetch_lens_followers
 from functions.token_sent import fetch_token_sent
 from functions.token_received import fetch_token_received
 from functions.ethereum_nft import fetch_eth_nft
-from functions.polygon_nft import fetch_polygon_nft
 from functions.base_nft import fetch_base_nft
 from functions.zora_nft import fetch_zora_nft
 
@@ -5797,7 +5589,6 @@ async def fetch_on_chain_graph_data(address):
         fetch_token_sent,
         fetch_token_received,
         fetch_eth_nft,
-        fetch_polygon_nft,
         fetch_base_nft,
         fetch_zora_nft,
     ]
@@ -5838,7 +5629,6 @@ Each data has different methods to calculate **points** and has their **individu
 | Following on Farcaster | 1                            | 5                |
 | Common POAPs           | number of POAPs hold         | 7                |
 | Common Ethereum NFTs   | number of Ethereum NFTs hold | 5                |
-| Common Polygon NFTs    | number of Polygon NFTs hold  | 0                |
 | Common Base NFTs       | number of Base NFTs hold     | 3                |
 | Common Zora NFTs       | number of Zora NFTs hold     | 3                |
 
@@ -5857,7 +5647,6 @@ const defaultScoreMap = {
   followingOnFarcaster: 5,
   commonPoaps: 7,
   commonEthNfts: 5,
-  commonPolygonNfts: 0,
   commonBaseNfts: 3,
   commonZoraNfts: 3,
 };
@@ -5923,9 +5712,6 @@ const calculatingScore = (user, scoreMap = defaultScoreMap) => {
     const ethNftCount = uniqueNfts.filter(
       (nft) => nft.blockchain === "ethereum"
     ).length;
-    const polygonNftCount = uniqueNfts.filter(
-      (nft) => nft.blockchain === "polygon"
-    ).length;
     const baseNftCount = uniqueNfts.filter(
       (nft) => nft.blockchain === "base"
     ).length;
@@ -5934,7 +5720,6 @@ const calculatingScore = (user, scoreMap = defaultScoreMap) => {
     ).length;
     score +=
       scoreMap.commonEthNfts * ethNftCount +
-      scoreMap.commonPolygonNfts * polygonNftCount +
       scoreMap.commonBaseNfts * baseNftCount +
       scoreMap.commonZoraNfts * zoraNftCount;
   }
@@ -5965,7 +5750,6 @@ default_score_map = {
     'followingOnFarcaster': 5,
     'commonPoaps': 7,
     'commonEthNfts': 5,
-    'commonPolygonNfts': 0,
     'commonBaseNfts': 3,
     'commonZoraNfts': 3
 }
@@ -6025,12 +5809,10 @@ def calculating_score(user, score_map=None):
     unique_nfts = {f"{nft['address']}-{nft.get('tokenNfts', {}).get('tokenId')}" for nft in user.get(
         'nfts', []) if not is_burned_address(nft['address'])}
     eth_nft_count = sum(1 for nft in unique_nfts if 'ethereum' in nft)
-    polygon_nft_count = sum(1 for nft in unique_nfts if 'polygon' in nft)
     base_nft_count = sum(1 for nft in unique_nfts if 'base' in nft)
     zora_nft_count = sum(1 for nft in unique_nfts if 'zora' in nft)
 
     score += (score_map['commonEthNfts'] * eth_nft_count) + \
-        (score_map['commonPolygonNfts'] * polygon_nft_count) + \
         (score_map['commonBaseNfts'] * base_nft_count) + \
         (score_map['commonZoraNfts'] * zora_nft_count)
 
