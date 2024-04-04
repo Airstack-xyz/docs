@@ -97,7 +97,7 @@ If you only prefer fungible token mints, then includes only `ERC20`. If you inst
 
 Choose the chain that you would like to fetch the token mints data.
 
-Currently, Airstack supports Ethereum, Polygon, Base, and Zora.
+Currently, Airstack supports Ethereum, Gold, Base, and Zora.
 
 #### **Limit**
 
@@ -113,7 +113,7 @@ As these parameters are going to be having constant values, you can create a new
 ```typescript
 export const interval = 1; // 1 hour
 export const tokenType = ["ERC20", "ERC721", "ERC1155"];
-export const chains = ["ethereum", "polygon", "base", "zora"];
+export const chains = ["ethereum", "gold", "base", "zora"];
 export const limit = 200;
 ```
 {% endcode %}
@@ -124,7 +124,7 @@ export const limit = 200;
 ```javascript
 export const interval = 1; // 1 hour
 export const tokenType = ["ERC20", "ERC721", "ERC1155"];
-export const chains = ["ethereum", "polygon", "base", "zora"];
+export const chains = ["ethereum", "gold", "base", "zora"];
 export const limit = 200;
 ```
 {% endcode %}
@@ -135,7 +135,7 @@ export const limit = 200;
 ```python
 interval = 1 # 1 hour
 token_type = ["ERC20", "ERC721", "ERC1155"]
-chains = ["ethereum", "polygon", "base", "zora"]
+chains = ["ethereum", "gold", "base", "zora"]
 limit = 200
 ```
 {% endcode %}
@@ -418,8 +418,8 @@ With the defined parameters, you can use the [`TokenTransfers`](../../api-refere
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/suHzE9HODw" %}
-Show me minted tokens on Polygon by a common minter at certain timestamp
+{% embed url="https://app.airstack.xyz/query/gK2ntlSazp" %}
+Show me minted tokens on Ethereum by a common minter at certain timestamp
 {% endembed %}
 
 ### Code
@@ -463,10 +463,10 @@ Show me minted tokens on Polygon by a common minter at certain timestamp
 {% tab title="Variables" %}
 ```json
 {
-  "startTime": "2023-11-09T13:25:00Z",
-  "endTime": "2023-11-09T13:30:00Z",
+  "startTime": "2023-04-25T17:50:00Z",
+  "endTime": "2023-04-25T18:00:00Z",
   "tokenType": ["ERC20", "ERC721", "ERC1155"],
-  "chain": "polygon",
+  "chain": "ethereum",
   "limit": 200,
   "commonMinter": "0xb59aa5bb9270d44be3fa9b6d67520a2d28cf80ab"
 }
@@ -480,9 +480,9 @@ Show me minted tokens on Polygon by a common minter at certain timestamp
       "TokenTransfer": [
         {
           // The address of minted NFT
-<strong>          "tokenAddress": "0xd3b4de0d85c44c57993b3b18d42b00de81809eea",
+<strong>          "tokenAddress": "0x2a9ea02e4c2dcd56ba20628fe1bd46bae2c62746",
 </strong>          "token": {
-            "name": "Unveiling Airstack's Onchain Graph"
+            "name": "FarCon 2023 Tickets"
           }
         }
       ]
@@ -1108,7 +1108,7 @@ When the result from `fetchCommonMinters` is logged, it will looks as follows:
   {
     "tokenAddress": "0xd3b4de0d85c44c57993b3b18d42b00de81809eea",
     "token": { "name": "Unveiling Airstack's Onchain Graph" },
-    "chain": "polygon",
+    "chain": "base",
     "minters": ["0x427a1c6dcaad92f886020a61e0b85be8e1c5ead5"]
   }
   // Other common minters and token details that they minted
@@ -1615,7 +1615,7 @@ If you log the `main` function, it will return a response as follows:
   {
     "tokenAddress": "0xb63056fc3dab4f755d4d0380cf36e67c1164da64",
     "token": { "name": "Polysapien Open Edition" },
-    "chain": "polygon",
+    "chain": "base",
     "associatedMints": [
       {
         "tokenAddress": "0xd4416b13d2b3a9abae7acd5d6c2bbdbe25686401",
@@ -1866,7 +1866,7 @@ When the result of the newly modified `main` function is logged, it will have re
   {
     "tokenAddress": "0xb63056fc3dab4f755d4d0380cf36e67c1164da64",
     "token": { "name": "Polysapien Open Edition" },
-    "chain": "polygon",
+    "chain": "base",
     "associatedMints": [
       {
         "tokenAddress": "0xd4416b13d2b3a9abae7acd5d6c2bbdbe25686401",
@@ -2017,7 +2017,7 @@ When the result of the newly modified `main` function is logged, it will have re
   {
     "tokenAddress": "0xb63056fc3dab4f755d4d0380cf36e67c1164da64",
     "token": { "name": "Polysapien Open Edition" },
-    "chain": "polygon",
+    "chain": "base",
     "associatedMints": [
       {
         "tokenAddress": "0xd4416b13d2b3a9abae7acd5d6c2bbdbe25686401",
@@ -2192,7 +2192,7 @@ When the result of the newly modified `main` function is logged, it will have re
   {
     "tokenAddress": "0xb63056fc3dab4f755d4d0380cf36e67c1164da64",
     "token": { "name": "Polysapien Open Edition" },
-    "chain": "polygon",
+    "chain": "base",
     "associatedMints": [
       {
         "tokenAddress": "0xd4416b13d2b3a9abae7acd5d6c2bbdbe25686401",
