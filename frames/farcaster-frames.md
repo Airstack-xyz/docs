@@ -28,16 +28,16 @@ Once you have set up your Frame server with the right meta tags, you will want t
 1. **Use** [**Airstack Validation API**](../guides/farcaster/frames-validator.md) **to validate** the incoming user interaction and get details about the interacting user, cast author, and cast itself. For a tutorial on how to implement this, click [here](../guides/farcaster/frames-validator.md).&#x20;
 2. To test Frames on your local machine, set up [ngrok](https://ngrok.com/download) and use ngrok as your Frame's POST URL.
 
-Now 🪄 **build some magic into your Frames. Use** with Airstack [**Onchain Kit for Farcaster Frames**](https://docs.airstack.xyz/airstack-docs-and-faqs/guides/farcaster/airstack-onchain-kit-for-farcaster-frames) which contains dozens of simple guides for working with Frames, integrating Farcaster and onchain data. For easy integration, Airstack provides you with  [**Airstack Frog Recipes**](airstack-frog-recipes-and-middleware/) **and**  [**Airstack Frames SDK**](https://github.com/Airstack-xyz/airstack-frames-sdk) to integrate onchain data to your Farcaster Frames within just a few lines of code. Here are just some of the things you can do with Onchain Kit:
+Now 🪄 **build some magic into your Frames. Use** with Airstack [**Onchain Kit for Farcaster Frames**](https://docs.airstack.xyz/airstack-docs-and-faqs/guides/farcaster/airstack-onchain-kit-for-farcaster-frames) which contains dozens of simple guides for working with Frames, integrating Farcaster and onchain data. For easy integration, Airstack provides you with [**Airstack Frog Recipes**](airstack-frog-recipes-and-middleware/) **and** [**Airstack Frames SDK**](https://github.com/Airstack-xyz/airstack-frames-sdk) to integrate onchain data to your Farcaster Frames within just a few lines of code. Here are just some of the things you can do with Onchain Kit:
 
-* Get user’s channels
-* Get follows and followers of followers
-* Get mint recommendations
-* Get tokens and token holders on Base, Zora, Ethereum, Polygon
-* Get ENS
-* Get friends of friends
+- Get user’s channels
+- Get follows and followers of followers
+- Get mint recommendations
+- Get tokens and token holders on Base, Zora, Ethereum, Gold
+- Get ENS
+- Get friends of friends
 
 Additional resources
 
-* [Awesome Frames](https://github.com/davidfurlong/awesome-frames)
-* [Coinbase Onchain Kit](https://onchainkit.xyz/)
+- [Awesome Frames](https://github.com/davidfurlong/awesome-frames)
+- [Coinbase Onchain Kit](https://onchainkit.xyz/)

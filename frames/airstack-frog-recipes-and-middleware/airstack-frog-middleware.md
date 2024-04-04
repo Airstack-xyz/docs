@@ -20,6 +20,7 @@ You can use the [`onchainData`](https://www.npmjs.com/package/@airstack/frames#f
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import { onchainData } from "@airstack/frog";
 
@@ -27,7 +28,7 @@ const onchainDataMiddleware = onchainData({
   features: {
     userDetails: {},
     erc20Mints: {
-      chains: [TokenBlockchain.Polygon],
+      chains: [TokenBlockchain.Base],
       limit: 1,
     },
     nftMints: {
@@ -35,7 +36,7 @@ const onchainDataMiddleware = onchainData({
       chains: [TokenBlockchain.Base],
     },
     erc20Balances: {
-      chains: [TokenBlockchain.Polygon],
+      chains: [TokenBlockchain.Base],
       limit: 1,
     },
     nftBalances: {
@@ -61,9 +62,11 @@ app.frame(
   }
 );
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const { onchainData } = require("@airstack/frog");
 
@@ -72,7 +75,7 @@ const onchainDataMiddleware = onchainData({
   features: {
     userDetails: {},
     erc20Mints: {
-      chains: [TokenBlockchain.Polygon],
+      chains: [TokenBlockchain.Base],
       limit: 1,
     },
     nftMints: {
@@ -80,7 +83,7 @@ const onchainDataMiddleware = onchainData({
       chains: [TokenBlockchain.Base],
     },
     erc20Balances: {
-      chains: [TokenBlockchain.Polygon],
+      chains: [TokenBlockchain.Base],
       limit: 1,
     },
     nftBalances: {
@@ -100,9 +103,11 @@ app.frame("/", onchainDataMiddleware, async function (c) {
   c.res({});
 });
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "userDetails": {
@@ -124,7 +129,7 @@ app.frame("/", onchainDataMiddleware, async function (c) {
   },
   "erc20Balances": [
     {
-      "blockchain": "polygon",
+      "blockchain": "base",
       "tokenAddress": "0x10503dbed34e291655100a3c204528425abe3235",
       "amount": 740,
       "amountInWei": "740000000000000000000",
@@ -148,7 +153,7 @@ app.frame("/", onchainDataMiddleware, async function (c) {
   ],
   "erc20Mints": [
     {
-      "blockchain": "polygon",
+      "blockchain": "base",
       "tokenAddress": "0x058d96baa6f9d16853970b333ed993acc0c35add",
       "amount": 50,
       "amountInWei": "50000000000000000000",
@@ -187,6 +192,7 @@ app.frame("/", onchainDataMiddleware, async function (c) {
   ]
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -196,6 +202,7 @@ Enhance your Farcaster Frames with user's onchain data using the [`allowList`](h
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 import { allowList } from "@airstack/frog";
 
@@ -217,9 +224,11 @@ app.frame("/", allowListMiddleware, async function (c) {
   c.res({});
 });
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const { allowList } = require("@airstack/frog");
 
@@ -241,14 +250,17 @@ app.frame("/", allowListMiddleware, async function (c) {
   c.res({});
 });
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "isAllowed": true
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -258,5 +270,5 @@ If you have any questions or need help regarding building Farcaster Frames with 
 
 ## More Resources
 
-* [Onchain Data Middleware Reference](https://www.npmjs.com/package/@airstack/frames#frog-middlewares)
-* [Allow List Middleware Reference](https://www.npmjs.com/package/@airstack/frames#allow-list-middleware)
+- [Onchain Data Middleware Reference](https://www.npmjs.com/package/@airstack/frames#frog-middlewares)
+- [Allow List Middleware Reference](https://www.npmjs.com/package/@airstack/frames#allow-list-middleware)
