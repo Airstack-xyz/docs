@@ -18,7 +18,7 @@
 ## Frames
 
 * [ℹ️ Overview](frames/farcaster-frames.md)
-* [🚀 Quickstart](frames/quickstart/README.md)
+* [🚀 Quickstart](guides/airstack-frog-recipes-and-middleware/quickstart/README.md)
   * [🗼 Node.js](frames/quickstart/node.js.md)
   * [⏩ Next.js](frames/quickstart/next.js.md)
 * [🐸 Airstack Frog Recipes & Middleware](frames/airstack-frog-recipes-and-middleware/README.md)
@@ -50,6 +50,8 @@
   * [✅ Frames Validator](guides/farcaster/frames-validator.md)
   * [📈 Trending Mints](guides/farcaster/trending-mints.md)
   * [💡 Activate Kit for Farcaster Auth Kit](guides/farcaster/activate-kit-for-farcaster-auth-kit.md)
+  * [🖼️ Farcaster Frames](guides/farcaster/farcaster-frames.md)
+  * [💬 Farcaster Casts](guides/farcaster/farcaster-casts.md)
   * [📺 Farcaster Channels](guides/farcaster/farcaster-channels.md)
   * [💰 Get Token Balances](guides/farcaster/get-token-balances.md)
   * [🆔 Resolve Farcaster Users](guides/farcaster/resolve-farcaster-users.md)
@@ -194,6 +196,7 @@
 * [📖 API Reference](api-references/api-reference/README.md)
   * [Accounts API](api-references/api-reference/accounts-api.md)
   * [Domains API](api-references/api-reference/domains-api.md)
+  * [FarcasterCasts API](api-references/api-reference/farcastercasts-api.md)
   * [FarcasterChannelParticipants API](api-references/api-reference/farcasterchannelparticipants-api.md)
   * [FarcasterChannels API](api-references/api-reference/farcasterchannels-api.md)
   * [FarcasterValidateFrameMessage API](api-references/api-reference/farcastervalidateframemessage-api.md)
@@ -213,6 +216,9 @@
   * [XMTPs API](api-references/api-reference/xmtps-api.md)
   * [Airstack Identity API](api-references/api-reference/airstack-identity-api.md)
   * [Airstack Validation API](api-references/api-reference/airstack-validation-api.md)
+* [🗃️ Objects](api-references/objects/README.md)
+  * [FarcasterFrame](api-references/objects/farcasterframe.md)
+  * [FrameButton](api-references/objects/framebutton.md)
 
 ## Web SDK Reference
 
