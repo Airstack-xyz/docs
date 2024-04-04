@@ -76,6 +76,7 @@
   * [💜 Farcaster Users](guides/trending-mints/farcaster-users.md)
   * [🕸️ Onchain Graph](guides/trending-mints/onchain-graph.md)
   * [👛 Common Minters](guides/trending-mints/common-minters.md)
+* [🔄 Trending Swaps](guides/trending-swaps.md)
 * [💹 Trending Tokens](guides/trending-tokens/README.md)
   * [🔵 All Base Users](guides/trending-tokens/all-base-users.md)
   * [💜 Farcaster Users](guides/trending-tokens/farcaster-users.md)

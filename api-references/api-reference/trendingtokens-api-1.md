@@ -58,9 +58,9 @@ The TrendingTokens API provides you with a list of trending tokens frequently tr
 
 ### swappable
 
-| Name  | Description                                                                                                |
-| ----- | ---------------------------------------------------------------------------------------------------------- |
-| `_eq` | Equal operator, assign `true` or `false` to indicate whether you want to only get swappable tokens or not. |
+| Name  | Description                                                                                                                             |
+| ----- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `_eq` | Equal operator, assign `true` to only fetch swappable tokens. Otherwise, all tokens, whether swappable or not in DEX, will be included. |
 
 ## Outputs
 
