@@ -32,6 +32,9 @@
   * [🎭 Allow List](frames/airstack-frames-sdk/allow-list.md)
   * [🤖 Captcha Verification](frames/airstack-frames-sdk/captcha-verification.md)
   * [🥪 Airstack Frog Middleware](frames/airstack-frames-sdk/airstack-frog-middleware.md)
+* [🟨 Airstack Frames.js Middleware](frames/airstack-framesjs-middleware/README.md)
+  * [⛓️ Onchain Data](frames/airstack-framesjs-middleware/onchain-data.md)
+  * [🎭 Allow List](frames/airstack-framesjs-middleware/allow-list.md)
 * [🧩 Integrations](frames/integrations/README.md)
   * [🐸 Frog](frames/integrations/frog.md)
 
