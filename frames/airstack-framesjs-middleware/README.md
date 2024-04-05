@@ -1,6 +1,6 @@
 ---
 description: >-
-  Learn how to integrate user's onchain data easily using AIrstack Frames.js
+  Learn how to integrate user's onchain data easily using Airstack Frames.js
   Middleware into your Frames.js Frames.
 ---
 
