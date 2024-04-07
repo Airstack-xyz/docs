@@ -1,10 +1,20 @@
 ---
 description: >-
-  Learn how to use the Onchain Data Middleware to inject the user's onchain data
-  into your Frames.js Frames.
+  Learn how to use the Onchain Data Middleware to inject the onchain data of the
+  user interacting with your Frames.js Frames.
 ---
 
 # ⛓️ Onchain Data
+
+The Onchain Data Frames.js middleware enables you to easily enrich your Frames.js Frames with the interactor's onchain data with just a few lines of code. Some data that you can inject into your Frames.js Frames are:
+
+* Farcaster profile details
+* ERC20/721/1155 token balances
+* ERC20/721/1155 token mints
+* token transfers
+* Farcaster followers/followings
+* Farcaster channels participated in
+* Farcaster casts
 
 ## Get Started
 
@@ -1009,7 +1019,8 @@ const frames = createFrames();
 
 const handleRequest = frames(
   async (ctx) => {
-    // Fetch the user's NFT balances from `ctx.farcasterChannels`
+    // Fetch the user's participated channels
+    // from `ctx.farcasterChannels`
 <strong>    console.log(ctx.farcasterChannels);
 </strong>    return {
       image: (&#x3C;div>&#x3C;/div>),
@@ -1091,6 +1102,76 @@ const handleRequest = frames(
       }
     ],
     "warpcastUrl": "https://warpcast.com/~/channel/based-management"
+  }
+]
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Farcaster User's Cast
+
+You can use the [`onchainDataFramesjsMiddleware`](https://www.npmjs.com/package/@airstack/frames#framesjs-middlewares) to fetch all the Farcaster casts casted by a user by adding `FARCASTER_CASTS` to the features' list:
+
+{% tabs %}
+{% tab title="TypeScript" %}
+```typescript
+import { createFrames, Button } from "frames.js/next";
+import {
+  onchainDataFramesjsMiddleware as onchainData,
+  Features,
+} from "@airstack/frames";
+
+const frames = createFrames();
+
+const handleRequest = frames(
+  async (ctx) => {
+    // Fetch the user's Farcaster casts from `ctx.farcasterCasts`
+    console.log(ctx.farcasterCasts);
+    return {
+      image: (<div></div>),
+      buttons: [],
+    };
+  },
+  {
+    middleware: [
+      // Add Onchain Data Middleware
+      onchainData({
+        apiKey: process.env.NEXT_PUBLIC_AIRSTACK_API_KEY as string,
+        // Add `FARCASTER_CHANNELS` to the `features` array
+        features: [Features.FARCASTER_CASTS],
+      }),
+    ],
+  }
+);
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+[
+  {
+    "castHash": "0xcee805b0b5a762892512d38d30b72dd692772480",
+    "castedAtTimestamp": "2024-04-06T06:24:32Z",
+    "castUrl": "https://warpcast.com/betashop.eth/0xcee805b0",
+    "embeds": [{ "url": "https://share.airstack.xyz/s/gf" }],
+    "text": "hihi follow my trade on @base! cc @betashop.eth @airstack",
+    "numberOfRecasts": 17,
+    "numberOfLikes": 92,
+    "numberOfReplies": 14,
+    "channel": "airstaack",
+    "mentions": [
+      { "fid": "12142", "position": 24 },
+      { "fid": "602", "position": 29 },
+      { "fid": "20909", "position": 30 }
+    ],
+    "frame": {
+      "frameHash": "0xbbd09a3a2c6b96eff53d9ad622b5637374bd2ec7b9c706fd8c908a6bc1a6bdc0",
+      "frameUrl": "https://share.airstack.xyz/s/gf"
+    }
   }
 ]
 ```
