@@ -1114,8 +1114,7 @@ You can use the [`onchainDataFramesjsMiddleware`](https://www.npmjs.com/package/
 
 {% tabs %}
 {% tab title="TypeScript" %}
-```typescript
-import { createFrames, Button } from "frames.js/next";
+<pre class="language-typescript"><code class="lang-typescript">import { createFrames, Button } from "frames.js/next";
 import {
   onchainDataFramesjsMiddleware as onchainData,
   Features,
@@ -1126,28 +1125,56 @@ const frames = createFrames();
 const handleRequest = frames(
   async (ctx) => {
     // Fetch the user's Farcaster casts from `ctx.farcasterCasts`
-    console.log(ctx.farcasterCasts);
-    return {
-      image: (<div></div>),
+<strong>    console.log(ctx.farcasterCasts);
+</strong>    return {
+      image: (&#x3C;div>&#x3C;/div>),
       buttons: [],
     };
   },
   {
     middleware: [
       // Add Onchain Data Middleware
-      onchainData({
-        apiKey: process.env.NEXT_PUBLIC_AIRSTACK_API_KEY as string,
+<strong>      onchainData({
+</strong>        apiKey: process.env.NEXT_PUBLIC_AIRSTACK_API_KEY as string,
         // Add `FARCASTER_CHANNELS` to the `features` array
-        features: [Features.FARCASTER_CASTS],
-      }),
+<strong>        features: [Features.FARCASTER_CASTS],
+</strong>      }),
     ],
   }
 );
-```
+</code></pre>
 {% endtab %}
 
 {% tab title="JavaScript" %}
+<pre class="language-javascript"><code class="lang-javascript">const { createFrames, Button } = require("frames.js/next");
+const {
+  onchainDataFramesjsMiddleware as onchainData,
+  Features,
+} = require("@airstack/frames");
 
+const frames = createFrames();
+
+const handleRequest = frames(
+  async (ctx) => {
+    // Fetch the user's Farcaster casts from `ctx.farcasterCasts`
+<strong>    console.log(ctx.farcasterCasts);
+</strong>    return {
+      image: (&#x3C;div>&#x3C;/div>),
+      buttons: [],
+    };
+  },
+  {
+    middleware: [
+      // Add Onchain Data Middleware
+<strong>      onchainData({
+</strong>        apiKey: process.env.NEXT_PUBLIC_AIRSTACK_API_KEY,
+        // Add `FARCASTER_CHANNELS` to the `features` array
+<strong>        features: [Features.FARCASTER_CASTS],
+</strong>      }),
+    ],
+  }
+);
+</code></pre>
 {% endtab %}
 
 {% tab title="Response" %}
