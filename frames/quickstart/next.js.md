@@ -227,8 +227,22 @@ npm run deploy
 ```
 {% endtab %}
 
-{% tab title="Second Tab" %}
+{% tab title="yarn" %}
+```bash
+yarn deploy
+```
+{% endtab %}
 
+{% tab title="pnpm" %}
+```sh
+pnpm deploy
+```
+{% endtab %}
+
+{% tab title="bun" %}
+```bash
+bun run deploy
+```
 {% endtab %}
 {% endtabs %}
 

@@ -38,6 +38,10 @@
 * [🧩 Integrations](frames/integrations/README.md)
   * [🐸 Frog](frames/integrations/frog.md)
 
+## Cast Actions
+
+* [🚀 Quickstart](cast-actions/quickstart.md)
+
 ## Onchain Data <a href="#guides" id="guides"></a>
 
 * [✈️ Basics](guides/basics/README.md)
