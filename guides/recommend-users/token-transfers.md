@@ -17,7 +17,7 @@ layout:
 
 Token transfers between two parties are a good indication that the parties involved know each other. Therefore, you can also use token transfers to build your recommendation engine.
 
-To build such a recommendation engine, Airstack provides a [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API for you to fetch the users involved in a given user's all ERC20/721/1155 token transfers across Ethereum, Base, and Zora.
+To build such a recommendation engine, Airstack provides a [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API for you to fetch the users involved in a given user's all ERC20/721/1155 token transfers across Ethereum, Gold, Base, and Zora.
 
 The list of users, then can be compiled and returned to your application as recommendations.
 
@@ -420,123 +420,6 @@ Show me token transfers received by betashop.eth on Ethereum
 
 All the users returned from the `from` response field can be compiled and returned as a recommendation in your application.
 
-## Get Token Transfers Sent From A User on Polygon
-
-You can fetch all token transfers sent from a given user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS), on Polygon by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/FLruoqln49" %}
-Show me token transfers sent from ipeciura.eth on Polygon
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-```graphql
-query GetTokenTransfers {
-  TokenTransfers(
-    input: {
-      filter: {
-        # Only get token transfers from ipeciura.eth
-        from: { _eq: "ipeciura.eth" }
-        # Only get token transfers with non-zero amount
-        formattedAmount: { _gt: 0 }
-        # Remove all minting/burning + self-transfer
-        _nor: {
-          from: {
-            _in: [
-              "0x0000000000000000000000000000000000000000"
-              "0x000000000000000000000000000000000000dEaD"
-            ]
-          }
-          to: {
-            _in: [
-              "0x0000000000000000000000000000000000000000"
-              "0x000000000000000000000000000000000000dEaD"
-              "ipeciura.eth"
-            ]
-          }
-        }
-      }
-      blockchain: polygon
-      limit: 50
-    }
-  ) {
-    TokenTransfer {
-      formattedAmount
-      tokenType
-      token {
-        name
-      }
-      to {
-        addresses
-        domains {
-          name
-        }
-        socials {
-          dappName
-          profileName
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
-}
-```
-{% endtab %}
-
-{% tab title="Response" %}
-<pre class="language-json"><code class="lang-json">{
-  "data": {
-    "TokenTransfers": {
-      "TokenTransfer": [
-        {
-          "formattedAmount": 1,
-          "tokenType": "ERC20",
-          "token": {
-            "name": "(PoS) Decentraland MANA"
-          },
-          "to": {
-            "addresses": [
-              // ipeciura.eth sent 1 (PoS) Decentraland MANA to this user
-<strong>              "0x56845fd95c766ecb0ab450fe2d105a19440a6e35"
-</strong>            ],
-            "domains": null,
-            "socials": null,
-            "xmtp": null
-          }
-        },
-        {
-          "formattedAmount": 0.002048431232076552,
-          "tokenType": "ERC20",
-          "token": {
-            "name": "Wrapped Ether"
-          },
-          "to": {
-            "addresses": [
-              // ipeciura.eth sent 0.002048431232076552 WETH to this user
-<strong>              "0x4a35582a710e1f4b2030a3f826da20bfb6703c09"
-</strong>            ],
-            "domains": null,
-            "socials": null,
-            "xmtp": null
-          }
-        },
-        // Other Polygon token transfers sent by ipeciura.eth
-      ]
-    }
-  }
-}
-</code></pre>
-{% endtab %}
-{% endtabs %}
-
-All the users returned from the `to` response field can be compiled and returned as a recommendation in your application.
-
 ## Get Token Transfers Sent From A User on Base
 
 You can fetch all token transfers sent from a given user, e.g. [`jessepollak.eth`](https://explorer.airstack.xyz/token-balances?address=jessepollak.eth\&rawInput=%23%E2%8E%B1jessepollak.eth%E2%8E%B1%28jessepollak.eth++ethereum+null%29\&inputType=ADDRESS), on Base by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
@@ -753,12 +636,12 @@ All the users returned from the `from` response field can be compiled and return
 
 ## Get Token Transfers Sent From A User on Multiple Chains
 
-You can fetch all token transfers sent from a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Polygon, Base, and Zora, by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all token transfers sent from a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Gold, Base, and Zora, by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/ikmf1dpeUy" %}
-Show me all token transfers sent from betashop.eth on Ethereum, Polygon, and Base
+{% embed url="https://app.airstack.xyz/query/yXNz4iBC7o" %}
+Show me all token transfers sent from betashop.eth on Ethereum and Base
 {% endembed %}
 
 ### Code
@@ -805,46 +688,7 @@ Show me all token transfers sent from betashop.eth on Ethereum, Polygon, and Bas
       }
     }
   }
-  # second query on Polygon
-  Polygon: TokenTransfers(
-    input: {
-      filter: {
-        # Only get token transfers from betashop.eth
-<strong>        from: {_eq: "betashop.eth"},
-</strong>        # Only get token transfers with non-zero amount
-<strong>        formattedAmount: {_gt: 0},
-</strong>        # Remove all minting/burning + self-transfer
-<strong>        _nor: {
-</strong>          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]},
-          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]}
-        }
-      },
-      blockchain: polygon,
-      limit: 50
-    }
-  ) {
-    TokenTransfer {
-      formattedAmount
-      tokenType
-      token {
-        name
-      }
-      to {
-        addresses
-        domains {
-          name
-        }
-        socials {
-          dappName
-          profileName
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
-  # third query on Base
+  # second query on Base
   Base: TokenTransfers(
     input: {
       filter: {
@@ -928,9 +772,6 @@ Show me all token transfers sent from betashop.eth on Ethereum, Polygon, and Bas
         // Other token transfers sent by betashop.eth on Ethereum
       ]
     },
-    "Polygon": {
-<strong>      "TokenTransfer": null // No tokens sent by betashop.eth on Polygon
-</strong>    },
     "Base": {
       "TokenTransfer": [
         {
@@ -960,12 +801,12 @@ All the users returned from the `to` response field can be compiled and returned
 
 ## Get Token Transfers Received By A User on Multiple Chains
 
-You can fetch all token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Polygon, and Base, by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Gold, Zora, and Base, by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/LQXsneqJLy" %}
-Show me token transfers received by betashop.eth on Ethereum, Polygon, and Base
+{% embed url="https://app.airstack.xyz/query/nvSWeogcbI" %}
+Show me token transfers received by betashop.eth on Ethereum and Base
 {% endembed %}
 
 ### Code
@@ -1012,46 +853,7 @@ Show me token transfers received by betashop.eth on Ethereum, Polygon, and Base
       }
     }
   }
-  # second query on Polygon
-  Polygon: TokenTransfers(
-    input: {
-      filter: {
-        # Only get token transfers to betashop.eth
-<strong>        to: {_eq: "betashop.eth"},
-</strong>        # Only get token transfers with non-zero amount
-<strong>        formattedAmount: {_gt: 0},
-</strong>        # Remove all minting/burning + self-transfer
-<strong>        _nor: {
-</strong>          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]},
-          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]}
-        }
-      },
-      blockchain: polygon,
-      limit: 50
-    }
-  ) {
-    TokenTransfer {
-      formattedAmount
-      tokenType
-      token {
-        name
-      }
-      from {
-        addresses
-        domains {
-          name
-        }
-        socials {
-          dappName
-          profileName
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
-  # third query on Base
+  # second query on Base
   Base: TokenTransfers(
     input: {
       filter: {
@@ -1132,45 +934,6 @@ Show me token transfers received by betashop.eth on Ethereum, Polygon, and Base
         // Other Token Transfers received by betashop.eth on Ethereum
       ]
     },
-    "Polygon": {
-      "TokenTransfer": [
-        {
-          "formattedAmount": 1,
-          "tokenType": "ERC721",
-          "token": {
-            "name": "Firefly Pass"
-          },
-          "from": {
-            "addresses": [
-              // This user sent 1 Firefly Pass NFT to betashop.eth
-              "0x135c21b2da426760718e39da954974c4572ae9f6"
-            ],
-            "domains": [
-              {
-                "name": "lbae.eth"
-              },
-              // Other ENS domains
-            ],
-            "socials": [
-              {
-                "dappName": "lens",
-                "profileName": "lens/@lwsnbaker"
-              },
-              {
-                "dappName": "farcaster",
-                "profileName": "lwsnbaker"
-              }
-            ],
-            "xmtp": [
-              {
-                "isXMTPEnabled": true
-              }
-            ]
-          }
-        },
-        // Other Token Transfers received by betashop.eth on Polygon
-      ]
-    },
     "Base": {
 <strong>      "TokenTransfer": null // No Tokens received by betashop.eth on Base
 </strong>    }
@@ -1184,12 +947,12 @@ All the users returned from the `from` response field can be compiled and return
 
 ## Get The Most Recent Token Transfers Sent From A User(s)
 
-You can fetch all most recent token transfers sent from a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Polygon, and Base, by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all most recent token transfers sent from a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Gold, Zora, and Base, by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/ROziBGPGJI" %}
-Show me the most recent token transfers sent from betashop.eth on Ethereum, Polygon, and Base
+{% embed url="https://app.airstack.xyz/query/eVeZFo9rNH" %}
+Show me the most recent token transfers sent from betashop.eth on Ethereum and Base
 {% endembed %}
 
 ### Code
@@ -1249,58 +1012,7 @@ query GetTokenTransfers {
       }
     }
   }
-  # second query on Polygon
-  Polygon: TokenTransfers(
-    input: {
-      filter: {
-        # Only get token transfers from betashop.eth
-        from: { _eq: "betashop.eth" }
-        # Only get token transfers with non-zero amount
-        formattedAmount: { _gt: 0 }
-        # Remove all minting/burning + self-transfer
-        _nor: {
-          from: {
-            _in: [
-              "0x0000000000000000000000000000000000000000"
-              "0x000000000000000000000000000000000000dEaD"
-            ]
-          }
-          to: {
-            _in: [
-              "0x0000000000000000000000000000000000000000"
-              "0x000000000000000000000000000000000000dEaD"
-              "betashop.eth"
-            ]
-          }
-        }
-      }
-      blockchain: polygon
-      limit: 50
-      order: { blockTimestamp: DESC } # Order transfers by blocktimestamp in descending order
-    }
-  ) {
-    TokenTransfer {
-      formattedAmount
-      tokenType
-      token {
-        name
-      }
-      to {
-        addresses
-        domains {
-          name
-        }
-        socials {
-          dappName
-          profileName
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
-  # third query on Base
+  # second query on Base
   Base: TokenTransfers(
     input: {
       filter: {
@@ -1379,9 +1091,6 @@ query GetTokenTransfers {
         // Other most recent token transfers sent by betashop.eth on Ethereum
       ]
     },
-    "Polygon": {
-<strong>      "TokenTransfer": null // no tokens sent by betashop.eth on Polygon
-</strong>    },
     "Base": {
       "TokenTransfer": [
         {
@@ -1412,12 +1121,12 @@ All the users returned from the `to` response field can be compiled and returned
 
 ## Get The Most Recent Token Transfers Received By A User
 
-You can fetch most recent token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Polygon, and Base, by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch most recent token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Gold, Zora, and Base, by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/iMj7ZfdCAF" %}
-Show me the most recent token transfers received by betashop.eth on Ethereum, Polygon, and Base
+{% embed url="https://app.airstack.xyz/query/eVeZFo9rNH" %}
+Show me the most recent token transfers received by betashop.eth on Ethereum and Base
 {% endembed %}
 
 ### Code
@@ -1439,45 +1148,6 @@ Show me the most recent token transfers received by betashop.eth on Ethereum, Po
         }
       },
       blockchain: ethereum,
-      limit: 50,
-<strong>      order: { blockTimestamp: DESC } # Order transfers by blocktimestamp in descending order
-</strong>    }
-  ) {
-    TokenTransfer {
-      formattedAmount
-      tokenType
-      token {
-        name
-      }
-      from {
-        addresses
-        domains {
-          name
-        }
-        socials {
-          dappName
-          profileName
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-    }
-  }
-  Polygon: TokenTransfers(
-    input: {
-      filter: {
-        # Only get token transfers to betashop.eth
-<strong>        to: {_eq: "betashop.eth"},
-</strong>        # Only get token transfers with non-zero amount
-<strong>        formattedAmount: {_gt: 0},
-</strong>        # Remove all minting/burning + self-transfer
-<strong>        _nor: {
-</strong>          from: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD", "betashop.eth"]},
-          to: {_in: ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dEaD"]}
-        }
-      },
-      blockchain: polygon,
       limit: 50,
 <strong>      order: { blockTimestamp: DESC } # Order transfers by blocktimestamp in descending order
 </strong>    }
@@ -1572,43 +1242,6 @@ Show me the most recent token transfers received by betashop.eth on Ethereum, Po
           }
         },
         // Other most recent token transfers received by betashop.eth on Ethereum
-      ]
-    },
-    "Polygon": {
-      "TokenTransfer": [
-        {
-          "formattedAmount": 0.002298977414845877,
-          "tokenType": "ERC20",
-          "token": {
-            "name": "Stable Coin"
-          },
-          "from": {
-            "addresses": [
-              // This user sent 0.002298977414845877 Stable Coin ERC20 token to betashop.eth
-<strong>              "0xdfdf1c5052b6721871095d0df620e07927570f29"
-</strong>            ],
-            "domains": [
-              {
-                "name": "vsum.eth"
-              },
-              {
-                "name": "bpmilne.eth"
-              }
-            ],
-            "socials": [
-              {
-                "dappName": "farcaster",
-                "profileName": "bpmilne.eth"
-              }
-            ],
-            "xmtp": [
-              {
-                "isXMTPEnabled": true
-              }
-            ]
-          }
-        },
-        // Other most recent token transfers received by betashop.eth on Polygon
       ]
     },
     "Base": {

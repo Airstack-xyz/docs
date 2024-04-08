@@ -17,31 +17,31 @@ layout:
 
 # 👛 Token Mints
 
-All tokens minted are essentially token transfers from a [null address (0x00...00)](https://explorer.airstack.xyz/token-balances?address=0x0000000000000000000000000000000000000000&rawInput=%23%E2%8E%B10x0000000000000000000000000000000000000000%E2%8E%B1%280x0000000000000000000000000000000000000000+ADDRESS+ethereum+null%29&inputType=ADDRESS) to a user address that are executed by the receiving user itself. Thus, with [Airstack](https://airstack.xyz), you can use the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API to fetch all user's token mints by specifying the input as follows:
+All tokens minted are essentially token transfers from a [null address (0x00...00)](https://explorer.airstack.xyz/token-balances?address=0x0000000000000000000000000000000000000000\&rawInput=%23%E2%8E%B10x0000000000000000000000000000000000000000%E2%8E%B1%280x0000000000000000000000000000000000000000+ADDRESS+ethereum+null%29\&inputType=ADDRESS) to a user address that are executed by the receiving user itself. Thus, with [Airstack](https://airstack.xyz), you can use the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API to fetch all user's token mints by specifying the input as follows:
 
 <table><thead><tr><th width="176">Input Filter</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>operator</code></td><td>user's 0x address, ENS, cb.id, Lens, or Farcaster</td><td>Executor of the transaction.</td></tr><tr><td><code>from</code></td><td>0x0000000000000000000000000000000000000000</td><td>Sender in the ERC20/721/1155 token transfers.</td></tr><tr><td><code>to</code></td><td>user's 0x address, ENS, cb.id, Lens, or Farcaster</td><td>Receiver in the ERC20/721/1155 token transfers.</td></tr></tbody></table>
 
 You also have the option to add `blockTimestamp` filter to your query to fetch all tokens that are minted during a specified period of time:
 
-| Input Filter     | Value                                                                                                                                                                                                                                                                                                                                                                                                  | Description                                                                                                                                                                                 |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `blockTimestamp` | <p>Specific time period to fetch token mints, use <code>\_gt</code> or <code>\_gte</code> and <code>\_lt</code> or <code>\_lte</code> filters to specify the timestamp period.<br><br>Look at example below for <a href="token-mints.md#get-nft-mints-by-a-user-in-a-specified-period">NFT</a> and <a href="token-mints.md#get-erc20-token-mints-by-a-user-in-a-specified-period">ERC20 </a>mints.</p> | <p>Allows entering blockTimestamp to filter transactions which happened in specific periods.<br><br>Time format should be following the unix timstamp format, e.g. 2023-01-01T00:00:00Z</p> |
+| Input Filter     | Value                                                                                                                                                                                                                                                                                                                                                                                              | Description                                                                                                                                                                                 |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `blockTimestamp` | <p>Specific time period to fetch token mints, use <code>_gt</code> or <code>_gte</code> and <code>_lt</code> or <code>_lte</code> filters to specify the timestamp period.<br><br>Look at example below for <a href="token-mints.md#get-nft-mints-by-a-user-in-a-specified-period">NFT</a> and <a href="token-mints.md#get-erc20-token-mints-by-a-user-in-a-specified-period">ERC20 </a>mints.</p> | <p>Allows entering blockTimestamp to filter transactions which happened in specific periods.<br><br>Time format should be following the unix timstamp format, e.g. 2023-01-01T00:00:00Z</p> |
 
 ## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Get NFT Mints By A User](token-mints.md#get-nft-mints-by-a-user)
-- [Get ERC20 Token Mints By A User](token-mints.md#get-erc20-token-mints-by-a-user)
-- [Get NFT Mints By A User in a Specified Period](token-mints.md#get-nft-mints-by-a-user)
-- [Get ERC20 Token Mints By A User in a Specified Period](token-mints.md#get-erc20-token-mints-by-a-user-in-a-specified-period)
-- [Get Current Balance of Minted NFTs](token-mints.md#get-current-balance-of-minted-nfts)
-- [Get Current Balance of Minted ERC20 Tokens](token-mints.md#get-current-balance-of-minted-erc20-tokens)
+* [Get NFT Mints By A User](token-mints.md#get-nft-mints-by-a-user)
+* [Get ERC20 Token Mints By A User](token-mints.md#get-erc20-token-mints-by-a-user)
+* [Get NFT Mints By A User in a Specified Period](token-mints.md#get-nft-mints-by-a-user)
+* [Get ERC20 Token Mints By A User in a Specified Period](token-mints.md#get-erc20-token-mints-by-a-user-in-a-specified-period)
+* [Get Current Balance of Minted NFTs](token-mints.md#get-current-balance-of-minted-nfts)
+* [Get Current Balance of Minted ERC20 Tokens](token-mints.md#get-current-balance-of-minted-erc20-tokens)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -62,7 +62,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -77,7 +76,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -92,15 +90,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -108,7 +103,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -132,11 +126,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -149,11 +141,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -171,7 +161,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -187,11 +176,11 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get NFT Mints By A User
 
-You can fetch all NFTs minted by a user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS), across multiple chains, such as Ethereum, Polygon, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all NFTs minted by a user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Gold, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/HiNkAcW8C7" %}
+{% embed url="https://app.airstack.xyz/query/1cpqz1wo5D" %}
 Show me all NFTs minted by betashop.eth
 {% endembed %}
 
@@ -199,7 +188,6 @@ Show me all NFTs minted by betashop.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Ethereum: TokenTransfers(
     input: {
@@ -214,40 +202,6 @@ Show me all NFTs minted by betashop.eth
 <strong>        tokenType: {_in: [ERC721, ERC1155]},
 </strong>      },
       blockchain: ethereum,
-      order: {blockTimestamp: DESC}
-    }
-  ) {
-    TokenTransfer {
-      blockchain
-      formattedAmount
-      tokenAddress
-      tokenId
-      tokenNft {
-        metaData {
-          name
-        }
-        contentValue {
-          image {
-            medium
-          }
-        }
-      }
-      tokenType
-    }
-  }
-  Polygon: TokenTransfers(
-    input: {
-      filter: {
-        # Only get mints that are executed by the same user
-<strong>        operator: {_eq: "betashop.eth"},
-</strong>        # Mints are token transfers that has null address as `from`
-<strong>        from: {_eq: "0x0000000000000000000000000000000000000000"},
-</strong>        # Set this to the user that receive the token mints
-<strong>        to: {_eq: "betashop.eth"},
-</strong>        # Get only NFTs (ERC721/1155)
-<strong>        tokenType: {_in: [ERC721, ERC1155]},
-</strong>      },
-      blockchain: polygon,
       order: {blockTimestamp: DESC}
     }
   ) {
@@ -339,11 +293,9 @@ Show me all NFTs minted by betashop.eth
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
@@ -415,13 +367,12 @@ Show me all NFTs minted by betashop.eth
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
 ## Get ERC20 Token Mints By A User
 
-You can fetch all ERC20 tokens minted by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS), across multiple chains, such as Ethereum, Polygon, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all ERC20 tokens minted by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Gold, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
@@ -433,7 +384,6 @@ Show me all ERC20 tokens minted by ipeciura.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Ethereum: TokenTransfers(
     input: {
@@ -448,31 +398,6 @@ Show me all ERC20 tokens minted by ipeciura.eth
 <strong>        tokenType: {_eq: ERC20},
 </strong>      },
       blockchain: ethereum,
-      order: {blockTimestamp: DESC}
-    }
-  ) {
-    TokenTransfer {
-      blockchain
-      formattedAmount
-      tokenAddress
-      token {
-        name
-      }
-    }
-  }
-  Polygon: TokenTransfers(
-    input: {
-      filter: {
-        # Only get mints that are executed by the same user
-<strong>        operator: {_eq: "betashop.eth"},
-</strong>        # Mints are token transfers that has null address as `from`
-<strong>        from: {_eq: "0x0000000000000000000000000000000000000000"},
-</strong>        # Set this to the user that receive the token mints
-<strong>        to: {_eq: "ipeciura.eth"},
-</strong>        # Get only ERC20 tokens
-<strong>        tokenType: {_eq: ERC20},
-</strong>      },
-      blockchain: polygon,
       order: {blockTimestamp: DESC}
     }
   ) {
@@ -537,20 +462,15 @@ Show me all ERC20 tokens minted by ipeciura.eth
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
-<strong>      "TokenTransfer": null // No ERC20 token minted on Ethereum
-</strong>    },
-    "Polygon": {
       "TokenTransfer": [
         {
-          "blockchain": "polygon",
+          "blockchain": "ethereum",
           "formattedAmount": 0.01697896348647009,
           "tokenAddress": "0xadbf1854e5883eb8aa7baf50705338739e558e5b",
           "token": {
@@ -569,25 +489,23 @@ Show me all ERC20 tokens minted by ipeciura.eth
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
 ## Get NFT Mints By A User in a Specified Period
 
-You can fetch all NFTs minted during a specified period of time by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS), across different chains, e.g. Ethereum, Polygon, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all NFTs minted during a specified period of time by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS), across different chains, e.g. Ethereum, Gold, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/1NeCdgZKG8" %}
-Show me ERC721/1155 Polygon NFT mints by ipeciura.eth in 2023
+{% embed url="https://app.airstack.xyz/query/8ksF52mYYI" %}
+Show me ERC721/1155 Ethereum NFT mints by ipeciura.eth in 2023
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   TokenTransfers(
     input: {
@@ -606,7 +524,7 @@ Show me ERC721/1155 Polygon NFT mints by ipeciura.eth in 2023
           _lt: "2024-01-01T00:00:00Z" # (less than - before Jan 1, 2024)
         }
       },
-      blockchain: polygon,
+      blockchain: ethereum,
       order: {blockTimestamp: DESC}
     }
   ) {
@@ -630,18 +548,16 @@ Show me ERC721/1155 Polygon NFT mints by ipeciura.eth in 2023
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
     "TokenTransfers": {
       "TokenTransfer": [
         {
-          "blockchain": "polygon",
+          "blockchain": "ethereum",
           "formattedAmount": 1,
           "blockTimestamp": "2023-11-09T13:26:53Z",
           "tokenAddress": "0xd3b4de0d85c44c57993b3b18d42b00de81809eea",
@@ -662,25 +578,23 @@ Show me ERC721/1155 Polygon NFT mints by ipeciura.eth in 2023
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Get ERC20 Token Mints By A User in a Specified Period
 
-You can fetch all ERC20 tokens minted during a specified period of time by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS), across different chains, e.g. Ethereum, Polygon, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all ERC20 tokens minted during a specified period of time by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS), across different chains, e.g. Ethereum, Gold, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/kQk6CRK9aT" %}
-Show me all Polygon ERC20 token mints by ipeciura.eth in 2022
+{% embed url="https://app.airstack.xyz/query/BnRXgwEgRm" %}
+show me all Ethereum ERC20 token mints by ipeciura.eth in 2022
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   TokenTransfers(
     input: {
@@ -699,7 +613,7 @@ Show me all Polygon ERC20 token mints by ipeciura.eth in 2022
           _lt: "2023-01-01T00:00:00Z" # (less than - before Jan 1, 2023)
         }
       },
-      blockchain: polygon,
+      blockchain: base,
       order: {blockTimestamp: DESC}
     }
   ) {
@@ -715,18 +629,16 @@ Show me all Polygon ERC20 token mints by ipeciura.eth in 2022
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
     "TokenTransfers": {
       "TokenTransfer": [
         {
-          "blockchain": "polygon",
+          "blockchain": "base",
           "formattedAmount": 0.01697896348647009,
           "blockTimestamp": "2022-07-15T15:37:02Z",
           "tokenAddress": "0xadbf1854e5883eb8aa7baf50705338739e558e5b",
@@ -735,7 +647,7 @@ Show me all Polygon ERC20 token mints by ipeciura.eth in 2022
           }
         },
         {
-          "blockchain": "polygon",
+          "blockchain": "base",
           "formattedAmount": 0.9908239030713007,
           "blockTimestamp": "2022-07-15T14:45:54Z",
           "tokenAddress": "0x9928340f9e1aaad7df1d95e27bd9a5c715202a56",
@@ -743,13 +655,12 @@ Show me all Polygon ERC20 token mints by ipeciura.eth in 2022
             "name": "Balancer B-stMATIC-STABLE RewardGauge Deposit"
           }
         }
-        // Other ERC20 tokens minted by ipeciura.eth on Polygon in 2022
+        // Other ERC20 tokens minted by ipeciura.eth on Base in 2022
       ]
     }
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -757,19 +668,18 @@ Show me all Polygon ERC20 token mints by ipeciura.eth in 2022
 
 ### Fetching
 
-You can fetch the current NFT balances of minted NFTs, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS), across different chains, e.g. Ethereum, Polygon, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch the current NFT balances of minted NFTs, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS), across different chains, e.g. Ethereum, Gold, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/4dJEQDYR1K" %}
-Show current NFT balances of Minted NFTs on Polygon by ipeciura.eth
+{% embed url="https://app.airstack.xyz/query/rWLjAJASsE" %}
+Show current NFT balances of Minted NFTs on Ethereum by ipeciura.eth
 {% endembed %}
 
 #### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   TokenTransfers(
     input: {
@@ -784,7 +694,7 @@ Show current NFT balances of Minted NFTs on Polygon by ipeciura.eth
 <strong>        tokenType: {_in: [ERC1155, ERC721]}
 </strong>      },
       order: {blockTimestamp: DESC},
-      blockchain: polygon
+      blockchain: ethereum
     }
   ) {
     TokenTransfer {
@@ -810,11 +720,9 @@ Show current NFT balances of Minted NFTs on Polygon by ipeciura.eth
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "TokenTransfers": {
@@ -841,13 +749,12 @@ Show current NFT balances of Minted NFTs on Polygon by ipeciura.eth
             ]
           }
         },
-        // Other minted NFTs by ipeciura.eth on Polygon
+        // Other minted NFTs by ipeciura.eth on Ethereum
       ]
     }
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -857,7 +764,6 @@ To get the list of minted NFTs and their current balance in a flat array, use th
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 interface Token {
   name: string;
@@ -898,11 +804,9 @@ const formatFunction = (data: Data) =>
       index === self.findIndex((t) => t.address === arr.address)
   );
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 /**
  * @description Formats the NFT mints data.
@@ -926,11 +830,9 @@ const formatFunction = (data) =>
       index === self.findIndex((t) => t.address === arr.address)
   );
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 from typing import List, Dict, Optional, Any
 
@@ -984,7 +886,6 @@ def format_function(data: Optional[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
     return formatted_data
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1011,19 +912,18 @@ With this format function, you will get the following result that you can direct
 
 ### Fetching
 
-You can fetch the current ERC20 token balances of minted ERC20 tokens that are still hold by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS), across different chains, e.g. Ethereum, Polygon, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch the current ERC20 token balances of minted ERC20 tokens that are still hold by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS), across different chains, e.g. Ethereum, Gold, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/prb5moxfQP" %}
-Show current ERC20 token balances of Minted ERC20 tokens on Polygon by ipeciura.eth
+{% embed url="https://app.airstack.xyz/query/i4vZl3D8Fa" %}
+Show current ERC20 token balances of Minted ERC20 tokens on Ethereum by ipeciura.eth
 {% endembed %}
 
 #### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   TokenTransfers(
     input: {
@@ -1038,7 +938,7 @@ Show current ERC20 token balances of Minted ERC20 tokens on Polygon by ipeciura.
 <strong>        tokenType: {_eq: ERC20}
 </strong>      },
       order: {blockTimestamp: DESC},
-      blockchain: polygon}
+      blockchain: ethereum}
   ) {
     TokenTransfer {
       blockTimestamp
@@ -1055,11 +955,9 @@ Show current ERC20 token balances of Minted ERC20 tokens on Polygon by ipeciura.
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "TokenTransfers": {
@@ -1094,7 +992,6 @@ Show current ERC20 token balances of Minted ERC20 tokens on Polygon by ipeciura.
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -1104,7 +1001,6 @@ To get the list of minted ERC20 tokens and their current balance in a flat array
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 interface Token {
   name: string;
@@ -1144,11 +1040,9 @@ const formatFunction = (data: Data) =>
       index === self.findIndex((t) => t.address === arr.address)
   );
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 /**
  * @description Formats the ERC20 token mints data.
@@ -1172,11 +1066,9 @@ const formatFunction = (data) =>
       index === self.findIndex((t) => t.address === arr.address)
   );
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 from typing import List, Dict, Optional, Any
 
@@ -1228,7 +1120,6 @@ def format_function(data: Optional[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
     return formatted_data
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1256,6 +1147,6 @@ If you have any questions or need help regarding fetching token mints data into 
 
 ## More Resources
 
-- [TokenTransfers API Reference](../api-references/api-reference/tokentransfers-api.md)
-- [On-Chain Graph](onchain-graph.md)
-- [TokenTransfers Guides](token-transfers.md)
+* [TokenTransfers API Reference](../api-references/api-reference/tokentransfers-api.md)
+* [On-Chain Graph](onchain-graph.md)
+* [TokenTransfers Guides](token-transfers.md)
