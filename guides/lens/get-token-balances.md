@@ -464,7 +464,7 @@ query MyQuery {
 
 ### Get All ERC20s Owned By Lens Profile(s)
 
-You can fetch all ERC20 tokens on Ethereum, Polygon, Base, and Zora owned by any Lens Profile(s):
+You can fetch all ERC20 tokens on Ethereum, Gold, Base, and Zora owned by any Lens Profile(s):
 
 #### Try Demo
 
@@ -1009,7 +1009,7 @@ query MyQuery {
 
 ### Get All NFTs Owned By Lens Profile(s)
 
-You can fetch all NFTs on Ethereum, Polygon, Base, and Zora owned by any Lens Profile(s):
+You can fetch all NFTs on Ethereum, Gold, Base, and Zora owned by any Lens Profile(s):
 
 #### Try Demo
 

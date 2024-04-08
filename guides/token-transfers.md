@@ -24,21 +24,21 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get Token Transfers Sent From A User on Ethereum](token-transfers.md#get-token-transfers-sent-from-a-user-on-ethereum)
-* [Get Token Transfers Received By A User on Ethereum](token-transfers.md#get-token-transfers-received-by-a-user-on-ethereum)
-* [Get Token Transfers Sent From A User on Base](token-transfers.md#get-token-transfers-sent-from-a-user-on-base)
-* [Get Token Transfers Received By A User on Base](token-transfers.md#get-token-transfers-received-by-a-user-on-base)
-* [Get Token Transfers Sent From A User on Zora](token-transfers.md#get-token-transfers-sent-from-a-user-on-zora)
-* [Get Token Transfers Received By A User on Zora](token-transfers.md#get-token-transfers-received-by-a-user-on-zora)
-* [Get Token Transfers Sent From A User on Multiple Chains](token-transfers.md#get-token-transfers-sent-from-a-user-on-multiple-chains)
-* [Get Token Transfers Received By A User on Multiple Chains](token-transfers.md#get-token-transfers-received-by-a-user-on-multiple-chains)
-* [Get The Most Recent Token Transfers Sent From A User](token-transfers.md#get-the-most-recent-token-transfers-sent-from-a-user-s)
-* [Get The Most Recent Token Transfers Received By A User](token-transfers.md#get-the-most-recent-token-transfers-received-by-a-user)
+- [Get Token Transfers Sent From A User on Ethereum](token-transfers.md#get-token-transfers-sent-from-a-user-on-ethereum)
+- [Get Token Transfers Received By A User on Ethereum](token-transfers.md#get-token-transfers-received-by-a-user-on-ethereum)
+- [Get Token Transfers Sent From A User on Base](token-transfers.md#get-token-transfers-sent-from-a-user-on-base)
+- [Get Token Transfers Received By A User on Base](token-transfers.md#get-token-transfers-received-by-a-user-on-base)
+- [Get Token Transfers Sent From A User on Zora](token-transfers.md#get-token-transfers-sent-from-a-user-on-zora)
+- [Get Token Transfers Received By A User on Zora](token-transfers.md#get-token-transfers-received-by-a-user-on-zora)
+- [Get Token Transfers Sent From A User on Multiple Chains](token-transfers.md#get-token-transfers-sent-from-a-user-on-multiple-chains)
+- [Get Token Transfers Received By A User on Multiple Chains](token-transfers.md#get-token-transfers-received-by-a-user-on-multiple-chains)
+- [Get The Most Recent Token Transfers Sent From A User](token-transfers.md#get-the-most-recent-token-transfers-sent-from-a-user-s)
+- [Get The Most Recent Token Transfers Received By A User](token-transfers.md#get-the-most-recent-token-transfers-received-by-a-user)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -59,6 +59,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -73,6 +74,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -87,12 +89,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -100,6 +105,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -123,9 +129,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -138,9 +146,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -158,6 +168,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -173,7 +184,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get Token Transfers Sent From A User on Ethereum
 
-You can fetch all token transfers sent from a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), on Ethereum by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all token transfers sent from a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS), on Ethereum by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
@@ -185,6 +196,7 @@ Show me token transfers sent from betashop.eth on Ethereum
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
   TokenTransfers(
     input: {
@@ -211,9 +223,11 @@ Show me token transfers sent from betashop.eth on Ethereum
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -239,12 +253,13 @@ Show me token transfers sent from betashop.eth on Ethereum
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get Token Transfers Received By A User on Ethereum
 
-You can fetch all token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), on Ethereum by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS), on Ethereum by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
@@ -256,6 +271,7 @@ Show me token transfers received by betashop.eth on Ethereum
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
   TokenTransfers(
     input: {
@@ -282,9 +298,11 @@ Show me token transfers received by betashop.eth on Ethereum
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -310,12 +328,13 @@ Show me token transfers received by betashop.eth on Ethereum
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get Token Transfers Sent From A User on Base
 
-You can fetch all token transfers sent from a given user, e.g. [`jessepollak.eth`](https://explorer.airstack.xyz/token-balances?address=jessepollak.eth\&rawInput=%23%E2%8E%B1jessepollak.eth%E2%8E%B1%28jessepollak.eth++ethereum+null%29\&inputType=ADDRESS), on Base by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all token transfers sent from a given user, e.g. [`jessepollak.eth`](https://explorer.airstack.xyz/token-balances?address=jessepollak.eth&rawInput=%23%E2%8E%B1jessepollak.eth%E2%8E%B1%28jessepollak.eth++ethereum+null%29&inputType=ADDRESS), on Base by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
@@ -327,6 +346,7 @@ Show me token transfers sent from jessepollak.eth on Base
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
   TokenTransfers(
     input: {
@@ -353,9 +373,11 @@ Show me token transfers sent from jessepollak.eth on Base
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -381,12 +403,13 @@ Show me token transfers sent from jessepollak.eth on Base
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get Token Transfers Received By A User on Base
 
-You can fetch all token transfers received by a given user, e.g. [`barmstrong.eth`](https://explorer.airstack.xyz/token-balances?address=barmstrong.eth\&rawInput=%23%E2%8E%B1barmstrong.eth%E2%8E%B1%28barmstrong.eth++ethereum+null%29\&inputType=ADDRESS), on Base by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all token transfers received by a given user, e.g. [`barmstrong.eth`](https://explorer.airstack.xyz/token-balances?address=barmstrong.eth&rawInput=%23%E2%8E%B1barmstrong.eth%E2%8E%B1%28barmstrong.eth++ethereum+null%29&inputType=ADDRESS), on Base by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
@@ -398,6 +421,7 @@ Show me token transfers received by barmstrong.eth on Base
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
   TokenTransfers(
     input: {
@@ -424,9 +448,11 @@ Show me token transfers received by barmstrong.eth on Base
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -452,12 +478,13 @@ Show me token transfers received by barmstrong.eth on Base
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get Token Transfers Sent From A User on Zora
 
-You can fetch all token transfers sent from a given user, e.g. [`jacob.eth`](https://explorer.airstack.xyz/token-balances?address=fc\_fname%3Ajacob\&rawInput=%23%E2%8E%B1fc\_fname%3Ajacob%E2%8E%B1%28fc\_fname%3Ajacob++ethereum+null%29\&inputType=\&tokenType=\&activeView=\&activeTokenInfo=\&activeSnapshotInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=zora\&sortOrder=\&spamFilter=\&mintFilter=\&resolve6551=\&activeSocialInfo=), on Zora by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all token transfers sent from a given user, e.g. [`jacob.eth`](https://explorer.airstack.xyz/token-balances?address=fc_fname%3Ajacob&rawInput=%23%E2%8E%B1fc_fname%3Ajacob%E2%8E%B1%28fc_fname%3Ajacob++ethereum+null%29&inputType=&tokenType=&activeView=&activeTokenInfo=&activeSnapshotInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=zora&sortOrder=&spamFilter=&mintFilter=&resolve6551=&activeSocialInfo=), on Zora by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
@@ -469,6 +496,7 @@ Show me token transfers sent from jacob.eth on Zora
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
   TokenTransfers(
     input: {
@@ -495,9 +523,11 @@ Show me token transfers sent from jacob.eth on Zora
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -523,12 +553,13 @@ Show me token transfers sent from jacob.eth on Zora
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get Token Transfers Received By A User on Zora
 
-You can fetch all token transfers received by a given user, e.g. [`jacob.eth`](https://explorer.airstack.xyz/token-balances?address=fc\_fname%3Ajacob\&rawInput=%23%E2%8E%B1fc\_fname%3Ajacob%E2%8E%B1%28fc\_fname%3Ajacob++ethereum+null%29\&inputType=\&tokenType=\&activeView=\&activeTokenInfo=\&activeSnapshotInfo=\&tokenFilters=\&activeViewToken=\&activeViewCount=\&blockchainType=zora\&sortOrder=\&spamFilter=\&mintFilter=\&resolve6551=\&activeSocialInfo=), on Zora by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all token transfers received by a given user, e.g. [`jacob.eth`](https://explorer.airstack.xyz/token-balances?address=fc_fname%3Ajacob&rawInput=%23%E2%8E%B1fc_fname%3Ajacob%E2%8E%B1%28fc_fname%3Ajacob++ethereum+null%29&inputType=&tokenType=&activeView=&activeTokenInfo=&activeSnapshotInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=zora&sortOrder=&spamFilter=&mintFilter=&resolve6551=&activeSocialInfo=), on Zora by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
@@ -540,6 +571,7 @@ Show me token transfers received by jacob.eth on Zora
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
   TokenTransfers(
     input: {
@@ -566,9 +598,11 @@ Show me token transfers received by jacob.eth on Zora
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -594,23 +628,25 @@ Show me token transfers received by jacob.eth on Zora
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get Token Transfers Sent From A User on Multiple Chains
 
-You can fetch all token transfers sent from a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Polygon, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all token transfers sent from a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS), across multiple chains, such as Ethereum, Gold, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/NspXPukoq0" %}
-Show me all token transfers sent from betashop.eth on Ethereum, Polygon, Base, and Zora
+Show me all token transfers sent from betashop.eth on Ethereum, Gold, Base, and Zora
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
   # first query on Ethereum
   Ethereum: TokenTransfers(
@@ -710,9 +746,11 @@ Show me all token transfers sent from betashop.eth on Ethereum, Polygon, Base, a
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
@@ -748,12 +786,13 @@ Show me all token transfers sent from betashop.eth on Ethereum, Polygon, Base, a
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
 ## Get Token Transfers Received By A User on Multiple Chains
 
-You can fetch all token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS), across multiple chains, such as Ethereum, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
@@ -765,6 +804,7 @@ Show me token transfers received by betashop.eth on Ethereum, Base, and Zora
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
   # first query on Ethereum
   Ethereum: TokenTransfers(
@@ -840,9 +880,11 @@ Show me token transfers received by betashop.eth on Ethereum, Base, and Zora
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
@@ -866,12 +908,13 @@ Show me token transfers received by betashop.eth on Ethereum, Base, and Zora
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
 ## Get The Most Recent Token Transfers Sent From A User(s)
 
-You can fetch all most recent token transfers sent from a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all most recent token transfers sent from a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS), across multiple chains, such as Ethereum, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
@@ -883,6 +926,7 @@ Show me the most recent token transfers sent from betashop.eth on Ethereum, Base
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetTokenTransfers {
   # first query on Ethereum
@@ -995,9 +1039,11 @@ query GetTokenTransfers {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1008,8 +1054,8 @@ query GetTokenTransfers {
           "tokenType": "ERC20",
           "token": {
             "name": "USD Coin"
-          },
-        },
+          }
+        }
         // Other most recent token transfers sent by betashop.eth on Ethereum
       ]
     },
@@ -1020,33 +1066,35 @@ query GetTokenTransfers {
           "tokenType": "ERC20",
           "token": {
             "name": "USD Coin"
-          },
+          }
         }
       ]
     },
     "Zora": {
       "TokenTransfer": null // no tokens sent by betashop.eth on Zora
-    },
+    }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get The Most Recent Token Transfers Received By A User
 
-You can fetch most recent token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Polygon, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch most recent token transfers received by a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS), across multiple chains, such as Ethereum, Gold, Base, and Zora, by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/ZjywjOVFCH" %}
-Show me the most recent token transfers received by betashop.eth on Ethereum, Polygon, Base, and Zora
+Show me the most recent token transfers received by betashop.eth on Ethereum, Gold, Base, and Zora
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
   Ethereum: TokenTransfers(
     input: {
@@ -1154,9 +1202,11 @@ Show me the most recent token transfers received by betashop.eth on Ethereum, Po
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
@@ -1192,6 +1242,7 @@ Show me the most recent token transfers received by betashop.eth on Ethereum, Po
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -1201,6 +1252,6 @@ If you have any questions or need help regarding fetching token transfers data i
 
 ## More Resources
 
-* [TokenTransfers API Reference](../api-references/api-reference/tokentransfers-api.md)
-* [On-Chain Graph](onchain-graph.md)
-* [Token Mints Guides](token-mints.md)
+- [TokenTransfers API Reference](../api-references/api-reference/tokentransfers-api.md)
+- [On-Chain Graph](onchain-graph.md)
+- [Token Mints Guides](token-mints.md)

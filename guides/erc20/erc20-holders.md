@@ -18,7 +18,7 @@ layout:
 
 # 🗝 ERC20 Holders
 
-[Airstack](https://airstack.xyz) provides easy-to-use ERC20 token APIs for enriching Web3 applications with onchain and offchain ERC20 token data from Ethereum, Polygon, Base, and Zora.
+[Airstack](https://airstack.xyz) provides easy-to-use ERC20 token APIs for enriching Web3 applications with onchain and offchain ERC20 token data from Ethereum, Gold, Base, and Zora.
 
 ## Table Of Contents
 

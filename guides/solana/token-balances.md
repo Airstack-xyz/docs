@@ -308,7 +308,7 @@ You can fetch all NFT collections on Ethereum, Gold, Base, and Zora owned by any
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/RKMTOBysDZ" %}
-Show me all the NFTs owned by GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV across Ethereum, Polygon, Base, and Zora
+Show me all the NFTs owned by GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV across Ethereum, Gold, Base, and Zora
 {% endembed %}
 
 ### Code

@@ -17,7 +17,7 @@ layout:
 
 # ⚖ ERC20 Balances
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating ERC20 token balances data from Ethereum, Polygon, Base, and Zora.
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating ERC20 token balances data from Ethereum, Gold, Base, and Zora.
 
 ## Table Of Contents
 
@@ -576,7 +576,7 @@ query MyQuery {
 
 ## Get All ERC20s Owned By User(s)
 
-You can fetch all ERC20 tokens on Ethereum, Polygon, Base, and Zora owned by any user(s):
+You can fetch all ERC20 tokens on Ethereum, Gold, Base, and Zora owned by any user(s):
 
 ### Try Demo
 

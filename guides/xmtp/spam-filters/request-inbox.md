@@ -218,7 +218,7 @@ You can use this query to filter senders **on the fly** with a maximum of 200 wa
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/0OUsMMyg43" %}
-Show me token transfers by senders on Ethereum, Polygon, Base, and Zora
+Show me token transfers by senders on Ethereum, Gold, Base, and Zora
 {% endembed %}
 
 ### Code
@@ -371,7 +371,7 @@ You can use this query to filter senders **on the fly** with a maximum of 200 wa
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/uUiadl5vB6" %}
-show me senders' token balances on Ethereum, Polygon, Base, and Zora
+show me senders' token balances on Ethereum, Gold, Base, and Zora
 {% endembed %}
 
 ### Code

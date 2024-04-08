@@ -17,7 +17,7 @@ layout:
 
 # 🧹 Spam ERC20
 
-[Airstack](https://airstack.xyz) provides easy-to-use ERC20 token APIs for enriching Web3 applications with onchain and offchain ERC20 token data from Ethereum, Polygon, Base, and Zora.
+[Airstack](https://airstack.xyz) provides easy-to-use ERC20 token APIs for enriching Web3 applications with onchain and offchain ERC20 token data from Ethereum, Gold, Base, and Zora.
 
 When indexing any new token, Airstack takes into consideration contract deployer address history, and other factors to determine if the token might be spam.
 
@@ -355,7 +355,7 @@ query MyQuery {
 
 ### Formatting
 
-Using the GraphQL response, you can filter out and aggregate the ERC20 tokens across Ethereum, Polygon, Base, and Zora by providing the response as to the `data` input of the `filterSpamERC20Tokens` function:
+Using the GraphQL response, you can filter out and aggregate the ERC20 tokens across Ethereum, Gold, Base, and Zora by providing the response as to the `data` input of the `filterSpamERC20Tokens` function:
 
 {% tabs %}
 {% tab title="TypeScript" %}
@@ -513,7 +513,7 @@ def filter_spam_erc20_tokens(data: Optional[Dict[str, Any]]) -> List[Dict[str, A
 {% endtab %}
 {% endtabs %}
 
-The formatted data will combine Ethereum, Polygon, Base, and Zora NFTs hold by the user and filtered out all spam NFTs:
+The formatted data will combine Ethereum, Gold, Base, and Zora NFTs hold by the user and filtered out all spam NFTs:
 
 ```json
 [
@@ -625,7 +625,7 @@ query MyQuery {
 
 ## Show All Non-Spam ERC20 Tokens
 
-You can use [Airstack](https://airstack.xyz) to fetch all existing non-spam ERC20 tokens across Ethereum, Polygon, Base, and Zora:
+You can use [Airstack](https://airstack.xyz) to fetch all existing non-spam ERC20 tokens across Ethereum, Gold, Base, and Zora:
 
 ### Try Demo
 
