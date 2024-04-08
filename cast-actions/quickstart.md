@@ -220,7 +220,81 @@ Then, you can access the cast actions by making POST request to the `http://loca
 
 ## Bonus: Deployment & Add Database
 
-To keep track the number of time user **GM** someone, you can add a simple Redis DB to store the number. For this, Vercel provide [Vercel KV](https://vercel.com/docs/storage/vercel-kv/quickstart#create-a-kv-database) that you can easily use in your project. To setup a new KV database, you will first need to setup and deploy your project on Vercel.
+To keep track the number of time user **GM** someone, you can add a simple Redis DB to store the number. For this, Vercel provide [Vercel KV](https://vercel.com/docs/storage/vercel-kv/quickstart#create-a-kv-database) that you can easily use in your project.
+
+To use [Vercel KV](https://vercel.com/docs/storage/vercel-kv/quickstart#create-a-kv-database) in your cast actions, install `@vercel/kv` as a dependency:
+
+{% tabs %}
+{% tab title="npm" %}
+```sh
+npm i @vercel/kv
+```
+{% endtab %}
+
+{% tab title="yarn" %}
+```sh
+yarn add @vercel/kv
+```
+{% endtab %}
+
+{% tab title="pnpm" %}
+```sh
+pnpm install @vercel/kv
+```
+{% endtab %}
+
+{% tab title="bun" %}
+```sh
+bun install @vercel/kv
+```
+{% endtab %}
+{% endtabs %}
+
+Then, add this `gm` function code to your project and import it to `api/index.tsx`:
+
+{% tabs %}
+{% tab title="lib/gm.ts" %}
+{% code title="lib/gm.ts" %}
+```typescript
+import { createClient } from "@vercel/kv";
+import { config } from "dotenv";
+
+config();
+
+export async function gm(fid: number) {
+  const redis = createClient({
+    url: process.env.KV_REST_API_URL as string,
+    token: process.env.KV_REST_API_TOKEN as string,
+  });
+  const id = fid.toString();
+  await redis.zincrby("gm", 1, id);
+}
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="api/index.tsx" %}
+<pre class="language-typescript" data-title="api/index.tsx"><code class="lang-typescript"><strong>import { gm } from "../lib/gm.js";
+</strong>
+app.hono.post("/gm", async (c) => {
+  // same as code in previous steps
+  if (isValid) {
+    if (interactorFid === castFid) {
+      return c.json({ message: "Nice try." }, 400);
+    }
+
+<strong>    await gm(castFid); // add this line
+</strong>    // same as code in previous steps
+    return c.json({ message });
+  } else {
+    return c.json({ message: "Unauthorized" }, 401);
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+Once the code is added, you can have the database setup for your project. To setup a new KV database, you will first need to setup and deploy your project on Vercel.
 
 To deploy, first add some of the following additional scripts to your `package.json`:
 
