@@ -42,15 +42,14 @@ function fetchQueryWithPagination(
 
 ## Params
 
-| Param       | Type                                   | Default Value | Description                                          |
-| ----------- | -------------------------------------- | ------------- | ---------------------------------------------------- |
-| `query`     | `string`                               | -             | [Airstack API key](../../get-started/get-api-key.md) |
-| `variables` | [`Variables`](../objects/variables.md) | `null`        | GraphQL query variables                              |
-| `config`    | `{ cache?: boolean }`                  | `null`        | Caching configuration                                |
+| Param       | Type                                   | Default Value | Description             |
+| ----------- | -------------------------------------- | ------------- | ----------------------- |
+| `query`     | `string`                               | -             | Airstack GraphQL query  |
+| `variables` | [`Variables`](../objects/variables.md) | `null`        | GraphQL query variables |
+| `config`    | `{ cache?: boolean }`                  | `null`        | Caching configuration   |
 
 ## Responses
 
 | Param      | Type                                                  | Default Value | Description                           |
 | ---------- | ----------------------------------------------------- | ------------- | ------------------------------------- |
 | `response` | `Promise<`[`FetchQuery`](../objects/fetchquery.md)`>` | `null`        | Response object from GraphQL `query`. |
-

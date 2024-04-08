@@ -52,10 +52,10 @@ function fetchQueryWithPagination(
 
 ## Params
 
-| Param       | Type                  | Default Value | Description                                       |
-| ----------- | --------------------- | ------------- | ------------------------------------------------- |
-| `query`     | `string`              |               | [Airstack API key](../get-started/get-api-key.md) |
-| `variables` | `Record<string, any>` |               | GraphQL query variables                           |
+| Param       | Type                  | Default Value | Description             |
+| ----------- | --------------------- | ------------- | ----------------------- |
+| `query`     | `string`              |               | Airstack GraphQL query  |
+| `variables` | `Record<string, any>` |               | GraphQL query variables |
 
 ## Responses
 
@@ -67,4 +67,3 @@ function fetchQueryWithPagination(
 | `hasPrevPage` | `boolean`                           | false         |                                                          |
 | `getNextPage` | `() => Promise<FetchQuery \| null>` |               | Function to get data in the next page.                   |
 | `getPrevPage` | `() => Promise<FetchQuery \| null>` |               | Function to get data in the previous page.               |
-
