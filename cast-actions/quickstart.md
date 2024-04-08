@@ -304,13 +304,13 @@ Once deployed successfully, you can go to the Vercel Dashboard to create a new V
 
 Then, access the live Farcaster cast actions from a custom vercel link  with the following format `https://<CAST_ACTIONS_VERCEL_PROJECT>.vercel.app/api/gm`, which you can use to test with the Farcaster official [cast action playground.](https://warpcast.com/\~/developers/cast-actions)
 
-🥳 Congratulations, you've just deployed your 1st Farcaster Frames built usng Airstack Frog Recipes into Vercel!
+🥳 Congratulations, you've just deployed your 1st Farcaster cast actions built usng Airstack Frog Recipes into Vercel!
 
 ## Next Steps
 
 Now that you have your 1st Farcaster cast actions running, you can also learn more on how to use Airstack Frog Recipes to build your 1st Farcaster Frame [here](../guides/airstack-frog-recipes-and-middleware/quickstart/) to company your cast actions.
 
-In addition, you can also check out all the Airstack features available in Airstack Frog Recipes to enrich your Farcaster Frames with various onchain data offered:
+In addition, you can also check out all the Airstack features available in Airstack Frog Recipes to enrich your Farcaster cast actions or Farcaster Frames with various onchain data offered:
 
 * [Onchain Data](../frames/airstack-frog-recipes-and-middleware/onchain-data.md)
 * [Farcaster Hubs](../frames/airstack-frog-recipes-and-middleware/farcaster-hubs.md)
