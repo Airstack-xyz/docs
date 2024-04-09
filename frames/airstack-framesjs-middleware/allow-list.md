@@ -414,7 +414,7 @@ const handleRequest = frames(
           or: [
             // Only allow holders of this token on Base
 <strong>            [AllowListCriteria.TOKEN_HOLD, {
-</strong>              chain: TokenBlokchain.Base,
+</strong>              chain: TokenBlockchain.Base,
               address: "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
             }],
           ],
@@ -455,7 +455,7 @@ const handleRequest = frames(
           or: [
             // Only allow holders of this token on Base
 <strong>            [AllowListCriteria.TOKEN_HOLD, {
-</strong>              chain: TokenBlokchain.Base,
+</strong>              chain: TokenBlockchain.Base,
               address: "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
             }],
           ],
@@ -508,7 +508,7 @@ const handleRequest = frames(
           or: [
             // Only allow minters of this token on Base
 <strong>            [AllowListCriteria.TOKEN_MINT, {
-</strong>              chain: TokenBlokchain.Base,
+</strong>              chain: TokenBlockchain.Base,
               address: "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
             }],
           ],
@@ -549,7 +549,7 @@ const handleRequest = frames(
           or: [
             // Only allow minters of this token on Base
 <strong>            [AllowListCriteria.TOKEN_MINT, {
-</strong>              chain: TokenBlokchain.Base,
+</strong>              chain: TokenBlockchain.Base,
               address: "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
             }],
           ],
