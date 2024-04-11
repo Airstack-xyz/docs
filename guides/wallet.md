@@ -408,7 +408,7 @@ query MyQuery {
 
 ## Get User's Token Balances
 
-You can use [`Wallet`](../api-references/api-reference/wallet-api.md) API to fetch all user's token (ERC20/721/1155) balances across Ethereum, Polygon, Base, Zora:
+You can use [`Wallet`](../api-references/api-reference/wallet-api.md) API to fetch all user's token (ERC20/721/1155) balances across Ethereum, Gold, Base, Zora:
 
 {% hint style="info" %}
 If a user have more than **200 tokens on a chain**, then it is recommended that you use the [**TokenBalances**](../api-references/api-reference/tokenbalances-api.md) API directly instead.

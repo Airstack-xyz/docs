@@ -1,6 +1,6 @@
 ---
 description: >-
-  Learn how to get ERC20 token balances of user(s) on Ethereum, Polygon, and
+  Learn how to get ERC20 token balances of user(s) on Ethereum, Gold, and
   Base.
 layout:
   title:
@@ -24,7 +24,6 @@ layout:
 In this guide you will learn how to use Airstack to:
 
 - [Get Ethereum ERC20s Owned By User(s)](erc20-balances.md#get-ethereum-erc20s-owned-by-user-s)
-- [Get Polygon ERC20s Owned By User(s)](erc20-balances.md#get-polygon-erc20s-owned-by-user-s)
 - [Get Base ERC20s Owned By User(s)](erc20-balances.md#get-base-erc20s-owned-by-user-s)
 - [Get All ERC20s Owned By User(s)](erc20-balances.md#get-all-erc20s-owned-by-user-s)
 
@@ -308,139 +307,6 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## Get Polygon ERC20s Owned By User(s)
-
-You can fetch all ERC20 tokens on Polygon owned by any user(s):
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/HkihX2LMhH" %}
-Show ERC20 tokens on Polygon owned by users
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-
-```graphql
-query MyQuery {
-  TokenBalances(
-    input: {
-      filter: {
-        owner: {
-          _in: [
-            "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-            "vitalik.eth"
-            "lens/@vitalik"
-            "fc_fname:vitalik"
-          ]
-        }
-        tokenType: { _eq: ERC20 }
-      }
-      blockchain: polygon
-      limit: 50
-    }
-  ) {
-    TokenBalance {
-      owner {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          profileName
-          profileTokenId
-          profileTokenIdHex
-          userAssociatedAddresses
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-      amount
-      tokenAddress
-      token {
-        name
-        symbol
-      }
-    }
-    pageInfo {
-      nextCursor
-      prevCursor
-    }
-  }
-}
-```
-
-{% endtab %}
-
-{% tab title="Response" %}
-
-```json
-{
-  "data": {
-    "TokenBalances": {
-      "TokenBalance": [
-        {
-          "owner": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
-            "domains": [
-              {
-                "name": "quantumexchange.eth",
-                "isPrimary": false
-              },
-              // Other ENS domains
-            ]
-            "socials": [
-              {
-                "profileName": "vitalik.eth",
-                "profileTokenId": "5650",
-                "profileTokenIdHex": "0x1612",
-                "userAssociatedAddresses": [
-                  "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
-                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-                ]
-              },
-              {
-                "profileName": "lens/@vitalik",
-                "profileTokenId": "100275",
-                "profileTokenIdHex": "0x0187b3",
-                "userAssociatedAddresses": [
-                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-                ]
-              }
-            ],
-            "xmtp": [
-              {
-                "isXMTPEnabled": true
-              }
-            ]
-          },
-          "amount": "44281129",
-          "tokenAddress": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
-          "token": {
-            "name": "(PoS) Tether USD",
-            "symbol": "USDT"
-          }
-        }
-        // Other Polygon ERC20s
-      ],
-      "pageInfo": {
-        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
-        "prevCursor": ""
-      }
-    }
-  }
-}
-```
-
-{% endtab %}
-{% endtabs %}
-
 ## Get Base ERC20s Owned By User(s)
 
 You can fetch all ERC20 tokens on Base owned by any user(s):
@@ -637,52 +503,6 @@ query ERC20OwnedByLensProfiles {
       prevCursor
     }
   }
-  Polygon: TokenBalances(
-    input: {
-      filter: {
-        owner: {
-          _in: [
-            "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-            "vitalik.eth"
-            "lens/@vitalik"
-            "fc_fname:vitalik"
-          ]
-        }
-        tokenType: { _eq: ERC20 }
-      }
-      blockchain: polygon
-      limit: 50
-    }
-  ) {
-    TokenBalance {
-      owner {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          profileName
-          profileTokenId
-          profileTokenIdHex
-          userAssociatedAddresses
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-      amount
-      tokenAddress
-      token {
-        name
-        symbol
-      }
-    }
-    pageInfo {
-      nextCursor
-      prevCursor
-    }
-  }
   Base: TokenBalances(
     input: {
       filter: {
@@ -786,59 +606,6 @@ query ERC20OwnedByLensProfiles {
           }
         }
         // Other Ethereum ERC20s
-      ],
-      "pageInfo": {
-        "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
-        "prevCursor": ""
-      }
-    },
-    "Polygon": {
-      "TokenBalance": [
-        {
-          "owner": {
-            "addresses": [
-              "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-            ],
-            "domains": [
-              {
-                "name": "quantumexchange.eth",
-                "isPrimary": false
-              },
-              // Other ENS domains
-            ]
-            "socials": [
-              {
-                "profileName": "vitalik.eth",
-                "profileTokenId": "5650",
-                "profileTokenIdHex": "0x1612",
-                "userAssociatedAddresses": [
-                  "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
-                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-                ]
-              },
-              {
-                "profileName": "lens/@vitalik",
-                "profileTokenId": "100275",
-                "profileTokenIdHex": "0x0187b3",
-                "userAssociatedAddresses": [
-                  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-                ]
-              }
-            ],
-            "xmtp": [
-              {
-                "isXMTPEnabled": true
-              }
-            ]
-          },
-          "amount": "457218374987121000000",
-          "tokenAddress": "0x086373fad3447f7f86252fb59d56107e9e0faafa",
-          "token": {
-            "name": "Yup",
-            "symbol": "YUP"
-          }
-        }
-        // Other Polygon ERC20s
       ],
       "pageInfo": {
         "nextCursor": "eyJMYXN0VmFsdWVzTWFwIjp7Il9pZCI6eyJWYWx1ZSI6ImVmYmMyM2UwZGZkYmFiY2Y0MjFjNzRmNmE5ODlkMWNhMjdhMTJlYjRjZWUyNmM5NmViNzZhMzZhMTk3MzA0ZjUiLCJEYXRhVHlwZSI6InN0cmluZyJ9LCJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJWYWx1ZSI6IjE2OTE0Mjk2NjIiLCJEYXRhVHlwZSI6IkRhdGVUaW1lIn19LCJQYWdpbmF0aW9uRGlyZWN0aW9uIjoiTkVYVCJ9",
