@@ -23,17 +23,17 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-- [Common Followers of Multiple User(s)](follows-in-common.md#common-followers-of-multiple-user-s)
-- [Common Following of Multiple User(s)](follows-in-common.md#common-following-of-multiple-user-s)
-- [Followers of User X That Also Following User Y](follows-in-common.md#followers-of-user-x-that-also-following-user-y)
-- [Following of User X That Also Follows User Y](follows-in-common.md#following-of-user-x-that-also-follows-user-y)
-- [Mutual Follows of A User](follows-in-common.md#mutual-follows-of-a-user)
+* [Common Followers of Multiple User(s)](follows-in-common.md#common-followers-of-multiple-user-s)
+* [Common Following of Multiple User(s)](follows-in-common.md#common-following-of-multiple-user-s)
+* [Followers of User X That Also Following User Y](follows-in-common.md#followers-of-user-x-that-also-following-user-y)
+* [Following of User X That Also Follows User Y](follows-in-common.md#following-of-user-x-that-also-follows-user-y)
+* [Mutual Follows of A User](follows-in-common.md#mutual-follows-of-a-user)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
-- Finished [Followers](followers.md) and [Following](following.md)
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
+* Finished [Followers](followers.md) and [Following](following.md)
 
 ## Get Started
 
@@ -54,7 +54,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -69,7 +68,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -84,15 +82,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -100,7 +95,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -124,11 +118,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -141,11 +133,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -163,7 +153,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -191,7 +180,6 @@ Show me common followers of both betashop.eth and ipeciura.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -224,11 +212,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -287,7 +273,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -305,7 +290,6 @@ Show me common following of both betashop.eth and ipeciura.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowings(
@@ -338,11 +322,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowings": {
@@ -384,7 +366,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -402,7 +383,6 @@ Show me followers of betashop.eth that is also followed by ipeciura.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -435,11 +415,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -505,7 +483,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -523,7 +500,6 @@ Show me following of betashop.eth that also follows ipeciura.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowings(
@@ -556,11 +532,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowings": {
@@ -615,7 +589,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -633,7 +606,6 @@ Show me mutual follows of betashop.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -666,11 +638,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "SocialFollowers": {
@@ -715,7 +685,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -725,6 +694,6 @@ If you have any questions or need help regarding fetching follows in common data
 
 ## More Resources
 
-- [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
-- [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
-- [Follows In Common For Farcaster Devs](../farcaster/follows-in-common.md)
+* [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
+* [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
+* [Follows In Common For Farcaster Devs](../../farcaster/farcaster/follows-in-common.md)

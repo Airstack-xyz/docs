@@ -47,10 +47,10 @@ fetchQuery(
 
 ## Params
 
-| Param       | Type                  | Default Value | Description                                       |
-| ----------- | --------------------- | ------------- | ------------------------------------------------- |
-| `query`     | `string`              |               | [Airstack API key](../get-started/get-api-key.md) |
-| `variables` | `Record<string, any>` |               | GraphQL query variables                           |
+| Param       | Type                  | Default Value | Description             |
+| ----------- | --------------------- | ------------- | ----------------------- |
+| `query`     | `string`              |               | Airstack GraphQL query  |
+| `variables` | `Record<string, any>` |               | GraphQL query variables |
 
 ## Responses
 
