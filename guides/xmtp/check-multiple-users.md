@@ -21,15 +21,15 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to check if multiple users have XMTP enabled:
 
-- [Bulk Check Multiple Users Has XMTP](check-multiple-users.md#bulk-check-multiple-users-have-xmtp)
-- [Bulk Check Lens Profiles Have XMTP](check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
-- [Bulk Check Farcasters Have XMTP](check-multiple-users.md#bulk-check-farcasters-have-xmtp)
+* [Bulk Check Multiple Users Has XMTP](check-multiple-users.md#bulk-check-multiple-users-have-xmtp)
+* [Bulk Check Lens Profiles Have XMTP](check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
+* [Bulk Check Farcasters Have XMTP](check-multiple-users.md#bulk-check-farcasters-have-xmtp)
 
 ### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
-- Basic knowledge of [XMTP](https://xmtp.org)
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
+* Basic knowledge of [XMTP](https://xmtp.org)
 
 ### Get Started
 
@@ -50,7 +50,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -65,7 +64,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -80,15 +78,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -96,7 +91,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -120,11 +114,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -137,11 +129,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -159,7 +149,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -189,7 +178,6 @@ Bulk Check Multiple Users Have XMTP (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
@@ -222,11 +210,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -287,7 +273,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -311,7 +296,6 @@ Bulk Check Lens Profiles Have XMTP (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query BulkFetchLensandXMTP {
   XMTPs(
@@ -338,11 +322,9 @@ query BulkFetchLensandXMTP {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -399,7 +381,6 @@ query BulkFetchLensandXMTP {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -417,7 +398,6 @@ Bulk Query Farcasters Have XMTP (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query BulkFetchFarcasterHaveXMTP {
   XMTPs(
@@ -445,11 +425,9 @@ query BulkFetchFarcasterHaveXMTP {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -509,7 +487,6 @@ query BulkFetchFarcasterHaveXMTP {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -519,13 +496,15 @@ If you have any questions or need help regarding checking XMTP for multiple user
 
 ### More Resources
 
-- [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)
-- [Has XMTP For Lens Developers](../lens/has-xmtp.md)
-- [Has XMTP For Farcaster Developers](../farcaster/has-xmtp.md)
+* [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)
+* [Has XMTP For Lens Developers](../lens/has-xmtp.md)
+* [Has XMTP For Farcaster Developers](../../farcaster/farcaster/has-xmtp.md)
 
 1. e.g. `lens_id:0x09718`
 2. e.g. `fc_fid:5650`
 
 [^1]: e.g. lens/@vitalik
+
 [^2]: e.g. `fc_fname:vitalik.eth`
+
 [^3]: 0x address, ENS, Lens, Farcaster

@@ -23,17 +23,17 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Get All User's ENS Domain](wallet.md#get-all-users-ens-domain)
-- [Get All User's Lens Profiles](wallet.md#get-all-users-lens-profiles)
-- [Get All User's Farcaster Account](wallet.md#get-all-users-farcaster-account)
-- [Check If A User Have XMTP Enabled](wallet.md#check-if-a-user-have-xmtp-enabled)
-- [Get User's Token Balances](wallet.md#get-users-token-balances)
-- [Get User's Token Transfers](wallet.md#get-users-token-transfers)
+* [Get All User's ENS Domain](wallet.md#get-all-users-ens-domain)
+* [Get All User's Lens Profiles](wallet.md#get-all-users-lens-profiles)
+* [Get All User's Farcaster Account](wallet.md#get-all-users-farcaster-account)
+* [Check If A User Have XMTP Enabled](wallet.md#check-if-a-user-have-xmtp-enabled)
+* [Get User's Token Balances](wallet.md#get-users-token-balances)
+* [Get User's Token Transfers](wallet.md#get-users-token-transfers)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -54,7 +54,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -69,7 +68,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -84,15 +82,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -100,7 +95,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -124,11 +118,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -141,11 +133,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -163,7 +153,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -195,7 +184,6 @@ Show me all 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045's ENS domains
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Wallet(
@@ -211,11 +199,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -239,7 +225,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -263,7 +248,6 @@ Show me all 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045's Lens profiles
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Wallet(
@@ -278,11 +262,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -296,7 +278,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -318,7 +299,6 @@ Show me all 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045's Farcaster accounts
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Wallet(
@@ -333,11 +313,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -351,7 +329,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -369,7 +346,6 @@ Check if 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 have XMTP enabled
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Wallet(
@@ -384,11 +360,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -402,7 +376,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -426,7 +399,6 @@ Show me token balances of 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Wallet(
@@ -519,11 +491,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -612,7 +582,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -636,7 +605,6 @@ show me all token transfers from or to 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA9604
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Wallet(
@@ -846,11 +814,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1058,7 +1024,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1068,15 +1033,15 @@ If you have any questions or need help regarding fetching balance snapshots data
 
 ## More Resources
 
-- [Wallet API References](../api-references/api-reference/wallet-api.md)
-- [Domains API References](../api-references/api-reference/domains-api.md)
-- [Socials API References](../api-references/api-reference/socials-api.md)
-- [TokenBalances API References](../api-references/api-reference/tokenbalances-api.md)
-- [TokenTransfers API References](../api-references/api-reference/tokentransfers-api.md)
-- [ENS Domain Guides](ens-domains/)
-- [Lens Guides](lens/)
-- [Farcaster Guides](farcaster/)
-- [Token Balances Guides](token-balances/)
-- [Token Transfers Guides](token-transfers.md)
-- [Balance Snapshots Guides](balance-snapshots.md)
-- [Holder Snapshots Guides](holder-snapshots.md)
+* [Wallet API References](../api-references/api-reference/wallet-api.md)
+* [Domains API References](../api-references/api-reference/domains-api.md)
+* [Socials API References](../api-references/api-reference/socials-api.md)
+* [TokenBalances API References](../api-references/api-reference/tokenbalances-api.md)
+* [TokenTransfers API References](../api-references/api-reference/tokentransfers-api.md)
+* [ENS Domain Guides](ens-domains/)
+* [Lens Guides](lens/)
+* [Farcaster Guides](../farcaster/farcaster/)
+* [Token Balances Guides](token-balances/)
+* [Token Transfers Guides](token-transfers.md)
+* [Balance Snapshots Guides](balance-snapshots.md)
+* [Holder Snapshots Guides](holder-snapshots.md)

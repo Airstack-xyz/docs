@@ -422,4 +422,4 @@ If you have any questions or need help regarding fetching holders or attendees o
 
 * [Nested Queries](../../api-references/overview/nested-queries.md)
 * [Token Holders Tutorial for Lens Devs](../lens/token-holders.md)
-* [Token Holders Tutorial for Farcaster Devs](../farcaster/token-holders.md)
+* [Token Holders Tutorial for Farcaster Devs](../../farcaster/farcaster/token-holders.md)
