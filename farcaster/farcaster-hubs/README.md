@@ -23,7 +23,7 @@ Currently, the Airstack Hubs API is offered as both an **HTTP API** and **GRPC A
 
 You can test out the HTTP API live by using Swagger UI [here](https://swagger.airstack.xyz/api-docs) and provide Airstack API key to the **Authorize** button (located on the right side of the page).
 
-To integrate Hubs HTTP API into your Farcaster app, click [here](./#http-api).
+To integrate Hubs HTTP API into your Farcaster app, click [here](quickstart/http-api.md).
 
 ## GRPC API
 
