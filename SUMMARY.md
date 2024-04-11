@@ -24,7 +24,6 @@
   * [📺 Farcaster Channels](farcaster/farcaster/farcaster-channels.md)
   * [🫂 Farcaster Followers](farcaster/farcaster/farcaster-followers.md)
   * [💐 Farcaster Following](farcaster/farcaster/farcaster-following.md)
-  * [🎭 Allow Lists for Farcaster Frames](farcaster/farcaster/allow-lists-for-farcaster-frames.md)
   * [📈 Trending Mints](farcaster/farcaster/trending-mints.md)
   * [💡 Activate Kit for Farcaster Auth Kit](farcaster/farcaster/activate-kit-for-farcaster-auth-kit.md)
   * [💰 Get Token Balances](farcaster/farcaster/get-token-balances.md)

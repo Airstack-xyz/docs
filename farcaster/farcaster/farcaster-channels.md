@@ -954,4 +954,4 @@ If you have any questions or need help regarding fetch any data related to Farca
 * [FarcasterChannels API Reference](../../api-references/api-reference/farcasterchannels-api.md)
 * [FarcasterChannelParticipants API Reference](../../api-references/api-reference/farcasterchannelparticipants-api.md)
 * [Airstack Onchain Kit for Farcaster Frames](airstack-onchain-kit-for-farcaster-frames.md)
-* [Allow Lists for Farcaster Frames](allow-lists-for-farcaster-frames.md)
+* [Allow Lists for Farcaster Frames](broken-reference)
