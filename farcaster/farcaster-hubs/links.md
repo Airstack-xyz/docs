@@ -293,7 +293,6 @@ If you have any questions or need help regarding integrating Links data using AI
 
 ## More Resources
 
-* [Hub State](hub-state.md)
 * [Casts](casts.md)
 * [Reactions](reactions.md)
 * [User Data](user-data.md)

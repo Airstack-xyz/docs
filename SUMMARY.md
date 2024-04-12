@@ -68,7 +68,6 @@
   * [🚀 Quickstart](farcaster/farcaster-hubs/quickstart/README.md)
     * [📠 HTTP API](farcaster/farcaster-hubs/quickstart/http-api.md)
     * [⚡ GRPC API](farcaster/farcaster-hubs/quickstart/grpc-api.md)
-  * [🔃 Hub State](farcaster/farcaster-hubs/hub-state.md)
   * [💬 Casts](farcaster/farcaster-hubs/casts.md)
   * [👍 Reactions](farcaster/farcaster-hubs/reactions.md)
   * [🔗 Links](farcaster/farcaster-hubs/links.md)

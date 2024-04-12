@@ -396,7 +396,6 @@ If you have any questions or need help regarding integrating Reactions data usin
 
 ## More Resources
 
-* [Hub State](hub-state.md)
 * [Casts](casts.md)
 * [Links](links.md)
 * [User Data](user-data.md)

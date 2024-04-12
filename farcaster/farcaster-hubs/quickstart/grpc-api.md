@@ -75,7 +75,6 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
 
 Once you have the GRPC API integrated, you can start exploring all the APIs offered:
 
-* [Hub State](../hub-state.md)
 * [Casts](../casts.md)
 * [Reactions](../reactions.md)
 * [Links](../links.md)

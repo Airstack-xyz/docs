@@ -75,7 +75,6 @@ main();
 
 Once you have the HTTP API integrated, you can start exploring all the APIs offered:
 
-* [Hub State](../hub-state.md)
 * [Casts](../casts.md)
 * [Reactions](../reactions.md)
 * [Links](../links.md)

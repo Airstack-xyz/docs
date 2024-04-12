@@ -85,7 +85,6 @@ If you have any questions or need help regarding integrating FIDs data using AIr
 
 ## More Resources
 
-* [Hub State](hub-state.md)
 * [Casts](casts.md)
 * [Reactions](reactions.md)
 * [Links](links.md)

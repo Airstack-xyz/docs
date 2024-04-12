@@ -2,7 +2,7 @@
 description: Learn all about Not A Token and how you can earn it.
 ---
 
-# 🪙 Not A Token
+# 😶 Not A Token
 
 \
 Not A Token is a points system that rewards developers for building great apps with Airstack. The following rewards are currently available:

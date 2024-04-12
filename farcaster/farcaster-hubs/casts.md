@@ -393,7 +393,6 @@ If you have any questions or need help regarding integrating Casts data using AI
 
 ## More Resources
 
-* [Hub State](hub-state.md)
 * [Reactions](reactions.md)
 * [Links](links.md)
 * [User Data](user-data.md)

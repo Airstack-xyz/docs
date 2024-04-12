@@ -186,7 +186,6 @@ If you have any questions or need help regarding integrating username proofs dat
 
 ## More Resources
 
-* [Hub State](hub-state.md)
 * [Casts](casts.md)
 * [Reactions](reactions.md)
 * [Links](links.md)
