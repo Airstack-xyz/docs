@@ -150,3 +150,4 @@ redirects:
   guides/trending-mints/farcaster-users: abstractions/trending-mints/farcaster-users.md
   guides/trending-mints/onchain-graph: abstractions/trending-mints/onchain-graph.md
   guides/trending-mints/common-minters: abstractions/trending-mints/common-minters.md
+  guides/farcaster/proof-of-personhood-for-farcaster-frames: farcaster/farcaster-frames/airstack-frames-sdk/allow-list.md
