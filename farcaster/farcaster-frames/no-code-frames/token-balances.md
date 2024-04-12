@@ -42,7 +42,6 @@ In the popup, you can select up to 3 options on which balances to choose, there 
 * NFTs on Ethereum
 * NFTs on Base
 * NFTs on Zora
-* NFTs on Polygon
 * POAPs
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2024-03-01 at 00.26.38.png" alt=""><figcaption><p>No-Code Token Balances Frames Options</p></figcaption></figure>
@@ -59,5 +58,5 @@ and share the URL to any Farcaster client that supports Frames:
 ## More Resources
 
 * [Onchain Kit for Farcaster Frames](../../farcaster/airstack-onchain-kit-for-farcaster-frames.md)
-* [Allow List for Farcaster Frames](broken-reference)
+* [Allow List for Farcaster Frames](../airstack-frog-recipes-and-middleware/allow-list.md)
 * [Farcaster Guides](../../farcaster/)
