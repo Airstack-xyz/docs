@@ -225,11 +225,10 @@ query MyQuery {
 
 async def main():
     count = 0
+    execute_query_client = api_client.create_execute_query_object(
+        query=query)
+    query_response = await execute_query_client.execute_paginated_query()
     while True:
-        execute_query_client = api_client.create_execute_query_object(
-            query=query)
-        query_response = await execute_query_client.execute_paginated_query()
-
         if query_response.error is None:
 
             count += 1
