@@ -14,6 +14,7 @@
     * [🎯 Direct API Call](get-started/quickstart/direct-api-call.md)
   * [⛰️ Airstack Explorer (No Code)](get-started/airstack-explorer.md)
 * [🔋 Pricing](https://app.airstack.xyz/pricing)
+* [🪙 Not A Token](not-a-token.md)
 
 ## Farcaster
 
