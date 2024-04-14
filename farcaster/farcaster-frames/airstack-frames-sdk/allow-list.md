@@ -1032,7 +1032,7 @@ query MyQuery {
   Socials(
     input: {
       filter: {
-        profileName: {_eq: "fc_fid:602"},
+        identity: {_eq: "fc_fid:602"},
         dappName: {_eq: farcaster}
       },
       blockchain: ethereum
