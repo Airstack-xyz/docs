@@ -8,6 +8,12 @@ description: Learn how to submit and validate message data using Airstack Hubs A
 
 You can submit a signed protobuf-serialized message to the Hub by using Airstack Hubs API with the code below:
 
+{% hint style="info" %}
+For this, you will first need to [create your own signer](https://docs.farcaster.xyz/developers/guides/accounts/create-account-key) to call the submit message API.\
+\
+For details on creating casts with mentions, replies, embeds, and other details, check [here](https://docs.farcaster.xyz/developers/guides/writing/casts).
+{% endhint %}
+
 {% tabs %}
 {% tab title="axios" %}
 <pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
@@ -45,14 +51,39 @@ main();
 
 {% tab title="@farcaster/hub-nodejs" %}
 <pre class="language-typescript"><code class="lang-typescript">import {
-  Metadata,
+  hexStringToBytes,
   getSSLHubRpcClient,
+  Metadata,
+  makeCastAdd,
+  FarcasterNetwork,
 } from "@farcaster/hub-nodejs";
 import { config } from "dotenv";
 
 config();
 
+const SIGNER_PRIVATE_KEY = '0x...'; // Your signer's private key
+const FID = 1; // Your fid
+const ed25519Signer = new NobleEd25519Signer(SIGNER_PRIVATE_KEY);
+const dataOptions = {
+  fid: FID,
+  network: FC_NETWORK,
+};
+const FC_NETWORK = FarcasterNetwork.MAINNET;
+
 const client = getSSLHubRpcClient("hubs-grpc.airstack.xyz");
+
+// Construct the cast
+<strong>const cast = await makeCastAdd(
+</strong>  {
+    text: 'This is a cast!', // Text can be up to 320 bytes long
+    embeds: [],
+    embedsDeprecated: [],
+    mentions: [],
+    mentionsPositions: [],
+  },
+  dataOptions,
+  ed25519Signer
+);
 
 client.$.waitForReady(Date.now() + 5000, async (e) => {
   if (e) {
@@ -63,12 +94,22 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
     const metadata = new Metadata();
     // Provide API key here
 <strong>    metadata.add("x-airstack-hubs", process.env.AIRSTACK_API_KEY as string);
-</strong>    console.log(`Connected to ${hubRpcEndpoint}`);
-
-    const message; // Any valid message constructed with a Builder
-
-    const submitResult = await client.submitMessage(metadata);
-    console.log(submitResult);
+</strong>
+    if (cast.isOk()) {
+      // Broadcast the cast/message to the Farcaster network
+<strong>      const submitResult = await client.submitMessage(
+</strong>        castReplyResult.value,
+        metadata
+      );
+      if (submitResult.isOk()) {
+        console.log(`Reply posted successfully`);
+        console.log(Buffer.from(submitResult.value.hash).toString("hex"));
+      }
+    } else {
+      const error = cast.error;
+      // Handle the error case
+      console.error(`Error posting reply: ${error}`);
+    }
     // After everything, close the RPC connection
     client.close();
   }
@@ -111,7 +152,7 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
 You can validate a signed protobuf-serialized message with the Hub by using Airstack Hubs API with the code below:
 
 {% hint style="info" %}
-If you are validating message for Frames, check out [Airstack Frames Validator](../farcaster-frames/frames-validator.md).
+If you are validating message for Frames or cast actions, check out [Airstack Frames Validator](../farcaster-frames/frames-validator.md).
 {% endhint %}
 
 {% tabs %}
