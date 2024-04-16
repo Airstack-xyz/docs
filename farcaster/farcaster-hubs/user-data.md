@@ -9,35 +9,6 @@ description: Learn how to fetch user data using Airstack Hubs API.
 You can get user data by a specific FID by using Airstack Hubs API with the code below:
 
 {% tabs %}
-{% tab title="axios" %}
-<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
-import { config } from "dotenv";
-
-config();
-
-const main = async () => {
-  const server = "https://hubs.airstack.xyz";
-  try {
-    const response = await axios.get(`${server}/v1/userDataByFid?fid=6833&#x26;user_data_type=1`, {
-      headers: {
-        "Content-Type": "application/json",
-        // Provide API key here
-<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
-</strong>      },
-    });
-  
-    console.log(response);
-  
-    console.log(json);
-  } catch (e) {
-    console.error(e);
-  }
-}
-
-main();
-</code></pre>
-{% endtab %}
-
 {% tab title="@farcaster/hub-nodejs" %}
 <pre class="language-typescript"><code class="lang-typescript">import {
   Metadata,
@@ -69,6 +40,35 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
     client.close();
   }
 });
+</code></pre>
+{% endtab %}
+
+{% tab title="axios" %}
+<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
+import { config } from "dotenv";
+
+config();
+
+const main = async () => {
+  const server = "https://hubs.airstack.xyz";
+  try {
+    const response = await axios.get(`${server}/v1/userDataByFid?fid=6833&#x26;user_data_type=1`, {
+      headers: {
+        "Content-Type": "application/json",
+        // Provide API key here
+<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
+</strong>      },
+    });
+  
+    console.log(response);
+  
+    console.log(json);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+main();
 </code></pre>
 {% endtab %}
 

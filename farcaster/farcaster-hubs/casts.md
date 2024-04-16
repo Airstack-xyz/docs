@@ -9,35 +9,6 @@ description: Learn how to fetch Farcaster casts data using Airstack Hubs API.
 You can get a cast by a specific FID and cast hash by using Airstack Hubs API with the code below:
 
 {% tabs %}
-{% tab title="axios" %}
-<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
-import { config } from "dotenv";
-
-config();
-
-const main = async () => {
-  const server = "https://hubs.airstack.xyz";
-  try {
-    const response = await axios.get(`${server}/v1/castById?fid=2&#x26;hash=0xd2b1ddc6c88e865a33cb1a565e0058d757042974`, {
-      headers: {
-        "Content-Type": "application/json",
-        // Provide API key here
-<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
-</strong>      },
-    });
-  
-    console.log(response);
-  
-    console.log(json);
-  } catch (e) {
-    console.error(e);
-  }
-}
-
-main();
-</code></pre>
-{% endtab %}
-
 {% tab title="@farcaster/hub-nodejs" %}
 <pre class="language-javascript"><code class="lang-javascript">import {
   Metadata,
@@ -66,6 +37,35 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
     client.close();
   }
 });
+</code></pre>
+{% endtab %}
+
+{% tab title="axios" %}
+<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
+import { config } from "dotenv";
+
+config();
+
+const main = async () => {
+  const server = "https://hubs.airstack.xyz";
+  try {
+    const response = await axios.get(`${server}/v1/castById?fid=2&#x26;hash=0xd2b1ddc6c88e865a33cb1a565e0058d757042974`, {
+      headers: {
+        "Content-Type": "application/json",
+        // Provide API key here
+<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
+</strong>      },
+    });
+  
+    console.log(response);
+  
+    console.log(json);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+main();
 </code></pre>
 {% endtab %}
 
@@ -104,6 +104,34 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
 You can get all the casts authored by a specific FID by using Airstack Hubs API with the code below:
 
 {% tabs %}
+{% tab title="@farcaster/hub-nodejs" %}
+<pre class="language-javascript"><code class="lang-javascript">import {
+  Metadata,
+  getSSLHubRpcClient,
+} from "@farcaster/hub-nodejs";
+
+const client = getSSLHubRpcClient("hubs-grpc.airstack.xyz");
+
+client.$.waitForReady(Date.now() + 5000, async (e) => {
+  if (e) {
+    console.error(`Failed to connect to the gRPC server:`, e);
+    process.exit(1);
+  } else {
+    console.log(`Connected to the gRPC server`);
+    const metadata = new Metadata();
+    // Provide API key here
+<strong>    metadata.add("x-airstack-hubs", process.env.AIRSTACK_API_KEY as string);
+</strong>
+    // Fetch casts data with `getCastsByFid`
+    const castsResult = await client.getCastsByFid({ fid: 2 }, metadata);
+    console.log(castsResult.value);
+    // After everything, close the RPC connection
+    client.close();
+  }
+});
+</code></pre>
+{% endtab %}
+
 {% tab title="axios" %}
 <pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
 import { config } from "dotenv";
@@ -130,34 +158,6 @@ const main = async () => {
 }
 
 main();
-</code></pre>
-{% endtab %}
-
-{% tab title="@farcaster/hub-nodejs" %}
-<pre class="language-javascript"><code class="lang-javascript">import {
-  Metadata,
-  getSSLHubRpcClient,
-} from "@farcaster/hub-nodejs";
-
-const client = getSSLHubRpcClient("hubs-grpc.airstack.xyz");
-
-client.$.waitForReady(Date.now() + 5000, async (e) => {
-  if (e) {
-    console.error(`Failed to connect to the gRPC server:`, e);
-    process.exit(1);
-  } else {
-    console.log(`Connected to the gRPC server`);
-    const metadata = new Metadata();
-    // Provide API key here
-<strong>    metadata.add("x-airstack-hubs", process.env.AIRSTACK_API_KEY as string);
-</strong>
-    // Fetch casts data with `getCastsByFid`
-    const castsResult = await client.getCastsByFid({ fid: 2 }, metadata);
-    console.log(castsResult.value);
-    // After everything, close the RPC connection
-    client.close();
-  }
-});
 </code></pre>
 {% endtab %}
 
@@ -195,6 +195,34 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
 You can get all the casts that mentioned a specific FID by using Airstack Hubs API with the code below:
 
 {% tabs %}
+{% tab title="@farcaster/hub-nodejs" %}
+<pre class="language-javascript"><code class="lang-javascript">import {
+  Metadata,
+  getSSLHubRpcClient,
+} from "@farcaster/hub-nodejs";
+
+const client = getSSLHubRpcClient("hubs-grpc.airstack.xyz");
+
+client.$.waitForReady(Date.now() + 5000, async (e) => {
+  if (e) {
+    console.error(`Failed to connect to the gRPC server:`, e);
+    process.exit(1);
+  } else {
+    console.log(`Connected to the gRPC server`);
+    const metadata = new Metadata();
+    // Provide API key here
+<strong>    metadata.add("x-airstack-hubs", process.env.AIRSTACK_API_KEY as string);
+</strong>
+    // Fetch casts data with `getCastsByMention`
+    const castsResult = await client.getCastsByMention({ fid: 2 }, metadata);
+    console.log(castsResult.value);
+    // After everything, close the RPC connection
+    client.close();
+  }
+});
+</code></pre>
+{% endtab %}
+
 {% tab title="axios" %}
 <pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
 import { config } from "dotenv";
@@ -221,34 +249,6 @@ const main = async () => {
 }
 
 main();
-</code></pre>
-{% endtab %}
-
-{% tab title="@farcaster/hub-nodejs" %}
-<pre class="language-javascript"><code class="lang-javascript">import {
-  Metadata,
-  getSSLHubRpcClient,
-} from "@farcaster/hub-nodejs";
-
-const client = getSSLHubRpcClient("hubs-grpc.airstack.xyz");
-
-client.$.waitForReady(Date.now() + 5000, async (e) => {
-  if (e) {
-    console.error(`Failed to connect to the gRPC server:`, e);
-    process.exit(1);
-  } else {
-    console.log(`Connected to the gRPC server`);
-    const metadata = new Metadata();
-    // Provide API key here
-<strong>    metadata.add("x-airstack-hubs", process.env.AIRSTACK_API_KEY as string);
-</strong>
-    // Fetch casts data with `getCastsByMention`
-    const castsResult = await client.getCastsByMention({ fid: 2 }, metadata);
-    console.log(castsResult.value);
-    // After everything, close the RPC connection
-    client.close();
-  }
-});
 </code></pre>
 {% endtab %}
 
@@ -292,35 +292,6 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
 You can get all casts by parent cast's FID and Hash OR by the parent's URL by using Airstack Hubs API with the code below:
 
 {% tabs %}
-{% tab title="axios" %}
-<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
-import { config } from "dotenv";
-
-config();
-
-const main = async () => {
-  const server = "https://hubs.airstack.xyz";
-  try {
-    const response = await axios.get(`${server}/v1/castsByParent?fid=226&#x26;hash=0xa48dd46161d8e57725f5e26e34ec19c13ff7f3b9`, {
-      headers: {
-        "Content-Type": "application/json",
-        // Provide API key here
-<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
-</strong>      },
-    });
-  
-    console.log(response);
-  
-    console.log(json);
-  } catch (e) {
-    console.error(e);
-  }
-}
-
-main();
-</code></pre>
-{% endtab %}
-
 {% tab title="@farcaster/hub-nodejs" %}
 <pre class="language-typescript"><code class="lang-typescript">import {
   Metadata,
@@ -349,6 +320,35 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
     client.close();
   }
 });
+</code></pre>
+{% endtab %}
+
+{% tab title="axios" %}
+<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
+import { config } from "dotenv";
+
+config();
+
+const main = async () => {
+  const server = "https://hubs.airstack.xyz";
+  try {
+    const response = await axios.get(`${server}/v1/castsByParent?fid=226&#x26;hash=0xa48dd46161d8e57725f5e26e34ec19c13ff7f3b9`, {
+      headers: {
+        "Content-Type": "application/json",
+        // Provide API key here
+<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
+</strong>      },
+    });
+  
+    console.log(response);
+  
+    console.log(json);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+main();
 </code></pre>
 {% endtab %}
 

@@ -9,35 +9,6 @@ description: Learn how to fetch Reactions data using Airstack Hubs API.
 You can get a reaction by its created FID and target cast by using Airstack Hubs API with the code below:
 
 {% tabs %}
-{% tab title="axios" %}
-<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
-import { config } from "dotenv";
-
-config();
-
-const main = async () => {
-  const server = "https://hubs.airstack.xyz";
-  try {
-    const response = await axios.get(`${server}/v1/reactionById?fid=428529&#x26;reaction_type=1&#x26;target_fid=439224&#x26;target_hash=0xbf35c9dc91bf964c7da3fc1fe2a6925e2db472c5`, {
-      headers: {
-        "Content-Type": "application/json",
-        // Provide API key here
-<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
-</strong>      },
-    });
-  
-    console.log(response);
-  
-    console.log(json);
-  } catch (e) {
-    console.error(e);
-  }
-}
-
-main();
-</code></pre>
-{% endtab %}
-
 {% tab title="@farcaster/hub-nodejs" %}
 <pre class="language-javascript"><code class="lang-javascript">import {
   Metadata,
@@ -73,6 +44,35 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
 </code></pre>
 {% endtab %}
 
+{% tab title="axios" %}
+<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
+import { config } from "dotenv";
+
+config();
+
+const main = async () => {
+  const server = "https://hubs.airstack.xyz";
+  try {
+    const response = await axios.get(`${server}/v1/reactionById?fid=428529&#x26;reaction_type=1&#x26;target_fid=439224&#x26;target_hash=0xbf35c9dc91bf964c7da3fc1fe2a6925e2db472c5`, {
+      headers: {
+        "Content-Type": "application/json",
+        // Provide API key here
+<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
+</strong>      },
+    });
+  
+    console.log(response);
+  
+    console.log(json);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+main();
+</code></pre>
+{% endtab %}
+
 {% tab title="Response" %}
 ```json
 {
@@ -104,35 +104,6 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
 You can get all reactions by a specific FID by using Airstack Hubs API with the code below:
 
 {% tabs %}
-{% tab title="axios" %}
-<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
-import { config } from "dotenv";
-
-config();
-
-const main = async () => {
-  const server = "https://hubs.airstack.xyz";
-  try {
-    const response = await axios.get(`${server}/v1/reactionsByFid?fid=2&#x26;reaction_type=1`, {
-      headers: {
-        "Content-Type": "application/json",
-        // Provide API key here
-<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
-</strong>      },
-    });
-  
-    console.log(response);
-  
-    console.log(json);
-  } catch (e) {
-    console.error(e);
-  }
-}
-
-main();
-</code></pre>
-{% endtab %}
-
 {% tab title="@farcaster/hub-nodejs" %}
 <pre class="language-javascript"><code class="lang-javascript">import {
   Metadata,
@@ -164,6 +135,35 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
     client.close();
   }
 });
+</code></pre>
+{% endtab %}
+
+{% tab title="axios" %}
+<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
+import { config } from "dotenv";
+
+config();
+
+const main = async () => {
+  const server = "https://hubs.airstack.xyz";
+  try {
+    const response = await axios.get(`${server}/v1/reactionsByFid?fid=2&#x26;reaction_type=1`, {
+      headers: {
+        "Content-Type": "application/json",
+        // Provide API key here
+<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
+</strong>      },
+    });
+  
+    console.log(response);
+  
+    console.log(json);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+main();
 </code></pre>
 {% endtab %}
 
@@ -203,35 +203,6 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
 You can get all reactions by a specific cast hash by using Airstack Hubs API with the code below:
 
 {% tabs %}
-{% tab title="axios" %}
-<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
-import { config } from "dotenv";
-
-config();
-
-const main = async () => {
-  const server = "https://hubs.airstack.xyz";
-  try {
-    const response = await axios.get(`${server}/v1/reactionsByCast?target_fid=439224&#x26;reaction_type=1&#x26;target_hash=0xbf35c9dc91bf964c7da3fc1fe2a6925e2db472c5`, {
-      headers: {
-        "Content-Type": "application/json",
-        // Provide API key here
-<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
-</strong>      },
-    });
-  
-    console.log(response);
-  
-    console.log(json);
-  } catch (e) {
-    console.error(e);
-  }
-}
-
-main();
-</code></pre>
-{% endtab %}
-
 {% tab title="@farcaster/hub-nodejs" %}
 <pre class="language-javascript"><code class="lang-javascript">import {
   Metadata,
@@ -258,6 +229,35 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
     client.close();
   }
 });
+</code></pre>
+{% endtab %}
+
+{% tab title="axios" %}
+<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
+import { config } from "dotenv";
+
+config();
+
+const main = async () => {
+  const server = "https://hubs.airstack.xyz";
+  try {
+    const response = await axios.get(`${server}/v1/reactionsByCast?target_fid=439224&#x26;reaction_type=1&#x26;target_hash=0xbf35c9dc91bf964c7da3fc1fe2a6925e2db472c5`, {
+      headers: {
+        "Content-Type": "application/json",
+        // Provide API key here
+<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
+</strong>      },
+    });
+  
+    console.log(response);
+  
+    console.log(json);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+main();
 </code></pre>
 {% endtab %}
 
@@ -297,35 +297,6 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
 You can get all reactions by a specific cast's target URL by using Airstack Hubs API with the code below:
 
 {% tabs %}
-{% tab title="axios" %}
-<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
-import { config } from "dotenv";
-
-config();
-
-const main = async () => {
-  const server = "https://hubs.airstack.xyz";
-  try {
-    const response = await axios.get(`${server}/v1/reactionsByTarget?url=chain://eip155:1/erc721:0x39d89b649ffa044383333d297e325d42d31329b2`, {
-      headers: {
-        "Content-Type": "application/json",
-        // Provide API key here
-<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
-</strong>      },
-    });
-  
-    console.log(response);
-  
-    console.log(json);
-  } catch (e) {
-    console.error(e);
-  }
-}
-
-main();
-</code></pre>
-{% endtab %}
-
 {% tab title="@farcaster/hub-nodejs" %}
 <pre class="language-javascript"><code class="lang-javascript">import {
   Metadata,
@@ -359,6 +330,35 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
     client.close();
   }
 });
+</code></pre>
+{% endtab %}
+
+{% tab title="axios" %}
+<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
+import { config } from "dotenv";
+
+config();
+
+const main = async () => {
+  const server = "https://hubs.airstack.xyz";
+  try {
+    const response = await axios.get(`${server}/v1/reactionsByTarget?url=chain://eip155:1/erc721:0x39d89b649ffa044383333d297e325d42d31329b2`, {
+      headers: {
+        "Content-Type": "application/json",
+        // Provide API key here
+<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
+</strong>      },
+    });
+  
+    console.log(response);
+  
+    console.log(json);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+main();
 </code></pre>
 {% endtab %}
 

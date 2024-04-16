@@ -9,35 +9,6 @@ description: Learn how to fetch Links data using Airstack Hubs API.
 You can get a link by its FID and target FID by using Airstack Hubs API with the code below:
 
 {% tabs %}
-{% tab title="axios" %}
-<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
-import { config } from "dotenv";
-
-config();
-
-const main = async () => {
-  const server = "https://hubs.airstack.xyz";
-  try {
-    const response = await axios.get(`${server}/v1/linkById?fid=6833&#x26;target_fid=2&#x26;link_type=follow`, {
-      headers: {
-        "Content-Type": "application/json",
-        // Provide API key here
-<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
-</strong>      },
-    });
-  
-    console.log(response);
-  
-    console.log(json);
-  } catch (e) {
-    console.error(e);
-  }
-}
-
-main();
-</code></pre>
-{% endtab %}
-
 {% tab title="@farcaster/hub-nodejs" %}
 <pre class="language-javascript"><code class="lang-javascript">import {
   Metadata,
@@ -73,6 +44,35 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
 </code></pre>
 {% endtab %}
 
+{% tab title="axios" %}
+<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
+import { config } from "dotenv";
+
+config();
+
+const main = async () => {
+  const server = "https://hubs.airstack.xyz";
+  try {
+    const response = await axios.get(`${server}/v1/linkById?fid=6833&#x26;target_fid=2&#x26;link_type=follow`, {
+      headers: {
+        "Content-Type": "application/json",
+        // Provide API key here
+<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
+</strong>      },
+    });
+  
+    console.log(response);
+  
+    console.log(json);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+main();
+</code></pre>
+{% endtab %}
+
 {% tab title="Response" %}
 ```json
 {
@@ -101,35 +101,6 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
 You can get all links from a source FID by using Airstack Hubs API with the code below:
 
 {% tabs %}
-{% tab title="axios" %}
-<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
-import { config } from "dotenv";
-
-config();
-
-const main = async () => {
-  const server = "https://hubs.airstack.xyz";
-  try {
-    const response = await axios.get(`${server}/v1/linksByFid?fid=6833`, {
-      headers: {
-        "Content-Type": "application/json",
-        // Provide API key here
-<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
-</strong>      },
-    });
-  
-    console.log(response);
-  
-    console.log(json);
-  } catch (e) {
-    console.error(e);
-  }
-}
-
-main();
-</code></pre>
-{% endtab %}
-
 {% tab title="@farcaster/hub-nodejs" %}
 <pre class="language-javascript"><code class="lang-javascript">import {
   Metadata,
@@ -160,6 +131,35 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
     client.close();
   }
 });
+</code></pre>
+{% endtab %}
+
+{% tab title="axios" %}
+<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
+import { config } from "dotenv";
+
+config();
+
+const main = async () => {
+  const server = "https://hubs.airstack.xyz";
+  try {
+    const response = await axios.get(`${server}/v1/linksByFid?fid=6833`, {
+      headers: {
+        "Content-Type": "application/json",
+        // Provide API key here
+<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
+</strong>      },
+    });
+  
+    console.log(response);
+  
+    console.log(json);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+main();
 </code></pre>
 {% endtab %}
 
@@ -196,35 +196,6 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
 You can get all links to a target FID by using Airstack Hubs API with the code below:
 
 {% tabs %}
-{% tab title="axios" %}
-<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
-import { config } from "dotenv";
-
-config();
-
-const main = async () => {
-  const server = "https://hubs.airstack.xyz";
-  try {
-    const response = await axios.get(`${server}/v1/linksByTargetFid?target_fid=6833`, {
-      headers: {
-        "Content-Type": "application/json",
-        // Provide API key here
-<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
-</strong>      },
-    });
-  
-    console.log(response);
-  
-    console.log(json);
-  } catch (e) {
-    console.error(e);
-  }
-}
-
-main();
-</code></pre>
-{% endtab %}
-
 {% tab title="@farcaster/hub-nodejs" %}
 <pre class="language-javascript"><code class="lang-javascript">import {
   Metadata,
@@ -256,6 +227,35 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
     client.close();
   }
 });
+</code></pre>
+{% endtab %}
+
+{% tab title="axios" %}
+<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
+import { config } from "dotenv";
+
+config();
+
+const main = async () => {
+  const server = "https://hubs.airstack.xyz";
+  try {
+    const response = await axios.get(`${server}/v1/linksByTargetFid?target_fid=6833`, {
+      headers: {
+        "Content-Type": "application/json",
+        // Provide API key here
+<strong>        "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
+</strong>      },
+    });
+  
+    console.log(response);
+  
+    console.log(json);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+main();
 </code></pre>
 {% endtab %}
 

@@ -15,40 +15,6 @@ For details on creating casts with mentions, replies, embeds, and other details,
 {% endhint %}
 
 {% tabs %}
-{% tab title="axios" %}
-<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
-import { config } from "dotenv";
-
-config();
-
-const main = async () => {
-  const server = "https://hubs.airstack.xyz";
-  try {
-    // Encode the message into a Buffer (of bytes)
-    const messageBytes = Buffer.from(Message.encode(castAdd).finish());
-    const response = await axios.post(`${server}/v1/submitMessage`,
-      messageBytes,
-      {
-        headers: {
-          "Content-Type": "application/octet-stream",
-          // Provide API key here
-<strong>          "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
-</strong>        },
-      }
-    );
-  
-    console.log(response);
-  
-    console.log(json);
-  } catch (e) {
-    console.error(e);
-  }
-}
-
-main();
-</code></pre>
-{% endtab %}
-
 {% tab title="@farcaster/hub-nodejs" %}
 <pre class="language-typescript"><code class="lang-typescript">import {
   hexStringToBytes,
@@ -117,6 +83,68 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
 </code></pre>
 {% endtab %}
 
+{% tab title="axios" %}
+<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
+import { config } from "dotenv";
+import {
+  makeCastAdd,
+  FarcasterNetwork,
+} from "@farcaster/hub-nodejs";
+// Require `npm install @farcaster/core`
+import { Message } from "@farcaster/core";
+
+config();
+
+const SIGNER_PRIVATE_KEY = '0x...'; // Your signer's private key
+const FID = 1; // Your fid
+const ed25519Signer = new NobleEd25519Signer(SIGNER_PRIVATE_KEY);
+const dataOptions = {
+  fid: FID,
+  network: FC_NETWORK,
+};
+const FC_NETWORK = FarcasterNetwork.MAINNET;
+
+// Construct the cast
+const cast = await makeCastAdd(
+  {
+    text: 'This is a cast!', // Text can be up to 320 bytes long
+    embeds: [],
+    embedsDeprecated: [],
+    mentions: [],
+    mentionsPositions: [],
+  },
+  dataOptions,
+  ed25519Signer
+);
+
+const main = async () => {
+  const server = "https://hubs.airstack.xyz";
+  try {
+    // Encode the message into a Buffer (of bytes)
+    const messageBytes = Buffer.from(Message.encode(cast).finish());
+    const response = await axios.post(`${server}/v1/submitMessage`,
+      messageBytes,
+      {
+        headers: {
+          "Content-Type": "application/octet-stream",
+          // Provide API key here
+<strong>          "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
+</strong>        },
+      }
+    );
+  
+    console.log(response);
+  
+    console.log(json);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+main();
+</code></pre>
+{% endtab %}
+
 {% tab title="Response" %}
 ```json
 {
@@ -156,39 +184,6 @@ If you are validating message for Frames or cast actions, check out [Airstack Fr
 {% endhint %}
 
 {% tabs %}
-{% tab title="axios" %}
-<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
-import { config } from "dotenv";
-
-config();
-
-const main = async () => {
-  const server = "https://hubs.airstack.xyz";
-  try {
-    let message = "";
-    const response = await axios.post(`${server}/v1/validateMessage`,
-      {
-        headers: {
-          "Content-Type": "application/octet-stream",
-          // Provide API key here
-<strong>          "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
-</strong>        },
-        data: message;
-      }
-    );
-  
-    console.log(response);
-  
-    console.log(json);
-  } catch (e) {
-    console.error(e);
-  }
-}
-
-main();
-</code></pre>
-{% endtab %}
-
 {% tab title="@farcaster/hub-nodejs" %}
 <pre class="language-typescript"><code class="lang-typescript">import {
   Metadata,
@@ -220,6 +215,43 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
     client.close();
   }
 });
+</code></pre>
+{% endtab %}
+
+{% tab title="axios" %}
+<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
+import { config } from "dotenv";
+
+config();
+
+const main = async () => {
+  const server = "https://hubs.airstack.xyz";
+  try {
+    let messageBytes = ""; // signed protobuf-serialized message
+    const response = await axios.post(`${server}/v1/validateMessage`,
+      {
+        headers: {
+          "Content-Type": "application/octet-stream",
+          // Provide API key here
+<strong>          "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
+</strong>        },
+        data: new Uint8Array(
+          messageBytes.match(/.{1,2}/g)!.map(
+            (byte: string) => parseInt(byte, 16)
+          )
+        );
+      }
+    );
+  
+    console.log(response);
+  
+    console.log(json);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+main();
 </code></pre>
 {% endtab %}
 
