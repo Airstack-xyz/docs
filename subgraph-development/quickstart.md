@@ -63,6 +63,12 @@ graph deploy \
   --headers '{"Authorization": "<AIRSTACK_API_KEY>"}' <SUBGRAPH_NAME>
 ```
 
+Once you subgraph is deployed, you can check on the [Subgraph Dashboard](https://graph-monitor.airstack.xyz/public-dashboards/60d5d75c5d9f408f9081eec1b4070d22?orgId=1) to confirm if the deployment is successful:
+
+{% embed url="https://graph-monitor.airstack.xyz/public-dashboards/60d5d75c5d9f408f9081eec1b4070d22?orgId=1" %}
+Subgraph Dashboard for DEGEN L3 Chain
+{% endembed %}
+
 ## Step 3: Query The Deployed Subgraph
 
 And when it is successfully deployed you can try to query data from the GraphQL API from the deployed subgraph:
