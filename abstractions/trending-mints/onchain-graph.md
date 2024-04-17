@@ -106,7 +106,7 @@ If you only prefer fungible token mints, then includes only `ERC20`. If you inst
 
 Choose the chain that you would like to fetch the token mints data.
 
-Currently, Airstack supports Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains).
+Currently, Airstack supports Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains).
 
 #### **Limit**
 

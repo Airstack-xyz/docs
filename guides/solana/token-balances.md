@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to fetch the ERC20/721/1155/POAP balances of a Solana address across
-  Ethereum, Base, Zora, and other Airstack-supported chains.
+  Ethereum, Base, Degen Chain, and other Airstack-supported chains.
 layout:
   title:
     visible: true
@@ -168,7 +168,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get All ERC20s Owned By Solana Address
 
-You can fetch all ERC20 tokens on Ethereum, Base, Zora, and other [Airstack-supported chains](../overview.md#supported-chains) owned by any Solana address:
+You can fetch all ERC20 tokens on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](../overview.md#supported-chains) owned by any Solana address:
 
 {% hint style="info" %}
 For fetching ERC20 tokens owned across **multiple chains**, check out [**Cross-Chain Queries**](../basics/cross-chain-queries.md).
@@ -238,10 +238,10 @@ query MyQuery {
 
 ## Get All NFTs Owned By Solana Address
 
-You can fetch all NFT collections on Ethereum, Base, Zora, and other [Airstack-supported chains](../overview.md#supported-chains) owned by any Solana address by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API:
+You can fetch all NFT collections on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](../overview.md#supported-chains) owned by any Solana address by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API:
 
 {% hint style="info" %}
-For fetching NFTs owned across **multiple chains**, e.g. Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains), check out [**Cross-Chain Queries**](../basics/cross-chain-queries.md).
+For fetching NFTs owned across **multiple chains**, e.g. Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), check out [**Cross-Chain Queries**](../basics/cross-chain-queries.md).
 {% endhint %}
 
 ### Try Demo

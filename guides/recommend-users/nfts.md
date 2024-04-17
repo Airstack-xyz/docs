@@ -24,7 +24,7 @@ Building such a contract recommendation feature based on NFTs takes two steps:
 
 [Airstack](https://www.airstack.xyz/) provides you the `TokenBalances` API to fetch the NFT held by a user(s) and the `TokenNFTs` API to fetch all the holders of a certain NFT collection.
 
-With [Airstack](https://airstack.xyz), it's possible to do [cross-chain queries](../contact-recommendation/broken-reference/) that get NFT results from **multiple chains, e.g. Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains)**, in a single call.
+With [Airstack](https://airstack.xyz), it's possible to do [cross-chain queries](../contact-recommendation/broken-reference/) that get NFT results from **multiple chains, e.g. Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains)**, in a single call.
 
 ## Get All NFTs Held By A User(s)
 

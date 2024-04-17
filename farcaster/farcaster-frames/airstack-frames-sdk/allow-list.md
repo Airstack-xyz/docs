@@ -228,7 +228,7 @@ console.log(data);
 
 ## Check If Token(s) Hold By A Farcaster User
 
-You can check if a Farcaster user is holding a given list of tokens across Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains) by using the [`checkTokenHoldByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#checktokenholdbyfarcasteruser) function:
+You can check if a Farcaster user is holding a given list of tokens across Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains) by using the [`checkTokenHoldByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#checktokenholdbyfarcasteruser) function:
 
 {% tabs %}
 {% tab title="TypeScript" %}
@@ -329,7 +329,7 @@ console.log(data);
 
 ## Check If Token(s) Minted By A Farcaster User
 
-You can check if a Farcaster user has minted a given list of tokens across Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains) by using the [`checkTokenHoldByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#checktokenmintedbyfarcasteruser) function:
+You can check if a Farcaster user has minted a given list of tokens across Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains) by using the [`checkTokenHoldByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#checktokenmintedbyfarcasteruser) function:
 
 {% tabs %}
 {% tab title="TypeScript" %}
@@ -970,7 +970,7 @@ console.log(data);
 Video Demo
 {% endembed %}
 
-You can check if the Farcaster user transacted on certain blockchain, e.g. Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains) by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable and the before date to check to the `$beforeDate` variable using the [`Wallet`](../../../api-references/api-reference/wallet-api.md) API:
+You can check if the Farcaster user transacted on certain blockchain, e.g. Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains) by providing the Farcaster user's `fid` from the [Frame Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) to the `$farcasterUser` variable and the before date to check to the `$beforeDate` variable using the [`Wallet`](../../../api-references/api-reference/wallet-api.md) API:
 
 ### Try Demo
 

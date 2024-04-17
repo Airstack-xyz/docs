@@ -42,15 +42,15 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 - [Get Farcaster Channels By Participant](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-channels-by-participant)
 - [Get Farcaster Channels By Host](airstack-onchain-kit-for-farcaster-frames.md#get-farcaster-channels-by-host)
 - [Get All POAPs Attended By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-poaps-attended-by-farcaster-user)
-- [Get All NFTs Held By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-nfts-hold-by-farcaster-user) on Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains)
-- [Get All ERC20 Tokens Hold By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-erc20-tokens-hold-by-farcaster-user) on Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains)
-- [Get Historical NFT Balance of Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-historical-nft-balance-of-farcaster-user) on Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains)
-- [Get Historical ERC20 Token Balance of Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-historical-erc20-token-balance-of-farcaster-user) on Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains)
-- [Get NFT Mints By A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-nft-mints-by-a-farcaster-user) on Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains)
+- [Get All NFTs Held By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-nfts-hold-by-farcaster-user) on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains)
+- [Get All ERC20 Tokens Hold By Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-all-erc20-tokens-hold-by-farcaster-user) on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains)
+- [Get Historical NFT Balance of Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-historical-nft-balance-of-farcaster-user) on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains)
+- [Get Historical ERC20 Token Balance of Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-historical-erc20-token-balance-of-farcaster-user) on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains)
+- [Get NFT Mints By A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-nft-mints-by-a-farcaster-user) on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains)
 - [Get Trending Mints for Farcaster Users on Base](airstack-onchain-kit-for-farcaster-frames.md#get-trending-mints-for-farcaster-user-on-base)
-- [Get ERC20 Token Mints By A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-erc20-token-mints-by-a-farcaster-user) on Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains)
-- [Get Token Transfers Sent From A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-token-transfers-sent-from-a-farcaster-user) on Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains)
-- [Get Token Transfers Received From A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-token-transfers-received-by-a-farcaster-user) on Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains)
+- [Get ERC20 Token Mints By A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-erc20-token-mints-by-a-farcaster-user) on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains)
+- [Get Token Transfers Sent From A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-token-transfers-sent-from-a-farcaster-user) on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains)
+- [Get Token Transfers Received From A Farcaster User](airstack-onchain-kit-for-farcaster-frames.md#get-token-transfers-received-by-a-farcaster-user) on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains)
 - [Get All Farcaster Users Whose Names Start With Certain Terms (auto-complete regex in API)](airstack-onchain-kit-for-farcaster-frames.md#get-all-farcaster-users-whose-names-start-with-certain-terms-auto-complete)
 - [Get All Farcaster Users Whose Names Contain Certain Terms (auto-complete regex in API)](airstack-onchain-kit-for-farcaster-frames.md#get-all-farcaster-users-whose-names-contain-certain-terms-auto-complete)
 - [Search All Farcaster Channels Whose Names Start With Certain Terms (auto-complete)](airstack-onchain-kit-for-farcaster-frames.md#search-all-farcaster-channels-whose-names-start-with-certain-terms-auto-complete)
@@ -1745,7 +1745,7 @@ Show me Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2 h
 
 ## Get NFT Mints By A Farcaster User
 
-You can fetch all NFTs minted by a Farcaster user across multiple chains, such as Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`getFarcasterUserNFTMints`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#getfarcasterusernftmints) function:
+You can fetch all NFTs minted by a Farcaster user across multiple chains, such as Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`getFarcasterUserNFTMints`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#getfarcasterusernftmints) function:
 
 {% tabs %}
 {% tab title="TypeScript" %}
@@ -1933,7 +1933,7 @@ console.log(data);
 
 ## Get ERC20 Token Mints By A Farcaster User
 
-You can fetch all ERC20 tokens minted by a Farcaster user across multiple chains, such as Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains) by using the [`getFarcasterUserERC20Mints`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#getfarcasterusererc20mints) function:
+You can fetch all ERC20 tokens minted by a Farcaster user across multiple chains, such as Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains) by using the [`getFarcasterUserERC20Mints`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#getfarcasterusererc20mints) function:
 
 {% tabs %}
 {% tab title="TypeScript" %}
@@ -2020,7 +2020,7 @@ console.log(data);
 
 ## Get Token Transfers Sent From A Farcaster User
 
-You can fetch all token transfers sent by a given Farcaster user across multiple chains, such as Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`getFarcasterUserTokenSentFrom`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#getfarcasterusertokensentfrom) functions:
+You can fetch all token transfers sent by a given Farcaster user across multiple chains, such as Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`getFarcasterUserTokenSentFrom`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#getfarcasterusertokensentfrom) functions:
 
 {% tabs %}
 {% tab title="TypeScript" %}
@@ -2119,7 +2119,7 @@ console.log(data);
 
 ## Get Token Transfers Received By A Farcaster User
 
-You can fetch all token transfers received by a given Farcaster user across multiple chains, such as Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains) by using the [`getFarcasterUserTokenReceivedBy`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#getfarcasterusertokenreceivedby) function:
+You can fetch all token transfers received by a given Farcaster user across multiple chains, such as Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains) by using the [`getFarcasterUserTokenReceivedBy`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#getfarcasterusertokenreceivedby) function:
 
 {% tabs %}
 {% tab title="TypeScript" %}

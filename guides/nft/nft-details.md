@@ -18,7 +18,7 @@ layout:
 
 # 📑 NFT Details
 
-[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Base, Zora, and other Airstack-supported chains.
+[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Base, Degen Chain, and other Airstack-supported chains.
 
 ## Table Of Contents
 

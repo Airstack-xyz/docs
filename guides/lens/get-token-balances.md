@@ -465,7 +465,7 @@ query MyQuery {
 
 ### Get All ERC20s Owned By Lens Profile(s)
 
-You can fetch all ERC20 tokens on Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains) owned by any Lens Profile(s):
+You can fetch all ERC20 tokens on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains) owned by any Lens Profile(s):
 
 #### Try Demo
 
@@ -1010,7 +1010,7 @@ query MyQuery {
 
 ### Get All NFTs Owned By Lens Profile(s)
 
-You can fetch all NFTs on Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains) owned by any Lens Profile(s):
+You can fetch all NFTs on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains) owned by any Lens Profile(s):
 
 #### Try Demo
 

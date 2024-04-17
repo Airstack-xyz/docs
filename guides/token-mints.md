@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to use Airstack to fetch all ERC20/721/1155 token mints data, from
-  or to user(s), across Ethereum, Base, Zora, and other Airstack supported
+  or to user(s), across Ethereum, Base, Degen Chain, and other Airstack supported
   chains.
 layout:
   title:
@@ -188,7 +188,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get NFT Mints By A User
 
-You can fetch all NFTs minted by a user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS), across multiple chains, such as Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all NFTs minted by a user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS), across multiple chains, such as Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
@@ -366,7 +366,7 @@ Show me all NFTs minted by betashop.eth
 
 ## Get ERC20 Token Mints By A User
 
-You can fetch all ERC20 tokens minted by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS), across multiple chains, such as Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all ERC20 tokens minted by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS), across multiple chains, such as Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
@@ -492,7 +492,7 @@ Show me all ERC20 tokens minted by ipeciura.eth
 
 ## Get NFT Mints By A User in a Specified Period
 
-You can fetch all NFTs minted during a specified period of time by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS), across different chains, e.g. Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all NFTs minted during a specified period of time by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS), across different chains, e.g. Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
@@ -585,7 +585,7 @@ Show me ERC721/1155 Ethereum NFT mints by ipeciura.eth in 2023
 
 ## Get ERC20 Token Mints By A User in a Specified Period
 
-You can fetch all ERC20 tokens minted during a specified period of time by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS), across different chains, e.g. Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all ERC20 tokens minted during a specified period of time by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS), across different chains, e.g. Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
@@ -674,7 +674,7 @@ show me all Ethereum ERC20 token mints by ipeciura.eth in 2022
 
 ### Fetching
 
-You can fetch the current NFT balances of minted NFTs, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS), across different chains, e.g. Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch the current NFT balances of minted NFTs, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS), across different chains, e.g. Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 #### Try Demo
 
@@ -928,7 +928,7 @@ With this format function, you will get the following result that you can direct
 
 ### Fetching
 
-You can fetch the current ERC20 token balances of minted ERC20 tokens that are still hold by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS), across different chains, e.g. Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch the current ERC20 token balances of minted ERC20 tokens that are still hold by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS), across different chains, e.g. Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../api-references/api-reference/tokentransfers-api.md) API:
 
 #### Try Demo
 

@@ -15,7 +15,7 @@ layout:
 
 # 🪙 ERC20s
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching dapps and integrating on-chain and off-chain data from Ethereum, Base, Zora, and other [Airstack-supported chains](../overview.md#supported-chains).&#x20;
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching dapps and integrating on-chain and off-chain data from Ethereum, Base, Degen Chain, and other [Airstack-supported chains](../overview.md#supported-chains).&#x20;
 
 In this guide, you will learn how to use Airstack to fetch [ERC20 Tokens In Common](erc20s.md#erc20-tokens-in-common).
 

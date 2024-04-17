@@ -414,7 +414,7 @@ true
 
 ## Check If User Hold Certain Token
 
-You can use the [`allowListFramesjsMiddleware`](https://www.npmjs.com/package/@airstack/frames#allow-list-middleware-1) to check if a user is holding certain token on Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains) by using the `TOKEN_HOLD` and specify the token's `address` and `chain`:
+You can use the [`allowListFramesjsMiddleware`](https://www.npmjs.com/package/@airstack/frames#allow-list-middleware-1) to check if a user is holding certain token on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains) by using the `TOKEN_HOLD` and specify the token's `address` and `chain`:
 
 {% tabs %}
 {% tab title="TypeScript" %}
@@ -514,7 +514,7 @@ true
 
 ## Check If User Minted Certain Token
 
-You can use the [`allowListFramesjsMiddleware`](https://www.npmjs.com/package/@airstack/frames#allow-list-middleware-1) to check if a user has minted certain token on Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains) by using the `TOKEN_HOLD` and specify the token's `address` and `chain`:
+You can use the [`allowListFramesjsMiddleware`](https://www.npmjs.com/package/@airstack/frames#allow-list-middleware-1) to check if a user has minted certain token on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains) by using the `TOKEN_HOLD` and specify the token's `address` and `chain`:
 
 {% tabs %}
 {% tab title="TypeScript" %}

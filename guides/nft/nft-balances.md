@@ -17,7 +17,7 @@ layout:
 
 # ⚖️ NFT Balances
 
-[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Base, Zora, and other Airstack-supported chains.
+[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Base, Degen Chain, and other Airstack-supported chains.
 
 ## Table Of Contents
 
@@ -177,7 +177,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get NFT Balances of User(s)
 
-You can use [Airstack](https://airstack.xyz) to fetch NFT balance of user(s) across multiple chains, e.g. Ethereum, Base, Zora, and other [Airstack-supported chains](../overview.md#supported-chains), by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing an array of users' 0x address, ENS domain, cb.id, Lens profile, or Farcaster fname/fid to `owner` input:
+You can use [Airstack](https://airstack.xyz) to fetch NFT balance of user(s) across multiple chains, e.g. Ethereum, Base, Degen Chain, and other [Airstack-supported chains](../overview.md#supported-chains), by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing an array of users' 0x address, ENS domain, cb.id, Lens profile, or Farcaster fname/fid to `owner` input:
 
 ### Try Demo
 

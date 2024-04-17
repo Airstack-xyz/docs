@@ -17,7 +17,7 @@ layout:
 
 Token transfers between two parties are a good indication that the parties involved know each other. Therefore, you can also use token transfers to build your recommendation engine.
 
-To build such a recommendation engine, Airstack provides a [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API for you to fetch the users involved in a given user's all ERC20/721/1155 token transfers across Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains).
+To build such a recommendation engine, Airstack provides a [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API for you to fetch the users involved in a given user's all ERC20/721/1155 token transfers across Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains).
 
 The list of users, then can be compiled and returned to your application as recommendations.
 
@@ -663,7 +663,7 @@ All the users returned from the `from` response field can be compiled and return
 
 ## Get Token Transfers Sent From A User on Multiple Chains
 
-You can fetch all token transfers sent from a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS), across multiple chains, such as Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all token transfers sent from a given user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS), across multiple chains, such as Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 

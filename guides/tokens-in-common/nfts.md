@@ -15,7 +15,7 @@ layout:
 
 # ♦️ NFTs
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching dapps and integrating on-chain and off-chain data from Ethereum, Base, Zora, and other [Airstack-supported chains](../overview.md#supported-chains).&#x20;
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching dapps and integrating on-chain and off-chain data from Ethereum, Base, Degen Chain, and other [Airstack-supported chains](../overview.md#supported-chains).&#x20;
 
 In this tutorial, you will learn how to fetch NFTs in common from multiple users.
 

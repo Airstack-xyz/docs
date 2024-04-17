@@ -17,7 +17,7 @@ layout:
 
 # 🪙 ERC20
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating ERC20 token balance data from Ethereum, Base, Zora, and other [Airstack-supported chains](../overview.md#supported-chains).
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating ERC20 token balance data from Ethereum, Base, Degen Chain, and other [Airstack-supported chains](../overview.md#supported-chains).
 
 ## Table Of Contents
 
@@ -172,7 +172,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get All ERC20s Owned By User(s)
 
-You can fetch all ERC20 tokens owned by any user(s) across multiple chains, e.g. Ethereum, Base, Zora, and other [Airstack-supported chains](../overview.md#supported-chains), using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API:
+You can fetch all ERC20 tokens owned by any user(s) across multiple chains, e.g. Ethereum, Base, Degen Chain, and other [Airstack-supported chains](../overview.md#supported-chains), using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API:
 
 {% hint style="info" %}
 For fetching ERC20 token balances data from multiple chains, check out [Cross-Chain Queries](../basics/cross-chain-queries.md).

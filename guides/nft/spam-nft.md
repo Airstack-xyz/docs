@@ -17,7 +17,7 @@ layout:
 
 # 🧹 Spam NFT
 
-[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Base, Zora, and other [Airstack-supported chains](../overview.md#supported-chains).
+[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Base, Degen Chain, and other [Airstack-supported chains](../overview.md#supported-chains).
 
 When indexing any new token, Airstack takes into consideration contract deployer address history, and other factors to determine if the token might be spam.
 
@@ -442,7 +442,7 @@ def filter_spam_nfts(data: Optional[Dict[str, Any]]) -> List[Dict[str, Any]]:
 {% endtab %}
 {% endtabs %}
 
-The formatted data will combine Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains) NFTs hold by the user and filtered out all spam NFTs:
+The formatted data will combine Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains) NFTs hold by the user and filtered out all spam NFTs:
 
 ```json
 [
