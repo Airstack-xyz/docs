@@ -228,7 +228,7 @@ console.log(data);
 
 ## checkTokenHoldByFarcasterUser
 
-You can check if a Farcaster user is holding a given list of tokens across Ethereum, Gold, Base, and Zora by using the [`checkTokenHoldByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#checktokenholdbyfarcasteruser) function:
+You can check if a Farcaster user is holding a given list of tokens across Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains) by using the [`checkTokenHoldByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#checktokenholdbyfarcasteruser) function:
 
 {% tabs %}
 {% tab title="TypeScript" %}
@@ -326,7 +326,7 @@ console.log(data);
 
 ## checkTokenMintedByFarcasterUser
 
-You can check if a Farcaster user has minted a given list of tokens across Ethereum, Gold, Base, and Zora by using the [`checkTokenHoldByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#checktokenmintedbyfarcasteruser) function:
+You can check if a Farcaster user has minted a given list of tokens across Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains) by using the [`checkTokenHoldByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#checktokenmintedbyfarcasteruser) function:
 
 {% tabs %}
 {% tab title="TypeScript" %}

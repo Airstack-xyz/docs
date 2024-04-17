@@ -1,12 +1,12 @@
 ---
 description: >-
   Learn how to use Airstack to fetch all NFT mints data, from or to user(s),
-  across Ethereum, Base, Zora, and other Airstack supported chains.
+  across Ethereum, Base, Zora, and other Airstack-supported chains.
 ---
 
 # 👛 NFT Mints
 
-All tokens minted are essentially NFT transfers from a [null address (0x00...00)](https://explorer.airstack.xyz/token-balances?address=0x0000000000000000000000000000000000000000\&rawInput=%23%E2%8E%B10x0000000000000000000000000000000000000000%E2%8E%B1%280x0000000000000000000000000000000000000000+ADDRESS+ethereum+null%29\&inputType=ADDRESS) to a user address that are executed by the receiving user itself. Thus, with [Airstack](https://airstack.xyz), you can use the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API to fetch all user's token mints by specifying the input as follows:
+All tokens minted are essentially NFT transfers from a [null address (0x00...00)](https://explorer.airstack.xyz/token-balances?address=0x0000000000000000000000000000000000000000&rawInput=%23%E2%8E%B10x0000000000000000000000000000000000000000%E2%8E%B1%280x0000000000000000000000000000000000000000+ADDRESS+ethereum+null%29&inputType=ADDRESS) to a user address that are executed by the receiving user itself. Thus, with [Airstack](https://airstack.xyz), you can use the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API to fetch all user's token mints by specifying the input as follows:
 
 <table><thead><tr><th width="176">Input Filter</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>operator</code></td><td>user's 0x address, ENS, cb.id, Lens, or Farcaster</td><td>Executor of the transaction.</td></tr><tr><td><code>from</code></td><td><a href="https://explorer.airstack.xyz/token-balances?address=0x0000000000000000000000000000000000000000&#x26;rawInput=%23%E2%8E%B10x0000000000000000000000000000000000000000%E2%8E%B1%280x0000000000000000000000000000000000000000+ADDRESS+ethereum+null%29&#x26;inputType=ADDRESS"><code>0x0000000000000000000000000000000000000000</code></a></td><td>Sender in the ERC721/1155 token transfers.</td></tr><tr><td><code>to</code></td><td>user's 0x address, ENS, cb.id, Lens, or Farcaster</td><td>Receiver in the ERC721/1155 token transfers.</td></tr></tbody></table>
 
@@ -16,8 +16,8 @@ In this guide you will learn how to use [Airstack](https://airstack.xyz) to [get
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -38,6 +38,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -52,6 +53,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -66,12 +68,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -79,6 +84,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -102,9 +108,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -117,9 +125,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -137,6 +147,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -152,7 +163,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get NFT Mints By A User
 
-You can fetch all NFTs minted by a user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Base, Zora, and other [Airstack supported chains](../overview.md#supported-chains), by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all NFTs minted by a user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS), across multiple chains, such as Ethereum, Base, Zora, and other [Airstack-supported chains](../overview.md#supported-chains), by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
@@ -164,6 +175,7 @@ Show me all NFTs minted by betashop.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Ethereum: TokenTransfers(
     input: {
@@ -235,9 +247,11 @@ Show me all NFTs minted by betashop.eth
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -285,6 +299,7 @@ Show me all NFTs minted by betashop.eth
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -294,11 +309,11 @@ If you have any questions or need help regarding fetching NFT mints data into yo
 
 ## More Resources
 
-* [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api.md)
-* [On-Chain Graph](../onchain-graph.md)
-* [TokenTransfers Guides](../token-transfers.md)
-* [Token Mints Guides](../token-mints.md)
-* [NFT Details](nft-details.md)
-* [NFT Balances](nft-balances.md)
-* [NFT Holders](nft-holders.md)
-* [Spam NFT](spam-nft.md)
+- [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api.md)
+- [On-Chain Graph](../onchain-graph.md)
+- [TokenTransfers Guides](../token-transfers.md)
+- [Token Mints Guides](../token-mints.md)
+- [NFT Details](nft-details.md)
+- [NFT Balances](nft-balances.md)
+- [NFT Holders](nft-holders.md)
+- [Spam NFT](spam-nft.md)

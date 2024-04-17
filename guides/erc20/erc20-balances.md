@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to get ERC20 token balances of user(s) on Ethereum, Base, Zora, and
-  other Airstack supported chains.
+  other Airstack-supported chains.
 layout:
   title:
     visible: true
@@ -17,7 +17,7 @@ layout:
 
 # ⚖️ ERC20 Balances
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating ERC20 token balance data from Ethereum, Base, Zora, and other [Airstack supported chains](../overview.md#supported-chains).
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating ERC20 token balance data from Ethereum, Base, Zora, and other [Airstack-supported chains](../overview.md#supported-chains).
 
 ## Table Of Contents
 
@@ -25,8 +25,8 @@ In this guide you will learn how to use Airstack to [get ERC20 tokens owned by u
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -47,6 +47,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -61,6 +62,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -75,12 +77,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -88,6 +93,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -111,9 +117,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -126,9 +134,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -146,6 +156,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -161,7 +172,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get ERC20 Tokens Owned By User(s)
 
-You can fetch all ERC20 tokens owned by any user(s) across multiple chains, e.g. Ethereum, Base, Zora, and other [Airstack supported chains](../overview.md#supported-chains):
+You can fetch all ERC20 tokens owned by any user(s) across multiple chains, e.g. Ethereum, Base, Zora, and other [Airstack-supported chains](../overview.md#supported-chains):
 
 ### Try Demo
 
@@ -173,6 +184,7 @@ Show ERC20 tokens on Ethereum owned by users
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -223,9 +235,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -285,6 +299,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -294,8 +309,8 @@ If you have any questions or need help regarding fetching token balances of user
 
 ## More Resources
 
-* [Balance Snapshots Guides](../balance-snapshots.md)
-* [Holder Snapshots Guides](../holder-snapshots.md)
-* [ERC20 Tokens In Common](../tokens-in-common/erc20s.md)
-* [ERC20 Token Holders](erc20-holders.md)
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+- [Balance Snapshots Guides](../balance-snapshots.md)
+- [Holder Snapshots Guides](../holder-snapshots.md)
+- [ERC20 Tokens In Common](../tokens-in-common/erc20s.md)
+- [ERC20 Token Holders](erc20-holders.md)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)

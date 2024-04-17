@@ -18,20 +18,20 @@ layout:
 
 # ♦️ NFT
 
-[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Base, Zora, and other [Airstack supported chains](../overview.md#supported-chains).
+[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Base, Zora, and other [Airstack-supported chains](../overview.md#supported-chains).
 
 ## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-* [Get NFT Holder(s) of A Specific NFT](nft.md#get-nft-holder-s-of-a-specific-nft)
-* [Get NFT Holders of NFT Collection(s)](nft.md#get-nft-holders-of-nft-collection-s)
-* [Check If User Hold A Specific NFT Collection](nft.md#check-if-user-hold-a-specific-nft-collection)
+- [Get NFT Holder(s) of A Specific NFT](nft.md#get-nft-holder-s-of-a-specific-nft)
+- [Get NFT Holders of NFT Collection(s)](nft.md#get-nft-holders-of-nft-collection-s)
+- [Check If User Hold A Specific NFT Collection](nft.md#check-if-user-hold-a-specific-nft-collection)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -52,6 +52,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -66,6 +67,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -80,12 +82,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -93,6 +98,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -116,9 +122,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -131,9 +139,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -151,6 +161,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -160,7 +171,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get NFT Holder(s) of A Specific NFT
 
-You can use [Airstack](https://airstack.xyz) to fetch NFT holder(s) of a specifc NFT on Ethereum, Base, Zora, or other [Airstack supported chains](../overview.md#supported-chains) by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing the NFT collection address(es) to `tokenAddress` and the token ID to `tokenId` as an input:
+You can use [Airstack](https://airstack.xyz) to fetch NFT holder(s) of a specifc NFT on Ethereum, Base, Zora, or other [Airstack-supported chains](../overview.md#supported-chains) by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing the NFT collection address(es) to `tokenAddress` and the token ID to `tokenId` as an input:
 
 {% hint style="info" %}
 For ERC721 NFT, there's only **1 unique holder** for each token ID.
@@ -178,6 +189,7 @@ Show me holder of @BoredApeYachtClub token ID 6891
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -209,9 +221,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -252,12 +266,13 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get NFT Holders of NFT Collection(s)
 
-You can use [Airstack](https://airstack.xyz) to fetch NFT holders of a given NFT collection(s) on Ethereum, Base, Zora, or other [Airstack supported chains](../overview.md#supported-chains) by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing the NFT collection address(es) to `tokenAddress` input:
+You can use [Airstack](https://airstack.xyz) to fetch NFT holders of a given NFT collection(s) on Ethereum, Base, Zora, or other [Airstack-supported chains](../overview.md#supported-chains) by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing the NFT collection address(es) to `tokenAddress` input:
 
 ### Try Demo
 
@@ -269,6 +284,7 @@ Show me holders of @BoredApeYachtClub
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -305,9 +321,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
  {
   "data": {
@@ -351,12 +369,13 @@ query MyQuery {
   }
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Check If User Hold A Specific NFT Collection
 
-You can use [Airstack](https://airstack.xyz) to check if a user hold a given NFT Collection on Ethereum, Base, Zora, or other [Airstack supported chains](../overview.md#supported-chains) by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API.
+You can use [Airstack](https://airstack.xyz) to check if a user hold a given NFT Collection on Ethereum, Base, Zora, or other [Airstack-supported chains](../overview.md#supported-chains) by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API.
 
 For inputs, provide the NFT collection address(es) to `tokenAddress` and user's 0x address, ENS domain, cb.id, Lens profile, or Farcaster fname/fid to `owner` as an input:
 
@@ -370,6 +389,7 @@ Check if 0x9831bb48e27a6b74260823c10d15b577e891a37b hold any @BoredApeYachtClub
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -401,9 +421,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -444,6 +466,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -455,16 +478,16 @@ If you have any questions or need help regarding fetching NFT holders data, plea
 
 ## More Resources
 
-* [Holder Snapshots Guides](../holder-snapshots.md)
-* [Balance Snapshots Guides](../balance-snapshots.md)
-* [NFT Details](../nft/nft-details.md)
-* [NFT Balances](../nft/nft-balances.md)
-* [Spam NFT](../nft/spam-nft.md)
-* [NFT Holders](nft.md)
-* [Combinations (Common Holders)](../combinations/)
-  * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
-  * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
-* [Tokens In Common](../tokens-in-common/)
-  * [NFTs](../tokens-in-common/nfts.md)
-* [Tokens API Reference](../../api-references/api-reference/tokens-api.md)
-* [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api.md)
+- [Holder Snapshots Guides](../holder-snapshots.md)
+- [Balance Snapshots Guides](../balance-snapshots.md)
+- [NFT Details](../nft/nft-details.md)
+- [NFT Balances](../nft/nft-balances.md)
+- [Spam NFT](../nft/spam-nft.md)
+- [NFT Holders](nft.md)
+- [Combinations (Common Holders)](../combinations/)
+  - [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
+  - [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
+- [Tokens In Common](../tokens-in-common/)
+  - [NFTs](../tokens-in-common/nfts.md)
+- [Tokens API Reference](../../api-references/api-reference/tokens-api.md)
+- [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api.md)

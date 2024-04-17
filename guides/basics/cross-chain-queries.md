@@ -19,7 +19,7 @@ layout:
 
 In GraphQL, you can call multiple queries in parallel in a single request as shown in [Multiple Queries Execution](multiple-queries-execution.md).
 
-As [Airstack](https://airstack.xyz) is a GraphQL API, it inherits this feature that enables you to call multiple APIs in one request, which is particularly useful for building cross-chain queries to fetch data across multiple [Airstack supported chains](../overview.md#supported-chains):
+As [Airstack](https://airstack.xyz) is a GraphQL API, it inherits this feature that enables you to call multiple APIs in one request, which is particularly useful for building cross-chain queries to fetch data across multiple [Airstack-supported chains](../overview.md#supported-chains):
 
 ### Try Demo
 
@@ -31,6 +31,7 @@ Show ERC20 tokens on Ethereum, Base, and Zora owned by users
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query ERC20OwnedByLensProfiles {
 <strong>  Ethereum: TokenBalances( # first query fetch Ethereum ERC20 balance
 </strong>    input: {
@@ -112,9 +113,11 @@ Show ERC20 tokens on Ethereum, Base, and Zora owned by users
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -127,7 +130,7 @@ Show ERC20 tokens on Ethereum, Base, and Zora owned by users
             "name": "From Vitalik",
             "symbol": "Vitalik"
           }
-        },
+        }
         // Other Ethereum ERC20s
       ]
     },
@@ -140,7 +143,7 @@ Show ERC20 tokens on Ethereum, Base, and Zora owned by users
             "name": "Degen",
             "symbol": "DEGEN"
           }
-        },
+        }
         // Other Base ERC20s
       ]
     },
@@ -153,13 +156,14 @@ Show ERC20 tokens on Ethereum, Base, and Zora owned by users
             "name": "ZOO",
             "symbol": "zoo"
           }
-        },
+        }
         // Other Zora ERC20s
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -169,8 +173,8 @@ If you have any questions or need help regarding adding variables into your Airs
 
 ### More Resources
 
-* [API Overview](../../api-references/overview/)
-* [Variables Guides](variables.md)
-* [Direct API Call](../../get-started/quickstart/direct-api-call.md)
-* [Multiple Queries Execution](multiple-queries-execution.md)
-* [TokenBalances API References](../../api-references/api-reference/tokenbalances-api.md)
+- [API Overview](../../api-references/overview/)
+- [Variables Guides](variables.md)
+- [Direct API Call](../../get-started/quickstart/direct-api-call.md)
+- [Multiple Queries Execution](multiple-queries-execution.md)
+- [TokenBalances API References](../../api-references/api-reference/tokenbalances-api.md)

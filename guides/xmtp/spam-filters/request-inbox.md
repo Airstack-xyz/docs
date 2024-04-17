@@ -218,7 +218,7 @@ You can use this query to filter senders **on the fly** with a maximum of 200 wa
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/0OUsMMyg43" %}
-Show me token transfers by senders on Ethereum, Gold, Base, and Zora
+Show me token transfers by senders on Ethereum, Base, and Zora
 {% endembed %}
 
 ### Code
@@ -232,20 +232,6 @@ query GetTokenTransfers($senders: [Identity!]) {
     input: {
       filter: { from: { _in: $senders } }
       blockchain: ethereum
-      order: { blockTimestamp: DESC }
-    }
-  ) {
-    TokenTransfer {
-      transactionHash
-      from {
-        addresses
-      }
-    }
-  }
-  polygon: TokenTransfers(
-    input: {
-      filter: { from: { _in: $senders } }
-      blockchain: polygon
       order: { blockTimestamp: DESC }
     }
   ) {
@@ -318,17 +304,6 @@ query GetTokenTransfers($senders: [Identity!]) {
         // other Ethereum token transfers
       ]
     },
-    "polygon": {
-<strong>      "TokenTransfer": [ // If TokenTransfer array is not empty, then there are token transfers 
-</strong>        {
-          "transactionHash": "0x499ec2aa83944bdcdd73abd0c069a46d7fffdff77845cc079bdf5c450cae5814",
-          "from": {
-            "addresses": "0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2"
-          }
-        },
-        // Other Polygon token transfers
-      ]
-    },
     "base": {
 <strong>      "TokenTransfer": [ // If TokenTransfer array is not empty, then there are token transfers 
 </strong>        {
@@ -371,7 +346,7 @@ You can use this query to filter senders **on the fly** with a maximum of 200 wa
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/uUiadl5vB6" %}
-show me senders' token balances on Ethereum, Gold, Base, and Zora
+show me senders' token balances on Ethereum, Base, and Zora
 {% endembed %}
 
 ### Code
@@ -385,21 +360,6 @@ show me senders' token balances on Ethereum, Gold, Base, and Zora
 </strong>    input: {
       filter: { owner: { _in: $senders } }
       blockchain: ethereum
-      limit: 50
-    }
-  ) {
-    TokenBalance {
-      tokenAddress
-      owner {
-        addresses
-      }
-    }
-  }
-  # Polygon token balances
-<strong>  Polygon: TokenBalances(
-</strong>    input: {
-      filter: { owner: { _in: $senders } }
-      blockchain: polygon
       limit: 50
     }
   ) {
@@ -475,20 +435,6 @@ show me senders' token balances on Ethereum, Gold, Base, and Zora
           }
         },
         // more Ethereum tokens
-      ]
-    },
-    "Polygon": {
-      "TokenBalance": [
-        {
-          "tokenAddress": "0x8a2c53c06348d4af7f3fce97a79124205a92dcf7",
-          "owner": {
-            "addresses": [
-              // This sender hold tokens inside its wallet on Polygon
-<strong>              "0x0964256674e42d61f0ff84097e28f65311786ccb"
-</strong>            ]
-          }
-        },
-        // more Polygon tokens
       ]
     },
     "Base": {

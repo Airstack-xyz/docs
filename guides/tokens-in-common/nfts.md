@@ -15,7 +15,7 @@ layout:
 
 # ♦️ NFTs
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching dapps and integrating on-chain and off-chain data from Ethereum, Base, Zora, and other [Airstack supported chains](../overview.md#supported-chains).&#x20;
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching dapps and integrating on-chain and off-chain data from Ethereum, Base, Zora, and other [Airstack-supported chains](../overview.md#supported-chains).&#x20;
 
 In this tutorial, you will learn how to fetch NFTs in common from multiple users.
 
@@ -23,8 +23,8 @@ In this guide, you will learn how to use Airstack to fetch [NFTs In Common](nfts
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -45,6 +45,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -59,6 +60,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -73,12 +75,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -86,6 +91,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -105,9 +111,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/airstack-react";
 
@@ -120,9 +128,11 @@ const { data, error } = fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -140,6 +150,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -161,6 +172,7 @@ Show common NFTs of two users on Base
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -194,9 +206,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -226,6 +240,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -235,9 +250,9 @@ If you have any questions or need help regarding fetching common NFTs of multipl
 
 ## More Resources
 
-* [Nested Queries](../../api-references/overview/nested-queries.md)
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
-* [Tokens In Common For Lens Developers](../lens/tokens-in-common.md)
-* [Tokens In Common For Farcaster Developers](../../farcaster/farcaster/tokens-in-common.md)
-* [Balance Snapshots Guides](../balance-snapshots.md)
-* [Holder Snapshots Guides](../holder-snapshots.md)
+- [Nested Queries](../../api-references/overview/nested-queries.md)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+- [Tokens In Common For Lens Developers](../lens/tokens-in-common.md)
+- [Tokens In Common For Farcaster Developers](../../farcaster/farcaster/tokens-in-common.md)
+- [Balance Snapshots Guides](../balance-snapshots.md)
+- [Holder Snapshots Guides](../holder-snapshots.md)

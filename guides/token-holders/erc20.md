@@ -18,19 +18,19 @@ layout:
 
 # 🪙 ERC20
 
-[Airstack](https://airstack.xyz) provides easy-to-use ERC20 token APIs for enriching Web3 applications with onchain and offchain ERC20 token data from Ethereum, Base, Zora, and other [Airstack supported chains](../overview.md#supported-chains).
+[Airstack](https://airstack.xyz) provides easy-to-use ERC20 token APIs for enriching Web3 applications with onchain and offchain ERC20 token data from Ethereum, Base, Zora, and other [Airstack-supported chains](../overview.md#supported-chains).
 
 ## Table Of Contents
 
 In this guide you will learn how to use Airstack to:
 
-* [Get ERC20 Token Holders](erc20.md#get-erc20-token-holders)
-* [Check If User Hold A Specific ERC20 Token](erc20.md#check-if-user-hold-a-specific-erc20-token)\`
+- [Get ERC20 Token Holders](erc20.md#get-erc20-token-holders)
+- [Check If User Hold A Specific ERC20 Token](erc20.md#check-if-user-hold-a-specific-erc20-token)\`
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -51,6 +51,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -65,6 +66,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -79,12 +81,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -92,6 +97,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -115,9 +121,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -130,9 +138,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -150,6 +160,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -171,6 +182,7 @@ Show me holders of @Wrapped Ether
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -206,9 +218,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
  {
   "data": {
@@ -243,6 +257,7 @@ query MyQuery {
   }
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -262,6 +277,7 @@ Check if 0xdef1c0ded9bec7f1a1670819833240f027b25eff hold any Wrapped Ether
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -293,9 +309,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -327,6 +345,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -338,11 +357,11 @@ If you have any questions or need help regarding fetching ERC20 holders data, pl
 
 ## More Resources
 
-* [Holder Snapshots Guides](../holder-snapshots.md)
-* [Balance Snapshots Guides](../balance-snapshots.md)
-* [ERC20 Holders](erc20.md)
-* [Combinations (Common Holders)](../combinations/)
-  * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
-  * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
-* [ERC20 Tokens In Common](../tokens-in-common/erc20s.md)
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+- [Holder Snapshots Guides](../holder-snapshots.md)
+- [Balance Snapshots Guides](../balance-snapshots.md)
+- [ERC20 Holders](erc20.md)
+- [Combinations (Common Holders)](../combinations/)
+  - [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
+  - [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
+- [ERC20 Tokens In Common](../tokens-in-common/erc20s.md)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)

@@ -15,7 +15,7 @@ layout:
 
 # ⛓ Holder Snapshots
 
-[Airstack](https://airstack.xyz) provides easy-to-use [Snapshots API](../api-references/api-reference/snapshots-api.md)s for fetching token holders at a specific point in time. This feature set is currently available for the Ethereum, Gold, Base, and Zora blockchain.
+[Airstack](https://airstack.xyz) provides easy-to-use [Snapshots API](../api-references/api-reference/snapshots-api.md)s for fetching token holders at a specific point in time. This feature set is currently available for the Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains) blockchain.
 
 The [Snapshots API](../api-references/api-reference/snapshots-api.md) use timestamp, date, or block number as an input to specify the time:
 

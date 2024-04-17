@@ -408,7 +408,7 @@ query MyQuery {
 
 ## Get User's Token Balances
 
-You can use [`Wallet`](../api-references/api-reference/wallet-api.md) API to fetch all user's token (ERC20/721/1155) balances across Ethereum, Base, Zora, and other [Airstack supported chains](overview.md#supported-chains):
+You can use [`Wallet`](../api-references/api-reference/wallet-api.md) API to fetch all user's token (ERC20/721/1155) balances across Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains):
 
 {% hint style="info" %}
 For fetching token balances data from multiple chains, check out [Cross-Chain Queries](basics/cross-chain-queries.md).
@@ -488,7 +488,7 @@ query MyQuery {
 
 ## Get User's Token Transfers
 
-You can use [`Wallet`](../api-references/api-reference/wallet-api.md) API to fetch all user's token (ERC20/721/1155) transfers across Ethereum, Base, Zora, and other [Airstack supported chains](overview.md#supported-chains):
+You can use [`Wallet`](../api-references/api-reference/wallet-api.md) API to fetch all user's token (ERC20/721/1155) transfers across Ethereum, Base, Zora, and other [Airstack-supported chains](overview.md#supported-chains):
 
 {% hint style="info" %}
 For fetching token transfers data from multiple chains, check out [Cross-Chain Queries](basics/cross-chain-queries.md).
