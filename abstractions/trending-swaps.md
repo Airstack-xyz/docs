@@ -8,6 +8,11 @@ description: >-
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to recommend all trending tokens to swap within a given time frame. _This API makes use of Airstack Abstractions to calculate the results in milliseconds; no compute or backend database is required on your end._&#x20;
 
+
+
+Trending Swaps are currently available for the Base and Ethereum blockchains.\
+
+
 ## Pre-requisites
 
 * An [Airstack](https://airstack.xyz/) account

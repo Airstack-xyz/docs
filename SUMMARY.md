@@ -105,6 +105,7 @@
   * [🎆 Multiple Queries Execution](guides/basics/multiple-queries-execution.md)
   * [♋ Cross Chain Queries](guides/basics/cross-chain-queries.md)
   * [💡 Generate TypeScript Interfaces](guides/basics/generate-typescript-interfaces.md)
+* [🎩 Degen Chain](guides/degen-chain.md)
 * [🆔 Resolve Identities](guides/resolve-identities/README.md)
   * [🔑 0x Address](guides/resolve-identities/0x-address.md)
   * [🌅 Solana Address](guides/resolve-identities/solana-address.md)
@@ -207,10 +208,10 @@
   * [🤝 Tokens In Common](guides/lens/tokens-in-common.md)
   * [📞 Recommendation Users](guides/lens/recommendation-users.md)
 
-## Subgraph Development
+## Degen Chain Subgraphs
 
-* [ℹ️ Overview](subgraph-development/overview.md)
-* [🚀 Quickstart](subgraph-development/quickstart.md)
+* [ℹ️ Overview](degen-chain-subgraphs/overview.md)
+* [🚀 Quickstart](degen-chain-subgraphs/quickstart.md)
 
 ## API References
 
