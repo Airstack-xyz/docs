@@ -207,10 +207,10 @@
   * [🤝 Tokens In Common](guides/lens/tokens-in-common.md)
   * [📞 Recommendation Users](guides/lens/recommendation-users.md)
 
-## Subgraph Development
+## Degen Chain Subgraphs
 
-* [ℹ️ Overview](subgraph-development/overview.md)
-* [🚀 Quickstart](subgraph-development/quickstart.md)
+* [ℹ️ Overview](degen-chain-subgraphs/overview.md)
+* [🚀 Quickstart](degen-chain-subgraphs/quickstart.md)
 
 ## API References
 
