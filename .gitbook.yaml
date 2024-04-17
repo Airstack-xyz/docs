@@ -64,7 +64,7 @@ redirects:
   readme: README.md
   readme-1: README.md
   get-started/pricing: pricing.md
-  get-started/api-status-and-roadmap: introduction/api-capabilities.md
+  get-started/api-status-and-roadmap: readme/api-capabilities.md
   readme/use-cases: guides/onchain-graph.md
   pricing: README.md
   api-references/api-reference/accounts-api/accounts-api-examples: guides/token-bound-accounts/README.md
