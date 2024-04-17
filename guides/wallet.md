@@ -23,17 +23,17 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get All User's ENS Domain](wallet.md#get-all-users-ens-domain)
-* [Get All User's Lens Profiles](wallet.md#get-all-users-lens-profiles)
-* [Get All User's Farcaster Account](wallet.md#get-all-users-farcaster-account)
-* [Check If A User Have XMTP Enabled](wallet.md#check-if-a-user-have-xmtp-enabled)
-* [Get User's Token Balances](wallet.md#get-users-token-balances)
-* [Get User's Token Transfers](wallet.md#get-users-token-transfers)
+- [Get All User's ENS Domain](wallet.md#get-all-users-ens-domain)
+- [Get All User's Lens Profiles](wallet.md#get-all-users-lens-profiles)
+- [Get All User's Farcaster Account](wallet.md#get-all-users-farcaster-account)
+- [Check If A User Have XMTP Enabled](wallet.md#check-if-a-user-have-xmtp-enabled)
+- [Get User's Token Balances](wallet.md#get-users-token-balances)
+- [Get User's Token Transfers](wallet.md#get-users-token-transfers)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -54,6 +54,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -68,6 +69,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -82,12 +84,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -95,6 +100,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -118,9 +124,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -133,9 +141,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -153,6 +163,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -184,6 +195,7 @@ Show me all 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045's ENS domains
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Wallet(
@@ -199,9 +211,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -225,6 +239,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -248,6 +263,7 @@ Show me all 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045's Lens profiles
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Wallet(
@@ -262,9 +278,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -278,6 +296,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -299,6 +318,7 @@ Show me all 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045's Farcaster accounts
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Wallet(
@@ -313,9 +333,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -329,6 +351,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -346,6 +369,7 @@ Check if 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 have XMTP enabled
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Wallet(
@@ -360,9 +384,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -376,6 +402,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -401,6 +428,7 @@ Show me token balances of 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Wallet(
@@ -421,14 +449,16 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
     "Wallet": {
-      "ethereum": [
+      "tokenBalances": [
         {
           "tokenAddress": "0x00000000366b8a1ec86d6c8e00c861bf2245d946",
           "tokenId": "",
@@ -447,71 +477,12 @@ query MyQuery {
           "tokenNfts": null
         }
         // Other Ethereum tokens
-      ],
-      "polygon": [
-        {
-          "tokenAddress": "0xf79631521c474984f17d656a05e0d317d8755b20",
-          "tokenId": "70811",
-          "tokenType": "ERC721",
-          "token": {
-            "name": "Layer Zero Ape",
-            "symbol": "LZA",
-            "logo": {
-              "external": null,
-              "small": null,
-              "medium": null,
-              "large": null,
-              "original": null
-            }
-          },
-          "tokenNfts": {
-            "contentValue": {
-              "image": {
-                "original": "https://assets.airstack.xyz/image/nft/lBSHruZl4WIKv5+1BA90LMdoLsBUrCcvJf2bNOxI7r8NPtinI8YIZ5/juQRjVF3gpq5MFmChzZhoI2JV/dZ1Aw==/original_image.png",
-                "extraSmall": "https://assets.airstack.xyz/image/nft/lBSHruZl4WIKv5+1BA90LMdoLsBUrCcvJf2bNOxI7r8NPtinI8YIZ5/juQRjVF3gpq5MFmChzZhoI2JV/dZ1Aw==/extra_small.png",
-                "small": "https://assets.airstack.xyz/image/nft/lBSHruZl4WIKv5+1BA90LMdoLsBUrCcvJf2bNOxI7r8NPtinI8YIZ5/juQRjVF3gpq5MFmChzZhoI2JV/dZ1Aw==/small.png",
-                "medium": "https://assets.airstack.xyz/image/nft/lBSHruZl4WIKv5+1BA90LMdoLsBUrCcvJf2bNOxI7r8NPtinI8YIZ5/juQRjVF3gpq5MFmChzZhoI2JV/dZ1Aw==/medium.png",
-                "large": "https://assets.airstack.xyz/image/nft/lBSHruZl4WIKv5+1BA90LMdoLsBUrCcvJf2bNOxI7r8NPtinI8YIZ5/juQRjVF3gpq5MFmChzZhoI2JV/dZ1Aw==/large.png"
-              }
-            }
-          }
-        }
-        // Other Polygon tokens
-      ],
-      "base": [
-        {
-          "tokenAddress": "0x6e30433b8c65e76fa095e85260a244b3c3bc1865",
-          "tokenId": "265",
-          "tokenType": "ERC721",
-          "token": {
-            "name": "Base Echo",
-            "symbol": "$",
-            "logo": {
-              "external": null,
-              "small": null,
-              "medium": null,
-              "large": null,
-              "original": null
-            }
-          },
-          "tokenNfts": {
-            "contentValue": {
-              "image": {
-                "original": "https://assets.airstack.xyz/image/nft/8453/8ptb4/bkF79jKGc/p1otcqwQSv+qMZ6PvIpudahqBysb50fH7Q/xnptwoac3JTkz52VW+xrBXzdvFFCzMQXqNw==/original_image.png",
-                "extraSmall": "https://assets.airstack.xyz/image/nft/8453/8ptb4/bkF79jKGc/p1otcqwQSv+qMZ6PvIpudahqBysb50fH7Q/xnptwoac3JTkz52VW+xrBXzdvFFCzMQXqNw==/extra_small.png",
-                "small": "https://assets.airstack.xyz/image/nft/8453/8ptb4/bkF79jKGc/p1otcqwQSv+qMZ6PvIpudahqBysb50fH7Q/xnptwoac3JTkz52VW+xrBXzdvFFCzMQXqNw==/small.png",
-                "medium": "https://assets.airstack.xyz/image/nft/8453/8ptb4/bkF79jKGc/p1otcqwQSv+qMZ6PvIpudahqBysb50fH7Q/xnptwoac3JTkz52VW+xrBXzdvFFCzMQXqNw==/medium.png",
-                "large": "https://assets.airstack.xyz/image/nft/8453/8ptb4/bkF79jKGc/p1otcqwQSv+qMZ6PvIpudahqBysb50fH7Q/xnptwoac3JTkz52VW+xrBXzdvFFCzMQXqNw==/large.png"
-              }
-            }
-          }
-        }
-        // Other Base tokens
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -537,6 +508,7 @@ show me all token transfers from or to 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA9604
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Wallet(
@@ -563,9 +535,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -594,6 +568,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -603,15 +578,15 @@ If you have any questions or need help regarding fetching balance snapshots data
 
 ## More Resources
 
-* [Wallet API References](../api-references/api-reference/wallet-api.md)
-* [Domains API References](../api-references/api-reference/domains-api.md)
-* [Socials API References](../api-references/api-reference/socials-api.md)
-* [TokenBalances API References](../api-references/api-reference/tokenbalances-api.md)
-* [TokenTransfers API References](../api-references/api-reference/tokentransfers-api.md)
-* [ENS Domain Guides](ens-domains/)
-* [Lens Guides](lens/)
-* [Farcaster Guides](../farcaster/farcaster/)
-* [Token Balances Guides](token-balances/)
-* [Token Transfers Guides](token-transfers.md)
-* [Balance Snapshots Guides](balance-snapshots.md)
-* [Holder Snapshots Guides](holder-snapshots.md)
+- [Wallet API References](../api-references/api-reference/wallet-api.md)
+- [Domains API References](../api-references/api-reference/domains-api.md)
+- [Socials API References](../api-references/api-reference/socials-api.md)
+- [TokenBalances API References](../api-references/api-reference/tokenbalances-api.md)
+- [TokenTransfers API References](../api-references/api-reference/tokentransfers-api.md)
+- [ENS Domain Guides](ens-domains/)
+- [Lens Guides](lens/)
+- [Farcaster Guides](../farcaster/farcaster/)
+- [Token Balances Guides](token-balances/)
+- [Token Transfers Guides](token-transfers.md)
+- [Balance Snapshots Guides](balance-snapshots.md)
+- [Holder Snapshots Guides](holder-snapshots.md)
