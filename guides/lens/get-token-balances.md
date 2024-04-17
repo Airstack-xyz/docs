@@ -1,7 +1,8 @@
 ---
 description: >-
   Learn how to get ERC20, 721, 1155, and POAPs Of Lens Profile(s), including
-  images and metadata, on Ethereum, Polygon, Base, and Gnosis (POAPs).
+  images and metadata, on Ethereum, Base, Zora, Gnosis (POAPs), and other
+  Airstack supported chains.
 layout:
   title:
     visible: true
@@ -23,20 +24,20 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-- [Get Ethereum ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-ethereum-erc20s-owned-by-lens-profile-s)
-- [Get Polygon ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-polygon-erc20s-owned-by-lens-profile-s)
-- [Get Base ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-base-erc20s-owned-by-lens-profile-s)
-- [Get All ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-all-erc20s-owned-by-lens-profile-s)
-- [Get Ethereum NFTs Owned By Lens Profile(s)](get-token-balances.md#get-ethereum-nfts-owned-by-lens-profile-s)
-- [Get Polygon NFTs Owned By Lens Profile(s)](get-token-balances.md#get-polygon-nfts-owned-by-lens-profile-s)
-- [Get Base NFTs Owned By Lens Profile(s)](get-token-balances.md#get-base-nfts-owned-by-lens-profile-s)
-- [Get All NFTs Owned By Lens Profile(s)](get-token-balances.md#get-all-nfts-owned-by-lens-profile-s)
-- [Get All POAPs Owned By Lens Profile(s)](get-token-balances.md#get-all-poaps-owned-by-lens-profile-s)
+* [Get Ethereum ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-ethereum-erc20s-owned-by-lens-profile-s)
+* [Get Polygon ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-polygon-erc20s-owned-by-lens-profile-s)
+* [Get Base ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-base-erc20s-owned-by-lens-profile-s)
+* [Get All ERC20s Owned By Lens Profile(s)](get-token-balances.md#get-all-erc20s-owned-by-lens-profile-s)
+* [Get Ethereum NFTs Owned By Lens Profile(s)](get-token-balances.md#get-ethereum-nfts-owned-by-lens-profile-s)
+* [Get Polygon NFTs Owned By Lens Profile(s)](get-token-balances.md#get-polygon-nfts-owned-by-lens-profile-s)
+* [Get Base NFTs Owned By Lens Profile(s)](get-token-balances.md#get-base-nfts-owned-by-lens-profile-s)
+* [Get All NFTs Owned By Lens Profile(s)](get-token-balances.md#get-all-nfts-owned-by-lens-profile-s)
+* [Get All POAPs Owned By Lens Profile(s)](get-token-balances.md#get-all-poaps-owned-by-lens-profile-s)
 
 ### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ### Get Started
 
@@ -57,7 +58,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -72,7 +72,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -87,15 +86,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -103,7 +99,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -127,11 +122,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -144,11 +137,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -166,7 +157,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -194,7 +184,6 @@ Show ERC20 tokens on Ethereum owned by lens/@bradorbradley and Lens profile id 1
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -230,11 +219,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -270,7 +257,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -288,7 +274,6 @@ Show ERC20 tokens on Polygon owned by lens/@bradorbradley and Lens profile id 10
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -324,11 +309,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -364,7 +347,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -382,7 +364,6 @@ Show ERC20 tokens on Base owned by lens/@bradorbradley and Lens profile id 10027
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -418,11 +399,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -458,7 +437,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -476,7 +454,6 @@ Show ERC20 tokens on Ethereum, Polygon, and Base owned by lens/@bradorbradley an
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query ERC20OwnedByLensProfiles {
   Ethereum: TokenBalances(
@@ -574,11 +551,9 @@ query ERC20OwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -672,7 +647,6 @@ query ERC20OwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -690,7 +664,6 @@ Show NFT on Ethereum owned by lens/@bradorbradley and Lens profile id 100275
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -734,11 +707,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -782,7 +753,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -800,7 +770,6 @@ Show NFT on Polygon owned by lens/@bradorbradley and Lens profile id 100275
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -844,11 +813,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -893,7 +860,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -911,7 +877,6 @@ Show NFT on Base owned by lens/@bradorbradley and Lens profile id 100275
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -955,11 +920,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1003,7 +966,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1021,7 +983,6 @@ Show NFT on Ethereum, Polygon, and Base owned by lens/@bradorbradley and Lens pr
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query NFTsOwnedByLensProfiles {
   Ethereum: TokenBalances(
@@ -1143,11 +1104,9 @@ query NFTsOwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1266,7 +1225,6 @@ query NFTsOwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1284,7 +1242,6 @@ Show POAPs owned by lens/@bradorbradley and Lens profile id 100275
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query POAPsOwnedByLensProfiles {
   Poaps(
@@ -1324,11 +1281,9 @@ query POAPsOwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1403,7 +1358,6 @@ query POAPsOwnedByLensProfiles {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1413,7 +1367,7 @@ If you have any questions or need help regarding fetching token balances of Lens
 
 ### More Resources
 
-- [Balance Snapshots Guides](../balance-snapshots.md)
-- [Holder Snapshots Guides](../holder-snapshots.md)
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
-- [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
+* [Balance Snapshots Guides](../balance-snapshots.md)
+* [Holder Snapshots Guides](../holder-snapshots.md)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api.md)

@@ -13,7 +13,7 @@ layout:
     visible: true
 ---
 
-# ♦ NFTs
+# ♦️ NFTs
 
 NFTs are often built around communities of common interests and can be a solid basis for contact recommendations.
 
@@ -32,7 +32,6 @@ First, you will fetch all the NFTs held by a user(s) to create the contact recom
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetNFTs($Identity: [Identity!]) {
   ethereum: TokenBalances(
@@ -136,17 +135,14 @@ query GetNFTs($Identity: [Identity!]) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "Identity": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"]
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -160,7 +156,6 @@ In addition, the query will also fetch all NFT images that you can use to be dis
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetNFTHoldersAndImages($address: [Address!]) {
   ethereum: TokenNfts(
@@ -199,67 +194,16 @@ query GetNFTHoldersAndImages($address: [Address!]) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```
 {
   "address": ["0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03"]
 }
 ```
-
 {% endtab %}
 {% endtabs %}
-
-<details>
-
-<summary>Example #1: Get All @Nouns Holders ENS and Images</summary>
-
-```graphql
-query GetNFTHoldersAndImages {
-  TokenNfts(
-    input: {
-      filter: { address: { _eq: "0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03" } }
-      blockchain: ethereum
-    }
-  ) {
-    TokenNft {
-      address
-      tokenId
-      contentValue {
-        image {
-          extraSmall
-          small
-          medium
-          large
-          original
-        }
-      }
-      tokenBalances {
-        owner {
-          domains {
-            name
-            isPrimary
-          }
-          identity
-          socials {
-            profileName
-            dappName
-          }
-        }
-      }
-    }
-    pageInfo {
-      nextCursor
-      prevCursor
-    }
-  }
-}
-```
-
-</details>
 
 ## Developer Support
 
@@ -267,5 +211,5 @@ If you have any questions or need help regarding integrating or building recomme
 
 ## More Resources
 
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
-- [On-Chain Graph](../onchain-graph.md)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+* [On-Chain Graph](../onchain-graph.md)

@@ -51,6 +51,7 @@ If you are deploying ERC6551 using a custom registry contract, please reach out 
 | `base`     | Base mainnet     |
 | `zora`     | Zora mainnet     |
 | `gold`     | Gold chain L3    |
+| `degen`    | Degen Chain L3   |
 
 ### order
 

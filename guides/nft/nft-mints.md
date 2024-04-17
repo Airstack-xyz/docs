@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to use Airstack to fetch all NFT mints data, from or to user(s),
-  across Ethereum, Base, and Zora.
+  across Ethereum, Base, Zora, and other Airstack supported chains.
 ---
 
 # 👛 NFT Mints
@@ -152,7 +152,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get NFT Mints By A User
 
-You can fetch all NFTs minted by a user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Base, and Zora, by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all NFTs minted by a user, e.g. [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth\&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Base, Zora, and other [Airstack supported chains](../overview.md#supported-chains), by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 

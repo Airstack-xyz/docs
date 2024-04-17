@@ -17,14 +17,14 @@ layout:
 
 # ♋ Cross Chain Queries
 
-In GraphQL, you can call multiple queries in parallel in a single request.
+In GraphQL, you can call multiple queries in parallel in a single request as shown in [Multiple Queries Execution](multiple-queries-execution.md).
 
-As [Airstack](https://airstack.xyz) is a GraphQL API, it inherits this feature that enables you to call multiple APIs in one request, which is particularly useful for building cross-chain queries:
+As [Airstack](https://airstack.xyz) is a GraphQL API, it inherits this feature that enables you to call multiple APIs in one request, which is particularly useful for building cross-chain queries to fetch data across multiple [Airstack supported chains](../overview.md#supported-chains):
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/3eBk5PMyBM" %}
-Show ERC20 tokens on Ethereum, Base, and Zora own by users
+Show ERC20 tokens on Ethereum, Base, and Zora owned by users
 {% endembed %}
 
 ### Code
@@ -58,7 +58,7 @@ Show ERC20 tokens on Ethereum, Base, and Zora own by users
       }
     }
   }
-<strong>  Base: TokenBalances( # third query fetch Base ERC20 balance
+<strong>  Base: TokenBalances( # second query fetch Base ERC20 balance
 </strong>    input: {
       filter: {
         owner: {
@@ -84,7 +84,7 @@ Show ERC20 tokens on Ethereum, Base, and Zora own by users
       }
     }
   }
-<strong>  Zora: TokenBalances( # fourth query fetch Zora ERC20 balance
+<strong>  Zora: TokenBalances( # third query fetch Zora ERC20 balance
 </strong>    input: {
       filter: {
         owner: {

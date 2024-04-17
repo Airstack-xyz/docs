@@ -18,7 +18,7 @@ layout:
 
 # 🪙 ERC20
 
-[Airstack](https://airstack.xyz) provides easy-to-use ERC20 token APIs for enriching Web3 applications with onchain and offchain ERC20 token data from Ethereum, Gold, Base, and Zora.
+[Airstack](https://airstack.xyz) provides easy-to-use ERC20 token APIs for enriching Web3 applications with onchain and offchain ERC20 token data from Ethereum, Base, Zora, and other [Airstack supported chains](../overview.md#supported-chains).
 
 ## Table Of Contents
 
@@ -156,12 +156,6 @@ asyncio.run(main())
 #### Other Programming Languages
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
-
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
-
-[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
-
-<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
 ## Get ERC20 Token Holders
 

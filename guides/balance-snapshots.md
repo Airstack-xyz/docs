@@ -17,7 +17,11 @@ layout:
 
 # 📸 Balance Snapshots
 
-[Airstack](https://airstack.xyz) provides easy-to-use [Snapshots API](../api-references/api-reference/snapshots-api.md)s for fetching token balances at a specific point in time. This feature set is currently available for the Ethereum, Gold, Base, and Zora blockchain
+[Airstack](https://airstack.xyz) provides easy-to-use [Snapshots API](../api-references/api-reference/snapshots-api.md)s for fetching token balances at a specific point in time. This feature set is currently available for the Ethereum, Base, Zora, and Gold.
+
+{% hint style="info" %}
+Degen Chain L3 support for [Snapshots API](../api-references/api-reference/snapshots-api.md) coming soon.
+{% endhint %}
 
 The [Snapshots API](../api-references/api-reference/snapshots-api.md) use timestamp, date, or block number as an input to specify the time:
 
@@ -50,18 +54,18 @@ It is important to note that **AMM LP tokens** or tokens that generate yield ove
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Get User's Token Balances Of Specified Time on Ethereum](balance-snapshots.md#get-users-token-balances-of-specified-time-on-base) (`date`, `timestamp` or `blockNumber`)
-- [Get User's Token Balances at a Specified Time on Base](balance-snapshots.md#get-users-token-balances-of-specified-time-on-base) (`date`, `timestamp` or `blockNumber`)
-- [Get User's Token Balances Of Specified Time on Ethereum and Base](balance-snapshots.md#get-users-token-balances-of-specified-time-on-ethereum-and-base) (`date`, `timestamp` or `blockNumber`)
-- [Get User's Historical Balance Of Specified ERC20 Token](balance-snapshots.md#get-users-historical-balances-of-specified-erc20-token)
-- [Get User's Historical Balance Of Specified NFT Collection](balance-snapshots.md#get-users-historical-balance-of-specified-nft-collection)
-- [Get User's Historical Balance Of Specified NFT](balance-snapshots.md#get-users-historical-balance-of-specified-nft)
-- [Get User's Historical Balance Of Certain Token Type(s)](balance-snapshots.md#get-users-historical-balance-of-certain-token-type-s)
+* [Get User's Token Balances Of Specified Time on Ethereum](balance-snapshots.md#get-users-token-balances-of-specified-time-on-base) (`date`, `timestamp` or `blockNumber`)
+* [Get User's Token Balances at a Specified Time on Base](balance-snapshots.md#get-users-token-balances-of-specified-time-on-base) (`date`, `timestamp` or `blockNumber`)
+* [Get User's Token Balances Of Specified Time on Ethereum and Base](balance-snapshots.md#get-users-token-balances-of-specified-time-on-ethereum-and-base) (`date`, `timestamp` or `blockNumber`)
+* [Get User's Historical Balance Of Specified ERC20 Token](balance-snapshots.md#get-users-historical-balances-of-specified-erc20-token)
+* [Get User's Historical Balance Of Specified NFT Collection](balance-snapshots.md#get-users-historical-balance-of-specified-nft-collection)
+* [Get User's Historical Balance Of Specified NFT](balance-snapshots.md#get-users-historical-balance-of-specified-nft)
+* [Get User's Historical Balance Of Certain Token Type(s)](balance-snapshots.md#get-users-historical-balance-of-certain-token-type-s)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -82,7 +86,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -97,7 +100,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -112,15 +114,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -128,7 +127,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -152,11 +150,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -169,11 +165,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -191,7 +185,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -219,7 +212,6 @@ Show me balance snapshots of users on Ethereum on Aug 18, 2023
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Snapshots(
     input: {
@@ -272,11 +264,9 @@ Show me balance snapshots of users on Ethereum on Aug 18, 2023
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Snapshots": {
@@ -312,7 +302,6 @@ Show me balance snapshots of users on Ethereum on Aug 18, 2023
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -330,7 +319,6 @@ Show me balance snapshots of users on Base on Aug 18, 2023
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Snapshots(
     input: {
@@ -383,11 +371,9 @@ Show me balance snapshots of users on Base on Aug 18, 2023
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Snapshots": {
@@ -429,7 +415,6 @@ Show me balance snapshots of users on Base on Aug 18, 2023
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -447,7 +432,6 @@ Show me balance snapshots of users on Base on Aug 18, 2023
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Ethereum: Snapshots(
     input: {
@@ -549,11 +533,9 @@ Show me balance snapshots of users on Base on Aug 18, 2023
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
@@ -625,7 +607,6 @@ Show me balance snapshots of users on Base on Aug 18, 2023
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -643,7 +624,6 @@ Show me users' historical balances of ERC20 token @USD Coin on Base
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Snapshots(
     input: {
@@ -699,11 +679,9 @@ Show me users' historical balances of ERC20 token @USD Coin on Base
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Snapshots": {
@@ -762,7 +740,6 @@ Show me users' historical balances of ERC20 token @USD Coin on Base
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -780,7 +757,6 @@ Show me users' historical balances of NFT @Taiko x Base on Base
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Snapshots(
     input: {
@@ -837,11 +813,9 @@ Show me users' historical balances of NFT @Taiko x Base on Base
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -878,7 +852,6 @@ Show me users' historical balances of NFT @Taiko x Base on Base
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -896,7 +869,6 @@ Show me users' historical balances of NFT @Taiko x Base token ID 1001 on Base
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Snapshots(
     input: {
@@ -954,11 +926,9 @@ Show me users' historical balances of NFT @Taiko x Base token ID 1001 on Base
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```graphql
 {
   "data": {
@@ -995,7 +965,6 @@ Show me users' historical balances of NFT @Taiko x Base token ID 1001 on Base
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1013,7 +982,6 @@ Show me users' historical ERC20 token balances
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Snapshots(
@@ -1067,11 +1035,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1104,7 +1070,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1114,9 +1079,9 @@ If you have any questions or need help regarding fetching balance snapshots data
 
 ## More Resources
 
-- [Holder Snapshots Guides](holder-snapshots.md)
-- [Token Balances Guides](token-balances/)
-- [Token Holders Guides](token-holders/)
-- [Combinations Guides](combinations/)
-- [Tokens In Common Guides](tokens-in-common/)
-- [Snapshots API](../api-references/api-reference/snapshots-api.md)
+* [Holder Snapshots Guides](holder-snapshots.md)
+* [Token Balances Guides](token-balances/)
+* [Token Holders Guides](token-holders/)
+* [Combinations Guides](combinations/)
+* [Tokens In Common Guides](tokens-in-common/)
+* [Snapshots API](../api-references/api-reference/snapshots-api.md)

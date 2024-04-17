@@ -21,18 +21,18 @@ layout:
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Get All 0x Addresses Connected To Solana Address](resolve-identities.md#get-all-0x-addresses-connected-to-solana-address)
-- [Get All Solana Addresses Connected To 0x Address](resolve-identities.md#get-all-solana-addresses-connected-to-0x-address)
-- [Get All Web3 Social Accounts (Farcaster, Lens) and ENS Domains Resolved From Solana Address](resolve-identities.md#get-all-web3-social-accounts-farcaster-lens-and-ens-domains-resolved-from-solana-address)
-- [Get All The Solana addresses from a given ENS name](resolve-identities.md#get-all-the-solana-addresses-from-a-given-ens-name)
-- [Get All The Solana addresses from a given Namestone Subdomain or cb.id (Offchain)](resolve-identities.md#get-all-the-solana-addresses-from-a-given-namestone-subdomain-or-cb.id-offchain)
-- [Get All Solana addresses of Farcaster user](resolve-identities.md#get-all-solana-addresses-of-farcaster-user)
-- [Get All Solana addresses of Lens profile](resolve-identities.md#get-all-solana-addresses-of-lens-profile)
+* [Get All 0x Addresses Connected To Solana Address](resolve-identities.md#get-all-0x-addresses-connected-to-solana-address)
+* [Get All Solana Addresses Connected To 0x Address](resolve-identities.md#get-all-solana-addresses-connected-to-0x-address)
+* [Get All Web3 Social Accounts (Farcaster, Lens) and ENS Domains Resolved From Solana Address](resolve-identities.md#get-all-web3-social-accounts-farcaster-lens-and-ens-domains-resolved-from-solana-address)
+* [Get All The Solana addresses from a given ENS name](resolve-identities.md#get-all-the-solana-addresses-from-a-given-ens-name)
+* [Get All The Solana addresses from a given Namestone Subdomain or cb.id (Offchain)](resolve-identities.md#get-all-the-solana-addresses-from-a-given-namestone-subdomain-or-cb.id-offchain)
+* [Get All Solana addresses of Farcaster user](resolve-identities.md#get-all-solana-addresses-of-farcaster-user)
+* [Get All Solana addresses of Lens profile](resolve-identities.md#get-all-solana-addresses-of-lens-profile)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -53,7 +53,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -68,7 +67,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -83,15 +81,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -99,7 +94,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -123,11 +117,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -140,11 +132,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -162,19 +152,12 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
 #### Other Programming Languages
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
-
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
-
-[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
-
-<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
 ## Get All 0x Addresses Connected To Solana Address
 
@@ -190,7 +173,6 @@ Show the 0x addresses of solana address GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDM
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Wallet(
@@ -203,11 +185,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -217,7 +197,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -235,7 +214,6 @@ Show me all the Solana address connected to 0xe0235804378c31948e81441f656d826ee5
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Wallet(
     input: {identity: "0xe0235804378c31948e81441f656d826ee5998bc6", blockchain: ethereum}
@@ -257,11 +235,9 @@ Show me all the Solana address connected to 0xe0235804378c31948e81441f656d826ee5
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Wallet": {
@@ -296,7 +272,6 @@ Show me all the Solana address connected to 0xe0235804378c31948e81441f656d826ee5
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -314,7 +289,6 @@ Show the Farcaster, Lens, and ENS of solana address GJQUFnCu7ZJHxtxeaeskjnqyx8QF
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Wallet(
@@ -335,11 +309,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -363,7 +335,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -381,7 +352,6 @@ Show me alexjcomeau.eth's multichain SOL address
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetUserDetailsFromENS {
   Domains(
@@ -399,11 +369,9 @@ query GetUserDetailsFromENS {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Domains": {
@@ -426,7 +394,6 @@ query GetUserDetailsFromENS {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -444,7 +411,6 @@ Show me yosephks.cb.id's multichain SOL address
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Domains(
@@ -459,11 +425,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Domains": {
@@ -498,7 +462,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -516,7 +479,6 @@ Show me the Solana connected address of Farcaster user v
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -536,11 +498,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -573,7 +533,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -591,7 +550,6 @@ Show me all the Solana addresses of Lens profile alexj
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Wallet(input: { identity: "lens/@alexj", blockchain: ethereum }) {
@@ -612,11 +570,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -651,7 +607,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -661,7 +616,7 @@ If you have any questions or need help regarding resolving Solana address(es), p
 
 ## More Resources
 
-- [ENS Domains Guide](../ens-domains/)
-- [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
-- [Domains API Reference](../../api-references/api-reference/domains-api.md)
-- [Socials API Reference](../../api-references/api-reference/socials-api.md)
+* [ENS Domains Guide](../ens-domains/)
+* [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
+* [Domains API Reference](../../api-references/api-reference/domains-api.md)
+* [Socials API Reference](../../api-references/api-reference/socials-api.md)

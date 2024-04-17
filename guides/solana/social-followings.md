@@ -21,13 +21,13 @@ layout:
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Get All Followings of Solana Address](social-followings.md#get-all-followings-of-solana-address)
-- [Check If Solana Address A Is Following Solana Address B](social-followings.md#check-if-solana-address-a-is-following-solana-address-b)
+* [Get All Followings of Solana Address](social-followings.md#get-all-followings-of-solana-address)
+* [Check If Solana Address A Is Following Solana Address B](social-followings.md#check-if-solana-address-a-is-following-solana-address-b)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -48,7 +48,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -63,7 +62,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -78,15 +76,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -94,7 +89,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -118,11 +112,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -135,11 +127,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -157,19 +147,12 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
 #### Other Programming Languages
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
-
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
-
-[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
-
-<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
 ## Get All Followings of Solana Address
 
@@ -185,7 +168,6 @@ Show me all the social followings of GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsq
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowings(
@@ -208,11 +190,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -272,7 +252,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -290,7 +269,6 @@ Show if solana address A is following solana address B
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query isFollowing {
   Wallet(
     input: {
@@ -316,11 +294,9 @@ Show if solana address A is following solana address B
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Wallet": {
@@ -336,7 +312,6 @@ Show if solana address A is following solana address B
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -346,10 +321,10 @@ If you have any questions or need help regarding fetching social followings of a
 
 ## More Resources
 
-- [Social Follows Guides](../social-follows/)
-- [Resolving Solana Addresses](resolve-identities.md)
-- [Social Followers Of Solana Addresses](social-followers.md)
-- [Token Balances Of Solana Addresses](token-balances.md)
-- [Check XMTP For Solana Addresses](../xmtp/check-multiple-users.md)
-- [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
-- [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
+* [Social Follows Guides](../social-follows/)
+* [Resolving Solana Addresses](resolve-identities.md)
+* [Social Followers Of Solana Addresses](social-followers.md)
+* [Token Balances Of Solana Addresses](token-balances.md)
+* [Check XMTP For Solana Addresses](../xmtp/check-multiple-users.md)
+* [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
+* [Wallet API Reference](../../api-references/api-reference/wallet-api.md)

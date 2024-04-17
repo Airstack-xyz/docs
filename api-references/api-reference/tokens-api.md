@@ -45,6 +45,7 @@ Querying by name or symbol returns all contracts with matching data. These field
 | `base`     | Base mainnet     |
 | `zora`     | Zora mainnet     |
 | `gold`     | Gold Chain L3    |
+| `degen`    | Degen Chain L3   |
 
 ### order
 

@@ -17,14 +17,12 @@ layout:
 
 ## Table Of Contents
 
-In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
-
-- [Check Solana Address Has XMTP Enabled](xmtp.md#check-solana-address-has-xmtp-enabled)
+In this guide, you will learn how to use [Airstack](https://airstack.xyz) to [check if a Solana address has XMTP enabled](xmtp.md#check-solana-address-has-xmtp-enabled).
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -45,7 +43,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -60,7 +57,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -75,15 +71,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -91,7 +84,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -115,11 +107,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -132,11 +122,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -154,19 +142,12 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
 #### Other Programming Languages
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
-
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
-
-[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
-
-<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
 ## Check Solana Address Has XMTP Enabled
 
@@ -182,7 +163,6 @@ Check if GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV has XMTP enabled
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
@@ -197,11 +177,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -215,7 +193,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -225,9 +202,9 @@ If you have any questions or need help regarding checking whether a solana addre
 
 ## More Resources
 
-- [XMTP Guides](../xmtp/)
-- [Resolving Solana Addresses](resolve-identities.md)
-- [Token Balanaces Of Solana Addresses](token-balances.md)
-- [Social Followers Of Solana Addresses](social-followers.md)
-- [Social Followings Of Solana Addresses](social-followings.md)
-- [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)
+* [XMTP Guides](../xmtp/)
+* [Resolving Solana Addresses](resolve-identities.md)
+* [Token Balanaces Of Solana Addresses](token-balances.md)
+* [Social Followers Of Solana Addresses](social-followers.md)
+* [Social Followings Of Solana Addresses](social-followings.md)
+* [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)

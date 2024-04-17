@@ -15,11 +15,11 @@ layout:
 
 # ♦️ NFTs
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching dapps and integrating on-chain and off-chain data from various blockchains.
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching dapps and integrating on-chain and off-chain data from Ethereum, Base, Zora, and other [Airstack supported chains](../overview.md#supported-chains).&#x20;
 
 In this tutorial, you will learn how to fetch NFTs in common from multiple users.
 
-In this guide you will learn how to use Airstack to fetch [NFTs In Common](nfts.md#nfts-in-common).
+In this guide, you will learn how to use Airstack to fetch [NFTs In Common](nfts.md#nfts-in-common).
 
 ## Pre-requisites
 
@@ -147,20 +147,14 @@ asyncio.run(main())
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
-
-[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
-
-<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
-
 ## NFTs In Common
 
-You can fetch common NFTs of multiple user(s) provided the user's 0x address, ENS domains, Lens profile, or Farcaster name or ID:
+You can fetch common NFTs of multiple user(s) provided the user's 0x address, Farcaster name or ID, ENS domains, or Lens profile:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/yKjShYXlAV" %}
-Show common NFTs of two users
+{% embed url="https://app.airstack.xyz/query/83iNwAcifb" %}
+Show common NFTs of two users on Base
 {% endembed %}
 
 ### Code
@@ -175,7 +169,7 @@ query MyQuery {
         owner: { _eq: "betashop.eth" }
         tokenType: { _in: [ERC721, ERC1155] }
       }
-      blockchain: polygon
+      blockchain: base
     }
   ) {
     TokenBalance {
@@ -212,11 +206,11 @@ query MyQuery {
           "token": {
             "tokenBalances": [
               {
-                "id": "05c4cece4238243f6f8fd6c22e0df78fa07450283322c476dc4af2e2a744c6d3",
+                "id": "09adff7901e6b3ed411a037abf0be67365cb2dabe24e48921768d32abf64203a",
                 "token": {
-                  "address": "0x4c23d718416164b2f52f88dde4cf0b1172b741b6",
-                  "symbol": "swap-rewards.xyz",
-                  "name": "swap-rewards.xyz"
+                  "address": "0x4c17ff12d9a925a0dec822a8cbf06f46c626855c",
+                  "symbol": "FC-HZN",
+                  "name": "Farcaster Horizon"
                 }
               }
             ]

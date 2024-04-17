@@ -15,9 +15,9 @@ layout:
 
 # 🪙 ERC20s
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching dapps and integrating on-chain and off-chain data from various blockchains.
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching dapps and integrating on-chain and off-chain data from Ethereum, Base, Zora, and other [Airstack supported chains](../overview.md#supported-chains).&#x20;
 
-In this guide you will learn how to use Airstack to fetch [ERC20 Tokens In Common](erc20s.md#erc20-tokens-in-common).
+In this guide, you will learn how to use Airstack to fetch [ERC20 Tokens In Common](erc20s.md#erc20-tokens-in-common).
 
 ## Pre-requisites
 
@@ -145,20 +145,14 @@ asyncio.run(main())
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
-
-[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
-
-<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
-
 ## ERC20 Tokens In Common
 
-You can fetch common ERC20 tokens of multiple user(s) provided the user's 0x address, ENS domains, Lens profile, or Farcaster name or ID:
+You can fetch common ERC20 tokens of multiple user(s) provided the user's 0x address, Farcaster name or ID, ENS domains, or Lens profile:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/q4TkJCjV5f" %}
-Show common ERC20 tokens held by users
+{% embed url="https://app.airstack.xyz/query/PBOJY1cEpB" %}
+Show common ERC20 tokens held by users on Base
 {% endembed %}
 
 ### Code
@@ -170,7 +164,7 @@ query MyQuery {
   TokenBalances(
     input: {
       filter: { owner: { _eq: "betashop.eth" }, tokenType: { _eq: ERC20 } }
-      blockchain: polygon
+      blockchain: base
     }
   ) {
     TokenBalance {
@@ -207,11 +201,11 @@ query MyQuery {
           "token": {
             "tokenBalances": [
               {
-                "id": "51012959a2b4c04f8dba7ef03eff0ded99c7892e8367d023680d66825287fbba",
+                "id": "af2c9253761bbc7a547caa471e99a9641b1f5029d01a2374bd3c872017f61d33",
                 "token": {
-                  "address": "0xef556c61263135ad91a27c8c891e61e521560240",
-                  "symbol": "usd-rewards.xyz",
-                  "name": "USD"
+                  "address": "0x4ed4e862860bed51a9570b96d89af5e1b0efefed",
+                  "symbol": "DEGEN",
+                  "name": "Degen"
                 }
               }
             ]

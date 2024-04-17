@@ -41,6 +41,7 @@ The TokenBalances API covers the owners and balances of ERC20, ERC721, and ERC11
 | `base`     | Base mainnet     |
 | `zora`     | Zora mainnet     |
 | `gold`     | Gold Chain L3    |
+| `degen`    | Degen Chain L3   |
 
 ## Outputs
 

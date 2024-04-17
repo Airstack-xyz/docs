@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to get NFT (ERC721/1155) balances of user(s), including images and
-  metadata, on Ethereum, Gold, Base, and Zora.
+  metadata, on Ethereum, Base, Zora, and other Airstack supported chains.
 layout:
   title:
     visible: true
@@ -17,7 +17,7 @@ layout:
 
 # ♦️ NFT
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating NFT balance data from Ethereum, Gold, Base, and Zora.
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating NFT balance data from Ethereum, Base, Zora, and other [Airstack supported chains](../overview.md#supported-chains).
 
 ## Table Of Contents
 
@@ -161,7 +161,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get All NFTs Owned By User(s)
 
-You can fetch all NFTs on Ethereum owned by any user(s):
+You can fetch all NFTs owned by any user(s) across multiple chains, e.g. Ethereum, Base, Zora, and other [Airstack supported chains](../overview.md#supported-chains), using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API:
 
 {% hint style="info" %}
 For fetching NFT balances data from multiple chains, check out [Cross-Chain Queries](../basics/cross-chain-queries.md).

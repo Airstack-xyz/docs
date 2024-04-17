@@ -51,6 +51,7 @@ The TokenTransfers API only covers transfers of the "transfer" type and excludes
 | `base`     | Base mainnet     |
 | `zora`     | Zora mainnet     |
 | `gold`     | Gold Chain L3    |
+| `degen`    | Degen Chain L3   |
 
 ### order
 

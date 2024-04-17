@@ -381,9 +381,11 @@ query MyQuery {
 
 ## Get User's Token Balances
 
-You can use [`Wallet`](../api-references/api-reference/wallet-api.md) API to fetch all user's token (ERC20/721/1155) balances across Ethereum, Gold, Base, Zora:
+You can use [`Wallet`](../api-references/api-reference/wallet-api.md) API to fetch all user's token (ERC20/721/1155) balances across Ethereum, Base, Zora, and other [Airstack supported chains](overview.md#supported-chains):
 
 {% hint style="info" %}
+For fetching token balances data from multiple chains, check out [Cross-Chain Queries](basics/cross-chain-queries.md).
+
 If a user have more than **200 tokens on a chain**, then it is recommended that you use the [**TokenBalances**](../api-references/api-reference/tokenbalances-api.md) API directly instead.
 
 For more details, follow this guide [here](token-balances/).
@@ -391,7 +393,7 @@ For more details, follow this guide [here](token-balances/).
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/vAEvtxhrfz" %}
+{% embed url="https://app.airstack.xyz/query/wv3y0UQiKL" %}
 Show me token balances of 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 {% endembed %}
 
@@ -407,85 +409,13 @@ query MyQuery {
       blockchain: ethereum
     }
   ) {
-    ethereum: tokenBalances(input: { blockchain: ethereum, limit: 200 }) {
+    tokenBalances {
       tokenAddress
       tokenId
       tokenType
       token {
         name
         symbol
-        logo {
-          external
-          small
-          medium
-          large
-          original
-        }
-      }
-      tokenNfts {
-        contentValue {
-          image {
-            original
-            extraSmall
-            small
-            medium
-            large
-          }
-        }
-      }
-    }
-    polygon: tokenBalances(input: { blockchain: polygon, limit: 200 }) {
-      tokenAddress
-      tokenId
-      tokenType
-      token {
-        name
-        symbol
-        logo {
-          external
-          small
-          medium
-          large
-          original
-        }
-      }
-      tokenNfts {
-        contentValue {
-          image {
-            original
-            extraSmall
-            small
-            medium
-            large
-          }
-        }
-      }
-    }
-    base: tokenBalances(input: { blockchain: base, limit: 200 }) {
-      tokenAddress
-      tokenId
-      tokenType
-      token {
-        name
-        symbol
-        logo {
-          external
-          small
-          medium
-          large
-          original
-        }
-      }
-      tokenNfts {
-        contentValue {
-          image {
-            original
-            extraSmall
-            small
-            medium
-            large
-          }
-        }
       }
     }
   }
@@ -587,9 +517,11 @@ query MyQuery {
 
 ## Get User's Token Transfers
 
-You can use [`Wallet`](../api-references/api-reference/wallet-api.md) API to fetch all user's token (ERC20/721/1155) transfers across Ethereum, Gold, Base, and Zora:
+You can use [`Wallet`](../api-references/api-reference/wallet-api.md) API to fetch all user's token (ERC20/721/1155) transfers across Ethereum, Base, Zora, and other [Airstack supported chains](overview.md#supported-chains):
 
 {% hint style="info" %}
+For fetching token transfers data from multiple chains, check out [Cross-Chain Queries](basics/cross-chain-queries.md).
+
 If a user have more than **200 token transfers on a chain**, then it is recommended that you use the [**TokenTransfers**](../api-references/api-reference/tokentransfers-api.md) API directly instead.
 
 For more details, follow this guide [here](token-transfers.md#get-token-transfers-of-a-user-s-on-multiple-chains).
@@ -597,7 +529,7 @@ For more details, follow this guide [here](token-transfers.md#get-token-transfer
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/CMQykW6gbS" %}
+{% embed url="https://app.airstack.xyz/query/VsXIPb6a9f" %}
 show me all token transfers from or to 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 {% endembed %}
 
@@ -613,45 +545,12 @@ query MyQuery {
       blockchain: ethereum
     }
   ) {
-    ethereum: tokenTransfers(
-      input: {
-        blockchain: ethereum
-        limit: 200
-        filter: {
-          _nor: {
-            from: { _eq: "0x0000000000000000000000000000000000000000" }
-            to: { _eq: "0x0000000000000000000000000000000000000000" }
-          }
-        }
-      }
-    ) {
+    tokenTransfers {
       from {
         addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          profileName
-          dappName
-        }
-        xmtp {
-          isXMTPEnabled
-        }
       }
       to {
         addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          profileName
-          dappName
-        }
-        xmtp {
-          isXMTPEnabled
-        }
       }
       tokenAddress
       tokenId
@@ -659,156 +558,6 @@ query MyQuery {
       token {
         name
         symbol
-        logo {
-          external
-          small
-          medium
-          large
-          original
-        }
-      }
-      tokenNft {
-        contentValue {
-          image {
-            original
-            extraSmall
-            small
-            medium
-            large
-          }
-        }
-      }
-    }
-    polygon: tokenTransfers(
-      input: {
-        blockchain: polygon
-        limit: 200
-        filter: {
-          _nor: {
-            from: { _eq: "0x0000000000000000000000000000000000000000" }
-            to: { _eq: "0x0000000000000000000000000000000000000000" }
-          }
-        }
-      }
-    ) {
-      from {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          profileName
-          dappName
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-      to {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          profileName
-          dappName
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-      tokenAddress
-      tokenId
-      tokenType
-      token {
-        name
-        symbol
-        logo {
-          external
-          small
-          medium
-          large
-          original
-        }
-      }
-      tokenNft {
-        contentValue {
-          image {
-            original
-            extraSmall
-            small
-            medium
-            large
-          }
-        }
-      }
-    }
-    base: tokenTransfers(
-      input: {
-        blockchain: base
-        limit: 200
-        filter: {
-          _nor: {
-            from: { _eq: "0x0000000000000000000000000000000000000000" }
-            to: { _eq: "0x0000000000000000000000000000000000000000" }
-          }
-        }
-      }
-    ) {
-      from {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          profileName
-          dappName
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-      to {
-        addresses
-        domains {
-          name
-          isPrimary
-        }
-        socials {
-          profileName
-          dappName
-        }
-        xmtp {
-          isXMTPEnabled
-        }
-      }
-      tokenAddress
-      tokenId
-      tokenType
-      token {
-        name
-        symbol
-        logo {
-          external
-          small
-          medium
-          large
-          original
-        }
-      }
-      tokenNft {
-        contentValue {
-          image {
-            original
-            extraSmall
-            small
-            medium
-            large
-          }
-        }
       }
     }
   }
@@ -821,50 +570,14 @@ query MyQuery {
 {
   "data": {
     "Wallet": {
-      "ethereum": [
+      "tokenTransfers": [
         {
           "from": {
             "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
-            "domains": [
-              {
-                "name": "vitalik.eth",
-                "isPrimary": true
-              }
-              // Other ENS Domain
-            ],
-            "socials": [
-              {
-                "profileName": "vitalik.eth",
-                "dappName": "farcaster"
-              },
-              {
-                "profileName": "lens/@vitalik",
-                "dappName": "lens"
-              }
-            ],
-            "xmtp": [
-              {
-                "isXMTPEnabled": true
-              }
             ]
           },
           "to": {
             "addresses": ["0xd8b75eb7bd778ac0b3f5ffad69bcc2e25bccac95"],
-            "domains": [
-              {
-                "name": "toastmybread.eth",
-                "isPrimary": true
-              },
-              {
-                "name": "daerbymtsaot.eth",
-                "isPrimary": false
-              }
-            ],
-            "socials": null,
-            "xmtp": [
-              {
-                "isXMTPEnabled": true
-              }
             ]
           },
           "tokenAddress": "0xc791c23da1161f8259c9094b65cf13f9d891a892",
@@ -873,153 +586,10 @@ query MyQuery {
           "token": {
             "name": "Mars Mining Company",
             "symbol": "MARS",
-            "logo": {
-              "external": null,
-              "small": null,
-              "medium": null,
-              "large": null,
-              "original": null
-            }
           },
-          "tokenNft": {
-            "contentValue": {
-              "image": null
-            }
-          }
         }
         // Other Ethereum token transfers
       ],
-      "polygon": [
-        {
-          "from": {
-            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
-            "domains": [
-              {
-                "name": "vitalik.eth",
-                "isPrimary": false
-              }
-              // Other ENS domains
-            ],
-            "socials": [
-              {
-                "profileName": "vitalik.eth",
-                "dappName": "farcaster"
-              },
-              {
-                "profileName": "lens/@vitalik",
-                "dappName": "lens"
-              }
-            ],
-            "xmtp": [
-              {
-                "isXMTPEnabled": true
-              }
-            ]
-          },
-          "to": {
-            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
-            "domains": [
-              {
-                "name": "quantumexchange.eth",
-                "isPrimary": false
-              }
-              // Other ENS domains
-            ],
-            "socials": [
-              {
-                "profileName": "vitalik.eth",
-                "dappName": "farcaster"
-              },
-              {
-                "profileName": "lens/@vitalik",
-                "dappName": "lens"
-              }
-            ],
-            "xmtp": [
-              {
-                "isXMTPEnabled": true
-              }
-            ]
-          },
-          "tokenAddress": "0x3d43e92c28e7635ef969b61bb420ab6d55fb1bb8",
-          "tokenId": "2026",
-          "tokenType": "ERC721",
-          "token": {
-            "name": "Cult Vitalik",
-            "symbol": "VITALIK",
-            "logo": {
-              "external": null,
-              "small": null,
-              "medium": null,
-              "large": null,
-              "original": null
-            }
-          },
-          "tokenNft": {
-            "contentValue": {
-              "image": {
-                "original": "https://assets.airstack.xyz/image/nft/Kjas71EGE19T8JWjr7VjMPqQt4gskyNf6gvlS8eXiHnEIdBrrPBl0jCxYED5XhTLxuwn2atJtKHv6P1z7u5fgg==/original_image.png",
-                "extraSmall": "https://assets.airstack.xyz/image/nft/Kjas71EGE19T8JWjr7VjMPqQt4gskyNf6gvlS8eXiHnEIdBrrPBl0jCxYED5XhTLxuwn2atJtKHv6P1z7u5fgg==/extra_small.png",
-                "small": "https://assets.airstack.xyz/image/nft/Kjas71EGE19T8JWjr7VjMPqQt4gskyNf6gvlS8eXiHnEIdBrrPBl0jCxYED5XhTLxuwn2atJtKHv6P1z7u5fgg==/small.png",
-                "medium": "https://assets.airstack.xyz/image/nft/Kjas71EGE19T8JWjr7VjMPqQt4gskyNf6gvlS8eXiHnEIdBrrPBl0jCxYED5XhTLxuwn2atJtKHv6P1z7u5fgg==/medium.png",
-                "large": "https://assets.airstack.xyz/image/nft/Kjas71EGE19T8JWjr7VjMPqQt4gskyNf6gvlS8eXiHnEIdBrrPBl0jCxYED5XhTLxuwn2atJtKHv6P1z7u5fgg==/large.png"
-              }
-            }
-          }
-        }
-        // Other Polygon token transfers
-      ],
-      "base": [
-        {
-          "from": {
-            "addresses": ["0x919ba4118e5b566b35b62364613bb8f6bd8e2c61"],
-            "domains": null,
-            "socials": null,
-            "xmtp": null
-          },
-          "to": {
-            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
-            "domains": [
-              {
-                "name": "quantumexchange.eth",
-                "isPrimary": false
-              }
-              // Other ENS domains
-            ],
-            "socials": [
-              {
-                "profileName": "vitalik.eth",
-                "dappName": "farcaster"
-              },
-              {
-                "profileName": "lens/@vitalik",
-                "dappName": "lens"
-              }
-            ],
-            "xmtp": [
-              {
-                "isXMTPEnabled": true
-              }
-            ]
-          },
-          "tokenAddress": "0x828f92c747261ffd3ad6e24c232c021909f88344",
-          "tokenId": "",
-          "tokenType": "ERC20",
-          "token": {
-            "name": "ᗪOᖇK ᒪOᖇᗪ",
-            "symbol": "DORKL",
-            "logo": {
-              "external": null,
-              "small": null,
-              "medium": null,
-              "large": null,
-              "original": null
-            }
-          },
-          "tokenNft": null
-        }
-        // Other Base token transfers
-      ]
     }
   }
 }

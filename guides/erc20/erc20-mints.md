@@ -1,12 +1,12 @@
 ---
 description: >-
   Learn how to use Airstack to fetch all ERC20 token mints data, from or to
-  user(s), across Ethereum, Gold, Base, and Zora.
+  user(s), across Ethereum, Base, Zora, and other Airstack supported chains.
 ---
 
 # 👛 ERC20 Mints
 
-All ERC20 tokens minted are essentially ERC20 token transfers from a [null address (0x00...00)](https://explorer.airstack.xyz/token-balances?address=0x0000000000000000000000000000000000000000&rawInput=%23%E2%8E%B10x0000000000000000000000000000000000000000%E2%8E%B1%280x0000000000000000000000000000000000000000+ADDRESS+ethereum+null%29&inputType=ADDRESS) to a user address that are executed by the receiving user itself. Thus, with [Airstack](https://airstack.xyz), you can use the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API to fetch all user's ERC20 token mints by specifying the input as follows:
+All ERC20 tokens minted are essentially ERC20 token transfers from a [null address (0x00...00)](https://explorer.airstack.xyz/token-balances?address=0x0000000000000000000000000000000000000000\&rawInput=%23%E2%8E%B10x0000000000000000000000000000000000000000%E2%8E%B1%280x0000000000000000000000000000000000000000+ADDRESS+ethereum+null%29\&inputType=ADDRESS) to a user address that are executed by the receiving user itself. Thus, with [Airstack](https://airstack.xyz), you can use the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API to fetch all user's ERC20 token mints by specifying the input as follows:
 
 <table><thead><tr><th width="176">Input Filter</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>operator</code></td><td>user's 0x address, ENS, cb.id, Lens, or Farcaster</td><td>Executor of the transaction.</td></tr><tr><td><code>from</code></td><td><a href="https://explorer.airstack.xyz/token-balances?address=0x0000000000000000000000000000000000000000&#x26;rawInput=%23%E2%8E%B10x0000000000000000000000000000000000000000%E2%8E%B1%280x0000000000000000000000000000000000000000+ADDRESS+ethereum+null%29&#x26;inputType=ADDRESS"><code>0x0000000000000000000000000000000000000000</code></a></td><td>Sender in the ERC20 token transfers.</td></tr><tr><td><code>to</code></td><td>user's 0x address, ENS, cb.id, Lens, or Farcaster</td><td>Receiver in the ERC20 token transfers.</td></tr></tbody></table>
 
@@ -16,8 +16,8 @@ In this guide you will learn how to use [Airstack](https://airstack.xyz) to [get
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -38,7 +38,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -53,7 +52,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -68,15 +66,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -84,7 +79,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -108,11 +102,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -125,11 +117,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -147,7 +137,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -163,7 +152,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get ERC20 Token Mints By A User
 
-You can fetch all ERC20 tokens minted by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS), across multiple chains, such as Ethereum, Gold, Base, and Zora, by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all ERC20 tokens minted by a user, e.g. [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth\&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29\&inputType=ADDRESS), across multiple chains, such as Ethereum, Base, Zora, and other [Airstack supported chains](../overview.md#supported-chains), by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
 
 ### Try Demo
 
@@ -175,9 +164,8 @@ Show me all ERC20 tokens minted by ipeciura.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
-  Ethereum: TokenTransfers(
+  TokenTransfers(
     input: {
       filter: {
         # Only get mints that are executed by the same user
@@ -210,79 +198,11 @@ Show me all ERC20 tokens minted by ipeciura.eth
       tokenType
     }
   }
-  Polygon: TokenTransfers(
-    input: {
-      filter: {
-        # Only get mints that are executed by the same user
-<strong>        operator: {_eq: "betashop.eth"},
-</strong>        # Mints are token transfers that has null address as `from`
-<strong>        from: {_eq: "0x0000000000000000000000000000000000000000"},
-</strong>        # Set this to the user that receive the token mints
-<strong>        to: {_eq: "betashop.eth"},
-</strong>        # Get only ERC20 tokens
-<strong>        tokenType: {_eq: ERC20},
-</strong>      },
-      blockchain: polygon,
-      order: {blockTimestamp: DESC}
-    }
-  ) {
-    TokenTransfer {
-      blockchain
-      formattedAmount
-      tokenAddress
-      tokenNft {
-        metaData {
-          name
-        }
-        contentValue {
-          image {
-            medium
-          }
-        }
-      }
-      tokenType
-    }
-  }
-  Base: TokenTransfers(
-    input: {
-      filter: {
-        # Only get mints that are executed by the same user
-<strong>        operator: {_eq: "betashop.eth"},
-</strong>        # Mints are token transfers that has null address as `from`
-<strong>        from: {_eq: "0x0000000000000000000000000000000000000000"},
-</strong>        # Set this to the user that receive the token mints
-<strong>        to: {_eq: "betashop.eth"},
-</strong>        # Get only ERC20 tokens
-<strong>        tokenType: {_eq: ERC20},
-</strong>      },
-      blockchain: base,
-      order: {blockTimestamp: DESC}
-    }
-  ) {
-    TokenTransfer {
-      blockchain
-      formattedAmount
-      tokenAddress
-      tokenNft {
-        metaData {
-          name
-        }
-        contentValue {
-          image {
-            medium
-          }
-        }
-      }
-      tokenType
-    }
-  }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
@@ -306,7 +226,6 @@ Show me all ERC20 tokens minted by ipeciura.eth
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -316,11 +235,11 @@ If you have any questions or need help regarding fetching ERC20 token mints data
 
 ## More Resources
 
-- [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api.md)
-- [On-Chain Graph](../onchain-graph.md)
-- [TokenTransfers Guides](../token-transfers.md)
-- [Token Mints Guides](../token-mints.md)
-- [ERC20 Details](erc20-details.md)
-- [ERC20 Balances](erc20-balances.md)
-- [ERC20 Holders](erc20-holders.md)
-- [Spam ERC20](spam-erc20.md)
+* [TokenTransfers API Reference](../../api-references/api-reference/tokentransfers-api.md)
+* [On-Chain Graph](../onchain-graph.md)
+* [TokenTransfers Guides](../token-transfers.md)
+* [Token Mints Guides](../token-mints.md)
+* [ERC20 Details](erc20-details.md)
+* [ERC20 Balances](erc20-balances.md)
+* [ERC20 Holders](erc20-holders.md)
+* [Spam ERC20](spam-erc20.md)

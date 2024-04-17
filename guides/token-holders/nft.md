@@ -18,7 +18,7 @@ layout:
 
 # ♦️ NFT
 
-[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Gold, Base, and Zora.
+[Airstack](https://airstack.xyz) provides easy-to-use NFT APIs for enriching Web3 applications with onchain and offchain NFT data from Ethereum, Base, Zora, and other [Airstack supported chains](../overview.md#supported-chains).
 
 ## Table Of Contents
 
@@ -158,15 +158,9 @@ asyncio.run(main())
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
-
-[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
-
-<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
-
 ## Get NFT Holder(s) of A Specific NFT
 
-You can use [Airstack](https://airstack.xyz) to fetch NFT holder(s) of a specifc NFT by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing the NFT collection address(es) to `tokenAddress` and the token ID to `tokenId` as an input:
+You can use [Airstack](https://airstack.xyz) to fetch NFT holder(s) of a specifc NFT on Ethereum, Base, Zora, or other [Airstack supported chains](../overview.md#supported-chains) by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing the NFT collection address(es) to `tokenAddress` and the token ID to `tokenId` as an input:
 
 {% hint style="info" %}
 For ERC721 NFT, there's only **1 unique holder** for each token ID.
@@ -263,7 +257,7 @@ query MyQuery {
 
 ## Get NFT Holders of NFT Collection(s)
 
-You can use [Airstack](https://airstack.xyz) to fetch NFT holders of a given NFT collection(s) by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing the NFT collection address(es) to `tokenAddress` input:
+You can use [Airstack](https://airstack.xyz) to fetch NFT holders of a given NFT collection(s) on Ethereum, Base, Zora, or other [Airstack supported chains](../overview.md#supported-chains) by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing the NFT collection address(es) to `tokenAddress` input:
 
 ### Try Demo
 
@@ -362,7 +356,7 @@ query MyQuery {
 
 ## Check If User Hold A Specific NFT Collection
 
-You can use [Airstack](https://airstack.xyz) to check if a user hold a given NFT Collection by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API.
+You can use [Airstack](https://airstack.xyz) to check if a user hold a given NFT Collection on Ethereum, Base, Zora, or other [Airstack supported chains](../overview.md#supported-chains) by using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API.
 
 For inputs, provide the NFT collection address(es) to `tokenAddress` and user's 0x address, ENS domain, cb.id, Lens profile, or Farcaster fname/fid to `owner` as an input:
 

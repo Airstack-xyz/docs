@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to get ERC20 token balances of user(s) on Ethereum, Gold, Base, and
-  Zora.
+  Learn how to get ERC20 token balances of user(s) on Ethereum, Base, Zora, and
+  other Airstack supported chains.
 layout:
   title:
     visible: true
@@ -17,7 +17,7 @@ layout:
 
 # 🪙 ERC20
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating ERC20 token balance data from Ethereum, Gold, Base, and Zora.
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 applications and integrating ERC20 token balance data from Ethereum, Base, Zora, and other [Airstack supported chains](../overview.md#supported-chains).
 
 ## Table Of Contents
 
@@ -25,8 +25,8 @@ In this guide, you will learn how to use [Airstack](https://airstack.xyz) to [ge
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -47,7 +47,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -62,7 +61,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -77,15 +75,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -93,7 +88,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -117,11 +111,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -134,11 +126,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -156,7 +146,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -172,7 +161,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get All ERC20s Owned By User(s)
 
-You can fetch all ERC20 tokens owned by any user(s) across multiple chains, e.g. Ethereum, Gold, Base, and Zora, using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API:
+You can fetch all ERC20 tokens owned by any user(s) across multiple chains, e.g. Ethereum, Base, Zora, and other [Airstack supported chains](../overview.md#supported-chains), using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API:
 
 {% hint style="info" %}
 For fetching ERC20 token balances data from multiple chains, check out [Cross-Chain Queries](../basics/cross-chain-queries.md).
@@ -188,7 +177,6 @@ Show ERC20 tokens on Ethereum owned by users
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   TokenBalances(
     input: {
@@ -238,11 +226,9 @@ Show ERC20 tokens on Ethereum owned by users
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -302,7 +288,6 @@ Show ERC20 tokens on Ethereum owned by users
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -312,8 +297,8 @@ If you have any questions or need help regarding fetching token balances of user
 
 ## More Resources
 
-- [Balance Snapshots Guides](../balance-snapshots.md)
-- [Holder Snapshots Guides](../holder-snapshots.md)
-- [ERC20 Tokens In Common](../tokens-in-common/erc20s.md)
-- [ERC20 Token Holders](../token-holders/erc20.md)
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+* [Balance Snapshots Guides](../balance-snapshots.md)
+* [Holder Snapshots Guides](../holder-snapshots.md)
+* [ERC20 Tokens In Common](../tokens-in-common/erc20s.md)
+* [ERC20 Token Holders](../token-holders/erc20.md)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
