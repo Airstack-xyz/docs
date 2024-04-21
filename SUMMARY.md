@@ -101,7 +101,7 @@
 * [✈️ Basics](guides/basics/README.md)
   * [🌪️ Variables](guides/basics/variables.md)
   * [📑 Pagination](guides/basics/pagination-in-airstack-sdk.md)
-  * [Limit](guides/basics/limit.md)
+  * [🚸 Limit](guides/basics/limit.md)
   * [🎯 Direct API Call](get-started/quickstart/direct-api-call.md)
   * [🎆 Multiple Queries Execution](guides/basics/multiple-queries-execution.md)
   * [♋ Cross Chain Queries](guides/basics/cross-chain-queries.md)
