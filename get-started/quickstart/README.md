@@ -16,11 +16,13 @@ layout:
     visible: true
 ---
 
-# 🚀 Quickstart
+# 🚀 Quickstart & SDKs
 
 {% hint style="info" %}
 * **API Endpoint:** [https://api.airstack.xyz/graphql](https://api.airstack.xyz/graphql)
-* **Record limit** per API call: 200
+* **Record limit** per API call
+  * Maximum amount 200
+  * Default to 50
   * We support cursor-based pagination to retrieve the next set of results.
 * It is best practice that you keep the size of the array for input filters, e.g. `_in` or `_nin`, to a **maximum length of 200** per API call.
 {% endhint %}
@@ -39,7 +41,7 @@ This is most suitable if you are using languages/frameworks that the SDKs suppor
 
 We recommend that you use Airstack SDKs to integrate Airstack APIs easily to your application. Below are some tutorials to quickly get you started integrating Airstack depending on the tech stack you're using:
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f310">🌐</span> <strong>JavaScript (Browser)</strong></td><td>Learn how to integrate Airstack APIs to your frontend TypeScript/JavaScript application using the Airstack Web SDK.</td><td></td><td><a href="javascript-browser.md">javascript-browser.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="269b">⚛</span> <strong>React</strong></td><td>Learn how to integrate Airstack APIs to your React-based application, including both React Web and React Native, using the Airstack Web SDK.</td><td></td><td><a href="react.md">react.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="23ed">⏭</span> <strong>Next.js (Browser)</strong></td><td>Learn how to integrate Airstack APIs to your Next.js client-side (browser) application, using the Airstack Web SDK.</td><td></td><td></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f5fc">🗼</span> <strong>Node.js</strong></td><td>Learn how to integrate Airstack APIs to your Node.js application using the Airstack Node SDK.</td><td></td><td><a href="node.md">node.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f40d">🐍</span> <strong>Python</strong></td><td>Learn how to integrate Airstack APIs to your Python-based application using the Airstack Python SDK.</td><td></td><td><a href="python.md">python.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f310">🌐</span> <strong>JavaScript (Browser)</strong></td><td>Learn how to integrate Airstack APIs to your frontend TypeScript/JavaScript application using the Airstack Web SDK.</td><td></td><td><a href="javascript-browser.md">javascript-browser.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="269b">⚛️</span> <strong>React</strong></td><td>Learn how to integrate Airstack APIs to your React-based application, including both React Web and React Native, using the Airstack Web SDK.</td><td></td><td><a href="react.md">react.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="23ed">⏭️</span> <strong>Next.js (Browser)</strong></td><td>Learn how to integrate Airstack APIs to your Next.js client-side (browser) application, using the Airstack Web SDK.</td><td></td><td></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f5fc">🗼</span> <strong>Node.js</strong></td><td>Learn how to integrate Airstack APIs to your Node.js application using the Airstack Node SDK.</td><td></td><td><a href="node.md">node.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f40d">🐍</span> <strong>Python</strong></td><td>Learn how to integrate Airstack APIs to your Python-based application using the Airstack Python SDK.</td><td></td><td><a href="python.md">python.md</a></td></tr></tbody></table>
 
 ## Others
 
