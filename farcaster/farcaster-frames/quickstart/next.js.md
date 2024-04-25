@@ -127,15 +127,6 @@ export const POST = handle(app);
 
 ## Run Development Server
 
-Add `dev` script to your `package.json` as shown below:
-
-<pre class="language-json" data-title="package.json"><code class="lang-json">{
-  "scripts": { 
-<strong>    "dev": "npx @airstack/frog dev",
-</strong>  },
-}
-</code></pre>
-
 To start the development server, simply run one of the following command to run the `dev` script:&#x20;
 
 {% tabs %}
