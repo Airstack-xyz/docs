@@ -8,49 +8,41 @@ description: >-
 
 You can limit access to your Farcaster Frame to only certain users that fulfill a requirement by creating an allow list based on certain criteria.
 
-{% embed url="https://drive.google.com/file/d/1ow_6I03g5Mh65DVJIBsrN_-pyNjKwGy9/view?usp=sharing" %}
-Allow List Demo
-{% endembed %}
-
 ## Get Started
 
 First, install the Airstack Frog Recipes:
 
 {% tabs %}
 {% tab title="npm" %}
-
 ```bash
 npm install @airstack/frog hono
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
 ```bash
 yarn add @airstack/frog hono
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
 ```bash
 pnpm install @airstack/frog hono
 ```
-
 {% endtab %}
 
 {% tab title="bun" %}
-
 ```bash
 bun install @airstack/frog hono
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## createAllowList
+
+{% embed url="https://youtu.be/QapqzbSHwZk" %}
+Custom Allow List Demo
+{% endembed %}
 
 You can create an allow list that checks various onchain data easily using the [`createAllowList`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#createallowlist) function. Some of the parameters that you can add to the allow list are:
 
@@ -67,7 +59,6 @@ By default, it will only return `true` for Farcaster users that satisfy **ALL** 
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   createAllowList,
@@ -111,11 +102,9 @@ if (error) throw new Error(error);
 
 console.log(isAllowed);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const { createAllowList, TokenBlockchain } = require("@airstack/frog");
 
@@ -152,18 +141,15 @@ if (error) throw new Error(error);
 
 console.log(isAllowed);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "isAllowed": true,
   "error": null
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -173,7 +159,6 @@ You can check if a Farcaster user has attended a given list of POAP event IDs by
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   checkPoapAttendedByFarcasterUser,
@@ -192,11 +177,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const { checkPoapAttendedByFarcasterUser } = require("@airstack/frog");
 
@@ -210,11 +193,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   { "eventId": 160005, "isAttended": true },
@@ -222,7 +203,6 @@ console.log(data);
   { "eventId": 13242, "isAttended": false }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -232,7 +212,6 @@ You can check if a Farcaster user is holding a given list of tokens across Ether
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   checkTokenHoldByFarcasterUser,
@@ -265,11 +244,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 import { checkTokenHoldByFarcasterUser, TokenBlockchain } from "@airstack/frog";
 
@@ -296,11 +273,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   {
@@ -320,7 +295,6 @@ console.log(data);
   }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -330,7 +304,6 @@ You can check if a Farcaster user has minted a given list of tokens across Ether
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   checkTokenMintedByFarcasterUser,
@@ -363,11 +336,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const {
   checkTokenMintedByFarcasterUser,
@@ -397,11 +368,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   {
@@ -421,7 +390,6 @@ console.log(data);
   }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -431,7 +399,6 @@ You can check if a Farcaster user is following a list of FIDs by using the [`che
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   checkIsFollowingFarcasterUser,
@@ -450,11 +417,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const { checkIsFollowingFarcasterUser } = require("@airstack/frog");
 
@@ -468,11 +433,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   { "fid": 2602, "isFollowing": true },
@@ -480,7 +443,6 @@ console.log(data);
   { "fid": 13242, "isFollowing": false }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -490,7 +452,6 @@ You can check if a Farcaster user is being followed by a list of FIDs by using t
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   checkIsFollowedByFarcasterUser,
@@ -509,11 +470,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const {
   checkIsFollowedByFarcasterUser,
@@ -531,11 +490,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   { "fid": 2602, "isFollowedBy": true },
@@ -543,7 +500,6 @@ console.log(data);
   { "fid": 13242, "isFollowedBy": false }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -553,6 +509,6 @@ If you have any questions or need help building an allow list for your Farcaster
 
 ## More Resources
 
-- [Onchain Data](onchain-data.md)
-- [Farcaster Hubs](farcaster-hubs.md)
-- [Integrate to Existing Frog Project](../integrations/frog.md)
+* [Onchain Data](onchain-data.md)
+* [Farcaster Hubs](farcaster-hubs.md)
+* [Integrate to Existing Frog Project](../integrations/frog.md)

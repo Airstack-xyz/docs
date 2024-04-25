@@ -6,7 +6,7 @@ description: >-
 
 # 🗼 Node.js
 
-{% embed url="https://drive.google.com/file/d/1kSCk3Y7KtpPXHD7E_xjJbVn2YVKjplDz/view?usp=sharing" %}
+{% embed url="https://youtu.be/udB8yGWrQaw" %}
 Quickstart Demo
 {% endembed %}
 

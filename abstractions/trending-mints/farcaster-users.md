@@ -17,7 +17,7 @@ layout:
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to recommend all trending tokens that are minted by Farcaster users within a given time frame.
 
-{% embed url="https://drive.google.com/file/d/12fkmHTa6YsyxIih6LM1PQQvDaOtuJcmK/view?usp=sharing" %}
+{% embed url="https://youtu.be/y0S3gUFaeMc" %}
 Trending Mints on Base Among Farcaster Users
 {% endembed %}
 

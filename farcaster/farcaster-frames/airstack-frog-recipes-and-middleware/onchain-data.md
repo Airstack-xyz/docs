@@ -10,13 +10,17 @@ The Airstack Frog Recipes are natively integrated into the Airstack Frames SDK, 
 
 Here are some onchain data that you can integrate into your Frames:
 
-- Get Trending Mints For Farcaster Users on Base
-- Get All POAPs Attended By Farcaster User
-- Get Farcaster User's Token Holdings on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains)
-- Get Farcaster User's Token Mints on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains)
-- Get Farcaster User's Token Transfers Sent on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains)
-- Get Farcaster User's Followers and Followings
-- Get Farcaster Channels Participated and Hosted By Farcaster Users
+* Get Trending Mints For Farcaster Users on Base
+* Get All POAPs Attended By Farcaster User
+* Get Farcaster User's Token Holdings on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains)
+* Get Farcaster User's Token Mints on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains)
+* Get Farcaster User's Token Transfers Sent on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains)
+* Get Farcaster User's Followers and Followings
+* Get Farcaster Channels Participated and Hosted By Farcaster Users
+
+{% embed url="https://youtu.be/4XTiR-xdn2E" %}
+Onchain Data Demo
+{% endembed %}
 
 {% embed url="https://drive.google.com/file/d/1Y-jOgOKTP7XYh6bFyzD-evKeoVwsprfh/view?usp=sharing" %}
 
@@ -26,35 +30,27 @@ First, install the Airstack Frog Recipes:
 
 {% tabs %}
 {% tab title="npm" %}
-
 ```bash
 npm install @airstack/frog hono
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
 ```bash
 yarn add @airstack/frog hono
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
 ```bash
 pnpm install @airstack/frog hono
 ```
-
 {% endtab %}
 
 {% tab title="bun" %}
-
 ```bash
 bun install @airstack/frog hono
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -64,7 +60,6 @@ You can easily fetch trending mints for Farcaster user on Base by using the [`ge
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   getTrendingMints,
@@ -87,11 +82,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const {
   getTrendingMints,
@@ -112,11 +105,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   {
@@ -131,7 +122,6 @@ console.log(data);
   }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -141,7 +131,6 @@ You can fetch all POAPs owned by a Farcaster user using the [`getFarcasterUserPo
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   getFarcasterUserPoaps,
@@ -166,11 +155,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const { getFarcasterUserPoaps } = require("@airstack/frog");
 
@@ -185,11 +172,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Result" %}
-
 ```json
 [
   {
@@ -204,7 +189,6 @@ console.log(data);
   // More POAPs
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -214,7 +198,6 @@ You can fetch all NFTs owned by a Farcaster user using the [`getFarcasterUserNFT
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   getFarcasterUserNFTBalances,
@@ -250,11 +233,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const {
   getFarcasterUserNFTBalances,
@@ -280,11 +261,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Result" %}
-
 ```json
 [
   {
@@ -318,7 +297,6 @@ console.log(data);
   // Other NFTs
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -328,7 +306,6 @@ You can fetch all ERC20 tokens owned by a Farcaster user using the [`getFarcaste
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   getFarcasterUserERC20Balances,
@@ -362,11 +339,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const {
   getFarcasterUserERC20Balances,
@@ -390,11 +365,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Result" %}
-
 ```json
 [
   {
@@ -408,7 +381,6 @@ console.log(data);
   // Other ERC20 tokens
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -418,7 +390,6 @@ You can fetch all NFTs minted by a Farcaster user across multiple chains, such a
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   getFarcasterUserNFTMints,
@@ -452,11 +423,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const {
   getFarcasterUserNFTMints,
@@ -482,11 +451,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Result" %}
-
 ```json
 [
   {
@@ -521,7 +488,6 @@ console.log(data);
   }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -531,7 +497,6 @@ You can fetch all ERC20 tokens minted by a Farcaster user across multiple chains
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   getFarcasterUserERC20Mints,
@@ -563,11 +528,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const {
   getFarcasterUserERC20Mints,
@@ -591,11 +554,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   {
@@ -610,7 +571,6 @@ console.log(data);
   }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -620,7 +580,6 @@ You can fetch all token transfers sent by a given Farcaster user across multiple
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   getFarcasterUserTokenSentFrom,
@@ -656,11 +615,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const {
   getFarcasterUserTokenSentFrom,
@@ -686,11 +643,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   {
@@ -711,7 +666,6 @@ console.log(data);
   }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -721,7 +675,6 @@ You can fetch all token transfers received by a given Farcaster user across mult
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   getFarcasterUserTokenReceivedBy,
@@ -757,11 +710,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const {
   getFarcasterUserTokenReceivedBy,
@@ -787,11 +738,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Result" %}
-
 ```json
 [
   {
@@ -831,7 +780,6 @@ console.log(data);
   }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -841,7 +789,6 @@ You can fetch the Farcaster user details, including profile name, fnames, profil
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   getFarcasterUserDetails,
@@ -859,11 +806,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const { getFarcasterUserDetails } = require("@airstack/frog");
 
@@ -876,11 +821,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Result" %}
-
 ```json
 {
   "profileName": "betashop.eth",
@@ -900,7 +843,6 @@ console.log(data);
   "followingCount": 2270
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -910,7 +852,6 @@ You can fetch all the users following 0x address on Farcaster by using the [`get
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   getFarcasterFollowers,
@@ -935,11 +876,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const { getFarcasterFollowers } = require("@airstack/frog");
 
@@ -954,11 +893,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Result" %}
-
 ```json
 [
   {
@@ -979,7 +916,6 @@ console.log(data);
   // More followers
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -989,7 +925,6 @@ You can fetch all the users being followed by 0x address on Farcaster by using t
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   getFarcasterFollowings,
@@ -1014,11 +949,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const { getFarcasterFollowings } = require("@airstack/frog");
 
@@ -1033,11 +966,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   {
@@ -1058,7 +989,6 @@ console.log(data);
   // More followings
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1068,7 +998,6 @@ You can fetch a certain channel details by using the [`getFarcasterChannelDetail
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   getFarcasterChannelDetails,
@@ -1086,11 +1015,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const { getFarcasterChannelDetails } = require("@airstack/frog");
 
@@ -1103,11 +1030,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "name": "Farcaster",
@@ -1139,7 +1064,6 @@ console.log(data);
   "warpcastUrl": "https://warpcast.com/~/channel/farcaster"
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1149,7 +1073,6 @@ You can fetch all the participants of a channel by using the [`getFarcasterChann
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   getFarcasterChannelParticipants,
@@ -1177,11 +1100,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const {
   getFarcasterChannelParticipants,
@@ -1206,11 +1127,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   {
@@ -1233,7 +1152,6 @@ console.log(data);
   }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1243,7 +1161,6 @@ You can fetch all the Farcaster channels of a given participants by using the [`
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   getFarcasterChannelsByParticipant,
@@ -1271,11 +1188,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const {
   getFarcasterChannelsByParticipant,
@@ -1300,11 +1215,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   {
@@ -1336,7 +1249,6 @@ console.log(data);
   }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1346,7 +1258,6 @@ You can fetch all the Farcaster channels of a given hosts by using the [`getFarc
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   getFarcasterChannelsByHost,
@@ -1369,11 +1280,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const { getFarcasterChannelsByHost } = require("@airstack/frog");
 
@@ -1391,11 +1300,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   {
@@ -1407,7 +1314,6 @@ console.log(data);
   }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1417,6 +1323,6 @@ If you have any questions or need help regarding integrating onchain data to you
 
 ## More Resources
 
-- [Farcaster Hubs](farcaster-hubs.md)
-- [Allow List](allow-list.md)
-- [Integrate to Existing Frog Project](../integrations/frog.md)
+* [Farcaster Hubs](farcaster-hubs.md)
+* [Allow List](allow-list.md)
+* [Integrate to Existing Frog Project](../integrations/frog.md)

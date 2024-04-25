@@ -8,7 +8,7 @@ description: >-
 
 You can limit access to your Farcaster Frame to only certain users that fulfill a requirement by creating an allow list based on certain criteria.
 
-{% embed url="https://drive.google.com/file/d/1ow_6I03g5Mh65DVJIBsrN_-pyNjKwGy9/view?usp=sharing" %}
+{% embed url="https://youtu.be/QapqzbSHwZk" %}
 Allow List Demo
 {% endembed %}
 
@@ -18,35 +18,27 @@ First, install the Airstack Frog Recipes:
 
 {% tabs %}
 {% tab title="npm" %}
-
 ```bash
 npm install @airstack/frog hono
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
 ```bash
 yarn add @airstack/frog hono
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
 ```bash
 pnpm install @airstack/frog hono
 ```
-
 {% endtab %}
 
 {% tab title="bun" %}
-
 ```bash
 bun install @airstack/frog hono
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -67,7 +59,6 @@ By default, it will only return `true` for Farcaster users that satisfy **ALL** 
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   createAllowList,
@@ -111,11 +102,9 @@ if (error) throw new Error(error);
 
 console.log(isAllowed);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const { createAllowList, TokenBlockchain } = require("@airstack/frames");
 
@@ -152,18 +141,15 @@ if (error) throw new Error(error);
 
 console.log(isAllowed);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "isAllowed": true,
   "error": null
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -173,7 +159,6 @@ You can check if a Farcaster user has attended a given list of POAP event IDs by
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   checkPoapAttendedByFarcasterUser,
@@ -192,11 +177,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const { checkPoapAttendedByFarcasterUser } = require("@airstack/frames");
 
@@ -210,11 +193,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   { "eventId": 160005, "isAttended": true },
@@ -222,7 +203,6 @@ console.log(data);
   { "eventId": 13242, "isAttended": false }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -232,7 +212,6 @@ You can check if a Farcaster user is holding a given list of tokens across Ether
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   checkTokenHoldByFarcasterUser,
@@ -265,11 +244,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 import {
   checkTokenHoldByFarcasterUser,
@@ -299,11 +276,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   {
@@ -323,7 +298,6 @@ console.log(data);
   }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -333,7 +307,6 @@ You can check if a Farcaster user has minted a given list of tokens across Ether
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   checkTokenMintedByFarcasterUser,
@@ -366,11 +339,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const {
   checkTokenMintedByFarcasterUser,
@@ -400,11 +371,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   {
@@ -424,7 +393,6 @@ console.log(data);
   }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -434,7 +402,6 @@ You can check if a Farcaster user is following a list of FIDs by using the [`che
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   checkIsFollowingFarcasterUser,
@@ -453,11 +420,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const { checkIsFollowingFarcasterUser } = require("@airstack/frames");
 
@@ -471,11 +436,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   { "fid": 2602, "isFollowing": true },
@@ -483,7 +446,6 @@ console.log(data);
   { "fid": 13242, "isFollowing": false }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -493,7 +455,6 @@ You can check if a Farcaster user is being followed by a list of FIDs by using t
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   checkIsFollowedByFarcasterUser,
@@ -512,11 +473,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const {
   checkIsFollowedByFarcasterUser,
@@ -534,11 +493,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 [
   { "fid": 2602, "isFollowedBy": true },
@@ -546,7 +503,6 @@ console.log(data);
   { "fid": 13242, "isFollowedBy": false }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -568,7 +524,6 @@ Show me all POAPs owned by a Farcaster user and see if they are virtual or not
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query POAPsOwned($farcasterUser: Identity!) {
   Poaps(
@@ -592,21 +547,17 @@ query POAPsOwned($farcasterUser: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "farcasterUser": "fc_fid:3"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Poaps": {
@@ -631,7 +582,6 @@ query POAPsOwned($farcasterUser: Identity!) {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -641,7 +591,6 @@ You can check if the Farcaster user has attended certain POAP event(s) by using 
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   checkPoapAttendedByFarcasterUser,
@@ -660,11 +609,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const { checkPoapAttendedByFarcasterUser } = require("@airstack/frames");
 
@@ -678,11 +625,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Result" %}
-
 ```json
 [
   { "eventId": 160005, "isAttended": true },
@@ -690,7 +635,6 @@ console.log(data);
   { "eventId": 13242, "isAttended": false }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -712,7 +656,6 @@ Check if Farcaster user has more than or equal to 100 followers on Farcaster
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery($farcasterUser: Identity!) {
   Socials(
@@ -732,21 +675,17 @@ query MyQuery($farcasterUser: Identity!) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "farcasterUser": "fc_fid:3"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Socials": {
@@ -761,17 +700,15 @@ query MyQuery($farcasterUser: Identity!) {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
 ## Check If Farcaster User Is Followed By Certain High Profile Users
 
-You can check if the Farcaster user is followed by certain high profile users, e.g. [vitalik.eth](https://explorer.airstack.xyz/token-balances?address=fc_fname%3Avitalik.eth&rawInput=%23%E2%8E%B1fc_fname%3Avitalik.eth%E2%8E%B1%28fc_fname%3Avitalik.eth++ethereum+null%29&inputType=ADDRESS), [jessepollak](https://explorer.airstack.xyz/token-balances?address=fc_fname%3Ajessepollak&rawInput=%23%E2%8E%B1fc_fname%3Ajessepollak%E2%8E%B1%28fc_fname%3Ajessepollak++ethereum+null%29&inputType=ADDRESS), etc., by using the [`checkIsFollowedByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#searchfarcasterusers) function:
+You can check if the Farcaster user is followed by certain high profile users, e.g. [vitalik.eth](https://explorer.airstack.xyz/token-balances?address=fc\_fname%3Avitalik.eth\&rawInput=%23%E2%8E%B1fc\_fname%3Avitalik.eth%E2%8E%B1%28fc\_fname%3Avitalik.eth++ethereum+null%29\&inputType=ADDRESS), [jessepollak](https://explorer.airstack.xyz/token-balances?address=fc\_fname%3Ajessepollak\&rawInput=%23%E2%8E%B1fc\_fname%3Ajessepollak%E2%8E%B1%28fc\_fname%3Ajessepollak++ethereum+null%29\&inputType=ADDRESS), etc., by using the [`checkIsFollowedByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#searchfarcasterusers) function:
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   checkIsFollowedByFarcasterUser,
@@ -793,11 +730,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const { checkIsFollowedByFarcasterUser } = require("@airstack/frames");
 
@@ -814,28 +749,24 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Result" %}
-
 ```json
 [
   { "fid": 99, "isFollowedBy": true },
   { "fid": 5650, "isFollowedBy": false }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Check If Farcaster User Hold Any High Value NFTs
 
-You can check if the Farcaster user has any high value NFTs, e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D&tokenType=&rawInput=%23%E2%8E%B10xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+ADDRESS+ethereum+null%29&inputType=ADDRESS&activeTokenInfo=&activeSnapshotInfo=&tokenFilters=farcaster&activeViewToken=Bored+Ape+Yacht+Club&activeViewCount=83&blockchainType=&sortOrder=&spamFilter=&mintFilter=&resolve6551=&activeSocialInfo=), by using the [`checkTokenHoldByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#checktokenholdbyfarcasteruser) function:
+You can check if the Farcaster user has any high value NFTs, e.g. [BAYC](https://explorer.airstack.xyz/token-holders?activeView=\&address=0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D\&tokenType=\&rawInput=%23%E2%8E%B10xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D%E2%8E%B1%280xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D+ADDRESS+ethereum+null%29\&inputType=ADDRESS\&activeTokenInfo=\&activeSnapshotInfo=\&tokenFilters=farcaster\&activeViewToken=Bored+Ape+Yacht+Club\&activeViewCount=83\&blockchainType=\&sortOrder=\&spamFilter=\&mintFilter=\&resolve6551=\&activeSocialInfo=), by using the [`checkTokenHoldByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk/tree/main?tab=readme-ov-file#checktokenholdbyfarcasteruser) function:
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   checkTokenHoldByFarcasterUser,
@@ -860,11 +791,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const {
   checkTokenHoldByFarcasterUser,
@@ -886,11 +815,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Result" %}
-
 ```json
 [
   {
@@ -900,7 +827,6 @@ console.log(data);
   }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -910,7 +836,6 @@ You can check if the Farcaster user follows the Frames' creator by using the [`c
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import {
   checkIsFollowingFarcasterUser,
@@ -929,11 +854,9 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 import {
   checkIsFollowingFarcasterUser,
@@ -952,15 +875,12 @@ if (error) throw new Error(error);
 
 console.log(data);
 ```
-
 {% endtab %}
 
 {% tab title="Result" %}
-
 ```json
 [{ "fid": 99, "isFollowing": true }]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -982,7 +902,6 @@ Check If Farcaster user transacted on Ethereum before February 1st, 2024
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery($farcasterUser: Identity!, $beforeDate: Time!) {
   TokenTransfers(
@@ -1001,22 +920,18 @@ query MyQuery($farcasterUser: Identity!, $beforeDate: Time!) {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "farcasterUser": "fc_fid:3",
   "beforeDate": "2024-02-01T00:00:00Z"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "TokenTransfers": {
@@ -1040,7 +955,6 @@ query MyQuery($farcasterUser: Identity!, $beforeDate: Time!) {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -1048,9 +962,9 @@ query MyQuery($farcasterUser: Identity!, $beforeDate: Time!) {
 
 You can check if Farcaster user has casted in a given channel by using the [`FarcasterChannelParticipants`](../../../api-references/api-reference/farcasterchannelparticipants-api.md) API and providing:
 
-- the "cast" value to the `$channelActions` variable,
-- the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable, and
-- the FID to the `$participant` variable
+* the "cast" value to the `$channelActions` variable,
+* the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable, and
+* the FID to the `$participant` variable
 
 ### Try Demo
 
@@ -1062,7 +976,6 @@ Check if Farcaster user FID 602 is participating in airstack channel
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   FarcasterChannelParticipants(
@@ -1081,11 +994,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1099,7 +1010,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1117,7 +1027,6 @@ Check if FID 602 is a power user or not
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -1132,11 +1041,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1150,7 +1057,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1160,6 +1066,6 @@ If you have any questions or need help building an allow list for your Farcaster
 
 ## More Resources
 
-- [Onchain Data](../airstack-frog-recipes-and-middleware/onchain-data.md)
-- [Farcaster Hubs](../airstack-frog-recipes-and-middleware/farcaster-hubs.md)
-- [Integrate to Existing Frog Project](../integrations/frog.md)
+* [Onchain Data](../airstack-frog-recipes-and-middleware/onchain-data.md)
+* [Farcaster Hubs](../airstack-frog-recipes-and-middleware/farcaster-hubs.md)
+* [Integrate to Existing Frog Project](../integrations/frog.md)

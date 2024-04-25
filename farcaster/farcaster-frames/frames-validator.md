@@ -31,8 +31,8 @@ On the bottom, you can also find the test results on the performance of our API 
 
 ## Airstack Frames SDK
 
-{% embed url="https://drive.google.com/file/d/1w0AZ2b7Jj83-ylDUtCRuVwmjaNpxEmbU/view?usp=sharing" %}
-Validate Frames Demo
+{% embed url="https://youtu.be/EKdD_fCwDVA" %}
+Frames Validator Demo
 {% endembed %}
 
 You can validate [Frames Signature Packet](https://docs.farcaster.xyz/reference/frames/spec#frame-signature-packet) for your Farcaster Frames by using the [`validateFramesMessage`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#validateframesmessage) function:
