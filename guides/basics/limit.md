@@ -2,7 +2,7 @@
 description: Learn how the limit input parameter works in the Airstack APIs.
 ---
 
-# Limit
+# 🚸 Limit
 
 You can set the [pagination](pagination-in-airstack-sdk.md) limit for Airstack API by using the `limit` input parameter to adjust the number of responses returned from the API.
 

@@ -85,17 +85,17 @@ To create your 1st Farcaster Frame, create a new file under `api` folder and add
 
 {% tabs %}
 {% tab title="TypeScript" %}
-{% code title="app/api/[[...routes]]/routes.tsx" %}
+{% code title="app/api/[[...routes]]/route.tsx" %}
 ```typescript
 /** @jsxImportSource @airstack/frog/jsx */
 import { Button, Frog } from "@airstack/frog";
+import { handle } from "@airstack/frog/next";
 import { devtools } from "@airstack/frog/dev";
 import { serveStatic } from "@airstack/frog/serve-static";
 
 // Instantiate new Frog instance with Airstack API key
 export const app = new Frog({
   apiKey: process.env.AIRSTACK_API_KEY as string,
-  assetsPath: "/",
   basePath: "/api",
 });
 
@@ -155,9 +155,9 @@ bun run dev
 {% endtab %}
 {% endtabs %}
 
-Then, go to `http://localhost:5173/dev` and you will be redirected to the Frog devtools as shown below:
+Then, go to `http://localhost:3000/api/dev` and you will be redirected to the Frog devtools as shown below:
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2024-03-23 at 15.05.15.png" alt=""><figcaption><p>Airstack Frog Devtools</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-04-25 at 13.22.55.png" alt=""><figcaption><p>Airstack Frog Devtools</p></figcaption></figure>
 
 🥳 Congratulations, you've just built your 1st Farcaster Frames using Airstack Frog Recipes!
 
@@ -169,7 +169,6 @@ To deploy, first add some of the following additional scripts to your `package.j
 ```json
 {
   "scripts": { 
-    "build": "npx @airstack/frog vercel-build",
     "deploy": "vercel --prod",
     "deploy:preview": "vercel",
   },
@@ -177,7 +176,7 @@ To deploy, first add some of the following additional scripts to your `package.j
 ```
 {% endcode %}
 
-Then, compile the poject by running the following command:
+Then, compile the project by running the following command:
 
 {% tabs %}
 {% tab title="npm" %}
