@@ -38,27 +38,28 @@ You just need to specify the input to `ALL` for the query to work.
 
 ## Outputs
 
-| Name                | Type                                             | Description                                                                     |
-| ------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------- |
-| `castedAtTimestamp` | `Time`                                           | Time when the cast                                                              |
-| `castedBy`          | [`Social`](socials-api.md)                       | **Nested Query** – Caster details.                                              |
-| `channel`           | [`FarcasterChannel`](farcasterchannels-api.md)   | **Nested Query** – Farcaster Channel where the cast is casted.                  |
-| `embeds`            | `[Map]`                                          | Embeds contained in the casts.                                                  |
-| `fid`               | `String`                                         | Caster's FID.                                                                   |
-| `frame`             | [`FarcasterFrame`](../objects/farcasterframe.md) | **Nested Query** – Farcaster Frame attached to the cast.                        |
-| `hash`              | `String`                                         | Cast Hash.                                                                      |
-| `id`                | `ID`                                             | Airstack unique identifier for the data point.                                  |
-| `mentions`          | `[Mentions]`                                     | **Nested Query** – Farcaster profiles that like that are mentioned in the cast. |
-| `numberOfLikes`     | `Int`                                            | Number of likes on the cast.                                                    |
-| `numberOfRecasts`   | `Int`                                            | Number of recasts on the cast.                                                  |
-| `numberOfReplies`   | `Int`                                            | Number of replies on the cast.                                                  |
-| `parentCast`        | [`FarcasterCast`](farcastercasts-api.md)         | **Nested Query** – Cast's parent details.                                       |
-| `parentFid`         | `String`                                         | Cast's parent FID.                                                              |
-| `parentHash`        | `String`                                         | Cast's parent hash.                                                             |
-| `parentUrl`         | `String`                                         | Cast's parent URL.                                                              |
-| `rawText`           | `String`                                         | Raw text contained in the cast.                                                 |
-| `recastedBy`        | [`[Social]`](socials-api.md)                     | **Nested Queries** – List of all Farcaster profiles recasted the cast.          |
-| `rootParentHash`    | `String`                                         | The root hash of the cast.                                                      |
-| `rootParentUrl`     | `String`                                         | The root URL of the cast.                                                       |
-| `text`              | `String`                                         | The text content of the cast.                                                   |
-| `url`               | `String`                                         | Warpcast's Cast URL.                                                            |
+| Name                 | Type                                                     | Description                                                                     |
+| -------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `castedAtTimestamp`  | `Time`                                                   | Time when the cast                                                              |
+| `castedBy`           | [`Social`](socials-api.md)                               | **Nested Query** – Caster details.                                              |
+| `channel`            | [`FarcasterChannel`](farcasterchannels-api.md)           | **Nested Query** – Farcaster Channel where the cast is casted.                  |
+| `embeds`             | `[Map]`                                                  | Embeds contained in the casts.                                                  |
+| `fid`                | `String`                                                 | Caster's FID.                                                                   |
+| `frame`              | [`FarcasterFrame`](../objects/farcasterframe.md)         | **Nested Query** – Farcaster Frame attached to the cast.                        |
+| `hash`               | `String`                                                 | Cast Hash.                                                                      |
+| `id`                 | `ID`                                                     | Airstack unique identifier for the data point.                                  |
+| `mentions`           | `[Mentions]`                                             | **Nested Query** – Farcaster profiles that like that are mentioned in the cast. |
+| `numberOfLikes`      | `Int`                                                    | Number of likes on the cast.                                                    |
+| `numberOfRecasts`    | `Int`                                                    | Number of recasts on the cast.                                                  |
+| `numberOfReplies`    | `Int`                                                    | Number of replies on the cast.                                                  |
+| `parentCast`         | [`FarcasterCast`](farcastercasts-api.md)                 | **Nested Query** – Cast's parent details.                                       |
+| `parentFid`          | `String`                                                 | Cast's parent FID.                                                              |
+| `parentHash`         | `String`                                                 | Cast's parent hash.                                                             |
+| `parentUrl`          | `String`                                                 | Cast's parent URL.                                                              |
+| `rawText`            | `String`                                                 | Raw text contained in the cast.                                                 |
+| `recastedBy`         | [`[Social]`](socials-api.md)                             | **Nested Queries** – List of all Farcaster profiles recasted the cast.          |
+| `rootParentHash`     | `String`                                                 | The root hash of the cast.                                                      |
+| `rootParentUrl`      | `String`                                                 | The root URL of the cast.                                                       |
+| `socialCapitalValue` | [`SocialCapitalValue`](../objects/socialcapitalvalue.md) | **Nested Query** – The social capital value details of a given Farcaster cast.  |
+| `text`               | `String`                                                 | The text content of the cast.                                                   |
+| `url`                | `String`                                                 | Warpcast's Cast URL.                                                            |

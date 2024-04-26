@@ -590,12 +590,12 @@ Show me all the casts that has mentions
 
 ## Get Details Of A Certain Cast
 
-You can fetch all the details of a given cast by using the [`FarcasterCasts`](../../api-references/api-reference/farcastercasts-api.md) API and provide the cast's URL from Warpcast the `url` filter:
+You can fetch all the details, including text, embeds, url, [social capital value](../../abstractions/trending-casts/social-capital-value.md), etc., of a given cast by using the [`FarcasterCasts`](../../api-references/api-reference/farcastercasts-api.md) API and provide the cast's URL from Warpcast the `url` filter:
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/bNR6cMHtXr" %}
-Show me details of a given casts, e.g. likes, recasts, mentions, embeds, text, etc.
+Show me details of a given casts, e.g. likes, recasts, mentions, embeds, text, social capital value, etc.
 {% endembed %}
 
 ### Code
@@ -625,6 +625,10 @@ query MyQuery {
       mentions {
         fid
         position
+      }
+      socialCapitalValue {
+        rawValue
+        formattedValue
       }
     }
   }
@@ -657,7 +661,11 @@ query MyQuery {
               "fid": "366747",
               "position": 40
             }
-          ]
+          ],
+          "socialCapitalValue": {
+            "rawValue": "40837104",
+            "formattedValue": 0.00040837104
+          }
         }
       ]
     }

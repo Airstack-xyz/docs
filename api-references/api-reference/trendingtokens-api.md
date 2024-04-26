@@ -59,7 +59,7 @@ The TrendingSwaps API provides you with a list of trending swaps that are freque
 | `buyVolume`             | `Float`                  | The buying volume of the trending swaps token.                                                            |
 | `chainId`               | `String`                 | Chain ID of the blockchain.                                                                               |
 | `criteria`              | `String`                 | Criteria that is chosen to evaluate trending swaps.                                                       |
-| `id`                    | `ID`                     | Airstack unique identifier for the token transfer                                                         |
+| `id`                    | `ID`                     | Airstack unique identifier.                                                                               |
 | `sellTransactionCount`  | `Int`                    | The number of sell transactions for the trending swaps token during the specified time frame.             |
 | `sellVolume`            | `Float`                  | The selling volume of the trending swaps token.                                                           |
 | `timeFrom`              | `Time`                   | The time when the first swaps within the time frame begins from.                                          |

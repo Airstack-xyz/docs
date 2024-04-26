@@ -59,7 +59,7 @@ The TrendingMints API provides you with a list of trending tokens minted within 
 | `criteria`       | `String`                 | Criteria to evaluate trending mints, either `unique_wallets` or `total_mints`. |
 | `criteriaCount`  | `Int`                    | The total number for the criteria metric chosen.                               |
 | `erc1155TokenID` | `String`                 | ERC1155 token ID. For other token type, this field will be an empty string.    |
-| `id`             | `ID`                     | Airstack unique identifier for the token transfer                              |
+| `id`             | `ID`                     | Airstack unique identifier.                                                    |
 | `timeFrom`       | `Time`                   | The time when the first mints within the time frame begins from.               |
-| `timeTo`         | `Time`                   | The time when the first mints within the time frame ends.                      |
+| `timeTo`         | `Time`                   | The time when the last mints within the time frame ends.                       |
 | `token`          | [`Token`](tokens-api.md) | \*\*Nested query\*\* - token contract level information                        |

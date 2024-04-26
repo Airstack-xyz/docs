@@ -72,7 +72,7 @@ The TrendingTokens API provides you with a list of trending tokens frequently tr
 | `chainId`       | `String`                 | Chain ID of the blockchain.                                                         |
 | `criteria`      | `String`                 | Criteria to evaluate trending tokens, either `unique_wallets` or `total_transfers`. |
 | `criteriaCount` | `Int`                    | The total number for the criteria metric chosen.                                    |
-| `id`            | `ID`                     | Airstack unique identifier for the token transfer                                   |
+| `id`            | `ID`                     | Airstack unique identifier.                                                         |
 | `timeFrom`      | `Time`                   | The time when the first transfer within the time frame begins from.                 |
 | `timeTo`        | `Time`                   | The time when the first transfer within the time frame ends.                        |
 | `token`         | [`Token`](tokens-api.md) | \*\*Nested query\*\* - token contract level information                             |

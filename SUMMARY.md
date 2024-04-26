@@ -85,6 +85,8 @@
 
 ## Abstractions
 
+* [💬 Trending Casts](abstractions/trending-casts/README.md)
+  * [😎 Social Capital Value](abstractions/trending-casts/social-capital-value.md)
 * [🔄 Trending Swaps](abstractions/trending-swaps.md)
 * [💹 Trending Tokens](abstractions/trending-tokens/README.md)
   * [🔵 All Base Users](abstractions/trending-tokens/all-base-users.md)
@@ -243,6 +245,7 @@
   * [TokenBalances API](api-references/api-reference/tokenbalances-api.md)
   * [TokenNfts API](api-references/api-reference/tokennfts-api.md)
   * [TokenTransfers API](api-references/api-reference/tokentransfers-api.md)
+  * [TrendingCasts API](api-references/api-reference/trendingcasts-api.md)
   * [TrendingMints API](api-references/api-reference/trendingmints-api.md)
   * [TrendingSwaps API](api-references/api-reference/trendingtokens-api.md)
   * [TrendingTokens API](api-references/api-reference/trendingtokens-api-1.md)
@@ -253,6 +256,7 @@
 * [🗃️ Objects](api-references/objects/README.md)
   * [FarcasterFrame](api-references/objects/farcasterframe.md)
   * [FrameButton](api-references/objects/framebutton.md)
+  * [SocialCapitalValue](api-references/objects/socialcapitalvalue.md)
 
 ## Web SDK Reference
 
