@@ -49,6 +49,6 @@ description: >-
 | `id`                          | `String`                                 | Airstack unique identifier.                                                                        |
 | `socialCapitalValueFormatted` | `Float`                                  | [Social Capital Value ](../../abstractions/trending-casts/social-capital-value.md)formatted value. |
 | `socialCapitalValueRaw`       | `String`                                 | [Social Capital Value](../../abstractions/trending-casts/social-capital-value.md) raw value.       |
-| `timeFrom`                    | `Time`                                   | The time when the first cast  was casted within the time frame.                                    |
-| `timeTo`                      | `Time`                                   | The time when the last cast was casted within the time frame.                                      |
+| `timeFrom`                    | `Time`                                   | The time when the first engagement (like, recast, or reply) within the time frame occurs.          |
+| `timeTo`                      | `Time`                                   | The time when the last engagement (like, recast, or reply) within the time frame occurs.           |
 
