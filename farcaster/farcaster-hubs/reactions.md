@@ -28,15 +28,23 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
 <strong>    metadata.add("x-airstack-hubs", process.env.AIRSTACK_API_KEY as string);
 </strong>
     // Fetch reaction data with `getReaction`
-<strong>    const reactionsResult = await client.getReaction({
-</strong>      fid: 8150,
-      reactionType: ReactionType.LIKE,
-      castId: {
-        fid: 2,
-        hash: castHashBytes,
+<strong>    const reactionsResult = await client.getReaction(
+</strong>      {
+        fid: 8150,
+        reactionType: ReactionType.LIKE,
+        targetCastId: {
+          fid: 2,
+          hash: castHashBytes,
+        },
       },
-    });
-    console.log(reactionsResult.value);
+      metadata,
+    );
+    
+    if (reactionsResult.isOk()) {
+      console.log(reactionsResult.value);
+    } else {
+      console.error("No reactions found: reactionsResult.error);
+    }
     // After everything, close the RPC connection
     client.close();
   }
@@ -123,13 +131,16 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
 <strong>    metadata.add("x-airstack-hubs", process.env.AIRSTACK_API_KEY as string);
 </strong>
     // Fetch reactions data with `getReactionsByCast`
-<strong>    const reactionsResult = await client.getReactionsByCast({
-</strong>      reactionType: ReactionType.LIKE,
-      castId: {
-        fid: 2,
-        hash: castHashBytes,
+<strong>    const reactionsResult = await client.getReactionsByCast(
+</strong>      {
+        reactionType: ReactionType.LIKE,
+        targetCastId: {
+          fid: 2,
+          hash: castHashBytes,
+        },
       },
-    });
+      metadata,
+    );
     console.log(reactionsResult.value);
     // After everything, close the RPC connection
     client.close();
@@ -223,7 +234,10 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
 <strong>    metadata.add("x-airstack-hubs", process.env.AIRSTACK_API_KEY as string);
 </strong>
     // Fetch reaction data with `getReactionsByFid`
-    const reactionsResult = await client.getReactionsByFid({ fid: 2, reactionType: ReactionType.LIKE });
+    const reactionsResult = await client.getReactionsByFid(
+      { fid: 2, reactionType: ReactionType.LIKE },
+      metadata,
+    );
     console.log(reactionsResult.value);
     // After everything, close the RPC connection
     client.close();
@@ -323,7 +337,7 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
           "chain://eip155:1/erc721:0x39d89b649ffa044383333d297e325d42d31329b2",
         reactionType: ReactionType.LIKE,
       },
-      metadata
+      metadata,
     );
     console.log(reactionsRes.value);
     // After everything, close the RPC connection
