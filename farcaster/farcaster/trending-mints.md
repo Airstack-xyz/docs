@@ -243,7 +243,7 @@ If you have any questions or need help regarding integrating or building trendin
 
 ## More Resources
 
-* [Airstack Onchain Kit for Farcaster Frames](airstack-onchain-kit-for-farcaster-frames.md)
+* [Airstack Onchain Kit for Farcaster Frames](broken-reference)
 * [Trending Mints With All Base Users](../../abstractions/trending-mints/global.md)
 * [Trending Mints With Onchain Graph](../../abstractions/trending-mints/onchain-graph.md)
 * [Trending Mints With Common Minters](../../abstractions/trending-mints/common-minters.md)

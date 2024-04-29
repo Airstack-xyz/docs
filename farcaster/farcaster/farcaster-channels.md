@@ -1,8 +1,8 @@
 ---
 description: >-
-  Learn how to fetch data from Farcaster channels, including their original host
-  and participants who have interacted (either by casting or replying) within
-  the channels.
+  Learn how to fetch data from Farcaster channels, including their original
+  host, followers, and participants who have interacted (either by casting or
+  replying) within the channels.
 layout:
   title:
     visible: true
@@ -23,13 +23,18 @@ layout:
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
 * [Get Channel Details](farcaster-channels.md#get-channel-details)
+* [Get The Most Followed Farcaster Channels](farcaster-channels.md#get-all-the-most-followed-farcaster-channels)
+* [Get All The Most Recently Created Farcaster Channels](farcaster-channels.md#get-all-the-most-recently-created-farcaster-channels)
+* [Get Followers Of A Channel](farcaster-channels.md#get-followers-of-a-channel)
 * [Get Participants Of A Channel](farcaster-channels.md#get-participants-of-a-channel)
 * [Get The Original Host Of A Channel](farcaster-channels.md#get-the-original-host-of-a-channel)
+* [Get All The Channels Followed By A User](farcaster-channels.md#get-all-the-channels-followed-by-a-user)
 * [Get All The Channels Of A Farcaster User Participates In](farcaster-channels.md#get-all-the-channels-of-a-farcaster-user-participates-in)
 * [Get All Farcaster Users Who Casted In Certain Channel](farcaster-channels.md#get-all-farcaster-users-who-casted-in-certain-channel)
 * [Get All Farcaster Users Who Casted In Certain Channel Since Certain Timestamp](farcaster-channels.md#get-all-farcaster-users-who-casted-in-certain-channel-since-certain-timestamp)
 * [Get All Farcaster Users Who Participates In A Channel And Following The Host](farcaster-channels.md#get-all-farcaster-users-who-participates-in-a-channel-and-following-the-host)
 * [Get All Farcaster Channel Participants That Also Have A Power Badge](farcaster-channels.md#get-all-farcaster-channel-participants-that-also-have-a-power-badge)
+* [Check If Farcaster User Has Followed A Given Channel](farcaster-channels.md#check-if-farcaster-user-has-followed-a-given-channel)
 * [Check If Farcaster User Has Casted In A Given Channel](farcaster-channels.md#check-if-farcaster-user-has-casted-in-a-given-channel)
 * [Search All Farcaster Channels Whose Names Start With Certain Terms (auto-complete)](farcaster-channels.md#search-all-farcaster-channels-whose-names-start-with-certain-terms-auto-complete)
 * [Search All Farcaster Channels Whose Names Contain With Certain Terms (auto-complete)](farcaster-channels.md#search-all-farcaster-channels-whose-names-contain-certain-terms-auto-complete)
@@ -193,6 +198,7 @@ Get /farcaster Farcaster channel details
       createdAtTimestamp
       dappSlug
       description
+      followerCount
       name
       url
       imageUrl
@@ -214,6 +220,7 @@ Get /farcaster Farcaster channel details
           "createdAtTimestamp": "2023-08-02T22:33:26Z",
           "dappSlug": "farcaster_v2_optimism",
           "description": "Discussions about Farcaster on Farcaster (meta!)",
+          "followerCount": 183058,
           "name": "Farcaster",
           "url": "chain://eip155:7777777/erc721:0x4f86113fc3e9783cf3ec9a552cbb566716a57628",
           "imageUrl": "https://ipfs.decentralized-content.com/ipfs/bafkreialf5usxssf2eu3e5ct37zzdd553d7lg7oywvdszmrg5p2zpkta7u"
@@ -226,7 +233,181 @@ Get /farcaster Farcaster channel details
 {% endtab %}
 {% endtabs %}
 
+## Get All The Most Followed Farcaster Channels
+
+You can fetch all Farcaster channels sorted by their follower count in descending order by using the [`FarcasterChannels`](../../api-references/api-reference/farcasterchannels-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/tfeA5C0Oiy" %}
+Show me the most followed Farcaster channels
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  FarcasterChannels(
+    input: {
+      blockchain: ALL,
+      # specify to sort in descending order by followerCount
+<strong>      order: {followerCount: DESC}
+</strong>    }
+  ) {
+    FarcasterChannel {
+      name
+      channelId
+      followerCount
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterChannels": {
+      "FarcasterChannel": [
+        {
+          "name": "Base",
+          "channelId": "base",
+          "followerCount": 210254
+        },
+        // Other most followed Farcaster channels
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All The Most Recently Created Farcaster Channels
+
+You can fetch all Farcaster channels sorted by their creation timestamp in descending order by using the [`FarcasterChannels`](../../api-references/api-reference/farcasterchannels-api.md) API:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/Si50XBHc2t" %}
+Show me the most recently created Farcaster channels
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  FarcasterChannels(
+    input: {
+      blockchain: ALL,
+      # specify to sort in descending order by createdAtTimestamp
+<strong>      order: {createdAtTimestamp: DESC}
+</strong>    }
+  ) {
+    FarcasterChannel {
+      name
+      channelId
+      createdAtTimestamp
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterChannels": {
+      "FarcasterChannel": [
+        {
+          "name": "translate",
+          "channelId": "translate",
+          "createdAtTimestamp": "2024-04-29T11:26:42Z"
+        },
+        // Other most followed Farcaster channels
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Followers Of A Channel
+
+You can fetch all the followers of a Farcaster channel by using [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) by providing the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable and specify `channelActions` to `"follow"` value:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/m9dSmoLpX2" %}
+Show me the channel followers of /airstack channel
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterChannelParticipants(
+    input: {
+      filter: {
+        channelName: {_eq: "/airstack"},
+        channelActions: {_eq: follow}
+      },
+      blockchain: ALL,
+      limit: 200
+    }
+  ) {
+    FarcasterChannelParticipant {
+      participant {
+        profileName
+        fid: userId
+      }
+      lastCastedTimestamp
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterChannelParticipants": {
+      "FarcasterChannelParticipant": [
+        {
+          "participant": {
+            "profileName": "degenfans",
+            "fid": "385955"
+          },
+          "lastCastedTimestamp": "2024-04-24T16:33:14Z"
+        },
+        // Other channel followers
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ## Get Participants Of A Channel
+
+{% hint style="info" %}
+Channel participants includes users that:
+
+* followed the channel
+* casted in the channel
+* replied to a cast in a channel
+
+If you are only looking for channel followers, click [here](farcaster-channels.md#get-followers-of-a-channel).
+{% endhint %}
 
 You can fetch all the participants of a channel by using the [`FarcasterChannels`](../../api-references/api-reference/farcasterchannels-api.md) and providing the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable:
 
@@ -366,9 +547,75 @@ Get the host of /warpcast Farcaster channel
 {% endtab %}
 {% endtabs %}
 
+## Get All The Channels Followed By A User
+
+You can fetch all the channel a given Farcaster user follows by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) and providing the participant's FID to `$participant` variable and specifying the `channelActions` to `"follow"`:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/X1y5xoO1am" %}
+Show me all channels followed by Farcaster user fid 602
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterChannelParticipants(
+    input: {
+      filter: {
+        channelActions: {_eq: follow},
+        participant: {_eq: "fc_fid:602"}
+      },
+      blockchain: ALL,
+      limit: 200
+    }
+  ) {
+    FarcasterChannelParticipant {
+      channelName
+      channelId
+      lastFollowedTimestamp
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterChannelParticipants": {
+      "FarcasterChannelParticipant": [
+        {
+          "channelName": "Farcaster Devs",
+          "channelId": "fc-devs",
+          "lastFollowedTimestamp": "2024-01-11T16:56:06Z"
+        },
+        // Other channels followed by betashop.eth
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ## Get All The Channels Of A Farcaster User Participates In
 
-You can fetch all the channel a given Farcaster user participates in (either have casted or replied to a cast) by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) and providing the participant's FID to `$participant` variable:
+{% hint style="info" %}
+Channel participants includes users that:
+
+* followed the channel
+* casted in the channel
+* replied to a cast in a channel
+
+If you are only looking for channel followers, click [here](farcaster-channels.md#get-all-the-channels-followed-by-a-user).
+{% endhint %}
+
+You can fetch all the channel a given Farcaster user participates in (either have followed, casted, or replied to a cast) by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) and providing the participant's FID to `$participant` variable:
 
 ### Try Demo
 
@@ -788,6 +1035,63 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
+## Check If Farcaster User Has Followed A Given Channel
+
+You can check if Farcaster user has followed a given channel by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) API and providing:
+
+* the "follow" value to the `$channelActions` variable,
+* the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable, and
+* the FID to the `$participant` variable
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/tclvIU7uSS" %}
+Check if Farcaster user FID 602 followed the /airstack channel
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterChannelParticipants(
+    input: {
+      filter: {
+        participant: { _eq: "fc_fid:602" }
+        channelId: { _eq: "airstack" }
+        channelActions: { _eq: follow }
+      }
+      blockchain: ALL
+    }
+  ) {
+    FarcasterChannelParticipant {
+      lastActionTimestamp
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterChannelParticipants": {
+      "FarcasterChannelParticipant": [
+        {
+          "lastActionTimestamp": "2024-04-26T21:38:18Z"
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+If the response is not `null`, then it confirms that the user followed in the specified channel. Otherwise, the user didn't follow.
+
 ## Check If Farcaster User Has Casted In A Given Channel
 
 You can check if Farcaster user has casted in a given channel by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) API and providing:
@@ -842,6 +1146,8 @@ query MyQuery {
 ```
 {% endtab %}
 {% endtabs %}
+
+If the response is not `null`, then it confirms that the user participated in the specified channel. Otherwise, the user never participated.
 
 ## Search All Farcaster Channels Whose Names Start With Certain Terms (auto-complete)
 
@@ -953,5 +1259,5 @@ If you have any questions or need help regarding fetch any data related to Farca
 
 * [FarcasterChannels API Reference](../../api-references/api-reference/farcasterchannels-api.md)
 * [FarcasterChannelParticipants API Reference](../../api-references/api-reference/farcasterchannelparticipants-api.md)
-* [Airstack Onchain Kit for Farcaster Frames](airstack-onchain-kit-for-farcaster-frames.md)
+* [Airstack Onchain Kit for Farcaster Frames](broken-reference)
 * [Allow Lists for Farcaster Frames](broken-reference)

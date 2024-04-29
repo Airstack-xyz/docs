@@ -21,7 +21,6 @@
 * [💜 Farcaster APIs](farcaster/farcaster/README.md)
   * [💬 Farcaster Casts](farcaster/farcaster/farcaster-casts.md)
   * [🖼️ Farcaster Frames](farcaster/farcaster/farcaster-frames.md)
-  * [🖼️ Airstack Onchain Kit for Farcaster Frames](farcaster/farcaster/airstack-onchain-kit-for-farcaster-frames.md)
   * [📺 Farcaster Channels](farcaster/farcaster/farcaster-channels.md)
   * [🫂 Farcaster Followers](farcaster/farcaster/farcaster-followers.md)
   * [💐 Farcaster Following](farcaster/farcaster/farcaster-following.md)
