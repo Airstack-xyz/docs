@@ -73,6 +73,6 @@ to cast it with others in Warpcast so they can start swapping the custom tokens 
 
 ## More Resources
 
-* [Onchain Kit for Farcaster Frames](broken-reference)
+* [Onchain Kit for Farcaster Frames](../airstack-frames-sdk/onchain-kit.md)
 * [Allow List for Farcaster Frames](../airstack-frog-recipes-and-middleware/allow-list.md)
 * [Farcaster Guides](../../farcaster/)

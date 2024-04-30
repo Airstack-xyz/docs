@@ -59,6 +59,6 @@ and share the URL to any Farcaster client that supports Frames:
 
 ## More Resources
 
-* [Onchain Kit for Farcaster Frames](broken-reference)
+* [Onchain Kit for Farcaster Frames](../airstack-frames-sdk/onchain-kit.md)
 * [Allow List for Farcaster Frames](../airstack-frog-recipes-and-middleware/allow-list.md)
 * [Farcaster Guides](../../farcaster/)
