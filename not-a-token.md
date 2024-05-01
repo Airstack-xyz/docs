@@ -8,8 +8,8 @@ description: Learn all about Not A Token and how you can earn it.
 [Not A Token](https://airstack.xyz/notatoken) is a points system that rewards the Farcaster community for creating great content and Farcaster developers for building great apps with Airstack. The following rewards are currently available:
 
 * **Earn 1 Not A Token for every 1 Social Capital Value your cast receives.**&#x20;
-  * Social Capital Value (SCV) is a metric created by Airstack that measures the influences of the Farcaster users who engage with each cast. Learn more about SCV [here](https://docs.airstack.xyz/airstack-docs-and-faqs/abstractions/trending-casts/social-capital-value).&#x20;
-  * Not A Token for Cast applies to all SCV earned from 1-May, 2024 onwards. Older casts can still earn SCV from new engagement, however SCV received by casts prior to 1-May 2024 does not carry over.&#x20;
+  * Social Capital Value (SCV) is a metric created by Airstack that scores each Cast based on the influence of the Farcaster users who engage with the cast. Learn more about SCV [here](https://docs.airstack.xyz/airstack-docs-and-faqs/abstractions/trending-casts/social-capital-value).&#x20;
+  * Not A Token for Casts applies to all SCV earned from 1-May, 2024 onwards. Older casts can still earn SCV from new engagement, however SCV received by casts prior to 1-May 2024 does not carry over.&#x20;
   * The Purple banner with the 😶 on each Cast on Airstack indicates the amount of Not A Token earned for the cast. See [Trending Casts](https://airstack.xyz/trending-casts) as example. \
     \
     ![](<.gitbook/assets/Screenshot 2024-05-01 at 8.07.19 AM.png>)\
