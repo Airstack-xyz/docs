@@ -93,5 +93,5 @@ If you have any questions or need help regarding integrating Airstack HTTP API i
 
 ## More Resources
 
-* [Hubs HTTP API Swagger](https://app.gitbook.com/o/RSmZxCZGQwSEBar1KeT7/s/9qgSPEovTA9myKKaerOr/\~/changes/804/farcaster-hubs-api/overview#http-api)
+* [Hubs HTTP API Swagger](https://swagger.airstack.xyz)
 * [Hubs HTTP API Reference](https://docs.farcaster.xyz/reference/hubble/httpapi/httpapi)
