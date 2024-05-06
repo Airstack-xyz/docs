@@ -20,6 +20,9 @@
 
 * [💜 Farcaster APIs](farcaster/farcaster/README.md)
   * [💬 Farcaster Casts](farcaster/farcaster/farcaster-casts.md)
+  * [🔂 Farcaster Replies](farcaster/farcaster/farcaster-replies.md)
+  * [🌀 Farcaster Recasts](farcaster/farcaster/farcaster-recasts.md)
+  * [👍 Farcaster Likes](farcaster/farcaster/farcaster-likes.md)
   * [🖼️ Farcaster Frames](farcaster/farcaster/farcaster-frames.md)
   * [📺 Farcaster Channels](farcaster/farcaster/farcaster-channels.md)
   * [🫂 Farcaster Followers](farcaster/farcaster/farcaster-followers.md)

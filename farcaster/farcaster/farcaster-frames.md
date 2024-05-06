@@ -25,6 +25,9 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Get All The Frames Casted By Certain User](farcaster-frames.md#get-all-the-frames-casted-by-certain-user)
 * [Get All the Casts That Contains Certain Frame](farcaster-frames.md#get-all-the-casts-that-contains-certain-frame)
 * [Get Details Of A Certain Farcaster Frames](farcaster-frames.md#get-details-of-a-certain-farcaster-frames)
+* [Get All Replies From All Casts That Contains Certain Farcaster Frames](farcaster-frames.md#get-all-replies-from-all-casts-that-contains-certain-farcaster-frames)
+* [Get All Users That Recasts Any Casts That Contains A Certain Farcaster Frames](farcaster-frames.md#get-all-users-that-recasts-any-casts-that-contains-a-certain-farcaster-frames)
+* [Get All Users That Likes Any Casts That Contains A Certain Farcaster Frames](farcaster-frames.md#get-all-users-that-likes-any-casts-that-contains-a-certain-farcaster-frames)
 
 ### Pre-requisites
 
@@ -515,6 +518,206 @@ query MyQuery {
             "state": ""
           }
         }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All Replies From All Casts That Contains Certain Farcaster Frames
+
+You can use [`FarcasterReactions`](../../api-references/api-reference/farcasterreactions-api.md) API to fetch all casts that contains certain Frames by specifying the Frames URL to the `frameUrl` input filter:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/qkoyo0IqHU" %}
+Show me all replies from all casts that contains Frames https://gallery.manifold.xyz/venicebreeze
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterReactions(
+    input: {
+      filter: {
+        criteria: recasted,
+        frameUrl: {_eq: "https://gallery.manifold.xyz/venicebreeze"}
+      },
+      blockchain: ALL,
+      limit: 200
+    }
+  ) {
+    Reaction {
+      cast {
+        castedAtTimestamp
+        embeds
+        url
+        text
+        numberOfRecasts
+        numberOfLikes
+        channel {
+          channelId
+        }
+        mentions {
+          fid
+          position
+        }
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterReactions": {
+      "Reaction": [
+        {
+          "cast": {
+            "castedAtTimestamp": "2024-05-06T17:32:10Z",
+            "embeds": [
+              {
+                "url": "https://cdn.botfrens.com/contents/2731379/web_md.jpg"
+              },
+              {
+                "url": "https://gallery.manifold.xyz/venicebreeze"
+              }
+            ],
+            "url": "https://warpcast.com/carlos28355/0xf10f3c56",
+            "text": "☀️ Venice Breeze 📻\r\n1/1\r\nMinted & listed with Manifold  ",
+            "numberOfRecasts": 4,
+            "numberOfLikes": 16,
+            "channel": {
+              "channelId": "cryptoart"
+            },
+            "mentions": []
+          }
+        },
+        // other replies
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All Users That Recasts Any Casts That Contains A Certain Farcaster Frames
+
+You can use [`FarcasterReactions`](../../api-references/api-reference/farcasterreactions-api.md) API to fetch all users that recasts all casts that contains a certain Frames by providing the Frames URL to the `frameUrl` input filter:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/LfdnhIG0Tj" %}
+Show me all users that recasts any casts with Frames URL https://gallery.manifold.xyz/venicebreeze
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterReactions(
+    input: {
+      filter: {
+        criteria: recasted,
+        frameUrl: {_eq: "https://gallery.manifold.xyz/venicebreeze"}
+      },
+      blockchain: ALL,
+      limit: 200
+    }
+  ) {
+    Reaction {
+      reactedBy {
+        profileName
+        fid: userId
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterReactions": {
+      "Reaction": [
+        {
+          "reactedBy": {
+            "profileName": "matthewbian",
+            "fid": "461708"
+          }
+        },
+        // Other users that recasts
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All Users That Likes Any Casts That Contains A Certain Farcaster Frames
+
+You can use [`FarcasterReactions`](../../api-references/api-reference/farcasterreactions-api.md) API to fetch all users that likes all casts that contains a certain Frames by providing the Frames URL to the `frameUrl` input filter:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/4Wld2IPY8F" %}
+Show me all users that likes any casts with Frames URL https://gallery.manifold.xyz/venicebreeze
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterReactions(
+    input: {
+      filter: {
+        criteria: liked,
+        frameUrl: {_eq: "https://gallery.manifold.xyz/venicebreeze"}
+      },
+      blockchain: ALL,
+      limit: 200
+    }
+  ) {
+    Reaction {
+      reactedBy {
+        profileName
+        fid: userId
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterReactions": {
+      "Reaction": [
+        {
+          "reactedBy": {
+            "profileName": "matthewbian",
+            "fid": "461708"
+          }
+        },
+        // Other users that likes
       ]
     }
   }
