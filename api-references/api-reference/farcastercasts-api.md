@@ -12,17 +12,16 @@ The FarcasterCasts API enables you to fetch a list of all casts based on various
 
 ### filters
 
-| Name                | Type            | Description                                                                                                          |
-| ------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `castedBy`          | `Identity`      | Filter by caster. You can input any type of identity supported by [Airstack Identity API](airstack-identity-api.md). |
-| `castedAtTimestamp` | `Time`          | Filter by the time when Frames is casted.                                                                            |
-| `frameUrl`          | `String`        | Filter By Frame URL.                                                                                                 |
-| `hasEmbeds`         | `Boolean`       | Filter by whether a cast has any embeds or not.                                                                      |
-| `hasFrames`         | `Boolean`       | Filter by whether a cast has any Frames or not.                                                                      |
-| `hasMentions`       | `Boolean`       | Filter by whether a cast has any mentions or not.                                                                    |
-| `hash`              | `String`        | Filter by Farcaster cast hash.                                                                                       |
-| `parentHash`        | `String`        | Filter by Farcaster cast's parent hash.                                                                              |
-| `url`               | `Simple_String` | Filter by Warpcast's Cast URL.                                                                                       |
+| Name                | Type                          | Description                                                                                                          |
+| ------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `castedBy`          | `Identity_Comparator_Exp`     | Filter by caster. You can input any type of identity supported by [Airstack Identity API](airstack-identity-api.md). |
+| `castedAtTimestamp` | `Time_Comparator_Exp`         | Filter by the time when Frames is casted.                                                                            |
+| `frameUrl`          | `String_Eq_In_Comparator_Exp` | Filter By Frame URL.                                                                                                 |
+| `hasEmbeds`         | `Boolean_Comparator_Exp`      | Filter by whether a cast has any embeds or not.                                                                      |
+| `hasFrames`         | `Boolean_Comparator_Exp`      | Filter by whether a cast has any Frames or not.                                                                      |
+| `hasMentions`       | `Boolean_Comparator_Exp`      | Filter by whether a cast has any mentions or not.                                                                    |
+| `hash`              | `String_Eq_In_Comparator_Exp` | Filter by Farcaster cast hash.                                                                                       |
+| `url`               | `String_Eq_In_Comparator_Exp` | Filter by Warpcast's Cast URL.                                                                                       |
 
 ### blockchain
 
@@ -40,7 +39,7 @@ You just need to specify the input to `ALL` for the query to work.
 
 | Name                 | Type                                                     | Description                                                                     |
 | -------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `castedAtTimestamp`  | `Time`                                                   | Time when the cast                                                              |
+| `castedAtTimestamp`  | `Time`                                                   | Time when the cast was casted.                                                  |
 | `castedBy`           | [`Social`](socials-api.md)                               | **Nested Query** – Caster details.                                              |
 | `channel`            | [`FarcasterChannel`](farcasterchannels-api.md)           | **Nested Query** – Farcaster Channel where the cast is casted.                  |
 | `embeds`             | `[Map]`                                                  | Embeds contained in the casts.                                                  |
@@ -56,6 +55,7 @@ You just need to specify the input to `ALL` for the query to work.
 | `parentFid`          | `String`                                                 | Cast's parent FID.                                                              |
 | `parentHash`         | `String`                                                 | Cast's parent hash.                                                             |
 | `parentUrl`          | `String`                                                 | Cast's parent URL.                                                              |
+| `quotedCast`         | [`FarcasterCast`](farcastercasts-api.md)                 | **Nested Query** – Quoted cast's details.                                       |
 | `rawText`            | `String`                                                 | Raw text contained in the cast.                                                 |
 | `recastedBy`         | [`[Social]`](socials-api.md)                             | **Nested Queries** – List of all Farcaster profiles recasted the cast.          |
 | `rootParentHash`     | `String`                                                 | The root hash of the cast.                                                      |

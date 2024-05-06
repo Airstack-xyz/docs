@@ -234,6 +234,9 @@
   * [FarcasterCasts API](api-references/api-reference/farcastercasts-api.md)
   * [FarcasterChannelParticipants API](api-references/api-reference/farcasterchannelparticipants-api.md)
   * [FarcasterChannels API](api-references/api-reference/farcasterchannels-api.md)
+  * [FarcasterQuotedRecasts API](api-references/api-reference/farcasterquotedrecasts-api.md)
+  * [FarcasterReactions API](api-references/api-reference/farcasterreactions-api.md)
+  * [FarcasterReplies API](api-references/api-reference/farcasterreplies-api.md)
   * [FarcasterValidateFrameMessage API](api-references/api-reference/farcastervalidateframemessage-api.md)
   * [PoapEvents API](api-references/api-reference/poapevents-api.md)
   * [Poaps API](api-references/api-reference/poaps-api.md)
@@ -257,6 +260,8 @@
   * [FarcasterFrame](api-references/objects/farcasterframe.md)
   * [FrameButton](api-references/objects/framebutton.md)
   * [SocialCapitalValue](api-references/objects/socialcapitalvalue.md)
+* [🔢 Enum](api-references/enum/README.md)
+  * [FarcasterReactionCriteria](api-references/enum/farcasterreactioncriteria.md)
 
 ## Web SDK Reference
 
