@@ -32,7 +32,7 @@ Now 🪄 **build some magic into your Frames. Use** with Airstack [**Onchain Kit
 * Get ENS
 * Get friends of friends
 
-Additional resources
+## More Resources
 
 * [Awesome Frames](https://github.com/davidfurlong/awesome-frames)
 * [Coinbase Onchain Kit](https://onchainkit.xyz/)

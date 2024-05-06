@@ -304,7 +304,7 @@ query MyQuery(
 
 We also ran some tests on the [Validation API](../../api-references/api-reference/airstack-validation-api.md) with results shown below:
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Airstack Validation API Testing Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Airstack Validation API Testing Result</p></figcaption></figure>
 
 ## Developer Support
 
@@ -312,8 +312,8 @@ If you have any questions or need help regarding validating your Farcaster Frame
 
 ## More Resources
 
-* [Airstack Onchain Kit for Farcaster Frames](broken-reference)
+* [Airstack Onchain Kit for Farcaster Frames](airstack-frames-sdk/onchain-kit.md)
 * [Math Captcha For Farcaster Frames](https://github.com/limone-eth/farcaster-horizon-airstack/blob/main/app/api/captcha/validate/route.ts)
 * [Airstack Validation API Reference](../../api-references/api-reference/airstack-validation-api.md)
 * [Airstack Frames SDK Reference](https://github.com/Airstack-xyz/airstack-frames-sdk)
-* [Farcaster Frames Guides](broken-reference)
+* [Farcaster Frames Guides](../farcaster/farcaster-frames.md)

@@ -43,6 +43,7 @@
   * [🚀 Quickstart](farcaster/farcaster-frames/quickstart/README.md)
     * [🗼 Node.js](farcaster/farcaster-frames/quickstart/node.js.md)
     * [⏩ Next.js](farcaster/farcaster-frames/quickstart/next.js.md)
+  * [📊 Frame Analytics](farcaster/farcaster-frames/frame-analytics.md)
   * [✅ Frames Validator 🆓](farcaster/farcaster-frames/frames-validator.md)
   * [🐸 Airstack Frog Recipes & Middleware](farcaster/farcaster-frames/airstack-frog-recipes-and-middleware/README.md)
     * [⛓️ Onchain Data](farcaster/farcaster-frames/airstack-frog-recipes-and-middleware/onchain-data.md)
