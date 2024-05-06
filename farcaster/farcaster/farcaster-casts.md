@@ -27,7 +27,6 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Get All Casts Casted At Certain Period Of Time](farcaster-casts.md#get-all-casts-casted-at-certain-period-of-time)
 * [Get All Casts That Have Mentions](farcaster-casts.md#get-all-casts-that-have-mentions)
 * [Get Details Of A Certain Cast](farcaster-casts.md#get-details-of-a-certain-cast)
-* [Get All Replies Of Certain Cast](farcaster-casts.md#get-all-replies-of-certain-cast)
 
 ### Pre-requisites
 
@@ -667,78 +666,6 @@ query MyQuery {
             "formattedValue": 0.00040837104
           }
         }
-      ]
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## Get All Replies Of Certain Cast
-
-You can fetch all the replies of a given cast by using the [`FarcasterCasts`](../../api-references/api-reference/farcastercasts-api.md) API and provide the cast's hash to the `parentHash` filter:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/XS2RhsHerD" %}
-Show me all the replies of cast with hash 0x1c11cc698e04105ccd4b219517a7808d21733838
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  FarcasterCasts(
-    input: {
-      filter: {
-        parentHash: {_eq: "0x1c11cc698e04105ccd4b219517a7808d21733838"}
-      },
-      blockchain: ALL
-    }
-  ) {
-    Cast {
-      castedAtTimestamp
-      embeds
-      fid
-      castedBy {
-        profileName
-      }
-      url
-      text
-      numberOfLikes
-      numberOfRecasts
-      numberOfReplies
-      hash
-    }
-  }
-}
-```
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-{
-  "data": {
-    "FarcasterCasts": {
-      "Cast": [
-        {
-          "castedAtTimestamp": "2024-04-04T13:23:04Z",
-          "embeds": [],
-          "fid": "397612",
-          "castedBy": {
-            "profileName": "mafinmz"
-          },
-          "url": "https://warpcast.com/mafinmz/0x4d0bb095",
-          "text": "It was good, I will try",
-          "numberOfLikes": 1,
-          "numberOfRecasts": 0,
-          "numberOfReplies": 0,
-          "hash": "0x4d0bb095f9896d81bdccabb4d16c5171c4b1b252"
-        },
-        // Other replies on the cast
       ]
     }
   }
