@@ -208,6 +208,62 @@ const app = new Frog({
 {% endtab %}
 {% endtabs %}
 
+## Frames.js Framework
+
+If you are using the [Frames.js](https://framesjs.org/) Framework, you can use the `farcasterHubContext` middleware to set the hubs config to validate with the [Airstack Validation API](../../api-references/api-reference/airstack-validation-api.md) by providing the Hub API URL and the [Airstack API key](../../get-started/get-api-key.md):
+
+{% tabs %}
+{% tab title="TypeScript" %}
+```typescript
+import { farcasterHubContext } from "frames.js/middleware";
+
+const frames = createFrames({
+  middleware: [
+    farcasterHubContext({
+      ...(process.env.NODE_ENV === "production"
+        ? {
+            hubHttpUrl: "https://hubs.airstack.xyz",
+            hubRequestOptions: {
+              headers: {
+                "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
+              },
+            },
+          }
+        : {
+            hubHttpUrl: "http://localhost:3010/hub",
+          }),
+    }),
+  ],
+});
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const { farcasterHubContext } = require("frames.js/middleware");
+
+const frames = createFrames({
+  middleware: [
+    farcasterHubContext({
+      ...(process.env.NODE_ENV === "production"
+        ? {
+            hubHttpUrl: "https://hubs.airstack.xyz",
+            hubRequestOptions: {
+              headers: {
+                "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
+              },
+            },
+          }
+        : {
+            hubHttpUrl: "http://localhost:3010/hub",
+          }),
+    }),
+  ],
+});
+```
+{% endtab %}
+{% endtabs %}
+
 ## Airstack `FarcasterValidateFramesMessage` API
 
 Alternatively, you can also easily use the [`FarcasterValidateFramesMessage`](../../api-references/api-reference/farcastervalidateframemessage-api.md) API to not only validate Frames Signature packet, but additionally fetch all Farcaster details of the interactors and casters in one single API call:
