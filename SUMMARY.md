@@ -91,6 +91,8 @@
 
 * [💬 Trending Casts](abstractions/trending-casts/README.md)
   * [😎 Social Capital Value & Social Capital Scores](abstractions/trending-casts/social-capital-value-and-social-capital-scores.md)
+  * [💜 All Farcaster Users](abstractions/trending-casts/all-farcaster-users.md)
+  * [🟪 Certain Farcaster User](abstractions/trending-casts/certain-farcaster-user.md)
 * [🔄 Trending Swaps](abstractions/trending-swaps.md)
 * [💹 Trending Tokens](abstractions/trending-tokens/README.md)
   * [🔵 All Base Users](abstractions/trending-tokens/all-base-users.md)
@@ -264,6 +266,7 @@
 * [🗃️ Objects](api-references/objects/README.md)
   * [FarcasterFrame](api-references/objects/farcasterframe.md)
   * [FrameButton](api-references/objects/framebutton.md)
+  * [SocialCapital](api-references/objects/socialcapital.md)
   * [SocialCapitalValue](api-references/objects/socialcapitalvalue.md)
 * [🔢 Enum](api-references/enum/README.md)
   * [FarcasterReactionCriteria](api-references/enum/farcasterreactioncriteria.md)
