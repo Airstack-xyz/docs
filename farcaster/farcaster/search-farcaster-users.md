@@ -165,7 +165,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get All Farcaster Users Sorted By Social Capital Scores
 
-You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users sorted by social capital scores by adding `socialCapitalScore` to the `order` field and set it to `DESC` value to sort in descending order:
+You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users sorted by [social capital scores](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) by adding `socialCapitalScore` to the `order` field and set it to `DESC` value to sort in descending order:
 
 ### Try Demo
 
@@ -240,7 +240,7 @@ Show me all Farcaster users sorted by social capital scores
 
 ## Get All Farcaster Users With Social Capital Scores > X
 
-You can use the `Socials` API to fetch all Farcaster users with social capital scores above certain number by using the `socialCapitalScore` input field and provide the **X** value to the `_gt` filter (for other comparators, check out [here](../../api-references/overview/working-with-graphql.md)).
+You can use the `Socials` API to fetch all Farcaster users with [social capital scores](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) above certain number by using the `socialCapitalScore` input field and provide the **X** value to the `_gt` filter (for other comparators, check out [here](../../api-references/overview/working-with-graphql.md)).
 
 In the example below, **X** is 50:
 
@@ -514,6 +514,7 @@ If you have any questions or need help regarding searching for Farcaster users, 
 ## More Resources
 
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)
+* [Social Capital Value & Social Capital Scores](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md)
 * [Resolve Farcaster Users](resolve-farcaster-users.md)
 * [Farcaster Users Details](farcaster-users-details.md)
 * [Farcaster Followers](farcaster-followers.md)
