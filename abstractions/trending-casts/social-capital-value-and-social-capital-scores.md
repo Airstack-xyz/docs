@@ -18,4 +18,4 @@ The SCV of a cast is determined through the following process:
 
 This methodology ensures that the most impactful casts are highlighted on Farcaster, fostering a constructive community environment.
 
-You can fetch the SCS of any user and SCV of any cast via the Airstack APIs.
+You can fetch the SCS of any user and SCV of any cast [via the Airstack APIs](https://app.airstack.xyz).
