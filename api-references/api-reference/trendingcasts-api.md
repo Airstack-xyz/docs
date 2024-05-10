@@ -40,15 +40,15 @@ description: >-
 
 ## Outputs
 
-| Name                          | Type                                     | Description                                                                                        |
-| ----------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `cast`                        | [`FarcasterCast`](farcastercasts-api.md) | **Nested Query** – Details of the trending cast.                                                   |
-| `criteria`                    | `String`                                 | The chosen criteria to evaluate trending casts. This is based on the `criteria` input value.       |
-| `criteriaCount`               | `Float`                                  | The total number for the criteria metric chosen.                                                   |
-| `hash`                        | `String`                                 | Farcaster cast hash.                                                                               |
-| `id`                          | `String`                                 | Airstack unique identifier.                                                                        |
-| `socialCapitalValueFormatted` | `Float`                                  | [Social Capital Value ](../../abstractions/trending-casts/social-capital-value.md)formatted value. |
-| `socialCapitalValueRaw`       | `String`                                 | [Social Capital Value](../../abstractions/trending-casts/social-capital-value.md) raw value.       |
-| `timeFrom`                    | `Time`                                   | The time when the first engagement (like, recast, or reply) within the time frame occurs.          |
-| `timeTo`                      | `Time`                                   | The time when the last engagement (like, recast, or reply) within the time frame occurs.           |
+| Name                          | Type                                     | Description                                                                                                                  |
+| ----------------------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `cast`                        | [`FarcasterCast`](farcastercasts-api.md) | **Nested Query** – Details of the trending cast.                                                                             |
+| `criteria`                    | `String`                                 | The chosen criteria to evaluate trending casts. This is based on the `criteria` input value.                                 |
+| `criteriaCount`               | `Float`                                  | The total number for the criteria metric chosen.                                                                             |
+| `hash`                        | `String`                                 | Farcaster cast hash.                                                                                                         |
+| `id`                          | `String`                                 | Airstack unique identifier.                                                                                                  |
+| `socialCapitalValueFormatted` | `Float`                                  | [Social Capital Value ](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md)formatted value. |
+| `socialCapitalValueRaw`       | `String`                                 | [Social Capital Value](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) raw value.       |
+| `timeFrom`                    | `Time`                                   | The time when the first engagement (like, recast, or reply) within the time frame occurs.                                    |
+| `timeTo`                      | `Time`                                   | The time when the last engagement (like, recast, or reply) within the time frame occurs.                                     |
 

@@ -589,7 +589,7 @@ Show me all the casts that has mentions
 
 ## Get Details Of A Certain Cast
 
-You can fetch all the details, including text, embeds, url, [social capital value](../../abstractions/trending-casts/social-capital-value.md), etc., of a given cast by using the [`FarcasterCasts`](../../api-references/api-reference/farcastercasts-api.md) API and provide the cast's URL from Warpcast the `url` filter:
+You can fetch all the details, including text, embeds, url, [social capital value](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md), etc., of a given cast by using the [`FarcasterCasts`](../../api-references/api-reference/farcastercasts-api.md) API and provide the cast's URL from Warpcast the `url` filter:
 
 ### Try Demo
 

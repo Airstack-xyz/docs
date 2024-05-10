@@ -90,7 +90,7 @@
 ## Abstractions
 
 * [💬 Trending Casts](abstractions/trending-casts/README.md)
-  * [😎 Social Capital Value](abstractions/trending-casts/social-capital-value.md)
+  * [😎 Social Capital Value & Social Capital Scores](abstractions/trending-casts/social-capital-value-and-social-capital-scores.md)
 * [🔄 Trending Swaps](abstractions/trending-swaps.md)
 * [💹 Trending Tokens](abstractions/trending-tokens/README.md)
   * [🔵 All Base Users](abstractions/trending-tokens/all-base-users.md)
