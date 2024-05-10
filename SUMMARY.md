@@ -113,7 +113,7 @@
   * [♋ Cross Chain Queries](guides/basics/cross-chain-queries.md)
   * [💡 Generate TypeScript Interfaces](guides/basics/generate-typescript-interfaces.md)
 * [🎩 Degen Chain](guides/degen-chain.md)
-* [🥇 Gold Chain](guides/degen-chain-1.md)
+* [🥇 Gold Chain](guides/gold-chain.md)
 * [🆔 Resolve Identities](guides/resolve-identities/README.md)
   * [🔑 0x Address](guides/resolve-identities/0x-address.md)
   * [🌅 Solana Address](guides/resolve-identities/solana-address.md)
