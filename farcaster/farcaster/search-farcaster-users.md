@@ -21,14 +21,16 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Get All Farcaster Users Starting With Given Words](search-farcaster-users.md#get-all-farcaster-users-starting-with-given-words)
-- [Get All Farcaster Users Containing Given Words](search-farcaster-users.md#get-all-farcaster-users-containing-given-words)
-- [Get All Farcaster Users That Has Certain Number of Letters](search-farcaster-users.md#get-all-farcaster-users-that-has-certain-number-of-letters)
+* [Get All Farcaster Users Sorted By Social Capital Scores](search-farcaster-users.md#get-all-farcaster-users-sorted-by-social-capital-scores)
+* [Get All Farcaster Users With Social Capital Scores > X](search-farcaster-users.md#get-all-farcaster-users-with-social-capital-scores-greater-than-x)
+* [Get All Farcaster Users Starting With Given Words](search-farcaster-users.md#get-all-farcaster-users-starting-with-given-words)
+* [Get All Farcaster Users Containing Given Words](search-farcaster-users.md#get-all-farcaster-users-containing-given-words)
+* [Get All Farcaster Users That Has Certain Number of Letters](search-farcaster-users.md#get-all-farcaster-users-that-has-certain-number-of-letters)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -49,7 +51,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -64,7 +65,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -79,15 +79,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -95,7 +92,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -119,11 +115,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -136,11 +130,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -158,7 +150,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -171,6 +162,164 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 [Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
 
 <figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
+
+## Get All Farcaster Users Sorted By Social Capital Scores
+
+You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users sorted by social capital scores by adding `socialCapitalScore` to the `order` field and set it to `DESC` value to sort in descending order:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/QAr0y5Iowm" %}
+Show me all Farcaster users sorted by social capital scores
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        dappName: {_eq: farcaster}
+      },
+      blockchain: ethereum,
+<strong>      order: {socialCapitalScore: DESC}, # Add this to sort by SCS
+</strong>      limit: 200
+    }
+  ) {
+    Social {
+      profileName
+      fid: userId
+      custodyAddress: userAddress
+      connectedAddresses {
+        address
+        blockchain
+      }
+      socialCapital {
+        socialCapitalScore
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "profileName": "dwr.eth",
+          "fid": "3",
+          "custodyAddress": "0x6b0bda3f2ffed5efc83fa8c024acff1dd45793f1",
+          "connectedAddresses": [
+            {
+              "address": "0x8fc5d6afe572fefc4ec153587b63ce543f6fa2ea",
+              "blockchain": "ethereum"
+            },
+            {
+              "address": "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+              "blockchain": "ethereum"
+            }
+          ],
+          "socialCapital": {
+            "socialCapitalScore": 279.70459538175
+          }
+        },
+        // Other highly influential user on Farcaster network
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All Farcaster Users With Social Capital Scores > X
+
+You can use the `Socials` API to fetch all Farcaster users with social capital scores above certain number by using the `socialCapitalScore` input field and provide the **X** value to the `_gt` filter (for other comparators, check out [here](../../api-references/overview/working-with-graphql.md)).
+
+In the example below, **X** is 50:
+
+{% hint style="info" %}
+If you would like to also sort the result by social capital score, simply add `socialCapitalScore` to the `order` field and set the value to `DESC`.\
+\
+To learn more how to do it, click [here](search-farcaster-users.md#get-all-farcaster-users-sorted-by-social-capital-scores).
+{% endhint %}
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/hR1DZjUvy3" %}
+Show me all Farcaster users with social capital scores of at least 50
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        dappName: {_eq: farcaster},
+<strong>        socialCapitalScore: {_gt: 50} # greater than to 50
+</strong>      },
+      blockchain: ethereum,
+      limit: 200
+    }
+  ) {
+    Social {
+      profileName
+      fid: userId
+      custodyAddress: userAddress
+      connectedAddresses {
+        address
+        blockchain
+      }
+      socialCapital {
+        socialCapitalScore
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "profileName": "dwr.eth",
+          "fid": "3",
+          "custodyAddress": "0x6b0bda3f2ffed5efc83fa8c024acff1dd45793f1",
+          "connectedAddresses": [
+            {
+              "address": "0x8fc5d6afe572fefc4ec153587b63ce543f6fa2ea",
+              "blockchain": "ethereum"
+            },
+            {
+              "address": "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
+              "blockchain": "ethereum"
+            }
+          ],
+          "socialCapital": {
+            "socialCapitalScore": 279.70459538175
+          }
+        },
+        // Other Farcaster users w/ SCS > 50
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Get All Farcaster Users Starting With Given Words
 
@@ -186,7 +335,6 @@ show me all Farcaster users starting with "a"
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -206,11 +354,9 @@ show me all Farcaster users starting with "a"
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -234,7 +380,6 @@ show me all Farcaster users starting with "a"
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -252,7 +397,6 @@ show me all Farcaster users containing with "abc"
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -272,11 +416,9 @@ show me all Farcaster users containing with "abc"
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -300,7 +442,6 @@ show me all Farcaster users containing with "abc"
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -318,7 +459,6 @@ show me all Farcaster users that has 3 letters or less
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -338,11 +478,9 @@ show me all Farcaster users that has 3 letters or less
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -366,7 +504,6 @@ show me all Farcaster users that has 3 letters or less
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -376,8 +513,8 @@ If you have any questions or need help regarding searching for Farcaster users, 
 
 ## More Resources
 
-- [Socials API Reference](../../api-references/api-reference/socials-api.md)
-- [Resolve Farcaster Users](resolve-farcaster-users.md)
-- [Farcaster Users Details](farcaster-users-details.md)
-- [Farcaster Followers](farcaster-followers.md)
-- [Farcaster Following](farcaster-following.md)
+* [Socials API Reference](../../api-references/api-reference/socials-api.md)
+* [Resolve Farcaster Users](resolve-farcaster-users.md)
+* [Farcaster Users Details](farcaster-users-details.md)
+* [Farcaster Followers](farcaster-followers.md)
+* [Farcaster Following](farcaster-following.md)
