@@ -149,7 +149,7 @@ asyncio.run(main())
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## Fetch Trending Tokens Globally
+## Fetch Trending Tokens On Degen L3 Chain
 
 First, define the following parameters to fetch the trending tokens data:
 

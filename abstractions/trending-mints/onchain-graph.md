@@ -1354,6 +1354,7 @@ If you have any questions or need help regarding integrating or building trendin
 ### More Resources
 
 * [Trending Mints With All Base Users](global.md)
+* [Trending Mints With All Degen L3 Users](all-degen-l3-users.md)
 * [Trending Mints With Farcaster Users](farcaster-users.md)
 * [Trending Mints With Common Minters](common-minters.md)
 * [Token Mints](../../guides/token-mints.md)

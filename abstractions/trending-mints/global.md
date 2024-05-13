@@ -151,7 +151,7 @@ asyncio.run(main())
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## Fetch Trending Mints Globally
+## Fetch Trending Mints On Base
 
 First, define the following parameters to fetch the trending mints data:
 
@@ -244,6 +244,7 @@ If you have any questions or need help regarding integrating or building trendin
 ## More Resources
 
 * [Trending Mints With Farcaster Users](farcaster-users.md)
+* [Trending Mints With All Degen L3 Users](all-degen-l3-users.md)
 * [Trending Mints With Onchain Graph](onchain-graph.md)
 * [Trending Mints With Common Minters](common-minters.md)
 * [Token Mints Guides](../../guides/token-mints.md)

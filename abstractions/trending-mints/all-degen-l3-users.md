@@ -1,5 +1,5 @@
 ---
-description: Learn how to recommend mints that are trending among all Degen L3 users.
+description: Learn how to recommend NFT mints that are trending among all Degen L3 users.
 layout:
   title:
     visible: true
@@ -147,7 +147,7 @@ asyncio.run(main())
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## Fetch Trending Mints Globally
+## Fetch Trending Mints On Degen L3 Chain
 
 First, define the following parameters to fetch the trending mints data:
 

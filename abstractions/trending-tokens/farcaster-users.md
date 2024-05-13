@@ -19,6 +19,8 @@ layout:
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to recommend all trending tokens among Farcaster users within a given time frame. _This API makes use of Airstack Abstractions to calculate the results in milliseconds; no compute or backend database required on your end._&#x20;
 
+TrendingTokens API is currently available for the Base and Degen L3 blockchains.
+
 ## Pre-requisites
 
 * An [Airstack](https://airstack.xyz/) account
@@ -153,7 +155,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 First, define the following parameters to fetch the trending tokens data:
 
-<table><thead><tr><th width="149">Name</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>transferType</code></td><td><code>all</code> | <code>self_initiated</code></td><td>This will either include all types of transactions (including airdrops &#x26; self-transfers) or only self-initiated transactions.</td></tr><tr><td><code>timeFrame</code></td><td><code>one_hour</code> | <code>two_hours</code> | <code>eight_hours</code> | <code>one_day</code> | <code>two_days</code> | <code>seven_days</code></td><td>Only fetch trending tokens within the chosen time frame, e.g. <code>one_hour</code> will fetch trending mints for the last 1 hour.</td></tr><tr><td><code>criteria</code></td><td><code>unique_wallets</code> | <code>total_transfers</code> | <code>unique_holders</code></td><td>This will calculate and sort the tokens based on the chosen criteria:<br>- <code>unique_wallets</code>: Calculate the number of unique wallets transfer the trending tokens<br>- <code>total_transfers</code>: Calculate the number of times transfers occurred on the trending token<br>- <code>unique_holders</code>: Calculate the number of unique wallets that hold the trending tokens</td></tr><tr><td><code>swappable</code></td><td><code>boolean</code></td><td>This will only return tokens that are swappable if set to <code>true</code>. Otherwise, include all tokens whether swappable or not in DEX.</td></tr></tbody></table>
+<table><thead><tr><th width="149">Name</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>transferType</code></td><td><code>all</code> | <code>self_initiated</code></td><td>This will either include all types of transactions (including airdrops &#x26; self-transfers) or only self-initiated transactions.</td></tr><tr><td><code>timeFrame</code></td><td><code>one_hour</code> | <code>two_hours</code> | <code>eight_hours</code> | <code>one_day</code> | <code>two_days</code> | <code>seven_days</code></td><td>Only fetch trending tokens within the chosen time frame, e.g. <code>one_hour</code> will fetch trending mints for the last 1 hour.</td></tr><tr><td><code>criteria</code></td><td><code>unique_wallets</code> | <code>total_transfers</code> | <code>unique_holders</code></td><td>This will calculate and sort the tokens based on the chosen criteria:<br>- <code>unique_wallets</code>: Calculate the number of unique wallets transfer the trending tokens<br>- <code>total_transfers</code>: Calculate the number of times transfers occurred on the trending token<br>- <code>unique_holders</code>: Calculate the number of unique wallets that hold the trending tokens</td></tr><tr><td><code>swappable</code></td><td><code>boolean</code></td><td>This will only return tokens that are swappable if set to <code>true</code>. Otherwise, include all tokens whether swappable or not in DEX.</td></tr><tr><td><code>blockchain</code></td><td><code>base</code> | <code>degen</code></td><td>Choose which blockchain to fetch trending tokens from.</td></tr></tbody></table>
 
 Once you have the parameters prepared, simply use the query below and add the parameters as variables:&#x20;
 
@@ -172,14 +174,15 @@ query MyQuery(
   $transferType: TrendingTokensTransferType!,
   $timeFrame: TimeFrame!,
   $criteria: TrendingTokensCriteria!,
-  $swappable: Boolean
+  $swappable: Boolean,
+  $blockchain: TrendingBlockchain!
 ) {
   TrendingTokens(
     input: {
       transferType: $transferType,
       timeFrame: $timeFrame,
       audience: farcaster,
-      blockchain: base,
+      blockchain: $blockchain,
       criteria: $criteria,
       swappable: { _eq: $swappable }
     }
@@ -207,6 +210,7 @@ query MyQuery(
   "timeFrame": "one_hour",
   "criteria": "unique_wallets",
   "swappable": true,
+  "blockchain": "base",
 }
 ```
 {% endtab %}

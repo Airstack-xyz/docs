@@ -157,7 +157,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 First, define the following parameters to fetch the trending mints data:
 
-<table><thead><tr><th width="149">Name</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>timeFrame</code></td><td><code>one_hour</code> | <code>two_hours</code> | <code>eight_hours</code> | <code>one_day</code> | <code>two_days</code> | <code>seven_days</code></td><td>Only fetch trending mints within the chosen time frame, e.g. <code>one_hour</code> will fetch trending mints for the last 1 hour.</td></tr><tr><td><code>criteria</code></td><td><code>unique_wallets</code> | <code>total_mints</code></td><td>This will calculate and sort the tokens based on the chosen criteria:<br>- <code>unique_wallets</code>: Calculate the number of unique wallets minting the trending tokens<br>- <code>total_mints</code>: Calculate the number of times minting occurred on the trending token</td></tr></tbody></table>
+<table><thead><tr><th width="149">Name</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>timeFrame</code></td><td><code>one_hour</code> | <code>two_hours</code> | <code>eight_hours</code> | <code>one_day</code> | <code>two_days</code> | <code>seven_days</code></td><td>Only fetch trending mints within the chosen time frame, e.g. <code>one_hour</code> will fetch trending mints for the last 1 hour.</td></tr><tr><td><code>criteria</code></td><td><code>unique_wallets</code> | <code>total_mints</code></td><td>This will calculate and sort the tokens based on the chosen criteria:<br>- <code>unique_wallets</code>: Calculate the number of unique wallets minting the trending tokens<br>- <code>total_mints</code>: Calculate the number of times minting occurred on the trending token</td></tr><tr><td><code>blockchain</code></td><td><code>base</code> | <code>degen</code></td><td>Choose which blockchain to fetch trending mints from.</td></tr></tbody></table>
 
 Once you have the parameters prepared, simply use the query below and add the parameters as variables:&#x20;
 
@@ -174,13 +174,14 @@ Show me all trending mints among Farcaster user in the last hour and sort by the
 ```graphql
 query MyQuery(
   $timeFrame: TimeFrame!,
-  $criteria: TrendingMintsCriteria!
+  $criteria: TrendingMintsCriteria!,
+  $blockchain: TrendingBlockchain!,
 ) {
   TrendingMints(
     input: {
       timeFrame: $timeFrame,
       audience: farcaster,
-      blockchain: base,
+      blockchain: $blockchain,
       criteria: $criteria
     }
   ) {
@@ -205,7 +206,8 @@ query MyQuery(
 ```json
 {
   "timeFrame": "one_hour",
-  "criteria": "unique_wallets"
+  "criteria": "unique_wallets",
+  "blockchain": "base",
 }
 ```
 {% endtab %}
@@ -246,6 +248,7 @@ If you have any questions or need help regarding integrating or building trendin
 ## More Resources
 
 * [Trending Mints With All Base Users](global.md)
+* [Trending Mints With All Degen L3 Users](all-degen-l3-users.md)
 * [Trending Mints With Onchain Graph](onchain-graph.md)
 * [Trending Mints With Common Minters](common-minters.md)
 * [TrendingMints API Reference](../../api-references/api-reference/trendingmints-api.md)
