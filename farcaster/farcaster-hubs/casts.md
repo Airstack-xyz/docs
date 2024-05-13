@@ -31,7 +31,7 @@ client.$.waitForReady(Date.now() + 5000, async (e) => {
     const castHashBytes = hexStringToBytes(castHashHex)._unsafeUnwrap(); // Safety: castHashHex is known and can't error
     
     // Fetch cast data with `getCast`
-    const castResult = await client.getCast({ fid: 2, hash: castHashBytes });
+    const castResult = await client.getCast({ fid: 2, hash: castHashBytes }, metadata);
     console.log(castResult.value);
     // After everything, close the RPC connection
     client.close();
