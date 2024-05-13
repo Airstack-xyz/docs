@@ -4,9 +4,181 @@ description: Learn how to fetch Farcaster casts data using Airstack Hubs API.
 
 # 💬 Casts
 
-## Get Cast By FID and Hash
+## Write Casts
 
-You can get a cast by a specific FID and cast hash by using Airstack Hubs API with the code below:
+You can create a new casts to the Hub by using Airstack Hubs API with the code below:
+
+{% hint style="info" %}
+For this, you will first need to [create your own signer](https://docs.farcaster.xyz/developers/guides/accounts/create-account-key) to call the submit message API.\
+\
+For details on creating casts with mentions, replies, embeds, and other details, check [here](https://docs.farcaster.xyz/developers/guides/writing/casts).
+{% endhint %}
+
+{% tabs %}
+{% tab title="@farcaster/hub-nodejs" %}
+<pre class="language-typescript"><code class="lang-typescript">import {
+  hexStringToBytes,
+  getSSLHubRpcClient,
+  Metadata,
+  makeCastAdd,
+  FarcasterNetwork,
+} from "@farcaster/hub-nodejs";
+import { config } from "dotenv";
+
+config();
+
+const SIGNER_PRIVATE_KEY = '0x...'; // Your signer's private key
+const FID = 1; // Your fid
+const ed25519Signer = new NobleEd25519Signer(SIGNER_PRIVATE_KEY);
+const dataOptions = {
+  fid: FID,
+  network: FC_NETWORK,
+};
+const FC_NETWORK = FarcasterNetwork.MAINNET;
+
+const client = getSSLHubRpcClient("hubs-grpc.airstack.xyz");
+
+// Construct the cast
+<strong>const cast = await makeCastAdd(
+</strong>  {
+    text: 'This is a cast!', // Text can be up to 320 bytes long
+    embeds: [],
+    embedsDeprecated: [],
+    mentions: [],
+    mentionsPositions: [],
+  },
+  dataOptions,
+  ed25519Signer
+);
+
+client.$.waitForReady(Date.now() + 5000, async (e) => {
+  if (e) {
+    console.error(`Failed to connect to the gRPC server:`, e);
+    process.exit(1);
+  } else {
+    console.log(`Connected to the gRPC server`);
+    const metadata = new Metadata();
+    // Provide API key here
+<strong>    metadata.add("x-airstack-hubs", process.env.AIRSTACK_API_KEY as string);
+</strong>
+    if (cast.isOk()) {
+      // Broadcast the cast/message to the Farcaster network
+<strong>      const submitResult = await client.submitMessage(
+</strong>        castReplyResult.value,
+        metadata
+      );
+      if (submitResult.isOk()) {
+        console.log(`Reply posted successfully`);
+      } else {
+        console.error(`Error posting reply: ${submitResult.error}`);
+      }
+    } else {
+      const error = cast.error;
+      // Handle the error case
+      console.error(`Error posting reply: ${error}`);
+    }
+    // After everything, close the RPC connection
+    client.close();
+  }
+});
+</code></pre>
+{% endtab %}
+
+{% tab title="axios" %}
+<pre class="language-typescript"><code class="lang-typescript">import axios from "axios";
+import { config } from "dotenv";
+import {
+  makeCastAdd,
+  FarcasterNetwork,
+} from "@farcaster/hub-nodejs";
+// Require `npm install @farcaster/core`
+import { Message } from "@farcaster/core";
+
+config();
+
+const SIGNER_PRIVATE_KEY = '0x...'; // Your signer's private key
+const FID = 1; // Your fid
+const ed25519Signer = new NobleEd25519Signer(SIGNER_PRIVATE_KEY);
+const dataOptions = {
+  fid: FID,
+  network: FC_NETWORK,
+};
+const FC_NETWORK = FarcasterNetwork.MAINNET;
+
+// Construct the cast
+const cast = await makeCastAdd(
+  {
+    text: 'This is a cast!', // Text can be up to 320 bytes long
+    embeds: [],
+    embedsDeprecated: [],
+    mentions: [],
+    mentionsPositions: [],
+  },
+  dataOptions,
+  ed25519Signer
+);
+
+const main = async () => {
+  const server = "https://hubs.airstack.xyz";
+  try {
+    // Encode the message into a Buffer (of bytes)
+    const messageBytes = Buffer.from(Message.encode(cast).finish());
+    const response = await axios.post(`${server}/v1/submitMessage`,
+      messageBytes,
+      {
+        headers: {
+          "Content-Type": "application/octet-stream",
+          // Provide API key here
+<strong>          "x-airstack-hubs": process.env.AIRSTACK_API_KEY as string,
+</strong>        },
+      }
+    );
+  
+    console.log(response);
+  
+    console.log(json);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+main();
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "type": "MESSAGE_TYPE_CAST_ADD",
+    "fid": 2,
+    "timestamp": 48994466,
+    "network": "FARCASTER_NETWORK_MAINNET",
+    "castAddBody": {
+      "embedsDeprecated": [],
+      "mentions": [],
+      "parentCastId": {
+        "fid": 226,
+        "hash": "0xa48dd46161d8e57725f5e26e34ec19c13ff7f3b9"
+      },
+      "text": "Cast Text",
+      "mentionsPositions": [],
+      "embeds": []
+    }
+  },
+  "hash": "0xd2b1ddc6c88e865a33cb1a565e0058d757042974",
+  "hashScheme": "HASH_SCHEME_BLAKE3",
+  "signature": "3msLXzxB4eEYe...dHrY1vkxcPAA==",
+  "signatureScheme": "SIGNATURE_SCHEME_ED25519",
+  "signer": "0x78ff9a...58c"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Check If FID Casted A Given Cast Hash
+
+You can check if a specific FID a specific cast with a given cast hash by using Airstack Hubs API with the code below:
 
 {% tabs %}
 {% tab title="@farcaster/hub-nodejs" %}

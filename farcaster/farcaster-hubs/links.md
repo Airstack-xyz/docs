@@ -4,9 +4,9 @@ description: Learn how to fetch Links data using Airstack Hubs API.
 
 # 🔗 Links
 
-## Get Link By FID and Target FID
+## Check If FID Is Following Target FID
 
-You can get a link by its FID and target FID by using Airstack Hubs API with the code below:
+You can get check if a given FID is following a target FID by using Airstack Hubs API with the code below:
 
 {% tabs %}
 {% tab title="@farcaster/hub-nodejs" %}
@@ -96,9 +96,9 @@ main();
 {% endtab %}
 {% endtabs %}
 
-## Get Links By FID
+## Get Followings By FID
 
-You can get all links from a source FID by using Airstack Hubs API with the code below:
+You can get all followings of a given FID by using Airstack Hubs API with the code below:
 
 {% tabs %}
 {% tab title="@farcaster/hub-nodejs" %}
@@ -191,9 +191,9 @@ main();
 {% endtab %}
 {% endtabs %}
 
-## Get Links By Target FID
+## Get Followers By FID
 
-You can get all links to a target FID by using Airstack Hubs API with the code below:
+You can get all followers of a given FID by using Airstack Hubs API with the code below:
 
 {% tabs %}
 {% tab title="@farcaster/hub-nodejs" %}
