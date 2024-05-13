@@ -246,4 +246,5 @@ If you have any questions or need help regarding integrating or building trendin
 ## More Resources
 
 * [Trending Tokens By All Base Users](all-base-users.md)
+* [Trending Tokens By All Degen L3 Users](../trending-mints/all-degen-l3-users.md)
 * [TrendingTokens API Reference](../../api-references/api-reference/trendingtokens-api-1.md)

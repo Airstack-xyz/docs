@@ -41,9 +41,10 @@ The TrendingTokens API provides you with a list of trending tokens frequently tr
 
 ### blockchain
 
-| Name   | Description  |
-| ------ | ------------ |
-| `base` | Base mainnet |
+| Name    | Description    |
+| ------- | -------------- |
+| `base`  | Base mainnet   |
+| `degen` | Degen Chain L3 |
 
 ### timeFrame
 

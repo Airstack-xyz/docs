@@ -1,5 +1,7 @@
 ---
-description: Learn how to recommend ERC-20 tokens that are trending amongst all Base users.
+description: >-
+  Learn how to recommend ERC-20 tokens that are trending amongst all Degen L3
+  users.
 layout:
   title:
     visible: true
@@ -13,7 +15,7 @@ layout:
     visible: true
 ---
 
-# 🔵 All Base Users
+# 🎩 All Degen L3 Users
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to recommend all trending tokens among all Base users within a given time frame. _This API makes use of Airstack Abstractions to calculate the results in milliseconds; no compute or backend database required on your end._&#x20;
 
@@ -157,8 +159,8 @@ Once you have the parameters prepared, simply use the query below and add the pa
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/hYewVUxEXR" %}
-Show all trending tokens among all Base users by the number of unique wallets in the last 1 hour
+{% embed url="https://app.airstack.xyz/query/xQu6PwKy9c" %}
+Show all trending tokens among all Degen L3 users by the number of unique wallets in the last 1 day
 {% endembed %}
 
 ### Code
@@ -177,7 +179,7 @@ query MyQuery(
       transferType: $transferType,
       timeFrame: $timeFrame,
       audience: all,
-      blockchain: base,
+      blockchain: degen,
       criteria: $criteria,
       swappable: { _eq: $swappable }
     }
@@ -202,7 +204,7 @@ query MyQuery(
 ```json
 {
   "transferType": "self_initiated",
-  "timeFrame": "one_hour",
+  "timeFrame": "one_day",
   "criteria": "unique_wallets",
   "swappable": true,
 }
@@ -216,13 +218,13 @@ query MyQuery(
     "TrendingTokens": {
       "TrendingToken": [
         {
-          "address": "0x940181a94a35a4569e4529a3cdfb74e38fd98631",
-          "criteriaCount": 90,
-          "timeFrom": "2024-03-15T09:40:00Z",
-          "timeTo": "2024-03-15T10:40:00Z",
+          "address": "0x8464d5dd3ec1b2ede357f291f0ade21e138ca224",
+          "criteriaCount": 89727,
+          "timeFrom": "2024-05-12T12:35:00Z",
+          "timeTo": "2024-05-12T20:03:00Z",
           "token": {
-            "name": "Aerodrome",
-            "symbol": "AERO",
+            "name": "@ael_dev",
+            "symbol": "AEL",
             "type": "ERC20"
           }
         },
@@ -235,7 +237,7 @@ query MyQuery(
 {% endtab %}
 {% endtabs %}
 
-🎉 :partying\_face: Congratulations you've just fetched all the trending tokens among all Base users and integrate it into your application!
+🎉 :partying\_face: Congratulations you've just fetched all the trending tokens among all Degen L3 users and integrate it into your application!
 
 ## **D**eveloper Support
 
@@ -244,5 +246,5 @@ If you have any questions or need help regarding integrating or building trendin
 ## More Resources
 
 * [Trending Tokens By Farcaster Users](farcaster-users.md)
-* [Trending Tokens By All Degen L3 Users](../trending-mints/all-degen-l3-users.md)
+* [Trending Tokens By All Base Users](all-base-users.md)
 * [TrendingTokens API Reference](../../api-references/api-reference/trendingtokens-api-1.md)

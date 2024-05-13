@@ -33,9 +33,10 @@ The TrendingMints API provides you with a list of trending tokens minted within 
 
 ### blockchain
 
-| Name   | Description  |
-| ------ | ------------ |
-| `base` | Base mainnet |
+| Name    | Description    |
+| ------- | -------------- |
+| `base`  | Base mainnet   |
+| `degen` | Degen L3 chain |
 
 ### timeFrame
 

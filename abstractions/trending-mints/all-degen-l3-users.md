@@ -1,5 +1,5 @@
 ---
-description: Learn how to recommend mints that are trending among Farcaster users.
+description: Learn how to recommend mints that are trending among all Degen L3 users.
 layout:
   title:
     visible: true
@@ -13,15 +13,9 @@ layout:
     visible: true
 ---
 
-# 💜 Farcaster Users
+# 🎩 All Degen L3 Users
 
-In this guide, you will learn how to use [Airstack](https://airstack.xyz) to recommend all trending tokens that are minted by Farcaster users within a given time frame.
-
-TrendingMints API is currently available for the Base and Degen L3 blockchains.
-
-{% embed url="https://youtu.be/y0S3gUFaeMc" %}
-Trending Mints on Base Among Farcaster Users
-{% endembed %}
+In this guide, you will learn how to use [Airstack](https://airstack.xyz) to recommend all trending tokens that are minted by all Degen L3 users within a given time frame.
 
 ## Pre-requisites
 
@@ -153,7 +147,7 @@ asyncio.run(main())
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## Fetch Trending Mints Among Farcaster Users
+## Fetch Trending Mints Globally
 
 First, define the following parameters to fetch the trending mints data:
 
@@ -163,8 +157,8 @@ Once you have the parameters prepared, simply use the query below and add the pa
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/hwKj9H6kvi" %}
-Show me all trending mints among Farcaster user in the last hour and sort by the number of unique wallets
+{% embed url="https://app.airstack.xyz/query/B12QmUCsAb" %}
+Show me all trending mints globally on Degen L3 in the last hour and sort by the number of unique wallets
 {% endembed %}
 
 ### Code
@@ -179,8 +173,8 @@ query MyQuery(
   TrendingMints(
     input: {
       timeFrame: $timeFrame,
-      audience: farcaster,
-      blockchain: base,
+      audience: all,
+      blockchain: degen,
       criteria: $criteria
     }
   ) {
@@ -217,18 +211,18 @@ query MyQuery(
     "TrendingMints": {
       "TrendingMint": [
         {
-          "address": "0x83b16258221bfa260ca4f1ef31567241242fec7a",
-          "erc1155TokenID": "1",
-          "criteriaCount": 51,
-          "timeFrom": "2024-03-07T11:39:00Z",
-          "timeTo": "2024-03-07T12:37:00Z",
+          "address": "0x637cb7e5cecde9a69972bd9f39b10a152ed5ed7a",
+          "erc1155TokenID": "",
+          "criteriaCount": 189,
+          "timeFrom": "2024-05-10T12:36:00Z",
+          "timeTo": "2024-05-10T13:33:00Z",
           "token": {
-            "name": "Rainbow Cats",
-            "symbol": "",
-            "type": "ERC1155"
+            "name": "Pepe Mfers",
+            "symbol": "FARQUEST",
+            "type": "ERC721"
           }
         },
-        // Other trending mints
+        // Other trending mints on Degen L3
       ]
     }
   }
@@ -237,15 +231,16 @@ query MyQuery(
 {% endtab %}
 {% endtabs %}
 
-🎉 :partying\_face: Congratulations you've just fetched all the trending tokens minted by Farcaster users and integrate it into your application!
+🎉 :partying\_face: Congratulations you've just fetched all the trending tokens minted among all Degen L3 users and integrate it into your application!
 
-## Developer Support
+## **D**eveloper Support
 
-If you have any questions or need help regarding integrating or building trending mints by Farcaster users into your application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding integrating or building trending mints into your application, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
-* [Trending Mints With All Base Users](global.md)
+* [Trending Mints With Farcaster Users](farcaster-users.md)
 * [Trending Mints With Onchain Graph](onchain-graph.md)
 * [Trending Mints With Common Minters](common-minters.md)
+* [Token Mints Guides](../../guides/token-mints.md)
 * [TrendingMints API Reference](../../api-references/api-reference/trendingmints-api.md)
