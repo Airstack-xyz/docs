@@ -17,6 +17,10 @@ layout:
 
 # 🌀 Farcaster Recasts
 
+{% embed url="https://www.youtube.com/watch?v=-90z-49Sx5A" %}
+Farcaster Recasts Tutorial
+{% endembed %}
+
 ## Table Of Contents
 
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
@@ -160,6 +164,10 @@ asyncio.run(main())
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
 ## Get All Recasts By A Farcaster User
+
+{% embed url="https://www.youtube.com/watch?v=yS70B5lum-Q" %}
+Farcaster Quoted Recasts Tutorial
+{% endembed %}
 
 You can use [`FarcasterReactions`](../../api-references/api-reference/farcasterreactions-api.md) API to fetch all recasts by a Farcaster user by specifying the user's [identity](../../api-references/api-reference/airstack-identity-api.md) in `reactedBy` input filter:
 

@@ -22,6 +22,10 @@ To integrate our **FREE** Frames Validator into your Frames, make sure that you 
 
 ## Get Your Frame Analytics
 
+{% embed url="https://www.youtube.com/watch?v=AJYjoFCGEak" %}
+Frame Analytics Tutorial
+{% endembed %}
+
 First, go to airstack.xyz:
 
 {% embed url="https://airstack.xyz" %}

@@ -17,6 +17,10 @@ layout:
 
 # 🔂 Farcaster Replies
 
+{% embed url="https://youtu.be/XoPehlkks7Q" %}
+Farcaster Replies Tutorial
+{% endembed %}
+
 ## Table Of Contents
 
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:

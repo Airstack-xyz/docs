@@ -6,6 +6,10 @@ description: >-
 
 # 😎 Social Capital Value & Social Capital Scores
 
+{% embed url="https://www.youtube.com/watch?v=x1yLbP4ZbFY" %}
+Social Capital Value & Social Capital Score Tutorial
+{% endembed %}
+
 **Social Capital Value (SCV)** is a metric developed by Airstack to identify high-quality Trending Casts on Farcaster. \
 \
 The SCV of a cast is determined through the following process:
