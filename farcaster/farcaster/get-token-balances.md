@@ -1,7 +1,8 @@
 ---
 description: >-
   Learn how to get ERC20, 721, 1155, and POAPs of Farcaster User(s), including
-  images and metadata, on Ethereum, Polygon, Base, and Gnosis (POAPs).
+  images and metadata, on Ethereum, Base, Degen L3, Gnosis (POAPs), and other
+  Airstack-supported chains.
 layout:
   title:
     visible: true
@@ -642,7 +643,7 @@ You can fetch all NFTs on Base owned by any Farcaster user(s) using either their
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/mV7k1lYLjJ" %}
-Show NFT on Polygon owned by farcaster user name dwr.eth and user id 1
+Show NFT on Base owned by farcaster user name dwr.eth and user id 1
 {% endembed %}
 
 ### Code
