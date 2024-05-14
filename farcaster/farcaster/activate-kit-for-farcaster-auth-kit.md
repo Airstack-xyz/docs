@@ -21,13 +21,13 @@ layout:
 
 With Airstack Activate you can immediately fetch all of the user's:
 
-- Registration details from Optimism and Hubs
-- Profile details including bio, profile image
-- Connected addresses
-- Following
-- Followers
-- Onchain activity (e.g. POAPs, NFTs, tokens)
-- Onchain graph
+* Registration details from Optimism and Hubs
+* Profile details including bio, profile image
+* Connected addresses
+* Following
+* Followers
+* Onchain activity (e.g. POAPs, NFTs, tokens)
+* Onchain graph
 
 You can also use Airstack regex search to enable auto-complete search for Farcaster users in your app.
 
@@ -35,28 +35,28 @@ You can also use Airstack regex search to enable auto-complete search for Farcas
 
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
-- [Get Farcaster User Details](activate-kit-for-farcaster-auth-kit.md#get-started)
-- [Get Farcaster User's Connected Addresses](activate-kit-for-farcaster-auth-kit.md#get-farcaster-users-connected-addresses)
-- [Get Farcaster User's Followers and Following Counts](activate-kit-for-farcaster-auth-kit.md#get-farcaster-users-followers-and-following-counts)
-- [Get Farcaster User's Followers](activate-kit-for-farcaster-auth-kit.md#get-farcaster-users-followers)
-- [Get Farcaster User's Followings](activate-kit-for-farcaster-auth-kit.md#get-farcaster-users-followings)
-- [Get All POAPs Attended By Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-all-poaps-attended-by-farcaster-user)
-- [Get All NFTs Hold By Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-all-nfts-hold-by-farcaster-user)
-- [Get All ERC20 Tokens Hold By Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-all-erc20-tokens-hold-by-farcaster-user)
-- [Get Historical NFT Balance of Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-historical-nft-balance-of-farcaster-user)
-- [Get Historical ERC20 Token Balance of Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-historical-erc20-token-balance-of-farcaster-user)
-- [Get NFT Mints By A Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-nft-mints-by-a-farcaster-user)
-- [Get ERC20 Token Mints By A Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-erc20-token-mints-by-a-farcaster-user)
-- [Get Token Transfers Sent From A Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-token-transfers-sent-from-a-farcaster-user)
-- [Get Token Transfers Received From A Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-token-transfers-received-by-a-farcaster-user)
-- [Get All Farcaster Users Whose Names Start With Certain Terms (auto-complete)](activate-kit-for-farcaster-auth-kit.md#get-all-farcaster-users-whose-names-start-with-certain-terms-auto-complete)
-- [Get All Farcaster Users Whose Names Contain Certain Terms (auto-complete)](activate-kit-for-farcaster-auth-kit.md#get-all-farcaster-users-whose-names-contain-certain-terms-auto-complete)
-- [Get Onchain Graph of Farcaster user](../../guides/onchain-graph.md)
+* [Get Farcaster User Details](activate-kit-for-farcaster-auth-kit.md#get-started)
+* [Get Farcaster User's Connected Addresses](activate-kit-for-farcaster-auth-kit.md#get-farcaster-users-connected-addresses)
+* [Get Farcaster User's Followers and Following Counts](activate-kit-for-farcaster-auth-kit.md#get-farcaster-users-followers-and-following-counts)
+* [Get Farcaster User's Followers](activate-kit-for-farcaster-auth-kit.md#get-farcaster-users-followers)
+* [Get Farcaster User's Followings](activate-kit-for-farcaster-auth-kit.md#get-farcaster-users-followings)
+* [Get All POAPs Attended By Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-all-poaps-attended-by-farcaster-user)
+* [Get All NFTs Hold By Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-all-nfts-hold-by-farcaster-user)
+* [Get All ERC20 Tokens Hold By Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-all-erc20-tokens-hold-by-farcaster-user)
+* [Get Historical NFT Balance of Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-historical-nft-balance-of-farcaster-user)
+* [Get Historical ERC20 Token Balance of Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-historical-erc20-token-balance-of-farcaster-user)
+* [Get NFT Mints By A Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-nft-mints-by-a-farcaster-user)
+* [Get ERC20 Token Mints By A Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-erc20-token-mints-by-a-farcaster-user)
+* [Get Token Transfers Sent From A Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-token-transfers-sent-from-a-farcaster-user)
+* [Get Token Transfers Received From A Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-token-transfers-received-by-a-farcaster-user)
+* [Get All Farcaster Users Whose Names Start With Certain Terms (auto-complete)](activate-kit-for-farcaster-auth-kit.md#get-all-farcaster-users-whose-names-start-with-certain-terms-auto-complete)
+* [Get All Farcaster Users Whose Names Contain Certain Terms (auto-complete)](activate-kit-for-farcaster-auth-kit.md#get-all-farcaster-users-whose-names-contain-certain-terms-auto-complete)
+* [Get Onchain Graph of Farcaster user](../../guides/onchain-graph.md)
 
 ### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ### Get Started
 
@@ -77,7 +77,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -92,7 +91,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -107,15 +105,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -123,7 +118,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -147,11 +141,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -164,11 +156,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -186,7 +176,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -208,7 +197,6 @@ Show me Farcaster user details of Farcaster profile owned by 0x182327170fC284cAa
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -235,11 +223,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -261,7 +247,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -279,7 +264,6 @@ Show me all the connected addresses of Farcaster profile owned by 0x182327170fC2
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -298,11 +282,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -320,7 +302,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -340,7 +321,6 @@ Show me the number of followers and followings of 0x182327170fC284cAaA5b1bC3e387
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -360,11 +340,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -379,7 +357,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -397,7 +374,6 @@ Show me Farcaster followers of 0x182327170fC284cAaA5b1bC3e3878233f529D741
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowers(
@@ -422,11 +398,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -460,7 +434,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -478,7 +451,6 @@ Show me Farcaster following of 0x182327170fC284cAaA5b1bC3e3878233f529D741
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowings(
@@ -503,11 +475,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -547,7 +517,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -565,7 +534,6 @@ Show POAPs owned by Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query POAPsOwnedByFarcasterUser {
   Poaps(
@@ -598,11 +566,9 @@ query POAPsOwnedByFarcasterUser {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -674,7 +640,6 @@ query POAPsOwnedByFarcasterUser {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -696,7 +661,6 @@ Show NFT on Ethereum owned by farcaster user with address 0xD7029BDEa1c17493893A
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query NFTsOwnedByFarcasterUser {
   TokenBalances(
@@ -728,11 +692,9 @@ query NFTsOwnedByFarcasterUser {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -778,7 +740,6 @@ query NFTsOwnedByFarcasterUser {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -800,7 +761,6 @@ Show ERC20 tokens on Ethereum owned by Farcaster user with address 0xD7029BDEa1c
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query ERC20sOwnedByFarcasterUser {
   TokenBalances(
     input: {
@@ -824,11 +784,9 @@ Show ERC20 tokens on Ethereum owned by Farcaster user with address 0xD7029BDEa1c
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -864,7 +822,6 @@ Show ERC20 tokens on Ethereum owned by Farcaster user with address 0xD7029BDEa1c
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -886,7 +843,6 @@ Show me Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2 h
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Snapshots(
     input: {
@@ -929,11 +885,9 @@ Show me Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2 h
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Snapshots": {
@@ -969,7 +923,6 @@ Show me Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2 h
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -991,7 +944,6 @@ Show me Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2 h
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Snapshots(
     input: {
@@ -1021,11 +973,9 @@ Show me Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2 h
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Snapshots": {
@@ -1060,7 +1010,6 @@ Show me Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2 h
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -1082,7 +1031,6 @@ Show me all NFTs minted by a Farcaster user with address 0xeaf55242a90bb3289dB81
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   TokenTransfers(
     input: {
@@ -1120,11 +1068,9 @@ Show me all NFTs minted by a Farcaster user with address 0xeaf55242a90bb3289dB81
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1153,7 +1099,6 @@ Show me all NFTs minted by a Farcaster user with address 0xeaf55242a90bb3289dB81
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1167,29 +1112,24 @@ For fetching ERC20 mints data from multiple chains, check out [Cross-Chain Queri
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/uXcVzpsdSw" %}
-Show me all ERC20 tokens minted by Farcaster user with address 0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB on Polygon
+{% embed url="https://app.airstack.xyz/query/1CtCChuYBC" %}
+Show me all ERC20 tokens minted by Farcaster user with address 0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB on Ethereum
 {% endembed %}
 
 ### Code
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   TokenTransfers(
     input: {
       filter: {
-        # Only get mints that are executed by the same Farcaster user
-<strong>        operator: {_eq: "0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB"},
-</strong>        # Mints are token transfers that has null address as `from`
-<strong>        from: {_eq: "0x0000000000000000000000000000000000000000"},
-</strong>        # Set this to the Farcaster user that receive the token mints
-<strong>        to: {_eq: "0xB59Aa5Bb9270d44be3fA9b6D67520a2d28CF80AB"},
+        # Get only mints
+<strong>        type: {_eq: MINT},
 </strong>        # Get only ERC20 tokens
-<strong>        tokenType: {_eq: ERC20},
+<strong>        tokenType: {_eq: ERC20}
 </strong>      },
-      blockchain: polygon,
+      blockchain: ethereum,
       order: {blockTimestamp: DESC}
     }
   ) {
@@ -1204,31 +1144,28 @@ Show me all ERC20 tokens minted by Farcaster user with address 0xB59Aa5Bb9270d44
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
     "TokenTransfers": {
       "TokenTransfer": [
         {
-          "blockchain": "polygon",
-          "formattedAmount": 0.01697896348647009,
-          "tokenAddress": "0xadbf1854e5883eb8aa7baf50705338739e558e5b",
+          "blockchain": "ethereum",
+          "formattedAmount": 0.10660883676098286,
+          "tokenAddress": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
           "token": {
-            "name": "Uniswap V2"
+            "name": "Wrapped Ether"
           }
-        }
-        // Other ERC20 tokens minted by ipeciura.eth on Polygon
+        },
+        // Other ERC20 tokens minted by ipeciura.eth on Ethereum
       ]
     }
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1250,7 +1187,6 @@ Show me token transfers sent from Farcaster usre with address 0xeaf55242a90bb328
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
   TokenTransfers(
     input: {
@@ -1290,11 +1226,9 @@ Show me token transfers sent from Farcaster usre with address 0xeaf55242a90bb328
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1320,7 +1254,6 @@ Show me token transfers sent from Farcaster usre with address 0xeaf55242a90bb328
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1342,7 +1275,6 @@ Show me all token transfers received by 0xeaf55242a90bb3289dB8184772b0B985620535
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query GetTokenTransfers {
   TokenTransfers(
     input: {
@@ -1382,11 +1314,9 @@ Show me all token transfers received by 0xeaf55242a90bb3289dB8184772b0B985620535
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1412,7 +1342,6 @@ Show me all token transfers received by 0xeaf55242a90bb3289dB8184772b0B985620535
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1430,7 +1359,6 @@ show me all Farcaster users starting with "a"
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -1450,11 +1378,9 @@ show me all Farcaster users starting with "a"
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1478,7 +1404,6 @@ show me all Farcaster users starting with "a"
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1496,7 +1421,6 @@ show me all Farcaster users containing with "abc"
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -1516,11 +1440,9 @@ show me all Farcaster users containing with "abc"
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -1544,7 +1466,6 @@ show me all Farcaster users containing with "abc"
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1555,6 +1476,8 @@ To further enrich and improve the user experience for your Farcaster application
 <div align="center">
 
 <figure><img src="../../.gitbook/assets/image (7).png" alt="" width="375"><figcaption><p>Builder.fi's Onchain Contacts</p></figcaption></figure>
+
+ 
 
 <figure><img src="../../.gitbook/assets/converse.png" alt="" width="375"><figcaption><p>Converse's Onchain Contacts</p></figcaption></figure>
 
@@ -1568,17 +1491,17 @@ If you have any questions or need help regarding the activate kit for [Farcaster
 
 ## More Resources
 
-- [Onchain Graph Guides](../../guides/onchain-graph.md)
-- [Onchain Contact Guides](../../guides/onchain-contacts.md)
-- [Search Farcaster Users](search-farcaster-users.md)
-- [Farcaster Followers](farcaster-followers.md)
-- [Farcaster Following](farcaster-following.md)
-- [Get Token Balances](../../guides/lens/get-token-balances.md)
-- [Token Mints](../../guides/token-mints.md)
-- [Token Transfers](../../guides/recommend-users/token-transfers.md)
-- [Balance Snapshots](../../guides/balance-snapshots.md)
-- [Socials API Reference](../../api-references/api-reference/socials-api.md)
-- [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
-- [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
-- [Snapshots API Reference](../../api-references/api-reference/snapshots-api.md)
+* [Onchain Graph Guides](../../guides/onchain-graph.md)
+* [Onchain Contact Guides](../../guides/onchain-contacts.md)
+* [Search Farcaster Users](search-farcaster-users.md)
+* [Farcaster Followers](farcaster-followers.md)
+* [Farcaster Following](farcaster-following.md)
+* [Get Token Balances](../../guides/lens/get-token-balances.md)
+* [Token Mints](../../guides/token-mints.md)
+* [Token Transfers](../../guides/recommend-users/token-transfers.md)
+* [Balance Snapshots](../../guides/balance-snapshots.md)
+* [Socials API Reference](../../api-references/api-reference/socials-api.md)
+* [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
+* [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+* [Snapshots API Reference](../../api-references/api-reference/snapshots-api.md)
