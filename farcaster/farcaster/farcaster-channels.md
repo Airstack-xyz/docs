@@ -23,7 +23,8 @@ layout:
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
 * [Get Channel Details](farcaster-channels.md#get-channel-details)
-* [Get All Casts Casted In A Channel](farcaster-channels.md#get-all-casts-casted-in-a-channel)
+* [Get All Casts Casted In A Channel](farcaster-channels.md#get-all-casts-casted-in-a-channel) (Channel Feed)
+* [Get Trending Casts in a Channel](https://docs.airstack.xyz/airstack-docs-and-faqs/abstractions/trending-casts/trending-channel-casts-channel-feeds) (Feed sorted by engagement)
 * [Get The Most Followed Farcaster Channels](farcaster-channels.md#get-all-the-most-followed-farcaster-channels)
 * [Get All The Most Recently Created Farcaster Channels](farcaster-channels.md#get-all-the-most-recently-created-farcaster-channels)
 * [Get Followers Of A Channel](farcaster-channels.md#get-followers-of-a-channel)
