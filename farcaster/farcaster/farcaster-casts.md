@@ -21,6 +21,7 @@ layout:
 
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
+* [Get All Casts Casted In A Channel](farcaster-casts.md#get-all-casts-casted-in-a-channel)
 * [Get All Casts Casted By A Farcaster User](farcaster-casts.md#get-started)
 * [Get All Casts That Have Frames](farcaster-casts.md#get-all-casts-that-have-frames)
 * [Get All Casts That Have Embeds](farcaster-casts.md#get-all-casts-that-have-embeds)
@@ -157,6 +158,92 @@ asyncio.run(main())
 **Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
+
+## Get All Casts Casted In A Channel
+
+{% embed url="https://www.youtube.com/watch?v=kb0HykrEYYg" %}
+Get All Casts Casted In A Channel
+{% endembed %}
+
+You can fetch all the casts casted in a certain Farcaster channel by using the [`FarcasterCasts`](../../api-references/api-reference/farcastercasts-api.md) API and providing the Farcaster channel's URL to the `channelUrl` filter:
+
+{% hint style="info" %}
+If you don't know the channel's URL, then find the channel's URL with this query [here](farcaster-channels.md#get-channel-details). The `url` field will return you the channel's URL associated with the given channel ID.
+{% endhint %}
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/kXhn9i70Lh" %}
+Show me all the casts in /airstack channel
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  FarcasterCasts(
+    input: {
+      filter: {
+        rootParentUrl: {
+          # add channel URL here
+<strong>          _eq: "https://warpcast.com/~/channel/airstack"
+</strong>        }
+      },
+      blockchain: ALL
+    }
+  ) {
+    Cast {
+      castedAtTimestamp
+      castedBy {
+        profileName
+        fid: userId
+      }
+      embeds
+      fid
+      hash
+      text
+      numberOfLikes
+      numberOfRecasts
+      numberOfReplies
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterCasts": {
+      "Cast": [
+        {
+          "castedAtTimestamp": "2024-05-15T10:42:06Z",
+          "castedBy": {
+            "profileName": "juampi",
+            "fid": "6730"
+          },
+          "embeds": [
+            {
+              "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/84b11c9b-2308-43c5-821b-b73d7687b400/original"
+            }
+          ],
+          "fid": "6730",
+          "hash": "0xb2a16ed043b762e097627ed5b080d5c482b4664b",
+          "text": "Everyone loving the Airstack frame, super smooth experience!\n\nNow you can buy $BUILD on it 🫡",
+          "numberOfLikes": 3,
+          "numberOfRecasts": 0,
+          "numberOfReplies": 0
+        },
+        // More casts from /airstack channel
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Get All Casts Casted By A Farcaster User
 

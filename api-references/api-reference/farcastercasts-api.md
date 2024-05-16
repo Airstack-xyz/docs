@@ -16,6 +16,7 @@ The FarcasterCasts API enables you to fetch a list of all casts based on various
 | ------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | `castedBy`          | `Identity_Comparator_Exp`     | Filter by caster. You can input any type of identity supported by [Airstack Identity API](airstack-identity-api.md). |
 | `castedAtTimestamp` | `Time_Comparator_Exp`         | Filter by the time when Frames is casted.                                                                            |
+| `rootParentUrl`     | `String_Eq_In_Comparator_Exp` | Filter By Farcaster channel's URL.                                                                                   |
 | `frameUrl`          | `String_Eq_In_Comparator_Exp` | Filter By Frame URL.                                                                                                 |
 | `hasEmbeds`         | `Boolean_Comparator_Exp`      | Filter by whether a cast has any embeds or not.                                                                      |
 | `hasFrames`         | `Boolean_Comparator_Exp`      | Filter by whether a cast has any Frames or not.                                                                      |
@@ -58,8 +59,7 @@ You just need to specify the input to `ALL` for the query to work.
 | `quotedCast`         | [`FarcasterCast`](farcastercasts-api.md)                 | **Nested Query** – Quoted cast's details.                                       |
 | `rawText`            | `String`                                                 | Raw text contained in the cast.                                                 |
 | `recastedBy`         | [`[Social]`](socials-api.md)                             | **Nested Queries** – List of all Farcaster profiles recasted the cast.          |
-| `rootParentHash`     | `String`                                                 | The root hash of the cast.                                                      |
-| `rootParentUrl`      | `String`                                                 | The root URL of the cast.                                                       |
+| `rootParentUrl`      | `String`                                                 | The cast's associated Farcaster Channel URL.                                    |
 | `socialCapitalValue` | [`SocialCapitalValue`](../objects/socialcapitalvalue.md) | **Nested Query** – The social capital value details of a given Farcaster cast.  |
 | `text`               | `String`                                                 | The text content of the cast.                                                   |
 | `url`                | `String`                                                 | Warpcast's Cast URL.                                                            |

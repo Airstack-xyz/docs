@@ -91,6 +91,7 @@
 
 * [💬 Trending Casts](abstractions/trending-casts/README.md)
   * [😎 Social Capital Value & Social Capital Scores](abstractions/trending-casts/social-capital-value-and-social-capital-scores.md)
+  * [📺 Trending Casts In A Channel (Channel Feeds)](abstractions/trending-casts/trending-casts-in-a-channel-channel-feeds.md)
   * [💜 All Farcaster Users](abstractions/trending-casts/all-farcaster-users.md)
   * [🟪 Certain Farcaster User](abstractions/trending-casts/certain-farcaster-user.md)
 * [🔄 Trending Swaps](abstractions/trending-swaps.md)

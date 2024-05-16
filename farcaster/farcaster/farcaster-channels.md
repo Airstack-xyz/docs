@@ -23,6 +23,7 @@ layout:
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
 * [Get Channel Details](farcaster-channels.md#get-channel-details)
+* [Get All Casts Casted In A Channel](farcaster-channels.md#get-all-casts-casted-in-a-channel)
 * [Get The Most Followed Farcaster Channels](farcaster-channels.md#get-all-the-most-followed-farcaster-channels)
 * [Get All The Most Recently Created Farcaster Channels](farcaster-channels.md#get-all-the-most-recently-created-farcaster-channels)
 * [Get Followers Of A Channel](farcaster-channels.md#get-followers-of-a-channel)
@@ -171,6 +172,10 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get Channel Details
 
+{% embed url="https://www.youtube.com/watch?v=JOlc3wfIi3Y" %}
+Get Channel Details Tutorial
+{% endembed %}
+
 You can fetch a certain channel details by using the [`FarcasterChannels`](../../api-references/api-reference/farcasterchannels-api.md) and providing the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable:
 
 ### Try Demo
@@ -225,6 +230,92 @@ Get /farcaster Farcaster channel details
           "url": "chain://eip155:7777777/erc721:0x4f86113fc3e9783cf3ec9a552cbb566716a57628",
           "imageUrl": "https://ipfs.decentralized-content.com/ipfs/bafkreialf5usxssf2eu3e5ct37zzdd553d7lg7oywvdszmrg5p2zpkta7u"
         }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All Casts Casted In A Channel
+
+{% embed url="https://www.youtube.com/watch?v=kb0HykrEYYg" %}
+Get All Casts In A Channel Tutorial
+{% endembed %}
+
+You can fetch all the casts casted in a certain Farcaster channel by using the [`FarcasterCasts`](../../api-references/api-reference/farcastercasts-api.md) API and providing the Farcaster channel's URL to the `channelUrl` filter:
+
+{% hint style="info" %}
+If you don't know the channel's URL, then find the channel's URL with this query [here](farcaster-channels.md#get-channel-details). The `url` field will return you the channel's URL associated with the given channel ID.
+{% endhint %}
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/kXhn9i70Lh" %}
+Show me all the casts in /airstack channel
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  FarcasterCasts(
+    input: {
+      filter: {
+        rootParentUrl: {
+          # add channel URL here
+<strong>          _eq: "https://warpcast.com/~/channel/airstack"
+</strong>        }
+      },
+      blockchain: ALL
+    }
+  ) {
+    Cast {
+      castedAtTimestamp
+      castedBy {
+        profileName
+        fid: userId
+      }
+      embeds
+      fid
+      hash
+      text
+      numberOfLikes
+      numberOfRecasts
+      numberOfReplies
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterCasts": {
+      "Cast": [
+        {
+          "castedAtTimestamp": "2024-05-15T10:42:06Z",
+          "castedBy": {
+            "profileName": "juampi",
+            "fid": "6730"
+          },
+          "embeds": [
+            {
+              "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/84b11c9b-2308-43c5-821b-b73d7687b400/original"
+            }
+          ],
+          "fid": "6730",
+          "hash": "0xb2a16ed043b762e097627ed5b080d5c482b4664b",
+          "text": "Everyone loving the Airstack frame, super smooth experience!\n\nNow you can buy $BUILD on it 🫡",
+          "numberOfLikes": 3,
+          "numberOfRecasts": 0,
+          "numberOfReplies": 0
+        },
+        // More casts from /airstack channel
       ]
     }
   }

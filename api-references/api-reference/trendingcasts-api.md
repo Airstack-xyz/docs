@@ -7,7 +7,16 @@ description: >-
 
 # TrendingCasts API
 
+The TrendingCasts API provides you with a list of trending Farcaster casts casted within a given time frame and sorted by a chosen criteria. You can also use the available filters to only fetch trending Farcaster casts casted by a certain user or casted in a certain channel.
+
 ## Inputs
+
+### filter
+
+| Name            | Type                              | Description                                                 |
+| --------------- | --------------------------------- | ----------------------------------------------------------- |
+| `fid`           | `TrendingCast_Int_Comparator_Exp` | Filter by caster's FID.                                     |
+| `rootParentUrl` | `String_Eq_Comparator_Exp`        | Filter by Farcaster channel URL where the casts was casted. |
 
 ### criteria
 
@@ -40,15 +49,18 @@ description: >-
 
 ## Outputs
 
-| Name                          | Type                                     | Description                                                                                                                  |
-| ----------------------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `cast`                        | [`FarcasterCast`](farcastercasts-api.md) | **Nested Query** – Details of the trending cast.                                                                             |
-| `criteria`                    | `String`                                 | The chosen criteria to evaluate trending casts. This is based on the `criteria` input value.                                 |
-| `criteriaCount`               | `Float`                                  | The total number for the criteria metric chosen.                                                                             |
-| `hash`                        | `String`                                 | Farcaster cast hash.                                                                                                         |
-| `id`                          | `String`                                 | Airstack unique identifier.                                                                                                  |
-| `socialCapitalValueFormatted` | `Float`                                  | [Social Capital Value ](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md)formatted value. |
-| `socialCapitalValueRaw`       | `String`                                 | [Social Capital Value](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) raw value.       |
-| `timeFrom`                    | `Time`                                   | The time when the first engagement (like, recast, or reply) within the time frame occurs.                                    |
-| `timeTo`                      | `Time`                                   | The time when the last engagement (like, recast, or reply) within the time frame occurs.                                     |
+| Name                          | Type                                           | Description                                                                                                                  |
+| ----------------------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `cast`                        | [`FarcasterCast`](farcastercasts-api.md)       | **Nested Query** – Details of the trending cast.                                                                             |
+| `channel`                     | [`FarcasterChannel`](farcasterchannels-api.md) | **Nested Query** – Details of channel where the cast was casted.                                                             |
+| `criteria`                    | `String`                                       | The chosen criteria to evaluate trending casts. This is based on the `criteria` input value.                                 |
+| `criteriaCount`               | `Float`                                        | The total number for the criteria metric chosen.                                                                             |
+| `fid`                         | `Int`                                          | The caster's FID.                                                                                                            |
+| `hash`                        | `String`                                       | Farcaster cast hash.                                                                                                         |
+| `id`                          | `String`                                       | Airstack unique identifier.                                                                                                  |
+| `rootParentUrl`               | `String`                                       | The associated Farcaster channel's URL.                                                                                      |
+| `socialCapitalValueFormatted` | `Float`                                        | [Social Capital Value ](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md)formatted value. |
+| `socialCapitalValueRaw`       | `String`                                       | [Social Capital Value](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) raw value.       |
+| `timeFrom`                    | `Time`                                         | The time when the first engagement (like, recast, or reply) within the time frame occurs.                                    |
+| `timeTo`                      | `Time`                                         | The time when the last engagement (like, recast, or reply) within the time frame occurs.                                     |
 
