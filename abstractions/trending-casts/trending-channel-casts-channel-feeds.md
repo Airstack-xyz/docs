@@ -1,11 +1,10 @@
 ---
 description: >-
-  Learn how to use Airstack to build Farcaster channel feeds and recommend
-  trending casts on Farcaster in a certain Farcaster channel based on various
-  engagement criteria.
+  Learn how to use Airstack to build Farcaster Channel Feeds sorted by
+  engagement
 ---
 
-# 📺 Trending Casts In A Channel (Channel Feeds)
+# 📺 Trending Channel Casts (Channel Feeds)
 
 
 
