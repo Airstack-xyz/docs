@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to fetch Farcaster Casts data using the Airstack API and its various
-  use cases and combinations.
+  Learn how to fetch Farcaster Casts and related data using the Airstack API,
+  and various use cases and combinations.
 layout:
   title:
     visible: true
