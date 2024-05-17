@@ -7,6 +7,8 @@ description: >-
 # 💜 All Farcaster Users
 
 {% embed url="https://www.youtube.com/embed/x1yLbP4ZbFY?start=67&end=212" %}
+Get Trending Farcaster Casts For All Farcaster Users Tutorial
+{% endembed %}
 
 ## Criteria
 
