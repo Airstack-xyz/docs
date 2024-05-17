@@ -6,6 +6,10 @@ description: >-
 
 # 🟪 Certain Farcaster User
 
+{% embed url="https://www.youtube.com/watch?v=x1yLbP4ZbFY&t=212s" %}
+Get Trending User's Cast Tutorial
+{% endembed %}
+
 ## Criteria
 
 Airstack provides multiple ways to fetch Trending Casts of a specific user FID:
