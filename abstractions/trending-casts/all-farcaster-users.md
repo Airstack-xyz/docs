@@ -6,6 +6,8 @@ description: >-
 
 # 💜 All Farcaster Users
 
+{% embed url="https://www.youtube.com/embed/x1yLbP4ZbFY?start=67&end=212" %}
+
 ## Criteria
 
 Airstack provides multiple ways to fetch Trending Casts
