@@ -319,6 +319,10 @@ Show me all Farcaster users with social capital scores of at least 50
 
 ## Get All Farcaster Users Sorted By Social Capital Rank
 
+{% embed url="https://www.youtube.com/embed/PymaxiF9I7k?start=83&end=219" %}
+Get Farcaster Users Sorted By Social Capital Rank
+{% endembed %}
+
 You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users sorted by[ social capital rank](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) by adding `socialCapitalRank` to the `order` field and set it to `ASC` value to sort in ascending order:
 
 ### Try Demo
@@ -395,6 +399,10 @@ Show me all Farcaster users sorted by social capital rank
 {% endtabs %}
 
 ## Get All Farcaster Users With Social Capital Rank < X
+
+{% embed url="https://www.youtube.com/embed/PymaxiF9I7k?start=340" %}
+Get Farcaster Users With Social Capital Rank < X
+{% endembed %}
 
 You can use the `Socials` API to fetch all Farcaster users with [social capital rank](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) below certain value by using the `socialCapitalRank` input field and the `_lte` operator. If you prefer other comparator for your logic, you can use other available comparator that suits you need (check more [here](../../api-references/overview/working-with-graphql.md)).
 

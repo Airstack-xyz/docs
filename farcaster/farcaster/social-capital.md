@@ -27,6 +27,7 @@ In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 * [Get All Farcaster Users With Social Capital Scores > X](social-capital.md#get-all-farcaster-users-with-social-capital-scores-greater-than-x)
 * [Get All Farcaster Users Sorted By Social Capital Rank](social-capital.md#get-all-farcaster-users-sorted-by-social-capital-rank)
 * [Get All Farcaster Users With Social Capital Rank < X](social-capital.md#get-all-farcaster-users-with-social-capital-rank-less-than-x)
+* [Get A Farcaster Casts's Social Capital Value](social-capital.md#get-a-farcaster-castss-social-capital-value)
 
 ## Social Capital Scores
 
@@ -171,65 +172,6 @@ asyncio.run(main())
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## Get A Farcaster Casts's Social Capital Value
-
-You can use `FarcasterCasts` API to fetch a Farcaster cast's [social capital value](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) by providing the Warpcast URL  to the `url` input:
-
-{% hint style="info" %}
-Alternatively, you can also use the `hash` input filter and provide the cast hash if you have the cast hash value.
-{% endhint %}
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/4LTaOSI4Mm" %}
-Show me social capital value of a cast
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  FarcasterCasts(
-    input: {
-      filter: {
-        url: {_eq: "https://warpcast.com/dannylove/0xabc68559"}
-      },
-      blockchain: ALL
-    }
-  ) {
-    Cast {
-      socialCapitalValue {
-        rawValue
-        formattedValue
-      }
-    }
-  }
-}
-```
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-{
-  "data": {
-    "FarcasterCasts": {
-      "Cast": [
-        {
-          "socialCapitalValue": {
-            "rawValue": "33984720",
-            "formattedValue": 0.0003398472
-          }
-        }
-      ]
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
 ## Get A Farcaster User's Social Capital Score
 
 You can use [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch a Farcaster user's social capital score by providing the Farcaster user's fname or fid (check [here](../../api-references/api-reference/airstack-identity-api.md#farcaster-id-and-name) for identity formats) to the `identity` input:
@@ -290,6 +232,10 @@ query MyQuery {
 
 ## Get A Farcaster User's Social Capital Rank
 
+{% embed url="https://www.youtube.com/embed/PymaxiF9I7k?start=219&end=339" %}
+Get Farcaster User's Social Capital Rank
+{% endembed %}
+
 You can use [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch a Farcaster user's social capital rank by providing the Farcaster user's fname or fid (check [here](../../api-references/api-reference/airstack-identity-api.md#farcaster-id-and-name) for identity formats) to the `identity` input:
 
 ### Try Demo
@@ -344,6 +290,10 @@ query MyQuery {
 {% endtabs %}
 
 ## Get All Farcaster Users Sorted By Social Capital Scores
+
+{% embed url="https://www.youtube.com/embed/PymaxiF9I7k?start=83&end=219" %}
+Get Farcaster Users Sorted By Social Capital Scores
+{% endembed %}
 
 You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users sorted by [social capital scores](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) by adding `socialCapitalScore` to the `order` field and set it to `DESC` value to sort in descending order:
 
@@ -580,6 +530,10 @@ Show me all Farcaster users sorted by social capital rank
 
 ## Get All Farcaster Users With Social Capital Rank < X
 
+{% embed url="https://www.youtube.com/embed/PymaxiF9I7k?start=340" %}
+Get Farcaster Users With Social Capital Rank < X
+{% endembed %}
+
 You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users with [social capital rank](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) below certain value by using the `socialCapitalRank` input field and the `_lte` operator. If you prefer other comparator for your logic, you can use other available comparator that suits you need (check more [here](../../api-references/overview/working-with-graphql.md)).
 
 {% hint style="info" %}
@@ -650,6 +604,65 @@ Show all Farcaster users with social captial rank below or equal to 100
           }
         },
         // Other user with social capital rank below or equal to 100
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get A Farcaster Casts's Social Capital Value
+
+You can use `FarcasterCasts` API to fetch a Farcaster cast's [social capital value](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) by providing the Warpcast URL  to the `url` input:
+
+{% hint style="info" %}
+Alternatively, you can also use the `hash` input filter and provide the cast hash if you have the cast hash value.
+{% endhint %}
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/4LTaOSI4Mm" %}
+Show me social capital value of a cast
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterCasts(
+    input: {
+      filter: {
+        url: {_eq: "https://warpcast.com/dannylove/0xabc68559"}
+      },
+      blockchain: ALL
+    }
+  ) {
+    Cast {
+      socialCapitalValue {
+        rawValue
+        formattedValue
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterCasts": {
+      "Cast": [
+        {
+          "socialCapitalValue": {
+            "rawValue": "33984720",
+            "formattedValue": 0.0003398472
+          }
+        }
       ]
     }
   }
