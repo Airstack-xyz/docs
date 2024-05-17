@@ -30,11 +30,16 @@ In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
 ## Social Capital Scores
 
-* Social Capital Scores are a measure of each Farcaster user's influence in the network.&#x20;
+* Social Capital Scores (SCS) are a measure of each Farcaster user's influence in the network.&#x20;
   * This score is derived from a variety of onchain criteria (including Farcaster Hubs). Users with higher SCSs have more positive downstream influence, as their actions and engagements tends to result in higher quality overall engagement.
   * User's rank for their SCS is represented by **Social Capital Rank (SCR)**.
   * Currently, the SCS is powered by a proprietary algorithm from Airstack. This algorithm is kept confidential to prevent manipulation.
   * Over time, we aim to refine the SCS based on its performance and eventually release it as an open-source protocol.
+
+## Social Capital Value
+
+* **Social Capital Value (SCV)** is a metric developed by Airstack to identify high-quality Trending Casts on Farcaster.
+* The SCS of a user impacts the SCV of a cast when the user engages with it. The type of engagement also plays a role. The accumulated SCS of all interactions contributes to the cast's overall SCV. Casts are then ranked by their SCV, promoting higher-quality casts.
 
 ## Pre-requisites
 
