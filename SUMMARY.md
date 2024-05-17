@@ -19,6 +19,7 @@
 ## Farcaster
 
 * [💜 Farcaster APIs](farcaster/farcaster/README.md)
+  * [🫂 Social Capital](farcaster/farcaster/social-capital.md)
   * [💬 Farcaster Casts](farcaster/farcaster/farcaster-casts.md)
   * [🔂 Farcaster Replies](farcaster/farcaster/farcaster-replies.md)
   * [🌀 Farcaster Recasts](farcaster/farcaster/farcaster-recasts.md)

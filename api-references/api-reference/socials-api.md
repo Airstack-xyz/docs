@@ -33,6 +33,7 @@ The Socials APIs deliver on-chain and off-chain user-level data pertaining to us
 | `identity`                       | `Identity_Comparator_Exp`       | Identity: blockchain address, domain name, social identity                                                                       |
 | `isDefault`                      | `Boolean_Comparator_Exp`        | True/false if the profile is set to default on the corresponding dApp                                                            |
 | `profileName`                    | `String_Comparator_Exp`         | Profile name on the social app (prefix not required)                                                                             |
+| `socialCapitalRank`              | `Int_Comparator_Exp`            | Filter by[ social capital rank](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) of a user.  |
 | `socialCapitalScore`             | `Float_Comparator_Exp`          | Filter by [social capital score](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) of a user. |
 | `updatedAt`                      | `Time_Comparator_Exp`           | Last timestamp when Lens/Farcaster profile was updated                                                                           |
 | `userAssociatedAddresses`        | `Address_Comparator_Exp`        | Any associated Wallet address                                                                                                    |
@@ -53,13 +54,14 @@ You just need to specify the input for the query to work.
 
 ### order
 
-| Name                             | Description                                                                                                                  |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `followerCount`                  | Sort by the number of users following the Lens/Farcaster profile on Lens/Farcaster in ascending or descending order.         |
-| `followingCount`                 | Sort by the number of users being followed by the Lens/Farcaster profile on Lens/Farcaster in ascending or descending order. |
-| `profileCreatedAtBlockTimestamp` | Sort by Lens/Farcaster profile creation block timestamp in ascending or descending order.                                    |
-| `socialCapitalScore`             | Sort by Farcaster profile's [social capital score](../objects/socialcapitalvalue.md).                                        |
-| `updatedAt`                      | Sort by Lens/Farcaster profile last update timestamp in ascending or descending order.                                       |
+| Name                             | Description                                                                                                                             |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `followerCount`                  | Sort by the number of users following the Lens/Farcaster profile on Lens/Farcaster in ascending or descending order.                    |
+| `followingCount`                 | Sort by the number of users being followed by the Lens/Farcaster profile on Lens/Farcaster in ascending or descending order.            |
+| `profileCreatedAtBlockTimestamp` | Sort by Lens/Farcaster profile creation block timestamp in ascending or descending order.                                               |
+| `socialCapitalRank`              | Sort by Farcaster profile's [social capital rank](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md). |
+| `socialCapitalScore`             | Sort by Farcaster profile's [social capital score](../objects/socialcapitalvalue.md).                                                   |
+| `updatedAt`                      | Sort by Lens/Farcaster profile last update timestamp in ascending or descending order.                                                  |
 
 ## Outputs
 

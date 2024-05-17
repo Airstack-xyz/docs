@@ -22,7 +22,7 @@ layout:
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
 * [Get All Casts Casted In A Channel](farcaster-casts.md#get-all-casts-casted-in-a-channel) (Channel Feed)
-* [Get All Casts Casted By A Farcaster User](farcaster-casts.md#get-started) (User Feed)
+* [Get All Casts Casted By A Farcaster User ](farcaster-casts.md#get-all-casts-casted-by-a-farcaster-user)(User Feed)
 * [Get All Casts That Have Frames](farcaster-casts.md#get-all-casts-that-have-frames) (Frames Feed)
 * [Get All Casts That Have Embeds](farcaster-casts.md#get-all-casts-that-have-embeds)&#x20;
 * [Get All Casts Casted At Certain Period Of Time](farcaster-casts.md#get-all-casts-casted-at-certain-period-of-time)

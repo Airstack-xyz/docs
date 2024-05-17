@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to use Airstack to search for Farcaster users that fulfills the
-  given filters or sort variables the API offered.
+  Learn how to fetch social capital value of Farcaster casts and social capital
+  score & social capital rank of Farcaster users.
 layout:
   title:
     visible: true
@@ -15,19 +15,18 @@ layout:
     visible: true
 ---
 
-# 🔎 Search Farcaster Users
+# 🫂 Social Capital
 
 ## Table Of Contents
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get All Farcaster Users Sorted By Social Capital Scores](search-farcaster-users.md#get-all-farcaster-users-sorted-by-social-capital-scores)
-* [Get All Farcaster Users With Social Capital Scores > X](search-farcaster-users.md#get-all-farcaster-users-with-social-capital-scores-greater-than-x)
-* [Get All Farcaster Users Sorted By Social Capital Rank](search-farcaster-users.md#get-all-farcaster-users-sorted-by-social-capital-rank)
-* [Get All Farcaster Users With Social Capital Rank < X](search-farcaster-users.md#get-all-farcaster-users-with-social-capital-rank-less-than-x)
-* [Get All Farcaster Users Starting With Given Words](search-farcaster-users.md#get-all-farcaster-users-starting-with-given-words)
-* [Get All Farcaster Users Containing Given Words](search-farcaster-users.md#get-all-farcaster-users-containing-given-words)
-* [Get All Farcaster Users That Has Certain Number of Letters](search-farcaster-users.md#get-all-farcaster-users-that-has-certain-number-of-letters)
+* [Get A Farcaster User's Social Capital Score](social-capital.md#get-a-farcaster-users-social-capital-score)
+* [Get A Farcaster User's Social Capital Rank](social-capital.md#get-a-farcaster-users-social-capital-rank)
+* [Get All Farcaster Users Sorted By Social Capital Scores](social-capital.md#get-all-farcaster-users-sorted-by-social-capital-scores)
+* [Get All Farcaster Users With Social Capital Scores > X](social-capital.md#get-all-farcaster-users-with-social-capital-scores-greater-than-x)
+* [Get All Farcaster Users Sorted By Social Capital Rank](social-capital.md#get-all-farcaster-users-sorted-by-social-capital-rank)
+* [Get All Farcaster Users With Social Capital Rank < X](social-capital.md#get-all-farcaster-users-with-social-capital-rank-less-than-x)
 
 ## Pre-requisites
 
@@ -159,6 +158,178 @@ asyncio.run(main())
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
+## Get A Farcaster Casts's Social Capital Value
+
+You can use `FarcasterCasts` API to fetch a Farcaster cast's [social capital value](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) by providing the Warpcast URL  to the `url` input:
+
+{% hint style="info" %}
+Alternatively, you can also use the `hash` input filter and provide the cast hash if you have the cast hash value.
+{% endhint %}
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/4LTaOSI4Mm" %}
+Show me social capital value of a cast
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterCasts(
+    input: {
+      filter: {
+        url: {_eq: "https://warpcast.com/dannylove/0xabc68559"}
+      },
+      blockchain: ALL
+    }
+  ) {
+    Cast {
+      socialCapitalValue {
+        rawValue
+        formattedValue
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterCasts": {
+      "Cast": [
+        {
+          "socialCapitalValue": {
+            "rawValue": "33984720",
+            "formattedValue": 0.0003398472
+          }
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get A Farcaster User's Social Capital Score
+
+You can use [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch a Farcaster user's social capital score by providing the Farcaster user's fname or fid (check [here](../../api-references/api-reference/airstack-identity-api.md#farcaster-id-and-name) for identity formats) to the `identity` input:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/VriGp7QDIF" %}
+Show me social capital score of FID 602
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        dappName: {
+          _eq: farcaster
+        },
+        identity: { _eq: "fc_fid:602" }
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Social {
+      socialCapital {
+        socialCapitalScoreRaw
+        socialCapitalScore
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "socialCapital": {
+            "socialCapitalScoreRaw": "4354877467024.49997743418218819",
+            "socialCapitalScore": 43.548774670245
+          }
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get A Farcaster User's Social Capital Rank
+
+You can use [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch a Farcaster user's social capital rank by providing the Farcaster user's fname or fid (check [here](../../api-references/api-reference/airstack-identity-api.md#farcaster-id-and-name) for identity formats) to the `identity` input:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/3ScuTuWE4B" %}
+Show me social capital rank of FID 602
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        dappName: {
+          _eq: farcaster
+        },
+        identity: { _eq: "fc_fid:602" }
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Social {
+      socialCapital {
+        socialCapitalRank
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "socialCapital": {
+<strong>            "socialCapitalRank": 70 // rank 70
+</strong>          }
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
 ## Get All Farcaster Users Sorted By Social Capital Scores
 
 You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users sorted by [social capital scores](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) by adding `socialCapitalScore` to the `order` field and set it to `DESC` value to sort in descending order:
@@ -236,14 +407,14 @@ Show me all Farcaster users sorted by social capital scores
 
 ## Get All Farcaster Users With Social Capital Scores > X
 
-You can use the `Socials` API to fetch all Farcaster users with [social capital scores](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) above certain number by using the `socialCapitalScore` input field and provide the **X** value to the `_gt` filter (for other comparators, check out [here](../../api-references/overview/working-with-graphql.md)).
+You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users with [social capital scores](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) above certain number by using the `socialCapitalScore` input field and provide the **X** value to the `_gt` filter (for other comparators, check out [here](../../api-references/overview/working-with-graphql.md)).
 
 In the example below, **X** is 50:
 
 {% hint style="info" %}
 If you would like to also sort the result by social capital score, simply add `socialCapitalScore` to the `order` field and set the value to `DESC`.\
 \
-To learn more how to do it, click [here](search-farcaster-users.md#get-all-farcaster-users-sorted-by-social-capital-scores).
+To learn more how to do it, click [here](social-capital.md#get-all-farcaster-users-sorted-by-social-capital-scores).
 {% endhint %}
 
 ### Try Demo
@@ -396,12 +567,12 @@ Show me all Farcaster users sorted by social capital rank
 
 ## Get All Farcaster Users With Social Capital Rank < X
 
-You can use the `Socials` API to fetch all Farcaster users with [social capital rank](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) below certain value by using the `socialCapitalRank` input field and the `_lte` operator. If you prefer other comparator for your logic, you can use other available comparator that suits you need (check more [here](../../api-references/overview/working-with-graphql.md)).
+You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users with [social capital rank](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) below certain value by using the `socialCapitalRank` input field and the `_lte` operator. If you prefer other comparator for your logic, you can use other available comparator that suits you need (check more [here](../../api-references/overview/working-with-graphql.md)).
 
 {% hint style="info" %}
 If you would like to also sort the result by social capital rank, simply add `socialCapitalRank` to the `order` field and set the value to `ASC`.\
 \
-To learn more how to do it, click [here](search-farcaster-users.md#get-all-farcaster-users-sorted-by-social-capital-rank).
+To learn more how to do it, click [here](social-capital.md#get-all-farcaster-users-sorted-by-social-capital-rank).
 {% endhint %}
 
 ### Try Demo
@@ -474,201 +645,12 @@ Show all Farcaster users with social captial rank below or equal to 100
 {% endtab %}
 {% endtabs %}
 
-## Get All Farcaster Users Starting With Given Words
-
-You can fetch all Farcaster users that starts with given words by providing the regex pattern `"^<given-words>"` to the <mark style="color:red;">**`_regex`**</mark> operator in [`Socials`](../../api-references/api-reference/socials-api.md) API:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/mXuUlbGPnI" %}
-show me all Farcaster users starting with "a"
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
-  Socials(
-    input: {
-      filter: {
-        # This regex pattern will search all Farcaster users
-        # starting with "a"
-<strong>        profileName: {_regex: "^a"},
-</strong>        dappName: {_eq: farcaster}
-      },
-      blockchain: ethereum
-    }
-  ) {
-    Social {
-      dappName
-      profileName
-    }
-  }
-}
-</code></pre>
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-{
-  "data": {
-    "Socials": {
-      "Social": [
-        {
-          "dappName": "farcaster",
-          "profileName": "atty"
-        },
-        {
-          "dappName": "farcaster",
-          "profileName": "anita-mpf"
-        },
-        {
-          "dappName": "farcaster",
-          "profileName": "amarraghu"
-        }
-        // Other Farcaster users starting with "a"
-      ]
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## Get All Farcaster Users Containing Given Words
-
-You can fetch all Farcaster users that contains given words by providing `"<given-words>"` directly to the <mark style="color:red;">**`_regex`**</mark> operator in [`Socials`](../../api-references/api-reference/socials-api.md) API:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/yuolzNgcAR" %}
-show me all Farcaster users containing with "abc"
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
-  Socials(
-    input: {
-      filter: {
-        # This regex pattern will search all Farcaster users
-        # containing "abc"
-<strong>        profileName: {_regex: "abc"},
-</strong>        dappName: {_eq: farcaster}
-      },
-      blockchain: ethereum
-    }
-  ) {
-    Social {
-      dappName
-      profileName
-    }
-  }
-}
-</code></pre>
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-{
-  "data": {
-    "Socials": {
-      "Social": [
-        {
-          "dappName": "farcaster",
-          "profileName": "abcabc"
-        },
-        {
-          "dappName": "farcaster",
-          "profileName": "krabchinski"
-        },
-        {
-          "dappName": "farcaster",
-          "profileName": "861213abcc"
-        }
-        // Other Farcaster users containing with "abc"
-      ]
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## Get All Farcaster Users That Has Certain Number of Letters
-
-You can fetch all Farcaster users that has certain number of letters in its profile name by providing `"^.{min_number_of_letters, max_number_of_letters}$"` directly to the <mark style="color:red;">**`_regex`**</mark> operator in [`Socials`](../../api-references/api-reference/socials-api.md) API, where the minimum should always be less than or equal to the maximum:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/9bEUw4msj1" %}
-show me all Farcaster users that has 3 letters or less
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
-  Socials(
-    input: {
-      filter: {
-        # This regex pattern search all Farcaster users that have 1-3
-        # letters in its profile name
-<strong>        profileName: {_regex: "^.{1,3}$"}
-</strong>        dappName: {_eq: farcaster}
-      },
-      blockchain: ethereum
-    }
-  ) {
-    Social {
-      dappName
-      profileName
-    }
-  }
-}
-</code></pre>
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-{
-  "data": {
-    "Socials": {
-      "Social": [
-        {
-          "dappName": "farcaster",
-          "profileName": "977"
-        },
-        {
-          "dappName": "farcaster",
-          "profileName": "nem"
-        },
-        {
-          "dappName": "farcaster",
-          "profileName": "vw"
-        }
-        // Other Farcaster users with less than 3 letters
-      ]
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
 ## Developer Support
 
-If you have any questions or need help regarding searching for Farcaster users, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding fetching Social Capital data, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
+* [Social Capital Value & Social Capital Score](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md)
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)
-* [Social Capital Value & Social Capital Scores](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md)
-* [Resolve Farcaster Users](resolve-farcaster-users.md)
-* [Farcaster Users Details](farcaster-users-details.md)
-* [Farcaster Followers](farcaster-followers.md)
-* [Farcaster Following](farcaster-following.md)
+* [FarcasterCasts API Reference](../../api-references/api-reference/farcastercasts-api.md)
