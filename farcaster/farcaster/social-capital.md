@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to fetch social capital value of Farcaster casts and social capital
-  score & social capital rank of Farcaster users.
+  Learn how to fetch Social Capital Scores and Ranks of Farcaster users, and how
+  to fetch Social Capital Values of Farcaster casts.
 layout:
   title:
     visible: true
@@ -27,6 +27,14 @@ In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 * [Get All Farcaster Users With Social Capital Scores > X](social-capital.md#get-all-farcaster-users-with-social-capital-scores-greater-than-x)
 * [Get All Farcaster Users Sorted By Social Capital Rank](social-capital.md#get-all-farcaster-users-sorted-by-social-capital-rank)
 * [Get All Farcaster Users With Social Capital Rank < X](social-capital.md#get-all-farcaster-users-with-social-capital-rank-less-than-x)
+
+## Social Capital Scores
+
+* Social Capital Scores are a measure of each Farcaster user's influence in the network.&#x20;
+  * This score is derived from a variety of onchain criteria (including Farcaster Hubs). Users with higher SCSs have more positive downstream influence, as their actions and engagements tends to result in higher quality overall engagement.
+  * User's rank for their SCS is represented by **Social Capital Rank (SCR)**.
+  * Currently, the SCS is powered by a proprietary algorithm from Airstack. This algorithm is kept confidential to prevent manipulation.
+  * Over time, we aim to refine the SCS based on its performance and eventually release it as an open-source protocol.
 
 ## Pre-requisites
 
