@@ -26,11 +26,13 @@ Farcaster Replies Tutorial
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
 * [Get All Replies By A Farcaster User](farcaster-replies.md#get-all-replies-by-a-farcaster-user)
+* [Get All Casts Replied By A User In A Certain Channel](farcaster-replies.md#get-all-casts-replied-by-a-user-in-a-certain-channel)
 * [Get All Replies Of A Certain Cast By Cast Hash](farcaster-replies.md#get-all-replies-of-a-certain-cast-by-cast-hash)
 * [Get All Replies From A Cast Casted By A Farcaster User](farcaster-replies.md#get-all-replies-from-a-cast-casted-by-a-farcaster-user)
 * [Get All Replies From All Casts That Contains Certain Farcaster Frames](farcaster-replies.md#get-all-replies-from-all-casts-that-contains-certain-farcaster-frames)
 * [Check If A User Replied A Certain Cast](farcaster-replies.md#check-if-a-user-replied-a-certain-cast)
 * [Check If User A Replied Any Cast By User B](farcaster-replies.md#check-if-user-a-replied-any-cast-by-user-b)
+* [Check If A User Replied Any Cast In A Channel](farcaster-replies.md#check-if-a-user-replied-any-cast-in-a-channel)
 
 ### Pre-requisites
 
@@ -222,6 +224,65 @@ Show me all the replies casted by FID 602
           "channel": null,
           "mentions": []
         },
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All Casts Replied By A User In A Certain Channel
+
+You can use the [`FarcasterReactions`](../../api-references/api-reference/farcasterreactions-api.md) API to get all the casts replied by a user in a certain channel by providing the user's [identity](../../api-references/api-reference/airstack-identity-api.md) to `reactedBy` and the channel ID to `channelId` input filter:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/nUIioOJIaw" %}
+Show me all the cast in /airstack channel replied by FID 602
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterReactions(
+    input: {
+      filter: {
+        criteria: replied,
+        channelId: {_eq: "airstack"},
+        reactedBy: {_eq: "fc_fid:602"}
+      },
+      blockchain: ALL,
+      limit: 200
+    }
+  ) {
+    Reaction {
+      castHash
+      cast {
+        text
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterReactions": {
+      "Reaction": [
+        {
+          "castHash": "0xf8c7f6c0fea967f335287348d264b5e29a1b4d0c",
+          "cast": {
+            "text": "is there a way to rank channels by median SCV score of casts in channel (say in the past week)? by 20th or 80th percentile SCV score?\n\nin full disclosure, I am most interested to compare perceived /spanish /japanese /korean channel conversation qualities under this metric"
+          }
+        },
+        // Other casts replied by FID 602 in /airstack channel
       ]
     }
   }
@@ -551,6 +612,58 @@ Check if FID 2602 have ever replied to any cast by FID 602
         {
           // if not null, then user A replied to a cast by user B
 <strong>          "castedAtTimestamp": "2024-05-05T20:48:08Z"
+</strong>        }
+      ]
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Check If A User Replied Any Cast In A Channel
+
+You can use the [`FarcasterReactions`](../../api-references/api-reference/farcasterreactions-api.md) APi to check if a user replied any cast in a certain channel by providing the channel ID to `channelID` and the user's identity to the `reactedBy` input filter:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/X2AjTjG9ln" %}
+Check If FID 602 replied any cast in /airstack channel
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterReactions(
+    input: {
+      filter: {
+        criteria: replied,
+        channelId: {_eq: "airstack"},
+        reactedBy: {_eq: "fc_fid:602"}
+      },
+      blockchain: ALL,
+      limit: 1
+    }
+  ) {
+    Reaction {
+      castHash
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "FarcasterReactions": {
+      // If not `null`, then the user liked one of the cast in /airstack channel
+      "Reaction": [
+        {
+<strong>          "castHash": "0xf8c7f6c0fea967f335287348d264b5e29a1b4d0c"
 </strong>        }
       ]
     }

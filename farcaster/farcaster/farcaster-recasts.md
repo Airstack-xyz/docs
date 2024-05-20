@@ -26,12 +26,14 @@ Farcaster Recasts Tutorial
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
 * [Get All Recasts By A Farcaster User](farcaster-recasts.md#get-all-recasts-by-a-farcaster-user)
+* [Get All Casts Recasted By A User In A Certain Channel](farcaster-recasts.md#get-all-casts-recasted-by-a-user-in-a-certain-channel)
 * [Get All Quoted Recasts By A Farcaster User](farcaster-recasts.md#get-all-quoted-recasts-by-a-farcaster-user)
 * [Get All Users That Recasts A Certain Cast](farcaster-recasts.md#get-all-users-that-recasts-a-certain-cast)
 * [Get All Users That Recasts Any Casts That Contains A Certain Farcaster Frames](farcaster-recasts.md#get-all-users-that-recasts-any-casts-that-contains-a-certain-farcaster-frames)
 * [Get All Quoted Recasts From A Cast Casted By A Farcaster User](farcaster-recasts.md#get-all-quoted-recasts-from-a-cast-casted-by-a-farcaster-user)
 * [Check If A User Recasted A Certain Cast By Cast Hash](farcaster-recasts.md#check-if-a-user-recasted-a-certain-cast-by-cast-hash)
 * [Check If User A Quote Recasted A Cast By User B](farcaster-recasts.md#check-if-user-a-quote-recasted-a-cast-by-user-b)
+* [Check If A User Recasted Any Cast In A Channel](farcaster-recasts.md#check-if-a-user-recasted-any-cast-in-a-channel)
 
 ### Pre-requisites
 
@@ -249,6 +251,65 @@ query MyQuery {
           }
         },
         // other recasts by FID 602
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All Casts Recasted By A User In A Certain Channel
+
+You can use the [`FarcasterReactions`](../../api-references/api-reference/farcasterreactions-api.md) API to get all the casts recasted by a user in a certain channel by providing the user's [identity](../../api-references/api-reference/airstack-identity-api.md) to `reactedBy` and the channel ID to `channelId` input filter:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/vnVrzqKz0e" %}
+Show me all the cast in /airstack channel recasted by FID 602
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterReactions(
+    input: {
+      filter: {
+        criteria: recasted,
+        channelId: {_eq: "airstack"},
+        reactedBy: {_eq: "fc_fid:602"}
+      },
+      blockchain: ALL,
+      limit: 200
+    }
+  ) {
+    Reaction {
+      castHash
+      cast {
+        text
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterReactions": {
+      "Reaction": [
+        {
+          "castHash": "0xfefeb9de55433701d020331a9204e38a009ed120",
+          "cast": {
+            "text": "Here you can check the $DEGEN price and swap to many types of coins simply.\n\nI'm going to buy $PIU by @pikefinance went up 28% yesterday 🎩\n\n@betashop.eth @airstack"
+          }
+        },
+        // Other casts recasted by FID 602 in /airstack channel
       ]
     }
   }
@@ -674,6 +735,58 @@ Check If FID 2602 ever quoted recasts any of FID 602's cast
         {
           // if not null, then user A quoted recasts FID 602's cast
 <strong>          "castedAtTimestamp": "2024-05-06T15:24:18Z"
+</strong>        }
+      ]
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Check If A User Recasted Any Cast In A Channel
+
+You can use the [`FarcasterReactions`](../../api-references/api-reference/farcasterreactions-api.md) APi to check if a user recasted any cast in a certain channel by providing the channel ID to `channelID` and the user's identity to the `reactedBy` input filter:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/p3vxntCi2c" %}
+Check If FID 602 recasted any cast in /airstack channel
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarcasterReactions(
+    input: {
+      filter: {
+        criteria: recasted,
+        channelId: {_eq: "airstack"},
+        reactedBy: {_eq: "fc_fid:602"}
+      },
+      blockchain: ALL,
+      limit: 1
+    }
+  ) {
+    Reaction {
+      castHash
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "FarcasterReactions": {
+      // If not `null`, then the user liked one of the cast in /airstack channel
+      "Reaction": [
+        {
+<strong>          "castHash": "0x1b742a4f754eb9dd52e4303e4e6ee30f0c0aba5e"
 </strong>        }
       ]
     }
