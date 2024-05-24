@@ -12,7 +12,7 @@ The Airstack Hubs API is offered for **FREE** for and provides **access to all r
 Airstack Hubs API Overview
 {% endembed %}
 
-'An Airstack API key is required but no credits are charged for read/write to Hubs. For more advanced queries, feeds, abstractions, and composability see our [Farcaster APIs](../farcaster/) and [Farcaster Frames](../farcaster-frames/) guides.
+An Airstack API key is required but no credits are charged for read/write to Hubs. For more advanced queries, feeds, abstractions, and composability see our [Farcaster APIs](../farcaster/) and [Farcaster Frames](../farcaster-frames/) guides.
 
 For the Airstack Hubs API, the rate limit is 3000 per minute / 300 per second.
 

@@ -48,18 +48,15 @@ You just need to specify the input to `ALL` for the query to work.
 
 ## Outputs
 
-```graphql
-type SocialFollower {
-  blockchain: Blockchain # Blockchain associated with the social identity
-  blockNumber
-  dappName: # Social DApp name
-  dappSlug: # Social DApp slug (contract version)
-  followerAddress: # Nested query - list of all followers
-  followerProfileId:
-  followerTokenId:
-  followerSince
-  followingAddress: # Nested query - list of all followings
-  followingProfileId: 
-  id: ID # Airstack unique identifier for this particular element
-}
-```
+| Name                 | Type              | Description                                                                                                    |
+| -------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------- |
+| `blockchain`         | `EveryBlockchain` | Blockchain associated with the social identity.                                                                |
+| `blockNumber`        | `Int`             | Blocknumber when the follows occured onchain.                                                                  |
+| `dappName`           | `String`          | Social DApp name – lens, farcaster                                                                             |
+| `dappSlug`           | `String`          | Social DApp slug (contract version) – lens\_polygon, lens\_v2\_polygon, farcaster\_optimism, farcaster\_goerli |
+| `followerAddress`    | `Wallet`          | **Nested Query** – Follower identity details, e.g. 0x address, Farcaster, ENS, etc.                            |
+| `followerProfileId`  | `String`          | Follower FID for Farcaster or follower's token ID for Lens.                                                    |
+| `followerSince`      | `Time`            | Timestamp when follows occured onchain.                                                                        |
+| `followingAddress`   | `Wallet`          | **Nested Query** – Following identity details, e.g. 0x address, Farcaster, ENS, etc.                           |
+| `followingProfileId` | `String`          | Following FID for Farcaster or following's token ID for Lens.                                                  |
+| `id`                 | `ID`              | Airstack Internal ID.                                                                                          |

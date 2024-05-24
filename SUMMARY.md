@@ -118,6 +118,13 @@
   * [🎆 Multiple Queries Execution](guides/basics/multiple-queries-execution.md)
   * [♋ Cross Chain Queries](guides/basics/cross-chain-queries.md)
   * [💡 Generate TypeScript Interfaces](guides/basics/generate-typescript-interfaces.md)
+* [🪝 Webhooks](guides/webhooks/README.md)
+  * [🚀 Quickstart](guides/webhooks/quickstart.md)
+  * [🧳 Managing Webhooks](guides/webhooks/managing-webhooks.md)
+  * [☀️ Profile Creation](guides/webhooks/profile-creation.md)
+  * [📸 Profile Update](guides/webhooks/profile-update.md)
+  * [🫂 Follow](guides/webhooks/follow.md)
+  * [🛑 Unfollow](guides/webhooks/unfollow.md)
 * [🎩 Degen Chain](guides/degen-chain.md)
 * [🥇 Gold Chain](guides/gold-chain.md)
 * [🆔 Resolve Identities](guides/resolve-identities/README.md)
@@ -274,6 +281,29 @@
   * [SocialCapitalValue](api-references/objects/socialcapitalvalue.md)
 * [🔢 Enum](api-references/enum/README.md)
   * [FarcasterReactionCriteria](api-references/enum/farcasterreactioncriteria.md)
+
+## Webhooks API Reference
+
+* [ℹ️ Overview](webhooks-api-reference/overview/README.md)
+  * [🔐 Authentication](webhooks-api-reference/overview/authentication.md)
+  * [⚗️ Filters](webhooks-api-reference/overview/filters.md)
+  * [⚙️ Advanced Filter Patterns](webhooks-api-reference/overview/advanced-filter-patterns.md)
+* [📖 API Reference](webhooks-api-reference/api-reference/README.md)
+  * [\[POST\] /webhooks](webhooks-api-reference/api-reference/post-webhooks.md)
+  * [\[POST\] /filters/test](webhooks-api-reference/api-reference/post-filters-test.md)
+  * [\[DELETE\] /webhooks/\<webhook-id>](webhooks-api-reference/api-reference/delete-webhooks-less-than-webhook-id-greater-than.md)
+* [⚗️ Filter](webhooks-api-reference/filter/README.md)
+  * [ProfileFilter](webhooks-api-reference/filter/profilefilter.md)
+  * [FollowFilter](webhooks-api-reference/filter/followfilter.md)
+* [📩 Payload](webhooks-api-reference/payload/README.md)
+  * [ProfilePayload](webhooks-api-reference/payload/profilepayload.md)
+  * [FollowPayload](webhooks-api-reference/payload/followpayload.md)
+* [🗃️ Objects](webhooks-api-reference/objects/README.md)
+  * [Authentication](webhooks-api-reference/objects/authentication.md)
+  * [FilterConfig](webhooks-api-reference/objects/filterconfig.md)
+  * [SocialCapital](webhooks-api-reference/objects/socialcapital.md)
+* [🔢 Enums](webhooks-api-reference/enums/README.md)
+  * [EventTypes](webhooks-api-reference/enums/eventtypes.md)
 
 ## Web SDK Reference
 
