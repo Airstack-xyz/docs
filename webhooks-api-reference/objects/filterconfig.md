@@ -12,11 +12,11 @@ description: >-
 {
   "endpoint": "https://webhook.site",
   "filter_config": {
-    "event_type": "ProfileUpdated",
+    "event_type": "profile.updated",
     "filter": {
       "userId": "3761"
     },
-    "payload": {    
+    "payload": {
       "userId": "3761",
       "userAddress": "0xa3a736379bfb4a9748c3e4daf5f9af0edfcc6c1a",
       "userAssociatedAddresses": [

@@ -12,11 +12,11 @@ Each events will have a different filter data structure as shown in the table be
 
 In addition, when specifying a filter in the `filter` field, you will be required to provide a sample payload in the `payload` field. Each payload will need to be in certain data structure similar to filter, with the additional condition that the payload **MUST** have the same value for every field defined in `filter`. Otherwise, other keys that is not included in `filter` can have an arbitrary value in `payload`.
 
-| Events           | Filter                                        | Payload                                          |
-| ---------------- | --------------------------------------------- | ------------------------------------------------ |
-| `ProfileCreated` | [`ProfileFilter`](../filter/profilefilter.md) | [`ProfilePayload`](../payload/profilepayload.md) |
-| `ProfileUpdated` | [`ProfileFilter`](../filter/profilefilter.md) | [`ProfilePayload`](../payload/profilepayload.md) |
-| `FollowCreated`  | [`FollowFilter`](../filter/followfilter.md)   | [`FollowPayload`](../payload/followpayload.md)   |
-| `FollowDeleted`  | [`FollowFilter`](../filter/followfilter.md)   | [`FollowPayload`](../payload/followpayload.md)   |
+| Events            | Filter                                        | Payload                                          |
+| ----------------- | --------------------------------------------- | ------------------------------------------------ |
+| `ProfileCreated`  | [`ProfileFilter`](../filter/profilefilter.md) | [`ProfilePayload`](../payload/profilepayload.md) |
+| `profile.updated` | [`ProfileFilter`](../filter/profilefilter.md) | [`ProfilePayload`](../payload/profilepayload.md) |
+| `follow.created`  | [`FollowFilter`](../filter/followfilter.md)   | [`FollowPayload`](../payload/followpayload.md)   |
+| `follow.deleted`  | [`FollowFilter`](../filter/followfilter.md)   | [`FollowPayload`](../payload/followpayload.md)   |
 
 To ensure that your filters are defined correctly, you can learn more on how to validate your filters [here](../../guides/webhooks/managing-webhooks.md#validating-filter-configuration).

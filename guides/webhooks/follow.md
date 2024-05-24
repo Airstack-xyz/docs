@@ -12,6 +12,7 @@ You can use Airstack webhooks to listen to all Farcaster follow events by using 
 
 {% tabs %}
 {% tab title="CURL" %}
+
 ```sh
 curl -X 'POST' \
   'https://webhooks.airstack.xyz/api/v1/webhooks' \
@@ -21,13 +22,15 @@ curl -X 'POST' \
   -d '{
   "endpoint": "https://webhook.site",
   "filter_config": {
-    "event_type": "FollowCreated"
+    "event_type": "follow.created"
   }
 }'
 ```
+
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript"><code class="lang-typescript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -40,7 +43,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-<strong>    event_type: 'FollowCreated', // Listen to all follow events
+<strong>    event_type: 'follow.created', // Listen to all follow events
 </strong>  }
 };
 
@@ -52,9 +55,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 <pre class="language-javascript"><code class="lang-javascript">// Prerequisites: npm install axios
 const axios = require('axios');
 
@@ -67,7 +72,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-<strong>    event_type: 'FollowCreated', // Listen to all follow events
+<strong>    event_type: 'follow.created', // Listen to all follow events
 </strong>  }
 };
 
@@ -79,9 +84,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Payload" %}
+
 ```json
 {
   "id": "000000020c162a7ffcaf089ae12f3e53372302cde3c95cf6bab7b3244df5daa6",
@@ -93,6 +100,7 @@ axios.post(url, data, { headers })
   "followerSince": "2024-02-09T07:37:59Z"
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -102,6 +110,7 @@ You can use Airstack webhooks to listen to all events when any Farcaster user fo
 
 {% tabs %}
 {% tab title="CURL" %}
+
 <pre class="language-sh"><code class="lang-sh">curl -X 'POST' \
   'https://webhooks.airstack.xyz/api/v1/webhooks' \
   -H 'accept: application/json' \
@@ -110,7 +119,7 @@ You can use Airstack webhooks to listen to all events when any Farcaster user fo
   -d '{
   "endpoint": "https://webhook.site",
   "filter_config": {
-    "event_type": "FollowCreated",
+    "event_type": "follow.created",
     "filter": {
 <strong>      "followerProfileId": "3761"
 </strong>    },
@@ -121,9 +130,11 @@ You can use Airstack webhooks to listen to all events when any Farcaster user fo
   }
 }'
 </code></pre>
+
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript"><code class="lang-typescript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -136,7 +147,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-<strong>    event_type: 'FollowCreated', // Listen to follow events,
+<strong>    event_type: 'follow.created', // Listen to follow events,
 </strong>    filter: {
 <strong>      followerProfileId: "3761" // filter by this FID
 </strong>    },
@@ -156,9 +167,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 <pre class="language-javascript"><code class="lang-javascript">// Prerequisites: npm install axios
 const axios = require('axios');
 
@@ -171,7 +184,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-<strong>    event_type: 'FollowCreated', // Listen to follow events,
+<strong>    event_type: 'follow.created', // Listen to follow events,
 </strong>    filter: {
 <strong>      followerProfileId: "3761" // filter by this FID
 </strong>    },
@@ -191,9 +204,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Payload" %}
+
 ```json
 {
   "id": "000000020c162a7ffcaf089ae12f3e53372302cde3c95cf6bab7b3244df5daa6",
@@ -205,6 +220,7 @@ axios.post(url, data, { headers })
   "followerSince": "2024-02-09T07:37:59Z"
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -214,6 +230,7 @@ You can use Airstack webhooks to listen to all follow events when a Farcaster us
 
 {% tabs %}
 {% tab title="CURL" %}
+
 ```sh
 curl -X 'POST' \
   'https://webhooks.airstack.xyz/api/v1/webhooks' \
@@ -223,7 +240,7 @@ curl -X 'POST' \
   -d '{
   "endpoint": "https://webhook.site",
   "filter_config": {
-    "event_type": "FollowCreated",
+    "event_type": "follow.created",
     "filter": {
       "followingProfileId": "326089"
     },
@@ -234,9 +251,11 @@ curl -X 'POST' \
   }
 }'
 ```
+
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript"><code class="lang-typescript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -249,7 +268,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-<strong>    event_type: 'FollowCreated', // Listen to follow events,
+<strong>    event_type: 'follow.created', // Listen to follow events,
 </strong>    filter: {
 <strong>      followingProfileId: "326089" // filter by this FID
 </strong>    },
@@ -269,9 +288,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 <pre class="language-javascript"><code class="lang-javascript">// Prerequisites: npm install axios
 const axios = require('axios');
 
@@ -284,7 +305,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-<strong>    event_type: 'FollowCreated', // Listen to follow events,
+<strong>    event_type: 'follow.created', // Listen to follow events,
 </strong>    filter: {
 <strong>      followingProfileId: "326089" // filter by this FID
 </strong>    },
@@ -304,9 +325,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Payload" %}
+
 ```json
 {
   "id": "000000020c162a7ffcaf089ae12f3e53372302cde3c95cf6bab7b3244df5daa6",
@@ -318,6 +341,7 @@ axios.post(url, data, { headers })
   "followerSince": "2024-02-09T07:37:59Z"
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -327,5 +351,5 @@ If you have any questions or need help regarding creating webhook for listening 
 
 ## More Resources
 
-* [Advanced Filter Patterns](../../webhooks-api-reference/overview/advanced-filter-patterns.md)
-* [Webhooks API Reference](../../webhooks-api-reference/overview/)
+- [Advanced Filter Patterns](../../webhooks-api-reference/overview/advanced-filter-patterns.md)
+- [Webhooks API Reference](../../webhooks-api-reference/overview/)

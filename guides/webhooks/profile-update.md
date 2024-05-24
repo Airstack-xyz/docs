@@ -12,6 +12,7 @@ You can use Airstack webhooks to listen to all Farcaster profile update events b
 
 {% tabs %}
 {% tab title="CURL" %}
+
 ```sh
 curl -X 'POST' \
   'https://webhooks.airstack.xyz/api/v1/webhooks' \
@@ -21,13 +22,15 @@ curl -X 'POST' \
   -d '{
   "endpoint": "https://webhook.site",
   "filter_config": {
-    "event_type": "ProfileUpdated"
+    "event_type": "profile.updated"
   }
 }'
 ```
+
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript"><code class="lang-typescript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -40,7 +43,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-<strong>    event_type: 'ProfileUpdated', // Listen to all profile updates
+<strong>    event_type: 'profile.updated', // Listen to all profile updates
 </strong>  }
 };
 
@@ -52,9 +55,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 <pre class="language-javascript"><code class="lang-javascript">// Prerequisites: npm install axios
 const axios = require('axios');
 
@@ -67,7 +72,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-<strong>    event_type: 'ProfileUpdated', // Listen to all profile updates
+<strong>    event_type: 'profile.updated', // Listen to all profile updates
 </strong>  }
 };
 
@@ -79,9 +84,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Payload" %}
+
 ```json
 {
   "id": "b9f62fdc493d1e0033b79dee9102fbe9f72e820e8acece4b6b9d21b2a4240b31",
@@ -131,6 +138,7 @@ axios.post(url, data, { headers })
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -140,6 +148,7 @@ You can use Airstack webhooks to listen to all Farcaster profile updates on a ce
 
 {% tabs %}
 {% tab title="CURL" %}
+
 <pre class="language-sh"><code class="lang-sh">curl -X 'POST' \
   'https://webhooks.airstack.xyz/api/v1/webhooks' \
   -H 'accept: application/json' \
@@ -148,7 +157,7 @@ You can use Airstack webhooks to listen to all Farcaster profile updates on a ce
   -d '{
   "endpoint": "https://webhook.site",
   "filter_config": {
-    "event_type": "ProfileUpdated",
+    "event_type": "profile.updated",
     "filter": {
 <strong>      "userId": "602"
 </strong>    },
@@ -173,9 +182,11 @@ You can use Airstack webhooks to listen to all Farcaster profile updates on a ce
   }
 }'
 </code></pre>
+
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript"><code class="lang-typescript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -188,7 +199,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-    event_type: 'ProfileUpdated', // Listen to all profile updates
+    event_type: 'profile.updated', // Listen to all profile updates
     filter: {
 <strong>      userId: "602"
 </strong>    },
@@ -221,9 +232,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 <pre class="language-javascript"><code class="lang-javascript">// Prerequisites: npm install axios
 const axios = require('axios');
 
@@ -236,7 +249,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-    event_type: 'ProfileUpdated', // Listen to all profile updates
+    event_type: 'profile.updated', // Listen to all profile updates
     filter: {
 <strong>      userId: "602"
 </strong>    },
@@ -269,9 +282,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Payload" %}
+
 <pre class="language-json"><code class="lang-json">{
   "id": "b9f62fdc493d1e0033b79dee9102fbe9f72e820e8acece4b6b9d21b2a4240b31",
   "eventTimestamp": "2024-05-11T08:43:50.531Z",
@@ -291,6 +306,7 @@ axios.post(url, data, { headers })
   // ...Other fields
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -300,6 +316,7 @@ You can use Airstack webhooks to listen to all Farcaster profile updates on an a
 
 {% tabs %}
 {% tab title="CURL" %}
+
 <pre class="language-sh"><code class="lang-sh">curl -X 'POST' \
   'https://webhooks.airstack.xyz/api/v1/webhooks' \
   -H 'accept: application/json' \
@@ -308,7 +325,7 @@ You can use Airstack webhooks to listen to all Farcaster profile updates on an a
   -d '{
   "endpoint": "https://webhook.site",
   "filter_config": {
-    "event_type": "ProfileUpdated",
+    "event_type": "profile.updated",
     "filter": {
       "userId": {
 <strong>        "$in": ["602", "2602"]
@@ -335,9 +352,11 @@ You can use Airstack webhooks to listen to all Farcaster profile updates on an a
   }
 }'
 </code></pre>
+
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript"><code class="lang-typescript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -350,7 +369,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-    event_type: 'ProfileUpdated', // Listen to all profile updates
+    event_type: 'profile.updated', // Listen to all profile updates
     filter: {
       userId: {
 <strong>        $in: ["602", "2602"]
@@ -387,9 +406,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 <pre class="language-javascript"><code class="lang-javascript">// Prerequisites: npm install axios
 const axios = require('axios');
 
@@ -402,7 +423,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-    event_type: 'ProfileUpdated', // Listen to all profile updates
+    event_type: 'profile.updated', // Listen to all profile updates
     filter: {
       userId: {
 <strong>        $in: ["602", "2602"]
@@ -439,9 +460,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Payload" %}
+
 ```json
 {
   "id": "b9f62fdc493d1e0033b79dee9102fbe9f72e820e8acece4b6b9d21b2a4240b31",
@@ -458,10 +481,11 @@ axios.post(url, data, { headers })
   ],
   "isDefault": false,
   "profileName": "betashop.eth",
-  "profileTokenId": "602",
+  "profileTokenId": "602"
   // ...Other fields
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -475,6 +499,7 @@ To implement the reverse, that is when losing a Farcaster power badge, simply se
 
 {% tabs %}
 {% tab title="CURL" %}
+
 <pre class="language-sh"><code class="lang-sh">curl -X 'POST' \
   'https://webhooks.airstack.xyz/api/v1/webhooks' \
   -H 'accept: application/json' \
@@ -483,7 +508,7 @@ To implement the reverse, that is when losing a Farcaster power badge, simply se
   -d '{
   "endpoint": "https://webhook.site",
   "filter_config": {
-    "event_type": "ProfileUpdated",
+    "event_type": "profile.updated",
     "filter": {
       "$and": [
         {
@@ -515,9 +540,11 @@ To implement the reverse, that is when losing a Farcaster power badge, simply se
   }
 }'
 </code></pre>
+
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript"><code class="lang-typescript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -530,7 +557,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-    event_type: 'ProfileUpdated', // Listen to all profile updates
+    event_type: 'profile.updated', // Listen to all profile updates
     filter: {
       $and: [
         {
@@ -571,9 +598,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 <pre class="language-javascript"><code class="lang-javascript">// Prerequisites: npm install axios
 const axios = require('axios');
 
@@ -586,7 +615,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-    event_type: 'ProfileUpdated', // Listen to all profile updates
+    event_type: 'profile.updated', // Listen to all profile updates
     filter: {
       $and: [
         {
@@ -627,9 +656,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Payload" %}
+
 ```json
 {
   "id": "b9f62fdc493d1e0033b79dee9102fbe9f72e820e8acece4b6b9d21b2a4240b31",
@@ -647,10 +678,11 @@ axios.post(url, data, { headers })
   "isDefault": false,
   "profileName": "betashop.eth",
   "profileTokenId": "602",
-  "isFarcasterPowerUser": true,
+  "isFarcasterPowerUser": true
   // ...Other fields
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -660,6 +692,7 @@ You can use Airstack webhooks to listen to a certain FID when follower count is 
 
 {% tabs %}
 {% tab title="CURL" %}
+
 <pre class="language-sh"><code class="lang-sh">curl -X 'POST' \
   'https://webhooks.airstack.xyz/api/v1/webhooks' \
   -H 'accept: application/json' \
@@ -668,7 +701,7 @@ You can use Airstack webhooks to listen to a certain FID when follower count is 
   -d '{
   "endpoint": "https://webhook.site",
   "filter_config": {
-    "event_type": "ProfileUpdated",
+    "event_type": "profile.updated",
     "filter": {
       "$and": [
         {
@@ -702,9 +735,11 @@ You can use Airstack webhooks to listen to a certain FID when follower count is 
   }
 }'
 </code></pre>
+
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript"><code class="lang-typescript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -717,7 +752,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-    event_type: 'ProfileUpdated', // Listen to all profile updates
+    event_type: 'profile.updated', // Listen to all profile updates
     filter: {
       $and: [
         {
@@ -759,9 +794,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 <pre class="language-javascript"><code class="lang-javascript">// Prerequisites: npm install axios
 const axios = require('axios');
 
@@ -774,7 +811,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-    event_type: 'ProfileUpdated', // Listen to all profile updates
+    event_type: 'profile.updated', // Listen to all profile updates
     filter: {
       $and: [
         {
@@ -816,9 +853,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Payload" %}
+
 ```json
 {
   "id": "b9f62fdc493d1e0033b79dee9102fbe9f72e820e8acece4b6b9d21b2a4240b31",
@@ -836,10 +875,11 @@ axios.post(url, data, { headers })
   "isDefault": false,
   "profileName": "betashop.eth",
   "profileTokenId": "602",
-  "followerCount": 2000,
+  "followerCount": 2000
   // ...Other fields
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -849,6 +889,7 @@ You can use Airstack webhooks to listen to a certain FID when following count is
 
 {% tabs %}
 {% tab title="CURL" %}
+
 <pre class="language-sh"><code class="lang-sh">curl -X 'POST' \
   'https://webhooks.airstack.xyz/api/v1/webhooks' \
   -H 'accept: application/json' \
@@ -857,7 +898,7 @@ You can use Airstack webhooks to listen to a certain FID when following count is
   -d '{
   "endpoint": "https://webhook.site",
   "filter_config": {
-    "event_type": "ProfileUpdated",
+    "event_type": "profile.updated",
     "filter": {
       "$and": [
         {
@@ -891,9 +932,11 @@ You can use Airstack webhooks to listen to a certain FID when following count is
   }
 }'
 </code></pre>
+
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript"><code class="lang-typescript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -906,7 +949,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-    event_type: 'ProfileUpdated', // Listen to all profile updates
+    event_type: 'profile.updated', // Listen to all profile updates
     filter: {
       $and: [
         {
@@ -948,9 +991,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 <pre class="language-javascript"><code class="lang-javascript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -963,7 +1008,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-    event_type: 'ProfileUpdated', // Listen to all profile updates
+    event_type: 'profile.updated', // Listen to all profile updates
     filter: {
       $and: [
         {
@@ -1005,9 +1050,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Payload" %}
+
 ```json
 {
   "id": "b9f62fdc493d1e0033b79dee9102fbe9f72e820e8acece4b6b9d21b2a4240b31",
@@ -1025,10 +1072,11 @@ axios.post(url, data, { headers })
   "isDefault": false,
   "profileName": "betashop.eth",
   "profileTokenId": "602",
-  "followingCount": 2000,
+  "followingCount": 2000
   // ...Other fields
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1038,6 +1086,7 @@ You can use Airstack webhooks to listen to a certain FID when social capital sco
 
 {% tabs %}
 {% tab title="CURL" %}
+
 <pre class="language-sh"><code class="lang-sh">curl -X 'POST' \
   'https://webhooks.airstack.xyz/api/v1/webhooks' \
   -H 'accept: application/json' \
@@ -1046,7 +1095,7 @@ You can use Airstack webhooks to listen to a certain FID when social capital sco
   -d '{
   "endpoint": "https://webhook.site",
   "filter_config": {
-    "event_type": "ProfileUpdated",
+    "event_type": "profile.updated",
     "filter": {
       "$and": [
         {
@@ -1082,9 +1131,11 @@ You can use Airstack webhooks to listen to a certain FID when social capital sco
   }
 }'
 </code></pre>
+
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript"><code class="lang-typescript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -1097,7 +1148,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-    event_type: 'ProfileUpdated', // Listen to all profile updates
+    event_type: 'profile.updated', // Listen to all profile updates
     filter: {
       $and: [
         {
@@ -1141,9 +1192,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 <pre class="language-javascript"><code class="lang-javascript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -1156,7 +1209,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-    event_type: 'ProfileUpdated', // Listen to all profile updates
+    event_type: 'profile.updated', // Listen to all profile updates
     filter: {
       $and: [
         {
@@ -1200,9 +1253,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Payload" %}
+
 ```json
 {
   "id": "b9f62fdc493d1e0033b79dee9102fbe9f72e820e8acece4b6b9d21b2a4240b31",
@@ -1223,10 +1278,11 @@ axios.post(url, data, { headers })
   "socialCapital": {
     "socialCapitalScore": 150,
     "socialCapitalRank": 100
-  },
+  }
   // ...Other fields
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1236,6 +1292,7 @@ You can use Airstack webhooks to listen to a certain FID when social capital ran
 
 {% tabs %}
 {% tab title="CURL" %}
+
 <pre class="language-sh"><code class="lang-sh">curl -X 'POST' \
   'https://webhooks.airstack.xyz/api/v1/webhooks' \
   -H 'accept: application/json' \
@@ -1244,7 +1301,7 @@ You can use Airstack webhooks to listen to a certain FID when social capital ran
   -d '{
   "endpoint": "https://webhook.site",
   "filter_config": {
-    "event_type": "ProfileUpdated",
+    "event_type": "profile.updated",
     "filter": {
       "$and": [
         {
@@ -1280,9 +1337,11 @@ You can use Airstack webhooks to listen to a certain FID when social capital ran
   }
 }'
 </code></pre>
+
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript"><code class="lang-typescript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -1295,7 +1354,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-    event_type: 'ProfileUpdated', // Listen to all profile updates
+    event_type: 'profile.updated', // Listen to all profile updates
     filter: {
       $and: [
         {
@@ -1340,9 +1399,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 <pre class="language-javascript"><code class="lang-javascript">// Prerequisites: npm install axios
 const axios = require('axios');
 
@@ -1355,7 +1416,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-    event_type: 'ProfileUpdated', // Listen to all profile updates
+    event_type: 'profile.updated', // Listen to all profile updates
     filter: {
       $and: [
         {
@@ -1400,9 +1461,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Payload" %}
+
 ```json
 {
   "id": "b9f62fdc493d1e0033b79dee9102fbe9f72e820e8acece4b6b9d21b2a4240b31",
@@ -1423,10 +1486,11 @@ axios.post(url, data, { headers })
   "socialCapital": {
     "socialCapitalScore": 150,
     "socialCapitalRank": 10
-  },
+  }
   // ...Other fields
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1436,5 +1500,5 @@ If you have any questions or need help regarding creating webhook for listening 
 
 ## More Resources
 
-* [Advanced Filter Patterns](../../webhooks-api-reference/overview/advanced-filter-patterns.md)
-* [Webhooks API Reference](../../webhooks-api-reference/overview/)
+- [Advanced Filter Patterns](../../webhooks-api-reference/overview/advanced-filter-patterns.md)
+- [Webhooks API Reference](../../webhooks-api-reference/overview/)

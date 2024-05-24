@@ -10,8 +10,8 @@ In this tutorial, you will learn how to quickly create your first Airstack webho
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of webhooks
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of webhooks
 
 ## Create A Receiving Endpoint
 
@@ -43,21 +43,27 @@ First, install `express` npm package to your project:
 
 {% tabs %}
 {% tab title="npm" %}
+
 ```sh
 npm i express
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
+
 ```sh
 yarn add express
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
+
 ```sh
 pnpm add express
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -65,39 +71,43 @@ Then, create a **POST** endpoint where you can receive the payload in the body a
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
-import express, { Request, Response } from 'express';
+import express, { Request, Response } from "express";
 
 const app = express();
 
-app.post('/webhook', (request: Request, response: Response) => {
+app.post("/webhook", (request: Request, response: Response) => {
   const { eventName, data } = request.body ?? {};
-  
+
   // Add your business logic here
 
   response.status(200).json("Success");
 });
 
-app.listen(4000, () => console.log('Running on port 4000'));
+app.listen(4000, () => console.log("Running on port 4000"));
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
-const express = require('express');
+const express = require("express");
 
 const app = express();
 
-app.post('/webhook', (request, response) => {
+app.post("/webhook", (request, response) => {
   const { eventName, payload } = request.body ?? {};
-  
+
   // Add your business logic here
 
   response.status(200).json("Success");
 });
 
-app.listen(4000, () => console.log('Running on port 4000'));
+app.listen(4000, () => console.log("Running on port 4000"));
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -121,6 +131,7 @@ In the example below, it shows you configuration to listen to all profile update
 
 {% tabs %}
 {% tab title="CURL" %}
+
 ```sh
 curl -X 'POST' \
   'https://webhooks.airstack.xyz/api/v1/webhooks' \
@@ -130,14 +141,16 @@ curl -X 'POST' \
   -d '{
   "endpoint": "https://webhook.site",
   "filter_config": {
-    "event_type": "ProfileUpdated"
+    "event_type": "profile.updated"
     }
   }
 }'
 ```
+
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript"><code class="lang-typescript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -150,7 +163,7 @@ const headers = {
 const data = {
 <strong>  endpoint: 'https://webhook.site', // your endpoint
 </strong>  filter_config: {
-<strong>    event_type: 'ProfileUpdated', // Listen to all profile updates
+<strong>    event_type: 'profile.updated', // Listen to all profile updates
 </strong>  }
 };
 
@@ -162,9 +175,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 <pre class="language-javascript"><code class="lang-javascript">// Prerequisites: npm install axios
 const axios = require('axios');
 
@@ -177,7 +192,7 @@ const headers = {
 const data = {
 <strong>  endpoint: 'https://webhook.site', // your endpoint
 </strong>  filter_config: {
-<strong>    event_type: 'ProfileUpdated', // Listen to all profile updates
+<strong>    event_type: 'profile.updated', // Listen to all profile updates
 </strong>  }
 };
 
@@ -189,9 +204,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "webhook_id": "01HYDYEBHMANSVJ0JKSVK9W3VY",
   "portal_link": "https://apiserver.instance-fm94fpopa.hc-fhtewk6q9.us-east-2.aws.f2e0a955bb84.cloud/portal?token=am4AdjH0bz67JDDTRwNesZMO",
@@ -203,6 +220,7 @@ axios.post(url, data, { headers })
 </strong>  "message": "Successfully created subscription"
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -216,4 +234,4 @@ If you have any questions or need help regarding building your 1st webhook, plea
 
 ## More Resources
 
-* [Webhooks API Reference](../../webhooks-api-reference/overview/)
+- [Webhooks API Reference](../../webhooks-api-reference/overview/)

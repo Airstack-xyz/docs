@@ -18,6 +18,7 @@ To learn more about filter configuration, check this section [here](managing-web
 
 {% tabs %}
 {% tab title="CURL" %}
+
 ```sh
 curl -X 'POST' \
   'https://webhooks.airstack.xyz/api/v1/webhooks' \
@@ -27,14 +28,16 @@ curl -X 'POST' \
   -d '{
   "endpoint": "https://webhook.site",
   "filter_config": {
-    "event_type": "ProfileUpdated"
+    "event_type": "profile.updated"
     }
   }
 }'
 ```
+
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript"><code class="lang-typescript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -47,7 +50,7 @@ const headers = {
 const data = {
 <strong>  endpoint: 'https://webhook.site', // your endpoint
 </strong>  filter_config: {
-<strong>    event_type: 'ProfileUpdated', // Listen to all profile updates
+<strong>    event_type: 'profile.updated', // Listen to all profile updates
 </strong>  }
 };
 
@@ -59,9 +62,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 <pre class="language-javascript"><code class="lang-javascript">// Prerequisites: npm install axios
 const axios = require('axios');
 
@@ -74,7 +79,7 @@ const headers = {
 const data = {
 <strong>  endpoint: 'https://webhook.site', // your endpoint
 </strong>  filter_config: {
-<strong>    event_type: 'ProfileUpdated', // Listen to all profile updates
+<strong>    event_type: 'profile.updated', // Listen to all profile updates
 </strong>  }
 };
 
@@ -86,9 +91,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "webhook_id": "01HYDYEBHMANSVJ0JKSVK9W3VY",
   "portal_link": "https://apiserver.instance-fm94fpopa.hc-fhtewk6q9.us-east-2.aws.f2e0a955bb84.cloud/portal?token=am4AdjH0bz67JDDTRwNesZMO",
@@ -100,6 +107,7 @@ axios.post(url, data, { headers })
 </strong>  "message": "Successfully created subscription"
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -109,45 +117,50 @@ To receive data payload from webhooks, you will need to have a **POST** endpoint
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
-import express, { Request, Response } from 'express';
+import express, { Request, Response } from "express";
 
 const app = express();
 
-app.post('/webhook', (request: Request, response: Response) => {
+app.post("/webhook", (request: Request, response: Response) => {
   console.log(request.body);
-  
+
   // Add your business logic here
 
   response.status(200).json("Success");
 });
 
-app.listen(4000, () => console.log('Running on port 4000'));
+app.listen(4000, () => console.log("Running on port 4000"));
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
-const express = require('express');
+const express = require("express");
 
 const app = express();
 
-app.post('/webhook', (request, response) => {
+app.post("/webhook", (request, response) => {
   console.log(request.body);
-  
+
   // Add your business logic here
 
   response.status(200).json("Success");
 });
 
-app.listen(4000, () => console.log('Running on port 4000'));
+app.listen(4000, () => console.log("Running on port 4000"));
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
-  "eventName": "ProfileUpdated",
+  "eventName": "profile.updated",
   "data": {
     "id": "b9f62fdc493d1e0033b79dee9102fbe9f72e820e8acece4b6b9d21b2a4240b31",
     "eventTimestamp": "2024-05-11T08:43:50.531Z",
@@ -160,10 +173,11 @@ app.listen(4000, () => console.log('Running on port 4000'));
       "0xa3a736379bfb4a9748c3e4daf5f9af0edfcc6c1a",
       "Cry3MBYMS34p67Tr6pmart85JuTpdULhgDtaV8rxadng",
       "0xcbfbcbfca74955b8ab75dec41f7b9ef36f329879"
-    ],
+    ]
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -183,9 +197,9 @@ This will provide you with a tunnel URL that you can provide as an endpoint when
 
 Filter configuration has 3 available fields:
 
-* **event\_type (Required): s**pecify the type of events on Farcaster network to listen to, check out the list [here](../../webhooks-api-reference/enums/eventtypes.md).
-* **filter:** specify to filter based on the available filter field and the value specified. For ProfileCreated and ProfileUpdated events, check out [**ProfileFilter**](../../webhooks-api-reference/filter/profilefilter.md)**.** For FollowAdded and FollowDeleted events, check out [**FollowFilter**](../../webhooks-api-reference/filter/followfilter.md).
-* **payload**: Only required if **filter** field exist. This field accepts a sample payload which needs to have the same field value for fields specified in **filter**, while others can have arbitrary value. For ProfileCreated and ProfileUpdated events, check out [**ProfilePayload**](../../webhooks-api-reference/payload/profilepayload.md)**.** For FollowAdded and FollowDeleted events, check out [**FollowPayload**](../../webhooks-api-reference/payload/followpayload.md).
+- **event_type (Required): s**pecify the type of events on Farcaster network to listen to, check out the list [here](../../webhooks-api-reference/enums/eventtypes.md).
+- **filter:** specify to filter based on the available filter field and the value specified. For profile.created and profile.updated events, check out [**ProfileFilter**](../../webhooks-api-reference/filter/profilefilter.md)**.** For follow.created and follow.deleted events, check out [**FollowFilter**](../../webhooks-api-reference/filter/followfilter.md).
+- **payload**: Only required if **filter** field exist. This field accepts a sample payload which needs to have the same field value for fields specified in **filter**, while others can have arbitrary value. For profile.created and profile.updated events, check out [**ProfilePayload**](../../webhooks-api-reference/payload/profilepayload.md)**.** For follow.created and follow.deleted events, check out [**FollowPayload**](../../webhooks-api-reference/payload/followpayload.md).
 
 In order to ensure that your webhooks are created successfully, it is best practice that you validate your filter configuration as shown below:
 
@@ -197,13 +211,14 @@ Otherwise, if this is not fulfilled, validation will fail.
 
 {% tabs %}
 {% tab title="CURL" %}
+
 <pre class="language-sh"><code class="lang-sh">curl -X 'POST' \
   'http://webhooks.airstack.xyz/api/v1/filters/test' \
   -H 'accept: application/json' \
   -H 'Authorization: &#x3C;YOUR_AIRSTACK_API_KEY>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "event_type": "FollowDeleted",
+    "event_type": "follow.deleted",
     "filter": {
 <strong>      "followerProfileId": "3761"
 </strong>    },
@@ -213,9 +228,11 @@ Otherwise, if this is not fulfilled, validation will fail.
     }
   }'
 </code></pre>
+
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
 <pre class="language-typescript"><code class="lang-typescript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -228,7 +245,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-<strong>    event_type: 'FollowDeleted', // Listen to all unfollow events
+<strong>    event_type: 'follow.deleted', // Listen to all unfollow events
 </strong>    filter: {
 <strong>      followerProfileId: "3761"
 </strong>    },
@@ -247,9 +264,11 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 <pre class="language-javascript"><code class="lang-javascript">// Prerequisites: npm install axios
 const axios = require('axios');
 
@@ -262,7 +281,7 @@ const headers = {
 const data = {
   endpoint: 'https://webhook.site', // your endpoint
   filter_config: {
-<strong>    event_type: 'FollowDeleted', // Listen to all unfollow events
+<strong>    event_type: 'follow.deleted', // Listen to all unfollow events
 </strong>    filter: {
 <strong>      followerProfileId: "3761"
 </strong>    },
@@ -281,14 +300,17 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "success": true
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -298,63 +320,73 @@ To delete an existing webhook, simply run the following code and provide the web
 
 {% tabs %}
 {% tab title="CURL" %}
+
 ```sh
 curl -X 'DELETE' \
   'http://webhooks.airstack.xyz/api/v1/webhooks/<webhook_id>' \
   -H 'accept: application/json' \
   -H 'Authorization: <YOUR_AIRSTACK_API_KEY>'
 ```
+
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
 ```typescript
 // Prerequisites: npm install axios
-import axios from 'axios';
+import axios from "axios";
 
-const url = 'http://webhooks.airstack.xyz/api/v1/webhooks/<webhook_id>';
+const url = "http://webhooks.airstack.xyz/api/v1/webhooks/<webhook_id>";
 const headers = {
-  'accept': 'application/json',
-  'Authorization': 'YOUR_AIRSTACK_API_KEY'
+  accept: "application/json",
+  Authorization: "YOUR_AIRSTACK_API_KEY",
 };
 
-axios.delete(url, { headers })
-  .then(response => {
-    console.log('Webhook deleted successfully:', response.data.message);
+axios
+  .delete(url, { headers })
+  .then((response) => {
+    console.log("Webhook deleted successfully:", response.data.message);
   })
-  .catch(error => {
-    console.error('There was an error!', error);
+  .catch((error) => {
+    console.error("There was an error!", error);
   });
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 // Prerequisites: npm install axios
-const axios = require('axios');
+const axios = require("axios");
 
-const url = 'http://webhooks.airstack.xyz/api/v1/webhooks/<webhook_id>';
+const url = "http://webhooks.airstack.xyz/api/v1/webhooks/<webhook_id>";
 const headers = {
-  'accept': 'application/json',
-  'Authorization': 'YOUR_AIRSTACK_API_KEY'
+  accept: "application/json",
+  Authorization: "YOUR_AIRSTACK_API_KEY",
 };
 
-axios.delete(url, { headers })
-  .then(response => {
-    console.log('Webhook deleted successfully:', response.data.message);
+axios
+  .delete(url, { headers })
+  .then((response) => {
+    console.log("Webhook deleted successfully:", response.data.message);
   })
-  .catch(error => {
-    console.error('There was an error!', error);
+  .catch((error) => {
+    console.error("There was an error!", error);
   });
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "message": "Webhook deleted successfully",
   "status": true
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -364,6 +396,6 @@ If you have any questions or need help regarding managing Airstack webhooks, ple
 
 ## More Resources
 
-* [Quickstart Guide](quickstart.md)
-* [Advanced Filter Patterns](../../webhooks-api-reference/overview/advanced-filter-patterns.md)
-* [Webhooks API Reference](../../webhooks-api-reference/overview/)
+- [Quickstart Guide](quickstart.md)
+- [Advanced Filter Patterns](../../webhooks-api-reference/overview/advanced-filter-patterns.md)
+- [Webhooks API Reference](../../webhooks-api-reference/overview/)

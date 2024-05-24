@@ -6,9 +6,9 @@ description: >-
 
 # EventTypes
 
-| Value            | Description                                                                            |
-| ---------------- | -------------------------------------------------------------------------------------- |
-| `ProfileCreated` | Webhoook will push to your endpoint when **Farcaster profile creation** occurs.        |
-| `ProfileUpdated` | Webhoook will push to your endpoint when **Farcaster profile update** occurs.          |
-| `FollowCreated`  | Webhoook will push to your endpoint when **Farcaster profile follows another user**.   |
-| `FollowDeleted`  | Webhoook will push to your endpoint when **Farcaster profile unfollows another user**. |
+| Value             | Description                                                                            |
+| ----------------- | -------------------------------------------------------------------------------------- |
+| `profile.created` | Webhoook will push to your endpoint when **Farcaster profile creation** occurs.        |
+| `profile.updated` | Webhoook will push to your endpoint when **Farcaster profile update** occurs.          |
+| `follow.created`  | Webhoook will push to your endpoint when **Farcaster profile follows another user**.   |
+| `follow.deleted`  | Webhoook will push to your endpoint when **Farcaster profile unfollows another user**. |
