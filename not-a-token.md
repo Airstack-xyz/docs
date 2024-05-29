@@ -21,9 +21,6 @@ description: Learn all about Not A Token and how you can earn it.
   * **On Airstack,** the Purple banner with the 😶 on each Cast on Airstack indicates the amount of Not A Token earned for the cast. See [Trending Casts](https://airstack.xyz/trending-casts) as example. \
     \
     ![](<.gitbook/assets/Screenshot 2024-05-01 at 8.07.19 AM.png>)\
-    \
-
-* **Earn 10,000 Not A Token the first time you run an API call with Airstack**. A connected Farcaster account is required. To sign up, click [here](https://app.airstack.xyz).\
 
 * **Earn 100 Not A Token every time a unique Farcaster user uses your Frames** as a developer**.**&#x20;
   * You must use the [Airstack Frame Validator (free)](farcaster/farcaster-frames/frames-validator.md) in order for us to track and associate the usage.\
