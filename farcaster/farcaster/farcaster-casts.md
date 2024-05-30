@@ -27,7 +27,8 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Get All Casts That Have Embeds](farcaster-casts.md#get-all-casts-that-have-embeds)&#x20;
 * [Get All Casts Casted At Certain Period Of Time](farcaster-casts.md#get-all-casts-casted-at-certain-period-of-time)
 * [Get All Casts That Have Mentions](farcaster-casts.md#get-all-casts-that-have-mentions)
-* [Get Details Of A Certain Cast](farcaster-casts.md#get-details-of-a-certain-cast)
+* [Get Details Of A Certain Cast By Cast URL](farcaster-casts.md#get-details-of-a-certain-cast-by-cast-url)
+* [Get Details Of A Certain Cast By Cast Hash](farcaster-casts.md#get-details-of-a-certain-cast-by-cast-hash)
 
 ### Pre-requisites
 
@@ -674,9 +675,9 @@ Show me all the casts that has mentions
 {% endtab %}
 {% endtabs %}
 
-## Get Details Of A Certain Cast
+## Get Details Of A Certain Cast By Cast URL
 
-You can fetch all the details, including text, embeds, url, [social capital value](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md), etc., of a given cast by using the [`FarcasterCasts`](../../api-references/api-reference/farcastercasts-api.md) API and provide the cast's URL from Warpcast the `url` filter:
+You can fetch all the details, including text, embeds, url, [social capital value](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md), etc., of a given cast by using the [`FarcasterCasts`](../../api-references/api-reference/farcastercasts-api.md) API and provide the cast's URL from Warpcast to the `url` filter:
 
 ### Try Demo
 
@@ -720,6 +721,97 @@ query MyQuery {
   }
 }
 ```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterCasts": {
+      "Cast": [
+        {
+          "castedAtTimestamp": "2024-02-27T19:07:25Z",
+          "embeds": [
+            {
+              "url": "https://audius.co/dannylove/lovestruck"
+            }
+          ],
+          "text": "https://audius.co/dannylove/lovestruck\n\n@audius it works!!",
+          "numberOfRecasts": 0,
+          "numberOfLikes": 0,
+          "numberOfReplies": 0,
+          "channel": {
+            "channelId": "music"
+          },
+          "mentions": [
+            {
+              "fid": "366747",
+              "position": 40
+            }
+          ],
+          "socialCapitalValue": {
+            "rawValue": "40837104",
+            "formattedValue": 0.00040837104
+          }
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Details Of A Certain Cast By Cast Hash
+
+You can fetch all the details, including text, embeds, url, [social capital value](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md), etc., of a given cast by using the [`FarcasterCasts`](../../api-references/api-reference/farcastercasts-api.md) API and provide the cast's hash to the `hash` filter:&#x20;
+
+{% hint style="info" %}
+If the cast is a reply and not a root cast, then you should use this query [here](farcaster-replies.md#get-farcaster-reply-details-by-reply-cast-hash).
+{% endhint %}
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/6VEOId85Tb" %}
+show me the cast details of cast hash 0xabc6855945863f4fb9ebfe350c4366b74448d974
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  FarcasterCasts(
+    input: {
+      filter: {
+        # specify cast hash
+<strong>        hash: {_eq: "0xabc6855945863f4fb9ebfe350c4366b74448d974"}
+</strong>      },
+      blockchain: ALL
+    }
+  ) {
+    Cast {
+      castedAtTimestamp
+      embeds
+      text
+      numberOfRecasts
+      numberOfLikes
+      numberOfReplies
+      channel {
+        channelId
+      }
+      mentions {
+        fid
+        position
+      }
+      socialCapitalValue {
+        rawValue
+        formattedValue
+      }
+    }
+  }
+}
+</code></pre>
 {% endtab %}
 
 {% tab title="Response" %}

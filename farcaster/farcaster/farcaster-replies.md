@@ -26,6 +26,7 @@ Farcaster Replies Tutorial
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
 * [Get All Replies By A Farcaster User](farcaster-replies.md#get-all-replies-by-a-farcaster-user)
+* [Get Farcaster Reply Details By Reply Cast Hash](farcaster-replies.md#get-farcaster-reply-details-by-reply-cast-hash)
 * [Get All Casts Replied By A User In A Certain Channel](farcaster-replies.md#get-all-casts-replied-by-a-user-in-a-certain-channel)
 * [Get All Replies Of A Certain Cast By Cast Hash](farcaster-replies.md#get-all-replies-of-a-certain-cast-by-cast-hash)
 * [Get All Replies From A Cast Casted By A Farcaster User](farcaster-replies.md#get-all-replies-from-a-cast-casted-by-a-farcaster-user)
@@ -224,6 +225,78 @@ Show me all the replies casted by FID 602
           "channel": null,
           "mentions": []
         },
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Farcaster Reply Details By Reply Cast Hash
+
+You can use [`FarcasterReplies`](../../api-references/api-reference/farcasterreplies-api.md) API to fetch a Farcaster reply details of a given Farcaster reply cast hash by specifying the reply cast in `hash` input filter:
+
+{% hint style="info" %}
+If the cast is a root cast and not a reply, then you should use this query [here](farcaster-casts.md#get-details-of-a-certain-cast-by-cast-hash).
+{% endhint %}
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/yUCOqXaIyl" %}
+Show me Farcaster reply details of reply cast hash 0x20c4102f0cbcb6175af1d08005be0158f54977d7
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  FarcasterReplies(
+    input: {
+      filter: {
+        # specify the reply cast hash
+<strong>        hash: {_eq: "0x20c4102f0cbcb6175af1d08005be0158f54977d7"}
+</strong>      },
+      blockchain: ALL
+    }
+  ) {
+    Reply {
+      castedAtTimestamp
+      embeds
+      url
+      text
+      numberOfRecasts
+      numberOfLikes
+      channel {
+        channelId
+      }
+      mentions {
+        fid
+        position
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterReplies": {
+      "Reply": [
+        {
+          "castedAtTimestamp": "2024-05-30T11:51:24Z",
+          "embeds": [],
+          "url": "https://warpcast.com/hihit/0x20c4102f",
+          "text": "Neat piece! 🌈",
+          "numberOfRecasts": 0,
+          "numberOfLikes": 0,
+          "channel": null,
+          "mentions": []
+        }
       ]
     }
   }
