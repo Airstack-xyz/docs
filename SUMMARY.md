@@ -126,6 +126,7 @@
   * [🫂 Follow](guides/webhooks/follow.md)
   * [🛑 Unfollow](guides/webhooks/unfollow.md)
 * [🎩 Degen Chain](guides/degen-chain.md)
+* [🍖 Ham Chain](guides/ham-chain.md)
 * [🥇 Gold Chain](guides/gold-chain.md)
 * [🆔 Resolve Identities](guides/resolve-identities/README.md)
   * [🔑 0x Address](guides/resolve-identities/0x-address.md)
