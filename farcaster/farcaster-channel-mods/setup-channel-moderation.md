@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how you can use Airstack to setup channel moderation quickly based on
-  various onchain criteria on your Farcaster channel.
+  Learn how you can use Airstack to setup channel moderation quickly for FREE
+  based on various onchain criteria on your Farcaster channel.
 ---
 
 # ⚒️ Setup Channel Moderation
