@@ -48,6 +48,7 @@
   * [⚒️ Setup Channel Moderation](farcaster/farcaster-channel-mods/setup-channel-moderation.md)
   * [⚙️ Edit Moderation](farcaster/farcaster-channel-mods/edit-moderation.md)
   * [🧹 Manual Sweep](farcaster/farcaster-channel-mods/manual-sweep.md)
+  * [🏇 Not A Bot Cast Action](farcaster/farcaster-channel-mods/not-a-bot-cast-action.md)
 * [🖼️ Farcaster Frames](farcaster/farcaster-frames/README.md)
   * [🚀 Quickstart](farcaster/farcaster-frames/quickstart/README.md)
     * [🗼 Node.js](farcaster/farcaster-frames/quickstart/node.js.md)

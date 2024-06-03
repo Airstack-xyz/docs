@@ -90,3 +90,4 @@ If you have any questions or need help regarding setting up moderation on your F
 * [Farcaster Channel Mod Overview](overview.md)
 * [Edit Moderation](edit-moderation.md)
 * [Manual Sweep](manual-sweep.md)
+* [Not A Bot Cast Action](not-a-bot-cast-action.md)

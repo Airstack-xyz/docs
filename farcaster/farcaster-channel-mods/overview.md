@@ -77,3 +77,4 @@ If you have any questions or need help regarding any features from Farcaster Cha
 * [Setup Channel Moderation](setup-channel-moderation.md)
 * [Edit Moderation](edit-moderation.md)
 * [Manual Sweep](manual-sweep.md)
+* [Not A Bot Cast Action](not-a-bot-cast-action.md)
