@@ -22,8 +22,9 @@ description: Learn all about Not A Token and how you can earn it.
     \
     ![](<.gitbook/assets/Screenshot 2024-05-01 at 8.07.19 AM.png>)\
 
-* **Earn 100 Not A Token every time a unique Farcaster user uses your Frames** as a developer**.**&#x20;
-  * You must use the [Airstack Frame Validator (free)](farcaster/farcaster-frames/frames-validator.md) in order for us to track and associate the usage.\
+* **Earn Not A Token every time a unique Farcaster user uses your Frames** as a developer**.**&#x20;
+  * You must use the [Airstack Frame Validator (free)](farcaster/farcaster-frames/frames-validator.md) in order for us to track and associate the usage.
+  * Update 1 June, 2024: Not A Token earned from Frames = 25 per unique FID interacting with your Frame. \
 
 * **Earn Not A Token whenever you swap tokens through Airstack Swap Frames or whenever someone swaps from a Airstack Swap Frame you share.** [Learn more and create and share a Swap Frame](https://airstack.xyz/notatoken).&#x20;
 
