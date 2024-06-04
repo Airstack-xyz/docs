@@ -203,7 +203,7 @@ Show NFT on Ethereum owned by users
         }
         tokenType: { _in: [ERC1155, ERC721] }
       }
-<strong>      blockchain: ethereum # This can be changed to polygon, base, or zora
+<strong>      blockchain: ethereum # This can be changed to other Airstack-supported chains
 </strong>      limit: 50
     }
   ) {

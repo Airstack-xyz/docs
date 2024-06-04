@@ -337,7 +337,7 @@ query GetTokenTransfers($senders: [Identity!]) {
 
 ## Check If Senders Have Any Token Balances
 
-You can check if senders hold any token in their wallet across multiple chains, e.g. Ethereum, Polygon, Base, or Zora, by providing an array of senders' 0x addresses to the `$senders` variable using the [`TokenBalances`](../../../api-references/api-reference/tokenbalances-api.md) API:
+You can check if senders hold any token in their wallet across multiple chains, e.g. Ethereum, Base, Degen, or other Airstack-supported chains, by providing an array of senders' 0x addresses to the `$senders` variable using the [`TokenBalances`](../../../api-references/api-reference/tokenbalances-api.md) API:
 
 {% hint style="info" %}
 You can use this query to filter senders **on the fly** with a maximum of 200 wallet inputs to the `$senders` variable per API call.
