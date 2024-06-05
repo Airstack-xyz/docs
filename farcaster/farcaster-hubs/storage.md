@@ -4,9 +4,9 @@ description: Learn how to fetch storage data using Airstack Hubs API.
 
 # 📦 Storage
 
-## Get Storage Limits By FID
+## Get Storage Limits And Usages By FID
 
-You can get the detailed storage limit of various categories (cast storage, follow storage, recation storage, etc.) that a specific FID has by using Airstack Hubs API with the code below:
+You can get the detailed storage limit and current storage usages of various categories (cast storage, follow storage, recation storage, etc.) that a specific FID has by using Airstack Hubs API with the code below:
 
 {% tabs %}
 {% tab title="@farcaster/hub-nodejs" %}
