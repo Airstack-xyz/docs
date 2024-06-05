@@ -25,7 +25,7 @@ curl -X 'POST' \
   -H 'Authorization: <YOUR_AIRSTACK_API_KEY>' \
   -H 'Content-Type: application/json' \
   -d '{
-  "endpoint": "https://webhook.site",
+  "endpoint": "YOUR_ENDPOINT",
   "filter_config": {
     "event_type": "profile.updated"
     }
@@ -45,7 +45,7 @@ const headers = {
   'Content-Type': 'application/json'
 };
 const data = {
-<strong>  endpoint: 'https://webhook.site', // your endpoint
+<strong>  endpoint: 'YOUR_ENDPOINT', // your endpoint
 </strong>  filter_config: {
 <strong>    event_type: 'profile.updated', // Listen to all profile updates
 </strong>  }
@@ -72,7 +72,7 @@ const headers = {
   'Content-Type': 'application/json'
 };
 const data = {
-<strong>  endpoint: 'https://webhook.site', // your endpoint
+<strong>  endpoint: 'YOUR_ENDPOINT', // your endpoint
 </strong>  filter_config: {
 <strong>    event_type: 'profile.updated', // Listen to all profile updates
 </strong>  }
@@ -181,6 +181,8 @@ ngrok http 4000 # Or replace with the PORT for your endpoint
 ```
 
 This will provide you with a tunnel URL that you can provide as an endpoint when creating the webhook.
+
+Once your endpoint is ready for production, simply deploy it to your preferred hosting platform.
 
 ## Validating Filter Configuration
 

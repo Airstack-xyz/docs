@@ -21,20 +21,6 @@ If you already have an endpoint to receive data payload from Airstack webhooks, 
 
 Before creating your first webhook, make sure that you have an endpoint to receive the data payload pushed by Airstack webhooks.
 
-There are two options to get an endpoint:
-
-### Option #1: webhook.site (Easy)
-
-This is **highly recommended** if you are testing Airstack webhooks for the first time.
-
-Simply click on the link below and you'll be provided with an endpoint that can receive real-time data payload from Airstack for any Farcaster events occur:
-
-{% embed url="https://webhook.site/" %}
-webhook.site
-{% endembed %}
-
-### Option #2: Dedicated Backend (Advanced)
-
 In this tutorial, you will be shown how to create a dedicated **POST** endpoint using Express.
 
 However, if you are familiar with building other frameworks, feel free to build the POST endpoint with the frameworks of your choice.
@@ -119,6 +105,8 @@ ngrok http 4000 # Or replace with the PORT for your endpoint
 
 This will provide you with a tunnel URL that you can provide as an endpoint when creating the webhook.
 
+Once your endpoint is ready for production, simply deploy it to your preferred hosting platform.
+
 ## Create Your First Webhooks
 
 Once you have your endpoint ready, you can then create your webhooks by calling the `/webhooks` API.
@@ -134,7 +122,7 @@ curl -X 'POST' \
   -H 'Authorization: <YOUR_AIRSTACK_API_KEY>' \
   -H 'Content-Type: application/json' \
   -d '{
-  "endpoint": "https://webhook.site",
+  "endpoint": "YOUR_ENDPOINT",
   "filter_config": {
     "event_type": "profile.updated"
     }
@@ -154,7 +142,7 @@ const headers = {
   'Content-Type': 'application/json'
 };
 const data = {
-<strong>  endpoint: 'https://webhook.site', // your endpoint
+<strong>  endpoint: 'YOUR_ENDPOINT', // your endpoint
 </strong>  filter_config: {
 <strong>    event_type: 'profile.updated', // Listen to all profile updates
 </strong>  }
@@ -181,7 +169,7 @@ const headers = {
   'Content-Type': 'application/json'
 };
 const data = {
-<strong>  endpoint: 'https://webhook.site', // your endpoint
+<strong>  endpoint: 'YOUR_ENDPOINT', // your endpoint
 </strong>  filter_config: {
 <strong>    event_type: 'profile.updated', // Listen to all profile updates
 </strong>  }
