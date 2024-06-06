@@ -18,5 +18,6 @@ If you have any questions or need help regarding executing manual sweep on your 
 
 * [Farcaster Channel Mod Overview](overview.md)
 * [Setup Channel Moderation](setup-channel-moderation.md)
+* [Add Co-Moderators](add-co-moderators.md)
 * [Edit Moderation](edit-moderation.md)
 * [Not A Bot Cast Action](not-a-bot-cast-action.md)

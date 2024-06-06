@@ -36,12 +36,18 @@ The list of all available moderation rules/criteria is shown [here](overview.md#
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-05-30 at 10.58.18 AM.png" alt=""><figcaption><p>Select Moderation Rules/Criteria</p></figcaption></figure>
 
-configure in the **Always Include Casts By** box whether to:
+configure in the **Always Include** box whether to:
 
 1. include any casts by owner (this is on by default)
-2. include any casts by other whitelisted users (can select up to 5 users in the textbox):
+2. include any casts liked by the owner (this is on by default)
+3. include any casts liked by co-moderators
+4. include any casts by other whitelisted users (can select up to 5 users in the textbox)
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-05-30 at 10.58.36 AM (1).png" alt=""><figcaption><p>Configured Whose Casts Will Always Be Included</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2024-06-06 at 18.59.04.png" alt=""><figcaption><p>Configured Whose Casts Will Always Be Included</p></figcaption></figure>
+
+configure in the **Always Exclude** box which users will be blacklisted:
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-06-06 at 18.59.04 copy.png" alt=""><figcaption><p>Configured Whose Casts Will Always Be Excluded</p></figcaption></figure>
 
 Once everything is configured to your needs, then you can simply click on the **Save** button.
 
@@ -88,6 +94,7 @@ If you have any questions or need help regarding setting up moderation on your F
 ## More Resources
 
 * [Farcaster Channel Mod Overview](overview.md)
+* [Add Co-Moderators](add-co-moderators.md)
 * [Edit Moderation](edit-moderation.md)
 * [Manual Sweep](manual-sweep.md)
 * [Not A Bot Cast Action](not-a-bot-cast-action.md)

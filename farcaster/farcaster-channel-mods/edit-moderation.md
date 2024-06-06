@@ -22,5 +22,6 @@ If you have any questions or need help regarding editing moderation on your Farc
 
 * [Farcaster Channel Mod Overview](overview.md)
 * [Setup Channel Moderation](setup-channel-moderation.md)
+* [Add Co-Moderators](add-co-moderators.md)
 * [Manual Sweep](manual-sweep.md)
 * [Not A Bot Cast Action](not-a-bot-cast-action.md)

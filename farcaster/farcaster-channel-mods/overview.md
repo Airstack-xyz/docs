@@ -54,9 +54,7 @@ Additionally, you can also choose to require either 'any' or 'all' of the rules 
 The following features are still in development for the channel moderation:
 
 * Backfill all previous casts and apply the rules in moderated Main channel feed (Friday)
-* Ban user
 * Unlike cast
-* Mod Cast Actions
 * Add all channel casts these “faux-moderator” users like
 * Logs
 * Analytics
@@ -75,6 +73,7 @@ If you have any questions or need help regarding any features from Farcaster Cha
 ## More Resources
 
 * [Setup Channel Moderation](setup-channel-moderation.md)
+* [Add Co-Moderators](add-co-moderators.md)
 * [Edit Moderation](edit-moderation.md)
 * [Manual Sweep](manual-sweep.md)
 * [Not A Bot Cast Action](not-a-bot-cast-action.md)
