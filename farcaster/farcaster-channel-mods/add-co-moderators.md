@@ -6,6 +6,10 @@ description: >-
 
 # 🫂 Add Co-Moderators
 
+{% embed url="https://youtu.be/_DtA0K8_7AA" %}
+Add Co-Moderators Youtube Tutorial
+{% endembed %}
+
 If you would like to add co-moderators to your channel moderation, then simply go back to your **Channel Owner** dashboard and click on the **Edit Moderation** button on the channel that you prefer to edit:
 
 {% hint style="info" %}
