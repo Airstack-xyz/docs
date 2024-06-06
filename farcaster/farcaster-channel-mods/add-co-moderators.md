@@ -14,7 +14,7 @@ Ensure that you are logged in with the Airstack account that is connected to the
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-05-30 at 11.02.28 AM copy.png" alt=""><figcaption><p>Edit Moderation Button On Channel</p></figcaption></figure>
 
-Then, you will be redirected to the channel moderation settings page. Here you will find an input bar in the **Always Include** box section where you can input up to 5 co-moderators:
+Then, you will be redirected to the channel moderation settings page. Here you will find an input bar in the **Always Include** box section where you can add co-moderators:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-06-06 at 18.59.04 copy 2.png" alt=""><figcaption><p>Always Include Box Section to Add Co-Moderators</p></figcaption></figure>
 
