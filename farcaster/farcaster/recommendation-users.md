@@ -160,20 +160,14 @@ asyncio.run(main())
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
-
-[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
-
-<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
-
 ### Get Recommendation Follows For Farcaster User(s) Based on Token Transfers
 
 To get recommendations by token transfers, simply fetch all token transfers that is received and sent from the Farcaster user(s):
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/fAtWCdyFrU" %}
-Show recommendations by token transfers for Farcaster user name varunsrin.eth and id 5650
+{% embed url="https://app.airstack.xyz/query/lJD7ClqCAb" %}
+Show recommendations by token transfers from Farcaster user name varunsrin.eth and id 5650
 {% endembed %}
 
 #### Code
@@ -184,84 +178,33 @@ Show recommendations by token transfers for Farcaster user name varunsrin.eth an
 query GetRecommendationsByTokenTransfers {
   # first query on Ethereum
   ethereum: TokenTransfers(
-    input: {
-      filter: {
-        _or: {
-          from: { _in: ["fc_fname:dwr", "fc_fid:5650"] }
-          to: { _in: ["fc_fname:dwr", "fc_fid:5650"] }
-        }
-      }
-      blockchain: ethereum
-      limit: 50
-    }
+    input: {filter: {from: {_in: ["fc_fname:dwr", "fc_fid:5650"]}}, blockchain: base, limit: 50}
   ) {
     TokenTransfer {
       from {
         addresses
-        socials(input: { filter: { dappName: { _in: farcaster } } }) {
+        socials(input: {filter: {dappName: {_in: farcaster}}}) {
           userId
           profileName
         }
       }
       to {
         addresses
-        socials(input: { filter: { dappName: { _in: farcaster } } }) {
+        socials(input: {filter: {dappName: {_in: farcaster}}}) {
           userId
           profileName
         }
       }
     }
   }
-  # second query on Polygon
-  polygon: TokenTransfers(
-    input: {
-      filter: {
-        _or: {
-          from: { _in: ["fc_fname:dwr", "fc_fid:5650"] }
-          to: { _in: ["fc_fname:dwr", "fc_fid:5650"] }
-        }
-      }
-      blockchain: polygon
-      limit: 50
-    }
-  ) {
-    TokenTransfer {
-      from {
-        addresses
-        socials(input: { filter: { dappName: { _in: farcaster } } }) {
-          userId
-          profileName
-        }
-        domains {
-          dappName
-        }
-      }
-      to {
-        addresses
-        socials(input: { filter: { dappName: { _in: farcaster } } }) {
-          userId
-          profileName
-        }
-      }
-    }
-  }
-  # third query on Base
+  # second query on Base
   base: TokenTransfers(
-    input: {
-      filter: {
-        _or: {
-          from: { _in: ["fc_fname:dwr", "fc_fid:5650"] }
-          to: { _in: ["fc_fname:dwr", "fc_fid:5650"] }
-        }
-      }
-      blockchain: base
-      limit: 50
-    }
+    input: {filter: {from: {_in: ["fc_fname:dwr", "fc_fid:5650"]}}, blockchain: base, limit: 50}
   ) {
     TokenTransfer {
       from {
         addresses
-        socials(input: { filter: { dappName: { _in: farcaster } } }) {
+        socials(input: {filter: {dappName: {_in: farcaster}}}) {
           userId
           profileName
         }
@@ -271,7 +214,7 @@ query GetRecommendationsByTokenTransfers {
       }
       to {
         addresses
-        socials(input: { filter: { dappName: { _in: farcaster } } }) {
+        socials(input: {filter: {dappName: {_in: farcaster}}}) {
           userId
           profileName
         }
@@ -309,31 +252,6 @@ query GetRecommendationsByTokenTransfers {
           }
         }
         // Other Ethereum Token Transfers
-      ]
-    },
-    "polygon": {
-      "TokenTransfer": [
-        {
-          "from": {
-            "addresses": ["0xf8e8f48d0e72e41a21acc8897d4012126d04de78"],
-            "socials": [
-              {
-                "userId": "3811",
-                "profileName": "betashop.eth"
-              }
-            ]
-          },
-          "to": {
-            "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
-            "socials": [
-              {
-                "userId": "10",
-                "profileName": "varunsrin.eth"
-              }
-            ]
-          }
-        }
-        // Other Polygon Token Transfers
       ]
     },
     "base": {
@@ -560,12 +478,12 @@ The follow recommendation will provide a list of Farcaster users with the Farcas
 
 ### Get Recommendation Follows For Farcaster User(s) Based on NFTs
 
-To get recommendations by NFTs, first fetch all NFTs that is owned by the Farcaster user(s) on Ethereum, Polygon, and Base:
+To get recommendations by NFTs, first fetch all NFTs that is owned by the Farcaster user(s) on Ethereum, Base, Degen, and other [Airstack-supported Chains](../../guides/overview.md#supported-chains):
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/ZpYY2KkXDv" %}
-Show NFTs on Ethereum, Polygon, and Base owned by Farcaster user name varunsrin.eth and id 5650
+{% embed url="https://app.airstack.xyz/query/e9smXRdKSX" %}
+Show NFTs on Ethereum and Base owned by Farcaster user name varunsrin.eth and id 5650
 {% endembed %}
 
 #### Code
@@ -581,20 +499,6 @@ query GetNFTs {
         tokenType: { _in: [ERC1155, ERC721] }
       }
       blockchain: ethereum
-      limit: 200
-    }
-  ) {
-    TokenBalance {
-      tokenAddress
-    }
-  }
-  polygon: TokenBalances(
-    input: {
-      filter: {
-        owner: { _in: ["fc_fname:varunsrin.eth", "fc_fid:5650"] }
-        tokenType: { _in: [ERC1155, ERC721] }
-      }
-      blockchain: polygon
       limit: 200
     }
   ) {
@@ -638,20 +542,6 @@ query GetNFTs {
       ]
       // Other Ethereum NFT Collections
     },
-    "polygon": {
-      "TokenBalance": [
-        {
-          "tokenAddress": "0xd18359edd97ff13609c1978452b05b43213222d7"
-        },
-        {
-          "tokenAddress": "0x27562885f784616be44a0dc801ff18ed4551ba3d"
-        },
-        {
-          "tokenAddress": "0x579720c63ed37fd4bd60a44fc27a25d6f169e95e"
-        }
-      ]
-      // Other Polygon NFT Collections
-    },
     "base": {
       "TokenBalance": [
         {
@@ -678,7 +568,7 @@ The next query for recommending follows based on NFTs will be fetching all the h
 
 #### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/DfxElQUlKx" %}
+{% embed url="https://app.airstack.xyz/query/Py9dWbOd1H" %}
 Show follow recommendations based on NFTs
 {% endembed %}
 
@@ -700,32 +590,6 @@ query GetNFTHoldersAndImages {
         }
       }
       blockchain: ethereum
-    }
-  ) {
-    TokenNft {
-      tokenBalances {
-        owner {
-          identity
-          socials(input: { filter: { dappName: { _eq: farcaster } } }) {
-            profileName
-            userId
-          }
-        }
-      }
-    }
-  }
-  polygon: TokenNfts(
-    input: {
-      filter: {
-        address: {
-          _in: [
-            "0xd18359edd97ff13609c1978452b05b43213222d7"
-            "0x27562885f784616be44a0dc801ff18ed4551ba3d"
-            "0x579720c63ed37fd4bd60a44fc27a25d6f169e95e"
-          ]
-        }
-      }
-      blockchain: polygon
     }
   ) {
     TokenNft {
@@ -797,20 +661,6 @@ query GetNFTHoldersAndImages {
               "owner": {
                 "identity": "0xb16266ba63506cb4de9b2328bada30064e196a3b",
                 "socials": null // Have no Farcaster, can be filtered out
-              }
-            }
-          ]
-        }
-      ]
-    },
-    "polygon": {
-      "TokenNft": [
-        {
-          "tokenBalances": [
-            {
-              "owner": {
-                "identity": "0x87fdd2217f4d8531b5d091d1b290eb64d26f415b",
-                "socials": null
               }
             }
           ]
