@@ -10,8 +10,8 @@ In this tutorial, you will learn how to quickly create your first Airstack webho
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of webhooks
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of webhooks
 
 ## Create A Receiving Endpoint
 
@@ -21,20 +21,6 @@ If you already have an endpoint to receive data payload from Airstack webhooks, 
 
 Before creating your first webhook, make sure that you have an endpoint to receive the data payload pushed by Airstack webhooks.
 
-There are two options to get an endpoint:
-
-### Option #1: webhook.site (Easy)
-
-This is **highly recommended** if you are testing Airstack webhooks for the first time.
-
-Simply click on the link below and you'll be provided with an endpoint that can receive real-time data payload from Airstack for any Farcaster events occur:
-
-{% embed url="https://webhook.site/" %}
-webhook.site
-{% endembed %}
-
-### Option #2: Dedicated Backend (Advanced)
-
 In this tutorial, you will be shown how to create a dedicated **POST** endpoint using Express.
 
 However, if you are familiar with building other frameworks, feel free to build the POST endpoint with the frameworks of your choice.
@@ -43,27 +29,21 @@ First, install `express` npm package to your project:
 
 {% tabs %}
 {% tab title="npm" %}
-
 ```sh
-npm i express
+npm i express body-parser
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
 ```sh
-yarn add express
+yarn add express body-parser
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
 ```sh
-pnpm add express
+pnpm add express body-parser
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -71,14 +51,16 @@ Then, create a **POST** endpoint where you can receive the payload in the body a
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 import express, { Request, Response } from "express";
+import bodyParser from "body-parser";
 
 const app = express();
 
+app.use(bodyParser.json());
+
 app.post("/webhook", (request: Request, response: Response) => {
-  const { eventName, data } = request.body ?? {};
+  console.log(request.body); // Get the payload in the body
 
   // Add your business logic here
 
@@ -87,18 +69,19 @@ app.post("/webhook", (request: Request, response: Response) => {
 
 app.listen(4000, () => console.log("Running on port 4000"));
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const express = require("express");
+const bodyParser = require("body-parser");
 
 const app = express();
 
+app.use(bodyParser.json());
+
 app.post("/webhook", (request, response) => {
-  const { eventName, payload } = request.body ?? {};
+  console.log(request.body); // Get the payload in the body
 
   // Add your business logic here
 
@@ -107,7 +90,6 @@ app.post("/webhook", (request, response) => {
 
 app.listen(4000, () => console.log("Running on port 4000"));
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -123,6 +105,8 @@ ngrok http 4000 # Or replace with the PORT for your endpoint
 
 This will provide you with a tunnel URL that you can provide as an endpoint when creating the webhook.
 
+Once your endpoint is ready for production, simply deploy it to your preferred hosting platform.
+
 ## Create Your First Webhooks
 
 Once you have your endpoint ready, you can then create your webhooks by calling the `/webhooks` API.
@@ -131,7 +115,6 @@ In the example below, it shows you configuration to listen to all profile update
 
 {% tabs %}
 {% tab title="CURL" %}
-
 ```sh
 curl -X 'POST' \
   'https://webhooks.airstack.xyz/api/v1/webhooks' \
@@ -139,18 +122,16 @@ curl -X 'POST' \
   -H 'Authorization: <YOUR_AIRSTACK_API_KEY>' \
   -H 'Content-Type: application/json' \
   -d '{
-  "endpoint": "https://webhook.site",
+  "endpoint": "YOUR_ENDPOINT",
   "filter_config": {
     "event_type": "profile.updated"
     }
   }
 }'
 ```
-
 {% endtab %}
 
 {% tab title="TypeScript" %}
-
 <pre class="language-typescript"><code class="lang-typescript">// Prerequisites: npm install axios
 import axios from 'axios';
 
@@ -161,7 +142,7 @@ const headers = {
   'Content-Type': 'application/json'
 };
 const data = {
-<strong>  endpoint: 'https://webhook.site', // your endpoint
+<strong>  endpoint: 'YOUR_ENDPOINT', // your endpoint
 </strong>  filter_config: {
 <strong>    event_type: 'profile.updated', // Listen to all profile updates
 </strong>  }
@@ -175,11 +156,9 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript"><code class="lang-javascript">// Prerequisites: npm install axios
 const axios = require('axios');
 
@@ -190,7 +169,7 @@ const headers = {
   'Content-Type': 'application/json'
 };
 const data = {
-<strong>  endpoint: 'https://webhook.site', // your endpoint
+<strong>  endpoint: 'YOUR_ENDPOINT', // your endpoint
 </strong>  filter_config: {
 <strong>    event_type: 'profile.updated', // Listen to all profile updates
 </strong>  }
@@ -204,11 +183,9 @@ axios.post(url, data, { headers })
     console.error('There was an error!', error);
   });
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "webhook_id": "01HYDYEBHMANSVJ0JKSVK9W3VY",
   "portal_link": "https://apiserver.instance-fm94fpopa.hc-fhtewk6q9.us-east-2.aws.f2e0a955bb84.cloud/portal?token=am4AdjH0bz67JDDTRwNesZMO",
@@ -220,7 +197,6 @@ axios.post(url, data, { headers })
 </strong>  "message": "Successfully created subscription"
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -234,4 +210,4 @@ If you have any questions or need help regarding building your 1st webhook, plea
 
 ## More Resources
 
-- [Webhooks API Reference](../../webhooks-api-reference/overview/)
+* [Webhooks API Reference](../../webhooks-api-reference/overview/)

@@ -4,9 +4,9 @@ description: Learn how to fetch storage data using Airstack Hubs API.
 
 # 📦 Storage
 
-## Get Storage Limits By FID
+## Get Storage Limits And Usages By FID
 
-You can get the current storage limit of a specific FID by using Airstack Hubs API with the code below:
+You can get the detailed storage limit and current storage usages of various categories (cast storage, follow storage, recation storage, etc.) that a specific FID has by using Airstack Hubs API with the code below:
 
 {% tabs %}
 {% tab title="@farcaster/hub-nodejs" %}
@@ -73,42 +73,66 @@ main();
 {% endtab %}
 
 {% tab title="Response" %}
-```json
-{
+<pre class="language-json"><code class="lang-json">{
   "limits": [
     {
-      "storeType": "STORE_TYPE_CASTS",
-      "limit": 10000
+<strong>      "storeType": "STORE_TYPE_CASTS", // Cast Storage
+</strong>      "name": "\b\u0004�",
+      "limit": 75000,
+      "used": 25488,
+      "earliestTimestamp": 108097112,
+      "earliestHash": "K/krBlhQPy2ps3S+16OvvdPOjhM="
     },
     {
-      "storeType": "STORE_TYPE_LINKS",
-      "limit": 5000
+<strong>      "storeType": "STORE_TYPE_LINKS", // Follow Storage
+</strong>      "name": ",�J",
+      "limit": 37500,
+      "used": 3391,
+      "earliestTimestamp": 108090342,
+      "earliestHash": "W3FsMBBZUMHJZvLeOjsBFgcLrKA="
     },
     {
-      "storeType": "STORE_TYPE_REACTIONS",
-      "limit": 5000
+<strong>      "storeType": "STORE_TYPE_REACTIONS", // Reaction Storage
+</strong>      "name": "D@\u0002L��",
+      "limit": 37500,
+      "used": 37500,
+      "earliestTimestamp": 85728693,
+      "earliestHash": "31caeSXVnC1wV2qZMRgw6ttP2Xw="
     },
     {
-      "storeType": "STORE_TYPE_USER_DATA",
-      "limit": 100
+<strong>      "storeType": "STORE_TYPE_USER_DATA", // User Profile Storage
+</strong>      "name": "Q!\u0011�0\u0013",
+      "limit": 750,
+      "used": 4,
+      "earliestTimestamp": 69403216,
+      "earliestHash": "XzbR+DhAEAQAQpanel46whd4mVw="
     },
     {
-      "storeType": "STORE_TYPE_USERNAME_PROOFS",
-      "limit": 10
+<strong>      "storeType": "STORE_TYPE_USERNAME_PROOFS", // Username Proofs Storage
+</strong>      "name": "Q!\u00114\u0003\u0004��N8T",
+      "limit": 75,
+      "used": 2,
+      "earliestTimestamp": 80755811,
+      "earliestHash": "UiDlOTI7DUyvm77kMWKg8pW3zx0="
     },
     {
-      "storeType": "STORE_TYPE_VERIFICATIONS",
-      "limit": 50
+<strong>      "storeType": "STORE_TYPE_VERIFICATIONS", // Connected/Verifid Accounts Storage
+</strong>      "name": "TDH\u0014��L��",
+      "limit": 375,
+      "used": 5,
+      "earliestTimestamp": 77306045,
+      "earliestHash": "oxQVvW/ln0rgRYjr4UmM7FNHJgU="
     }
-  ]
+  ],
+  "units": 15
 }
-```
+</code></pre>
 {% endtab %}
 {% endtabs %}
 
 ## Developer Support
 
-If you have any questions or need help regarding integrating storage data using AIrstack Hubs API into your Farcaster app, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding integrating storage data using Airstack Hubs API into your Farcaster app, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 

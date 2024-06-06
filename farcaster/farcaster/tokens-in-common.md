@@ -25,14 +25,14 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-- [ERC20 Tokens In Common Owned By Farcaster User(s)](tokens-in-common.md#erc20-tokens-in-common-owned-by-farcaster-user-s)
-- [NFTs In Common Owned By Farcaster User(s)](tokens-in-common.md#nfts-in-common-owned-by-farcaster-user-s)
-- [POAPs Tokens In Common Owned By Farcaster User(s)](tokens-in-common.md#poaps-in-common-owned-by-farcaster-user-s)
+* [ERC20 Tokens In Common Owned By Farcaster User(s)](tokens-in-common.md#erc20-tokens-in-common-owned-by-farcaster-user-s)
+* [NFTs In Common Owned By Farcaster User(s)](tokens-in-common.md#nfts-in-common-owned-by-farcaster-user-s)
+* [POAPs Tokens In Common Owned By Farcaster User(s)](tokens-in-common.md#poaps-in-common-owned-by-farcaster-user-s)
 
 ### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ### Get Started
 
@@ -53,7 +53,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -68,7 +67,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -83,15 +81,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -99,7 +94,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -123,11 +117,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -140,11 +132,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -162,19 +152,12 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
 **Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
-
-### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
-
-[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
-
-<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
 ### ERC20 Tokens In Common Owned By Farcaster User(s)
 
@@ -190,7 +173,6 @@ Show common ERC20 tokens of two Farcaster users
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -224,11 +206,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -258,7 +238,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -276,7 +255,6 @@ Show common NFTs of two Farcaster users
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -310,11 +288,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -344,7 +320,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -362,7 +337,6 @@ Show common POAPs of two Farcaster users
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Poaps(
@@ -388,11 +362,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -423,7 +395,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -433,7 +404,7 @@ If you have any questions or need help regarding fetching common ERC20 tokens, N
 
 ### More Resources
 
-- [Tokens In Common Guides](../../guides/tokens-in-common/)
-- [Nested Queries](../../api-references/overview/nested-queries.md)
-- [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
-- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+* [Tokens In Common Guides](../../guides/tokens-in-common/)
+* [Nested Queries](../../api-references/overview/nested-queries.md)
+* [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
+* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
