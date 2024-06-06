@@ -24,18 +24,18 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-* [Get Ethereum ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-ethereum-erc20s-owned-by-farcaster-user-s)
-* [Get Base ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-base-erc20s-owned-by-farcaster-user-s)
-* [Get All ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-all-erc20s-owned-by-farcaster-user-s)
-* [Get Ethereum NFTs Owned By Farcaster user(s)](get-token-balances.md#get-ethereum-nfts-owned-by-farcaster-user-s)
-* [Get Base NFTs Owned By Farcaster user(s)](get-token-balances.md#get-base-nfts-owned-by-farcaster-user-s)
-* [Get All NFTs Owned By Farcaster user(s)](get-token-balances.md#get-all-nfts-owned-by-farcaster-user-s)
-* [Get All POAPs Owned By Farcaster user(s)](get-token-balances.md#get-all-poaps-owned-by-farcaster-user-s)
+- [Get Ethereum ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-ethereum-erc20s-owned-by-farcaster-user-s)
+- [Get Base ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-base-erc20s-owned-by-farcaster-user-s)
+- [Get All ERC20s Owned By Farcaster user(s)](get-token-balances.md#get-all-erc20s-owned-by-farcaster-user-s)
+- [Get Ethereum NFTs Owned By Farcaster user(s)](get-token-balances.md#get-ethereum-nfts-owned-by-farcaster-user-s)
+- [Get Base NFTs Owned By Farcaster user(s)](get-token-balances.md#get-base-nfts-owned-by-farcaster-user-s)
+- [Get All NFTs Owned By Farcaster user(s)](get-token-balances.md#get-all-nfts-owned-by-farcaster-user-s)
+- [Get All POAPs Owned By Farcaster user(s)](get-token-balances.md#get-all-poaps-owned-by-farcaster-user-s)
 
 ### Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ### Get Started
 
@@ -56,6 +56,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -70,6 +71,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -84,12 +86,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -97,6 +102,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -120,9 +126,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -135,9 +143,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -155,18 +165,13 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
 **Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
-
-### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
-
-[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
-
-<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
 ## Get Ethereum ERC20s Owned By Farcaster user(s)
 
@@ -182,6 +187,7 @@ Show ERC20 tokens on Ethereum owned by Farcaster user name dwr.eth and user id 1
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query ERC20sOwnedByFarcasterUser {
   TokenBalances(
@@ -216,9 +222,11 @@ query ERC20sOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -265,6 +273,7 @@ query ERC20sOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -282,6 +291,7 @@ Show ERC20 tokens on Base owned by Farcaster user name dwr.eth and user id 1
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query ERC20sOwnedByFarcasterUser {
   TokenBalances(
@@ -316,9 +326,11 @@ query ERC20sOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -365,6 +377,7 @@ query ERC20sOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -382,6 +395,7 @@ Show ERC20 tokens on Ethereum and Base owned by Farcaster user name dwr.eth and 
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query ERC20sOwnedByFarcasterUser {
   Ethereum: TokenBalances(
@@ -446,9 +460,11 @@ query ERC20sOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -526,6 +542,7 @@ query ERC20sOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -543,6 +560,7 @@ Show NFT on Ethereum owned by farcaster user name dwr.eth and user id 1
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query NFTsOwnedByFarcasterUser {
   TokenBalances(
@@ -585,9 +603,11 @@ query NFTsOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -633,6 +653,7 @@ query NFTsOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -650,6 +671,7 @@ Show NFT on Base owned by farcaster user name dwr.eth and user id 1
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query NFTsOwnedByFarcasterUser {
   TokenBalances(
@@ -692,9 +714,11 @@ query NFTsOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -737,6 +761,7 @@ query NFTsOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -754,6 +779,7 @@ Show NFT on Ethereum and Base owned by farcaster user name dwr.eth and user id 1
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query NFTsOwnedByFarcasterUser {
   Ethereum: TokenBalances(
@@ -834,9 +860,11 @@ query NFTsOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -918,6 +946,7 @@ query NFTsOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -935,6 +964,7 @@ Show POAPs owned by Farcaster user name dwr.eth and user id 1
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query POAPsOwnedByFarcasterUser {
   Poaps(
@@ -970,9 +1000,11 @@ query POAPsOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1043,6 +1075,7 @@ query POAPsOwnedByFarcasterUser {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1052,7 +1085,7 @@ If you have any questions or need help regarding fetching token balances of Farc
 
 ### More Resources
 
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
-* [Balance Snapshots Guides](../../guides/balance-snapshots.md)
-* [Holder Snapshots Guides](../../guides/holder-snapshots.md)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+- [Balance Snapshots Guides](../../guides/balance-snapshots.md)
+- [Holder Snapshots Guides](../../guides/holder-snapshots.md)
+- [POAPs API Reference](../../api-references/api-reference/poaps-api.md)

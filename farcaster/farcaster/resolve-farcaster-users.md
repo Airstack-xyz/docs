@@ -23,18 +23,18 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-* [Get All 0x addresses of Farcaster user(s)](resolve-farcaster-users.md#get-all-0x-addresses-of-farcaster-user-s)
-* [Get All Solana addresses of Farcaster user](resolve-farcaster-users.md#get-all-solana-addresses-of-farcaster-user)
-* [Get Farcaster profiles of a given Solana address](resolve-farcaster-users.md#get-farcaster-profiles-of-a-given-solana-address)
-* [Get all ENS domains owned by Farcaster user(s)](resolve-farcaster-users.md#get-all-ens-domains-owned-by-farcaster-user-s)
-* [Get All Web3 Social Accounts (Farcaster, Lens) owned by 0x address or ENS](resolve-farcaster-users.md#get-all-web3-social-accounts-farcaster-lens-owned-by-0x-address-or-ens)
-* [Get Lens Profile of Farcaster user(s)](resolve-farcaster-users.md#get-lens-profile-of-farcaster-user-s)
-* [Check If XMTP is Enabled for Farcaster user(s)](resolve-farcaster-users.md#check-if-xmtp-is-enabled-for-farcaster-user-s)
+- [Get All 0x addresses of Farcaster user(s)](resolve-farcaster-users.md#get-all-0x-addresses-of-farcaster-user-s)
+- [Get All Solana addresses of Farcaster user](resolve-farcaster-users.md#get-all-solana-addresses-of-farcaster-user)
+- [Get Farcaster profiles of a given Solana address](resolve-farcaster-users.md#get-farcaster-profiles-of-a-given-solana-address)
+- [Get all ENS domains owned by Farcaster user(s)](resolve-farcaster-users.md#get-all-ens-domains-owned-by-farcaster-user-s)
+- [Get All Web3 Social Accounts (Farcaster, Lens) owned by 0x address or ENS](resolve-farcaster-users.md#get-all-web3-social-accounts-farcaster-lens-owned-by-0x-address-or-ens)
+- [Get Lens Profile of Farcaster user(s)](resolve-farcaster-users.md#get-lens-profile-of-farcaster-user-s)
+- [Check If XMTP is Enabled for Farcaster user(s)](resolve-farcaster-users.md#check-if-xmtp-is-enabled-for-farcaster-user-s)
 
 ### Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ### Get Started
 
@@ -55,6 +55,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -69,6 +70,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -83,12 +85,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -96,6 +101,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -119,9 +125,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -134,9 +142,11 @@ const { data, error } = fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -154,18 +164,13 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
 **Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
-
-### **🤖 AI Natural Language**[**​**](https://xmtp.org/docs/tutorials/query-xmtp#-ai-natural-language)
-
-[Airstack](https://airstack.xyz/) provides an AI solution for you to build GraphQL queries to fulfill your use case easily. You can find the AI prompt of each query in the demo's caption or title for yourself to try.
-
-<figure><img src="../../.gitbook/assets/NounsClip_060323FIN3.gif" alt=""><figcaption><p>Airstack AI (Demo)</p></figcaption></figure>
 
 ## Get All 0x addresses of Farcaster user(s)
 
@@ -181,6 +186,7 @@ Show 0x addresses of Farcaster user name dwr.eth and user ID 1
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetAddressesOfFarcasters {
   Socials(
@@ -195,9 +201,11 @@ query GetAddressesOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -227,6 +235,7 @@ query GetAddressesOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -244,6 +253,7 @@ Show me the Solana connected address of Farcaster user v
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -263,9 +273,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -298,6 +310,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -315,6 +328,7 @@ Show me the Farcaster profile of solana address 9t92xZy9q5SyfKBH4rZwEDFXjaZKgzj5
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -334,9 +348,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -358,6 +374,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -375,6 +392,7 @@ Show all ENS domains owned by Farcaster user name dwr.eth and user id 1
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetENSOfFarcasters {
   Domains(
@@ -389,9 +407,11 @@ query GetENSOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -414,6 +434,7 @@ query GetENSOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -431,6 +452,7 @@ Show web3 social accounts (Farcaster, Lens) owned by dwr.eth and 0xd8dA6BF26964a
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetWeb3SocialsOfFarcasters {
   Socials(
@@ -450,9 +472,11 @@ query GetWeb3SocialsOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -479,6 +503,7 @@ query GetWeb3SocialsOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -496,6 +521,7 @@ Show Lens profiles owned by Farcaster user name dwr.eth and user id 5650
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetLensOfFarcasters {
   Socials(
@@ -514,9 +540,11 @@ query GetLensOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -535,6 +563,7 @@ query GetLensOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -552,6 +581,7 @@ Show if XMTP is enabled for Farcaster user name varunsrin.eth and user id 5650
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetXMTPOfFarcasters {
   XMTPs(
@@ -571,9 +601,11 @@ query GetXMTPOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -604,6 +636,7 @@ query GetXMTPOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -613,8 +646,8 @@ If you have any questions or need help regarding resolving identities for Farcas
 
 ## More Resources
 
-* [Resolve Identities](../../guides/resolve-identities/)
-  * [Farcaster](../../guides/resolve-identities/farcaster.md)
-  * [Solana Address](../../guides/resolve-identities/solana-address.md)
-* [Socials API Reference](../../api-references/api-reference/socials-api.md)
-* [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)
+- [Resolve Identities](../../guides/resolve-identities/)
+  - [Farcaster](../../guides/resolve-identities/farcaster.md)
+  - [Solana Address](../../guides/resolve-identities/solana-address.md)
+- [Socials API Reference](../../api-references/api-reference/socials-api.md)
+- [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)
