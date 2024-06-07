@@ -12,7 +12,11 @@ Ensure that you are logged in with the Airstack account that is connected to the
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-05-30 at 11.02.28 AM copy.png" alt=""><figcaption><p>Edit Moderation Button On Channel</p></figcaption></figure>
 
-If you would like to apply the new moderation rules on your Farcaster channel, then make sure to **Sweep**. Learn more how to sweep [here](manual-sweep.md).
+If you would like to apply the new moderation rules on your Farcaster channel, then make sure to click **Yes** on the popup shown once you clicked the **Save** button:
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-06-07 at 16.03.27.png" alt=""><figcaption><p>Auto-Sweep Popup After Edit Moderation</p></figcaption></figure>
+
+If you click **No**, you can still apply the new moderation rules by using the **Sweep** feature. Learn how to manually sweep your Farcaster channel moderation [here](manual-sweep.md).
 
 ## Developer Support
 

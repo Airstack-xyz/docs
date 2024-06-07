@@ -24,6 +24,8 @@ Then, you will be redirected to the channel moderation settings page. Here you w
 
 Once, you're done simply click the **Save** button at the bottom of the page and all the casts liked by the co-moderators will be included as part of your channel feed.
 
+In addition, your co-moderators will have access to moderate the cast manually using the [Not A Bot Cast Action](not-a-bot-cast-action.md).
+
 ## Developer Support
 
 If you have any questions or need help regarding adding co-moderators to your Farcaster Channel Mods, please join our [Airstack's Warpcast Channel](https://warpcast.com/\~/channel/airstack).

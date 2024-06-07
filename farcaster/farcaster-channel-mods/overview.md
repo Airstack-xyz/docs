@@ -11,9 +11,11 @@ Farcaster channels now have two modes: **Default** & **Moderation**.
 * In **Default** Warpcast decides how to moderate your channel.
 * Turn **Moderation ON** to have complete control over whose/what casts appear in your channel feed.
 
-When **Moderation** mode is on, only casts that are liked by the Moderator will appear in the channel feed.
+When **Moderation** mode is on, only casts that are liked by either the moderator or [co-moderators](add-co-moderators.md) and casted by whitelisted users will appear in the channel feed.
 
 To make that easy to manage, you can use our bot to auto-like casts on your behalf.
+
+In addition, if you (channel owner) and your [co-moderators](add-co-moderators.md) would like to manually moderate the cast, you also have the option to do so by using the [Not A Bot cast action](not-a-bot-cast-action.md).
 
 Currently, the Farcaster Channel Mods feature is entirely **FREE** and Airstack is subsidizing it entirely.
 
@@ -53,9 +55,7 @@ Additionally, you can also choose to require either 'any' or 'all' of the rules 
 
 The following features are still in development for the channel moderation:
 
-* Backfill all previous casts and apply the rules in moderated Main channel feed (Friday)
-* Unlike cast
-* Add all channel casts these “faux-moderator” users like
+* Backfill all previous casts and apply the rules in moderated Main channel feed&#x20;
 * Logs
 * Analytics
 * CRM

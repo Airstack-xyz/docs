@@ -87,6 +87,8 @@ and you're all done!
 
 🥳 Congratulations, you've just add moderation to your Farcaster channel using Airstack Channel Mods!
 
+After the setup, you and your co-moderators will also have access to the [Not A Bot cast action](not-a-bot-cast-action.md) to moderate your channel manually from Warpcast. For more information, click [here](not-a-bot-cast-action.md).
+
 ## Developer Support
 
 If you have any questions or need help regarding setting up moderation on your Farcaster Channel using the Farcaster Channel Mods, please join our [Airstack's Warpcast Channel](https://warpcast.com/\~/channel/airstack).

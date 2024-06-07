@@ -7,7 +7,11 @@ description: >-
 
 # 🏇 Not A Bot Cast Action
 
-The **Not A Bot** cast action is an easy-to-use cast action that you can setup within minutes to easily moderate your moderated channel manually.
+The **Not A Bot** cast action is an easy-to-use cast action that **you (channel owner)** and [**your co-moderators**](add-co-moderators.md) can setup within minutes to easily moderate your moderated channel manually.
+
+{% hint style="info" %}
+If you have would like to add co-moderators to your channel, follow this guide [here](add-co-moderators.md).
+{% endhint %}
 
 To get started, first install the **Not A Bot** cast action with the link below:
 
@@ -35,8 +39,8 @@ Once the cast action is clicked, it will initially show you a Frame that provide
 
 Within the displayed Farcaster Frame as shown above, you will have two options to either:
 
-* **Whitelist the caster**: you can simply click on the **Allow & like** button. By whitelisting a user, all future casts from the user will be included in the moderated Farcaster channel casts.
-* **Ban the caster**: then you can click on the **Ban** **User** button. This will exclude all of the caster's casts from being displayed in the moderated Farcaster channel.
+* **Allow & like**: This button will allow you to whitelist a user. By whitelisting a user, all future casts from the user will be included in the moderated Farcaster channel casts.
+* **Ban User**: This button will ban the user from the moderation. Consequently, this will exclude all of the user's casts from being displayed in the moderated Farcaster channel feed.
 
 ## Developer Support
 
