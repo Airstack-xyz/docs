@@ -27,7 +27,7 @@ In the cast, you can select the **Not A Bot** cast action:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-06-03 at 11.13.04.png" alt=""><figcaption><p>Not A Bot Cast Action On Cast</p></figcaption></figure>
 
-Once the cast action is clicked, it will initially show you a Frame that provide you extensive information of the caster, including:
+Once the cast action is clicked, it will initially show you or co-moderators a Frame that provide extensive information of the caster, including:
 
 * number of followers of the caster
 * [social capital rank](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) of the caster
@@ -37,9 +37,9 @@ Once the cast action is clicked, it will initially show you a Frame that provide
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-06-03 at 11.11.55.png" alt=""><figcaption></figcaption></figure>
 
-Within the displayed Farcaster Frame as shown above, you will have two options to either:
+Within the displayed Farcaster Frame as shown above, you or your co-moderators will have two options to either:
 
-* **Allow & like**: This button will allow you to whitelist a user. By whitelisting a user, all future casts from the user will be included in the moderated Farcaster channel casts.
+* **Allow & like**: This button will allow you or your co-moderators to whitelist a user. By whitelisting a user, all future casts from the user will be included in the moderated Farcaster channel casts.
 * **Ban User**: This button will ban the user from the moderation. Consequently, this will exclude all of the user's casts from being displayed in the moderated Farcaster channel feed.
 
 ## Developer Support
