@@ -40,7 +40,7 @@ configure in the **Always Include** box whether to:
 
 1. include any casts by owner (this is on by default)
 2. include any casts liked by the owner (this is on by default)
-3. include any casts liked by co-moderators
+3. include any casts liked by [co-moderators](add-co-moderators.md)
 4. include any casts by other whitelisted users
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-06-06 at 18.59.04.png" alt=""><figcaption><p>Configured Whose Casts Will Always Be Included</p></figcaption></figure>
