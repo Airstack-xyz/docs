@@ -6,6 +6,10 @@ description: >-
 
 # 🚀 Quickstart
 
+{% embed url="https://www.youtube.com/watch?v=7Oh8cFTzXQs" %}
+Quickstart Youtube Tutorial
+{% endembed %}
+
 In this tutorial, you will learn how to quickly create your first Airstack webhooks to easily listen and receive real-time data payload in your server application whenever there is an event occurs in the Farcaster network.
 
 ## Pre-requisites
@@ -21,7 +25,7 @@ If you already have an endpoint to receive data payload from Airstack webhooks, 
 
 Before creating your first webhook, make sure that you have an endpoint to receive the data payload pushed by Airstack webhooks.
 
-In this tutorial, you will be shown how to create a dedicated **POST** endpoint using Express.
+In this tutorial, you will be shown how to create a dedicated **POST** endpoint using Express. For the Express starter code, you can clone the repository [here](https://github.com/Airstack-xyz/airstack-webhooks-starter).
 
 However, if you are familiar with building other frameworks, feel free to build the POST endpoint with the frameworks of your choice.
 
@@ -202,7 +206,79 @@ axios.post(url, data, { headers })
 
 Once the webhook is succesfully created, you will receive data payload sent to your endpoint in real-time whenever a profile is updated.
 
-🥳 Congratulations! You've just created your 1st Airstack webhook!
+In addition, you will find the `authentication.header_value` field  in the responses that you'll need to store on your end for validation in the final step.
+
+## Validate Payload
+
+It's important to validate the payload coming to your endpoint as malicious actor might send you fake request that could badly affect your application or your project.
+
+To validate, simply add the highlighted code below to your endpoint:
+
+{% tabs %}
+{% tab title="TypeScript" %}
+<pre class="language-typescript"><code class="lang-typescript">import express, { Request, Response } from "express";
+import bodyParser from "body-parser";
+import { config } from "dotenv";
+
+config();
+
+const app = express();
+
+app.use(bodyParser.json());
+
+app.post("/webhook", (request: Request, response: Response) => {
+<strong>  if (
+</strong><strong>    request?.headers?.["x-airstack-webhook"] !== process.env.AIRSTACK_AUTH_KEY
+</strong><strong>  ) {
+</strong><strong>    console.log("Unauthorized");
+</strong><strong>    return response.status(401).json("Unauthorized");
+</strong><strong>  }
+</strong>
+  console.log(request.body); // Get the payload in the body
+
+  // Add your business logic here
+
+  response.status(200).json("Success");
+});
+
+app.listen(4000, () => console.log("Running on port 4000"));
+</code></pre>
+{% endtab %}
+
+{% tab title="JavaScript" %}
+<pre class="language-javascript"><code class="lang-javascript">const express = require("express");
+const bodyParser = require("body-parser");
+const { config } = require("dotenv");
+
+config();
+
+const app = express();
+
+app.use(bodyParser.json());
+
+app.post("/webhook", (request, response) => {
+<strong>  if (
+</strong><strong>    request?.headers?.["x-airstack-webhook"] !== process.env.AIRSTACK_AUTH_KEY
+</strong><strong>  ) {
+</strong><strong>    console.log("Unauthorized");
+</strong><strong>    return response.status(401).json("Unauthorized");
+</strong><strong>  }
+</strong>
+  console.log(request.body); // Get the payload in the body
+
+  // Add your business logic here
+
+  response.status(200).json("Success");
+});
+
+app.listen(4000, () => console.log("Running on port 4000"));
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+and make sure to store the value from the `authentication.header_value` field in the previous step to the environment variable `AIRSTACK_AUTH_KEY`.
+
+&#x20;🥳 Congratulations! You've just created your 1st Airstack webhook!
 
 ## Developer Support
 
