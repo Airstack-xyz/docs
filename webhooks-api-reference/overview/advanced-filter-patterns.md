@@ -325,7 +325,7 @@ These filters match events with payloads that match the supplied regex.
 
 {% tabs %}
 {% tab title="Filter Schema" %}
-```Regex
+```json
 {
   "profileName": {
     "$regex": "^betashop"

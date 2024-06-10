@@ -38,7 +38,7 @@ curl -X 'POST' \
 <pre class="language-typescript"><code class="lang-typescript">// Prerequisites: npm install axios
 import axios from 'axios';
 
-const url = 'http://webhooks.airstack.xyz/api/v1/webhooks';
+const url = 'https://webhooks.airstack.xyz/api/v1/webhooks';
 const headers = {
   'accept': 'application/json',
   'Authorization': 'YOUR_AIRSTACK_API_KEY',
@@ -65,7 +65,7 @@ axios.post(url, data, { headers })
 <pre class="language-javascript"><code class="lang-javascript">// Prerequisites: npm install axios
 const axios = require('axios');
 
-const url = 'http://webhooks.airstack.xyz/api/v1/webhooks';
+const url = 'https://webhooks.airstack.xyz/api/v1/webhooks';
 const headers = {
   'accept': 'application/json',
   'Authorization': 'YOUR_AIRSTACK_API_KEY',

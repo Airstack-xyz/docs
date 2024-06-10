@@ -12,7 +12,6 @@ You can use Airstack webhooks to listen to all Farcaster profile creation by usi
 
 {% tabs %}
 {% tab title="CURL" %}
-
 ```sh
 curl -X 'POST' \
   'https://webhooks.airstack.xyz/api/v1/webhooks' \
@@ -26,16 +25,14 @@ curl -X 'POST' \
   }
 }'
 ```
-
 {% endtab %}
 
 {% tab title="TypeScript" %}
-
 ```typescript
 // Prerequisites: npm install axios
 import axios from "axios";
 
-const url = "http://webhooks.airstack.xyz/api/v1/webhooks";
+const url = "https://webhooks.airstack.xyz/api/v1/webhooks";
 const headers = {
   accept: "application/json",
   Authorization: "YOUR_AIRSTACK_API_KEY",
@@ -57,16 +54,14 @@ axios
     console.error("There was an error!", error);
   });
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 // Prerequisites: npm install axios
 const axios = require("axios");
 
-const url = "http://webhooks.airstack.xyz/api/v1/webhooks";
+const url = "https://webhooks.airstack.xyz/api/v1/webhooks";
 const headers = {
   accept: "application/json",
   Authorization: "YOUR_AIRSTACK_API_KEY",
@@ -88,11 +83,9 @@ axios
     console.error("There was an error!", error);
   });
 ```
-
 {% endtab %}
 
 {% tab title="Payload" %}
-
 ```json
 {
   "id": "b9f62fdc493d1e0033b79dee9102fbe9f72e820e8acece4b6b9d21b2a4240b31",
@@ -142,7 +135,6 @@ axios
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -152,5 +144,5 @@ If you have any questions or need help regarding creating webhook for listening 
 
 ## More Resources
 
-- [Advanced Filter Patterns](../../webhooks-api-reference/overview/advanced-filter-patterns.md)
-- [Webhooks API Reference](../../webhooks-api-reference/overview/)
+* [Advanced Filter Patterns](../../webhooks-api-reference/overview/advanced-filter-patterns.md)
+* [Webhooks API Reference](../../webhooks-api-reference/overview/)
