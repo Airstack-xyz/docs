@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to quickly create you webhooks and start to listen to real-time
-  events from the Farcaster network.
+  Learn how to quickly create webhooks and start to listen to real-time events
+  from the Farcaster network.
 ---
 
 # 🚀 Quickstart
