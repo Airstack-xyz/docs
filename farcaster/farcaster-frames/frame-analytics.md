@@ -36,15 +36,7 @@ Then, click on **Users** and enter your Farcaster fname.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-05-06 at 20.07.12.png" alt=""><figcaption><p>Airstack Explorer: Search Your Farcaster Fname</p></figcaption></figure>
 
-Once your fname appears in the dropdown, click on it and you will be redirected to your user page:
-
-<figure><img src="../../.gitbook/assets/Screenshot 2024-05-06 at 20.09.18.png" alt=""><figcaption><p>Airstack Explorer: User Page</p></figcaption></figure>
-
-Then, go to the right side of the page, where you can find your Farcaster profile and click on it.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2024-05-06 at 20.10.50.png" alt=""><figcaption><p>Airstack Explorer: User Socials</p></figcaption></figure>
-
-Once you clicked, you will be redirected to your Farcaster profile page:
+Once your fname appears in the dropdown, click on the one with **Farcaster Icon** and you will be redirected to your Farcaster profile page:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-05-06 at 20.12.09.png" alt=""><figcaption></figcaption></figure>
 
