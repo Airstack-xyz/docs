@@ -20,4 +20,5 @@ description: >-
 | Base           | 8453           | 0x2105         |
 | Zora           | 7777777        | 0x76adf1       |
 | Gold Chain L3  | 4653           | 0x122d         |
-| Degen chain L3 | 666666666      | 0x27bc86aa     |
+| Degen Chain L3 | 666666666      | 0x27bc86aa     |
+| Ham Chain L3   | 5112           | 0x13f8         |
