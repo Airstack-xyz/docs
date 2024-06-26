@@ -117,14 +117,14 @@ import {
   validateFramesMessage,
 } from "@airstack/frog";
 
-
 app.hono.post("/gm", async (c) => {
-  const body = await c.req.json();
-
   // validate the POST body
-  const { isValid, message } = await validateFramesMessage(body);
-  const interactorFid = message?.data?.fid;
-  const castFid = message?.data.frameActionBody.castId?.fid as number;
+  const { isValid, message } =
+    process.env.NODE_ENV === "development"
+      ? { isValid: true, message: {} }
+      : await validateFramesMessage(await c.req.json?.());
+  const interactorFid = message?.data?.fid ?? 0;
+  const castFid = message?.data?.frameActionBody?.castId?.fid ?? 1;
   if (isValid) {
     // Check if trying to `GM` themselves
     if (interactorFid === castFid) {
@@ -214,7 +214,19 @@ bun run dev
 {% endtab %}
 {% endtabs %}
 
-Then, you can access the cast actions by making POST request to the `http://localhost:5173/api/gm`.
+Then, you can access the cast actions by making POST request to the `http://localhost:5173/api/gm`. You can do this either by making a CURL POST request:
+
+```bash
+curl -X POST http://localhost:5173/api/gm
+```
+
+Or tunnel your local server through [ngrok](https://ngrok.com/):
+
+```bash
+ngrok http 5173
+```
+
+and test your cast action with the Farcaster official [cast action playground.](https://warpcast.com/\~/developers/cast-actions)
 
 🥳 Congratulations, you've just built your 1st Farcaster Cast Actions using Airstack Frog Recipes!
 
