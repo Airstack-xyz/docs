@@ -12,35 +12,27 @@ First, install the Airstack Frames SDK:
 
 {% tabs %}
 {% tab title="npm" %}
-
 ```bash
 npm install @airstack/frames
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
 ```bash
 yarn add @airstack/frames
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
 ```bash
 pnpm install @airstack/frames
 ```
-
 {% endtab %}
 
 {% tab title="bun" %}
-
 ```bash
 bun install @airstack/frames
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -50,7 +42,6 @@ You can use the [`allowListFramesjsMiddleware`](https://www.npmjs.com/package/@a
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 <pre class="language-typescript"><code class="lang-typescript">import { createFrames, Button } from "frames.js/next";
 import {
   AllowListCriteriaEnum as AllowListCriteria,
@@ -85,11 +76,9 @@ const handleRequest = frames(
   }
 );
 </code></pre>
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript"><code class="lang-javascript">const { createFrames, Button } = require("frames.js/next");
 const {
   type AllowListCriteriaEnum as AllowListCriteria,
@@ -124,15 +113,12 @@ const handleRequest = frames(
   }
 );
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 true
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -142,7 +128,6 @@ You can use the [`allowListFramesjsMiddleware`](https://www.npmjs.com/package/@a
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 <pre class="language-typescript"><code class="lang-typescript">import { createFrames, Button } from "frames.js/next";
 import {
   AllowListCriteriaEnum as AllowListCriteria,
@@ -177,11 +162,9 @@ const handleRequest = frames(
   }
 );
 </code></pre>
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript"><code class="lang-javascript">const { createFrames, Button } = require("frames.js/next");
 const {
   type AllowListCriteriaEnum as AllowListCriteria,
@@ -216,15 +199,12 @@ const handleRequest = frames(
   }
 );
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 true
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -234,7 +214,6 @@ You can use the [`allowListFramesjsMiddleware`](https://www.npmjs.com/package/@a
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 <pre class="language-typescript"><code class="lang-typescript">import { createFrames, Button } from "frames.js/next";
 import {
   AllowListCriteriaEnum as AllowListCriteria,
@@ -269,11 +248,9 @@ const handleRequest = frames(
   }
 );
 </code></pre>
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript"><code class="lang-javascript">const { createFrames, Button } = require("frames.js/next");
 const {
   type AllowListCriteriaEnum as AllowListCriteria,
@@ -308,15 +285,12 @@ const handleRequest = frames(
   }
 );
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 true
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -326,7 +300,6 @@ You can use the [`allowListFramesjsMiddleware`](https://www.npmjs.com/package/@a
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 <pre class="language-typescript"><code class="lang-typescript">import { createFrames, Button } from "frames.js/next";
 import {
   AllowListCriteriaEnum as AllowListCriteria,
@@ -361,11 +334,9 @@ const handleRequest = frames(
   }
 );
 </code></pre>
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript"><code class="lang-javascript">const { createFrames, Button } = require("frames.js/next");
 const {
   type AllowListCriteriaEnum as AllowListCriteria,
@@ -400,15 +371,12 @@ const handleRequest = frames(
   }
 );
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 true
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -418,7 +386,6 @@ You can use the [`allowListFramesjsMiddleware`](https://www.npmjs.com/package/@a
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 <pre class="language-typescript"><code class="lang-typescript">import { createFrames, Button } from "frames.js/next";
 import {
   AllowListCriteriaEnum as AllowListCriteria,
@@ -448,7 +415,7 @@ const handleRequest = frames(
             // Only allow holders of this token on Base
 <strong>            [AllowListCriteria.TOKEN_HOLD, {
 </strong>              chain: TokenBlockchain.Base,
-              address: "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
+              tokenAddress: "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
             }],
           ],
         },
@@ -457,11 +424,9 @@ const handleRequest = frames(
   }
 );
 </code></pre>
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript"><code class="lang-javascript">const { createFrames, Button } = require("frames.js/next");
 const {
   type AllowListCriteriaEnum as AllowListCriteria,
@@ -491,7 +456,7 @@ const handleRequest = frames(
             // Only allow holders of this token on Base
 <strong>            [AllowListCriteria.TOKEN_HOLD, {
 </strong>              chain: TokenBlockchain.Base,
-              address: "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
+              tokenAddress: "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
             }],
           ],
         },
@@ -500,15 +465,12 @@ const handleRequest = frames(
   }
 );
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 true
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -518,7 +480,6 @@ You can use the [`allowListFramesjsMiddleware`](https://www.npmjs.com/package/@a
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 <pre class="language-typescript"><code class="lang-typescript">import { createFrames, Button } from "frames.js/next";
 import {
   AllowListCriteriaEnum as AllowListCriteria,
@@ -548,7 +509,7 @@ const handleRequest = frames(
             // Only allow minters of this token on Base
 <strong>            [AllowListCriteria.TOKEN_MINT, {
 </strong>              chain: TokenBlockchain.Base,
-              address: "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
+              tokenAddress: "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
             }],
           ],
         },
@@ -557,11 +518,9 @@ const handleRequest = frames(
   }
 );
 </code></pre>
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 <pre class="language-javascript"><code class="lang-javascript">const { createFrames, Button } = require("frames.js/next");
 const {
   type AllowListCriteriaEnum as AllowListCriteria,
@@ -591,7 +550,7 @@ const handleRequest = frames(
             // Only allow minters of this token on Base
 <strong>            [AllowListCriteria.TOKEN_MINT, {
 </strong>              chain: TokenBlockchain.Base,
-              address: "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
+              tokenAddress: "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
             }],
           ],
         },
@@ -600,15 +559,12 @@ const handleRequest = frames(
   }
 );
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 true
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -618,4 +574,4 @@ If you have any questions or need help regarding building Farcaster Frames with 
 
 ## More Resources
 
-- [Allow List Frames.js Middleware Reference](https://www.npmjs.com/package/@airstack/frames#allow-list-middleware-1)
+* [Allow List Frames.js Middleware Reference](https://www.npmjs.com/package/@airstack/frames#allow-list-middleware-1)
