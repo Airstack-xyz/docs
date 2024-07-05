@@ -49,6 +49,7 @@ Resized NFT images size guide:
 | `gold`     | Gold Chain L3    |
 | `degen`    | Degen Chain L3   |
 | `ham`      | Ham Chain L3     |
+| `stp`      | Clique Chain L3  |
 
 ## Outputs
 

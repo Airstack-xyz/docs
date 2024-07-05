@@ -43,6 +43,7 @@ The TokenBalances API covers the owners and balances of ERC20, ERC721, and ERC11
 | `gold`     | Gold Chain L3    |
 | `degen`    | Degen Chain L3   |
 | `ham`      | Ham Chain L3     |
+| `stp`      | Clique Chain L3  |
 
 ## Outputs
 
