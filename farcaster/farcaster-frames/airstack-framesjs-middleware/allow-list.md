@@ -382,7 +382,7 @@ true
 
 ## Check If User Hold Certain Token
 
-You can use the [`allowListFramesjsMiddleware`](https://www.npmjs.com/package/@airstack/frames#allow-list-middleware-1) to check if a user is holding certain token on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains) by using the `TOKEN_HOLD` and specify the token's `address` and `chain`:
+You can use the [`allowListFramesjsMiddleware`](https://www.npmjs.com/package/@airstack/frames#allow-list-middleware-1) to check if a user is holding certain token on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains) by using the `TOKEN_HOLD` and specify the token's  `tokenAddress`, `tokenId`, and `chain`:
 
 {% tabs %}
 {% tab title="TypeScript" %}
@@ -465,6 +465,104 @@ const handleRequest = frames(
   }
 );
 </code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+true
+```
+{% endtab %}
+{% endtabs %}
+
+## Check If User Hold Certain NFT From An NFT Collection
+
+You can use the [`allowListFramesjsMiddleware`](https://www.npmjs.com/package/@airstack/frames#allow-list-middleware-1) to check if a user is holding certain NFT from a given collection on Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains) by using the `TOKEN_HOLD` and specify the token's `tokenAddress`, `tokenId`, and `chain`:
+
+{% tabs %}
+{% tab title="TypeScript" %}
+```typescript
+const { createFrames, Button } = require("frames.js/next");
+const {
+  type AllowListCriteriaEnum as AllowListCriteria,
+  allowListFramesjsMiddleware as allowList,
+  type TokenBlockchain,
+} = require("@airstack/frames");
+
+const frames = createFrames();
+
+const handleRequest = frames(
+  async (ctx) => {
+    // Use `ctx.isAllowed` to check if user is allowed or not
+    // based on the NFT hold
+    console.log(ctx.isAllowed);
+    return {
+      image: (<div></div>),
+      buttons: [],
+    };
+  },
+  {
+    middleware: [
+      // Allow List Middleware
+      allowList({
+        apiKey: process.env.AIRSTACK_API_KEY as string,
+        criteria: {
+          or: [
+            // Only allow holders of this NFT on Base
+            [AllowListCriteria.TOKEN_HOLD, {
+              chain: TokenBlockchain.Base,
+              tokenAddress: "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
+              tokenId: "1",
+            }],
+          ],
+        },
+      }),
+    ],
+  }
+);
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+const { createFrames, Button } = require("frames.js/next");
+const {
+  type AllowListCriteriaEnum as AllowListCriteria,
+  allowListFramesjsMiddleware as allowList,
+  type TokenBlockchain,
+} = require("@airstack/frames");
+
+const frames = createFrames();
+
+const handleRequest = frames(
+  async (ctx) => {
+    // Use `ctx.isAllowed` to check if user is allowed or not
+    // based on the NFT hold
+    console.log(ctx.isAllowed);
+    return {
+      image: (<div></div>),
+      buttons: [],
+    };
+  },
+  {
+    middleware: [
+      // Allow List Middleware
+      allowList({
+        apiKey: process.env.AIRSTACK_API_KEY,
+        criteria: {
+          or: [
+            // Only allow holders of this NFT on Base
+            [AllowListCriteria.TOKEN_HOLD, {
+              chain: TokenBlockchain.Base,
+              tokenAddress: "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
+              tokenId: "1",
+            }],
+          ],
+        },
+      }),
+    ],
+  }
+);
+```
 {% endtab %}
 
 {% tab title="Response" %}
