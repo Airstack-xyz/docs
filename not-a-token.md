@@ -20,7 +20,7 @@ Not A Token earned from 10 July, 2024 until Moxie launches will not accrue any r
 
 
 
-The following Not A Token rewards are available:
+Here are some of the various ways to earn Not A Token:
 
 
 
