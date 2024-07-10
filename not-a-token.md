@@ -5,7 +5,22 @@ description: Learn all about Not A Token and how you can earn it.
 # 😶 Not A Token
 
 \
-[Not A Token](https://airstack.xyz/notatoken) is a points system that rewards the Farcaster community for creating great content and Farcaster developers for building great frames and apps. The following rewards are currently available:
+[Not A Token](https://airstack.xyz/notatoken) is a points system that rewards the Farcaster community for creating great content and Farcaster developers for building great frames and apps. \
+
+
+**Not A Token is being replaced with** [**Moxie Protocol**](https://moxie.xyz) **when it launches around 25 July.**&#x20;
+
+
+
+Not A Token earned from 10 July, 2024 until Moxie launches will not accrue any rewards.&#x20;
+
+
+
+***
+
+
+
+The following Not A Token rewards are available:
 
 
 
@@ -26,6 +41,6 @@ description: Learn all about Not A Token and how you can earn it.
   * You must use the [Airstack Frame Validator (free)](farcaster/farcaster-frames/frames-validator.md) in order for us to track and associate the usage.
   * Update 1 June, 2024: Not A Token earned from Frames = 25 per unique FID interacting with your Frame. \
 
-* **Earn Not A Token whenever you swap tokens through Airstack Swap Frames or whenever someone swaps from a Airstack Swap Frame you share.** [Learn more and create and share a Swap Frame](https://airstack.xyz/notatoken).&#x20;
 
-Each day $degen prizes are rewarded to Not A Token earners. [Learn all about Not A Token & daily $degen prizes](https://airstack.xyz/notatoken)
+
+
