@@ -30,7 +30,7 @@ In the cast, you can select the **Not A Bot** cast action:
 Once the cast action is clicked, it will initially show you or co-moderators a Frame that provide extensive information of the caster, including:
 
 * number of followers of the caster
-* [social capital rank](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md) of the caster
+* [social capital rank](../../abstractions/social-capital-value-and-social-capital-scores.md) of the caster
 * check if the caster is followed by the owner
 * check if the caster is following the owner
 * check if the caster follow the Farcaster channel

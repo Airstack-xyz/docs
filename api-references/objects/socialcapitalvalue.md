@@ -8,8 +8,8 @@ description: >-
 
 ## Fields
 
-| Name             | Type     | Description                                                                                                                |
-| ---------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `hash`           | `String` | The cast hash.                                                                                                             |
-| `rawValue`       | `String` | The raw [social capital value](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md).       |
-| `formattedValue` | `Float`  | The formatted [social capital value](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md). |
+| Name             | Type     | Description                                                                                                 |
+| ---------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
+| `hash`           | `String` | The cast hash.                                                                                              |
+| `rawValue`       | `String` | The raw [social capital value](../../abstractions/social-capital-value-and-social-capital-scores.md).       |
+| `formattedValue` | `Float`  | The formatted [social capital value](../../abstractions/social-capital-value-and-social-capital-scores.md). |

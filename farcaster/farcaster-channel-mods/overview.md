@@ -27,7 +27,7 @@ Our goal is a better Farcaster. The better and bigger Farcaster gets, we’ll ha
 
 You can moderate your channels using any of the following criteria:
 
-* [Social Capital Rank](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md)
+* [Social Capital Rank](../../abstractions/social-capital-value-and-social-capital-scores.md)
 * Power Badge
 * Is Followed by Channel Owner
 * Follows Channel Owner

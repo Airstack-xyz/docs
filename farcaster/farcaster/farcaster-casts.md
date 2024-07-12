@@ -677,7 +677,7 @@ Show me all the casts that has mentions
 
 ## Get Details Of A Certain Cast By Cast URL
 
-You can fetch all the details, including text, embeds, url, [social capital value](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md), etc., of a given cast by using the [`FarcasterCasts`](../../api-references/api-reference/farcastercasts-api.md) API and provide the cast's URL from Warpcast to the `url` filter:
+You can fetch all the details, including text, embeds, url, [social capital value](../../abstractions/social-capital-value-and-social-capital-scores.md), etc., of a given cast by using the [`FarcasterCasts`](../../api-references/api-reference/farcastercasts-api.md) API and provide the cast's URL from Warpcast to the `url` filter:
 
 ### Try Demo
 
@@ -764,7 +764,7 @@ query MyQuery {
 
 ## Get Details Of A Certain Cast By Cast Hash
 
-You can fetch all the details, including text, embeds, url, [social capital value](../../abstractions/trending-casts/social-capital-value-and-social-capital-scores.md), etc., of a given cast by using the [`FarcasterCasts`](../../api-references/api-reference/farcastercasts-api.md) API and provide the cast's hash to the `hash` filter:&#x20;
+You can fetch all the details, including text, embeds, url, [social capital value](../../abstractions/social-capital-value-and-social-capital-scores.md), etc., of a given cast by using the [`FarcasterCasts`](../../api-references/api-reference/farcastercasts-api.md) API and provide the cast's hash to the `hash` filter:&#x20;
 
 {% hint style="info" %}
 If the cast is a reply and not a root cast, then you should use this query [here](farcaster-replies.md#get-farcaster-reply-details-by-reply-cast-hash).

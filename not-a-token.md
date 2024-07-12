@@ -8,11 +8,11 @@ description: Learn all about Not A Token and how you can earn it.
 [Not A Token](https://airstack.xyz/notatoken) is a points system that rewards the Farcaster community for creating great content and Farcaster developers for building great frames and apps. \
 
 
-**Not A Token is being replaced with** [**Moxie Protocol**](https://moxie.xyz) **when it launches around 25 July.**&#x20;
+**‼️ Not A Token is being replaced with** [**Moxie Protocol**](https://moxie.xyz) **when it launches around 25 July.**&#x20;
 
 
 
-Not A Token earned from 10 July, 2024 until Moxie launches will not accrue any rewards.&#x20;
+Not A Token points earned from 10 July, 2024 until Moxie launches will not accrue any rewards.&#x20;
 
 
 
