@@ -313,7 +313,7 @@ config();
 const main = async () => {
   const server = "https://hubs.airstack.xyz";
   try {
-    const response = await axios.get(`${server}/v1/castByFid?fid=2`, {
+    const response = await axios.get(`${server}/v1/castsByFid?fid=2`, {
       headers: {
         "Content-Type": "application/json",
         // Provide API key here
