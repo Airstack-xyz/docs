@@ -52,6 +52,8 @@ The TrendingCasts API provides you with a list of trending Farcaster casts caste
 | Name                          | Type                                           | Description                                                                                                   |
 | ----------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | `cast`                        | [`FarcasterCast`](farcastercasts-api.md)       | **Nested Query** – Details of the trending cast.                                                              |
+| `castValueFormatted`          | `Float`                                        | [Cast Value ](../../abstractions/social-capital-value-and-social-capital-scores.md)formatted value.           |
+| `castValueRaw`                | `String`                                       | [Cast Value ](../../abstractions/social-capital-value-and-social-capital-scores.md)raw value.                 |
 | `channel`                     | [`FarcasterChannel`](farcasterchannels-api.md) | **Nested Query** – Details of channel where the cast was casted.                                              |
 | `criteria`                    | `String`                                       | The chosen criteria to evaluate trending casts. This is based on the `criteria` input value.                  |
 | `criteriaCount`               | `Float`                                        | The total number for the criteria metric chosen.                                                              |

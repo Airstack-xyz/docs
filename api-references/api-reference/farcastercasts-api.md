@@ -40,6 +40,7 @@ You just need to specify the input to `ALL` for the query to work.
 
 | Name                 | Type                                                     | Description                                                                     |
 | -------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `castValue`          | [`CastValue`](../objects/castvalue.md)                   | The cast value associated to the cast.                                          |
 | `castedAtTimestamp`  | `Time`                                                   | Time when the cast was casted.                                                  |
 | `castedBy`           | [`Social`](socials-api.md)                               | **Nested Query** – Caster details.                                              |
 | `channel`            | [`FarcasterChannel`](farcasterchannels-api.md)           | **Nested Query** – Farcaster Channel where the cast is casted.                  |
