@@ -16,6 +16,10 @@
 * [🔋 Pricing](https://app.airstack.xyz/pricing)
 * [😶 Not A Token](not-a-token.md)
 
+## MOXIE
+
+* [😶 Farcaster NOTA Earnings](moxie/farcaster-nota-earnings.md)
+
 ## Farcaster
 
 * [💜 Farcaster APIs](farcaster/farcaster/README.md)
@@ -260,6 +264,7 @@
   * [FarcasterCasts API](api-references/api-reference/farcastercasts-api.md)
   * [FarcasterChannelParticipants API](api-references/api-reference/farcasterchannelparticipants-api.md)
   * [FarcasterChannels API](api-references/api-reference/farcasterchannels-api.md)
+  * [FarcasterNotaEarningStats](api-references/api-reference/farcasternotaearningstats.md)
   * [FarcasterQuotedRecasts API](api-references/api-reference/farcasterquotedrecasts-api.md)
   * [FarcasterReactions API](api-references/api-reference/farcasterreactions-api.md)
   * [FarcasterReplies API](api-references/api-reference/farcasterreplies-api.md)
@@ -290,6 +295,8 @@
   * [SocialCapital](api-references/objects/socialcapital.md)
   * [SocialCapitalValue](api-references/objects/socialcapitalvalue.md)
 * [🔢 Enum](api-references/enum/README.md)
+  * [FarcasterNOTAEarningStatsEntityType](api-references/enum/farcasternotaearningstatsentitytype.md)
+  * [FarcasterNOTAEarningStatsTimeFrame](api-references/enum/farcasternotaearningstatstimeframe.md)
   * [FarcasterReactionCriteria](api-references/enum/farcasterreactioncriteria.md)
 
 ## Webhooks API Reference
