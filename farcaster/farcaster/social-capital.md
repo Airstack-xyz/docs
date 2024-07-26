@@ -21,31 +21,31 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-* [Get A Farcaster User's Social Capital Score](social-capital.md#get-a-farcaster-users-social-capital-score)
-* [Get A Farcaster User's Social Capital Rank](social-capital.md#get-a-farcaster-users-social-capital-rank)
-* [Get All Farcaster Users Sorted By Social Capital Scores](social-capital.md#get-all-farcaster-users-sorted-by-social-capital-scores)
-* [Get All Farcaster Users With Social Capital Scores > X](social-capital.md#get-all-farcaster-users-with-social-capital-scores-greater-than-x)
-* [Get All Farcaster Users Sorted By Social Capital Rank](social-capital.md#get-all-farcaster-users-sorted-by-social-capital-rank)
-* [Get All Farcaster Users With Social Capital Rank < X](social-capital.md#get-all-farcaster-users-with-social-capital-rank-less-than-x)
-* [Get A Farcaster Casts's Social Capital Value](social-capital.md#get-a-farcaster-castss-social-capital-value)
+- [Get A Farcaster User's Social Capital Score](social-capital.md#get-a-farcaster-users-social-capital-score)
+- [Get A Farcaster User's Social Capital Rank](social-capital.md#get-a-farcaster-users-social-capital-rank)
+- [Get All Farcaster Users Sorted By Social Capital Scores](social-capital.md#get-all-farcaster-users-sorted-by-social-capital-scores)
+- [Get All Farcaster Users With Social Capital Scores > X](social-capital.md#get-all-farcaster-users-with-social-capital-scores-greater-than-x)
+- [Get All Farcaster Users Sorted By Social Capital Rank](social-capital.md#get-all-farcaster-users-sorted-by-social-capital-rank)
+- [Get All Farcaster Users With Social Capital Rank < X](social-capital.md#get-all-farcaster-users-with-social-capital-rank-less-than-x)
+- [Get A Farcaster Casts's Social Capital Value](social-capital.md#get-a-farcaster-castss-social-capital-value)
 
 ## Social Capital Scores
 
-* Social Capital Scores (SCS) are a measure of each Farcaster user's influence in the network.&#x20;
-  * This score is derived from a variety of onchain criteria (including Farcaster Hubs). Users with higher SCSs have more positive downstream influence, as their actions and engagements tends to result in higher quality overall engagement.
-  * User's rank for their SCS is represented by **Social Capital Rank (SCR)**.
-  * Currently, the SCS is powered by a proprietary algorithm from Airstack. This algorithm is kept confidential to prevent manipulation.
-  * Over time, we aim to refine the SCS based on its performance and eventually release it as an open-source protocol.
+- Social Capital Scores (SCS) are a measure of each Farcaster user's influence in the network.&#x20;
+  - This score is derived from a variety of onchain criteria (including Farcaster Hubs). Users with higher SCSs have more positive downstream influence, as their actions and engagements tends to result in higher quality overall engagement.
+  - User's rank for their SCS is represented by **Social Capital Rank (SCR)**.
+  - Currently, the SCS is powered by a proprietary algorithm from Airstack. This algorithm is kept confidential to prevent manipulation.
+  - Over time, we aim to refine the SCS based on its performance and eventually release it as an open-source protocol.
 
 ## Social Capital Value
 
-* **Social Capital Value (SCV)** is a metric developed by Airstack to identify high-quality Trending Casts on Farcaster.
-* The SCS of a user impacts the SCV of a cast when the user engages with it. The type of engagement also plays a role. The accumulated SCS of all interactions contributes to the cast's overall SCV. Casts are then ranked by their SCV, promoting higher-quality casts.
+- **Social Capital Value (SCV)** is a metric developed by Airstack to identify high-quality Trending Casts on Farcaster.
+- The SCS of a user impacts the SCV of a cast when the user engages with it. The type of engagement also plays a role. The accumulated SCS of all interactions contributes to the cast's overall SCV. Casts are then ranked by their SCV, promoting higher-quality casts.
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -66,6 +66,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -80,6 +81,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -94,12 +96,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -107,6 +112,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -130,9 +136,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -145,9 +153,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -165,6 +175,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -186,40 +197,38 @@ Show me social capital score of FID 602
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
     input: {
-      filter: {
-        dappName: {
-          _eq: farcaster
-        },
-        identity: { _eq: "fc_fid:602" }
-      },
+      filter: { dappName: { _eq: farcaster }, identity: { _eq: "fc_fid:602" } }
       blockchain: ethereum
     }
   ) {
     Social {
-      socialCapital {
-        socialCapitalScoreRaw
-        socialCapitalScore
+      farcasterScore {
+        farScoreRaw
+        farScore
       }
     }
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
     "Socials": {
       "Social": [
         {
-          "socialCapital": {
-            "socialCapitalScoreRaw": "4354877467024.49997743418218819",
-            "socialCapitalScore": 43.548774670245
+          "farcasterScore": {
+            "farScoreRaw": "4354877467024.49997743418218819",
+            "farScore": 43.548774670245
           }
         }
       ]
@@ -227,6 +236,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -248,37 +258,35 @@ Show me social capital rank of FID 602
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
     input: {
-      filter: {
-        dappName: {
-          _eq: farcaster
-        },
-        identity: { _eq: "fc_fid:602" }
-      },
+      filter: { dappName: { _eq: farcaster }, identity: { _eq: "fc_fid:602" } }
       blockchain: ethereum
     }
   ) {
     Social {
-      socialCapital {
-        socialCapitalRank
+      farcasterScore {
+        farRank
       }
     }
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Socials": {
       "Social": [
         {
-          "socialCapital": {
-<strong>            "socialCapitalRank": 70 // rank 70
+          "farcasterScore": {
+<strong>            "farRank": 70 // rank 70
 </strong>          }
         }
       ]
@@ -286,6 +294,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -307,6 +316,7 @@ Show me all Farcaster users sorted by social capital scores
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -326,16 +336,18 @@ Show me all Farcaster users sorted by social capital scores
         address
         blockchain
       }
-      socialCapital {
-        socialCapitalScore
+      farcasterScore {
+        farScore
       }
     }
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -355,16 +367,17 @@ Show me all Farcaster users sorted by social capital scores
               "blockchain": "ethereum"
             }
           ],
-          "socialCapital": {
-            "socialCapitalScore": 279.70459538175
+          "farcasterScore": {
+            "farScore": 279.70459538175
           }
-        },
+        }
         // Other highly influential user on Farcaster network
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -390,6 +403,7 @@ Show me all Farcaster users with social capital scores of at least 50
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -409,16 +423,18 @@ Show me all Farcaster users with social capital scores of at least 50
         address
         blockchain
       }
-      socialCapital {
-        socialCapitalScore
+      farcasterScore {
+        farScore
       }
     }
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -438,16 +454,17 @@ Show me all Farcaster users with social capital scores of at least 50
               "blockchain": "ethereum"
             }
           ],
-          "socialCapital": {
-            "socialCapitalScore": 279.70459538175
+          "farcasterScore": {
+            "farScore": 279.70459538175
           }
-        },
+        }
         // Other Farcaster users w/ SCS > 50
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -465,6 +482,7 @@ Show me all Farcaster users sorted by social capital rank
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -486,16 +504,18 @@ Show me all Farcaster users sorted by social capital rank
         address
         blockchain
       }
-      socialCapital {
-        socialCapitalRank
+      farcasterScore {
+        farRank
       }
     }
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -515,16 +535,17 @@ Show me all Farcaster users sorted by social capital rank
               "blockchain": "ethereum"
             }
           ],
-          "socialCapital": {
-            "socialCapitalRank": 1
+          "farcasterScore": {
+            "farRank": 1
           }
-        },
+        }
         // Other Farcaster users ranked by social capital rank
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -552,6 +573,7 @@ Show all Farcaster users with social captial rank below or equal to 100
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -574,16 +596,18 @@ Show all Farcaster users with social captial rank below or equal to 100
         address
         blockchain
       }
-      socialCapital {
-        socialCapitalRank
+      farcasterScore {
+        farRank
       }
     }
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -599,22 +623,23 @@ Show all Farcaster users with social captial rank below or equal to 100
               "blockchain": "ethereum"
             }
           ],
-          "socialCapital": {
-            "socialCapitalRank": 82
+          "farcasterScore": {
+            "farRank": 82
           }
-        },
+        }
         // Other user with social capital rank below or equal to 100
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
 ## Get A Farcaster Casts's Social Capital Value
 
-You can use `FarcasterCasts` API to fetch a Farcaster cast's [social capital value](../../abstractions/social-capital-value-and-social-capital-scores.md) by providing the Warpcast URL  to the `url` input:
+You can use `FarcasterCasts` API to fetch a Farcaster cast's [social capital value](../../abstractions/social-capital-value-and-social-capital-scores.md) by providing the Warpcast URL to the `url` input:
 
 {% hint style="info" %}
 Alternatively, you can also use the `hash` input filter and provide the cast hash if you have the cast hash value.
@@ -630,18 +655,17 @@ Show me social capital value of a cast
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   FarcasterCasts(
     input: {
-      filter: {
-        url: {_eq: "https://warpcast.com/dannylove/0xabc68559"}
-      },
+      filter: { url: { _eq: "https://warpcast.com/dannylove/0xabc68559" } }
       blockchain: ALL
     }
   ) {
     Cast {
-      socialCapitalValue {
+      castValue {
         rawValue
         formattedValue
       }
@@ -649,16 +673,18 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
     "FarcasterCasts": {
       "Cast": [
         {
-          "socialCapitalValue": {
+          "castValue": {
             "rawValue": "33984720",
             "formattedValue": 0.0003398472
           }
@@ -668,6 +694,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -677,6 +704,6 @@ If you have any questions or need help regarding fetching Social Capital data, p
 
 ## More Resources
 
-* [Social Capital Value & Social Capital Score](../../abstractions/social-capital-value-and-social-capital-scores.md)
-* [Socials API Reference](../../api-references/api-reference/socials-api.md)
-* [FarcasterCasts API Reference](../../api-references/api-reference/farcastercasts-api.md)
+- [Social Capital Value & Social Capital Score](../../abstractions/social-capital-value-and-social-capital-scores.md)
+- [Socials API Reference](../../api-references/api-reference/socials-api.md)
+- [FarcasterCasts API Reference](../../api-references/api-reference/farcastercasts-api.md)

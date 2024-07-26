@@ -24,8 +24,8 @@ For additional information on **SCV** and **SCS**, please refer to the following
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -46,6 +46,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -60,6 +61,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -74,12 +76,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -87,6 +92,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -110,9 +116,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -125,9 +133,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -145,6 +155,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -166,20 +177,19 @@ Show all trending Farcaster casts by FID 602 in the last 1 hour sorted by social
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery(
-  $criteria: TrendingCastsCriteria!,
-  $timeFrame: TrendingCastTimeFrame!,
+  $criteria: TrendingCastsCriteria!
+  $timeFrame: TrendingCastTimeFrame!
   $fid: Int!
 ) {
   TrendingCasts(
     input: {
-      blockchain: ALL,
-      criteria: $criteria,
-      timeFrame: $timeFrame,
-      filter: {
-        fid: { _eq: $fid }
-      }
+      blockchain: ALL
+      criteria: $criteria
+      timeFrame: $timeFrame
+      filter: { fid: { _eq: $fid } }
     }
   ) {
     TrendingCast {
@@ -187,8 +197,8 @@ query MyQuery(
       criteriaCount
       hash
       id
-      socialCapitalValueFormatted
-      socialCapitalValueRaw
+      castValueFormatted
+      castValueRaw
       timeFrom
       timeTo
       cast {
@@ -204,9 +214,11 @@ query MyQuery(
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "timeFrame": "one_hour",
@@ -214,9 +226,11 @@ query MyQuery(
   "fid": 602
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -227,8 +241,8 @@ query MyQuery(
           "criteriaCount": 354.460477946805,
           "hash": "0x1c22deef09fa4ec2635f8ffc35f19c1149c33a34",
           "id": "0x1c22deef09fa4ec2635f8ffc35f19c1149c33a34",
-          "socialCapitalValueFormatted": 354.460477946805,
-          "socialCapitalValueRaw": "35446047794678",
+          "castValueFormatted": 354.460477946805,
+          "castValueRaw": "35446047794678",
           "timeFrom": "2024-05-10T16:40:00Z",
           "timeTo": "2024-05-10T17:00:00Z",
           "cast": {
@@ -244,17 +258,18 @@ query MyQuery(
             ],
             "url": "https://warpcast.com/betashop.eth/0x1c22deef"
           }
-        },
+        }
         // Other trending Farcaster casts by FID 602
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
-🎉 :partying\_face: Congratulations you've just fetched all the trending Farcaster casts of a certain Farcaster user and integrate it into your application!
+🎉 :partying_face: Congratulations you've just fetched all the trending Farcaster casts of a certain Farcaster user and integrate it into your application!
 
 ## **D**eveloper Support
 
@@ -262,4 +277,4 @@ If you have any questions or need help regarding integrating or building trendin
 
 ## More Resources
 
-* [TrendingCasts API Reference](../../api-references/api-reference/trendingcasts-api.md)
+- [TrendingCasts API Reference](../../api-references/api-reference/trendingcasts-api.md)

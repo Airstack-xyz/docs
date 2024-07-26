@@ -24,8 +24,8 @@ For additional information on **SCV** and **SCS**, please refer to the following
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -46,6 +46,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -60,6 +61,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -74,12 +76,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -87,6 +92,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -110,9 +116,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -125,9 +133,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -145,6 +155,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -166,25 +177,22 @@ Show all trending Farcaster casts in the last 1 hour sorted by social capital va
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery(
-  $criteria: TrendingCastsCriteria!,
+  $criteria: TrendingCastsCriteria!
   $timeFrame: TrendingCastTimeFrame!
 ) {
   TrendingCasts(
-    input: {
-      blockchain: ALL,
-      criteria: $criteria,
-      timeFrame: $timeFrame,
-    }
+    input: { blockchain: ALL, criteria: $criteria, timeFrame: $timeFrame }
   ) {
     TrendingCast {
       criteria
       criteriaCount
       hash
       id
-      socialCapitalValueFormatted
-      socialCapitalValueRaw
+      castValueFormatted
+      castValueRaw
       timeFrom
       timeTo
       cast {
@@ -200,18 +208,22 @@ query MyQuery(
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "timeFrame": "one_hour",
   "criteria": "social_capital_value"
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -222,8 +234,8 @@ query MyQuery(
           "criteriaCount": 10476.43430537895,
           "hash": "0x1f48c83b51e395c433f984ab707bfc84cece7cb5",
           "id": "0x1f48c83b51e395c433f984ab707bfc84cece7cb5",
-          "socialCapitalValueFormatted": 10476.43430537895,
-          "socialCapitalValueRaw": "1047643430537860",
+          "castValueFormatted": 10476.43430537895,
+          "castValueRaw": "1047643430537860",
           "timeFrom": "2024-04-24T17:30:00Z",
           "timeTo": "2024-04-25T10:00:00Z",
           "cast": {
@@ -232,17 +244,18 @@ query MyQuery(
             "embeds": [],
             "url": "https://warpcast.com/ted/0x1f48c83b"
           }
-        },
+        }
         // Other trending Farcaster casts
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
-🎉 :partying\_face: Congratulations you've just fetched all the trending Farcaster casts and integrate it into your application!
+🎉 :partying_face: Congratulations you've just fetched all the trending Farcaster casts and integrate it into your application!
 
 ## **D**eveloper Support
 
@@ -250,4 +263,4 @@ If you have any questions or need help regarding integrating or building trendin
 
 ## More Resources
 
-* [TrendingCasts API Reference](../../api-references/api-reference/trendingcasts-api.md)
+- [TrendingCasts API Reference](../../api-references/api-reference/trendingcasts-api.md)

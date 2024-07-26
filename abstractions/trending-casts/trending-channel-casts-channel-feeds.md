@@ -6,8 +6,6 @@ description: >-
 
 # 📺 Trending Channel Casts (Channel Feeds)
 
-
-
 {% embed url="https://www.youtube.com/watch?v=YsXX7GZL6rQ" %}
 Trending Casts In A Channel Tutorial
 {% endembed %}
@@ -26,8 +24,8 @@ For additional information on **SCV** and **SCS**, please refer to the following
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -48,6 +46,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -62,6 +61,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -76,12 +76,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -89,6 +92,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -112,9 +116,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -127,9 +133,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -147,6 +155,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -172,20 +181,19 @@ Show all trending Farcaster casts in /airstack channel in the last 1 hour sorted
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery(
-  $criteria: TrendingCastsCriteria!,
-  $timeFrame: TrendingCastTimeFrame!,
+  $criteria: TrendingCastsCriteria!
+  $timeFrame: TrendingCastTimeFrame!
   $channelUrl: String!
 ) {
   TrendingCasts(
     input: {
-      blockchain: ALL,
-      criteria: $criteria,
-      timeFrame: $timeFrame,
-      filter: {
-        rootParentUrl: { _eq: $channelUrl }
-      }
+      blockchain: ALL
+      criteria: $criteria
+      timeFrame: $timeFrame
+      filter: { rootParentUrl: { _eq: $channelUrl } }
     }
   ) {
     TrendingCast {
@@ -193,8 +201,8 @@ query MyQuery(
       criteriaCount
       hash
       id
-      socialCapitalValueFormatted
-      socialCapitalValueRaw
+      castValueFormatted
+      castValueRaw
       timeFrom
       timeTo
       cast {
@@ -210,9 +218,11 @@ query MyQuery(
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "timeFrame": "one_hour",
@@ -220,9 +230,11 @@ query MyQuery(
   "channelUrl": "https://warpcast.com/~/channel/airstack" // /airstack channel URL
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -233,8 +245,8 @@ query MyQuery(
           "criteriaCount": 3.662080821405,
           "hash": "0x0a57a54058eacf39b72f89a4f8fa3452cfd7b792",
           "id": "0x0a57a54058eacf39b72f89a4f8fa3452cfd7b792",
-          "socialCapitalValueFormatted": 3.662080821405,
-          "socialCapitalValueRaw": "366208082138",
+          "castValueFormatted": 3.662080821405,
+          "castValueRaw": "366208082138",
           "timeFrom": "2024-05-15T13:50:00Z",
           "timeTo": "2024-05-15T14:10:00Z",
           "cast": {
@@ -243,17 +255,18 @@ query MyQuery(
             "embeds": [],
             "url": "https://warpcast.com/betashop.eth/0x0a57a540"
           }
-        },
+        }
         // Other trending Farcaster casts on /airstack channel
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
-🎉 :partying\_face: Congratulations you've just fetched all the trending Farcaster casts of a certain Farcaster channel and integrate it into your application!
+🎉 :partying_face: Congratulations you've just fetched all the trending Farcaster casts of a certain Farcaster channel and integrate it into your application!
 
 ## **D**eveloper Support
 
@@ -261,5 +274,5 @@ If you have any questions or need help regarding integrating or building trendin
 
 ## More Resources
 
-* [TrendingCasts API Reference](../../api-references/api-reference/trendingcasts-api.md)
-* [FarcasterCasts API Reference](../../api-references/api-reference/farcastercasts-api.md)
+- [TrendingCasts API Reference](../../api-references/api-reference/trendingcasts-api.md)
+- [FarcasterCasts API Reference](../../api-references/api-reference/farcastercasts-api.md)

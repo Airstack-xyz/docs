@@ -21,19 +21,19 @@ layout:
 
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
-* [Get All Casts Casted In A Channel](farcaster-casts.md#get-all-casts-casted-in-a-channel) (Channel Feed)
-* [Get All Casts Casted By A Farcaster User ](farcaster-casts.md#get-all-casts-casted-by-a-farcaster-user)(User Feed)
-* [Get All Casts That Have Frames](farcaster-casts.md#get-all-casts-that-have-frames) (Frames Feed)
-* [Get All Casts That Have Embeds](farcaster-casts.md#get-all-casts-that-have-embeds)&#x20;
-* [Get All Casts Casted At Certain Period Of Time](farcaster-casts.md#get-all-casts-casted-at-certain-period-of-time)
-* [Get All Casts That Have Mentions](farcaster-casts.md#get-all-casts-that-have-mentions)
-* [Get Details Of A Certain Cast By Cast URL](farcaster-casts.md#get-details-of-a-certain-cast-by-cast-url)
-* [Get Details Of A Certain Cast By Cast Hash](farcaster-casts.md#get-details-of-a-certain-cast-by-cast-hash)
+- [Get All Casts Casted In A Channel](farcaster-casts.md#get-all-casts-casted-in-a-channel) (Channel Feed)
+- [Get All Casts Casted By A Farcaster User ](farcaster-casts.md#get-all-casts-casted-by-a-farcaster-user)(User Feed)
+- [Get All Casts That Have Frames](farcaster-casts.md#get-all-casts-that-have-frames) (Frames Feed)
+- [Get All Casts That Have Embeds](farcaster-casts.md#get-all-casts-that-have-embeds)&#x20;
+- [Get All Casts Casted At Certain Period Of Time](farcaster-casts.md#get-all-casts-casted-at-certain-period-of-time)
+- [Get All Casts That Have Mentions](farcaster-casts.md#get-all-casts-that-have-mentions)
+- [Get Details Of A Certain Cast By Cast URL](farcaster-casts.md#get-details-of-a-certain-cast-by-cast-url)
+- [Get Details Of A Certain Cast By Cast Hash](farcaster-casts.md#get-details-of-a-certain-cast-by-cast-hash)
 
 ### Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ### Get Started
 
@@ -54,6 +54,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -68,6 +69,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -82,12 +84,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -95,6 +100,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -118,9 +124,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -133,9 +141,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -153,6 +163,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -182,6 +193,7 @@ Show me all the casts in /airstack channel
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterCasts(
     input: {
@@ -211,9 +223,11 @@ Show me all the casts in /airstack channel
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -236,13 +250,14 @@ Show me all the casts in /airstack channel
           "numberOfLikes": 3,
           "numberOfRecasts": 0,
           "numberOfReplies": 0
-        },
+        }
         // More casts from /airstack channel
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -260,13 +275,12 @@ Show me all the casts casted by Farcaster user betashop.eth
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   FarcasterCasts(
     input: {
-      filter: {
-        castedBy: {_eq: "fc_fname:betashop.eth"}
-      },
+      filter: { castedBy: { _eq: "fc_fname:betashop.eth" } }
       blockchain: ALL
     }
   ) {
@@ -288,9 +302,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -307,13 +323,14 @@ query MyQuery {
             "channelId": "farcaster"
           },
           "mentions": []
-        },
+        }
         // Other casts casted by Farcaster user betashop.eth
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -331,6 +348,7 @@ Show me all the casts that contain Farcaster Frames
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterCasts(
     input: {
@@ -373,9 +391,11 @@ Show me all the casts that contain Farcaster Frames
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -416,13 +436,14 @@ Show me all the casts that contain Farcaster Frames
             "postUrl": "http://api.anky.lat/farcaster-frames/newen-tldr?page=1",
             "state": ""
           }
-        },
+        }
         // Other casts that contains Frames
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -440,6 +461,7 @@ Show me all the casts that contains embeds
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterCasts(
     input: {
@@ -468,9 +490,11 @@ Show me all the casts that contains embeds
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -496,13 +520,14 @@ Show me all the casts that contains embeds
               "position": 40
             }
           ]
-        },
+        }
         // Other casts that have embeds
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -520,6 +545,7 @@ Show me all the casts casted since Jan 1, 2024
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterCasts(
     input: {
@@ -549,9 +575,11 @@ Show me all the casts casted since Jan 1, 2024
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -581,13 +609,14 @@ Show me all the casts casted since Jan 1, 2024
               "position": 117
             }
           ]
-        },
+        }
         // Other casts casted since Jan 1, 2024
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -605,6 +634,7 @@ Show me all the casts that has mentions
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterCasts(
     input: {
@@ -633,9 +663,11 @@ Show me all the casts that has mentions
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -665,13 +697,14 @@ Show me all the casts that has mentions
               "position": 117
             }
           ]
-        },
+        }
         // Other casts that have mentions
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -689,13 +722,12 @@ Show me details of a given casts, e.g. likes, recasts, mentions, embeds, text, s
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   FarcasterCasts(
     input: {
-      filter: {
-        url: {_eq: "https://warpcast.com/dannylove/0xabc68559"}
-      },
+      filter: { url: { _eq: "https://warpcast.com/dannylove/0xabc68559" } }
       blockchain: ALL
     }
   ) {
@@ -713,7 +745,7 @@ query MyQuery {
         fid
         position
       }
-      socialCapitalValue {
+      castValue {
         rawValue
         formattedValue
       }
@@ -721,9 +753,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -749,7 +783,7 @@ query MyQuery {
               "position": 40
             }
           ],
-          "socialCapitalValue": {
+          "castValue": {
             "rawValue": "40837104",
             "formattedValue": 0.00040837104
           }
@@ -759,6 +793,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -780,6 +815,7 @@ show me the cast details of cast hash 0xabc6855945863f4fb9ebfe350c4366b74448d974
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterCasts(
     input: {
@@ -804,7 +840,7 @@ show me the cast details of cast hash 0xabc6855945863f4fb9ebfe350c4366b74448d974
         fid
         position
       }
-      socialCapitalValue {
+      castValue {
         rawValue
         formattedValue
       }
@@ -812,9 +848,11 @@ show me the cast details of cast hash 0xabc6855945863f4fb9ebfe350c4366b74448d974
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -840,7 +878,7 @@ show me the cast details of cast hash 0xabc6855945863f4fb9ebfe350c4366b74448d974
               "position": 40
             }
           ],
-          "socialCapitalValue": {
+          "castValue": {
             "rawValue": "40837104",
             "formattedValue": 0.00040837104
           }
@@ -850,6 +888,7 @@ show me the cast details of cast hash 0xabc6855945863f4fb9ebfe350c4366b74448d974
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -859,5 +898,5 @@ If you have any questions or need help regarding fetching Farcaster Casts data, 
 
 ## More Resources
 
-* [Farcaster Frames Guides](farcaster-frames.md)
-* [FarcasterCasts API Reference](../../api-references/api-reference/farcastercasts-api.md)
+- [Farcaster Frames Guides](farcaster-frames.md)
+- [FarcasterCasts API Reference](../../api-references/api-reference/farcastercasts-api.md)
