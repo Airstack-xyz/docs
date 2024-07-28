@@ -77,7 +77,6 @@
   * [🧩 Integrations](farcaster/farcaster-frames/integrations/README.md)
     * [🐸 Frog](farcaster/farcaster-frames/integrations/frog.md)
   * [🔗 No-Code Frames](farcaster/farcaster-frames/no-code-frames/README.md)
-    * [💱 Token Swap](farcaster/farcaster-frames/no-code-frames/token-swap.md)
     * [📈 Trending Mints](farcaster/farcaster-frames/no-code-frames/trending-mints.md)
     * [⚖️ Token Balances](farcaster/farcaster-frames/no-code-frames/token-balances.md)
     * [🗝️ Token Holders](farcaster/farcaster-frames/no-code-frames/token-holders.md)
