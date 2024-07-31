@@ -3,6 +3,17 @@ description: >-
   Learn how to fetch Farcaster Moxie earnings from different Farcaster users,
   channels, and the Farcaster network. In addition, learn how to sort by the
   earnings to get the top earners of Moxie.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 💜 Farcaster Moxie Earnings
