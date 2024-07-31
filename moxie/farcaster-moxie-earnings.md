@@ -1,34 +1,24 @@
 ---
 description: >-
-  Learn how to fetch Farcaster NOTA earnings from different Farcaster users and
-  channels. In addition, learn how to sort by the earnings to get the top
-  earners of NOTA.
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: false
-  pagination:
-    visible: true
+  Learn how to fetch Farcaster Moxie earnings from different Farcaster users,
+  channels, and the Farcaster network. In addition, learn how to sort by the
+  earnings to get the top earners of Moxie.
 ---
 
-# 😶 Farcaster NOTA Earnings
+# 💜 Farcaster Moxie Earnings
 
 ## Table Of Contents
 
-* [Get NOTA Earning For Certain User](farcaster-nota-earnings.md#get-nota-earning-for-certain-user)
-* [Get NOTA Earning For Certain Channel](farcaster-nota-earnings.md#get-nota-earning-for-certain-channel)
-* [Top NOTA Earning Entities Based On Highest NOTA Earnings](farcaster-nota-earnings.md#top-nota-earning-entities-based-on-highest-nota-earnings)
+* [Get Moxie Earning For Certain User](farcaster-moxie-earnings.md#get-moxie-earning-for-certain-user)
+* [Get Moxie Earning For Certain Channel](farcaster-moxie-earnings.md#get-moxie-earning-for-certain-channel)
+* [Get Moxie Earning For Farcaster Network](farcaster-moxie-earnings.md#get-moxie-earning-for-farcaster-network)
+* [Top Moxie Earning Entities Based On Highest Moxie Earnings](farcaster-moxie-earnings.md#top-moxie-earning-entities-based-on-highest-moxie-earnings)
 
 ## Pre-requisites
 
 * An [Airstack](https://airstack.xyz/) account
 * Basic knowledge of GraphQL
-* Read [Not A Token](../not-a-token.md)
+* Read [Moxie Whitepaper](https://build.moxie.xyz)
 
 ## Get Started
 
@@ -155,14 +145,14 @@ asyncio.run(main())
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## Get NOTA Earning For Certain User
+## Get Moxie Earning For Certain User
 
-You can fetch the NOTA earnings for a certain user by specifying `entityType` as `USER` and add the FID of the user in `entityId`:
+You can fetch the Moxie earnings for a certain user by specifying `entityType` as `USER` and add the FID of the user in `entityId`:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/gzXh5IG6PV" %}
-Show me the lifetime earning of FID 3
+{% embed url="https://app.airstack.xyz/query/HtVpLr6G7Z" %}
+Show me the lifetime Moxie earning of FID 3
 {% endembed %}
 
 ### Code
@@ -170,7 +160,7 @@ Show me the lifetime earning of FID 3
 {% tabs %}
 {% tab title="Query" %}
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
-  FarcasterNotaEarningStats(
+  FarcasterMoxieEarningStats(
     input: {
       timeframe: LIFETIME,
       blockchain: ALL,
@@ -182,7 +172,7 @@ Show me the lifetime earning of FID 3
 </strong>      }
     }
   ) {
-    FarcasterNotaEarningStat {
+    FarcasterMoxieEarningStat {
       allEarningsAmount
       allEarningsAmountInWei
       castEarningsAmount
@@ -204,8 +194,8 @@ Show me the lifetime earning of FID 3
 ```json
 {
   "data": {
-    "FarcasterNotaEarningStats": {
-      "FarcasterNotaEarningStat": [
+    "FarcasterMoxieEarningStats": {
+      "FarcasterMoxieEarningStat": [
         {
           "allEarningsAmount": 6434663.061487857,
           "allEarningsAmountInWei": "6434663061487857000000000",
@@ -227,14 +217,14 @@ Show me the lifetime earning of FID 3
 {% endtab %}
 {% endtabs %}
 
-## Get NOTA Earning For Certain Channel
+## Get Moxie Earning For Certain Channel
 
-You can fetch the NOTA earnings for a certain channel by specifying `entityType` as `CHANNEL` and add the channel ID in `entityId`:
+You can fetch the Moxie earnings for a certain channel by specifying `entityType` as `CHANNEL` and add the channel ID in `entityId`:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/hnq3G7xokt" %}
-show me the NOTA earnings of /airstack channel
+{% embed url="https://app.airstack.xyz/query/vST0A5ZjtQ" %}
+show me the Moxie earnings of /airstack channel
 {% endembed %}
 
 ### Code
@@ -242,7 +232,7 @@ show me the NOTA earnings of /airstack channel
 {% tabs %}
 {% tab title="Query" %}
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
-  FarcasterNotaEarningStats(
+  FarcasterMoxieEarningStats(
     input: {
       timeframe: LIFETIME,
       blockchain: ALL,
@@ -254,7 +244,7 @@ show me the NOTA earnings of /airstack channel
 </strong>      }
     }
   ) {
-    FarcasterNotaEarningStat {
+    FarcasterMoxieEarningStat {
       allEarningsAmount
       allEarningsAmountInWei
       castEarningsAmount
@@ -276,8 +266,8 @@ show me the NOTA earnings of /airstack channel
 ```json
 {
   "data": {
-    "FarcasterNotaEarningStats": {
-      "FarcasterNotaEarningStat": [
+    "FarcasterMoxieEarningStats": {
+      "FarcasterMoxieEarningStat": [
         {
           "allEarningsAmount": 102340.89672629537,
           "allEarningsAmountInWei": "102340896726295370000000",
@@ -299,14 +289,14 @@ show me the NOTA earnings of /airstack channel
 {% endtab %}
 {% endtabs %}
 
-## Top NOTA Earning Entities Based On Highest NOTA Earnings
+## Get Moxie Earning For Farcaster Network
 
-You can fetch the top NOTA earners by specifying `order.allEarnings` to `DESC`:
+You can fetch the Moxie earnings for the Farcaster network by specifying `entityType` as `NETWORK` and add the channel ID in `entityId`:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/v4XwMl2y0M" %}
-Show me top lifetime earners of NOTA of user type on the Farcaster network
+{% embed url="https://app.airstack.xyz/query/P2D5isRmd8" %}
+show me the lifetime Moxie earning for Farcaster network
 {% endembed %}
 
 ### Code
@@ -314,19 +304,17 @@ Show me top lifetime earners of NOTA of user type on the Farcaster network
 {% tabs %}
 {% tab title="Query" %}
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
-  FarcasterNotaEarningStats(
+  FarcasterMoxieEarningStats(
     input: {
       timeframe: LIFETIME,
       blockchain: ALL,
       filter: {
-<strong>        entityType: {_eq: USER} # alternatively can be CHANNEL
-</strong>      },
-      # Order by All earning for sorting by total earnings in 
-      # descending order
-<strong>      order: {allEarnings: DESC}
-</strong>    }
+        # Specify entity as NETWORK
+<strong>        entityType: {_eq: NETWORK}
+</strong>      }
+    }
   ) {
-    FarcasterNotaEarningStat {
+    FarcasterMoxieEarningStat {
       allEarningsAmount
       allEarningsAmountInWei
       castEarningsAmount
@@ -348,8 +336,80 @@ Show me top lifetime earners of NOTA of user type on the Farcaster network
 ```json
 {
   "data": {
-    "FarcasterNotaEarningStats": {
-      "FarcasterNotaEarningStat": [
+    "FarcasterMoxieEarningStats": {
+      "FarcasterMoxieEarningStat": [
+        {
+          "allEarningsAmount": 872358.5098993169,
+          "allEarningsAmountInWei": "872358509899317000000000",
+          "castEarningsAmount": 860028.509899317,
+          "castEarningsAmountInWei": "860028509899317000000000",
+          "entityId": "FARCASTER",
+          "entityType": "NETWORK",
+          "frameDevEarningsAmount": 12330,
+          "frameDevEarningsAmountInWei": "12330000000000000000000",
+          "otherEarningsAmount": 0,
+          "otherEarningsAmountInWei": "0",
+          "timeframe": "LIFETIME"
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Top Moxie Earning Entities Based On Highest Moxie Earnings
+
+You can fetch the top entities w/ highest Moxie earnings by specifying  `order.allEarnings` to `DESC`:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/l8lG4nw5T8" %}
+Show me top lifetime earners of Moxie of user type
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  FarcasterMoxieEarningStats(
+    input: {
+      timeframe: LIFETIME,
+      blockchain: ALL,
+      filter: {
+<strong>        entityType: {_eq: USER} # alternatively can be CHANNEL
+</strong>      },
+      # Order by All earning for sorting by total earnings in 
+      # descending order
+<strong>      order: {allEarnings: DESC}
+</strong>    }
+  ) {
+    FarcasterMoxieEarningStat {
+      allEarningsAmount
+      allEarningsAmountInWei
+      castEarningsAmount
+      castEarningsAmountInWei
+      entityId
+      entityType
+      frameDevEarningsAmount
+      frameDevEarningsAmountInWei
+      otherEarningsAmount
+      otherEarningsAmountInWei
+      timeframe
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarcasterMoxieEarningStats": {
+      "FarcasterMoxieEarningStat": [
         {
           "allEarningsAmount": 10136643.391825985,
           "allEarningsAmountInWei": "10136643391825986000000000",
@@ -363,7 +423,7 @@ Show me top lifetime earners of NOTA of user type on the Farcaster network
           "otherEarningsAmountInWei": "10084821656160823000000000",
           "timeframe": "LIFETIME"
         },
-        // Other top Farcaster user with most NOTA earned
+        // Other top Farcaster user with most Moxie earned
       ]
     }
   }
@@ -374,9 +434,9 @@ Show me top lifetime earners of NOTA of user type on the Farcaster network
 
 ## Developer Support
 
-If you have any questions or need help regarding fetching NOTA earnings data, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding fetching Moxie earnings data, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
-* [FarcasterNOTAEarningStats API Reference](../api-references/api-reference/farcasternotaearningstats.md)
+* [FarcasterMoxieEarningStats API Reference](../api-references/api-reference/farcastermoxieearningstats.md)
 * [Moxie developer docs](https://developer.moxie.xyz)
