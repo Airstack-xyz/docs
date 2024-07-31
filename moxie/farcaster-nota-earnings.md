@@ -172,8 +172,8 @@ Show me the lifetime earning of FID 3
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterNotaEarningStats(
     input: {
-<strong>      timeframe: LIFETIME, # can be also TODAY or WEEKLY
-</strong>      blockchain: ALL,
+      timeframe: LIFETIME,
+      blockchain: ALL,
       filter: {
         # specify entity as USER
 <strong>        entityType: {_eq: USER},
@@ -244,8 +244,8 @@ show me the NOTA earnings of /airstack channel
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterNotaEarningStats(
     input: {
-<strong>      timeframe: LIFETIME, # can also be TODAY or WEEKLY
-</strong>      blockchain: ALL,
+      timeframe: LIFETIME,
+      blockchain: ALL,
       filter: {
         # Specify entity as CHANNEL
 <strong>        entityType: {_eq: CHANNEL},
@@ -316,8 +316,8 @@ Show me top lifetime earners of NOTA of user type on the Farcaster network
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterNotaEarningStats(
     input: {
-<strong>      timeframe: LIFETIME,# can also be TODAY or WEEKLY
-</strong>      blockchain: ALL,
+      timeframe: LIFETIME,
+      blockchain: ALL,
       filter: {
 <strong>        entityType: {_eq: USER} # alternatively can be CHANNEL
 </strong>      },

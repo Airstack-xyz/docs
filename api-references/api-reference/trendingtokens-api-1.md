@@ -57,12 +57,6 @@ The TrendingTokens API provides you with a list of trending tokens frequently tr
 | `two_days`    | Get trending mints from the last 2 days.  |
 | `seven_days`  | Get trending mints from the last 7 days.  |
 
-### swappable
-
-| Name  | Description                                                                                                                             |
-| ----- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `_eq` | Equal operator, assign `true` to only fetch swappable tokens. Otherwise, all tokens, whether swappable or not in DEX, will be included. |
-
 ## Outputs
 
 | Name            | Type                     | Description                                                                         |

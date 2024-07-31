@@ -1,15 +1,15 @@
 ---
 description: >-
   Learn all the detailed references of FarcasterNotaEarningStats API that
-  provide Farcaster channel participants information, including the input
-  filters and output fields.
+  provide Nota historical earning of a user or channel information, including
+  the input filters and output fields.
 ---
 
 # FarcasterNotaEarningStats
 
-This API will help you caluclate the NOTA (offchain) Earnings that is received by an entity, that could either be a user, channel, or network (Farcaster) type.
+This API will help you caluclate the NOTA (offchain) Earnings that is received by an entity, that could either be a user or channel type.
 
-Nota earnings calculation will stop on July 29th, 2024 and future earnings will be in MOXIE.&#x20;
+Nota earnings calculation will stop on July 29th, 2024 and future earnings will be in MOXIE. To get Moxie earnings, use [`FarcasterMoxieEarningStats`](farcastermoxieearningstats.md) instead.
 
 ## Inputs
 
