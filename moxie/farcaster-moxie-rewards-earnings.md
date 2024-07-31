@@ -1,6 +1,6 @@
 ---
 description: >-
-  Learn how to fetch Farcaster Moxie earnings from different Farcaster users,
+  Learn how to fetch Farcaster Moxie Rewards earned by Farcaster users,
   channels, and the Farcaster network. In addition, learn how to sort by the
   earnings to get the top earners of Moxie.
 layout:
@@ -16,14 +16,22 @@ layout:
     visible: true
 ---
 
-# 💜 Farcaster Moxie Earnings
+# 💜 Farcaster Moxie Rewards Earnings
+
+## Introduction
+
+The Moxie Protocol enables Farcaster Members to earn Everyday Rewards based on who engages with their casts. Developers can also earn rewards for each unique FID who ineracts with their frames.
+
+[Learn more about Moxie Everyday Rewards](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards)
+
+
 
 ## Table Of Contents
 
-* [Get Moxie Earning For Certain User](farcaster-moxie-earnings.md#get-moxie-earning-for-certain-user)
-* [Get Moxie Earning For Certain Channel](farcaster-moxie-earnings.md#get-moxie-earning-for-certain-channel)
-* [Get Moxie Earning For Farcaster Network](farcaster-moxie-earnings.md#get-moxie-earning-for-farcaster-network)
-* [Top Moxie Earning Entities Based On Highest Moxie Earnings](farcaster-moxie-earnings.md#top-moxie-earning-entities-based-on-highest-moxie-earnings)
+* [Get Moxie Earning For Certain User](farcaster-moxie-rewards-earnings.md#get-moxie-earning-for-certain-user)
+* [Get Moxie Earning For Certain Channel](farcaster-moxie-rewards-earnings.md#get-moxie-earning-for-certain-channel)
+* [Get Moxie Earning For Farcaster Network](farcaster-moxie-rewards-earnings.md#get-moxie-earning-for-farcaster-network)
+* [Top Moxie Earning Entities Based On Highest Moxie Earnings](farcaster-moxie-rewards-earnings.md#top-moxie-earning-entities-based-on-highest-moxie-earnings)
 
 ## Pre-requisites
 

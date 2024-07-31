@@ -18,7 +18,7 @@
 
 ## MOXIE
 
-* [💜 Farcaster Moxie Earnings](moxie/farcaster-moxie-earnings.md)
+* [💜 Farcaster Moxie Rewards Earnings](moxie/farcaster-moxie-rewards-earnings.md)
 * [😶 Farcaster NOTA Earnings](moxie/farcaster-nota-earnings.md)
 
 ## Farcaster
