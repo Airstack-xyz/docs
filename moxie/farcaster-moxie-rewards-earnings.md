@@ -28,10 +28,10 @@ The Moxie Protocol enables Farcaster Members to earn Everyday Rewards based on w
 
 ## Table Of Contents
 
-* [Get Moxie Earning For Certain User](farcaster-moxie-rewards-earnings.md#get-moxie-earning-for-certain-user)
-* [Get Moxie Earning For Certain Channel](farcaster-moxie-rewards-earnings.md#get-moxie-earning-for-certain-channel)
-* [Get Moxie Earning For Farcaster Network](farcaster-moxie-rewards-earnings.md#get-moxie-earning-for-farcaster-network)
-* [Top Moxie Earning Entities Based On Highest Moxie Earnings](farcaster-moxie-rewards-earnings.md#top-moxie-earning-entities-based-on-highest-moxie-earnings)
+* [Get Moxie Earned For Certain User](farcaster-moxie-rewards-earnings.md#get-moxie-earning-for-certain-user)
+* [Get Moxie Earned For Certain Channel](farcaster-moxie-rewards-earnings.md#get-moxie-earning-for-certain-channel)
+* [Get Moxie Earned For Farcaster Network](farcaster-moxie-rewards-earnings.md#get-moxie-earning-for-farcaster-network)
+* Leaderboard: [Top Moxie Entities Based On Highest Moxie Earnings](farcaster-moxie-rewards-earnings.md#top-moxie-earning-entities-based-on-highest-moxie-earnings)
 
 ## Pre-requisites
 
