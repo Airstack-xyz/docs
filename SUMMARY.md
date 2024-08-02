@@ -19,6 +19,7 @@
 ## MOXIE
 
 * [💜 Farcaster Moxie Rewards Earnings](moxie/farcaster-moxie-rewards-earnings.md)
+* [✂️ Farcaster Cast Moxie Earning Details](moxie/farcaster-cast-moxie-earning-details.md)
 * [😶 Farcaster NOTA Earnings](moxie/farcaster-nota-earnings.md)
 
 ## Farcaster
@@ -293,9 +294,11 @@
   * [FarcasterFrame](api-references/objects/farcasterframe.md)
   * [FarcasterScore](api-references/objects/farcasterscore.md)
   * [FrameButton](api-references/objects/framebutton.md)
+  * [MoxieEarningsSplit](api-references/objects/moxieearningssplit.md)
   * [SocialCapital](api-references/objects/socialcapital.md)
   * [SocialCapitalValue](api-references/objects/socialcapitalvalue.md)
 * [🔢 Enum](api-references/enum/README.md)
+  * [EarnerType](api-references/enum/earnertype.md)
   * [FarcasterMoxieEarningStatsEntityType](api-references/enum/farcastermoxieearningstatsentitytype.md)
   * [FarcasterMoxieEarningStatsTimeFrame](api-references/enum/farcastermoxieearningstatstimeframe.md)
   * [FarcasterNOTAEarningStatsEntityType](api-references/enum/farcasternotaearningstatsentitytype.md)

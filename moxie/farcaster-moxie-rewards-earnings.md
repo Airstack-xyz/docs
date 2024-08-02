@@ -20,11 +20,9 @@ layout:
 
 ## Introduction
 
-The Moxie Protocol enables Farcaster Members to earn Everyday Rewards based on who engages with their casts. Developers can also earn rewards for each unique FID who ineracts with their frames.
+The Moxie Protocol enables Farcaster Members to earn Everyday Rewards based on who engages with their casts. Developers can also earn rewards for each unique FID who interacts with their frames.
 
 [Learn more about Moxie Everyday Rewards](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards)
-
-
 
 ## Table Of Contents
 
