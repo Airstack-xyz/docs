@@ -27,14 +27,14 @@ Those contracts are the marked spam and can be filtered out. If you think that a
 
 In this guide you will learn how to use Airstack to:
 
-- [Get Non-Spam NFT Balances Of Users](spam-nft.md#get-non-spam-nft-balances-of-user-s)
-- [Check If NFT Collection(s) Are Spam Or Not](spam-nft.md#check-if-nft-collection-s-are-spam-or-not)
-- [Show All Non-Spam NFTs](spam-nft.md#show-all-non-spam-nfts)
+* [Get Non-Spam NFT Balances Of Users](spam-nft.md#get-non-spam-nft-balances-of-user-s)
+* [Check If NFT Collection(s) Are Spam Or Not](spam-nft.md#check-if-nft-collection-s-are-spam-or-not)
+* [Show All Non-Spam NFTs](spam-nft.md#show-all-non-spam-nfts)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -55,7 +55,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -70,7 +69,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -85,15 +83,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -101,7 +96,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -125,11 +119,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -142,11 +134,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -164,7 +154,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -196,7 +185,6 @@ Show users' NFT balances and check if each NFT is a spam or not
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Ethereum: TokenBalances(
@@ -255,11 +243,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
@@ -305,7 +291,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -315,7 +300,6 @@ Using the GraphQL response, you can filter out and aggregate the NFTs across Eth
 
 {% tabs %}
 {% tab title="TypeScript" %}
-
 ```typescript
 interface NFT {
   tokenAddress: string;
@@ -370,11 +354,9 @@ const filterSpamNFTs = (
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
-
 ```javascript
 const filterSpamNFTs = (data) => {
   try {
@@ -403,11 +385,9 @@ const filterSpamNFTs = (data) => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 from typing import List, Dict, Any, Optional
 import traceback
@@ -438,7 +418,6 @@ def filter_spam_nfts(data: Optional[Dict[str, Any]]) -> List[Dict[str, Any]]:
         error = traceback.print_exc()
         raise Exception(error)
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -483,7 +462,6 @@ Check if @BoredApeYachtClub, @Ethereum Name Service, and @Pudgy Penguins are spa
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Tokens(
@@ -511,11 +489,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Tokens": {
@@ -546,7 +522,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -564,7 +539,6 @@ Show all non-spam NFTs on Ethereum and Base
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Ethereum: Tokens(
@@ -609,11 +583,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -656,7 +628,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -666,15 +637,15 @@ If you have any questions or need help regarding fetching NFT details data, plea
 
 ## More Resources
 
-- [Balance Snapshots Guides](../balance-snapshots.md)
-- [Holder Snapshots Guides](../holder-snapshots.md)
-- [NFT Details](nft-details.md)
-- [NFT Balances](nft-balances.md)
-- [NFT Holders](nft-holders.md)
-- [Combinations (Common Holders)](../combinations/)
-  - [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
-  - [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
-- [Tokens In Common](../tokens-in-common/)
-  - [NFTs](../tokens-in-common/nfts.md)
-- [Tokens API Reference](../../api-references/api-reference/tokens-api.md)
-- [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api.md)
+* [Balance Snapshots Guides](broken-reference)
+* [Holder Snapshots Guides](broken-reference)
+* [NFT Details](nft-details.md)
+* [NFT Balances](nft-balances.md)
+* [NFT Holders](nft-holders.md)
+* [Combinations (Common Holders)](../combinations/)
+  * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
+  * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
+* [Tokens In Common](../tokens-in-common/)
+  * [NFTs](../tokens-in-common/nfts.md)
+* [Tokens API Reference](../../api-references/api-reference/tokens-api.md)
+* [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api.md)

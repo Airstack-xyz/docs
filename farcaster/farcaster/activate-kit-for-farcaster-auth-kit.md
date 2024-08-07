@@ -827,7 +827,7 @@ Show ERC20 tokens on Ethereum owned by Farcaster user with address 0xD7029BDEa1c
 
 ## Get Historical NFT Balance of Farcaster User
 
-You can fetch Farcaster user's historical NFT balances and their time series data at a specified time by using [`Snapshots`](../../api-references/api-reference/snapshots-api.md) API and providing the given Farcaster user's 0x address to the `owner` input and specifying `tokenType` with the token type `ERC721` and `ERC1155`:
+You can fetch Farcaster user's historical NFT balances and their time series data at a specified time by using [`Snapshots`](broken-reference) API and providing the given Farcaster user's 0x address to the `owner` input and specifying `tokenType` with the token type `ERC721` and `ERC1155`:
 
 {% hint style="info" %}
 For fetching historical NFT balances data from multiple chains, check out [Cross-Chain Queries](../../guides/basics/cross-chain-queries.md).
@@ -928,7 +928,7 @@ Show me Farcaster user with address 0xD7029BDEa1c17493893AAfE29AAD69EF892B8ff2 h
 
 ## Get Historical ERC20 Token Balance of Farcaster User
 
-You can fetch Farcaster user's historical ERC20 token balances and their time series data at a specified time by using [`Snapshots`](../../api-references/api-reference/snapshots-api.md) API and providing the given Farcaster user's 0x address to the `owner` input and specifying `tokenType` with the token type `ERC20`:
+You can fetch Farcaster user's historical ERC20 token balances and their time series data at a specified time by using [`Snapshots`](broken-reference) API and providing the given Farcaster user's 0x address to the `owner` input and specifying `tokenType` with the token type `ERC20`:
 
 {% hint style="info" %}
 For fetching historical ERC20 token balances data from multiple chains, check out [Cross-Chain Queries](../../guides/basics/cross-chain-queries.md).
@@ -1499,9 +1499,9 @@ If you have any questions or need help regarding the activate kit for [Farcaster
 * [Get Token Balances](../../guides/lens/get-token-balances.md)
 * [Token Mints](../../guides/token-mints.md)
 * [Token Transfers](../../guides/recommend-users/token-transfers.md)
-* [Balance Snapshots](../../guides/balance-snapshots.md)
+* [Balance Snapshots](broken-reference)
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)
 * [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
 * [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
 * [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
-* [Snapshots API Reference](../../api-references/api-reference/snapshots-api.md)
+* [Snapshots API Reference](broken-reference)

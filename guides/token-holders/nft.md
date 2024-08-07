@@ -24,14 +24,14 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-- [Get NFT Holder(s) of A Specific NFT](nft.md#get-nft-holder-s-of-a-specific-nft)
-- [Get NFT Holders of NFT Collection(s)](nft.md#get-nft-holders-of-nft-collection-s)
-- [Check If User Hold A Specific NFT Collection](nft.md#check-if-user-hold-a-specific-nft-collection)
+* [Get NFT Holder(s) of A Specific NFT](nft.md#get-nft-holder-s-of-a-specific-nft)
+* [Get NFT Holders of NFT Collection(s)](nft.md#get-nft-holders-of-nft-collection-s)
+* [Check If User Hold A Specific NFT Collection](nft.md#check-if-user-hold-a-specific-nft-collection)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -52,7 +52,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -67,7 +66,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -82,15 +80,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -98,7 +93,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -122,11 +116,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -139,11 +131,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -161,7 +151,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -189,7 +178,6 @@ Show me holder of @BoredApeYachtClub token ID 6891
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -221,11 +209,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -266,7 +252,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -284,7 +269,6 @@ Show me holders of @BoredApeYachtClub
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -321,11 +305,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
  {
   "data": {
@@ -369,7 +351,6 @@ query MyQuery {
   }
 ]
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -389,7 +370,6 @@ Check if 0x9831bb48e27a6b74260823c10d15b577e891a37b hold any @BoredApeYachtClub
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   TokenBalances(
@@ -421,11 +401,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -466,7 +444,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -478,16 +455,16 @@ If you have any questions or need help regarding fetching NFT holders data, plea
 
 ## More Resources
 
-- [Holder Snapshots Guides](../holder-snapshots.md)
-- [Balance Snapshots Guides](../balance-snapshots.md)
-- [NFT Details](../nft/nft-details.md)
-- [NFT Balances](../nft/nft-balances.md)
-- [Spam NFT](../nft/spam-nft.md)
-- [NFT Holders](nft.md)
-- [Combinations (Common Holders)](../combinations/)
-  - [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
-  - [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
-- [Tokens In Common](../tokens-in-common/)
-  - [NFTs](../tokens-in-common/nfts.md)
-- [Tokens API Reference](../../api-references/api-reference/tokens-api.md)
-- [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api.md)
+* [Holder Snapshots Guides](broken-reference)
+* [Balance Snapshots Guides](broken-reference)
+* [NFT Details](../nft/nft-details.md)
+* [NFT Balances](../nft/nft-balances.md)
+* [Spam NFT](../nft/spam-nft.md)
+* [NFT Holders](nft.md)
+* [Combinations (Common Holders)](../combinations/)
+  * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
+  * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
+* [Tokens In Common](../tokens-in-common/)
+  * [NFTs](../tokens-in-common/nfts.md)
+* [Tokens API Reference](../../api-references/api-reference/tokens-api.md)
+* [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api.md)

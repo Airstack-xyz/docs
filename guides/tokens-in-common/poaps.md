@@ -230,5 +230,5 @@ If you have any questions or need help regarding fetching common POAPs of multip
 * [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
 * [Tokens In Common For Lens Developers](../lens/tokens-in-common.md)
 * [Tokens In Common For Farcaster Developers](../../farcaster/farcaster/tokens-in-common.md)
-* [Balance Snapshots Guides](../balance-snapshots.md)
-* [Holder Snapshots Guides](../holder-snapshots.md)
+* [Balance Snapshots Guides](broken-reference)
+* [Holder Snapshots Guides](broken-reference)

@@ -27,5 +27,5 @@ To start fetching data from the Degen Chain, follow these tutorials:
 The following features are still in development for the Degen Chain:
 
 * Degen base/native token balances
-* [Balance Snapshots](balance-snapshots.md)
+* [Balance Snapshots](broken-reference)
 * [Trending swaps](../api-references/api-reference/trendingtokens-api.md)
