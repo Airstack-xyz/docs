@@ -27,14 +27,14 @@ Those contracts are the marked spam and can be filtered out. If you think that a
 
 In this guide you will learn how to use Airstack to:
 
-* [Get Non-Spam ERC20 Token Balances Of Users](spam-erc20.md#get-non-spam-erc20-token-balances-of-user-s)
-* [Check If ERC20 Token(s) Are Spam Or Not](spam-erc20.md#check-if-erc20-token-s-are-spam-or-not)
-* [Show All Non-Spam ERC20 Tokens](spam-erc20.md#show-all-non-spam-erc20-tokens)
+- [Get Non-Spam ERC20 Token Balances Of Users](spam-erc20.md#get-non-spam-erc20-token-balances-of-user-s)
+- [Check If ERC20 Token(s) Are Spam Or Not](spam-erc20.md#check-if-erc20-token-s-are-spam-or-not)
+- [Show All Non-Spam ERC20 Tokens](spam-erc20.md#show-all-non-spam-erc20-tokens)
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -55,6 +55,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -69,6 +70,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -83,12 +85,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -96,6 +101,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -119,9 +125,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -134,9 +142,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -154,6 +164,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -185,6 +196,7 @@ Show users' ERC20 token balances and check if each ERC20 token is a spam or not
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Ethereum: TokenBalances(
@@ -264,9 +276,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Ethereum": {
@@ -335,6 +349,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -344,6 +359,7 @@ Using the GraphQL response, you can filter out and aggregate the ERC20 tokens ac
 
 {% tabs %}
 {% tab title="TypeScript" %}
+
 ```typescript
 interface ERC20 {
   tokenAddress: string;
@@ -412,9 +428,11 @@ const filterSpamERC20Tokens = (
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="JavaScript" %}
+
 ```javascript
 const filterSpamERC20Tokens = (data) => {
   try {
@@ -456,9 +474,11 @@ const filterSpamERC20Tokens = (data) => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 from typing import List, Dict, Any, Optional
 import traceback
@@ -489,6 +509,7 @@ def filter_spam_erc20_tokens(data: Optional[Dict[str, Any]]) -> List[Dict[str, A
         error = traceback.print_exc()
         raise Exception(error)
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -535,6 +556,7 @@ Check if Wrapped Ether, USD Coin, and MATIC are spam ERC20 tokens or not
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Tokens(
@@ -562,9 +584,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Tokens": {
@@ -595,6 +619,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -612,6 +637,7 @@ Show all non-spam ERC20s on Ethereum, Polygon, and Base
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Ethereum: Tokens(
@@ -676,9 +702,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -781,6 +809,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -790,15 +819,13 @@ If you have any questions or need help regarding fetching NFT details data, plea
 
 ## More Resources
 
-* [Balance Snapshots Guides](broken-reference)
-* [Holder Snapshots Guides](broken-reference)
-* [NFT Details](../nft/nft-details.md)
-* [NFT Balances](../nft/nft-balances.md)
-* [NFT Holders](../nft/nft-holders.md)
-* [Combinations (Common Holders)](../combinations/)
-  * [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
-  * [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
-* [Tokens In Common](../tokens-in-common/)
-  * [NFTs](../tokens-in-common/nfts.md)
-* [Tokens API Reference](../../api-references/api-reference/tokens-api.md)
-* [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api.md)
+- [NFT Details](../nft/nft-details.md)
+- [NFT Balances](../nft/nft-balances.md)
+- [NFT Holders](../nft/nft-holders.md)
+- [Combinations (Common Holders)](../combinations/)
+  - [Multiple ERC20s or NFTs](../combinations/multiple-erc20s-or-nfts.md)
+  - [Combinations of ERC20s, NFTs, and POAPs](../combinations/erc20s-nfts-and-poaps.md)
+- [Tokens In Common](../tokens-in-common/)
+  - [NFTs](../tokens-in-common/nfts.md)
+- [Tokens API Reference](../../api-references/api-reference/tokens-api.md)
+- [TokenNfts API Reference](../../api-references/api-reference/tokennfts-api.md)

@@ -8,11 +8,11 @@ description: >-
 
 The following APIs are currently available for the Degen Chain:
 
-* [Wallet](../api-references/api-reference/wallet-api.md)
-* [Tokens](../api-references/api-reference/tokens-api.md)
-* [TokenBalances](../farcaster/farcaster-frames/no-code-frames/token-balances.md)
-* [TokenTransfers](../api-references/api-reference/tokentransfers-api.md)
-* [TokenNfts](../api-references/api-reference/tokennfts-api.md)
+- [Wallet](../api-references/api-reference/wallet-api.md)
+- [Tokens](../api-references/api-reference/tokens-api.md)
+- [TokenBalances](../farcaster/farcaster-frames/no-code-frames/token-balances.md)
+- [TokenTransfers](../api-references/api-reference/tokentransfers-api.md)
+- [TokenNfts](../api-references/api-reference/tokennfts-api.md)
 
 For all token-related APIs, you can easily use Airstack to fetch all ERC20 (including WDegen), ERC721, and ERC115-standard tokens deployed on Degen Chain.
 
@@ -26,6 +26,5 @@ To start fetching data from the Degen Chain, follow these tutorials:
 
 The following features are still in development for the Degen Chain:
 
-* Degen base/native token balances
-* [Balance Snapshots](broken-reference)
-* [Trending swaps](../api-references/api-reference/trendingtokens-api.md)
+- Degen base/native token balances
+- [Trending swaps](../api-references/api-reference/trendingtokens-api.md)

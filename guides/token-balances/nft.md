@@ -25,8 +25,8 @@ In this guide, you will learn how to use [Airstack](https://airstack.xyz) to [ge
 
 ## Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -47,6 +47,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -61,6 +62,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -75,12 +77,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -88,6 +93,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -111,9 +117,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -126,9 +134,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -146,6 +156,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -177,6 +188,7 @@ Show NFT on Ethereum owned by users
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   TokenBalances(
     input: {
@@ -234,9 +246,11 @@ Show NFT on Ethereum owned by users
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -298,6 +312,7 @@ Show NFT on Ethereum owned by users
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -307,11 +322,9 @@ If you have any questions or need help regarding fetching NFT (ERC721/1155) bala
 
 ## More Resources
 
-* [Balance Snapshots Guides](broken-reference)
-* [Holder Snapshots Guides](broken-reference)
-* [NFT Guides](../nft/)
-* [POAP Guides](../poap/)
-* [NFTs In Common Guides](../tokens-in-common/nfts.md)
-* [NFT Holders Guides](../nft/nft-holders.md)
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
+- [NFT Guides](../nft/)
+- [POAP Guides](../poap/)
+- [NFTs In Common Guides](../tokens-in-common/nfts.md)
+- [NFT Holders Guides](../nft/nft-holders.md)
+- [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+- [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
