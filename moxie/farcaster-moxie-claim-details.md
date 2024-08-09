@@ -18,6 +18,12 @@ layout:
 
 # 🔏 Farcaster Moxie Claim Details
 
+Moxie provide [everyday rewards](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards) for users on Farcaster and through Moxie's cast action, user is able to claim these rewards every 24 hour periods.
+
+With the [`FarcasterMoxieClaimDetails`](../api-references/api-reference/farcastermoxieclaimdetails-api.md) API, you will be able to get the claim details of a Farcaster user broken down to, claimable amount, claimed amount, and processed amount.
+
+For more details, check out the use cases below.
+
 ## Table Of Contents
 
 * [Get The Amount Of Moxie Claimable By Certain User](farcaster-moxie-claim-details.md#get-the-amount-of-moxie-claimable-by-certain-user)
