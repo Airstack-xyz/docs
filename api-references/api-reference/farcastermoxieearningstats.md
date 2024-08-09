@@ -7,7 +7,7 @@ description: >-
 
 # FarcasterMoxieEarningStats
 
-This API will help you caluclate the Moxie Earnings that is received by an entity, that could either be a user, channel, or network (Farcaster) type.
+This API will help you calculate the Moxie Earnings that is received by an entity, that could either be a user, channel, or network (Farcaster) type.
 
 ## Inputs
 
@@ -22,7 +22,7 @@ This API will help you caluclate the Moxie Earnings that is received by an entit
 ### blockchain
 
 {% hint style="info" %}
-For **FarcasterChannelParticipants** API, it will return all Farcaster channels.
+For **FarcasterMoxieEarningStats** API, it will return all Farcaster channels.
 
 You just need to specify the input to `ALL` for the query to work.
 {% endhint %}
@@ -40,7 +40,7 @@ You just need to specify the input to `ALL` for the query to work.
 | `frameDevEarnings` | Sort results by the Moxie earnings from Frame devs.  |
 | `otherEarnings`    | Sort results by other Moxie earnings.                |
 
-## Outpus
+## Outputs
 
 | Name                          | Type                                                                                       | Description                                                                                               |
 | ----------------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |

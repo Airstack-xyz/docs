@@ -20,6 +20,7 @@
 
 * [💜 Farcaster Moxie Rewards Earnings](moxie/farcaster-moxie-rewards-earnings.md)
 * [✂️ Farcaster Cast Moxie Earning Details](moxie/farcaster-cast-moxie-earning-details.md)
+* [🔏 Farcaster Moxie Claim Details](moxie/farcaster-moxie-claim-details.md)
 * [😶 Farcaster NOTA Earnings](moxie/farcaster-nota-earnings.md)
 
 ## Farcaster
@@ -263,6 +264,7 @@
   * [FarcasterCasts API](api-references/api-reference/farcastercasts-api.md)
   * [FarcasterChannelParticipants API](api-references/api-reference/farcasterchannelparticipants-api.md)
   * [FarcasterChannels API](api-references/api-reference/farcasterchannels-api.md)
+  * [FarcasterMoxieClaimDetails API](api-references/api-reference/farcastermoxieclaimdetails-api.md)
   * [FarcasterMoxieEarningStats](api-references/api-reference/farcastermoxieearningstats.md)
   * [FarcasterNotaEarningStats](api-references/api-reference/farcasternotaearningstats.md)
   * [FarcasterQuotedRecasts API](api-references/api-reference/farcasterquotedrecasts-api.md)
