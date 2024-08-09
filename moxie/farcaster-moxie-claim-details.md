@@ -26,8 +26,8 @@ For more details, check out the use cases below.
 
 ## Table Of Contents
 
-* [Get The Amount Of Moxie Claimable By Certain User](farcaster-moxie-claim-details.md#get-the-amount-of-moxie-claimable-by-certain-user)
-* [Get The Amount Of Moxie Claimed By User](farcaster-moxie-claim-details.md#get-the-amount-of-moxie-claimed-by-user)
+* [Get The Accumulated Amount Oof Moxie Everyday Rewards Claimable by Certain User](farcaster-moxie-claim-details.md#get-the-accumulated-amount-oof-moxie-everyday-rewards-claimable-by-certain-user)
+* [Get The Total Amount If Moxie Everyday Rewards Claimed By Certain User](farcaster-moxie-claim-details.md#get-the-total-amount-if-moxie-everyday-rewards-claimed-by-certain-user)
 * [Get The Amount Of Moxie In Process Of Being Claimed By Certain User](farcaster-moxie-claim-details.md#get-the-amount-of-moxie-in-process-of-being-claimed-by-certain-user)
 
 ## Pre-requisites
@@ -160,7 +160,7 @@ asyncio.run(main())
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## Get The Amount Of Moxie Claimable By Certain User
+## Get The Accumulated Amount Oof Moxie Everyday Rewards Claimable by Certain User
 
 You can use [`FarcasterMoxieClaimDetails`](../api-references/api-reference/farcastermoxieclaimdetails-api.md) to fetch the amount of Moxie claimable by a certain Farcaster user by providing the FID of the user to the `fid` input filter:
 
@@ -212,7 +212,7 @@ Show me the amount of Moxie available for claim for FID 602
 {% endtab %}
 {% endtabs %}
 
-## Get The Amount Of Moxie Claimed By User
+## Get The Total Amount If Moxie Everyday Rewards Claimed By Certain User
 
 You can use [`FarcasterMoxieClaimDetails`](../api-references/api-reference/farcastermoxieclaimdetails-api.md) to fetch the amount of Moxie claimed by a certain Farcaster user by providing the FID of the user to the `fid` input filter:
 
