@@ -1,7 +1,5 @@
 ---
-description: >-
-  Learn how fetch the social followers of a solana address across Farcaster and
-  Lens.
+description: Learn how fetch the social followers of a solana address across Farcaster.
 layout:
   title:
     visible: true

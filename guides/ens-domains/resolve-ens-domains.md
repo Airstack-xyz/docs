@@ -529,7 +529,7 @@ If you have any questions or need help regarding resolving identities for ENS do
 
 * [Resolve Identities](../resolve-identities/)
   * [ENS](../resolve-identities/ens.md)
-  * [Lens](../resolve-identities/lens.md)
+  * [Lens](broken-reference)
   * [Farcaster](../resolve-identities/farcaster.md)
 * [XMTP Guides](broken-reference)
 * [Domains API Reference](../../api-references/api-reference/domains-api.md)

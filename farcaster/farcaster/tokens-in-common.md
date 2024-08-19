@@ -404,7 +404,7 @@ If you have any questions or need help regarding fetching common ERC20 tokens, N
 
 ### More Resources
 
-* [Tokens In Common Guides](../../guides/tokens-in-common/)
+* [Tokens In Common Guides](broken-reference)
 * [Nested Queries](../../api-references/overview/nested-queries.md)
 * [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
 * [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)

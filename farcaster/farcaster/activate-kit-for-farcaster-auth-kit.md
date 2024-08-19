@@ -49,7 +49,7 @@ In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 * [Get Token Transfers Received From A Farcaster User](activate-kit-for-farcaster-auth-kit.md#get-token-transfers-received-by-a-farcaster-user)
 * [Get All Farcaster Users Whose Names Start With Certain Terms (auto-complete)](activate-kit-for-farcaster-auth-kit.md#get-all-farcaster-users-whose-names-start-with-certain-terms-auto-complete)
 * [Get All Farcaster Users Whose Names Contain Certain Terms (auto-complete)](activate-kit-for-farcaster-auth-kit.md#get-all-farcaster-users-whose-names-contain-certain-terms-auto-complete)
-* [Get Onchain Graph of Farcaster user](../../guides/onchain-graph.md)
+* [Get Onchain Graph of Farcaster user](broken-reference)
 
 ### Pre-requisites
 
@@ -1293,7 +1293,7 @@ To further enrich and improve the user experience for your Farcaster application
 
 </div>
 
-To learn more how to build this into your application, check out [Onchain Graph](../../guides/onchain-graph.md) and [Onchain Contacts](../../guides/onchain-contacts.md).
+To learn more how to build this into your application, check out [Onchain Graph](broken-reference) and [Onchain Contacts](broken-reference).
 
 ## Developer Support
 
@@ -1301,13 +1301,13 @@ If you have any questions or need help regarding the activate kit for [Farcaster
 
 ## More Resources
 
-* [Onchain Graph Guides](../../guides/onchain-graph.md)
-* [Onchain Contact Guides](../../guides/onchain-contacts.md)
+* [Onchain Graph Guides](broken-reference)
+* [Onchain Contact Guides](broken-reference)
 * [Search Farcaster Users](search-farcaster-users.md)
 * [Farcaster Followers](farcaster-followers.md)
 * [Farcaster Following](farcaster-following.md)
-* [Get Token Balances](../../guides/lens/get-token-balances.md)
-* [Token Mints](../../guides/token-mints.md)
+* [Get Token Balances](broken-reference)
+* [Token Mints](broken-reference)
 * [Token Transfers](broken-reference)
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)
 * [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)

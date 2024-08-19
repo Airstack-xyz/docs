@@ -473,7 +473,7 @@ If you have any questions or need help regarding fetching token balances of a so
 
 ## More Resources
 
-* [Token Balances Guides](../token-balances/)
+* [Token Balances Guides](broken-reference)
 * [Resolving Solana Addresses](resolve-identities.md)
 * [Social Followers Of Solana Addresses](social-followers.md)
 * [Social Followings Of Solana Addresses](social-followings.md)

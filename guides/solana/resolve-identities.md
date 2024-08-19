@@ -27,7 +27,6 @@ In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 * [Get All The Solana addresses from a given ENS name](resolve-identities.md#get-all-the-solana-addresses-from-a-given-ens-name)
 * [Get All The Solana addresses from a given Namestone Subdomain or cb.id (Offchain)](resolve-identities.md#get-all-the-solana-addresses-from-a-given-namestone-subdomain-or-cb.id-offchain)
 * [Get All Solana addresses of Farcaster user](resolve-identities.md#get-all-solana-addresses-of-farcaster-user)
-* [Get All Solana addresses of Lens profile](resolve-identities.md#get-all-solana-addresses-of-lens-profile)
 
 ## Pre-requisites
 
@@ -525,80 +524,6 @@ query MyQuery {
               "blockchain": "ethereum",
               "chainId": "1",
               "timestamp": "2023-07-26T20:46:33Z"
-            }
-          ]
-        }
-      ]
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## Get All Solana addresses of Lens profile
-
-You can resolve a profile to their 0x addresses by using [`Socials`](../../api-references/api-reference/socials-api.md) API:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/4ccsLCKW7I" %}
-Show me all the Solana addresses of Lens profile alexj
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  Wallet(input: { identity: "lens/@alexj", blockchain: ethereum }) {
-    farcaster: socials(input: { filter: { dappName: { _eq: farcaster } } }) {
-      connectedAddresses {
-        address
-        chainId
-        blockchain
-        timestamp
-      }
-    }
-    domains {
-      multiChainAddresses {
-        address
-        symbol
-      }
-    }
-  }
-}
-```
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-{
-  "data": {
-    "Wallet": {
-      "farcaster": [
-        {
-          "connectedAddresses": [
-            {
-              "address": "0xe0235804378c31948e81441f656d826ee5998bc6",
-              "chainId": "1",
-              "blockchain": "ethereum",
-              "timestamp": "2023-07-04T18:54:04Z"
-            }
-          ]
-        }
-      ],
-      "domains": [
-        {
-          "multiChainAddresses": [
-            {
-              "address": "0xe0235804378c31948E81441f656D826eE5998Bc6",
-              "symbol": "ETH"
-            },
-            {
-              "address": "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV",
-              "symbol": "SOL"
             }
           ]
         }

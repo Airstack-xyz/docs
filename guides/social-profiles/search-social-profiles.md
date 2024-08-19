@@ -753,10 +753,10 @@ If you have any questions or need help regarding searching for social profiles o
 ## More Resources
 
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)
-* [Resolve Lens Profiles](../lens/resolve-lens-profiles.md)
-* [Lens Profile Details](../lens/lens-profile-details.md)
-* [Lens Followers](../lens/lens-followers.md)
-* [Lens Following](../lens/lens-following.md)
+* [Resolve Lens Profiles](broken-reference)
+* [Lens Profile Details](broken-reference)
+* [Lens Followers](broken-reference)
+* [Lens Following](broken-reference)
 * [Resolve Farcaster Users](../../farcaster/farcaster/resolve-farcaster-users.md)
 * [Farcaster Users Details](../../farcaster/farcaster/farcaster-users-details.md)
 * [Farcaster Followers](../../farcaster/farcaster/farcaster-followers.md)

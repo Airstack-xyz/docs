@@ -15,7 +15,7 @@ layout:
     visible: true
 ---
 
-# ⏭ Next.js (Browser)
+# ⏭️ Next.js (Browser)
 
 In this tutorial, you will learn how to start integrating [Airstack](https://airstack.xyz) API into your Next.js application.
 
@@ -247,8 +247,8 @@ If you have any questions or need help regarding integrating [Airstack](https://
 
 Learn to build more with Airstack using our tutorials:
 
-* [Onchain Graph](../../guides/onchain-graph.md)
+* [Onchain Graph](broken-reference)
 * [Resolve Identities](../../guides/resolve-identities/)
-* [Combinations](../../guides/combinations/)
+* [Combinations](broken-reference)
 * [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
 * [Web SDK Reference](broken-reference/)
