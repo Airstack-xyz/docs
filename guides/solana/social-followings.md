@@ -325,6 +325,6 @@ If you have any questions or need help regarding fetching social followings of a
 * [Resolving Solana Addresses](resolve-identities.md)
 * [Social Followers Of Solana Addresses](social-followers.md)
 * [Token Balances Of Solana Addresses](token-balances.md)
-* [Check XMTP For Solana Addresses](../xmtp/check-multiple-users.md)
+* [Check XMTP For Solana Addresses](broken-reference)
 * [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
 * [Wallet API Reference](../../api-references/api-reference/wallet-api.md)

@@ -36,9 +36,7 @@ From the Wallet API it’s possible to create complex queries using nested queri
 | `base`     | Base mainnet     |
 | `zora`     | Zora mainnet     |
 | `gold`     | Gold Chain L3    |
-| `degen`    | Degen Chain L3   |
 | `ham`      | Ham Chain L3     |
-| `stp`      | Clique Chain L3  |
 
 ## Outputs
 

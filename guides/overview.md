@@ -14,12 +14,10 @@ description: >-
 
 ## Supported Chains
 
-| Name            | Chain ID (Int) | Chain ID (Hex) |
-| --------------- | -------------- | -------------- |
-| Ethereum        | 1              | 0x1            |
-| Base            | 8453           | 0x2105         |
-| Zora            | 7777777        | 0x76adf1       |
-| Gold Chain L3   | 4653           | 0x122d         |
-| Degen Chain L3  | 666666666      | 0x27bc86aa     |
-| Ham Chain L3    | 5112           | 0x13f8         |
-| Clique Chain L3 | 8853           | 0x2295         |
+| Name          | Chain ID (Int) | Chain ID (Hex) |
+| ------------- | -------------- | -------------- |
+| Ethereum      | 1              | 0x1            |
+| Base          | 8453           | 0x2105         |
+| Zora          | 7777777        | 0x76adf1       |
+| Gold Chain L3 | 4653           | 0x122d         |
+| Ham Chain L3  | 5112           | 0x13f8         |

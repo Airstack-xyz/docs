@@ -409,6 +409,6 @@ If you have any questions or need help regarding fetching token bound ERC6551 ac
 
 ### More Resources
 
-* [Tokenbound ERC6551 Guides](../token-bound-accounts/)
+* [Tokenbound ERC6551 Guides](broken-reference)
 * [Accounts API References](../../api-references/api-reference/accounts-api.md)
 * [TokenBalances API References](../../api-references/api-reference/tokenbalances-api.md)

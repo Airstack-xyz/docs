@@ -26,7 +26,7 @@ layout:
 * **Onchain** data is indexed through a blend of technologies depending on use case. New transactions from the chains and projects we index appear in Airstack within seconds of onchain finalization.
   * We index onchain data optimistically without waiting for block confirmation
   * If our indexing layer detects a reorg, then we will redo those blocks
-* **Offchain** data sources include Farcaster hubs, XMTP, and token/NFT Metadata.
+* **Offchain** data sources include Farcaster hubs, and token/NFT Metadata.
 * Airstack’s data is uniquely organized to allow for **composability**, combining data from any of the Airstack data sources and APIs in a single query/response.
 * Airstack provides **GraphQL APIs** for the data, with the unique ability to **query cross-chain, cross-project, and combine onchain and offchain data in a single query & response**
 * **Farcaster. Airstack is the easiest way to build on Farcaster.** You can access every user, every cast, every channel, every like, every reply, every recast, every follow, and compose it with everything onchain.

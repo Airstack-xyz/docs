@@ -32,17 +32,17 @@ Developers building with [XMTP](https://xmtp.org) can use [Airstack](https://air
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Check Lens Profile Has XMTP Enabled](has-xmtp.md#check-lens-profile-has-xmtp-enabled)
-- [Bulk Check Lens Profiles Have XMTP Enabled](has-xmtp.md#bulk-check-lens-profiles-have-xmtp-enabled)
-- [Get All 0x addresses of Lens profile(s)](has-xmtp.md#get-all-0x-addresses-of-lens-profile-s)
-- [Get All Lens Profiles Owned by 0x address](has-xmtp.md#get-all-lens-profiles-owned-by-0x-address)
-- [Get Lens Followers of Lens Profile(s) that has XMTP Enabled](has-xmtp.md#get-lens-followers-of-lens-profile-s-that-has-xmtp-enabled)
-- [Get Lens Following of Lens Profile(s) that has XMTP Enabled](has-xmtp.md#get-lens-following-of-lens-profile-s-that-has-xmtp-enabled)
+* [Check Lens Profile Has XMTP Enabled](has-xmtp.md#check-lens-profile-has-xmtp-enabled)
+* [Bulk Check Lens Profiles Have XMTP Enabled](has-xmtp.md#bulk-check-lens-profiles-have-xmtp-enabled)
+* [Get All 0x addresses of Lens profile(s)](has-xmtp.md#get-all-0x-addresses-of-lens-profile-s)
+* [Get All Lens Profiles Owned by 0x address](has-xmtp.md#get-all-lens-profiles-owned-by-0x-address)
+* [Get Lens Followers of Lens Profile(s) that has XMTP Enabled](has-xmtp.md#get-lens-followers-of-lens-profile-s-that-has-xmtp-enabled)
+* [Get Lens Following of Lens Profile(s) that has XMTP Enabled](has-xmtp.md#get-lens-following-of-lens-profile-s-that-has-xmtp-enabled)
 
 ### Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ### Get Started
 
@@ -63,7 +63,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -78,7 +77,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -93,15 +91,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -109,7 +104,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -133,11 +127,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -150,11 +142,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -172,7 +162,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -194,7 +183,6 @@ Check Lens Profile has XMTP enabled (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   XMTPs(
@@ -206,11 +194,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -224,7 +210,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -242,7 +227,6 @@ Bulk Check If an Array of Lens Profiles Have XMTP (Demo)
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query BulkFetchLensProfilesHaveXMTP {
   XMTPs(
@@ -268,11 +252,9 @@ query BulkFetchLensProfilesHaveXMTP {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -328,7 +310,6 @@ query BulkFetchLensProfilesHaveXMTP {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -346,7 +327,6 @@ Show 0x addresses of lens/@nader and Lens profile id 100275
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetAddressesOfLens {
   Socials(
@@ -367,11 +347,9 @@ query GetAddressesOfLens {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -398,7 +376,6 @@ query GetAddressesOfLens {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -416,7 +393,6 @@ Show Lens owned by Ethereum address 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query GetLensOfEthereumAddress {
   Socials(
@@ -437,11 +413,9 @@ query GetLensOfEthereumAddress {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 
   "data": {
@@ -460,7 +434,6 @@ query GetLensOfEthereumAddress {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -474,7 +447,6 @@ You can all the Lens followers of Lens profile(s) and see whether they have thei
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   SocialFollowers(
     input: {filter: {dappName: {_eq: lens}, identity: {_in: ["lens/@stani", "lens_id:0x024", "vitalik.eth", "0xeaf55242a90bb3289dB8184772b0B98562053559"]}}, blockchain: ALL, limit: 200}
@@ -509,15 +481,12 @@ You can all the Lens followers of Lens profile(s) and see whether they have thei
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 // Some code
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -531,7 +500,6 @@ You can all the Lens following of Lens profile(s) and see whether they have thei
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   SocialFollowings(
@@ -581,15 +549,12 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 // Some code
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -601,9 +566,9 @@ If you have any questions or need help regarding checking if Lens profile(s) hav
 
 ### More Resources
 
-- [Has XMTP](../xmtp/)
-  - [Check Lens Profile](../xmtp/check-single-user.md#by-lens-profile)
-  - [Bulk Check Lens Profiles](../xmtp/check-multiple-users.md#bulk-check-lens-profiles-have-xmtp)
-- [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)
-- [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
-- [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
+* [Has XMTP](broken-reference)
+  * [Check Lens Profile](broken-reference)
+  * [Bulk Check Lens Profiles](broken-reference)
+* [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)
+* [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
+* [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)

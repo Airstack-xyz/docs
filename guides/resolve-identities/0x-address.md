@@ -162,7 +162,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get All Solana Addresses Connected To 0x Address
 
-You can get all the solana addresses connected to a given 0x addresss by using the [`Wallet`](../wallet.md) API:
+You can get all the solana addresses connected to a given 0x addresss by using the [`Wallet`](broken-reference) API:
 
 ### Try Demo
 
@@ -237,7 +237,7 @@ Show me all the Solana address connected to 0xe0235804378c31948e81441f656d826ee5
 
 ## Get All 0x Addresses Connected To Solana Address
 
-You can get all the 0x addresses connected to a given solana addresss by using the [`Wallet`](../wallet.md) API:
+You can get all the 0x addresses connected to a given solana addresss by using the [`Wallet`](broken-reference) API:
 
 ### Try Demo
 
