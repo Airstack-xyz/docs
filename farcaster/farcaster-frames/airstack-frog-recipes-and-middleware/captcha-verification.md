@@ -168,7 +168,7 @@ If you have any questions or need help integrating Captcha into your Farcaster F
 ## More Resources
 
 * [Airstack Frames SDK Refrence](https://www.npmjs.com/package/@airstack/frames)
-* [Onchain Data](onchain-data.md)
+* [Farcaster Data](onchain-data.md)
 * [Farcaster Hubs](farcaster-hubs.md)
 * [Allow List](allow-list.md)
 * [Integrate to Existing Frog Project](../integrations/frog.md)

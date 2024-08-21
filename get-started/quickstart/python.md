@@ -107,18 +107,12 @@ from airstack.execute_query import AirstackClient
 
 query = """
 query MyQuery {
-  Socials(
-    input: {filter: {dappName: {_eq: farcaster}}, blockchain: ethereum, order: {profileCreatedAtBlockTimestamp: DESC}, limit: 200}
-  ) {
-    Social {
+  Wallet(input: {identity: "vitalik.eth", blockchain: ethereum}) {
+    socials {
+      dappName
       profileName
-      userAddress
-      userAddressDetails {
-        xmtp {
-          isXMTPEnabled
-        }
-      }
     }
+    addresses
   }
 }
 """
@@ -149,10 +143,6 @@ The `data` variable will return and logged into your terminal as follows:
         {
           "dappName": "farcaster",
           "profileName": "vitalik.eth"
-        },
-        {
-          "dappName": "lens",
-          "profileName": "lens/@vitalik"
         }
       ],
       "addresses": ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"]
@@ -169,8 +159,6 @@ If you have any questions or need help regarding integrating [Airstack](https://
 
 Learn to build more with Airstack using our tutorials:
 
-* [Onchain Graph](broken-reference)
 * [Resolve Identities](../../guides/resolve-identities/)
-* [Combinations](broken-reference)
 * [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
 * [Python SDK Reference](https://pypi.org/project/airstack/)

@@ -6,13 +6,7 @@ description: >-
 
 # 🥪 Airstack Frog Middleware
 
-{% embed url="https://youtu.be/VIBuzdcwUNI" %}
-Airstack Frog Middleware Demo
-{% endembed %}
-
 The Airstack Frog Middleware is available as a community-built middleware and can be easily incorporated into any Frog app by installing the [Airstack Frames SDK](https://www.npmjs.com/package/@airstack/frames). (The Airstack Frog Middleware can also be accessed via the [Airstack Frog Recipes](https://www.npmjs.com/package/@airstack/frog))
-
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Airstack Frog Middleware Code Snippets</p></figcaption></figure>
 
 ## Onchain Data Middleware
 
@@ -26,25 +20,6 @@ import { onchainData } from "@airstack/frog";
 const onchainDataMiddleware = onchainData({
   features: {
     userDetails: {},
-    erc20Mints: {
-      chains: [TokenBlockchain.Base],
-      limit: 1,
-    },
-    nftMints: {
-      limit: 1,
-      chains: [TokenBlockchain.Base],
-    },
-    erc20Balances: {
-      chains: [TokenBlockchain.Base],
-      limit: 1,
-    },
-    nftBalances: {
-      limit: 1,
-      chains: [TokenBlockchain.Base],
-    },
-    poaps: {
-      limit: 1,
-    },
   },
   env: "dev",
 });
@@ -71,25 +46,6 @@ const onchainDataMiddleware = onchainData({
   apiKey: process.env.AIRSTACK_API_KEY,
   features: {
     userDetails: {},
-    erc20Mints: {
-      chains: [TokenBlockchain.Base],
-      limit: 1,
-    },
-    nftMints: {
-      limit: 1,
-      chains: [TokenBlockchain.Base],
-    },
-    erc20Balances: {
-      chains: [TokenBlockchain.Base],
-      limit: 1,
-    },
-    nftBalances: {
-      limit: 1,
-      chains: [TokenBlockchain.Base],
-    },
-    poaps: {
-      limit: 1,
-    },
   },
   env: "dev",
 });
@@ -121,70 +77,7 @@ app.frame("/", onchainDataMiddleware, async function (c) {
     ],
     "followerCount": 65820,
     "followingCount": 2303
-  },
-  "erc20Balances": [
-    {
-      "blockchain": "base",
-      "tokenAddress": "0x10503dbed34e291655100a3c204528425abe3235",
-      "amount": 740,
-      "amountInWei": "740000000000000000000",
-      "name": "am00r",
-      "symbol": "AM00R"
-    }
-  ],
-  "nftBalances": [
-    {
-      "blockchain": "base",
-      "tokenAddress": "0xbd2019982628d26786d75e4477daf15489260d66",
-      "tokenId": "1",
-      "amount": 1,
-      "amountInWei": "1",
-      "name": "Doom scrolling",
-      "symbol": "",
-      "image": {},
-      "metaData": {},
-      "tokenType": "ERC1155"
-    }
-  ],
-  "erc20Mints": [
-    {
-      "blockchain": "base",
-      "tokenAddress": "0x058d96baa6f9d16853970b333ed993acc0c35add",
-      "amount": 50,
-      "amountInWei": "50000000000000000000",
-      "name": "Staked SPORK",
-      "symbol": "sSPORK",
-      "blockTimestamp": "2024-01-03T18:43:02Z",
-      "blockNumber": 51901326
-    }
-  ],
-  "nftMints": [
-    {
-      "blockchain": "base",
-      "tokenAddress": "0xb3da098a7251a647892203e0c256b4398d131a54",
-      "tokenId": "4442",
-      "tokenType": "ERC721",
-      "amount": 1,
-      "amountInWei": "1",
-      "name": "Mint A Penny",
-      "symbol": "PENNY",
-      "blockTimestamp": "2024-02-12T22:43:35Z",
-      "blockNumber": 10494234,
-      "image": {},
-      "metaData": {}
-    }
-  ],
-  "poaps": [
-    {
-      "eventName": "You have met Patricio in February of 2024 (IRL)",
-      "eventId": "167539",
-      "eventURL": "https://POAP.xyz",
-      "isVirtualEvent": false,
-      "startDate": "2024-02-01T00:00:00Z",
-      "endDate": "2024-03-01T00:00:00Z",
-      "city": ""
-    }
-  ]
+  }
 }
 ```
 {% endtab %}

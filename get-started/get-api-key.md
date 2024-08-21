@@ -92,7 +92,7 @@ If you have any questions or need help regarding getting your Airstack API key, 
 
 Learn to build more with Airstack using our tutorials:
 
-* [Airstack AI](airstack-ai.md)
+* [Airstack AI](broken-reference)
 * [Quickstart](quickstart/)
   * [React](quickstart/react.md)
   * [Node.js](quickstart/node.md)

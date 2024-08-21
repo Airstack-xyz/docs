@@ -40,18 +40,12 @@ bun install @airstack/frog hono
 
 ## createAllowList
 
-{% embed url="https://youtu.be/QapqzbSHwZk" %}
-Custom Allow List Demo
-{% endembed %}
+You can create an allow list that checks various Farcaster data easily using the [`createAllowList`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#createallowlist) function. Some of the parameters that you can add to the allow list are:
 
-You can create an allow list that checks various onchain data easily using the [`createAllowList`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#createallowlist) function. Some of the parameters that you can add to the allow list are:
-
-| Name                           | Type                                                | Description                                                                                 |
-| ------------------------------ | --------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `eventIds`                     | `number[]`                                          | **POAP Gating** – Check If POAPs with the given event IDs are attended by a Farcaster user. |
-| `numberOfFollowersOnFarcaster` | number                                              | Check If the number of Farcaster followers greater than or equal to the given number.       |
-| `isFollowingOnFarcaster`       | `number[]`                                          | Check if the given FIDs are being followed by a Farcaster user.                             |
-| `tokens`                       | `{tokenAddress: string; chain: TokenBlockchain;}[]` | **Token Gating** – Check If tokens are currently held by a Farcaster user.                  |
+| Name                           | Type       | Description                                                                           |
+| ------------------------------ | ---------- | ------------------------------------------------------------------------------------- |
+| `numberOfFollowersOnFarcaster` | number     | Check If the number of Farcaster followers greater than or equal to the given number. |
+| `isFollowingOnFarcaster`       | `number[]` | Check if the given FIDs are being followed by a Farcaster user.                       |
 
 Once you have the criteria set, the function will help you check whether all the criterias are fulfilled.
 
@@ -68,23 +62,8 @@ import {
 } from "@airstack/frog";
 
 const allowListCriteria = {
-  eventIds: [166577],
   numberOfFollowersOnFarcaster: 100,
   isFollowingOnFarcaster: [2602],
-  tokens: [
-    {
-      tokenAddress: "0x95cb845b525f3a2126546e39d84169f1eca8c77f",
-      chain: TokenBlockchain.Ethereum,
-    },
-    {
-      tokenAddress: "0x2d45c399d7ca25341992038f12610c41a00a66ed",
-      chain: TokenBlockchain.Base,
-    },
-    {
-      tokenAddress: "0x743658ace931ea241dd0cb4ed38ec72cc8162ce1",
-      chain: TokenBlockchain.Zora,
-    },
-  ],
 };
 const input: CreateAllowListInput = {
   fid: 602,
@@ -109,23 +88,8 @@ console.log(isAllowed);
 const { createAllowList, TokenBlockchain } = require("@airstack/frog");
 
 const allowListCriteria = {
-  eventIds: [166577],
   numberOfFollowersOnFarcaster: 100,
   isFollowingOnFarcaster: [2602],
-  tokens: [
-    {
-      tokenAddress: "0x95cb845b525f3a2126546e39d84169f1eca8c77f",
-      chain: TokenBlockchain.Ethereum,
-    },
-    {
-      tokenAddress: "0x2d45c399d7ca25341992038f12610c41a00a66ed",
-      chain: TokenBlockchain.Base,
-    },
-    {
-      tokenAddress: "0x743658ace931ea241dd0cb4ed38ec72cc8162ce1",
-      chain: TokenBlockchain.Zora,
-    },
-  ],
 };
 const input = {
   fid: 602,
@@ -149,246 +113,6 @@ console.log(isAllowed);
   "isAllowed": true,
   "error": null
 }
-```
-{% endtab %}
-{% endtabs %}
-
-## checkPoapAttendedByFarcasterUser
-
-You can check if a Farcaster user has attended a given list of POAP event IDs by using the [`checkPoapAttendedByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#checkpoapattendedbyfarcasteruser) function:
-
-{% tabs %}
-{% tab title="TypeScript" %}
-```typescript
-import {
-  checkPoapAttendedByFarcasterUser,
-  CheckPoapAttendedByFarcasterUserInput,
-  CheckPoapAttendedByFarcasterUserOutput,
-} from "@airstack/frog";
-
-const input: CheckPoapAttendedByFarcasterUserInput = {
-  fid: 15971,
-  eventId: [160005, 159993, 13242],
-};
-const { data, error }: CheckPoapAttendedByFarcasterUserOutput =
-  await checkPoapAttendedByFarcasterUser(input);
-
-if (error) throw new Error(error);
-
-console.log(data);
-```
-{% endtab %}
-
-{% tab title="JavaScript" %}
-```javascript
-const { checkPoapAttendedByFarcasterUser } = require("@airstack/frog");
-
-const input = {
-  fid: 15971,
-  eventId: [160005, 159993, 13242],
-};
-const { data, error } = await checkPoapAttendedByFarcasterUser(input);
-
-if (error) throw new Error(error);
-
-console.log(data);
-```
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-[
-  { "eventId": 160005, "isAttended": true },
-  { "eventId": 159993, "isAttended": true },
-  { "eventId": 13242, "isAttended": false }
-]
-```
-{% endtab %}
-{% endtabs %}
-
-## checkTokenHoldByFarcasterUser
-
-You can check if a Farcaster user is holding a given list of tokens across Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains) by using the [`checkTokenHoldByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#checktokenholdbyfarcasteruser) function:
-
-{% tabs %}
-{% tab title="TypeScript" %}
-```typescript
-import {
-  checkTokenHoldByFarcasterUser,
-  CheckTokenHoldByFarcasterUserInput,
-  CheckTokenHoldByFarcasterUserOutput,
-  TokenBlockchain,
-} from "@airstack/frog";
-
-const input: CheckTokenHoldByFarcasterUserInput = {
-  fid: 15971,
-  token: [
-    {
-      chain: TokenBlockchain.Base,
-      tokenAddress: "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
-    },
-    {
-      chain: TokenBlockchain.Ethereum,
-      tokenAddress: "0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85",
-    },
-    {
-      chain: TokenBlockchain.Zora,
-      tokenAddress: "0xa15bb830acd9ab46164e6840e3ef2dbbf9c5e2b3",
-    },
-  ],
-};
-const { data, error }: CheckTokenHoldByFarcasterUserOutput =
-  await checkTokenHoldByFarcasterUser(input);
-
-if (error) throw new Error(error);
-
-console.log(data);
-```
-{% endtab %}
-
-{% tab title="JavaScript" %}
-```javascript
-import { checkTokenHoldByFarcasterUser, TokenBlockchain } from "@airstack/frog";
-
-const input = {
-  fid: 15971,
-  token: [
-    {
-      chain: TokenBlockchain.Base,
-      tokenAddress: "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
-    },
-    {
-      chain: TokenBlockchain.Ethereum,
-      tokenAddress: "0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85",
-    },
-    {
-      chain: TokenBlockchain.Zora,
-      tokenAddress: "0xa15bb830acd9ab46164e6840e3ef2dbbf9c5e2b3",
-    },
-  ],
-};
-const { data, error } = await checkTokenHoldByFarcasterUser(input);
-
-if (error) throw new Error(error);
-
-console.log(data);
-```
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-[
-  {
-    "chain": "base",
-    "tokenAddress": "0x4c17ff12d9a925a0dec822a8cbf06f46c6268553",
-    "isHold": false
-  },
-  {
-    "chain": "ethereum",
-    "tokenAddress": "0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85",
-    "isHold": true
-  },
-  {
-    "chain": "zora",
-    "tokenAddress": "0xa15bb830acd9ab46164e6840e3ef2dbbf9c5e2b3",
-    "isHold": true
-  }
-]
-```
-{% endtab %}
-{% endtabs %}
-
-## checkTokenMintedByFarcasterUser
-
-You can check if a Farcaster user has minted a given list of tokens across Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains) by using the [`checkTokenHoldByFarcasterUser`](https://github.com/Airstack-xyz/airstack-frames-sdk?tab=readme-ov-file#checktokenmintedbyfarcasteruser) function:
-
-{% tabs %}
-{% tab title="TypeScript" %}
-```typescript
-import {
-  checkTokenMintedByFarcasterUser,
-  CheckTokenMintedByFarcasterUserInput,
-  CheckTokenMintedByFarcasterUserOutput,
-  TokenBlockchain,
-} from "@airstack/frog";
-
-const input: CheckTokenMintedByFarcasterUserInput = {
-  fid: 15971,
-  token: [
-    {
-      chain: TokenBlockchain.Base,
-      tokenAddress: "0x57965af45c3b33571aa5419cc5e9012d8dcab181",
-    },
-    {
-      chain: TokenBlockchain.Ethereum,
-      tokenAddress: "0xad08067c7d3d3dbc14a9df8d671ff2565fc5a1ae",
-    },
-    {
-      chain: TokenBlockchain.Zora,
-      tokenAddress: "0xa15bb830acd9ab46164e6840e3ef2dbbf9c5e2b3",
-    },
-  ],
-};
-const { data, error }: CheckTokenMintedByFarcasterUserOutput =
-  await checkTokenMintedByFarcasterUser(input);
-
-if (error) throw new Error(error);
-
-console.log(data);
-```
-{% endtab %}
-
-{% tab title="JavaScript" %}
-```javascript
-const {
-  checkTokenMintedByFarcasterUser,
-  TokenBlockchain,
-} = require("@airstack/frog");
-
-const input = {
-  fid: 15971,
-  token: [
-    {
-      chain: TokenBlockchain.Base,
-      tokenAddress: "0x57965af45c3b33571aa5419cc5e9012d8dcab181",
-    },
-    {
-      chain: TokenBlockchain.Ethereum,
-      tokenAddress: "0xad08067c7d3d3dbc14a9df8d671ff2565fc5a1ae",
-    },
-    {
-      chain: TokenBlockchain.Zora,
-      tokenAddress: "0xa15bb830acd9ab46164e6840e3ef2dbbf9c5e2b3",
-    },
-  ],
-};
-const { data, error } = await checkTokenMintedByFarcasterUser(input);
-
-if (error) throw new Error(error);
-
-console.log(data);
-```
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-[
-  {
-    "chain": "base",
-    "tokenAddress": "0x57965af45c3b33571aa5419cc5e9012d8dcab181",
-    "isMinted": true
-  },
-  {
-    "chain": "ethereum",
-    "tokenAddress": "0xad08067c7d3d3dbc14a9df8d671ff2565fc5a1ae",
-    "isMinted": true
-  },
-  {
-    "chain": "zora",
-    "tokenAddress": "0xa15bb830acd9ab46164e6840e3ef2dbbf9c5e2b3",
-    "isMinted": false
-  }
-]
 ```
 {% endtab %}
 {% endtabs %}
@@ -509,6 +233,6 @@ If you have any questions or need help building an allow list for your Farcaster
 
 ## More Resources
 
-* [Onchain Data](onchain-data.md)
+* [Farcaster Data](onchain-data.md)
 * [Farcaster Hubs](farcaster-hubs.md)
 * [Integrate to Existing Frog Project](../integrations/frog.md)
