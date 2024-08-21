@@ -1,20 +1,14 @@
 ---
 description: >-
   Build your Farcaster Frames with Airstack frog middleware. Seamlessly
-  integrate profiles, follows, trending mints, tokens, and everything onchain.
+  integrate Farcaster data into your Frames easily.
 ---
 
 # 🥪 Airstack Frog Middleware
 
-{% embed url="https://drive.google.com/file/d/1zlOMMufSKMLwvmMBKRuKx0KShcLdT9Cb/view?usp=sharing" %}
-Airstack Frog Middleware Demo
-{% endembed %}
-
 The Airstack Frog Middleware is available as a community-built middleware and can be easily incorporated into any Frog app by installing the [Airstack Frames SDK](https://www.npmjs.com/package/@airstack/frames). (The Airstack Frog Middleware can also be accessed via the [Airstack Frog Recipes](https://www.npmjs.com/package/@airstack/frog))
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Airstack Frog Middleware Code Snippets</p></figcaption></figure>
-
-## Onchain Data Middleware
+## Farcaster Data Middleware
 
 You can use the [`onchainData`](https://www.npmjs.com/package/@airstack/frames#frog-middlewares) middleware to seamlessly incorporate the interactor's onchain data directly into your Farcaster Frames. Simply specify the onchain data to retrieve in the `features` field and integrate the middleware into the desired route for data access:
 
@@ -100,13 +94,8 @@ import { allowList } from "@airstack/frames";
 
 const allowListMiddleware = allowList({
   allowListCriteria: {
-    eventIds: [166577],
-    tokens: [
-      {
-        tokenAddress: "0xe03ef4b9db1a47464de84fb476f9baf493b3e886",
-        chain: TokenBlockchain.Zora,
-      },
-    ],
+    numberOfFollowersOnFarcaster: 100,
+    isFollowingOnFarcaster: [2602],
   },
 });
 
@@ -124,13 +113,8 @@ const { allowList } = require("@airstack/frames");
 
 const allowListMiddleware = allowList({
   allowListCriteria: {
-    eventIds: [166577],
-    tokens: [
-      {
-        tokenAddress: "0xe03ef4b9db1a47464de84fb476f9baf493b3e886",
-        chain: TokenBlockchain.Zora,
-      },
-    ],
+    numberOfFollowersOnFarcaster: 100,
+    isFollowingOnFarcaster: [2602],
   },
 });
 
