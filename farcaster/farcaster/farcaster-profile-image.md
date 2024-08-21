@@ -232,6 +232,6 @@ If you have any questions or need help regarding fetching profile images data, p
 
 ## More Resources
 
-* [Profile Image Guides](../../guides/profile-image.md)
+* [Profile Image Guides](broken-reference)
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)
 * [Farcaster Users Details](farcaster-users-details.md)

@@ -1,5 +1,5 @@
 ---
-description: Learn how fetch the social followers of a solana address across Farcaster.
+description: Learn how fetch the social followers of a solana address on Farcaster.
 layout:
   title:
     visible: true
@@ -307,8 +307,6 @@ If you have any questions or need help regarding fetching social followers of a 
 
 * [Social Follows Guides](../social-follows/)
 * [Resolving Solana Addresses](resolve-identities.md)
-* [Token Balances Of Solana Addresses](token-balances.md)
 * [Social Followings Of Solana Addresses](social-followings.md)
-* [Check XMTP For Solana Addresses](broken-reference)
 * [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
 * [Wallet API Reference](../../api-references/api-reference/wallet-api.md)

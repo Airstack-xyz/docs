@@ -15,20 +15,20 @@ layout:
     visible: true
 ---
 
-# ✍ ENS Domain Details
+# ✍️ ENS Domain Details
 
 ## Table Of Contents
 
 In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Get ENS Domain Manager](ens-domain-details.md#get-ens-domain-manager)
-- [Get ENS Domain Text Record](ens-domain-details.md#get-ens-domain-text-record)
-- [Get ENS Domain Multichain Addresses](ens-domain-details.md#get-ens-domain-multichain-addresses)
+* [Get ENS Domain Manager](ens-domain-details.md#get-ens-domain-manager)
+* [Get ENS Domain Text Record](ens-domain-details.md#get-ens-domain-text-record)
+* [Get ENS Domain Multichain Addresses](ens-domain-details.md#get-ens-domain-multichain-addresses)
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -49,7 +49,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -64,7 +63,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -79,15 +77,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -95,7 +90,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -119,11 +113,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -136,11 +128,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -158,7 +148,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -180,7 +169,6 @@ Show me the manager and its details of ENS domain vitalik.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Domains(
@@ -206,11 +194,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -253,7 +239,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -271,7 +256,6 @@ Show me all text records of ENS domain ens.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Domains(
@@ -286,11 +270,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -325,7 +307,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -343,7 +324,6 @@ Show me all the multichain addresses of ENS domain barmstrong.eth
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Domains(
@@ -358,11 +338,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Domains": {
@@ -386,7 +364,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -396,6 +373,5 @@ If you have any questions or need help regarding resolving identities for ENS do
 
 ### More Resources
 
-- [Resolve ENS Domain](resolve-ens-domains.md)
-- [ENS Profile Image](profile-image.md)
-- [Domains API Reference](../../api-references/api-reference/domains-api.md)
+* [Resolve ENS Domain](resolve-ens-domains.md)
+* [Domains API Reference](../../api-references/api-reference/domains-api.md)

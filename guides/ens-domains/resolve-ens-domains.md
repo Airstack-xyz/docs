@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to resolve ENS and Offchain Domains (Namestone & cb.id) to 0x
-  address, Lens, Farcaster, and XMTP and Reverse Resolution.
+  address, Farcaster, and Reverse Resolution.
 layout:
   title:
     visible: true
@@ -23,10 +23,9 @@ In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 
 * [Get ENS and Offchain Domains (Namestone & cb.id) of user(s)](resolve-ens-domains.md#get-ens-and-offchain-domains-namestone-and-cb.id-of-user-s)
 * [Get All 0x addresses of ENS Domain(s)](resolve-ens-domains.md#get-all-0x-addresses-of-ens-domain-s)
-* [Get All Web3 Social Accounts (Lens, Farcaster) owned by 0x address or ENS](resolve-ens-domains.md#get-all-web3-social-accounts-lens-farcaster-owned-by-0x-address-or-ens)
-* [Check If XMTP is Enabled for ENS Domain(s)](resolve-ens-domains.md#check-if-xmtp-is-enabled-for-ens-domain-s)
-* [Get the 0x address, Lens, and Farcaster from a given cb.id (Offchain)](resolve-ens-domains.md#get-the-0x-address-lens-and-farcaster-from-a-given-cb.id-offchain)
-* [Get the 0x address, Lens, and Farcaster from a given Namestone Subdomain (Offchain)](resolve-ens-domains.md#get-the-0x-address-lens-and-farcaster-from-a-given-namestone-subdomain-offchain)
+* [Get All Farcaster accounts owned by 0x address or ENS](resolve-ens-domains.md#get-all-farcaster-accounts-owned-by-ens)
+* [Get the 0x address and Farcaster from a given cb.id (Offchain)](resolve-ens-domains.md#get-the-0x-address-and-farcaster-from-a-given-cb.id-offchain)
+* [Get the 0x address and Farcaster from a given Namestone Subdomain (Offchain)](resolve-ens-domains.md#get-the-0x-address-and-farcaster-from-a-given-namestone-subdomain-offchain)
 
 ## Pre-requisites
 
@@ -269,14 +268,14 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## Get All Web3 Social Accounts (Lens, Farcaster) owned by ENS
+## Get All Farcaster accounts owned by ENS
 
-You can resolve any ENS to their web3 socials, which comprise of Lens and Farcaster:
+You can resolve any ENS to their Farcaster accounts, which comprise of Farcaster:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/XTG99PTQrF" %}
-Show web3 socials (Lens, Farcaster) owned by vitalik.eth
+{% embed url="https://app.airstack.xyz/query/BXb4j3H7bI" %}
+Show Farcaster accounts owned by vitalik.eth
 {% endembed %}
 
 ### Code
@@ -287,7 +286,10 @@ Show web3 socials (Lens, Farcaster) owned by vitalik.eth
 query GetWeb3SocialsOfLens {
   Socials(
     input: {
-      filter: { identity: { _in: ["vitalik.eth"] } }
+      filter: {
+        identity: { _in: ["vitalik.eth"] }
+        dappName: { _eq: farcaster }
+      }
       blockchain: ethereum
     }
   ) {
@@ -320,16 +322,6 @@ query GetWeb3SocialsOfLens {
             "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
             "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
           ]
-        },
-        {
-          "dappName": "lens",
-          "profileName": "lens/@vitalik",
-          "profileTokenId": "100275",
-          "profileTokenIdHex": "0x0187b3",
-          "userId": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
-          "userAssociatedAddresses": [
-            "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-          ]
         }
       ]
     }
@@ -339,65 +331,9 @@ query GetWeb3SocialsOfLens {
 {% endtab %}
 {% endtabs %}
 
-## Check If XMTP is Enabled for ENS Domain(s)
+## Get the 0x address and Farcaster from a given cb.id (Offchain)
 
-You can check if an array of ENS domain(s) have their XMTP enabled or not:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/vI2wlaYY7t" %}
-Show if XMTP is enabled for vitalik.eth
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-```graphql
-query GetLensOfFarcasters {
-  XMTPs(
-    input: { blockchain: ALL, filter: { owner: { _in: ["vitalik.eth"] } } }
-  ) {
-    XMTP {
-      isXMTPEnabled
-      owner {
-        domains {
-          name
-        }
-      }
-    }
-  }
-}
-```
-{% endtab %}
-
-{% tab title="Response" %}
-<pre class="language-json"><code class="lang-json">{
-  "data": {
-    "XMTPs": {
-      "XMTP": [
-        {
-<strong>          "isXMTPEnabled": true, // XMTP is enabled for vitalik.eth
-</strong>          "owner": {
-            "domains": [
-              {
-                "name": "vitalik.eth"
-              },
-              // Other ENS domain
-            ]
-          }
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-{% endtab %}
-{% endtabs %}
-
-## Get the 0x address, Lens, and Farcaster from a given cb.id (Offchain)
-
-You can get the 0x address, Lens, and Farcaster of cb.ids:
+You can get the 0x address and Farcaster of cb.ids:
 
 ### Try Demo
 
@@ -442,10 +378,6 @@ query GetCbDotID {
           "resolvedAddressDetails": {
             "socials": [
               {
-                "profileName": "lens/@yosephks",
-                "dappName": "lens"
-              },
-              {
                 "profileName": "yosephks.eth",
                 "dappName": "farcaster"
               }
@@ -460,9 +392,9 @@ query GetCbDotID {
 {% endtab %}
 {% endtabs %}
 
-## Get the 0x address, Lens, and Farcaster from a given Namestone Subdomain (Offchain)
+## Get the 0x address and Farcaster from a given Namestone Subdomain (Offchain)
 
-You can get the 0x address, Lens, and Farcaster of [Namestone](https://namestone.xyz/) subdomains:
+You can get the 0x address and Farcaster of [Namestone](https://namestone.xyz/) subdomains:
 
 ### Try Demo
 
@@ -529,9 +461,6 @@ If you have any questions or need help regarding resolving identities for ENS do
 
 * [Resolve Identities](../resolve-identities/)
   * [ENS](../resolve-identities/ens.md)
-  * [Lens](broken-reference)
   * [Farcaster](../resolve-identities/farcaster.md)
-* [XMTP Guides](broken-reference)
 * [Domains API Reference](../../api-references/api-reference/domains-api.md)
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)
-* [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)

@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to use Airstack to universally resolve and reverse resolve Solana
-  addresses to other web3 identities (Farcaster, ENS, Lens, 0x address).
+  addresses to other web3 identities (Farcaster, ENS, and 0x address).
 layout:
   title:
     visible: true
