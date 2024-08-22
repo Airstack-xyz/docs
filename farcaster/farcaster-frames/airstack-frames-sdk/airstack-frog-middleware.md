@@ -10,14 +10,14 @@ The Airstack Frog Middleware is available as a community-built middleware and ca
 
 ## Farcaster Data Middleware
 
-You can use the [`onchainData`](https://www.npmjs.com/package/@airstack/frames#frog-middlewares) middleware to seamlessly incorporate the interactor's onchain data directly into your Farcaster Frames. Simply specify the onchain data to retrieve in the `features` field and integrate the middleware into the desired route for data access:
+You can use the `farcasterData` middleware to seamlessly incorporate the interactor's Farcaster data directly into your Farcaster Frames. Simply specify the Farcaster data to retrieve in the `features` field and integrate the middleware into the desired route for data access:
 
 {% tabs %}
 {% tab title="TypeScript" %}
 ```typescript
-import { onchainData } from "@airstack/frames";
+import { farcasterDataFrogMiddleware } from "@airstack/frames";
 
-const onchainDataMiddleware = onchainData({
+const farcasterDataMiddleware = farcasterDataFrogMiddleware({
   features: {
     userDetails: {},
   },
@@ -26,9 +26,9 @@ const onchainDataMiddleware = onchainData({
 
 app.frame(
   "/",
-  // Add Onchain Data Middleware to the routes that need to access
-  // User's onchain data
-  onchainDataMiddleware,
+  // Add Farcaster Data Middleware to the routes that need to access
+  // User's Farcaster data
+  farcasterDataMiddleware,
   async function (c) {
     const { status } = c;
     if (status === "response") console.log(c.var);
@@ -40,9 +40,9 @@ app.frame(
 
 {% tab title="JavaScript" %}
 ```javascript
-const { onchainData } = require("@airstack/frames");
+const { farcasterDataFrogMiddleware } = require("@airstack/frames");
 
-const onchainDataMiddleware = onchainData({
+const farcasterDataMiddleware = farcasterDataFrogMiddleware({
   apiKey: process.env.AIRSTACK_API_KEY,
   features: {
     userDetails: {},
@@ -50,7 +50,7 @@ const onchainDataMiddleware = onchainData({
   env: "dev",
 });
 
-app.frame("/", onchainDataMiddleware, async function (c) {
+app.frame("/", farcasterDataMiddleware, async function (c) {
   const { status } = c;
   if (status === "response") console.log(c.var);
   c.res({});

@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to use the Onchain Data Middleware to inject the onchain data of the
-  user interacting with your Frames.js Frames.
+  Learn how to use the Onchain Data Middleware to inject the Farcaster data of
+  the user interacting with your Frames.js Frames.
 ---
 
 # ⛓️ Farcaster Data
@@ -44,13 +44,13 @@ bun install @airstack/frames
 
 ## Get User's Farcaster Profile Details
 
-You can use the [`onchainDataFramesjsMiddleware`](https://www.npmjs.com/package/@airstack/frames#framesjs-middlewares) to fetch Farcaster profile details by adding `USER_DETAILS` to the features' list:
+You can use the `farcasterDataFramesjsMiddleware` to fetch Farcaster profile details by adding `USER_DETAILS` to the features' list:
 
 {% tabs %}
 {% tab title="TypeScript" %}
 <pre class="language-typescript"><code class="lang-typescript">import { createFrames, Button } from "frames.js/next";
 import {
-  onchainDataFramesjsMiddleware as onchainData,
+  farcasterDataFramesjsMiddleware as farcasterData,
   Features,
 } from "@airstack/frames";
 
@@ -67,8 +67,8 @@ const handleRequest = frames(
   },
   {
     middleware: [
-      // Add Onchain Data Middleware
-<strong>      onchainData({
+      // Add Farcaster Data Middleware
+<strong>      farcasterData({
 </strong>        apiKey: process.env.NEXT_PUBLIC_AIRSTACK_API_KEY as string,
         // Add `USER_DETAILS` to the `features` array
 <strong>        features: [Features.USER_DETAILS],
@@ -82,7 +82,7 @@ const handleRequest = frames(
 {% tab title="JavaScript" %}
 <pre class="language-javascript"><code class="lang-javascript">const { createFrames, Button } = require("frames.js/next");
 const {
-  onchainDataFramesjsMiddleware as onchainData,
+  farcasterDataFramesjsMiddleware as farcasterData,
   Features,
 } = require("@airstack/frames");
 
@@ -99,8 +99,8 @@ const handleRequest = frames(
   },
   {
     middleware: [
-      // Add Onchain Data Middleware
-<strong>      onchainData({
+      // Add Farcaster Data Middleware
+<strong>      farcasterData({
 </strong>        apiKey: process.env.NEXT_PUBLIC_AIRSTACK_API_KEY,
         // Add `USER_DETAILS` to the `features` array
 <strong>        features: [Features.USER_DETAILS],
@@ -136,13 +136,13 @@ const handleRequest = frames(
 
 ## Get User's Farcaster Followers
 
-You can use the [`onchainDataFramesjsMiddleware`](https://www.npmjs.com/package/@airstack/frames#framesjs-middlewares) to fetch all user's Farcaster followers by adding `FARCASTER_FOLLOWERS` to the features' list:
+You can use the `farcasterDataFramesjsMiddleware` to fetch all user's Farcaster followers by adding `FARCASTER_FOLLOWERS` to the features' list:
 
 {% tabs %}
 {% tab title="TypeScript" %}
 <pre class="language-typescript"><code class="lang-typescript">import { createFrames, Button } from "frames.js/next";
 import {
-  onchainDataFramesjsMiddleware as onchainData,
+  farcasterDataFramesjsMiddleware as farcasterData,
   Features,
 } from "@airstack/frames";
 
@@ -160,8 +160,8 @@ const handleRequest = frames(
   },
   {
     middleware: [
-      // Add Onchain Data Middleware
-<strong>      onchainData({
+      // Add Farcaster Data Middleware
+<strong>      farcasterData({
 </strong>        apiKey: process.env.NEXT_PUBLIC_AIRSTACK_API_KEY as string,
         // Add `FARCASTER_FOLLOWERS` to the `features` array
 <strong>        features: [Features.FARCASTER_FOLLOWERS],
@@ -175,7 +175,7 @@ const handleRequest = frames(
 {% tab title="JavaScript" %}
 <pre class="language-javascript"><code class="lang-javascript">const { createFrames, Button } = require("frames.js/next");
 const {
-  onchainDataFramesjsMiddleware as onchainData,
+  farcasterDataFramesjsMiddleware as farcasterData,
   Features,
 } = require("@airstack/frames");
 
@@ -193,8 +193,8 @@ const handleRequest = frames(
   },
   {
     middleware: [
-      // Add Onchain Data Middleware
-<strong>      onchainData({
+      // Add Farcaster Data Middleware
+<strong>      farcasterData({
 </strong>        apiKey: process.env.NEXT_PUBLIC_AIRSTACK_API_KEY,
         // Add `FARCASTER_FOLLOWERS` to the `features` array
 <strong>        features: [Features.FARCASTER_FOLLOWERS],
@@ -230,13 +230,13 @@ const handleRequest = frames(
 
 ## Get User's Farcaster Followings
 
-You can use the [`onchainDataFramesjsMiddleware`](https://www.npmjs.com/package/@airstack/frames#framesjs-middlewares) to fetch all user's Farcaster followings by adding `FARCASTER_FOLLOWINGS` to the features' list:
+You can use the `farcasterDataFramesjsMiddleware` to fetch all user's Farcaster followings by adding `FARCASTER_FOLLOWINGS` to the features' list:
 
 {% tabs %}
 {% tab title="TypeScript" %}
 <pre class="language-typescript"><code class="lang-typescript">import { createFrames, Button } from "frames.js/next";
 import {
-  onchainDataFramesjsMiddleware as onchainData,
+  farcasterDataFramesjsMiddleware as farcasterData,
   Features,
 } from "@airstack/frames";
 
@@ -253,8 +253,8 @@ const handleRequest = frames(
   },
   {
     middleware: [
-      // Add Onchain Data Middleware
-<strong>      onchainData({
+      // Add Farcaster Data Middleware
+<strong>      farcasterData({
 </strong>        apiKey: process.env.NEXT_PUBLIC_AIRSTACK_API_KEY as string,
         // Add `FARCASTER_FOLLOWINGS` to the `features` array
 <strong>        features: [Features.FARCASTER_FOLLOWINGS],
@@ -268,7 +268,7 @@ const handleRequest = frames(
 {% tab title="JavaScript" %}
 <pre class="language-javascript"><code class="lang-javascript">const { createFrames, Button } = require("frames.js/next");
 const {
-  onchainDataFramesjsMiddleware as onchainData,
+  farcasterDataFramesjsMiddleware as farcasterData,
   Features,
 } = require("@airstack/frames");
 
@@ -285,8 +285,8 @@ const handleRequest = frames(
   },
   {
     middleware: [
-      // Add Onchain Data Middleware
-<strong>      onchainData({
+      // Add Farcaster Data Middleware
+<strong>      farcasterData({
 </strong>        apiKey: process.env.NEXT_PUBLIC_AIRSTACK_API_KEY,
         // Add `FARCASTER_FOLLOWINGS` to the `features` array
 <strong>        features: [Features.FARCASTER_FOLLOWINGS],
@@ -322,13 +322,13 @@ const handleRequest = frames(
 
 ## Get Farcaster Channels Participated By User
 
-You can use the [`onchainDataFramesjsMiddleware`](https://www.npmjs.com/package/@airstack/frames#framesjs-middlewares) to fetch all the Farcaster channels the user participated in by adding `FARCASTER_CHANNELS` to the features' list:
+You can use the `farcasterDataFramesjsMiddleware` to fetch all the Farcaster channels the user participated in by adding `FARCASTER_CHANNELS` to the features' list:
 
 {% tabs %}
 {% tab title="TypeScript" %}
 <pre class="language-typescript"><code class="lang-typescript">import { createFrames, Button } from "frames.js/next";
 import {
-  onchainDataFramesjsMiddleware as onchainData,
+  farcasterDataFramesjsMiddleware as farcasterData,
   Features,
 } from "@airstack/frames";
 
@@ -346,8 +346,8 @@ const handleRequest = frames(
   },
   {
     middleware: [
-      // Add Onchain Data Middleware
-<strong>      onchainData({
+      // Add Farcaster Data Middleware
+<strong>      farcasterData({
 </strong>        apiKey: process.env.NEXT_PUBLIC_AIRSTACK_API_KEY as string,
         // Add `FARCASTER_CHANNELS` to the `features` array
 <strong>        features: [Features.FARCASTER_CHANNELS],
@@ -361,7 +361,7 @@ const handleRequest = frames(
 {% tab title="JavaScript" %}
 <pre class="language-javascript"><code class="lang-javascript">const { createFrames, Button } = require("frames.js/next");
 const {
-  onchainDataFramesjsMiddleware as onchainData,
+  farcasterDataFramesjsMiddleware as farcasterData,
   Features,
 } = require("@airstack/frames");
 
@@ -369,7 +369,7 @@ const frames = createFrames();
 
 const handleRequest = frames(
   async (ctx) => {
-    // Fetch the user's NFT balances from `ctx.farcasterChannels`
+    // Fetch the user's followed channels from `ctx.farcasterChannels`
 <strong>    console.log(ctx.farcasterChannels);
 </strong>    return {
       image: (&#x3C;div>&#x3C;/div>),
@@ -378,8 +378,8 @@ const handleRequest = frames(
   },
   {
     middleware: [
-      // Add Onchain Data Middleware
-      onchainData({
+      // Add Farcaster Data Middleware
+      farcasterData({
 <strong>        apiKey: process.env.NEXT_PUBLIC_AIRSTACK_API_KEY,
 </strong>        // Add `FARCASTER_CHANNELS` to the `features` array
 <strong>        features: [Features.FARCASTER_CHANNELS],
@@ -427,13 +427,13 @@ const handleRequest = frames(
 
 ## Get Farcaster User's Cast
 
-You can use the [`onchainDataFramesjsMiddleware`](https://www.npmjs.com/package/@airstack/frames#framesjs-middlewares) to fetch all the Farcaster casts casted by a user by adding `FARCASTER_CASTS` to the features' list:
+You can use the `farcasterDataFramesjsMiddleware` to fetch all the Farcaster casts casted by a user by adding `FARCASTER_CASTS` to the features' list:
 
 {% tabs %}
 {% tab title="TypeScript" %}
 <pre class="language-typescript"><code class="lang-typescript">import { createFrames, Button } from "frames.js/next";
 import {
-  onchainDataFramesjsMiddleware as onchainData,
+  farcasterDataFramesjsMiddleware as farcasterData,
   Features,
 } from "@airstack/frames";
 
@@ -450,8 +450,8 @@ const handleRequest = frames(
   },
   {
     middleware: [
-      // Add Onchain Data Middleware
-<strong>      onchainData({
+      // Add Farcaster Data Middleware
+<strong>      farcasterData({
 </strong>        apiKey: process.env.NEXT_PUBLIC_AIRSTACK_API_KEY as string,
         // Add `FARCASTER_CHANNELS` to the `features` array
 <strong>        features: [Features.FARCASTER_CASTS],
@@ -465,7 +465,7 @@ const handleRequest = frames(
 {% tab title="JavaScript" %}
 <pre class="language-javascript"><code class="lang-javascript">const { createFrames, Button } = require("frames.js/next");
 const {
-  onchainDataFramesjsMiddleware as onchainData,
+  farcasterDataFramesjsMiddleware as farcasterData,
   Features,
 } = require("@airstack/frames");
 
@@ -482,8 +482,8 @@ const handleRequest = frames(
   },
   {
     middleware: [
-      // Add Onchain Data Middleware
-<strong>      onchainData({
+      // Add Farcaster Data Middleware
+<strong>      farcasterData({
 </strong>        apiKey: process.env.NEXT_PUBLIC_AIRSTACK_API_KEY,
         // Add `FARCASTER_CHANNELS` to the `features` array
 <strong>        features: [Features.FARCASTER_CASTS],
