@@ -484,4 +484,4 @@ If you have any questions or need help regarding resolving identities for Farcas
   * [Farcaster](../../guides/resolve-identities/farcaster.md)
   * [Solana Address](../../guides/resolve-identities/solana-address.md)
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)
-* [XMTPs API Reference](../../api-references/api-reference/xmtps-api.md)
+* [XMTPs API Reference](broken-reference)

@@ -391,6 +391,6 @@ If you have any questions or need help regarding token gating, please join our A
 
 ### More Resources
 
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+* [TokenBalances API Reference](broken-reference)
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
+* [POAPs API Reference](broken-reference)

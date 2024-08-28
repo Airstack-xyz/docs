@@ -19,6 +19,8 @@ layout:
 
 Airstack provides an easy-to-use [Validation API](../../api-references/api-reference/airstack-validation-api.md) to validate your Frames signature packet in your Farcaster Frames.&#x20;
 
+Keep in mind that to access the Airstack Validation API, you will need an API key which will require you to **hold at least 1 /airstack Channel Fan Token** in either your Farcaster custodial or verified wallet for access.
+
 You can access the [Validation API](../../api-references/api-reference/airstack-validation-api.md) in various ways, depending on the stacks that you are using:
 
 * [Airstack Frames SDK](frames-validator.md#airstack-frames-sdk): suitable for those using JS/TS in their tech stacks, e.g. Frames.js, Next.js, etc.

@@ -406,5 +406,5 @@ If you have any questions or need help regarding fetching common ERC20 tokens, N
 
 * [Tokens In Common Guides](broken-reference)
 * [Nested Queries](../../api-references/overview/nested-queries.md)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+* [POAPs API Reference](broken-reference)
+* [TokenBalances API Reference](broken-reference)

@@ -370,4 +370,4 @@ If you have any questions or need help regarding adding variables into your Airs
 * [Direct API Call](../../get-started/quickstart/direct-api-call.md)
 * [SocialFollowings API References](../../api-references/api-reference/socialfollowings-api.md)
 * [SocialFollowers API References](../../api-references/api-reference/socialfollowers-api.md)
-* [TokenBalances API References](../../api-references/api-reference/tokenbalances-api.md)
+* [TokenBalances API References](broken-reference)

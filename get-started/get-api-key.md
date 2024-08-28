@@ -35,6 +35,7 @@ You have several options to login:
   * Email (passwordless)
   * Google
   * GitHub
+  * Farcaster
 * **Connect Wallet**
   * Metamask
   * Coinbase Wallet
@@ -42,47 +43,27 @@ You have several options to login:
 
 ## Step 2: Complete Account Setup
 
-### Step 2.1: Setup Billing
-
-After account creation, you'll be directed to setup your billing to claim **2.5 million free Airstack credit** valued at $50.
-
-To claim it, simply connect a wallet with ENS, Farcaster, or Lens:
-
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>Airstack Claim $50 Free Credits</p></figcaption></figure>
-
-Otherwise, you can continue without any free trial and directly add your card to be charged for any of your API usage.
-
-### Step 2.2: Setup Profile
-
 Input your desired **Username**, **Project name**, and **Telegram** to complete your profile:
 
 <figure><img src="../.gitbook/assets/Screenshot 2023-12-04 at 12.29.42.png" alt=""><figcaption><p>Airstack Complete Your Profile</p></figcaption></figure>
 
-## Step 3: Get Production API Key
+In addition, if you are logging in with a non-Farcaster method, make sure that you **have connected a Farcaster custodial or verified wallet** to your Airstack account.
+
+## Step 3: Get API Key
+
+{% hint style="info" %}
+To keep access for your Airstack API key, make sure that you **have at least 1 /airstack Channel Fan Token** in your Farcaster custodial or verified wallet.
+
+You will have API key access as long as you hold the /airstack channel Fan Token.
+
+If you don't have it yet, you can buy it [here](https://www.airstack.xyz/channels/airstack).
+{% endhint %}
 
 Once everything is set up, go to the settings page by hovering your mouse to the **Profile icon** on the top right and click [**Profile settings**](https://app.airstack.xyz/profile-settings/profile).
 
 <figure><img src="../.gitbook/assets/Screenshot 2023-12-04 at 12.22.01.png" alt=""><figcaption><p>Profile Icon &#x26; Menu</p></figcaption></figure>
 
 Then, simply click the 3rd entry on the sidebar, [**View API Keys**](https://app.airstack.xyz/profile-settings/api-keys), and copy your **Prod API key**.
-
-## Step 4: Get The Test API Key (Optional)
-
-Test API key will provide you with an API key that is free of usage charge. This is perfect if you need to use Airstack in your development.
-
-{% hint style="info" %}
-The test API key is **NOT** suitable for production purposes because it is by designed to have a very low rate limit of **20 requests/min** and bursts of **5 requests/sec**, which is only suitable for testing purposes.
-{% endhint %}
-
-To get your test API key, you'll need to **Add Card** on the banner in the [**View API Keys**](https://app.airstack.xyz/profile-settings/api-keys) **page:**
-
-<figure><img src="../.gitbook/assets/Screenshot 2023-12-04 at 12.15.01.png" alt=""><figcaption></figcaption></figure>
-
-You'll be redirected to Stripe to add your card. Your card will **not be charged** until have exhausted all your free Airstack credits.
-
-After a card has been added to your [Airstack](https://airstack.xyz) account, you will see that a new **Test API key** has been added to your dashboard.
-
-Simply copy and use it within your test environment.
 
 ## Developer Support
 
@@ -92,10 +73,8 @@ If you have any questions or need help regarding getting your Airstack API key, 
 
 Learn to build more with Airstack using our tutorials:
 
-* [Airstack AI](broken-reference)
 * [Quickstart](quickstart/)
   * [React](quickstart/react.md)
   * [Node.js](quickstart/node.md)
   * [Python](quickstart/python.md)
   * [Direct API Call](quickstart/direct-api-call.md)
-* [Airstack Explorer (No Code)](broken-reference)

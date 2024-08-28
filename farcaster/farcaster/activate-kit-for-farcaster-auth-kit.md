@@ -520,7 +520,7 @@ query MyQuery {
 
 ## Get All POAPs Attended By Farcaster User
 
-You can fetch all POAPs owned by a Farcaster user using the [`Poaps`](../../api-references/api-reference/poaps-api.md) API and providing the Farcaster user's address to the `owner` filter:
+You can fetch all POAPs owned by a Farcaster user using the [`Poaps`](broken-reference) API and providing the Farcaster user's address to the `owner` filter:
 
 ### Try Demo
 
@@ -643,7 +643,7 @@ query POAPsOwnedByFarcasterUser {
 
 ## Get All NFTs Hold By Farcaster User
 
-You can fetch all NFTs owned by a Farcaster user using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing the Farcaster user's address to the `owner` filter:
+You can fetch all NFTs owned by a Farcaster user using the [`TokenBalances`](broken-reference) API and providing the Farcaster user's address to the `owner` filter:
 
 {% hint style="info" %}
 For fetching NFT balances data from multiple chains, check out [Cross-Chain Queries](../../guides/basics/cross-chain-queries.md).
@@ -743,7 +743,7 @@ query NFTsOwnedByFarcasterUser {
 
 ## Get All ERC20 Tokens Hold By Farcaster User
 
-You can fetch all ERC20 tokens owned by a Farcaster user using the [`TokenBalances`](../../api-references/api-reference/tokenbalances-api.md) API and providing the Farcaster user's address to the `owner` filter:
+You can fetch all ERC20 tokens owned by a Farcaster user using the [`TokenBalances`](broken-reference) API and providing the Farcaster user's address to the `owner` filter:
 
 {% hint style="info" %}
 For fetching ERC20 token balances data from multiple chains, check out [Cross-Chain Queries](../../guides/basics/cross-chain-queries.md).
@@ -825,7 +825,7 @@ Show ERC20 tokens on Ethereum owned by Farcaster user with address 0xD7029BDEa1c
 
 ## Get NFT Mints By A Farcaster User
 
-You can fetch all NFTs minted by a Farcaster user across multiple chains, such as Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all NFTs minted by a Farcaster user across multiple chains, such as Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](broken-reference) API:
 
 {% hint style="info" %}
 For fetching NFT mints data from multiple chains, check out [Cross-Chain Queries](../../guides/basics/cross-chain-queries.md).
@@ -914,7 +914,7 @@ Show me all NFTs minted by a Farcaster user with address 0xeaf55242a90bb3289dB81
 
 ## Get ERC20 Token Mints By A Farcaster User
 
-You can fetch all ERC20 tokens minted by a Farcaster user across multiple chains, such as Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all ERC20 tokens minted by a Farcaster user across multiple chains, such as Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](broken-reference) API:
 
 {% hint style="info" %}
 For fetching ERC20 mints data from multiple chains, check out [Cross-Chain Queries](../../guides/basics/cross-chain-queries.md).
@@ -981,7 +981,7 @@ Show me all ERC20 tokens minted by Farcaster user with address 0xB59Aa5Bb9270d44
 
 ## Get Token Transfers Sent From A Farcaster User
 
-You can fetch all token transfers sent by a given Farcaster user across multiple chains, such as Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all token transfers sent by a given Farcaster user across multiple chains, such as Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](broken-reference) API:
 
 {% hint style="info" %}
 For fetching token transfers data sent from a Farcaster user from multiple chains, check out [Cross-Chain Queries](../../guides/basics/cross-chain-queries.md).
@@ -1069,7 +1069,7 @@ Show me token transfers sent from Farcaster usre with address 0xeaf55242a90bb328
 
 ## Get Token Transfers Received By A Farcaster User
 
-You can fetch all token transfers received by a given Farcaster user across multiple chains, such as Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](../../api-references/api-reference/tokentransfers-api.md) API:
+You can fetch all token transfers received by a given Farcaster user across multiple chains, such as Ethereum, Base, Degen Chain, and other [Airstack-supported chains](overview.md#supported-chains), by using the [`TokenTransfers`](broken-reference) API:
 
 {% hint style="info" %}
 For fetching token transfers data received by a Farcaster user from multiple chains, check out [Cross-Chain Queries](../../guides/basics/cross-chain-queries.md).
@@ -1312,4 +1312,4 @@ If you have any questions or need help regarding the activate kit for [Farcaster
 * [Socials API Reference](../../api-references/api-reference/socials-api.md)
 * [SocialFollowers API Reference](../../api-references/api-reference/socialfollowers-api.md)
 * [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
+* [TokenBalances API Reference](broken-reference)

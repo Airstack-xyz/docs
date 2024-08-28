@@ -1048,5 +1048,5 @@ If you have any questions or need help regarding fetching holders or attendees o
   * [Mutliple POAPs](broken-reference)
   * [Combinations of ERC20s, NFTs, and POAPs](broken-reference)
   * [Social Combinations](broken-reference)
-* [TokenBalances API Reference](../../api-references/api-reference/tokenbalances-api.md)
-* [POAPs API Reference](../../api-references/api-reference/poaps-api.md)
+* [TokenBalances API Reference](broken-reference)
+* [POAPs API Reference](broken-reference)
