@@ -17,6 +17,7 @@
 ## MOXIE
 
 * [🚀 FarScores & FarBoosts](moxie/farscores-and-farboosts.md)
+* [✂️ Moxie Everyday Rewards Split](moxie/moxie-everyday-rewards-split.md)
 * [💜 Farcaster Moxie Rewards Earnings](moxie/farcaster-moxie-rewards-earnings.md)
 * [✂️ Farcaster Cast Moxie Earning Details](moxie/farcaster-cast-moxie-earning-details.md)
 * [🔏 Farcaster Moxie Claim Details](moxie/farcaster-moxie-claim-details.md)

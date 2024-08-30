@@ -552,7 +552,7 @@ The value returned in `tvl` will be in wei. Therefore, you should divide the num
 
 ## Developer Support
 
-If you have any questions or need help regarding fetching Moxie earnings data, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding fetching FarScore & FarBoosts data, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 
