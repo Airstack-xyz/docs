@@ -12,9 +12,11 @@
     * [🐍 Python](get-started/quickstart/python.md)
     * [🎯 Direct API Call](get-started/quickstart/direct-api-call.md)
 * [😶 Not A Token](not-a-token.md)
+* [😎 FarScores, FarBoost, and Cast Scores](social-capital-value-and-social-capital-scores.md)
 
 ## MOXIE
 
+* [🚀 FarScores & FarBoosts](moxie/farscores-and-farboosts.md)
 * [💜 Farcaster Moxie Rewards Earnings](moxie/farcaster-moxie-rewards-earnings.md)
 * [✂️ Farcaster Cast Moxie Earning Details](moxie/farcaster-cast-moxie-earning-details.md)
 * [🔏 Farcaster Moxie Claim Details](moxie/farcaster-moxie-claim-details.md)
@@ -84,7 +86,6 @@
 
 ## Abstractions
 
-* [😎 Social Capital Scores (Far Scores) and Social Capital Value (Cast Scores)](abstractions/social-capital-value-and-social-capital-scores.md)
 * [💬 Trending Casts](abstractions/trending-casts/README.md)
   * [📺 Trending Channel Casts (Channel Feeds)](abstractions/trending-casts/trending-channel-casts-channel-feeds.md)
   * [💜 All Farcaster Users](abstractions/trending-casts/all-farcaster-users.md)

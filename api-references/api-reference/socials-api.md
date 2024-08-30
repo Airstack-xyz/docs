@@ -24,21 +24,21 @@ The Socials APIs deliver on-chain and off-chain user-level data pertaining to us
 
 ### filter
 
-| Name                             | Type                            | Description                                                                                                       |
-| -------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `dappName`                       | `SocialDappName_Comparator_Exp` | Social DApp name – lens, farcaster                                                                                |
-| `dappSlug`                       | `SocialDappSlug_Comparator_Exp` | Social DApp slug (contract version) – lens\_polygon, lens\_v2\_polygon, farcaster\_optimism, farcaster\_goerli    |
-| `followerCount`                  | `Int_Comparator_Exp`            | Total number of followers                                                                                         |
-| `followingCount`                 | `Int_Comparator_Exp`            | Total number of followings                                                                                        |
-| `identity`                       | `Identity_Comparator_Exp`       | Identity: blockchain address, domain name, social identity                                                        |
-| `isDefault`                      | `Boolean_Comparator_Exp`        | True/false if the profile is set to default on the corresponding dApp                                             |
-| `profileName`                    | `String_Comparator_Exp`         | Profile name on the social app (prefix not required)                                                              |
-| `socialCapitalRank`              | `Int_Comparator_Exp`            | Filter by[ social capital rank](../../abstractions/social-capital-value-and-social-capital-scores.md) of a user.  |
-| `socialCapitalScore`             | `Float_Comparator_Exp`          | Filter by [social capital score](../../abstractions/social-capital-value-and-social-capital-scores.md) of a user. |
-| `updatedAt`                      | `Time_Comparator_Exp`           | Last timestamp when Lens/Farcaster profile was updated                                                            |
-| `userAssociatedAddresses`        | `Address_Comparator_Exp`        | Any associated Wallet address                                                                                     |
-| `userId`                         | `String_Comparator_Exp`         | user ID on the social app (prefix not required)                                                                   |
-| `profileCreatedAtBlockTimestamp` | `Time_Comparator_Exp`           | block timestamp when Lens/Farcaster profile was created                                                           |
+| Name                             | Type                            | Description                                                                                                    |
+| -------------------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `dappName`                       | `SocialDappName_Comparator_Exp` | Social DApp name – lens, farcaster                                                                             |
+| `dappSlug`                       | `SocialDappSlug_Comparator_Exp` | Social DApp slug (contract version) – lens\_polygon, lens\_v2\_polygon, farcaster\_optimism, farcaster\_goerli |
+| `followerCount`                  | `Int_Comparator_Exp`            | Total number of followers                                                                                      |
+| `followingCount`                 | `Int_Comparator_Exp`            | Total number of followings                                                                                     |
+| `identity`                       | `Identity_Comparator_Exp`       | Identity: blockchain address, domain name, social identity                                                     |
+| `isDefault`                      | `Boolean_Comparator_Exp`        | True/false if the profile is set to default on the corresponding dApp                                          |
+| `profileName`                    | `String_Comparator_Exp`         | Profile name on the social app (prefix not required)                                                           |
+| `socialCapitalRank`              | `Int_Comparator_Exp`            | Filter by[ social capital rank](../../social-capital-value-and-social-capital-scores.md) of a user.            |
+| `socialCapitalScore`             | `Float_Comparator_Exp`          | Filter by [social capital score](../../social-capital-value-and-social-capital-scores.md) of a user.           |
+| `updatedAt`                      | `Time_Comparator_Exp`           | Last timestamp when Lens/Farcaster profile was updated                                                         |
+| `userAssociatedAddresses`        | `Address_Comparator_Exp`        | Any associated Wallet address                                                                                  |
+| `userId`                         | `String_Comparator_Exp`         | user ID on the social app (prefix not required)                                                                |
+| `profileCreatedAtBlockTimestamp` | `Time_Comparator_Exp`           | block timestamp when Lens/Farcaster profile was created                                                        |
 
 ### blockchain
 
@@ -56,12 +56,12 @@ You just need to specify the input for the query to work.
 
 | Name                             | Description                                                                                                                  |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `farRank`                        | Sort by Farcaster profile's [farrank](../../abstractions/social-capital-value-and-social-capital-scores.md).                 |
-| `farScore`                       | Sort by Farcaster profile's [farcaster score](../../abstractions/social-capital-value-and-social-capital-scores.md).         |
+| `farRank`                        | Sort by Farcaster profile's [farrank](../../social-capital-value-and-social-capital-scores.md).                              |
+| `farScore`                       | Sort by Farcaster profile's [farcaster score](../../social-capital-value-and-social-capital-scores.md).                      |
 | `followerCount`                  | Sort by the number of users following the Lens/Farcaster profile on Lens/Farcaster in ascending or descending order.         |
 | `followingCount`                 | Sort by the number of users being followed by the Lens/Farcaster profile on Lens/Farcaster in ascending or descending order. |
 | `profileCreatedAtBlockTimestamp` | Sort by Lens/Farcaster profile creation block timestamp in ascending or descending order.                                    |
-| `socialCapitalRank`              | Sort by Farcaster profile's [social capital rank](../../abstractions/social-capital-value-and-social-capital-scores.md).     |
+| `socialCapitalRank`              | Sort by Farcaster profile's [social capital rank](../../social-capital-value-and-social-capital-scores.md).                  |
 | `socialCapitalScore`             | Sort by Farcaster profile's [social capital score](../objects/socialcapitalvalue.md).                                        |
 | `updatedAt`                      | Sort by Lens/Farcaster profile last update timestamp in ascending or descending order.                                       |
 
@@ -98,7 +98,7 @@ You just need to specify the input for the query to work.
 | `profileTokenId`                     | `String`                                         | <p>For Farcaster, it's the user's FID.<br><br>For Lens, it's the user's profile NFT's token ID.</p>                                                                                                                                                                                 |
 | `profileTokenIdHex`                  | `String`                                         | Return the hex value of `profileTokenId`                                                                                                                                                                                                                                            |
 | `profileTokenUri`                    | `String`                                         | <p>Token URI of Lens Profile NFT.<br><br>For Farcaster, this will return empty string.</p>                                                                                                                                                                                          |
-| `socialCapital`                      | [`SocialCapital`](../objects/socialcapital.md)   | Farcaster user's [social capital score](../../abstractions/social-capital-value-and-social-capital-scores.md).                                                                                                                                                                      |
+| `socialCapital`                      | [`SocialCapital`](../objects/socialcapital.md)   | Farcaster user's [social capital score](../../social-capital-value-and-social-capital-scores.md).                                                                                                                                                                                   |
 | `updatedAt`                          | `Time`                                           | Timestamp when the social profile was last updated.                                                                                                                                                                                                                                 |
 | `userAddressDetails`                 | [`Wallet`](wallet-api.md)                        | **Nested Queries** – Wallet details of custody address from `userAddress` field.                                                                                                                                                                                                    |
 | `userAssociatedAddressDetails`       | [`[Wallet!]`](wallet-api.md)                     | **Nested Queries** – Wallet details of all associated addresses from `userAssociatedAddresses` field.                                                                                                                                                                               |

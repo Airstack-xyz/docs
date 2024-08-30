@@ -14,18 +14,18 @@ Get Trending Farcaster Casts For All Farcaster Users Tutorial
 
 Airstack provides multiple ways to fetch Trending Casts
 
-<table><thead><tr><th width="184">Name</th><th width="268">Value</th><th>Description</th></tr></thead><tbody><tr><td><code>criteria</code></td><td><p><code>social_capital_value |</code></p><p><code>likes</code> | <br><code>recasts</code> | <br><code>replies</code> | <code>likes_recasts_replies</code> |<br></p></td><td>This will calculate and sort the Farcaster casts based on the chosen criteria:<br>- <code>social_capital_value</code>(<strong>Recommended</strong>): the <a href="../social-capital-value-and-social-capital-scores.md">social capital value</a> associated with the cast<br>- <code>likes</code>: number of likes on the cast<br>- <code>recasts</code>: number of recasts on the cast<br>- <code>replies</code>: number of replies on the cast<br>- <code>likes_recasts_replies</code>: number of total likes, recasts, and replies  on the cast combined</td></tr><tr><td><code>timeFrame</code></td><td><code>one_hour</code> | <br><code>two_hours</code> | <br><code>four_hours</code> | <br><code>eight_hours</code> | <code>twelve_hours</code> | <br><code>one_day</code> | <br><code>two_days</code> | <br><code>seven_days</code></td><td>Only fetch trending casts that have the most engagement within the chosen time frame, e.g. <code>one_hour</code> will fetch trending Farcaster casts with the most engagement for the last 1 hour.</td></tr></tbody></table>
+<table><thead><tr><th width="184">Name</th><th width="268">Value</th><th>Description</th></tr></thead><tbody><tr><td><code>criteria</code></td><td><p><code>social_capital_value |</code></p><p><code>likes</code> |<br><code>recasts</code> |<br><code>replies</code> | <code>likes_recasts_replies</code> |<br></p></td><td>This will calculate and sort the Farcaster casts based on the chosen criteria:<br>- <code>social_capital_value</code>(<strong>Recommended</strong>): the <a href="../../social-capital-value-and-social-capital-scores.md">social capital value</a> associated with the cast<br>- <code>likes</code>: number of likes on the cast<br>- <code>recasts</code>: number of recasts on the cast<br>- <code>replies</code>: number of replies on the cast<br>- <code>likes_recasts_replies</code>: number of total likes, recasts, and replies on the cast combined</td></tr><tr><td><code>timeFrame</code></td><td><code>one_hour</code> |<br><code>two_hours</code> |<br><code>four_hours</code> |<br><code>eight_hours</code> | <code>twelve_hours</code> |<br><code>one_day</code> |<br><code>two_days</code> |<br><code>seven_days</code></td><td>Only fetch trending casts that have the most engagement within the chosen time frame, e.g. <code>one_hour</code> will fetch trending Farcaster casts with the most engagement for the last 1 hour.</td></tr></tbody></table>
 
 ## Social Capital Value
 
 A new metric, **Social Capital Value (SCV),** has been introduced to identify high-quality trending broadcasts. **SCV** incorporates the authority of users, measured by another metric, **Social Capital Scores (SCS)**, who engage with the broadcast based on on-chain data.
 
-For additional information on **SCV** and **SCS**, please refer to the following section [here](../social-capital-value-and-social-capital-scores.md).
+For additional information on **SCV** and **SCS**, please refer to the following section [here](../../social-capital-value-and-social-capital-scores.md).
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -46,7 +46,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -61,7 +60,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -76,15 +74,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -92,7 +87,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -116,11 +110,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -133,11 +125,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -155,7 +145,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -165,7 +154,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Fetch Trending Casts
 
-Once you have the `criteria` and `timeFrame` parameters prepared, simply use the query below and add the parameters as variables:&#x20;
+Once you have the `criteria` and `timeFrame` parameters prepared, simply use the query below and add the parameters as variables:
 
 ### Try Demo
 
@@ -177,7 +166,6 @@ Show all trending Farcaster casts in the last 1 hour sorted by social capital va
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery(
   $criteria: TrendingCastsCriteria!
@@ -208,22 +196,18 @@ query MyQuery(
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Variables" %}
-
 ```json
 {
   "timeFrame": "one_hour",
   "criteria": "social_capital_value"
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -251,11 +235,10 @@ query MyQuery(
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-🎉 :partying_face: Congratulations you've just fetched all the trending Farcaster casts and integrate it into your application!
+🎉 :partying\_face: Congratulations you've just fetched all the trending Farcaster casts and integrate it into your application!
 
 ## **D**eveloper Support
 
@@ -263,4 +246,4 @@ If you have any questions or need help regarding integrating or building trendin
 
 ## More Resources
 
-- [TrendingCasts API Reference](../../api-references/api-reference/trendingcasts-api.md)
+* [TrendingCasts API Reference](../../api-references/api-reference/trendingcasts-api.md)

@@ -21,31 +21,31 @@ layout:
 
 In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
-- [Get A Farcaster User's Social Capital Score](social-capital.md#get-a-farcaster-users-social-capital-score)
-- [Get A Farcaster User's Social Capital Rank](social-capital.md#get-a-farcaster-users-social-capital-rank)
-- [Get All Farcaster Users Sorted By Social Capital Scores](social-capital.md#get-all-farcaster-users-sorted-by-social-capital-scores)
-- [Get All Farcaster Users With Social Capital Scores > X](social-capital.md#get-all-farcaster-users-with-social-capital-scores-greater-than-x)
-- [Get All Farcaster Users Sorted By Social Capital Rank](social-capital.md#get-all-farcaster-users-sorted-by-social-capital-rank)
-- [Get All Farcaster Users With Social Capital Rank < X](social-capital.md#get-all-farcaster-users-with-social-capital-rank-less-than-x)
-- [Get A Farcaster Casts's Social Capital Value](social-capital.md#get-a-farcaster-castss-social-capital-value)
+* [Get A Farcaster User's Social Capital Score](social-capital.md#get-a-farcaster-users-social-capital-score)
+* [Get A Farcaster User's Social Capital Rank](social-capital.md#get-a-farcaster-users-social-capital-rank)
+* [Get All Farcaster Users Sorted By Social Capital Scores](social-capital.md#get-all-farcaster-users-sorted-by-social-capital-scores)
+* [Get All Farcaster Users With Social Capital Scores > X](social-capital.md#get-all-farcaster-users-with-social-capital-scores-greater-than-x)
+* [Get All Farcaster Users Sorted By Social Capital Rank](social-capital.md#get-all-farcaster-users-sorted-by-social-capital-rank)
+* [Get All Farcaster Users With Social Capital Rank < X](social-capital.md#get-all-farcaster-users-with-social-capital-rank-less-than-x)
+* [Get A Farcaster Casts's Social Capital Value](social-capital.md#get-a-farcaster-castss-social-capital-value)
 
 ## Social Capital Scores
 
-- Social Capital Scores (SCS) are a measure of each Farcaster user's influence in the network.&#x20;
-  - This score is derived from a variety of onchain criteria (including Farcaster Hubs). Users with higher SCSs have more positive downstream influence, as their actions and engagements tends to result in higher quality overall engagement.
-  - User's rank for their SCS is represented by **Social Capital Rank (SCR)**.
-  - Currently, the SCS is powered by a proprietary algorithm from Airstack. This algorithm is kept confidential to prevent manipulation.
-  - Over time, we aim to refine the SCS based on its performance and eventually release it as an open-source protocol.
+* Social Capital Scores (SCS) are a measure of each Farcaster user's influence in the network.
+  * This score is derived from a variety of onchain criteria (including Farcaster Hubs). Users with higher SCSs have more positive downstream influence, as their actions and engagements tends to result in higher quality overall engagement.
+  * User's rank for their SCS is represented by **Social Capital Rank (SCR)**.
+  * Currently, the SCS is powered by a proprietary algorithm from Airstack. This algorithm is kept confidential to prevent manipulation.
+  * Over time, we aim to refine the SCS based on its performance and eventually release it as an open-source protocol.
 
 ## Social Capital Value
 
-- **Social Capital Value (SCV)** is a metric developed by Airstack to identify high-quality Trending Casts on Farcaster.
-- The SCS of a user impacts the SCV of a cast when the user engages with it. The type of engagement also plays a role. The accumulated SCS of all interactions contributes to the cast's overall SCV. Casts are then ranked by their SCV, promoting higher-quality casts.
+* **Social Capital Value (SCV)** is a metric developed by Airstack to identify high-quality Trending Casts on Farcaster.
+* The SCS of a user impacts the SCV of a cast when the user engages with it. The type of engagement also plays a role. The accumulated SCS of all interactions contributes to the cast's overall SCV. Casts are then ranked by their SCV, promoting higher-quality casts.
 
 ## Pre-requisites
 
-- An [Airstack](https://airstack.xyz/) account
-- Basic knowledge of GraphQL
+* An [Airstack](https://airstack.xyz/) account
+* Basic knowledge of GraphQL
 
 ## Get Started
 
@@ -66,7 +66,6 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -81,7 +80,6 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -96,15 +94,12 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
-
 {% endtab %}
 
 {% tab title="pip" %}
-
 ```sh
 pip install airstack
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -112,7 +107,6 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
-
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -136,11 +130,9 @@ const Component = () => {
   }
 };
 ```
-
 {% endtab %}
 
 {% tab title="Node" %}
-
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -153,11 +145,9 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
-
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -175,7 +165,6 @@ async def main():
 
 asyncio.run(main())
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -197,7 +186,6 @@ Show me social capital score of FID 602
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -215,11 +203,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -236,7 +222,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -258,7 +243,6 @@ Show me social capital rank of FID 602
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   Socials(
@@ -275,11 +259,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "Socials": {
@@ -294,7 +276,6 @@ query MyQuery {
   }
 }
 </code></pre>
-
 {% endtab %}
 {% endtabs %}
 
@@ -304,7 +285,7 @@ query MyQuery {
 Get Farcaster Users Sorted By Social Capital Scores
 {% endembed %}
 
-You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users sorted by [social capital scores](../../abstractions/social-capital-value-and-social-capital-scores.md) by adding `socialCapitalScore` to the `order` field and set it to `DESC` value to sort in descending order:
+You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users sorted by [social capital scores](../../social-capital-value-and-social-capital-scores.md) by adding `socialCapitalScore` to the `order` field and set it to `DESC` value to sort in descending order:
 
 ### Try Demo
 
@@ -316,7 +297,6 @@ Show me all Farcaster users sorted by social capital scores
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -343,11 +323,9 @@ Show me all Farcaster users sorted by social capital scores
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -377,13 +355,12 @@ Show me all Farcaster users sorted by social capital scores
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Get All Farcaster Users With Social Capital Scores > X
 
-You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users with [social capital scores](../../abstractions/social-capital-value-and-social-capital-scores.md) above certain number by using the `socialCapitalScore` input field and provide the **X** value to the `_gt` filter (for other comparators, check out [here](../../api-references/overview/working-with-graphql.md)).
+You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users with [social capital scores](../../social-capital-value-and-social-capital-scores.md) above certain number by using the `socialCapitalScore` input field and provide the **X** value to the `_gt` filter (for other comparators, check out [here](../../api-references/overview/working-with-graphql.md)).
 
 In the example below, **X** is 50:
 
@@ -403,7 +380,6 @@ Show me all Farcaster users with social capital scores of at least 50
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -430,11 +406,9 @@ Show me all Farcaster users with social capital scores of at least 50
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -464,13 +438,12 @@ Show me all Farcaster users with social capital scores of at least 50
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Get All Farcaster Users Sorted By Social Capital Rank
 
-You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users sorted by[ social capital rank](../../abstractions/social-capital-value-and-social-capital-scores.md) by adding `socialCapitalRank` to the `order` field and set it to `ASC` value to sort in ascending order:
+You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users sorted by[ social capital rank](../../social-capital-value-and-social-capital-scores.md) by adding `socialCapitalRank` to the `order` field and set it to `ASC` value to sort in ascending order:
 
 ### Try Demo
 
@@ -482,7 +455,6 @@ Show me all Farcaster users sorted by social capital rank
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -511,11 +483,9 @@ Show me all Farcaster users sorted by social capital rank
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -545,7 +515,6 @@ Show me all Farcaster users sorted by social capital rank
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -555,7 +524,7 @@ Show me all Farcaster users sorted by social capital rank
 Get Farcaster Users With Social Capital Rank < X
 {% endembed %}
 
-You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users with [social capital rank](../../abstractions/social-capital-value-and-social-capital-scores.md) below certain value by using the `socialCapitalRank` input field and the `_lte` operator. If you prefer other comparator for your logic, you can use other available comparator that suits you need (check more [here](../../api-references/overview/working-with-graphql.md)).
+You can use the [`Socials`](../../api-references/api-reference/socials-api.md) API to fetch all Farcaster users with [social capital rank](../../social-capital-value-and-social-capital-scores.md) below certain value by using the `socialCapitalRank` input field and the `_lte` operator. If you prefer other comparator for your logic, you can use other available comparator that suits you need (check more [here](../../api-references/overview/working-with-graphql.md)).
 
 {% hint style="info" %}
 If you would like to also sort the result by social capital rank, simply add `socialCapitalRank` to the `order` field and set the value to `ASC`.\
@@ -573,7 +542,6 @@ Show all Farcaster users with social captial rank below or equal to 100
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   Socials(
     input: {
@@ -603,11 +571,9 @@ Show all Farcaster users with social captial rank below or equal to 100
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -633,13 +599,12 @@ Show all Farcaster users with social captial rank below or equal to 100
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Get A Farcaster Casts's Social Capital Value
 
-You can use `FarcasterCasts` API to fetch a Farcaster cast's [social capital value](../../abstractions/social-capital-value-and-social-capital-scores.md) by providing the Warpcast URL to the `url` input:
+You can use `FarcasterCasts` API to fetch a Farcaster cast's [social capital value](../../social-capital-value-and-social-capital-scores.md) by providing the Warpcast URL to the `url` input:
 
 {% hint style="info" %}
 Alternatively, you can also use the `hash` input filter and provide the cast hash if you have the cast hash value.
@@ -655,7 +620,6 @@ Show me social capital value of a cast
 
 {% tabs %}
 {% tab title="Query" %}
-
 ```graphql
 query MyQuery {
   FarcasterCasts(
@@ -673,11 +637,9 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -694,7 +656,6 @@ query MyQuery {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -704,6 +665,6 @@ If you have any questions or need help regarding fetching Social Capital data, p
 
 ## More Resources
 
-- [Social Capital Value & Social Capital Score](../../abstractions/social-capital-value-and-social-capital-scores.md)
-- [Socials API Reference](../../api-references/api-reference/socials-api.md)
-- [FarcasterCasts API Reference](../../api-references/api-reference/farcastercasts-api.md)
+* [Social Capital Value & Social Capital Score](../../social-capital-value-and-social-capital-scores.md)
+* [Socials API Reference](../../api-references/api-reference/socials-api.md)
+* [FarcasterCasts API Reference](../../api-references/api-reference/farcastercasts-api.md)

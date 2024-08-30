@@ -8,8 +8,8 @@ description: >-
 
 ## Fields
 
-| Name                    | Type     | Description                                                                                                                         |
-| ----------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `socialCapitalRank`     | `Int`    | The [social capital rank ](../../abstractions/social-capital-value-and-social-capital-scores.md)of a user.                          |
-| `socialCapitalScoreRaw` | `String` | The raw [social capital score](../../abstractions/social-capital-value-and-social-capital-scores.md) of a user.                     |
-| `socialCapitalScore`    | `Float`  | The formatted [social capital score](../../abstractions/social-capital-value-and-social-capital-scores.md) of a user in Float type. |
+| Name                    | Type     | Description                                                                                                            |
+| ----------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `socialCapitalRank`     | `Int`    | The [social capital rank ](../../social-capital-value-and-social-capital-scores.md)of a user.                          |
+| `socialCapitalScoreRaw` | `String` | The raw [social capital score](../../social-capital-value-and-social-capital-scores.md) of a user.                     |
+| `socialCapitalScore`    | `Float`  | The formatted [social capital score](../../social-capital-value-and-social-capital-scores.md) of a user in Float type. |
