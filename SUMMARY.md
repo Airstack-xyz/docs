@@ -40,7 +40,6 @@
   * [🔎 Search Farcaster Users](farcaster/farcaster/search-farcaster-users.md)
   * [🖼️ Farcaster Profile Image](farcaster/farcaster/farcaster-profile-image.md)
   * [👭 Follows In Common](farcaster/farcaster/follows-in-common.md)
-  * [🎖️ Farcaster Power Badge](farcaster/farcaster/farcaster-power-badge.md)
   * [🥇 Token Holders](farcaster/farcaster/token-holders.md)
   * [🚪 Token Gating](farcaster/farcaster/token-gating.md)
   * [🤝 Tokens In Common](farcaster/farcaster/tokens-in-common.md)
