@@ -1,7 +1,6 @@
 ---
 description: >-
-  Learn how to resolve Farcaster(s) fname/username/FID to 0x address, ENS, Lens,
-  and XMTP and Reverse Resolution.
+  Learn how to resolve Farcaster(s) fname/username/FID to 0x address, ENS, and Reverse Resolution.
 layout:
   title:
     visible: true
@@ -23,16 +22,16 @@ layout:
 
 In this guide you will learn how to use Airstack to:
 
-* [Get All 0x addresses of Farcaster user(s)](resolve-farcaster-users.md#get-all-0x-addresses-of-farcaster-user-s)
-* [Get All Solana addresses of Farcaster user](resolve-farcaster-users.md#get-all-solana-addresses-of-farcaster-user)
-* [Get Farcaster profiles of a given Solana address](resolve-farcaster-users.md#get-farcaster-profiles-of-a-given-solana-address)
-* [Get all ENS domains owned by Farcaster user(s)](resolve-farcaster-users.md#get-all-ens-domains-owned-by-farcaster-user-s)
-* [Get All Web3 Social Accounts (Farcaster, Lens) owned by 0x address or ENS](resolve-farcaster-users.md#get-all-web3-social-accounts-farcaster-lens-owned-by-0x-address-or-ens)
+- [Get All 0x addresses of Farcaster user(s)](resolve-farcaster-users.md#get-all-0x-addresses-of-farcaster-user-s)
+- [Get All Solana addresses of Farcaster user](resolve-farcaster-users.md#get-all-solana-addresses-of-farcaster-user)
+- [Get Farcaster profiles of a given Solana address](resolve-farcaster-users.md#get-farcaster-profiles-of-a-given-solana-address)
+- [Get all ENS domains owned by Farcaster user(s)](resolve-farcaster-users.md#get-all-ens-domains-owned-by-farcaster-user-s)
+- [Get All Farcaster Accounts owned by 0x address or ENS](resolve-farcaster-users.md#get-all-web3-social-accounts-farcaster-lens-owned-by-0x-address-or-ens)
 
 ### Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ### Get Started
 
@@ -53,6 +52,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -67,6 +67,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -81,12 +82,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -94,6 +98,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -117,9 +122,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -132,9 +139,11 @@ const { data, error } = fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -152,6 +161,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -173,6 +183,7 @@ Show 0x addresses of Farcaster user name dwr.eth and user ID 1
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetAddressesOfFarcasters {
   Socials(
@@ -187,9 +198,11 @@ query GetAddressesOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -219,6 +232,7 @@ query GetAddressesOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -236,6 +250,7 @@ Show me the Solana connected address of Farcaster user v
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -255,9 +270,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -290,6 +307,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -307,6 +325,7 @@ Show me the Farcaster profile of solana address 9t92xZy9q5SyfKBH4rZwEDFXjaZKgzj5
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   Socials(
@@ -326,9 +345,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -350,6 +371,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -367,6 +389,7 @@ Show all ENS domains owned by Farcaster user name dwr.eth and user id 1
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetENSOfFarcasters {
   Domains(
@@ -381,9 +404,11 @@ query GetENSOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -406,6 +431,7 @@ query GetENSOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -423,6 +449,7 @@ Show web3 social accounts (Farcaster, Lens) owned by dwr.eth and 0xd8dA6BF26964a
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query GetWeb3SocialsOfFarcasters {
   Socials(
@@ -442,9 +469,11 @@ query GetWeb3SocialsOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -471,6 +500,7 @@ query GetWeb3SocialsOfFarcasters {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -480,8 +510,7 @@ If you have any questions or need help regarding resolving identities for Farcas
 
 ## More Resources
 
-* [Resolve Identities](../../guides/resolve-identities/)
-  * [Farcaster](../../guides/resolve-identities/farcaster.md)
-  * [Solana Address](../../guides/resolve-identities/solana-address.md)
-* [Socials API Reference](../../api-references/api-reference/socials-api.md)
-* [XMTPs API Reference](broken-reference)
+- [Resolve Identities](../../guides/resolve-identities/)
+  - [Farcaster](../../guides/resolve-identities/farcaster.md)
+  - [Solana Address](../../guides/resolve-identities/solana-address.md)
+- [Socials API Reference](../../api-references/api-reference/socials-api.md)
