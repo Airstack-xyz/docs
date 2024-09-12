@@ -29,6 +29,7 @@ The Moxie Protocol enables Farcaster Members to earn Everyday Rewards based on w
 * [Get Moxie Earned For Certain User](farcaster-moxie-rewards-earnings.md#get-moxie-earning-for-certain-user)
 * [Get Moxie Earned For Certain Channel](farcaster-moxie-rewards-earnings.md#get-moxie-earning-for-certain-channel)
 * [Get Moxie Earned For Farcaster Network](farcaster-moxie-rewards-earnings.md#get-moxie-earning-for-farcaster-network)
+* [Get The Split Details Of Moxie Earned By Certain User](farcaster-moxie-rewards-earnings.md#get-the-split-details-of-moxie-earned-by-certain-user)
 * Leaderboard: [Top Moxie Entities Based On Highest Moxie Earnings](farcaster-moxie-rewards-earnings.md#top-moxie-earning-entities-based-on-highest-moxie-earnings)
 
 ## Pre-requisites
@@ -164,7 +165,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get Moxie Earning For Certain User
 
-You can fetch the Moxie earnings for a certain user by specifying `entityType` as `USER` and add the FID of the user in `entityId`:
+You can fetch the Moxie earnings for a certain user before split by specifying `entityType` as `USER` and add the FID of the user in `entityId`:
 
 ### Try Demo
 
@@ -373,6 +374,91 @@ show me the lifetime Moxie earning for Farcaster network
   }
 }
 ```
+{% endtab %}
+{% endtabs %}
+
+## Get The Split Details Of Moxie Earned By Certain User
+
+You can use the [`FarcasterMoxieEarningStats`](../api-references/api-reference/farcastermoxieearningstats.md) to fetch the split details of the total Moxie earned by a certain user entity on Moxie protocol that shows how much is distributed to the caster, the caster's fans,  channel fans, and the Farcaster network token holders.
+
+To get the split details, simply provide the FID of the user in `entityId`:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/y6kILCUt41" %}
+Show me how the total Moxie earned by FID 3 is split between the caster, his/her fans, channel fans, and the Farcaster network
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  FarcasterMoxieEarningStats(
+    input: {
+      filter: {
+        entityType: {_eq: USER},
+<strong>        entityId: {_eq: "3"} # specify the user's FID here
+</strong>      },
+      timeframe: TODAY,
+      blockchain: ALL
+    }
+  ) {
+    FarcasterMoxieEarningStat {
+      splitDetails {
+        castEarningsAmount
+        frameDevEarningsAmount
+        otherEarningsAmount
+        entityType
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "FarcasterMoxieEarningStats": {
+      "FarcasterMoxieEarningStat": [
+        {
+          "splitDetails": [
+            {
+              "castEarningsAmount": 2420.289836734585,
+              "frameDevEarningsAmount": 0,
+              "otherEarningsAmount": 0,
+              // Earnings split for the caster's fans
+<strong>              "entityType": "CREATOR_FANS"
+</strong>            },
+            {
+              "castEarningsAmount": 1080.3288640185472,
+              "frameDevEarningsAmount": 0,
+              "otherEarningsAmount": 0,
+              // Earnings split for channel fans
+<strong>              "entityType": "CHANNEL_FANS"
+</strong>            },
+            {
+              "castEarningsAmount": 7390.685564552501,
+              "frameDevEarningsAmount": 0,
+              "otherEarningsAmount": 0,
+              // Earnings split for the caster him/herself
+<strong>              "entityType": "CREATOR"
+</strong>            },
+            {
+              "castEarningsAmount": 1210.1449183672926,
+              "frameDevEarningsAmount": 0,
+              "otherEarningsAmount": 0,
+              // Earnings split for the Farcaster network token holder
+<strong>              "entityType": "NETWORK"
+</strong>            }
+          ]
+        }
+      ]
+    }
+  }
+}
+</code></pre>
 {% endtab %}
 {% endtabs %}
 

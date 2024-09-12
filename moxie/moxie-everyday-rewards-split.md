@@ -30,7 +30,7 @@ To learn more about the different split options and how it can impact [Everyday 
 
 ## Table Of Contents
 
-* [Get Everyday Rewards Split Of A User](moxie-everyday-rewards-split.md#get-everyday-rewards-split-of-a-user)
+* [Get Everyday Rewards Split Percentage Of A User](moxie-everyday-rewards-split.md#get-everyday-rewards-split-percentage-of-a-user)
 
 ## Pre-requisites
 
@@ -162,7 +162,7 @@ asyncio.run(main())
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
 
-## Get Everyday Rewards Split Of A User
+## Get Everyday Rewards Split Percentage Of A User
 
 You can get the the current percentage of how much the user, their fans, the channel fans (if any), and the Farcaster network FT holders by using the `FarcasterFanTokenAuctions` API and providing the user's FID in the `entityId` field:
 

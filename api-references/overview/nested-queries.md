@@ -17,11 +17,8 @@ layout:
 
 The Airstack API supports nested queries on several fields with input filter types:
 
-| Fields            | Filter Type                                                          |
-| ----------------- | -------------------------------------------------------------------- |
-| `erc6551Accounts` | [`AccountFilter`](broken-reference)                                  |
-| `poaps`           | [`PoapFilter`](broken-reference)                                     |
-| `socials`         | [`SocialFilter`](../api-reference/socials-api.md#inputs-and-filters) |
-| `tokenBalances`   | [`TokenBalanceFilter`](broken-reference)                             |
-| `tokenTransfers`  | [`TokenTransferFilter`](broken-reference)                            |
-| `tokenNfts`       | [`TokenNftFilter`](broken-reference)                                 |
+| Fields             | Filter Type                                                                 |
+| ------------------ | --------------------------------------------------------------------------- |
+| `socialFollowers`  | [`SocialFollowersFilter`](../api-reference/socialfollowers-api.md#filter)   |
+| `socialFollowings` | [`SocialFollowingsFilter`](../api-reference/socialfollowings-api.md#filter) |
+| `socials`          | [`SocialFilter`](../api-reference/socials-api.md#inputs-and-filters)        |
