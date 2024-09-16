@@ -119,9 +119,10 @@ const cast = await makeCastAdd(
 
 const main = async () => {
   const server = "https://hubs.airstack.xyz";
-  try {
+  if (cast.isOk()) {
+      try {
     // Encode the message into a Buffer (of bytes)
-    const messageBytes = Buffer.from(Message.encode(cast).finish());
+    const messageBytes = Buffer.from(Message.encode(cast.value).finish());
     const response = await axios.post(`${server}/v1/submitMessage`,
       messageBytes,
       {
@@ -138,6 +139,7 @@ const main = async () => {
     console.log(json);
   } catch (e) {
     console.error(e);
+  }
   }
 }
 
