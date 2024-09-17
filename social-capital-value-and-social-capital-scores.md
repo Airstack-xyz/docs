@@ -15,11 +15,45 @@ Airstack also publishes the **Far Rank** for each Farcaster Member (formerly Soc
 
 ### **FarBoost**
 
-In addition, one can also increase their FarScore number by earning **FarBoost**. This can be done by **increasing the total value locked (TVL)** of Moxie token in the Moxie protocol.
+In addition, one can also increase their FarScore number by earning **FarBoost**, which is defined by the following formula:
+
+$$
+F_{boost} =  TVL_{boost} + LP_{boost}
+$$
+
+where:
+
+* $$F_{boost}$$: Farboost of a Farcaster user
+* $$TVL_{boost}$$: TVL Boost of a Farcaster user
+* $$LP_{boost}$$: Liquidity Boost of a Farcaster user
+
+#### TVL Boost
+
+**TVL Boost** is defined as the **Farboost** earned by increasing the total value locked (TVL) of Moxie token in the Moxie protocol.
 
 The TVL is calculated as the summation of all Moxie token that you have used to buy Fan Tokens from the Bonding Curve contract and lock into the Moxie protocol. The TVL calculation will include the TVL contributed from all wallets that the user have, which includes Farcaster custodial wallet, Farcaster verified wallets, and their respective vesting contract.
 
 For every **100,000 Moxie** added to the TVL, you will add **1 point** to your FarScore number.
+
+#### Liquidity Boost
+
+**Liquidity Boost** is defined as the **Farboost** earned by increasing the amount of liquidity provided into Liquidity Pools in DEXs (Uniswap & Aerodrome).
+
+For every **100,000 Moxie** added to the Liquidity Pool, you will add **1 point** to your FarScore number. Regardless of whether the LP token is then staked (**Aerodrome** only) or not, they'll be taken into account into the Farboost calculation.
+
+Thus,  the Liquidity Boost you'll earn will be define by the following formula:
+
+$$
+TVL_{boost} = \frac{\sum_{i=1}^{n}M_{i} + r_{i} \cdot O_{i} }{100000}
+$$
+
+where:
+
+* $$M_{i}$$: The amount of Moxie in liquidity pool $$i$$
+* $$O_{i}$$: The amount of other token in the Moxie LP in liquidity pool $$i$$
+* $$r_{i}$$: The reserve ratio between Moxie and the other token in liquidity pool $$i$$
+
+***
 
 In the API, FarScore shall automatically include the Farboost value in the calculation and will be reflected in the **FarRank** value that a Farcaster member has.
 
