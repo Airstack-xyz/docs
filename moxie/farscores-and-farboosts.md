@@ -32,7 +32,7 @@ To learn more about **FarScores & FarBoosts**, click [here](../social-capital-va
 * [Get The FarRank Of A User](farscores-and-farboosts.md#get-the-farrank-of-a-user)
 * [Get The FarBoost Of A User](farscores-and-farboosts.md#get-the-farboost-of-a-user)
 * [Get The FarBoost Of A User Gained From TVL](farscores-and-farboosts.md#get-the-farboost-of-a-user-gained-only-from-tvl) (TVL Boost)
-* [Get The FarBoost Of A User Gained From Providing Liquidity to DEXs](farscores-and-farboosts.md#get-the-farboost-of-a-user-gained-only-from-providing-liquidity-to-dexs) (Liquidity Boost)
+* [Get The FarBoost Of A User Gained From Providing Liquidity to DEXs](farscores-and-farboosts.md#get-the-farboost-of-a-user-gained-from-providing-liquidity-to-dexs-also-referred-to-as-lp-boost) (Liquidity Boost)
 * [Get The TVL Of A User](farscores-and-farboosts.md#get-the-tvl-of-a-user)
 
 ## Pre-requisites
