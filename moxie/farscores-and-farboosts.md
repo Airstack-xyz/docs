@@ -31,8 +31,8 @@ To learn more about **FarScores & FarBoosts**, click [here](../social-capital-va
 * [Get The Percentage Of Increase Of User's FarScore From FarBoosts](farscores-and-farboosts.md#get-the-percentage-of-increase-of-users-farscore-from-farboosts)
 * [Get The FarRank Of A User](farscores-and-farboosts.md#get-the-farrank-of-a-user)
 * [Get The FarBoost Of A User](farscores-and-farboosts.md#get-the-farboost-of-a-user)
-* [Get The FarBoost Of A User Gained Only From TVL](farscores-and-farboosts.md#get-the-farboost-of-a-user-gained-only-from-tvl) (TVL Boost)
-* [Get The FarBoost Of A User Gained Only From Providing Liquidity to DEXs](farscores-and-farboosts.md#get-the-farboost-of-a-user-gained-only-from-providing-liquidity-to-dexs) (Liquidity Boost)
+* [Get The FarBoost Of A User Gained From TVL](farscores-and-farboosts.md#get-the-farboost-of-a-user-gained-only-from-tvl) (TVL Boost)
+* [Get The FarBoost Of A User Gained From Providing Liquidity to DEXs](farscores-and-farboosts.md#get-the-farboost-of-a-user-gained-only-from-providing-liquidity-to-dexs) (Liquidity Boost)
 * [Get The TVL Of A User](farscores-and-farboosts.md#get-the-tvl-of-a-user)
 
 ## Pre-requisites
@@ -442,9 +442,9 @@ query MyQuery{
 {% endtab %}
 {% endtabs %}
 
-## Get The FarBoost Of A User Gained Only From Providing Liquidity to DEXs
+## Get The FarBoost Of A User Gained From Providing Liquidity to DEXs (Also referred to as LP Boost)
 
-You can get the Liquidity Boost, that is the FarBoost of a user gained only from providing liquidity to DEXs, by using the `Socials` API and inputting the user's FID in `userId` input:
+You can get the Liquidity Boost, that is the FarBoost of a user gained from providing liquidity to DEXs, by using the `Socials` API and inputting the user's FID in `userId` input:
 
 ### Try Demo
 
