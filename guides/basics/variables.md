@@ -25,6 +25,7 @@ As an example, below is shown on how a query looks like **after** and **before**
 
 {% tabs %}
 {% tab title="After" %}
+
 <pre class="language-graphql"><code class="lang-graphql"><strong>query MyQuery($tokenAddress: Address) { # Define variable on the top level with the correct typing
 </strong>  TokenBalances(
     input: {
@@ -47,26 +48,23 @@ As an example, below is shown on how a query looks like **after** and **before**
           dappName
           profileName
         }
-        xmtp {
-          isXMTPEnabled
-        }
       }
     }
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Before" %}
+
 ```graphql
 query MyQuery {
   TokenBalances(
     input: {
       filter: {
-        tokenAddress: {
-          _eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"
-        }
-      },
+        tokenAddress: { _eq: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D" }
+      }
       blockchain: ethereum
     }
   ) {
@@ -81,14 +79,12 @@ query MyQuery {
           dappName
           profileName
         }
-        xmtp {
-          isXMTPEnabled
-        }
       }
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -98,8 +94,8 @@ If you have any questions or need help regarding adding variables into your Airs
 
 ### More Resources
 
-* [API Overview](../../api-references/overview/)
-* [API References](../../api-references/api-reference/)
-* [Direct API Call](../../get-started/quickstart/direct-api-call.md)
-* [Multiple Queries Execution](multiple-queries-execution.md)
-* [Cross Chain Queries](cross-chain-queries.md)
+- [API Overview](../../api-references/overview/)
+- [API References](../../api-references/api-reference/)
+- [Direct API Call](../../get-started/quickstart/direct-api-call.md)
+- [Multiple Queries Execution](multiple-queries-execution.md)
+- [Cross Chain Queries](cross-chain-queries.md)
