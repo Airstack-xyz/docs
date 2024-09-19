@@ -360,4 +360,4 @@ If you have any questions or need help regarding fetching Lens Followings data, 
 * [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
 * [SocialFollowings API Reference](../../api-references/api-reference/socialfollowings-api.md)
 * [Token Gating For Lens Devs](broken-reference)
-* [Token Gating For Farcaster Devs](../../farcaster/farcaster/token-gating.md)
+* [Token Gating For Farcaster Devs](broken-reference)
