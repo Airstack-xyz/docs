@@ -31,6 +31,7 @@ Show ERC20 tokens on Ethereum, Base, and Zora owned by users
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query ERC20OwnedByLensProfiles {
 <strong>  Ethereum: TokenBalances( # first query fetch Ethereum ERC20 balance
 </strong>    input: {
@@ -112,9 +113,11 @@ Show ERC20 tokens on Ethereum, Base, and Zora owned by users
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -160,6 +163,7 @@ Show ERC20 tokens on Ethereum, Base, and Zora owned by users
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -169,8 +173,7 @@ If you have any questions or need help regarding adding variables into your Airs
 
 ### More Resources
 
-* [API Overview](../../api-references/overview/)
-* [Variables Guides](variables.md)
-* [Direct API Call](../../get-started/quickstart/direct-api-call.md)
-* [Multiple Queries Execution](multiple-queries-execution.md)
-* [TokenBalances API References](broken-reference)
+- [API Overview](../../api-references/overview/)
+- [Variables Guides](variables.md)
+- [Direct API Call](../../get-started/quickstart/direct-api-call.md)
+- [Multiple Queries Execution](multiple-queries-execution.md)

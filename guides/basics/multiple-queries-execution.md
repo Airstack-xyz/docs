@@ -31,6 +31,7 @@ Show me all followers and followings of users in Lens and Farcaster
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
 <strong>  SocialFollowers( # 1st query fetching social followers
 </strong>    input: {filter: {identity: {_in: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "vitalik.eth", "lens/@vitalik", "fc_fname:vitalik"]}}, blockchain: ALL, limit: 200, order: {followerSince: DESC}}
@@ -74,9 +75,11 @@ Show me all followers and followings of users in Lens and Farcaster
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -84,9 +87,7 @@ Show me all followers and followings of users in Lens and Farcaster
       "Follower": [
         {
           "followerAddress": {
-            "addresses": [
-              "0x7c8428173b00bb04bd35692b1fdf6408e1b1108a"
-            ],
+            "addresses": ["0x7c8428173b00bb04bd35692b1fdf6408e1b1108a"],
             "domains": null,
             "socials": [
               {
@@ -96,8 +97,8 @@ Show me all followers and followings of users in Lens and Farcaster
             ],
             "xmtp": null
           }
-        },
-        // Lens and Farcaster follower of vitalik 
+        }
+        // Lens and Farcaster follower of vitalik
       ]
     },
     "SocialFollowings": {
@@ -122,13 +123,14 @@ Show me all followers and followings of users in Lens and Farcaster
             ],
             "xmtp": null
           }
-        },
-        // Lens and Farcaster following of vitalik 
+        }
+        // Lens and Farcaster following of vitalik
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -146,6 +148,7 @@ Show ERC20 tokens on Ethereum and Base owned by users
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query ERC20OwnedByLensProfiles {
 <strong>  Ethereum: TokenBalances( # first query fetch Ethereum ERC20 balance
 </strong>    input: {
@@ -241,9 +244,11 @@ Show ERC20 tokens on Ethereum and Base owned by users
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -356,6 +361,7 @@ Show ERC20 tokens on Ethereum and Base owned by users
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -365,9 +371,8 @@ If you have any questions or need help regarding adding variables into your Airs
 
 ### More Resources
 
-* [API Overview](../../api-references/overview/)
-* [Variables Guides](variables.md)
-* [Direct API Call](../../get-started/quickstart/direct-api-call.md)
-* [SocialFollowings API References](../../api-references/api-reference/socialfollowings-api.md)
-* [SocialFollowers API References](../../api-references/api-reference/socialfollowers-api.md)
-* [TokenBalances API References](broken-reference)
+- [API Overview](../../api-references/overview/)
+- [Variables Guides](variables.md)
+- [Direct API Call](../../get-started/quickstart/direct-api-call.md)
+- [SocialFollowings API References](../../api-references/api-reference/socialfollowings-api.md)
+- [SocialFollowers API References](../../api-references/api-reference/socialfollowers-api.md)

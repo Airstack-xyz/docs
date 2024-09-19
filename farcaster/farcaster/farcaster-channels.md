@@ -22,29 +22,29 @@ layout:
 
 In this guide, you will learn to use [Airstack](https://airstack.xyz) to:
 
-* [Get Channel Details](farcaster-channels.md#get-channel-details)
-* [Get All Casts Casted In A Channel](farcaster-channels.md#get-all-casts-casted-in-a-channel) (Channel Feed)
-* [Get Trending Casts in a Channel](https://docs.airstack.xyz/airstack-docs-and-faqs/abstractions/trending-casts/trending-channel-casts-channel-feeds) (Feed sorted by engagement)
-* [Get The Most Followed Farcaster Channels](farcaster-channels.md#get-all-the-most-followed-farcaster-channels)
-* [Get All The Most Recently Created Farcaster Channels](farcaster-channels.md#get-all-the-most-recently-created-farcaster-channels)
-* [Get Followers Of A Channel](farcaster-channels.md#get-followers-of-a-channel)
-* [Get Participants Of A Channel](farcaster-channels.md#get-participants-of-a-channel)
-* [Get The Original Host Of A Channel](farcaster-channels.md#get-the-original-host-of-a-channel)
-* [Get All The Channels Followed By A User](farcaster-channels.md#get-all-the-channels-followed-by-a-user)
-* [Get All The Channels Of A Farcaster User Participates In](farcaster-channels.md#get-all-the-channels-of-a-farcaster-user-participates-in)
-* [Get All Farcaster Users Who Casted In Certain Channel](farcaster-channels.md#get-all-farcaster-users-who-casted-in-certain-channel)
-* [Get All Farcaster Users Who Casted In Certain Channel Since Certain Timestamp](farcaster-channels.md#get-all-farcaster-users-who-casted-in-certain-channel-since-certain-timestamp)
-* [Get All Farcaster Users Who Participates In A Channel And Following The Host](farcaster-channels.md#get-all-farcaster-users-who-participates-in-a-channel-and-following-the-host)
-* [Get All Farcaster Channel Participants That Also Have A Power Badge](farcaster-channels.md#get-all-farcaster-channel-participants-that-also-have-a-power-badge)
-* [Check If Farcaster User Has Followed A Given Channel](farcaster-channels.md#check-if-farcaster-user-has-followed-a-given-channel)
-* [Check If Farcaster User Has Casted In A Given Channel](farcaster-channels.md#check-if-farcaster-user-has-casted-in-a-given-channel)
-* [Search All Farcaster Channels Whose Names Start With Certain Terms (auto-complete)](farcaster-channels.md#search-all-farcaster-channels-whose-names-start-with-certain-terms-auto-complete)
-* [Search All Farcaster Channels Whose Names Contain With Certain Terms (auto-complete)](farcaster-channels.md#search-all-farcaster-channels-whose-names-contain-certain-terms-auto-complete)
+- [Get Channel Details](farcaster-channels.md#get-channel-details)
+- [Get All Casts Casted In A Channel](farcaster-channels.md#get-all-casts-casted-in-a-channel) (Channel Feed)
+- [Get Trending Casts in a Channel](https://docs.airstack.xyz/airstack-docs-and-faqs/abstractions/trending-casts/trending-channel-casts-channel-feeds) (Feed sorted by engagement)
+- [Get The Most Followed Farcaster Channels](farcaster-channels.md#get-all-the-most-followed-farcaster-channels)
+- [Get All The Most Recently Created Farcaster Channels](farcaster-channels.md#get-all-the-most-recently-created-farcaster-channels)
+- [Get Followers Of A Channel](farcaster-channels.md#get-followers-of-a-channel)
+- [Get Participants Of A Channel](farcaster-channels.md#get-participants-of-a-channel)
+- [Get The Original Host Of A Channel](farcaster-channels.md#get-the-original-host-of-a-channel)
+- [Get All The Channels Followed By A User](farcaster-channels.md#get-all-the-channels-followed-by-a-user)
+- [Get All The Channels Of A Farcaster User Participates In](farcaster-channels.md#get-all-the-channels-of-a-farcaster-user-participates-in)
+- [Get All Farcaster Users Who Casted In Certain Channel](farcaster-channels.md#get-all-farcaster-users-who-casted-in-certain-channel)
+- [Get All Farcaster Users Who Casted In Certain Channel Since Certain Timestamp](farcaster-channels.md#get-all-farcaster-users-who-casted-in-certain-channel-since-certain-timestamp)
+- [Get All Farcaster Users Who Participates In A Channel And Following The Host](farcaster-channels.md#get-all-farcaster-users-who-participates-in-a-channel-and-following-the-host)
+- [Get All Farcaster Channel Participants That Also Have A Power Badge](farcaster-channels.md#get-all-farcaster-channel-participants-that-also-have-a-power-badge)
+- [Check If Farcaster User Has Followed A Given Channel](farcaster-channels.md#check-if-farcaster-user-has-followed-a-given-channel)
+- [Check If Farcaster User Has Casted In A Given Channel](farcaster-channels.md#check-if-farcaster-user-has-casted-in-a-given-channel)
+- [Search All Farcaster Channels Whose Names Start With Certain Terms (auto-complete)](farcaster-channels.md#search-all-farcaster-channels-whose-names-start-with-certain-terms-auto-complete)
+- [Search All Farcaster Channels Whose Names Contain With Certain Terms (auto-complete)](farcaster-channels.md#search-all-farcaster-channels-whose-names-contain-certain-terms-auto-complete)
 
 ### Pre-requisites
 
-* An [Airstack](https://airstack.xyz/) account
-* Basic knowledge of GraphQL
+- An [Airstack](https://airstack.xyz/) account
+- Basic knowledge of GraphQL
 
 ### Get Started
 
@@ -65,6 +65,7 @@ npm install @airstack/airstack-react
 ```sh
 npm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="yarn" %}
@@ -79,6 +80,7 @@ yarn add @airstack/airstack-react
 ```sh
 yarn add @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pnpm" %}
@@ -93,12 +95,15 @@ pnpm install @airstack/airstack-react
 ```sh
 pnpm install @airstack/node
 ```
+
 {% endtab %}
 
 {% tab title="pip" %}
+
 ```sh
 pip install airstack
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -106,6 +111,7 @@ Then, add the following snippets to your code:
 
 {% tabs %}
 {% tab title="React" %}
+
 ```jsx
 import { init, useQuery } from "@airstack/airstack-react";
 
@@ -129,9 +135,11 @@ const Component = () => {
   }
 };
 ```
+
 {% endtab %}
 
 {% tab title="Node" %}
+
 ```javascript
 import { init, fetchQuery } from "@airstack/node";
 
@@ -144,9 +152,11 @@ const { data, error } = await fetchQuery(query);
 console.log("data:", data);
 console.log("error:", error);
 ```
+
 {% endtab %}
 
 {% tab title="Python" %}
+
 ```python
 import asyncio
 from airstack.execute_query import AirstackClient
@@ -164,6 +174,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -189,6 +200,7 @@ Get /farcaster Farcaster channel details
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterChannels(
     input: {
@@ -212,9 +224,11 @@ Get /farcaster Farcaster channel details
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -236,6 +250,7 @@ Get /farcaster Farcaster channel details
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -261,6 +276,7 @@ Show me all the casts in /airstack channel
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterCasts(
     input: {
@@ -290,9 +306,11 @@ Show me all the casts in /airstack channel
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -315,13 +333,14 @@ Show me all the casts in /airstack channel
           "numberOfLikes": 3,
           "numberOfRecasts": 0,
           "numberOfReplies": 0
-        },
+        }
         // More casts from /airstack channel
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -339,6 +358,7 @@ Show me the most followed Farcaster channels
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterChannels(
     input: {
@@ -355,9 +375,11 @@ Show me the most followed Farcaster channels
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -367,13 +389,14 @@ Show me the most followed Farcaster channels
           "name": "Base",
           "channelId": "base",
           "followerCount": 210254
-        },
+        }
         // Other most followed Farcaster channels
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -391,6 +414,7 @@ Show me the most recently created Farcaster channels
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterChannels(
     input: {
@@ -407,9 +431,11 @@ Show me the most recently created Farcaster channels
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -419,13 +445,14 @@ Show me the most recently created Farcaster channels
           "name": "translate",
           "channelId": "translate",
           "createdAtTimestamp": "2024-04-29T11:26:42Z"
-        },
+        }
         // Other most followed Farcaster channels
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -443,15 +470,16 @@ Show me the channel followers of /airstack channel
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   FarcasterChannelParticipants(
     input: {
       filter: {
-        channelName: {_eq: "/airstack"},
-        channelActions: {_eq: follow}
-      },
-      blockchain: ALL,
+        channelName: { _eq: "/airstack" }
+        channelActions: { _eq: follow }
+      }
+      blockchain: ALL
       limit: 200
     }
   ) {
@@ -465,9 +493,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -479,13 +509,14 @@ query MyQuery {
             "fid": "385955"
           },
           "lastCastedTimestamp": "2024-04-24T16:33:14Z"
-        },
+        }
         // Other channel followers
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -494,9 +525,9 @@ query MyQuery {
 {% hint style="info" %}
 Channel participants includes users that:
 
-* followed the channel
-* casted in the channel
-* replied to a cast in a channel
+- followed the channel
+- casted in the channel
+- replied to a cast in a channel
 
 If you are only looking for channel followers, click [here](farcaster-channels.md#get-followers-of-a-channel).
 {% endhint %}
@@ -513,6 +544,7 @@ Show me all participants of the /farcaster channel on Farcaster
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterChannels(
     input: {
@@ -537,9 +569,11 @@ Show me all participants of the /farcaster channel on Farcaster
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -567,6 +601,7 @@ Show me all participants of the /farcaster channel on Farcaster
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -584,6 +619,7 @@ Get the host of /warpcast Farcaster channel
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterChannels(
     input: {
@@ -606,9 +642,11 @@ Get the host of /warpcast Farcaster channel
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -636,6 +674,7 @@ Get the host of /warpcast Farcaster channel
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -653,15 +692,16 @@ Show me all channels followed by Farcaster user fid 602
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   FarcasterChannelParticipants(
     input: {
       filter: {
-        channelActions: {_eq: follow},
-        participant: {_eq: "fc_fid:602"}
-      },
-      blockchain: ALL,
+        channelActions: { _eq: follow }
+        participant: { _eq: "fc_fid:602" }
+      }
+      blockchain: ALL
       limit: 200
     }
   ) {
@@ -673,9 +713,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -685,13 +727,14 @@ query MyQuery {
           "channelName": "Farcaster Devs",
           "channelId": "fc-devs",
           "lastFollowedTimestamp": "2024-01-11T16:56:06Z"
-        },
+        }
         // Other channels followed by betashop.eth
       ]
     }
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -700,9 +743,9 @@ query MyQuery {
 {% hint style="info" %}
 Channel participants includes users that:
 
-* followed the channel
-* casted in the channel
-* replied to a cast in a channel
+- followed the channel
+- casted in the channel
+- replied to a cast in a channel
 
 If you are only looking for channel followers, click [here](farcaster-channels.md#get-all-the-channels-followed-by-a-user).
 {% endhint %}
@@ -719,6 +762,7 @@ Show me all the channels Farcaster user fid 602 participated in
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterChannelParticipants(
     input: {
@@ -734,9 +778,11 @@ Show me all the channels Farcaster user fid 602 participated in
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -757,6 +803,7 @@ Show me all the channels Farcaster user fid 602 participated in
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -774,6 +821,7 @@ Show me all the Farcaster user who casted on /warpcast channel
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterChannelParticipants(
     input: {
@@ -794,9 +842,11 @@ Show me all the Farcaster user who casted on /warpcast channel
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -829,6 +879,7 @@ Show me all the Farcaster user who casted on /warpcast channel
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -836,9 +887,9 @@ Show me all the Farcaster user who casted on /warpcast channel
 
 You can fetch all Farcaster users who casted in a given channel since a certain time by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) and providing:
 
-* the "cast" value to the `$channelActions` variable,
-* the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable, and
-* the timestamp to the `$lastActionTimestamp` variable, e.g. 2024-02-01T00:00:00Z for Feb 1, 2024 at 00:00.
+- the "cast" value to the `$channelActions` variable,
+- the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable, and
+- the timestamp to the `$lastActionTimestamp` variable, e.g. 2024-02-01T00:00:00Z for Feb 1, 2024 at 00:00.
 
 ### Try Demo
 
@@ -850,6 +901,7 @@ Show me all the Farcaster user who casted on /warpcast channel since Feb 1, 2024
 
 {% tabs %}
 {% tab title="Query" %}
+
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
   FarcasterChannelParticipants(
     input: {
@@ -872,9 +924,11 @@ Show me all the Farcaster user who casted on /warpcast channel since Feb 1, 2024
   }
 }
 </code></pre>
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -907,6 +961,7 @@ Show me all the Farcaster user who casted on /warpcast channel since Feb 1, 2024
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -924,6 +979,7 @@ Show the original host of /airstack channel
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   FarcasterChannels(
@@ -935,9 +991,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -951,6 +1009,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -966,6 +1025,7 @@ Show all the participants of /airstack channel and if they are following the ori
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery($originalHost: Identity!) {
   FarcasterChannelParticipants(
@@ -996,17 +1056,21 @@ query MyQuery($originalHost: Identity!) {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Variables" %}
+
 ```json
 {
   "originalHost": "fc_fid:602" // The original host's FID
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "FarcasterChannelParticipants": {
@@ -1059,6 +1123,7 @@ query MyQuery($originalHost: Identity!) {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -1078,15 +1143,11 @@ Show me all participants of /airstack channel that also have power badge
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   FarcasterChannelParticipants(
-    input: {
-      filter: {
-        channelId: {_eq: "airstack"}
-      },
-      blockchain: ALL
-    }
+    input: { filter: { channelId: { _eq: "airstack" } }, blockchain: ALL }
   ) {
     FarcasterChannelParticipant {
       participantId
@@ -1098,9 +1159,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 <pre class="language-json"><code class="lang-json">{
   "data": {
     "FarcasterChannelParticipants": {
@@ -1124,6 +1187,7 @@ query MyQuery {
   }
 }
 </code></pre>
+
 {% endtab %}
 {% endtabs %}
 
@@ -1131,9 +1195,9 @@ query MyQuery {
 
 You can check if Farcaster user has followed a given channel by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) API and providing:
 
-* the "follow" value to the `$channelActions` variable,
-* the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable, and
-* the FID to the `$participant` variable
+- the "follow" value to the `$channelActions` variable,
+- the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable, and
+- the FID to the `$participant` variable
 
 ### Try Demo
 
@@ -1145,6 +1209,7 @@ Check if Farcaster user FID 602 followed the /airstack channel
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   FarcasterChannelParticipants(
@@ -1163,9 +1228,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1179,6 +1246,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1188,9 +1256,9 @@ If the response is not `null`, then it confirms that the user followed in the sp
 
 You can check if Farcaster user has casted in a given channel by using the [`FarcasterChannelParticipants`](../../api-references/api-reference/farcasterchannelparticipants-api.md) API and providing:
 
-* the "cast" value to the `$channelActions` variable,
-* the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable, and
-* the FID to the `$participant` variable
+- the "cast" value to the `$channelActions` variable,
+- the channel ID (e.g. /farcaster channel ID is "farcaster") to `$channelId` variable, and
+- the FID to the `$participant` variable
 
 ### Try Demo
 
@@ -1202,6 +1270,7 @@ Check if Farcaster user FID 602 is participating in airstack channel
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   FarcasterChannelParticipants(
@@ -1220,9 +1289,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1236,6 +1307,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1255,6 +1327,7 @@ Show me all Farcaster channels name that starts with "air"
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   FarcasterChannels(
@@ -1266,9 +1339,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1289,6 +1364,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1306,6 +1382,7 @@ Show me all Farcaster channels name that contains with "air"
 
 {% tabs %}
 {% tab title="Query" %}
+
 ```graphql
 query MyQuery {
   FarcasterChannels(
@@ -1317,9 +1394,11 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Response" %}
+
 ```json
 {
   "data": {
@@ -1340,6 +1419,7 @@ query MyQuery {
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -1349,7 +1429,5 @@ If you have any questions or need help regarding fetch any data related to Farca
 
 ## More Resources
 
-* [FarcasterChannels API Reference](../../api-references/api-reference/farcasterchannels-api.md)
-* [FarcasterChannelParticipants API Reference](../../api-references/api-reference/farcasterchannelparticipants-api.md)
-* [Airstack Onchain Kit for Farcaster Frames](broken-reference)
-* [Allow Lists for Farcaster Frames](broken-reference)
+- [FarcasterChannels API Reference](../../api-references/api-reference/farcasterchannels-api.md)
+- [FarcasterChannelParticipants API Reference](../../api-references/api-reference/farcasterchannelparticipants-api.md)
