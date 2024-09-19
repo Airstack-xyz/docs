@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to use Airstack to universally resolve and reverse resolve Solana
-  addresses to other web3 identities (Farcaster, ENS, Lens, 0x address).
+  addresses to other web3 identities (Farcaster, ENS, 0x address).
 layout:
   title:
     visible: true
@@ -23,11 +23,10 @@ In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 
 * [Get All 0x Addresses Connected To Solana Address](solana-address.md#get-all-0x-addresses-connected-to-solana-address)
 * [Get All Solana Addresses Connected To 0x Address](solana-address.md#get-all-solana-addresses-connected-to-0x-address)
-* [Get All Web3 Social Accounts (Farcaster, Lens) and ENS Domains Resolved From Solana Address](solana-address.md#get-all-web3-social-accounts-farcaster-lens-and-ens-domains-resolved-from-solana-address)
+* [Get All Farcaster Accounts and ENS Domains Resolved From Solana Address](solana-address.md#get-all-farcaster-accounts-and-ens-domains-resolved-from-solana-address)
 * [Get All The Solana addresses from a given ENS name](solana-address.md#get-all-the-solana-addresses-from-a-given-ens-name)
 * [Get All The Solana addresses from a given Namestone Subdomain or cb.id (Offchain)](solana-address.md#get-all-the-solana-addresses-from-a-given-namestone-subdomain-or-cb.id-offchain)
 * [Get All Solana addresses of Farcaster user](solana-address.md#get-all-solana-addresses-of-farcaster-user)
-* [Get All Solana addresses of Lens profile](solana-address.md#get-all-solana-addresses-of-lens-profile)
 
 ## Pre-requisites
 
@@ -275,14 +274,14 @@ Show me all the Solana address connected to 0xe0235804378c31948e81441f656d826ee5
 {% endtab %}
 {% endtabs %}
 
-## Get All Web3 Social Accounts (Farcaster, Lens) and ENS Domains Resolved From Solana Address
+## Get All Farcaster Accounts and ENS Domains Resolved From Solana Address
 
-You can resolve a Solana addresses to their web3 socials and ENS Domains (including offchain domains, e.g. Namestone & cb.id) using the [`Wallet`](broken-reference) API:
+You can resolve a Solana addresses to their Farcaster and ENS Domains (including offchain domains, e.g. Namestone & cb.id) using the [`Wallet`](../../api-references/api-reference/wallet-api.md) API:
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/3fqSzSZhnP" %}
-Show the Farcaster, Lens, and ENS of solana address GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV
+Show the Farcaster and ENS of solana address GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV
 {% endembed %}
 
 ### Code
@@ -298,9 +297,6 @@ query MyQuery {
     }
   ) {
     farcaster: socials(input: { filter: { dappName: { _eq: farcaster } } }) {
-      profileName
-    }
-    lens: socials(input: { filter: { dappName: { _eq: lens } } }) {
       profileName
     }
     domains {
@@ -525,80 +521,6 @@ query MyQuery {
               "blockchain": "ethereum",
               "chainId": "1",
               "timestamp": "2023-07-26T20:46:33Z"
-            }
-          ]
-        }
-      ]
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## Get All Solana addresses of Lens profile
-
-You can resolve a profile to their 0x addresses by using [`Socials`](../../api-references/api-reference/socials-api.md) API:
-
-### Try Demo
-
-{% embed url="https://app.airstack.xyz/query/4ccsLCKW7I" %}
-Show me all the Solana addresses of Lens profile alexj
-{% endembed %}
-
-### Code
-
-{% tabs %}
-{% tab title="Query" %}
-```graphql
-query MyQuery {
-  Wallet(input: { identity: "lens/@alexj", blockchain: ethereum }) {
-    farcaster: socials(input: { filter: { dappName: { _eq: farcaster } } }) {
-      connectedAddresses {
-        address
-        chainId
-        blockchain
-        timestamp
-      }
-    }
-    domains {
-      multiChainAddresses {
-        address
-        symbol
-      }
-    }
-  }
-}
-```
-{% endtab %}
-
-{% tab title="Response" %}
-```json
-{
-  "data": {
-    "Wallet": {
-      "farcaster": [
-        {
-          "connectedAddresses": [
-            {
-              "address": "0xe0235804378c31948e81441f656d826ee5998bc6",
-              "chainId": "1",
-              "blockchain": "ethereum",
-              "timestamp": "2023-07-04T18:54:04Z"
-            }
-          ]
-        }
-      ],
-      "domains": [
-        {
-          "multiChainAddresses": [
-            {
-              "address": "0xe0235804378c31948E81441f656D826eE5998Bc6",
-              "symbol": "ETH"
-            },
-            {
-              "address": "GJQUFnCu7ZJHxtxeaeskjnqyx8QFAN1PsiGuShDMPsqV",
-              "symbol": "SOL"
             }
           ]
         }

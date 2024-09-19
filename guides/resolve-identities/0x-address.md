@@ -1,8 +1,8 @@
 ---
 description: >-
   Learn how to use Airstack to universally resolve and reverse resolve 0x
-  addresses to Solana addresses, web3 socials (Lens & Farcaster) and ENS Domains
-  (including offchain Namestone & cb.id).
+  addresses to Solana addresses, Farcaster, and ENS Domains (including offchain
+  Namestone & cb.id).
 layout:
   title:
     visible: true
@@ -24,7 +24,7 @@ In this guide, you will learn how to use [Airstack](https://airstack.xyz) to:
 
 * [Get All Solana Addresses Connected To 0x Address](0x-address.md#get-all-solana-addresses-connected-to-0x-address)
 * [Get All 0x Addresses Connected To Solana Address](0x-address.md#get-all-0x-addresses-connected-to-solana-address)
-* [Get All Web3 Social Accounts (Lens, Farcaster) and ENS Domains Resolved From An Array of 0x Addresses](0x-address.md#get-all-web3-social-accounts-lens-farcaster-and-ens-domains-resolved-from-an-array-of-0x-addresses)
+* [Get All Farcaster and ENS Domains Resolved From An Array of 0x addresses](0x-address.md#get-all-farcaster-and-ens-domains-resolved-from-an-array-of-0x-addresses)
 * [Get All The 0x addresses from a given ENS name(s)](0x-address.md#get-all-the-0x-addresses-from-a-given-ens-name-s)
 * [Get All The 0x addresses from a given Namestone Subdomain or cb.id (Offchain)](0x-address.md#get-all-the-0x-addresses-from-a-given-namestone-subdomain-or-cb.id-offchain)
 * [Get All 0x addresses of Farcaster user(s)](0x-address.md#get-all-0x-addresses-of-farcaster-user-s)
@@ -276,14 +276,14 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## Get All Web3 Social Accounts (Lens, Farcaster) and ENS Domains Resolved From An Array of 0x addresses
+## Get All Farcaster and ENS Domains Resolved From An Array of 0x addresses
 
-You can resolve an array of 0x addresses to their web3 socials and ENS Domains (including offchain domains, e.g. Namestone & cb.id) using the [`Socials`](../../api-references/api-reference/socials-api.md) and [`Domains`](../../api-references/api-reference/domains-api.md) API:
+You can resolve an array of 0x addresses to their Farcaster account and ENS Domains (including offchain domains, e.g. Namestone & cb.id) using the [`Socials`](../../api-references/api-reference/socials-api.md) and [`Domains`](../../api-references/api-reference/domains-api.md) API:
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/5O1VK0utN9" %}
-Show web3 socials (Lens, Farcaster) and ENS resolved from 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
+Show Farcaster accounts and ENS resolved from 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
 {% endembed %}
 
 ### Code
@@ -291,7 +291,7 @@ Show web3 socials (Lens, Farcaster) and ENS resolved from 0xd8dA6BF26964aF9D7eEd
 {% tabs %}
 {% tab title="Query" %}
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
-  # Get All Web3 socials (Lens/Farcaster)
+  # Get All Farcaster accounts
 <strong>  Socials(
 </strong>    input: {
       filter: {
@@ -341,13 +341,6 @@ Show web3 socials (Lens, Farcaster) and ENS resolved from 0xd8dA6BF26964aF9D7eEd
           ],
           "dappName": "farcaster",
 <strong>          "profileName": "vitalik.eth" // Farcaster fname
-</strong>        },
-        {
-          "userAssociatedAddresses": [
-            "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
-          ],
-          "dappName": "lens",
-<strong>          "profileName": "lens/@vitalik" // Lens Profile
 </strong>        }
       ]
     },

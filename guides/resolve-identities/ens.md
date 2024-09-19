@@ -1,8 +1,8 @@
 ---
 description: >-
   Learn how to use Airstack to universally resolve and reverse resolve ENS,
-  Namestone, and cb.id to other web3 identities (Farcaster, Lens, 0x address,
-  Solana address).
+  Namestone, and cb.id to other web3 identities (Farcaster 0x address, Solana
+  address).
 layout:
   title:
     visible: true

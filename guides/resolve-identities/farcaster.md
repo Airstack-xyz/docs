@@ -1,8 +1,7 @@
 ---
 description: >-
   Learn how to use Airstack to universally resolve and reverse resolve Farcaster
-  name or ID to other web3 identities (Lens, ENS, Ethereum address, Solana
-  address).
+  name or ID to other web3 identities (ENS, Ethereum address, Solana address).
 layout:
   title:
     visible: true
@@ -26,8 +25,8 @@ In this guide you will learn how to use [Airstack](https://airstack.xyz) to:
 
 * [Get Farcaster profiles of a given Solana address](farcaster.md#get-farcaster-profiles-of-a-given-solana-address)
 * [Get Solana addresses of Farcaster user](farcaster.md#get-all-solana-addresses-of-farcaster-user)
-* [Get Farcaster from a given user(s)](farcaster.md#get-farcaster-from-a-given-user-s)
-* [Get the Ethereum address, Lens, and ENS from a given Farcaster(s)](farcaster.md#get-the-ethereum-address-lens-and-ens-from-a-given-farcaster-s)
+* [Get Farcaster Accounts Of ENS Domain(s)](farcaster.md#get-farcaster-accounts-of-ens-domain-s)
+* [Get the Ethereum address and ENS from a given Farcaster(s)](farcaster.md#get-the-ethereum-addresses-and-ens-from-a-given-farcaster-username-s)
 
 ## Pre-requisites
 
@@ -290,12 +289,14 @@ query MyQuery {
 {% endtab %}
 {% endtabs %}
 
-## Get Farcaster name from any other identity
+## Get Farcaster Accounts Of ENS Domain(s)
+
+You can resolve ENS domain(s) to their Farcaster accounts by using [`Socials`](../../api-references/api-reference/socials-api.md) API:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/tZ3gMPNL7p" %}
-Show Farcaster name of prxshant.eth and lens/@vitalik
+{% embed url="https://app.airstack.xyz/query/hNUNtazgv1" %}
+Show Farcaster name of prxshant.eth
 {% endembed %}
 
 ### Code
@@ -307,7 +308,7 @@ query GetFarcaster {
   Socials(
     input: {
       filter: {
-        identity: { _in: ["prxshant.eth", "lens/@vitalik"] }
+        identity: { _in: ["prxshant.eth"] }
         dappName: { _eq: farcaster }
       }
       blockchain: ethereum
@@ -330,11 +331,6 @@ query GetFarcaster {
     "Socials": {
       "Social": [
         {
-          "profileName": "vitalik.eth",
-          "userId": "5650",
-          "profileImage": "https://i.imgur.com/gF9Yaeg.jpg"
-        },
-        {
           "profileName": "prxshant.eth",
           "userId": "4280",
           "profileImage": "https://pbs.twimg.com/profile_images/1379754227602399235/jNz1xW74_400x400.jpg"
@@ -347,12 +343,12 @@ query GetFarcaster {
 {% endtab %}
 {% endtabs %}
 
-## Get the Ethereum addresses, Lens, and ENS from a given Farcaster username(s)
+## Get the Ethereum addresses and ENS from a given Farcaster username(s)
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/W43n5Ow33G" %}
-Show the 0x addresses, ENS, and Lens of fc\_fname:vitalik.eth
+Show the 0x addresses and ENS of fc\_fname:vitalik.eth
 {% endembed %}
 
 ### Code
