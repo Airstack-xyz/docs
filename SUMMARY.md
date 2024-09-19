@@ -97,7 +97,6 @@
   * [🚸 Limit](guides/basics/limit.md)
   * [🎯 Direct API Call](get-started/quickstart/direct-api-call.md)
   * [🎆 Multiple Queries Execution](guides/basics/multiple-queries-execution.md)
-  * [♋ Cross Chain Queries](guides/basics/cross-chain-queries.md)
   * [💡 Generate TypeScript Interfaces](guides/basics/generate-typescript-interfaces.md)
 * [🆔 Resolve Identities](guides/resolve-identities/README.md)
   * [🔑 0x Address](guides/resolve-identities/0x-address.md)
