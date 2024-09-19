@@ -12,12 +12,12 @@ The FarcasterQuotedRecasts API enables you to fetch a list of all quoted recasts
 
 ### filters
 
-| Name             | Type                      | Description                                                                                                                                                                                    |
-| ---------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `parentCastedBy` | `Identity_Comparator_Exp` | <p>Filter by parent caster's web3 identities, either 0x address, Farcaster, ENS, or Lens.<br><br>For more details, check out <a href="airstack-identity-api.md">Airstack Identity API</a>.</p> |
-| `parentHash`     | `String_Eq_In_Comparator` | Filter by parent cast hash.                                                                                                                                                                    |
-| `parentUrl`      | `String_Eq_In_Comparator` | Filter by parent cast URL.                                                                                                                                                                     |
-| `recastedBy`     | `Identity_Comparator_Exp` | <p>Filter by recaster's web3 identities, either 0x address, Farcaster, ENS, or Lens.<br><br>For more details, check out <a href="airstack-identity-api.md">Airstack Identity API</a>.</p>      |
+| Name             | Type                      | Description                                                                                                                                                                              |
+| ---------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `parentCastedBy` | `Identity_Comparator_Exp` | <p>Filter by parent caster's web3 identities, either 0x address, Farcaster, or ENS.<br><br>For more details, check out <a href="airstack-identity-api.md">Airstack Identity API</a>.</p> |
+| `parentHash`     | `String_Eq_In_Comparator` | Filter by parent cast hash.                                                                                                                                                              |
+| `parentUrl`      | `String_Eq_In_Comparator` | Filter by parent cast URL.                                                                                                                                                               |
+| `recastedBy`     | `Identity_Comparator_Exp` | <p>Filter by recaster's web3 identities, either 0x address, Farcaster, or ENS.<br><br>For more details, check out <a href="airstack-identity-api.md">Airstack Identity API</a>.</p>      |
 
 ### blockchain
 

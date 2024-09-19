@@ -12,14 +12,14 @@ The FarcasterReactions API enables you to fetch a list of all reactions, which i
 
 ### filters
 
-| Name        | Type                                                                 | Description                                                                                                                                                                                   |
-| ----------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `castHash`  | `String_Eq_In_Comparator_Exp`                                        | Filter by cast hash.                                                                                                                                                                          |
-| `castUrl`   | `String_Eq_In_Comparator_Exp`                                        | Filter by cast URL.                                                                                                                                                                           |
-| `channelId` | `String_Comparator_Exp`                                              | Filter by Channel ID.                                                                                                                                                                         |
-| `criteria`  | [`FarcasterReactionCriteria!`](../enum/farcasterreactioncriteria.md) | Filter by different criteria selection, including `like`, `recast`, and `replied`.                                                                                                            |
-| `frameUrl`  | `String_Eq_In_Comparator_Exp`                                        | Filter by Frames URL.                                                                                                                                                                         |
-| `reactedBy` | `Identity_Comparator_Exp`                                            | <p>Filter by cast reactor's web3 identities, either 0x address, Farcaster, ENS, or Lens.<br><br>For more details, check out <a href="airstack-identity-api.md">Airstack Identity API</a>.</p> |
+| Name        | Type                                                                 | Description                                                                                                                                                                             |
+| ----------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `castHash`  | `String_Eq_In_Comparator_Exp`                                        | Filter by cast hash.                                                                                                                                                                    |
+| `castUrl`   | `String_Eq_In_Comparator_Exp`                                        | Filter by cast URL.                                                                                                                                                                     |
+| `channelId` | `String_Comparator_Exp`                                              | Filter by Channel ID.                                                                                                                                                                   |
+| `criteria`  | [`FarcasterReactionCriteria!`](../enum/farcasterreactioncriteria.md) | Filter by different criteria selection, including `like`, `recast`, and `replied`.                                                                                                      |
+| `frameUrl`  | `String_Eq_In_Comparator_Exp`                                        | Filter by Frames URL.                                                                                                                                                                   |
+| `reactedBy` | `Identity_Comparator_Exp`                                            | <p>Filter by cast reactor's web3 identities, either 0x address, Farcaster, or ENS.<br><br>For more details, check out <a href="airstack-identity-api.md">Airstack Identity API</a>.</p> |
 
 ### blockchain
 
@@ -34,8 +34,6 @@ You just need to specify the input to `ALL` for the query to work.
 | `ALL` | -           |
 
 ## Outputs
-
-
 
 | Name                 | Type                                                                | Description                                                                                      |
 | -------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
