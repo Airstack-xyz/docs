@@ -1,7 +1,7 @@
 ---
 description: >-
-  Airstack is the easiest way to build on Farcaster and the most powerful way to
-  build composable onchain apps.
+  Airstack provides easy to use APIs for Moxie Protocol offchain data and for
+  building Farcaster frames and applications
 layout:
   title:
     visible: true
@@ -18,12 +18,6 @@ layout:
 # ℹ️ Introduction
 
 
-
-<figure><img src=".gitbook/assets/Screenshot 2024-04-11 at 12.40.42 PM.png" alt=""><figcaption></figcaption></figure>
-
-## Overview
-
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f6a6">🚦</span> <strong>Tech Infra &#x26; Capabilities</strong></td><td>Learn all the current features available on Airstack.</td><td></td><td><a href="readme/api-capabilities.md">api-capabilities.md</a></td></tr></tbody></table>
 
 ## Get Started
 

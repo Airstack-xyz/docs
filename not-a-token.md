@@ -1,5 +1,6 @@
 ---
 description: Learn all about Not A Token and how you can earn it.
+hidden: true
 ---
 
 # 😶 Not A Token
