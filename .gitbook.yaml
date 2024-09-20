@@ -21,8 +21,6 @@ redirects:
   use-cases/poaps: guides/poap/README.md
   reference/api-reference/tokens-api/tokens-api-examples: api-references/api-reference/tokens-api/tokens-api-examples.md
   reference/api-reference/tokens-api: api-references/api-reference/tokens-api.md
-  reference/api-reference/tokennfts-api: api-references/api-reference/tokennfts-api/README.md
-  reference/api-reference/tokennfts-api/tokennfts-api-examples: api-references/api-reference/tokennfts-api/token-nfts-api-examples.md
   reference/api-reference/tokenbalances-api: api-references/api-reference/tokenbalances-api/README.md
   reference/api-reference/tokenbalances-api/tokenbalances-api-examples: api-references/api-reference/tokenbalances-api/token-balances-examples.md
   reference/api-reference/socials-api: api-references/api-reference/socials-api/README.md
@@ -69,7 +67,6 @@ redirects:
   pricing: README.md
   api-references/api-reference/accounts-api/accounts-api-examples: guides/token-bound-accounts/README.md
   api-references/api-reference/tokens-api/tokens-api-examples: guides/erc20/README.md
-  api-references/api-reference/tokennfts-api/token-nfts-examples: guides/nft/README.md
   api-references/api-reference/tokenbalances-api/tokenbalances-examples: guides/token-balances/README.md
   api-references/api-reference/domains-api/domains-api-examples: guides/ens-domains/README.md
   api-references/api-reference/socials-api/socials-api-examples: guides/lens/README.md
