@@ -17,7 +17,7 @@ layout:
 
 # 💐 Following
 
-[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 social applications with and integrating on-chain and off-chain data with [Lens](https://lens.xyz) and [Farcaster](https://farcaster.xyz).
+[Airstack](https://airstack.xyz) provides easy-to-use APIs for enriching Web3 social applications with and integrating on-chain and off-chain data with [Farcaster](https://farcaster.xyz).
 
 ## Table Of Contents
 
@@ -597,7 +597,7 @@ query MyQuery {
 
 ## Check If User A Is Following User B
 
-This can be done by providing the user B's identiy either a 0x address, ENS, cb.id, Lens, or Farcaster on the `Wallet` top-level query's `identity` input and the user A's identities in the [`socialFollowings`](../../api-references/api-reference/socialfollowings-api.md).
+This can be done by providing the user B's identiy either a 0x address, ENS, cb.id, or Farcaster on the `Wallet` top-level query's `identity` input and the user A's identities in the [`socialFollowings`](../../api-references/api-reference/socialfollowings-api.md).
 
 For example, check if [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) (user A) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth++ethereum+null%29&inputType=ADDRESS) (user B):
 
@@ -666,10 +666,6 @@ If you need to check multiple users A simultaneously, then simply provide more i
                   "dappName": "farcaster",
 <strong>                  "profileName": "betashop.eth" // betashop.eth is following ipeciura.eth
 </strong>                },
-                {
-                  "dappName": "lens",
-                  "profileName": "lens/@betashop9"
-                }
               ],
               "domains": [
                 {
@@ -691,7 +687,7 @@ If you need to check multiple users A simultaneously, then simply provide more i
 {% endtab %}
 {% endtabs %}
 
-If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29&inputType=ADDRESS&tokenType=&activeView=&activeTokenInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=) on either Lens or Farcaster, then it will appear as a response in the `Following` array as shown in the [sample response](following.md#response-1) and thus should be classified as a **known sender**.
+If [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) is following [`ipeciura.eth`](https://explorer.airstack.xyz/token-balances?address=ipeciura.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1ipeciura.eth%E2%8E%B1%28ipeciura.eth+ADDRESS+ethereum+null%29&inputType=ADDRESS&tokenType=&activeView=&activeTokenInfo=&tokenFilters=&activeViewToken=&activeViewCount=&blockchainType=&sortOrder=) on Farcaster, then it will appear as a response in the `Following` array as shown in the [sample response](following.md#response-1) and thus should be classified as a **known sender**.
 
 Otherwise, [`betashop.eth`](https://explorer.airstack.xyz/token-balances?address=betashop.eth&blockchain=ethereum&rawInput=%23%E2%8E%B1betashop.eth%E2%8E%B1%28betashop.eth++ethereum+null%29&inputType=ADDRESS) will be considered an **unknown sender** and should be classified as one in the UI.
 
@@ -837,16 +833,6 @@ query MyQuery {
                   "0x66bd69c7064d35d146ca78e6b186e57679fba249",
                   "0xeaf55242a90bb3289db8184772b0b98562053559"
                 ]
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@betashop9",
-                "profileTokenId": "94472",
-                "profileTokenIdHex": "0x017108",
-                "userId": "0xeaf55242a90bb3289db8184772b0b98562053559",
-                "userAssociatedAddresses": [
-                  "0xeaf55242a90bb3289db8184772b0b98562053559"
-                ]
               }
             ]
           },
@@ -965,16 +951,6 @@ query MyQuery {
                   "0x71503b1309d6797bc4c4fbfde973adc2c191834b",
                   "0xe0f35f554937d21ddb9e0f83b1436053e33634b9"
                 ]
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@alexkwon",
-                "profileTokenId": "105611",
-                "profileTokenIdHex": "0x019c8b",
-                "userId": "0xe978bdbc3347feb6ed10c9845bbdc298604f80ca",
-                "userAssociatedAddresses": [
-                  "0xe978bdbc3347feb6ed10c9845bbdc298604f80ca"
-                ]
               }
             ]
           },
@@ -1001,16 +977,6 @@ query MyQuery {
                 "userId": "602",
                 "userAssociatedAddresses": [
                   "0x66bd69c7064d35d146ca78e6b186e57679fba249",
-                  "0xeaf55242a90bb3289db8184772b0b98562053559"
-                ]
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@betashop9",
-                "profileTokenId": "94472",
-                "profileTokenIdHex": "0x017108",
-                "userId": "0xeaf55242a90bb3289db8184772b0b98562053559",
-                "userAssociatedAddresses": [
                   "0xeaf55242a90bb3289db8184772b0b98562053559"
                 ]
               }
@@ -1117,16 +1083,6 @@ Show me followings of an array of users that also have ENS domain
                   "0x5beaf49e8ee203ef1023e9b1b716c07016f399a1",
                   "0x223f2db258234f7fa164a9e4c0929318feb3b550"
                 ]
-              },
-              {
-                "dappName": "lens",
-                "profileName": "lens/@victorma",
-                "profileTokenId": "118319",
-                "profileTokenIdHex": "0x01ce2f",
-                "userId": "0x223f2db258234f7fa164a9e4c0929318feb3b550",
-                "userAssociatedAddresses": [
-                  "0x223f2db258234f7fa164a9e4c0929318feb3b550"
-                ]
               }
             ]
           },
@@ -1153,16 +1109,6 @@ Show me followings of an array of users that also have ENS domain
               }
             ],
             "socials": [
-              {
-                "dappName": "lens",
-                "profileName": "lens/@danromero",
-                "profileTokenId": "46189",
-                "profileTokenIdHex": "0x0b46d",
-                "userId": "0xd7029bdea1c17493893aafe29aad69ef892b8ff2",
-                "userAssociatedAddresses": [
-                  "0xd7029bdea1c17493893aafe29aad69ef892b8ff2"
-                ]
-              },
               {
                 "dappName": "farcaster",
                 "profileName": "dwr.eth",
@@ -1288,7 +1234,7 @@ query MyQuery {
 
 ## Developer Support
 
-If you have any questions or need help regarding fetching Lens Followings data, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
+If you have any questions or need help regarding fetching Farcaster followings data, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
 
 ## More Resources
 

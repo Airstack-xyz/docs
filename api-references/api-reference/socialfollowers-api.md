@@ -37,7 +37,7 @@ The SocialFollowers APIs deliver on-chain and off-chain user-level followers dat
 ### blockchain
 
 {% hint style="info" %}
-For **SocialFollowers** API, it will return Lens & Farcaster followers data from all onchain and offchain sources.
+For **SocialFollowers** API, it will return Farcaster followers data from all onchain and offchain sources.
 
 You just need to specify the input to `ALL` for the query to work.
 {% endhint %}
@@ -48,15 +48,15 @@ You just need to specify the input to `ALL` for the query to work.
 
 ## Outputs
 
-| Name                 | Type              | Description                                                                                               |
-| -------------------- | ----------------- | --------------------------------------------------------------------------------------------------------- |
-| `blockchain`         | `EveryBlockchain` | Blockchain associated with the social identity.                                                           |
-| `blockNumber`        | `Int`             | Blocknumber when the follows occured onchain.                                                             |
-| `dappName`           | `String`          | Social DApp name – lens, farcaster                                                                        |
-| `dappSlug`           | `String`          | Social DApp slug (contract version) – lens_polygon, lens_v2_polygon, farcaster_optimism, farcaster_goerli |
-| `followerAddress`    | `Wallet`          | **Nested Query** – Follower identity details, e.g. 0x address, Farcaster, ENS, etc.                       |
-| `followerProfileId`  | `String`          | Follower FID for Farcaster or follower's token ID for Lens.                                               |
-| `followerSince`      | `Time`            | Timestamp when follows occured onchain.                                                                   |
-| `followingAddress`   | `Wallet`          | **Nested Query** – Following identity details, e.g. 0x address, Farcaster, ENS, etc.                      |
-| `followingProfileId` | `String`          | Following FID for Farcaster or following's token ID for Lens.                                             |
-| `id`                 | `ID`              | Airstack Internal ID.                                                                                     |
+| Name                 | Type              | Description                                                                          |
+| -------------------- | ----------------- | ------------------------------------------------------------------------------------ |
+| `blockchain`         | `EveryBlockchain` | Blockchain associated with the social identity.                                      |
+| `blockNumber`        | `Int`             | Blocknumber when the follows occured onchain.                                        |
+| `dappName`           | `String`          | Social DApp name – farcaster                                                         |
+| `dappSlug`           | `String`          | Social DApp slug (contract version) – farcaster_optimism, farcaster_goerli           |
+| `followerAddress`    | `Wallet`          | **Nested Query** – Follower identity details, e.g. 0x address, Farcaster, ENS, etc.  |
+| `followerProfileId`  | `String`          | Farcaster follower FID.                                                              |
+| `followerSince`      | `Time`            | Timestamp when follows occured onchain.                                              |
+| `followingAddress`   | `Wallet`          | **Nested Query** – Following identity details, e.g. 0x address, Farcaster, ENS, etc. |
+| `followingProfileId` | `String`          | Farcaster following FID.                                                             |
+| `id`                 | `ID`              | Airstack Internal ID.                                                                |

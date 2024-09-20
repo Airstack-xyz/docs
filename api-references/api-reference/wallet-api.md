@@ -42,14 +42,14 @@ From the Wallet API it’s possible to create complex queries using nested queri
 
 ```graphql
 type Wallet {
-  accounts: # Nested query – return ERC6551 detail information on the account (if any) 
+  accounts: # Nested query – return ERC6551 detail information on the account (if any)
   addresses: Addresses! # return addresses associated with the identity input
   domains: # Nested query - allows querying domains owned by the address
   identity: # return identity passed from the input
   nftSaleTransactions: # Nested query - allows querying NFT Sales by the address
   primaryDomain: # Nested query - allows returning primary domains, if applicable
-  socialFollowers: # Nested query - return all followers of the wallet address (Lens & Farcaster)
-  socialFollowings: # Nested query - return all followings of the wallet address (Lens & Farcaster)
+  socialFollowers: # Nested query - return all Farcaster followers of the wallet address
+  socialFollowings: # Nested query - return all Farcasater followings of the wallet address
   socials: # returns social profile information related to the address
   tokenBalances: # Nested query - allows returning token balances
   tokenTransfers: # Nested query - allows returning token transfers and related information

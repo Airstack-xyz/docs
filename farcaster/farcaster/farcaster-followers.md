@@ -26,7 +26,6 @@ In this guide you will learn how to use Airstack to:
 - [Get Farcaster Followers of Farcaster User(s)](farcaster-followers.md#get-farcaster-followers-of-farcaster-user-s)
 - [Check A Given Farcaster User is A Follower of User(s) on Farcaster](farcaster-followers.md#check-a-given-farcaster-user-is-a-follower-of-user-s-on-farcaster)
 - [Get Farcaster Users that have a certain amount of Followers](farcaster-followers.md#get-farcaster-users-that-have-a-certain-amount-of-followers)
-- [Get All Farcaster Followers That Also Have A Power Badge](farcaster-followers.md#get-all-farcaster-followers-that-also-have-a-power-badge)
 
 ### Pre-requisites
 
