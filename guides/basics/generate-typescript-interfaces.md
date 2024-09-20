@@ -279,4 +279,3 @@ If you have any questions or need help regarding generating TypeScript interface
 * [Pagination](pagination-in-airstack-sdk.md)
 * [Direct API Call](../../get-started/quickstart/direct-api-call.md)
 * [Multiple Queries Execution](multiple-queries-execution.md)
-* [Cross Chain Queries](broken-reference)
