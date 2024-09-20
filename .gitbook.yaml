@@ -4,33 +4,16 @@ root: ./
   summary: SUMMARY.md​
 redirects:
   ai-assistant: get-started/airstack-ai.md
-  use-cases/recommendation-engine: guides/onchain-graph.md
   use-cases/universal-resolver: guides/resolve-identities.md
-  use-cases/universal-resolver/lens: use-cases/lens/universal-resolver.md
-  use-cases/recommendation-engine/recommendations-by-poaps: guides/onchain-graph.md
-  use-cases/recommendation-engine/recommendations-by-token-transfers: guides/onchain-graph.md
-  use-cases/recommendation-engine/recommendations-by-nfts: guides/onchain-graph.md
-  use-cases/xmtp: guides/xmtp/README.md
-  use-cases/xmtp/universal-resolver: guides/resolve-identities/README.md
-  use-cases/xmtp/recommendation-engine: guides/onchain-graph.md
-  use-cases/lens: guides/lens/README.md
-  use-cases/lens/universal-resolver: guides/resolve-identities/lens.md
   use-cases/farcaster: guides/farcaster/README.md
   use-cases/farcaster/universal-resolver: guides/resolve-identities/farcaster.md
-  use-cases/erc6551: guides/token-bound-accounts/README.md
   use-cases/poaps: guides/poap/README.md
-  reference/api-reference/tokens-api/tokens-api-examples: api-references/api-reference/tokens-api/tokens-api-examples.md
-  reference/api-reference/tokens-api: api-references/api-reference/tokens-api.md
-  reference/api-reference/tokenbalances-api: api-references/api-reference/tokenbalances-api/README.md
-  reference/api-reference/tokenbalances-api/tokenbalances-api-examples: api-references/api-reference/tokenbalances-api/token-balances-examples.md
   reference/api-reference/socials-api: api-references/api-reference/socials-api/README.md
   reference/api-reference/socials-api/socials-api-examples: api-references/api-reference/socials-api/socials-api-examples.md
   reference/api-reference/poaps-api: api-references/api-reference/poaps-api/README.md
   reference/api-reference/poaps-api/poaps-api-examples: api-references/api-reference/poaps-api/poaps-api-examples.md
   reference/api-reference/domains-api: api-references/api-reference/domains-api/README.md
   reference/api-reference/domains-api/domains-api-examples: api-references/api-reference/domains-api/domains-api-examples.md
-  reference/api-reference/tokentransfers-api: api-references/api-reference/tokentransfers-api/README.md
-  reference/api-reference/tokentransfers-api/tokentransfers-api-examples: api-references/api-reference/tokentransfers-api/tokentransfers-api-examples.md
   reference/api-reference/wallet-apis: api-references/api-reference/wallet-api/README.md
   reference/api-reference/wallet-apis/wallet-api-examples: api-references/api-reference/wallet-api/wallet-api-examples.md
   reference/api-reference/poapevents-api: api-references/api-reference/poapevents-api/README.md
@@ -44,20 +27,10 @@ redirects:
   reference/api-reference/nftsaletransactions-api: api-references/api-reference/nftsaletransactions-api/README.md
   reference/api-reference/nftsaletransactions-api/nftsaletransactions-api-examples: api-references/api-reference/nftsaletransactions-api/nftsaletransactions-api-examples.md
   reference/working-with-graphql: api-references/working-with-graphql.md
-  guides/has-xmtp: guides/xmtp/README.md
   guides/contact-recommendation: guides/recommend-users/README.md
-  guides/contact-recommendation/poaps: guides/recommend-users/poaps.md
-  guides/contact-recommendation/token-transfers: guides/recommend-users/token-transfers.md
-  guides/contact-recommendation/nfts: guides/recommend-users/nfts.md
   guides/contact-recommendation/social-follows: guides/recommend-users/social-follows.md
-  guides/contact-recommendation/on-chain-graph: guides/onchain-graph.md
-  guides/on-chain-graph: guides/onchain-graph.md
-  guides/recommendation-engine/token-transfers: guides/recommend-users/token-transfers.md
-  guides/recommendation-engine/poaps: guides/recommend-users/poaps.md
-  guides/recommendation-engine/nfts: guides/recommend-users/nfts.md
   guides/recommendation-engine/social-follows: guides/recommend-users/social-follows.md
   guides/recommendation-engine: guides/recommend-users/README.md
-  guides/lens/recommendation-engines: guides/lens/recommend-users.md
   guides/farcaster/recommendation-engines: guides/farcaster/recommend-users.md
   readme: README.md
   readme-1: README.md
@@ -65,20 +38,8 @@ redirects:
   get-started/api-status-and-roadmap: readme/api-capabilities.md
   readme/use-cases: guides/onchain-graph.md
   pricing: README.md
-  api-references/api-reference/accounts-api/accounts-api-examples: guides/token-bound-accounts/README.md
-  api-references/api-reference/tokens-api/tokens-api-examples: guides/erc20/README.md
-  api-references/api-reference/tokenbalances-api/tokenbalances-examples: guides/token-balances/README.md
   api-references/api-reference/domains-api/domains-api-examples: guides/ens-domains/README.md
-  api-references/api-reference/socials-api/socials-api-examples: guides/lens/README.md
-  api-references/api-reference/xmtps-api/xmtps-api-examples: guides/xmtp/README.md
-  api-references/api-reference/poaps-api/poaps-api-examples: guides/poap/README.md
-  api-references/api-reference/poapevents-api/poapevent-api-examples: guides/poap/README.md
-  api-references/api-reference/cross-chain-queries: guides/basics/cross-chain-queries.md
-  api-references/api-reference/tokentransfers-api/tokentransfers-examples: guides/token-transfers.md
   api-references/api-reference/wallet-api/wallet-api-examples: guides/wallet.md
-  guides/xmtp/spam-filters/known-senders: guides/xmtp/spam-filters/primary-inbox.md
-  guides/xmtp/spam-filters/high-probability-of-connection: guides/xmtp/spam-filters/general-inbox.md
-  guides/xmtp/spam-filters/proof-of-personhood: guides/xmtp/spam-filters/request-inbox.md
   guides/farcaster/onchain-kit-for-farcaster-frames: farcaster/farcaster-frames/airstack-frames-sdk/onchain-kit.md
   guides/airstack-frog-recipes-and-middleware: farcaster/farcaster-frames/airstack-frog-recipes-and-middleware/README.md
   guides/airstack-frog-recipes-and-middleware/onchain-data: farcaster/farcaster-frames/airstack-frog-recipes-and-middleware/onchain-data.md
@@ -129,7 +90,6 @@ redirects:
   guides/farcaster/farcaster-following: farcaster/farcaster/farcaster-following.md
   guides/farcaster/follows-in-common: farcaster/farcaster/follows-in-common.md
   guides/farcaster/farcaster-power-badge: farcaster/farcaster/farcaster-power-badge.md
-  guides/farcaster/has-xmtp: farcaster/farcaster/has-xmtp.md
   guides/farcaster/token-holders: farcaster/farcaster/token-holders.md
   guides/farcaster/tokenbound-erc6551-accounts: farcaster/farcaster/tokenbound-erc6551-accounts.md
   guides/farcaster/token-gating: farcaster/farcaster/token-gating.md
