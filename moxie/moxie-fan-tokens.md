@@ -1,5 +1,16 @@
 ---
 description: Learn how to fetch data about Moxie Fan Tokens in the Moxie protocol.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🪭 Moxie Fan Tokens

@@ -3,6 +3,17 @@ description: >-
   Learn how to fetch user's Fan Token portfolio balances across all their
   wallets and vesting contracts. In addition, you will also learn how you can
   setup Fan Token gating for your project/application.
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
 ---
 
 # 🧩 Moxie Fan Token Balances
