@@ -18,13 +18,14 @@ Airstack also publishes the **Far Rank** for each Farcaster Member (formerly Soc
 In addition, one can also increase their FarScore number by earning **FarBoost**, which is defined by the following formula:
 
 $$
-F_{boost} =  TVL_{boost} + LP_{boost}
+F_{boost} =  TVL_{boost} + MP_{boost} + LP_{boost}
 $$
 
 where:
 
 * $$F_{boost}$$: Farboost of a Farcaster user
 * $$TVL_{boost}$$: TVL Boost of a Farcaster user
+* $$MP_{boost}$$: Moxie Power Boost of a Farcaster user
 * $$LP_{boost}$$: Liquidity Boost of a Farcaster user
 
 #### TVL Boost
@@ -41,7 +42,7 @@ For every **100,000 Moxie** added to the TVL, you will add **1 point** to your F
 
 For every **100,000 Moxie** added to the Liquidity Pool, you will add **1 point** to your FarScore number. Regardless of whether the LP token is then staked (**Aerodrome** only) or not, they'll be taken into account into the Farboost calculation.
 
-Thus,  the Liquidity Boost you'll earn will be define by the following formula:
+Thus, given that a user have provided liquidity to liqudity pool $$P_1, P_2, ..., P_n$$, the Liquidity Boost you'll earn will be define by the following formula:
 
 $$
 TVL_{boost} = \frac{\sum_{i=1}^{n}M_{i} + r_{i} \cdot O_{i} }{100000}
@@ -49,13 +50,31 @@ $$
 
 where:
 
-* $$M_{i}$$: The amount of Moxie in liquidity pool $$i$$
-* $$O_{i}$$: The amount of other token in the Moxie LP in liquidity pool $$i$$
-* $$r_{i}$$: The reserve ratio between Moxie and the other token in liquidity pool $$i$$
+* $$M_{i}$$: The amount of Moxie in liquidity pool $$P_i$$
+* $$O_{i}$$: The amount of other token in the Moxie LP in liquidity pool $$P_i$$
+* $$r_{i}$$: The reserve ratio between Moxie and the other token in liquidity pool $$P_i$$
 
 ***
 
 In the API, FarScore shall automatically include the Farboost value in the calculation and will be reflected in the **FarRank** value that a Farcaster member has.
+
+#### Moxie Power Boost
+
+**Moxie Power Boost** is defined as the **Farboost** earned by increasing the amount of Fan Token locked/staked in the Moxie staking contract.
+
+For every **100,000 Moxie** value locked/staked into the staking contract, you will add **1.2 point** to your FarScore number.
+
+Thus,  given that a user have staked their FT in lock $$L_1, L _2, ..., L_m$$, the Moxie Power Boost you'll earn will be define by the following formula:
+
+$$
+MP_{boost} = mul \cdot \frac{\sum_{j=1}^{m}  B_j \cdot p_j  }{100000}
+$$
+
+where:
+
+* $$mul$$: The multiplier, currently set at 1.2
+* $$B_{j}$$: The balance of the FT locked in lock $$L_j$$
+* $$p_{j}$$: The unit price of the FT locked in lock $$L_j$$
 
 ## Cast Score
 

@@ -17,6 +17,8 @@
 ## MOXIE
 
 * [🚀 FarScores & FarBoosts](moxie/farscores-and-farboosts.md)
+* [🪭 Moxie Fan Tokens](moxie/moxie-fan-tokens.md)
+* [🧩 Moxie Fan Token Balances](moxie/moxie-fan-token-balances.md)
 * [✂️ Moxie Everyday Rewards Split](moxie/moxie-everyday-rewards-split.md)
 * [💜 Farcaster Moxie Rewards Earnings](moxie/farcaster-moxie-rewards-earnings.md)
 * [✂️ Farcaster Cast Moxie Earning Details](moxie/farcaster-cast-moxie-earning-details.md)
@@ -142,6 +144,8 @@
   * [FarcasterReactions API](api-references/api-reference/farcasterreactions-api.md)
   * [FarcasterReplies API](api-references/api-reference/farcasterreplies-api.md)
   * [FarcasterValidateFrameMessage API](api-references/api-reference/farcastervalidateframemessage-api.md)
+  * [MoxieFanTokens](api-references/api-reference/moxiefantokens.md)
+  * [MoxieUserPortfolios](api-references/api-reference/moxieuserportfolios.md)
   * [SocialFollowers API](api-references/api-reference/socialfollowers-api.md)
   * [SocialFollowings API](api-references/api-reference/socialfollowings-api.md)
   * [Socials API](api-references/api-reference/socials-api.md)

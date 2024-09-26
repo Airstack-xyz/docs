@@ -1,8 +1,8 @@
 ---
 description: >-
-  Learn all the detailed references of Tokens API that provide ERC20/721/1155
-  token detail information, including the input filters, supported chains, and
-  output fields.
+  Learn all the detailed references of FarcasterValidateFrameMessage API that
+  validates your Farcaster Frame with the Hubs, including the input filters,
+  supported chains, and output fields.
 ---
 
 # FarcasterValidateFrameMessage API

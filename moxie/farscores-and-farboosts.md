@@ -20,7 +20,9 @@ layout:
 
 Every Farcaster Member earns a **FarScore** based on their relative influence in the Farcaster network and each FarScore user can be increased by earning **FarBoosts**, which consequently can also increase a Farcaster Member's **FarRank**.
 
-Every 1 point on **FarBoosts** is earned by contributing 100,000 Moxie into your total locked value (TVL) to the Moxie protocol.
+Every 1 point on **FarBoosts** is earned by contributing 100,000 Moxie into your total locked value (TVL) into the Moxie protocol or providing 100,000 Moxie into the Liquidity Pool (Uniswap v2 & Aerodrome).
+
+Additionally, you can also earn 1.2 point on **FarBoosts** by for every 100,000 Moxie worth of Fan Token is locked into the Moxie Staking contract for at least 3 months.
 
 To learn more about **FarScores & FarBoosts**, click [here](../social-capital-value-and-social-capital-scores.md).
 
@@ -33,6 +35,7 @@ To learn more about **FarScores & FarBoosts**, click [here](../social-capital-va
 * [Get The FarBoost Of A User](farscores-and-farboosts.md#get-the-farboost-of-a-user)
 * [Get The FarBoost Of A User Gained From TVL](farscores-and-farboosts.md#get-the-farboost-of-a-user-gained-only-from-tvl) (TVL Boost)
 * [Get The FarBoost Of A User Gained From Providing Liquidity to DEXs](farscores-and-farboosts.md#get-the-farboost-of-a-user-gained-from-providing-liquidity-to-dexs-also-referred-to-as-lp-boost) (Liquidity Boost)
+* [Get The FarBoost Of A User Gained From Locking Fan Tokens](farscores-and-farboosts.md#get-the-farboost-of-a-user-gained-from-locking-fan-tokens-moxie-power-boost) (Power Boost)
 * [Get The TVL Of A User](farscores-and-farboosts.md#get-the-tvl-of-a-user)
 
 ## Pre-requisites
@@ -545,6 +548,60 @@ Show me the TVL Boosts of FID 3
   }
 }
 </code></pre>
+{% endtab %}
+{% endtabs %}
+
+## Get The FarBoost Of A User Gained From Locking Fan Tokens (Moxie Power Boost)
+
+You can get the Moxie Power Boost by using the `Socials` API and inputting the user's FID in `userId` input:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/vFjf2kNmik" %}
+Show me the Moxie Power Boost of FID 602
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        dappName: {_eq: farcaster},
+        userId: {_eq: "602"}
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Social {
+      farcasterScore {
+        powerBoost
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "farcasterScore": {
+            "powerBoost": 9.738300070127268
+          }
+        }
+      ]
+    }
+  }
+}
+```
 {% endtab %}
 {% endtabs %}
 
