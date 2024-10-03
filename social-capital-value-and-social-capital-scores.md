@@ -11,7 +11,9 @@ description: >-
 
 Every Farcaster Member earns a **Far Score** based on their relative influence in the Farcaster network (formerly known as "Social Capital Score"). Far Scores are dynamic (constantly updating) and ever-increasing. There are no negative factors affecting Far Scores.
 
-Airstack also publishes the **Far Rank** for each Farcaster Member (formerly Social Capital Rank) which ranks all members from 1 to N based on their Far Scores. Member with rank 1 has the highest Far Score, 2 has second highest Far Score, etc, etc.)
+Airstack also publishes the **Far Rank** for each Farcaster Member (formerly Social Capital Rank) which ranks all members from 1 to N based on their Far Scores. Member with rank 1 has the highest Far Score, 2 has second highest Far Score, etc, etc.).
+
+**As of 3 October, 2024**, FarScores do not factor in follows from users who have not been active on Farcaster in the previous 60 days, on a rolling basis.
 
 ### **FarBoost**
 

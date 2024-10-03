@@ -20,6 +20,8 @@ layout:
 
 Every Farcaster Member earns a **FarScore** based on their relative influence in the Farcaster network and each FarScore user can be increased by earning **FarBoosts**, which consequently can also increase a Farcaster Member's **FarRank**.
 
+**As of 3 October, 2024**, FarScores do not factor in follows from users who have not been active on Farcaster in the previous 60 days, on a rolling basis.
+
 Every 1 point on **FarBoosts** is earned by contributing 100,000 Moxie into your total locked value (TVL) into the Moxie protocol or providing 100,000 Moxie into the Liquidity Pool (Uniswap v2 & Aerodrome).
 
 Additionally, you can also earn 1.2 point on **FarBoosts** by for every 100,000 Moxie worth of Fan Token is locked into the Moxie Staking contract for at least 3 months.

@@ -17,11 +17,9 @@ layout:
 
 # ℹ️ Introduction
 
-
-
 ## Get Started
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f5dd">🗝️</span> <strong>Get API Key</strong></td><td>Learn how to get your Airstack API key.</td><td></td><td><a href="get-started/get-api-key.md">get-api-key.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f680">🚀</span> <strong>Quickstart &#x26; SDKs</strong></td><td>Try Airstack API and integrate it into your dapp within minutes into your tech stack. You can either call the Airstack API with the Airstack SDKs or direct API call.</td><td></td><td><a href="get-started/quickstart/">quickstart</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f5dd">🗝️</span> <strong>Get API Key</strong></td><td>Learn how to get your Airstack API key.</td><td></td><td><a href="get-started/get-api-key.md">get-api-key.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f680">🚀</span> <strong>Quickstart &#x26; SDKs</strong></td><td>Try Airstack API and integrate it into your dapp within minutes into your tech stack. You can either call the Airstack API with the Airstack SDKs or direct API call.</td><td></td><td><a href="get-started/quickstart/">quickstart</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f60e">😎</span> <strong>FarScores, FarBoost, and Cast Scores</strong></td><td>Learn what FarScores (formerly Social Capital Score), FarBoosts, and Cast Scores (formerly Social Capital Value) are -- and how they're used to identify high-quality casts with the TrendingCasts API.</td><td></td><td><a href="social-capital-value-and-social-capital-scores.md">social-capital-value-and-social-capital-scores.md</a></td></tr></tbody></table>
 
 ## Popular Guides :fire:
 
