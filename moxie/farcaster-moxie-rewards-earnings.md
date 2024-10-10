@@ -25,8 +25,8 @@ The Moxie Protocol enables Farcaster Members to earn Everyday Rewards based on w
 **MOXIE** token is rewarded based on the [FarScore](farscores-and-farboosts.md) of the person who engages, at the rates of:
 
 * 0.5x [FarScore](farscores-and-farboosts.md) per like
-* 2x [FarScore](farscores-and-farboosts.md) per reply (max 5 on any one cast)
-* 4x [FarScore](farscores-and-farboosts.md) per recast/quote cast.
+* 1x [FarScore](farscores-and-farboosts.md) per reply (max 5 on any one cast)
+* 2x [FarScore](farscores-and-farboosts.md) per recast/quote cast.
 
 [Learn more about Moxie Everyday Rewards](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards)
 
