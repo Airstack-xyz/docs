@@ -20,6 +20,31 @@ The `MoxieUserPortfolios API` helps you to fetch a Farcaster user's Moxie Fan To
 | `fid`             | `String` | Filter by user's FID.                                                                                                                                                                                                                                              |
 | `walletAddress`   | `String` | Filter by user's wallet address.                                                                                                                                                                                                                                   |
 
+### blockchain
+
+{% hint style="info" %}
+For **Socials** API, it will return Lens & Farcaster data from all onchain and offchain sources, not specifically Ethereum.
+
+You just need to specify the input for the query to work.
+{% endhint %}
+
+| Enum       | Description      |
+| ---------- | ---------------- |
+| `ethereum` | Ethereum mainnet |
+
+### order
+
+| Name                             | Description                                                                                                                  |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `farRank`                        | Sort by Farcaster profile's [farrank](../../social-capital-value-and-social-capital-scores.md).                              |
+| `farScore`                       | Sort by Farcaster profile's [farcaster score](../../social-capital-value-and-social-capital-scores.md).                      |
+| `followerCount`                  | Sort by the number of users following the Lens/Farcaster profile on Lens/Farcaster in ascending or descending order.         |
+| `followingCount`                 | Sort by the number of users being followed by the Lens/Farcaster profile on Lens/Farcaster in ascending or descending order. |
+| `profileCreatedAtBlockTimestamp` | Sort by Lens/Farcaster profile creation block timestamp in ascending or descending order.                                    |
+| `socialCapitalRank`              | Sort by Farcaster profile's [social capital rank](../../social-capital-value-and-social-capital-scores.md).                  |
+| `socialCapitalScore`             | Sort by Farcaster profile's [social capital score](../objects/socialcapitalvalue.md).                                        |
+| `updatedAt`                      | Sort by Lens/Farcaster profile last update timestamp in ascending or descending order.                                       |
+
 ## Outputs
 
 | Name                        | Type                                            | Description                                                                        |
