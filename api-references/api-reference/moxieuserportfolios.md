@@ -34,34 +34,43 @@ You just need to specify the input for the query to work.
 
 ### order
 
-| Name                             | Description                                                                                                                  |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `farRank`                        | Sort by Farcaster profile's [farrank](../../social-capital-value-and-social-capital-scores.md).                              |
-| `farScore`                       | Sort by Farcaster profile's [farcaster score](../../social-capital-value-and-social-capital-scores.md).                      |
-| `followerCount`                  | Sort by the number of users following the Lens/Farcaster profile on Lens/Farcaster in ascending or descending order.         |
-| `followingCount`                 | Sort by the number of users being followed by the Lens/Farcaster profile on Lens/Farcaster in ascending or descending order. |
-| `profileCreatedAtBlockTimestamp` | Sort by Lens/Farcaster profile creation block timestamp in ascending or descending order.                                    |
-| `socialCapitalRank`              | Sort by Farcaster profile's [social capital rank](../../social-capital-value-and-social-capital-scores.md).                  |
-| `socialCapitalScore`             | Sort by Farcaster profile's [social capital score](../objects/socialcapitalvalue.md).                                        |
-| `updatedAt`                      | Sort by Lens/Farcaster profile last update timestamp in ascending or descending order.                                       |
+| Name                  | Description                                                                                                                  |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `totalLockedAmount`   | Sort by Farcaster profile's [farrank](../../social-capital-value-and-social-capital-scores.md).                              |
+| `totalUnlockedAmount` | Sort by Farcaster profile's [farcaster score](../../social-capital-value-and-social-capital-scores.md).                      |
+| `lockedTvl`           | Sort by the number of users following the Lens/Farcaster profile on Lens/Farcaster in ascending or descending order.         |
+| `unlockedTvl`         | Sort by the number of users being followed by the Lens/Farcaster profile on Lens/Farcaster in ascending or descending order. |
+| `tokenLockedTvl`      | Sort by Lens/Farcaster profile creation block timestamp in ascending or descending order.                                    |
+| `tokenUnlockedTvl`    | Sort by Farcaster profile's [social capital rank](../../social-capital-value-and-social-capital-scores.md).                  |
+| `fid`                 | Sort by Farcaster profile's [social capital score](../objects/socialcapitalvalue.md).                                        |
 
 ## Outputs
 
-| Name                        | Type                                            | Description                                                                        |
-| --------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `fid`                       | `String`                                        | FID of the holder                                                                  |
-| `beneficiaryVestingAddress` | `[BeneficiaryVestingAddress]`                   | FID of the caster of the Frames.                                                   |
-| `totalLockedAmount`         | `Float`                                         | total quantity of a particular Fan Token locked by the FID.                        |
-| `totalUnlockedAmount`       | `Float`                                         | total quantity of a particular Fan Token unlocked by the FID.                      |
-| `lockedTvl`                 | `Float`                                         | total amount in moxie of a particular Fan Token locked by the FID.                 |
-| `unlockedTvl`               | `Float`                                         | total amount in moxie of a particular Fan Token unlocked by the FID.               |
-| `fanTokenAddress`           | `String`                                        | Fan token contract address.                                                        |
-| `fanTokenName`              | `String`                                        | Fan Token name.                                                                    |
-| `fanTokenSymbol`            | `String`                                        | Fan Token symbol.                                                                  |
-| `tokenLockedTvl`            | `Float`                                         | total quantity of a particular Fan Token locked in the Moxie protocol.             |
-| `tokenUnlockedTvl`          | `Float`                                         | total quantity of a particular Fan Token unlocked in the Moxie protocol.           |
-| `walletAddress`             | `[String]`                                      | List of all wallet address.                                                        |
-| `walletFanTokens`           | `[WalletFanToken]`                              | List of holding of this Fan Token across different wallet address for by this FID. |
-| `holderSocial`              | [`[Social]`](socials-api.md)                    | **Nested Query** – Social details for the FID who requesting portfolio details.    |
-| `fanTokenSocial`            | [`[Social]`](socials-api.md)                    | **Nested Query** – Social details Fan token owner if it is a user Fan Token.       |
-| `fanTokenChannel`           | [`FarcasterChannels`](farcasterchannels-api.md) | **Nested Query** – Social details Fan token owner if it is a channel Fan Token.    |
+| Name                         | Type                                                                     | Description                                                                                                             |
+| ---------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| `fid`                        | `String`                                                                 | FID of the holder                                                                                                       |
+| `beneficiaryVestingAddress`  | [`[BeneficiaryVestingAddress]`](../objects/beneficiaryvestingaddress.md) | The vesting contract and beneficiary details related to the holder.                                                     |
+| `totalLockedAmount`          | `Float`                                                                  | total quantity of a particular Fan Token locked in Moxie Power staking contract by the FID.                             |
+| `totalLockedAmountInWei`     | `String`                                                                 | total quantity of a particular Fan Token locked in Moxie Power staking contract by the FID formatted in wei.            |
+| `totalUnlockedAmount`        | `Float`                                                                  | total quantity of a particular Fan Token that is not staked by the FID.                                                 |
+| `totalUnlockedAmountInWei`   | `String`                                                                 | total quantity of a particular Fan Token that is not staked by the FID formatted in wei.                                |
+| `lockedTvl`                  | `Float`                                                                  | total amount in moxie of a particular Fan Token locked in Moxie Power staking contract by the FID.                      |
+| `lockedTvlInWei`             | `String`                                                                 | total amount in moxie of a particular Fan Token locked in Moxie Power staking contract by the FID formatted in wei.     |
+| `unlockedTvl`                | `Float`                                                                  | total amount in moxie of a particular Fan Token that is not staked by the FID.                                          |
+| `unlockedTvlInWei`           | `String`                                                                 | otal amount in moxie of a particular Fan Token that is not staked by the FID formatted in wei.                          |
+| `fanTokenAddress`            | `String`                                                                 | Fan token contract address.                                                                                             |
+| `fanTokenName`               | `String`                                                                 | Fan Token name.                                                                                                         |
+| `fanTokenSymbol`             | `String`                                                                 | Fan Token symbol.                                                                                                       |
+| `currentPrice`               | `Float`                                                                  | Current price of Fan Token in terms of Moxie.                                                                           |
+| `currentPriceInWei`          | `String`                                                                 | Current price of Fan Token in terms of Moxie formatted in wei.                                                          |
+| `protocolTokenInvested`      | `Float`                                                                  | The amount of Moxie that is deposited in to the bonding curve when a buy occured.                                       |
+| `protocolTokenInvestedInWei` | `String`                                                                 | The amount of Moxie that is deposited in to the bonding curve when a buy occured formatted in wei.                      |
+| `tokenLockedTvl`             | `Float`                                                                  | total quantity of a particular Fan Token locked in Moxie Power staking contract in the Moxie protocol.                  |
+| `tokenLockedTvlInWei`        | `String`                                                                 | total quantity of a particular Fan Token locked in Moxie Power staking contract in the Moxie protocol formatted in wei. |
+| `tokenUnlockedTvl`           | `Float`                                                                  | total quantity of a particular Fan Token that is not staked in the Moxie protocol.                                      |
+| `tokenUnlockedTvlInWei`      | `String`                                                                 |  quantity of a particular Fan Token that is not staked in the Moxie protocol formatted in wei.                          |
+| `walletAddress`              | `[String]`                                                               | List of all wallet address.                                                                                             |
+| `walletFanTokens`            | [`[WalletFanToken]`](../objects/walletfantokens.md)                      | List of holding of this Fan Token across different wallet address for by this FID.                                      |
+| `holderSocial`               | [`[Social]`](socials-api.md)                                             | **Nested Query** – Social details for the FID who requesting portfolio details.                                         |
+| `fanTokenSocial`             | [`[Social]`](socials-api.md)                                             | **Nested Query** – Social details Fan token owner if it is a user Fan Token.                                            |
+| `fanTokenChannel`            | [`FarcasterChannels`](farcasterchannels-api.md)                          | **Nested Query** – Social details Fan token owner if it is a channel Fan Token.                                         |

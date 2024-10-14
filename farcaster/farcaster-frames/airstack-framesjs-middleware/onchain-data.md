@@ -1,6 +1,6 @@
 ---
 description: >-
-  Learn how to use the Onchain Data Middleware to inject the Farcaster data of
+  Learn how to use the Farcaster Data Middleware to inject the Farcaster data of
   the user interacting with your Frames.js Frames.
 ---
 
