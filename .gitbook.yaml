@@ -108,3 +108,12 @@ redirects:
   guides/trending-mints/onchain-graph: abstractions/trending-mints/onchain-graph.md
   guides/trending-mints/common-minters: abstractions/trending-mints/common-minters.md
   guides/farcaster/proof-of-personhood-for-farcaster-frames: farcaster/farcaster-frames/airstack-frames-sdk/allow-list.md
+  guides/basics: basics/README.md
+  guides/overview: README.md
+  guides/basics/variables: basics/variables.md
+  guides/basics/pagination-in-airstack-sdk: basics/pagination-in-airstack-sdk.md
+  guides/basics/limit: basics/limit.md
+  guides/basics/multiple-queries-execution: basics/multiple-queries-execution.md
+  guides/basics/generate-typescript-interfaces: basics/generate-typescript-interfaces.md
+  get-started/get-api-key: get-api-key.md
+  get-started/quickstart: quickstart.md
