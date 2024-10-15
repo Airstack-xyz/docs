@@ -73,7 +73,7 @@ The Airstack Frog Recipes is built on top of the Frog framework and contains all
 
 ## Step 3: Add Airstack API Key
 
-Once all imports are converted, add an [Airstack API key](../../../get-started/get-api-key.md) to your Frog instance's `apiKey`(required) field:
+Once all imports are converted, add an [Airstack API key](../../../get-api-key.md) to your Frog instance's `apiKey`(required) field:
 
 {% tabs %}
 {% tab title="TypeScript" %}

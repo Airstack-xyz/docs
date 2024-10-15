@@ -35,7 +35,7 @@ Thus, you can just provide a query without any of the cursor field in your schem
 
 ## Pre-requisites
 
-* [Airstack API key](../../get-started/get-api-key.md)
+* [Airstack API key](../get-api-key.md)
 
 ## Install Airstack SDK
 
@@ -253,8 +253,8 @@ If you have any questions or need help regarding how to use cursor pagination wi
 
 ## More Resources
 
-* [Web SDK Reference](../../web-sdk-reference/overview.md)
-  * [`useQueryWithPagination`](../../web-sdk-reference/hooks/usequerywithpagination.md)
-  * [`useLazyQueryWithPagination`](../../web-sdk-reference/hooks/uselazyquerywithpagination.md)
-* [NodeJS SDK Reference](../../nodejs-sdk-reference/overview.md)
-  * [`fetchQueryWithPagination`](../../web-sdk-reference/functions/fetchquerywithpagination.md)
+* [Web SDK Reference](../web-sdk-reference/overview.md)
+  * [`useQueryWithPagination`](../web-sdk-reference/hooks/usequerywithpagination.md)
+  * [`useLazyQueryWithPagination`](../web-sdk-reference/hooks/uselazyquerywithpagination.md)
+* [NodeJS SDK Reference](../nodejs-sdk-reference/overview.md)
+  * [`fetchQueryWithPagination`](../web-sdk-reference/functions/fetchquerywithpagination.md)

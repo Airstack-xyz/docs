@@ -18,7 +18,7 @@ layout:
 [Airstack](https://airstack.xyz) uses [cursor-based paginations](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/) to retrieve huge amounts of on-chain and off-chain data that is broken down into pages with a **maximum of 200 objects** returned in a single response.
 
 {% hint style="info" %}
-If you're look on how to implement pagination using the Airstack SDKs in your application, click [here](../../guides/basics/pagination-in-airstack-sdk.md).
+If you're look on how to implement pagination using the Airstack SDKs in your application, click [here](../../basics/pagination-in-airstack-sdk.md).
 {% endhint %}
 
 ## How Does It Work?
@@ -188,4 +188,4 @@ If you have any questions or need help regarding how cursor pagination work, ple
 
 ## More Resources
 
-* [Pagination Guides](../../guides/basics/pagination-in-airstack-sdk.md)
+* [Pagination Guides](../../basics/pagination-in-airstack-sdk.md)

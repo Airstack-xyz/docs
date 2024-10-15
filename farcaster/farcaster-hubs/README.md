@@ -20,10 +20,10 @@ Currently, the Airstack Hubs API is offered as both an **HTTP API** and **GRPC A
 
 ## HTTP API
 
-| Inputs   | Description                                                                                                     |
-| -------- | --------------------------------------------------------------------------------------------------------------- |
-| Base URL | `https://hubs.airstack.xyz`                                                                                     |
-| Headers  | Provide [Airstack API ](../../get-started/get-api-key.md)key through `x-airstack-hubs` field for authorization. |
+| Inputs   | Description                                                                                         |
+| -------- | --------------------------------------------------------------------------------------------------- |
+| Base URL | `https://hubs.airstack.xyz`                                                                         |
+| Headers  | Provide [Airstack API ](../../get-api-key.md)key through `x-airstack-hubs` field for authorization. |
 
 You can test out the HTTP API live by using Swagger UI [here](https://swagger.airstack.xyz/hubs) and provide Airstack API key to the **Authorize** button (located on the right side of the page).
 
@@ -33,9 +33,9 @@ To integrate Hubs HTTP API into your Farcaster app, click [here](quickstart/http
 
 
 
-| Inputs   | Description                                                                                                     |
-| -------- | --------------------------------------------------------------------------------------------------------------- |
-| Base URL | `hubs-grpc.airstack.xyz`                                                                                        |
-| Metadata | Provide [Airstack API ](../../get-started/get-api-key.md)key through `x-airstack-hubs` field for authorization. |
+| Inputs   | Description                                                                                         |
+| -------- | --------------------------------------------------------------------------------------------------- |
+| Base URL | `hubs-grpc.airstack.xyz`                                                                            |
+| Metadata | Provide [Airstack API ](../../get-api-key.md)key through `x-airstack-hubs` field for authorization. |
 
 To integrate Hubs GRPC API into your Farcaster app, click [here](quickstart/grpc-api.md).

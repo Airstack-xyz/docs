@@ -31,7 +31,6 @@ Show me all followers and followings of users in Lens and Farcaster
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query MyQuery {
 <strong>  SocialFollowers( # 1st query fetching social followers
 </strong>    input: {filter: {identity: {_in: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "vitalik.eth", "lens/@vitalik", "fc_fname:vitalik"]}}, blockchain: ALL, limit: 200, order: {followerSince: DESC}}
@@ -75,11 +74,9 @@ Show me all followers and followings of users in Lens and Farcaster
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -130,11 +127,10 @@ Show me all followers and followings of users in Lens and Farcaster
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-This allow you to not only fetch data that you need more efficiently, but also allow you to do the same query with different inputs when the [`_in`](../../api-references/overview/working-with-graphql.md) operator is not available for the API input.
+This allow you to not only fetch data that you need more efficiently, but also allow you to do the same query with different inputs when the [`_in`](../api-references/overview/working-with-graphql.md) operator is not available for the API input.
 
 This is particularly useful for building cross-chain queries:
 
@@ -148,7 +144,6 @@ Show ERC20 tokens on Ethereum and Base owned by users
 
 {% tabs %}
 {% tab title="Query" %}
-
 <pre class="language-graphql"><code class="lang-graphql">query ERC20OwnedByLensProfiles {
 <strong>  Ethereum: TokenBalances( # first query fetch Ethereum ERC20 balance
 </strong>    input: {
@@ -244,11 +239,9 @@ Show ERC20 tokens on Ethereum and Base owned by users
   }
 }
 </code></pre>
-
 {% endtab %}
 
 {% tab title="Response" %}
-
 ```json
 {
   "data": {
@@ -361,7 +354,6 @@ Show ERC20 tokens on Ethereum and Base owned by users
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -371,8 +363,8 @@ If you have any questions or need help regarding adding variables into your Airs
 
 ### More Resources
 
-- [API Overview](../../api-references/overview/)
-- [Variables Guides](variables.md)
-- [Direct API Call](../../get-started/quickstart/direct-api-call.md)
-- [SocialFollowings API References](../../api-references/api-reference/socialfollowings-api.md)
-- [SocialFollowers API References](../../api-references/api-reference/socialfollowers-api.md)
+* [API Overview](../api-references/overview/)
+* [Variables Guides](variables.md)
+* [Direct API Call](../quickstart/direct-api-call.md)
+* [SocialFollowings API References](../api-references/api-reference/socialfollowings-api.md)
+* [SocialFollowers API References](../api-references/api-reference/socialfollowers-api.md)

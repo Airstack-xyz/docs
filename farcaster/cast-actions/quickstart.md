@@ -68,7 +68,7 @@ bun install @airstack/frog hono dotenv
 {% endtab %}
 {% endtabs %}
 
-Then, get your [Airstack API key](../../get-started/get-api-key.md) and add it as an environment variable:
+Then, get your [Airstack API key](../../get-api-key.md) and add it as an environment variable:
 
 {% code title=".env.local" %}
 ```bash
@@ -382,11 +382,11 @@ bun run deploy
 {% endtab %}
 {% endtabs %}
 
-Once deployed successfully, you can go to the Vercel Dashboard to create a new Vercel KV database (follow steps [here](https://vercel.com/docs/storage/vercel-kv/quickstart#create-a-kv-database)) have your [Airstack API key](../../get-started/get-api-key.md) added to your environment variables.
+Once deployed successfully, you can go to the Vercel Dashboard to create a new Vercel KV database (follow steps [here](https://vercel.com/docs/storage/vercel-kv/quickstart#create-a-kv-database)) have your [Airstack API key](../../get-api-key.md) added to your environment variables.
 
-| Key                | Value                                                     |
-| ------------------ | --------------------------------------------------------- |
-| `AIRSTACK_API_KEY` | [Your Airstack API key](../../get-started/get-api-key.md) |
+| Key                | Value                                         |
+| ------------------ | --------------------------------------------- |
+| `AIRSTACK_API_KEY` | [Your Airstack API key](../../get-api-key.md) |
 
 Then, access the live Farcaster cast actions from a custom vercel link  with the following format `https://<CAST_ACTIONS_VERCEL_PROJECT>.vercel.app/api/gm`, which you can use to test with the Farcaster official [cast action playground.](https://warpcast.com/\~/developers/cast-actions)
 

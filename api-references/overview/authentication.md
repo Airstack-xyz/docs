@@ -4,10 +4,10 @@ description: Learn more details on how authentication with the Airstack API keys
 
 # 🔐 Authentication
 
-The Airstack API uses [API keys](https://stripe.com/docs/keys) to authenticate requests. To get your Airstack API key, follow this tutorial [here](../../get-started/get-api-key.md).
+The Airstack API uses [API keys](https://stripe.com/docs/keys) to authenticate requests. To get your Airstack API key, follow this tutorial [here](../../get-api-key.md).
 
 {% hint style="info" %}
-If you are looking for step-by-step guide to integrate Airstack to your project and add your API key, go to the [Quickstart](../../get-started/quickstart/).
+If you are looking for step-by-step guide to integrate Airstack to your project and add your API key, go to the [Quickstart](../../quickstart/).
 {% endhint %}
 
 There are **two types of API key**:

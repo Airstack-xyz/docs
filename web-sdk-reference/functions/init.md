@@ -19,7 +19,7 @@ layout:
 
 ## Pre-requisites
 
-* [Airstack API key](../../get-started/get-api-key.md)
+* [Airstack API key](../../get-api-key.md)
 
 ## Example
 
@@ -40,8 +40,7 @@ function init(
 
 ## Params
 
-| Param     | Type                              | Default Value                 | Description                                          |
-| --------- | --------------------------------- | ----------------------------- | ---------------------------------------------------- |
-| `key`     | `string`                          | `null`                        | [Airstack API key](../../get-started/get-api-key.md) |
-| `_config` | [`Config?`](../objects/config.md) | `{ env: "dev", cache: true }` | SDK Configuration, e.g. logging, caching, etc.       |
-
+| Param     | Type                              | Default Value                 | Description                                    |
+| --------- | --------------------------------- | ----------------------------- | ---------------------------------------------- |
+| `key`     | `string`                          | `null`                        | [Airstack API key](../../get-api-key.md)       |
+| `_config` | [`Config?`](../objects/config.md) | `{ env: "dev", cache: true }` | SDK Configuration, e.g. logging, caching, etc. |

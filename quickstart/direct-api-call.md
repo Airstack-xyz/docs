@@ -404,6 +404,6 @@ If you have any questions or need help regarding integrating [Airstack](https://
 
 Learn to build more with Airstack using our tutorials:
 
-* [Resolve Identities](../../guides/resolve-identities/)
-* [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
-* [Node SDK Reference](broken-reference/)
+* [Resolve Identities](../guides/resolve-identities/)
+* [Wallet API Reference](../api-references/api-reference/wallet-api.md)
+* [Node SDK Reference](../get-started/quickstart/broken-reference/)

@@ -19,7 +19,7 @@ layout:
 
 ## Pre-requisites
 
-* [Airstack API key](../get-started/get-api-key.md)
+* [Airstack API key](../get-api-key.md)
 
 ## Example
 
@@ -42,6 +42,5 @@ function init(
 
 | Param | Type          | Default Value | Description                                                                                       |
 | ----- | ------------- | ------------- | ------------------------------------------------------------------------------------------------- |
-| `key` | `string`      |               | [Airstack API key](../get-started/get-api-key.md)                                                 |
+| `key` | `string`      |               | [Airstack API key](../get-api-key.md)                                                             |
 | `env` | `dev \| prod` | `dev`         | `dev` provides verbose logging. `prod` provides minimal logging, best for production environment. |
-

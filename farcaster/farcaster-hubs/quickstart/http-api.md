@@ -38,7 +38,7 @@ bun install axios dotenv
 
 ## Step 2: Connect to HTTP API
 
-Then, you can connect and call to Airstack Hubs HTTP API by using library such as `axios` and provide the URL with the [Airstack API key](../../../get-started/get-api-key.md) added to the headers field `x-airstack-hubs`:
+Then, you can connect and call to Airstack Hubs HTTP API by using library such as `axios` and provide the URL with the [Airstack API key](../../../get-api-key.md) added to the headers field `x-airstack-hubs`:
 
 {% tabs %}
 {% tab title="axios" %}

@@ -17,7 +17,7 @@ layout:
 
 # 🛜 Farcaster Hubs
 
-In Airstack Frog Recipes, Airstack Hubs is the default option available if you don't set anything to the `hub` field. All you need to provide in your new Frog instance will be the [Airstack API key](../../../get-started/get-api-key.md):&#x20;
+In Airstack Frog Recipes, Airstack Hubs is the default option available if you don't set anything to the `hub` field. All you need to provide in your new Frog instance will be the [Airstack API key](../../../get-api-key.md):&#x20;
 
 {% tabs %}
 {% tab title="TypeScript" %}

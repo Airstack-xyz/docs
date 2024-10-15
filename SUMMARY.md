@@ -1,18 +1,24 @@
 # Table of contents
 
 * [ℹ️ Introduction](README.md)
-  * [🚦 Tech Infra & Capabilities](readme/api-capabilities.md)
-* [⭐ Get Started](get-started/README.md)
-  * [🗝️ Get API Key](get-started/get-api-key.md)
-  * [🚀 Quickstart & SDKs](get-started/quickstart/README.md)
-    * [🌐 JavaScript (Browser)](get-started/quickstart/javascript-browser.md)
-    * [⚛️ React](get-started/quickstart/react.md)
-    * [⏭️ Next.js (Browser)](get-started/quickstart/next.md)
-    * [🗼 Node.js](get-started/quickstart/node.md)
-    * [🐍 Python](get-started/quickstart/python.md)
-    * [🎯 Direct API Call](get-started/quickstart/direct-api-call.md)
-* [😶 Not A Token](not-a-token.md)
+* [🗝️ Get API Key](get-api-key.md)
+* [🚀 Quickstart & SDKs](quickstart/README.md)
+  * [🌐 JavaScript (Browser)](quickstart/javascript-browser.md)
+  * [⚛️ React](quickstart/react.md)
+  * [⏭️ Next.js (Browser)](quickstart/next.md)
+  * [🗼 Node.js](quickstart/node.md)
+  * [🐍 Python](quickstart/python.md)
+  * [🎯 Direct API Call](quickstart/direct-api-call.md)
+* [✈️ Basics](basics/README.md)
+  * [🌪️ Variables](basics/variables.md)
+  * [📑 Pagination](basics/pagination-in-airstack-sdk.md)
+  * [🚸 Limit](basics/limit.md)
+  * [🎯 Direct API Call](quickstart/direct-api-call.md)
+  * [🎆 Multiple Queries Execution](basics/multiple-queries-execution.md)
+  * [💡 Generate TypeScript Interfaces](basics/generate-typescript-interfaces.md)
 * [😎 FarScores, FarBoost, and Cast Scores](social-capital-value-and-social-capital-scores.md)
+* [😶 Not A Token](not-a-token.md)
+* [🚦 Tech Infra & Capabilities](api-capabilities.md)
 
 ## MOXIE
 
@@ -92,14 +98,6 @@
 
 ## Onchain Data <a href="#guides" id="guides"></a>
 
-* [ℹ️ Overview](guides/overview.md)
-* [✈️ Basics](guides/basics/README.md)
-  * [🌪️ Variables](guides/basics/variables.md)
-  * [📑 Pagination](guides/basics/pagination-in-airstack-sdk.md)
-  * [🚸 Limit](guides/basics/limit.md)
-  * [🎯 Direct API Call](get-started/quickstart/direct-api-call.md)
-  * [🎆 Multiple Queries Execution](guides/basics/multiple-queries-execution.md)
-  * [💡 Generate TypeScript Interfaces](guides/basics/generate-typescript-interfaces.md)
 * [🆔 Resolve Identities](guides/resolve-identities/README.md)
   * [🔑 0x Address](guides/resolve-identities/0x-address.md)
   * [🌅 Solana Address](guides/resolve-identities/solana-address.md)

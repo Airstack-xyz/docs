@@ -173,7 +173,7 @@ try {
 
 ## Frog Framework
 
-If you are using the [Frog](https://frog.fm/) Framework, validation logic is embedded so you can instead set the hubs config to validate with the [Airstack Validation API](../../api-references/api-reference/airstack-validation-api.md) by providing the Hub API URL and the [Airstack API key](../../get-started/get-api-key.md):
+If you are using the [Frog](https://frog.fm/) Framework, validation logic is embedded so you can instead set the hubs config to validate with the [Airstack Validation API](../../api-references/api-reference/airstack-validation-api.md) by providing the Hub API URL and the [Airstack API key](../../get-api-key.md):
 
 {% tabs %}
 {% tab title="TypeScript" %}
@@ -212,7 +212,7 @@ const app = new Frog({
 
 ## Frames.js Framework
 
-If you are using the [Frames.js](https://framesjs.org/) Framework, you can use the `farcasterHubContext` middleware to set the hubs config to validate with the [Airstack Validation API](../../api-references/api-reference/airstack-validation-api.md) by providing the Hub API URL and the [Airstack API key](../../get-started/get-api-key.md):
+If you are using the [Frames.js](https://framesjs.org/) Framework, you can use the `farcasterHubContext` middleware to set the hubs config to validate with the [Airstack Validation API](../../api-references/api-reference/airstack-validation-api.md) by providing the Hub API URL and the [Airstack API key](../../get-api-key.md):
 
 {% tabs %}
 {% tab title="TypeScript" %}

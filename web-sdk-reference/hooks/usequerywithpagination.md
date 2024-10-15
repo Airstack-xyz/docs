@@ -41,15 +41,14 @@ function useQueryWithPagination(
 
 ## Params
 
-| Param                | Type                                                      | Default Value | Description                                          |
-| -------------------- | --------------------------------------------------------- | ------------- | ---------------------------------------------------- |
-| `query`              | `string`                                                  | -             | [Airstack API key](../../get-started/get-api-key.md) |
-| `variables`          | [`Variables?`](../objects/variables.md)                   | `null`        | GraphQL query variables                              |
-| `configAndCallbacks` | [`ConfigAndCallbacks?`](../objects/configandcallbacks.md) | `null`        | Additional configurations and callbacks.             |
+| Param                | Type                                                      | Default Value | Description                              |
+| -------------------- | --------------------------------------------------------- | ------------- | ---------------------------------------- |
+| `query`              | `string`                                                  | -             | [Airstack API key](../../get-api-key.md) |
+| `variables`          | [`Variables?`](../objects/variables.md)                   | `null`        | GraphQL query variables                  |
+| `configAndCallbacks` | [`ConfigAndCallbacks?`](../objects/configandcallbacks.md) | `null`        | Additional configurations and callbacks. |
 
 ## Responses
 
 | Param      | Type                                                                                 | Default Value | Description                                                                              |
 | ---------- | ------------------------------------------------------------------------------------ | ------------- | ---------------------------------------------------------------------------------------- |
 | `response` | [`UseQueryWithPaginationReturnType`](../objects/usequerywithpaginationreturntype.md) | -             | Response from the hook that will return data, error logs, loading state, and pagination. |
-

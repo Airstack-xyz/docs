@@ -38,7 +38,7 @@ bun install @farcaster/hub-nodejs dotenv
 
 ## Step 2: Connect to GRPC API
 
-Then, you can connect and call to Airstack Hubs GRPC API by using the `@farcaster/hub-nodejs` library offered by the Farcaster team by providing the GRPC URL with the [Airstack API key](../../../get-started/get-api-key.md) added to the metadata field `x-airstack-hubs`:
+Then, you can connect and call to Airstack Hubs GRPC API by using the `@farcaster/hub-nodejs` library offered by the Farcaster team by providing the GRPC URL with the [Airstack API key](../../../get-api-key.md) added to the metadata field `x-airstack-hubs`:
 
 {% tabs %}
 {% tab title="@farcaster/hub-nodejs" %}

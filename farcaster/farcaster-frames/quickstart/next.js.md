@@ -71,7 +71,7 @@ bun install @airstack/frog
 {% endtab %}
 {% endtabs %}
 
-Then, get your [Airstack API key](../../../get-started/get-api-key.md) and add it as an environment variable:
+Then, get your [Airstack API key](../../../get-api-key.md) and add it as an environment variable:
 
 {% code title=".env" %}
 ```
@@ -236,11 +236,11 @@ bun run deploy
 {% endtab %}
 {% endtabs %}
 
-Once deployed successfully, you can go to the Vercel Dashboard to have your [Airstack API key](../../../get-started/get-api-key.md) added to your environment variables.
+Once deployed successfully, you can go to the Vercel Dashboard to have your [Airstack API key](../../../get-api-key.md) added to your environment variables.
 
-| Key                | Value                                                        |
-| ------------------ | ------------------------------------------------------------ |
-| `AIRSTACK_API_KEY` | [Your Airstack API key](../../../get-started/get-api-key.md) |
+| Key                | Value                                            |
+| ------------------ | ------------------------------------------------ |
+| `AIRSTACK_API_KEY` | [Your Airstack API key](../../../get-api-key.md) |
 
 Then, access the live Farcaster Frame from a custom vercel link  with the following format `https://<FRAME_VERCEL_PROJECT>.vercel.app/api`, which you can use to test with the Farcaster official validator.
 

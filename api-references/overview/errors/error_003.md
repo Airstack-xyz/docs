@@ -21,6 +21,6 @@ This indicates that you are specifying the `limit` value to an integer out of th
 
 ## Resolution
 
-Change your `limit` value to an integer value between 1 and 200. In order to get more data, it is recommended that you do [pagination](../../../guides/basics/pagination-in-airstack-sdk.md) instead.
+Change your `limit` value to an integer value between 1 and 200. In order to get more data, it is recommended that you do [pagination](../../../basics/pagination-in-airstack-sdk.md) instead.
 
 If you are not able to resolve **ERROR\_003**, please report it directly to [Airstack](https://airstack.xyz) through [Telegram](https://t.me/+1k3c2FR7z51mNDRh) or email us at [support@airstack.xyz](mailto:support@airstack.xyz).
