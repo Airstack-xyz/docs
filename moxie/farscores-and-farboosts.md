@@ -39,6 +39,11 @@ To learn more about **FarScores & FarBoosts**, click [here](../social-capital-va
 * [Get The FarBoost Of A User Gained From Providing Liquidity to DEXs](farscores-and-farboosts.md#get-the-farboost-of-a-user-gained-from-providing-liquidity-to-dexs-also-referred-to-as-lp-boost) (Liquidity Boost)
 * [Get The FarBoost Of A User Gained From Locking Fan Tokens](farscores-and-farboosts.md#get-the-farboost-of-a-user-gained-from-locking-fan-tokens-moxie-power-boost) (Power Boost)
 * [Get The TVL Of A User](farscores-and-farboosts.md#get-the-tvl-of-a-user)
+* [Get Top Farcaster Users Sorted By Their Total FarScores](farscores-and-farboosts.md#get-top-farcaster-users-sorted-by-their-total-farscores)
+* [Get Top Farcaster Users Sorted By Their Organic FarScores](farscores-and-farboosts.md#get-top-farcaster-users-sorted-by-their-organic-farscores)
+* [Get Top Farcaster Users Sorted By Their TVL Boost](farscores-and-farboosts.md#get-top-farcaster-users-sorted-by-their-tvl-boost)
+* [Get Top Farcaster Users Sorted By Their Liquidity Boost](farscores-and-farboosts.md#get-top-farcaster-users-sorted-by-their-liquidity-boost)
+* [Get Top Farcaster Users Sorted By Their Power Boost](farscores-and-farboosts.md#get-top-farcaster-users-sorted-by-their-power-boost)
 
 ## Pre-requisites
 
@@ -172,7 +177,7 @@ To access the Airstack APIs in other languages, you can use [https://api.airstac
 
 ## Get The FarScores Of A User
 
-You can get the FarScores of a user by using the `Socials` API and inputting the user's FID in `userId` input:
+You can get the FarScores of a user by using the [`Socials`](../api-references/api-reference/socials-api.md) API and inputting the user's FID in `userId` input:
 
 ### Try Demo
 
@@ -195,7 +200,7 @@ Show me the FarScore of FID 3
     }
   ) {
     Social {
-      farcasterScore {
+      realTimeFarScore {
 <strong>        farScore # Get the FarScore here
 </strong>      }
     }
@@ -211,7 +216,7 @@ Show me the FarScore of FID 3
     "Socials": {
       "Social": [
         {
-          "farcasterScore": {
+          "realTimeFarScore": {
             "farScore": 844.5147695782599
           }
         }
@@ -225,12 +230,12 @@ Show me the FarScore of FID 3
 
 ## Get The FarScores Of A User Without Any FarBoosts
 
-You can get the original FarScores  of a user without any FarBoosts by using the `Socials` API and inputting the user's FID in `userId` input to fetch the `farScore` and `farBoost` field:
+You can get the original FarScores  of a user without any FarBoosts by using the [`Socials`](../api-references/api-reference/socials-api.md) API and inputting the user's FID in `userId` input to fetch the `organicFarScore` field:
 
 ### Try Demo
 
 {% embed url="https://app.airstack.xyz/query/OyiEiMSoc4" %}
-Show me the FarScore & Farboosts of FID 3
+Show me the organic FarScore of FID 3
 {% endembed %}
 
 ### Code
@@ -249,9 +254,8 @@ query MyQuery{
     }
   ) {
     Social {
-      farcasterScore {
-        farScore
-        farBoost
+      realTimeFarScore {
+        organicScore
       }
     }
   }
@@ -266,9 +270,8 @@ query MyQuery{
     "Socials": {
       "Social": [
         {
-          "farcasterScore": {
-            "farScore": 844.5147695782599.
-            "farBoost": 7.051118295399999
+          "realTimeFarScore": {
+            "organicScore": 146.90271263184002
           }
         }
       ]
@@ -279,16 +282,14 @@ query MyQuery{
 {% endtab %}
 {% endtabs %}
 
-To get the original FarScore without any FarBoosts, simply substract `farScore` to `farBoost`.
-
 ## Get The Percentage Of Increase Of User's FarScore From FarBoosts
 
-You can get the percentage of increase from FarBoosts by using the `Socials` API and inputting the user's FID in `userId` input to fetch the `farScore` and `farBoost` field:
+You can get the percentage of increase from FarBoosts by using the [`Socials`](../api-references/api-reference/socials-api.md) API and inputting the user's FID in `userId` input to fetch the `farScore` and `organicScore` field:
 
 ### Try Demo
 
-{% embed url="https://app.airstack.xyz/query/OyiEiMSoc4" %}
-Show me the FarScore & Farboosts of FID 3
+{% embed url="https://app.airstack.xyz/query/SzgsDJQZoW" %}
+Show me the total and organic FarScore of FID 3
 {% endembed %}
 
 ### Code
@@ -307,9 +308,9 @@ query MyQuery{
     }
   ) {
     Social {
-      farcasterScore {
+      realTimeFarScore {
         farScore
-        farBoost
+        organicScore
       }
     }
   }
@@ -326,7 +327,7 @@ query MyQuery{
         {
           "farcasterScore": {
             "farScore": 844.5147695782599.
-            "farBoost": 7.051118295399999
+            "organicScore": 7.051118295399999
           }
         }
       ]
@@ -341,7 +342,7 @@ To get the percentage of increase, simply divide `farBoost` by `farScore` and mu
 
 ## Get The FarRank Of A User
 
-You can get the FarRank of a user by using the `Socials` API and inputting the user's FID in `userId` input:
+You can get the FarRank of a user by using the [`Socials`](../api-references/api-reference/socials-api.md) API and inputting the user's FID in `userId` input:
 
 ### Try Demo
 
@@ -365,7 +366,7 @@ query MyQuery{
     }
   ) {
     Social {
-      farcasterScore {
+      realTimeFarScore {
         farRank
       }
     }
@@ -381,7 +382,7 @@ query MyQuery{
     "Socials": {
       "Social": [
         {
-          "farcasterScore": {
+          "realTimeFarScore": {
             "farRank": 1
           }
         }
@@ -395,7 +396,7 @@ query MyQuery{
 
 ## Get The FarBoost Of A User
 
-You can get the FarBoost of a user by using the `Socials` API and inputting the user's FID in `userId` input:
+You can get the FarBoost of a user by using the [`Socials`](../api-references/api-reference/socials-api.md) API and inputting the user's FID in `userId` input to get all the boost variables:
 
 ### Try Demo
 
@@ -419,8 +420,10 @@ query MyQuery{
     }
   ) {
     Social {
-      farcasterScore {
-        farBoost
+      realTimeFarScore {
+        lpBoost
+        tvlBoost
+        powerBoost
       }
     }
   }
@@ -435,8 +438,10 @@ query MyQuery{
     "Socials": {
       "Social": [
         {
-          "farcasterScore": {
-            "farBoost": 7.051118295399999
+          "realTimeFarScore": {
+            "lpBoost": 0,
+            "tvlBoost": 7.687219015,
+            "powerBoost": 0
           }
         }
       ]
@@ -447,9 +452,11 @@ query MyQuery{
 {% endtab %}
 {% endtabs %}
 
+By adding up the LP boost, TVL boost, and power boost, you'll get the total Farboost of a user.
+
 ## Get The FarBoost Of A User Gained From Providing Liquidity to DEXs (Also referred to as LP Boost)
 
-You can get the Liquidity Boost, that is the FarBoost of a user gained from providing liquidity to DEXs, by using the `Socials` API and inputting the user's FID in `userId` input:
+You can get the Liquidity Boost, that is the FarBoost of a user gained from providing liquidity to DEXs, by using the [`Socials`](../api-references/api-reference/socials-api.md) API and inputting the user's FID in `userId` input:
 
 ### Try Demo
 
@@ -472,8 +479,8 @@ Show me the Liquidity Boosts of FID 6500
     }
   ) {
     Social {
-      farcasterScore {
-<strong>        liquidityBoost
+      realTimeFarScore {
+<strong>        lpBoost
 </strong>      }
     }
   }
@@ -488,8 +495,8 @@ Show me the Liquidity Boosts of FID 6500
     "Socials": {
       "Social": [
         {
-          "farcasterScore": {
-            "liquidityBoost": 83.5087240215
+          "realTimeFarScore": {
+            "lpBoost": 83.5087240215
           }
         }
       ]
@@ -502,7 +509,7 @@ Show me the Liquidity Boosts of FID 6500
 
 ## Get The FarBoost Of A User Gained Only From TVL
 
-You can get the TVL Boost, that is the FarBoost of a user gained only from TVL, by using the `Socials` API and inputting the user's FID in `userId` input:
+You can get the TVL Boost, that is the FarBoost of a user gained only from TVL, by using the [`Socials`](../api-references/api-reference/socials-api.md) API and inputting the user's FID in `userId` input:
 
 ### Try Demo
 
@@ -525,7 +532,7 @@ Show me the TVL Boosts of FID 3
     }
   ) {
     Social {
-      farcasterScore {
+      realTimeFarScore {
 <strong>        tvlBoost
 </strong>      }
     }
@@ -540,7 +547,7 @@ Show me the TVL Boosts of FID 3
     "Socials": {
       "Social": [
         {
-          "farcasterScore": {
+          "realTimeFarScore": {
             // This value is 10^(-23) to the user's TVL
 <strong>            "tvlBoost": 7.051118295399999
 </strong>          }
@@ -555,7 +562,7 @@ Show me the TVL Boosts of FID 3
 
 ## Get The FarBoost Of A User Gained From Locking Fan Tokens (Moxie Power Boost)
 
-You can get the Moxie Power Boost by using the `Socials` API and inputting the user's FID in `userId` input:
+You can get the Moxie Power Boost by using the [`Socials`](../api-references/api-reference/socials-api.md) API and inputting the user's FID in `userId` input:
 
 ### Try Demo
 
@@ -579,7 +586,7 @@ query MyQuery {
     }
   ) {
     Social {
-      farcasterScore {
+      realTimeFarScore {
         powerBoost
       }
     }
@@ -595,7 +602,7 @@ query MyQuery {
     "Socials": {
       "Social": [
         {
-          "farcasterScore": {
+          "realTimeFarScore": {
             "powerBoost": 9.738300070127268
           }
         }
@@ -609,7 +616,7 @@ query MyQuery {
 
 ## Get The TVL Of A User
 
-You can get the TVL of a user in the Moxie protocol by using the `Socials` API and inputting the user's FID in `userId` input:
+You can get the TVL of a user in the Moxie protocol by using the [`Socials`](../api-references/api-reference/socials-api.md) API and inputting the user's FID in `userId` input:
 
 ### Try Demo
 
@@ -663,6 +670,291 @@ query MyQuery{
 
 The value returned in `tvl` will be in wei. Therefore, you should divide the number by 10^18 to get the real value.
 
+## Get Top Farcaster Users Sorted By Their Total FarScores
+
+You can get the top Farcaster users sorted by their total Farscores by using the [`FarScores`](../api-references/api-reference/farscores.md) API and configure the API to sort by `farScore` in descending order:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/r7jxJs1CeD" %}
+Show me top Farcaster users sorted by their total FarScores
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarScores(
+    input: {
+      filter: {},
+      limit: 200,
+      order: {farScore: DESC}
+    }
+  ) {
+    FarScore {
+      farScore
+      social {
+        profileName
+        fid: userId
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarScores": {
+      "FarScore": [
+        {
+          "farScore": 849.6258547342253,
+          "social": {
+            "profileName": "bigdegenenergy.eth",
+            "fid": "317777"
+          }
+        },
+        // Other Farcaster users
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Top Farcaster Users Sorted By Their Organic FarScores
+
+You can get the top Farcaster users sorted by their organic Farscores by using the [`FarScores`](../api-references/api-reference/farscores.md) API and configure the API to sort by `organicScore` in descending order:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/i1CLBxR2Ob" %}
+Show me top Farcaster users sorted by their organic FarScores
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarScores(
+    input: {
+      filter: {},
+      limit: 200,
+      order: {organicScore: DESC}
+    }
+  ) {
+    FarScore {
+      organicScore
+      social {
+        profileName
+        fid: userId
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarScores": {
+      "FarScore": [
+        {
+          "organicScore": 146.90271263184002,
+          "social": {
+            "profileName": "dwr.eth",
+            "fid": "3"
+          }
+        },
+        // Other Farcaster users
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Top Farcaster Users Sorted By Their TVL Boost
+
+You can get the top Farcaster users sorted by their TVL boost by using the [`FarScores`](../api-references/api-reference/farscores.md) API and configure the API to sort by `tvlBoost` in descending order:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/UvEWaPH4Ic" %}
+Show me top Farcaster users sorted by their TVL Boost
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarScores(
+    input: {
+      filter: {},
+      limit: 200,
+      order: {tvlBoost: DESC}
+    }
+  ) {
+    FarScore {
+      tvlBoost
+      social {
+        profileName
+        fid: userId
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarScores": {
+      "FarScore": [
+        {
+          "tvlBoost": 61.1144161984,
+          "social": {
+            "profileName": "betashop.eth",
+            "fid": "602"
+          }
+        },
+        // Other Farcaster users
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Top Farcaster Users Sorted By Their Liquidity Boost
+
+You can get the top Farcaster users sorted by their Liquidity Boost by using the [`FarScores`](../api-references/api-reference/farscores.md) API and configure the API to sort by `lpBoost` in descending order:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/ADWxrYZppB" %}
+Show me top Farcaster users sorted by their Liquidity Boost
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarScores(
+    input: {
+      filter: {},
+      limit: 200,
+      order: {lpBoost: DESC}
+    }
+  ) {
+    FarScore {
+      lpBoost
+      social {
+        profileName
+        fid: userId
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarScores": {
+      "FarScore": [
+        {
+          "lpBoost": 848.5269513826,
+          "social": {
+            "profileName": "bigdegenenergy.eth",
+            "fid": "317777"
+          }
+        },
+        // Other Farcaster users
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get Top Farcaster Users Sorted By Their Power Boost
+
+You can get the top Farcaster users sorted by their Power Boost by using the [`FarScores`](../api-references/api-reference/farscores.md) API and configure the API to sort by `powerBoost` in descending order:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/eD4AiM2OJm" %}
+Show me the top Farcaster users sorted by their power boost
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  FarScores(
+    input: {
+      filter: {},
+      limit: 200,
+      order: {powerBoost: DESC}
+    }
+  ) {
+    FarScore {
+      powerBoost
+      social {
+        profileName
+        fid: userId
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarScores": {
+      "FarScore": [
+        {
+          "powerBoost": 61.1144161984,
+          "social": {
+            "profileName": "farcastor.eth",
+            "fid": "308322"
+          }
+        },
+        // Other Farcaster users
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ## Developer Support
 
 If you have any questions or need help regarding fetching FarScore & FarBoosts data, please join our Airstack's [Telegram](https://t.me/+1k3c2FR7z51mNDRh) group.
@@ -671,3 +963,4 @@ If you have any questions or need help regarding fetching FarScore & FarBoosts d
 
 * [FarScores, FarBoost, and Cast Scores](../social-capital-value-and-social-capital-scores.md)
 * [Socials API References](../api-references/api-reference/socials-api.md)
+* [FarScores API References](../api-references/api-reference/farscores.md)

@@ -23,14 +23,14 @@ The `MoxieUserPortfolios API` helps you to fetch a Farcaster user's Moxie Fan To
 ### blockchain
 
 {% hint style="info" %}
-For **Socials** API, it will return Lens & Farcaster data from all onchain and offchain sources, not specifically Ethereum.
+For **MoxieUserPortfolios** API, it will return user's Fan Tokens portfolio, whether the Fan Tokens are staked or not, on the Base chain.
 
 You just need to specify the input for the query to work.
 {% endhint %}
 
-| Enum       | Description      |
-| ---------- | ---------------- |
-| `ethereum` | Ethereum mainnet |
+| Enum  | Description |
+| ----- | ----------- |
+| `ALL` | -           |
 
 ### order
 

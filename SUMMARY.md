@@ -132,6 +132,7 @@
     * [ERROR\_004](api-references/overview/errors/error\_004.md)
 * [📖 API Reference](api-references/api-reference/README.md)
   * [Domains API](api-references/api-reference/domains-api.md)
+  * [FarScores](api-references/api-reference/farscores.md)
   * [FarcasterCasts API](api-references/api-reference/farcastercasts-api.md)
   * [FarcasterChannelParticipants API](api-references/api-reference/farcasterchannelparticipants-api.md)
   * [FarcasterChannels API](api-references/api-reference/farcasterchannels-api.md)
