@@ -18,17 +18,32 @@ layout:
 
 # 💜 Farcaster Moxie Rewards Earnings
 
-## Introduction
+The Moxie Protocol allows Farcaster Members to earn [Everyday Rewards](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards) based on interactions with their casts. Developers also receive rewards for each unique FID that engages with their frames.
 
-The Moxie Protocol enables Farcaster Members to earn Everyday Rewards based on who engages with their casts. Developers can also earn rewards for each unique FID who interacts with their frames.
-
-**MOXIE** token is rewarded based on the [FarScore](farscores-and-farboosts.md) of the person who engages, at the rates of:
+Rewards are distributed in MOXIE tokens based on the FarScore of the person engaging, with the following rates:
 
 * 0.5x [FarScore](farscores-and-farboosts.md) per like
-* 1x [FarScore](farscores-and-farboosts.md) per reply (max 5 on any one cast)
-* 2x [FarScore](farscores-and-farboosts.md) per recast/quote cast.
+* 1x [FarScore](farscores-and-farboosts.md) per reply (up to 5 replies per cast)
+* 2x [FarScore](farscores-and-farboosts.md) per recast or quote cast
 
-[Learn more about Moxie Everyday Rewards](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards)
+As of October 21, 2024, every Farcaster user has a daily **smart allowance** of MOXIE, which is determined by their engagement from the previous week. These allowances reset every Monday at 11 AM ET and will be communicated to the Farcaster users each Monday at the same time.
+
+Additionally, each week a new set of **Moxie Heroes** is introduced, chosen based on diversity and quality of engagement. Heroes can either keep their superpowers or transfer them to another user. This week, Moxie Heroes receive a 2x boost to their FarScore, doubling the MOXIE they distribute through each interaction during the week. Additional superpowers will be revealed in the upcoming weeks.
+
+You can access the weekly **smart allowances** and **Moxie Heroes** boost in this downloadable Google Sheet for use in your app or frames [here](https://docs.google.com/spreadsheets/d/1Iu01j6ilS9IuDnmz75IKlPaWH5J4-Gzh8OVQ7ql9sSQ/edit?gid=1721983362#gid=1721983362). In the future, these data will be provided through the Airstack API.
+
+Users not listed in the sheet above will default to the following daily allowances:
+
+| Engagement Type    | # Daily Allowances |
+| ------------------ | ------------------ |
+| Likes              | 200                |
+| Replies            | 80                 |
+| Recasts            | 40                 |
+| Frame Interactions | 16                 |
+
+
+
+Learn more about Moxie Everyday Rewards, Daily Smart Allowances, and Moxie Heroes in the official Moxie whitepaper [here](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards).
 
 ## Table Of Contents
 
