@@ -20,7 +20,7 @@ Airstack also publishes the **Far Rank** for each Farcaster Member (formerly Soc
 In addition, one can also increase their FarScore number by earning **FarBoost**, which is defined by the following formula:
 
 $$
-F_{boost} =  TVL_{boost} + MP_{boost} + LP_{boost}
+F_{boost} =  TVL_{boost} + MP_{boost} + LP_{boost} + H_{boost}
 $$
 
 where:
@@ -29,6 +29,7 @@ where:
 * $$TVL_{boost}$$: TVL Boost of a Farcaster user
 * $$MP_{boost}$$: Moxie Power Boost of a Farcaster user
 * $$LP_{boost}$$: Liquidity Boost of a Farcaster user
+* $$H_{boost}$$: Heroes Boost of a Farcaster user
 
 #### TVL Boost
 
@@ -77,6 +78,20 @@ where:
 * $$mul$$: The multiplier, currently set at 1.2
 * $$B_{j}$$: The balance of the FT locked in lock $$L_j$$
 * $$p_{j}$$: The unit price of the FT locked in lock $$L_j$$
+
+## Heroes Boost
+
+**Heroes Boost** is defined as the amount of **Farboost** earned from being a Moxie Hero.
+
+Moxie Heroes are designated each week based on their prior week's quality and diversity of engagement. Every week Moxie Heroes get a variable boost to their FarScore based on their existing score.
+
+Heroes can keep these powers for themselves or transfer to another user. Heroes' superpowers last for a full week. A new set of heroes is launched each week based on previous week diversity and quality of engagement. It will be rotated so no one is hero in consecutive weeks.
+
+To calculate the Moxie Heroes multiplier from the API, you can simply fetch the Moxie Heroes boost and the user's final FarScore and use the following formula:
+
+$$
+Multiplier = \frac{H_{boost}}{FarScore - H_{boost}}
+$$
 
 ## Cast Score
 

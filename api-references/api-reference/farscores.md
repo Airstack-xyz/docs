@@ -55,6 +55,7 @@ You just need to specify the input for the query to work.
 | `tvlBoost`         | `Float`                     | The TVL boost of the Farcaster user.                          |
 | `lpBoost`          | `Float`                     | The LP Boost of the Farcaster user.                           |
 | `powerBoost`       | `Float`                     | The Power Boost of the Farcaster user.                        |
+| `heroBoost`        | `Float`                     | The Moxie Hero Boost of the Farcaster user.                   |
 | `farScore`         | `Float`                     | The total FarScore of the Farcaster user.                     |
 | `farRank`          | `Int`                       | The rank of the total FarScore of the Farcaster user.         |
 | `social`           | [`Socials`](socials-api.md) | **Nested Query** – The profile details of the Farcaster user. |

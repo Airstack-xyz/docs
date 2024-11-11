@@ -38,6 +38,7 @@ To learn more about **FarScores & FarBoosts**, click [here](../social-capital-va
 * [Get The FarBoost Of A User Gained From TVL](farscores-and-farboosts.md#get-the-farboost-of-a-user-gained-only-from-tvl) (TVL Boost)
 * [Get The FarBoost Of A User Gained From Providing Liquidity to DEXs](farscores-and-farboosts.md#get-the-farboost-of-a-user-gained-from-providing-liquidity-to-dexs-also-referred-to-as-lp-boost) (Liquidity Boost)
 * [Get The FarBoost Of A User Gained From Locking Fan Tokens](farscores-and-farboosts.md#get-the-farboost-of-a-user-gained-from-locking-fan-tokens-moxie-power-boost) (Power Boost)
+* [Get The Moxie Hero Multiplier Of A User](farscores-and-farboosts.md#get-the-moxie-hero-multiplier-of-a-user)
 * [Get The TVL Of A User](farscores-and-farboosts.md#get-the-tvl-of-a-user)
 * [Get Top Farcaster Users Sorted By Their Total FarScores](farscores-and-farboosts.md#get-top-farcaster-users-sorted-by-their-total-farscores)
 * [Get Top Farcaster Users Sorted By Their Organic FarScores](farscores-and-farboosts.md#get-top-farcaster-users-sorted-by-their-organic-farscores)
@@ -613,6 +614,83 @@ query MyQuery {
 ```
 {% endtab %}
 {% endtabs %}
+
+## Get The Moxie Hero Multiplier Of A User
+
+You can get the Moxie Hero Multiplier by using the [`Socials`](../api-references/api-reference/socials-api.md) API and inputting the user's FID in `userId` input and first getting the Moxie Hero Boost:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/8y1QynQiRM" %}
+Show me the Moxie Hero Boost of FID 488178
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        dappName: {_eq: farcaster},
+        userId: {_eq: "488178"}
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Social {
+      userId
+      profileName
+      farcasterScore {
+        farBoost
+        farRank
+        farScore
+        farScoreRaw
+        heroBoost
+        liquidityBoost
+        powerBoost
+        tvl
+        tvlBoost
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+<pre class="language-json"><code class="lang-json">{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "userId": "488178",
+          "profileName": "nikomfer.eth",
+          "farcasterScore": {
+            "farBoost": 290.87599810419005,
+            "farRank": 3,
+            "farScore": 582.6746181312901,
+            "farScoreRaw": "58267461813129.003488414568103642",
+            // This is the Moxie Hero Boost of the user
+<strong>            "heroBoost": 291.337309065645,
+</strong>            "liquidityBoost": 0,
+            "powerBoost": 288.56944329691504,
+            "tvl": "828868042240291844385275",
+            "tvlBoost": 2.306554807275
+          }
+        },
+        // Other Farcaster users
+      ]
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
+Once you get the Moxie Hero boost of the user, you can use the formula [here](../social-capital-value-and-social-capital-scores.md#heroes-boost) to get the multiplier.
 
 ## Get The TVL Of A User
 

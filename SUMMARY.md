@@ -161,6 +161,7 @@
   * [MoxieEarningsSplit](api-references/objects/moxieearningssplit.md)
   * [SocialCapital](api-references/objects/socialcapital.md)
   * [SocialCapitalValue](api-references/objects/socialcapitalvalue.md)
+  * [TotalSpendAllowance](api-references/objects/totalspendallowance.md)
   * [WalletFanTokens](api-references/objects/walletfantokens.md)
 * [🔢 Enum](api-references/enum/README.md)
   * [EarnerType](api-references/enum/earnertype.md)

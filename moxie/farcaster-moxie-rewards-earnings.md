@@ -28,25 +28,13 @@ Rewards are distributed in MOXIE tokens based on the FarScore of the person enga
 
 As of October 21, 2024, every Farcaster user has a daily **smart allowance** of MOXIE, which is determined by their engagement from the previous week. These allowances reset every Monday at 11 AM ET and will be communicated to the Farcaster users each Monday at the same time.
 
-Additionally, each week a new set of **Moxie Heroes** is introduced, chosen based on diversity and quality of engagement. Heroes can either keep their superpowers or transfer them to another user. This week, Moxie Heroes receive a variable boost to their FarScore, from 2-20x, multiplying the MOXIE they distribute through each interaction during the week. Additional superpowers will be revealed in the upcoming weeks.
-
-You can access the weekly **smart allowances** and **Moxie Heroes** boost in this downloadable Google Sheet for use in your app or frames [here](https://docs.google.com/spreadsheets/d/1Iu01j6ilS9IuDnmz75IKlPaWH5J4-Gzh8OVQ7ql9sSQ/edit?gid=1721983362#gid=1721983362). In the future, these data will be provided through the Airstack API.
-
-Users not listed in the sheet above will default to the following daily allowances:
-
-| Engagement Type    | # Daily Allowances |
-| ------------------ | ------------------ |
-| Likes              | 200                |
-| Replies            | 80                 |
-| Recasts            | 40                 |
-| Frame Interactions | 16                 |
-
-
+Additionally, each week a new set of **Moxie Heroes** is introduced, chosen based on diversity and quality of engagement. Heroes can either keep their superpowers or transfer them to another user. This week, Moxie Heroes receive a variable boost to their FarScore multiplying the MOXIE they distribute through each interaction during the week. Additional superpowers will be revealed in the upcoming weeks.
 
 Learn more about Moxie Everyday Rewards, Daily Smart Allowances, and Moxie Heroes in the official Moxie whitepaper [here](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards).
 
 ## Table Of Contents
 
+* [Get The Moxie Smart Allowance For Certain User](farcaster-moxie-rewards-earnings.md#get-the-moxie-smart-allowance-for-certain-user)
 * [Get Moxie Earned For Certain User](farcaster-moxie-rewards-earnings.md#get-moxie-earning-for-certain-user)
 * [Get Moxie Earned For Certain Channel](farcaster-moxie-rewards-earnings.md#get-moxie-earning-for-certain-channel)
 * [Get Moxie Earned For Farcaster Network](farcaster-moxie-rewards-earnings.md#get-moxie-earning-for-farcaster-network)
@@ -183,6 +171,70 @@ asyncio.run(main())
 **Other Programming Languages**
 
 To access the Airstack APIs in other languages, you can use [https://api.airstack.xyz/gql](https://api.airstack.xyz/gql) as your GraphQL endpoint.
+
+## Get The Moxie Smart Allowance For Certain User
+
+You can fetch the Moxie smart allowance for a certain user by using the `Socials` API and specifying the FID of the user in `userId`:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/TOeucjk01A" %}
+Show me the Moxie Smart Allowance of FID 3
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+```graphql
+query MyQuery {
+  Socials(
+    input: {
+      filter: {
+        dappName: {_eq: farcaster},
+        userId: {_eq: "3"}
+      },
+      blockchain: ethereum
+    }
+  ) {
+    Social {
+      userId
+      profileName
+      totalSpendAllowance {
+        frameInteractions
+        likes
+        recasts
+        replies
+      }
+    }
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "Socials": {
+      "Social": [
+        {
+          "userId": "3",
+          "profileName": "dwr.eth",
+          "totalSpendAllowance": {
+            "frameInteractions": 75,
+            "likes": 750,
+            "recasts": 200,
+            "replies": 300
+          }
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Get Moxie Earning For Certain User
 
