@@ -86,7 +86,7 @@ where:
 To calculate the Moxie Heroes multiplier from the API, you can simply fetch the Moxie Heroes boost and the user's final FarScore and use the following formula:
 
 $$
-Multiplier = \frac{H_{boost}}{FarScore - H_{boost}}
+Multiplier = \frac{FarScore}{FarScore - H_{boost}}
 $$
 
 ## Cast Score
