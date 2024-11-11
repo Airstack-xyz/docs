@@ -23,6 +23,7 @@
 ## MOXIE
 
 * [🚀 FarScores & FarBoosts](moxie/farscores-and-farboosts.md)
+* [🦸 Moxie Heroes](moxie/moxie-heroes.md)
 * [🪭 Moxie Fan Tokens](moxie/moxie-fan-tokens.md)
 * [🧩 Moxie Fan Token Balances](moxie/moxie-fan-token-balances.md)
 * [✂️ Moxie Everyday Rewards Split](moxie/moxie-everyday-rewards-split.md)

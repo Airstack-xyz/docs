@@ -81,11 +81,7 @@ where:
 
 ## Heroes Boost
 
-**Heroes Boost** is defined as the amount of **Farboost** earned from being a Moxie Hero.
-
-Moxie Heroes are designated each week based on their prior week's quality and diversity of engagement. Every week Moxie Heroes get a variable boost to their FarScore based on their existing score.
-
-Heroes can keep these powers for themselves or transfer to another user. Heroes' superpowers last for a full week. A new set of heroes is launched each week based on previous week diversity and quality of engagement. It will be rotated so no one is hero in consecutive weeks.
+**Heroes Boost** is defined as the amount of **Farboost** earned from being a Moxie Hero. To learn more about Moxie Hero, click [here](moxie/moxie-heroes.md).
 
 To calculate the Moxie Heroes multiplier from the API, you can simply fetch the Moxie Heroes boost and the user's final FarScore and use the following formula:
 

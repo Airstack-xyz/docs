@@ -45,6 +45,7 @@ To learn more about **FarScores & FarBoosts**, click [here](../social-capital-va
 * [Get Top Farcaster Users Sorted By Their TVL Boost](farscores-and-farboosts.md#get-top-farcaster-users-sorted-by-their-tvl-boost)
 * [Get Top Farcaster Users Sorted By Their Liquidity Boost](farscores-and-farboosts.md#get-top-farcaster-users-sorted-by-their-liquidity-boost)
 * [Get Top Farcaster Users Sorted By Their Power Boost](farscores-and-farboosts.md#get-top-farcaster-users-sorted-by-their-power-boost)
+* [Get All The Current Moxie Heroes](farscores-and-farboosts.md#get-all-the-current-moxie-heroes)
 
 ## Pre-requisites
 
@@ -1025,6 +1026,74 @@ query MyQuery {
           }
         },
         // Other Farcaster users
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get All The Current Moxie Heroes
+
+You can get the Farcaster users that are currently Moxie Heroes by using the [`FarScores`](../api-references/api-reference/farscores.md) API and configure the API by setting the `heroBoost` filter to greater than 0 to only fetch those with Hero boost:
+
+### Try Demo
+
+{% embed url="https://app.airstack.xyz/query/qTeDIhtSrl" %}
+Show me all the current Moxie Heroes
+{% endembed %}
+
+### Code
+
+{% tabs %}
+{% tab title="Query" %}
+<pre class="language-graphql"><code class="lang-graphql">query MyQuery {
+  FarScores(
+    input: {
+      filter: {
+        # Only get user that have hero boost
+<strong>        heroBoost: {_gt: 0}
+</strong>      },
+      limit: 200
+    }
+  ) {
+    FarScore {
+      farScore
+      heroBoost
+      social {
+        profileName
+        fid: userId
+      }
+    }
+  }
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="Response" %}
+```json
+{
+  "data": {
+    "FarScores": {
+      "FarScore": [
+        {
+          "farScore": 87.00799974768002,
+          "heroBoost": 86.888154018,
+          "social": {
+            "profileName": "banthafodderdan",
+            "fid": "379581"
+          }
+        },
+        {
+          "farScore": 94.05552537371149,
+          "heroBoost": 70.5416440302836,
+          "social": {
+            "profileName": "aaronv.eth",
+            "fid": "354795"
+          }
+        },
+        // Other Moxie Heroes
       ]
     }
   }
