@@ -1,7 +1,7 @@
 ---
 description: >-
-  Airstack provides easy to use APIs for Moxie Protocol offchain data and for
-  building Farcaster frames and applications
+  Airstack has deprecated all Farcaster-related APIs. To query Moxie-related
+  data, please refer to Moxie Official Docs at https://developer.moxie.xyz.
 layout:
   title:
     visible: true
@@ -17,14 +17,8 @@ layout:
 
 # ℹ️ Introduction
 
-## Get Started
+Airstack has deprecated all Farcaster-related APIs and developers will no longer be able to fetch Farcaster data from the Airstack APIs.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f5dd">🗝️</span> <strong>Get API Key</strong></td><td>Learn how to get your Airstack API key.</td><td></td><td><a href="get-api-key.md">get-api-key.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f680">🚀</span> <strong>Quickstart &#x26; SDKs</strong></td><td>Try Airstack API and integrate it into your dapp within minutes into your tech stack. You can either call the Airstack API with the Airstack SDKs or direct API call.</td><td></td><td><a href="quickstart/">quickstart</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f60e">😎</span> <strong>FarScores, FarBoost, and Cast Scores</strong></td><td>Learn what FarScores (formerly Social Capital Score), FarBoosts, and Cast Scores (formerly Social Capital Value) are -- and how they're used to identify high-quality casts with the TrendingCasts API.</td><td></td><td><a href="social-capital-value-and-social-capital-scores.md">social-capital-value-and-social-capital-scores.md</a></td></tr></tbody></table>
+For affected developers, it is recommended to migrate all Farcaster-related Airstack queries to [Neynar APIs](https://neynar.com/).
 
-## Popular Guides :fire:
-
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f680">🚀</span> <strong>FarScore &#x26; FarBoosts</strong></td><td>Learn how to fetch the FarScores, FarBoosts, FarRank of a Farcaster member. In addition, you can also fetch a user's TVL and how much it impacts a member's FarBoosts.</td><td></td><td><a href="moxie/farscores-and-farboosts.md">farscores-and-farboosts.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f49c">💜</span> <strong>Farcaster Moxie Rewards Earnings</strong></td><td>Learn how to fetch Farcaster Moxie Rewards earned by Farcaster users, channels, and the Farcaster network. In addition, learn how to sort by the earnings to get the top earners of Moxie.</td><td></td><td><a href="moxie/farcaster-moxie-rewards-earnings.md">farcaster-moxie-rewards-earnings.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f194">🆔</span> <strong>Resolve Identities</strong></td><td>Learn how to use Airstack to resolve different web3 identities – ENS and Farcaster.</td><td></td><td><a href="guides/resolve-identities/">resolve-identities</a></td></tr></tbody></table>
-
-## References
-
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f4d6">📖</span> <strong>API Reference</strong></td><td>Learn the complete technical specifications for all the API available on Airstack with their filter inputs and responses.</td><td></td><td><a href="api-references/overview/">overview</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="269b">⚛️</span> <strong>Web SDK Reference</strong></td><td>Learn the complete technical specifications for functions that are available for ReactJS SDK with its parameters and responses.</td><td></td><td><a href="web-sdk-reference/overview.md">overview.md</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f5fc">🗼</span> <strong>Node.js SDK Reference</strong></td><td>Learn the complete technical specifications for functions that are available for NodeJS SDK with its parameters and responses.</td><td></td><td><a href="https://github.com/Airstack-xyz/airstack-node-sdk">https://github.com/Airstack-xyz/airstack-node-sdk</a></td></tr><tr><td><span data-gb-custom-inline data-tag="emoji" data-code="1f40d">🐍</span> <strong>Python SDK Reference</strong></td><td>Learn the complete technical specifications for functions that are available for Python SDK with its parameters and responses.</td><td></td><td><a href="https://github.com/Airstack-xyz/airstack-python-sdk">https://github.com/Airstack-xyz/airstack-python-sdk</a></td></tr></tbody></table>
+For Moxie-related data, please check out Moxie Official Docs at [https://developer.moxie.xyz](https://developer.moxie.xyz).

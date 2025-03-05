@@ -3,6 +3,7 @@ description: >-
   Learn what FarScores (formerly Social Capital Score), FarBoosts, and Cast
   Scores (formerly Social Capital Value) are -- and how they're used to identify
   high-quality casts with the TrendingCasts API.
+hidden: true
 ---
 
 # 😎 FarScores, FarBoost, and Cast Scores
@@ -81,7 +82,7 @@ where:
 
 ## Heroes Boost
 
-**Heroes Boost** is defined as the amount of **Farboost** earned from being a Moxie Hero. To learn more about Moxie Hero, click [here](moxie/moxie-heroes.md).
+**Heroes Boost** is defined as the amount of **Farboost** earned from being a Moxie Hero. To learn more about Moxie Hero, click [here](broken-reference).
 
 To calculate the Moxie Heroes multiplier from the API, you can simply fetch the Moxie Heroes boost and the user's final FarScore and use the following formula:
 

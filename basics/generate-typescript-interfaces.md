@@ -273,9 +273,9 @@ If you have any questions or need help regarding generating TypeScript interface
 
 ### More Resources
 
-* [API Overview](../api-references/overview/)
-* [API References](../api-references/api-reference/)
-* [Variables](../web-sdk-reference/objects/variables.md)
+* [API Overview](broken-reference)
+* [API References](broken-reference)
+* [Variables](broken-reference)
 * [Pagination](pagination-in-airstack-sdk.md)
 * [Direct API Call](../quickstart/direct-api-call.md)
 * [Multiple Queries Execution](multiple-queries-execution.md)

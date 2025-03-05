@@ -130,7 +130,7 @@ Show me all followers and followings of users in Lens and Farcaster
 {% endtab %}
 {% endtabs %}
 
-This allow you to not only fetch data that you need more efficiently, but also allow you to do the same query with different inputs when the [`_in`](../api-references/overview/working-with-graphql.md) operator is not available for the API input.
+This allow you to not only fetch data that you need more efficiently, but also allow you to do the same query with different inputs when the [`_in`](broken-reference) operator is not available for the API input.
 
 This is particularly useful for building cross-chain queries:
 
@@ -363,8 +363,8 @@ If you have any questions or need help regarding adding variables into your Airs
 
 ### More Resources
 
-* [API Overview](../api-references/overview/)
+* [API Overview](broken-reference)
 * [Variables Guides](variables.md)
 * [Direct API Call](../quickstart/direct-api-call.md)
-* [SocialFollowings API References](../api-references/api-reference/socialfollowings-api.md)
-* [SocialFollowers API References](../api-references/api-reference/socialfollowers-api.md)
+* [SocialFollowings API References](broken-reference)
+* [SocialFollowers API References](broken-reference)

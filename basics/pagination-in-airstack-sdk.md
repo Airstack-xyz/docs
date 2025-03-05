@@ -253,8 +253,8 @@ If you have any questions or need help regarding how to use cursor pagination wi
 
 ## More Resources
 
-* [Web SDK Reference](../web-sdk-reference/overview.md)
-  * [`useQueryWithPagination`](../web-sdk-reference/hooks/usequerywithpagination.md)
-  * [`useLazyQueryWithPagination`](../web-sdk-reference/hooks/uselazyquerywithpagination.md)
-* [NodeJS SDK Reference](../nodejs-sdk-reference/overview.md)
-  * [`fetchQueryWithPagination`](../web-sdk-reference/functions/fetchquerywithpagination.md)
+* [Web SDK Reference](broken-reference)
+  * [`useQueryWithPagination`](broken-reference)
+  * [`useLazyQueryWithPagination`](broken-reference)
+* [NodeJS SDK Reference](broken-reference)
+  * [`fetchQueryWithPagination`](broken-reference)

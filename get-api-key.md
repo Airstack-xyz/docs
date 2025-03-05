@@ -1,5 +1,6 @@
 ---
 description: Learn how to get your Airstack API key.
+hidden: true
 layout:
   title:
     visible: true

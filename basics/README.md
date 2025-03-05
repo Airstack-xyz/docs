@@ -1,5 +1,6 @@
 ---
 description: Learn all the basic essentials when working with Airstack GraphQL queries.
+hidden: true
 layout:
   title:
     visible: true

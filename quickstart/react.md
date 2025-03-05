@@ -171,7 +171,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 ### Step 4: Call Your Query
 
-Once you have initialized the SDK, you can use the [`useQuery`](../web-sdk-reference/hooks/usequery.md) to call the Airstack API.
+Once you have initialized the SDK, you can use the [`useQuery`](broken-reference) to call the Airstack API.
 
 Below you have been provided with Airstack query to fetch the 0x address and Farcaster owned by [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS):
 
@@ -299,6 +299,6 @@ If you have any questions or need help regarding integrating [Airstack](https://
 
 Learn to build more with Airstack using our tutorials:
 
-* [Resolve Identities](../guides/resolve-identities/)
-* [Wallet API Reference](../api-references/api-reference/wallet-api.md)
+* [Resolve Identities](broken-reference)
+* [Wallet API Reference](broken-reference)
 * [Web SDK Reference](../get-started/quickstart/broken-reference/)

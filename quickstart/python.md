@@ -92,7 +92,7 @@ api_client = AirstackClient(api_key=api_key)
 
 ### Step 4: Call Your Query
 
-Once you have initialized the SDK, you can use the [`execute_query`](https://github.com/Airstack-xyz/airstack-python-sdk#execute\_query) to call the Airstack API.
+Once you have initialized the SDK, you can use the [`execute_query`](https://github.com/Airstack-xyz/airstack-python-sdk#execute_query) to call the Airstack API.
 
 Below you have been provided with Airstack query to fetch the 0x address and Farcaster owned by [`vitalik.eth`](https://explorer.airstack.xyz/token-balances?address=vitalik.eth\&blockchain=ethereum\&rawInput=%23%E2%8E%B1vitalik.eth%E2%8E%B1%28vitalik.eth++ethereum+null%29\&inputType=ADDRESS):
 
@@ -155,6 +155,6 @@ If you have any questions or need help regarding integrating [Airstack](https://
 
 Learn to build more with Airstack using our tutorials:
 
-* [Resolve Identities](../../guides/resolve-identities/)
-* [Wallet API Reference](../../api-references/api-reference/wallet-api.md)
+* [Resolve Identities](broken-reference)
+* [Wallet API Reference](broken-reference)
 * [Python SDK Reference](https://pypi.org/project/airstack/)
